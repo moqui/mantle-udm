@@ -1,0 +1,997 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This software is in the public domain under CC0 1.0 Universal plus a 
+Grant of Patent License.
+
+To the extent possible under law, the author(s) have dedicated all
+copyright and related and neighboring rights to this software to the
+public domain worldwide. This software is distributed without any
+warranty.
+
+You should have received a copy of the CC0 Public Domain Dedication
+along with this software (see the LICENSE.md file). If not, see
+<http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-1.6.xsd">
+    <!-- ========================================================= -->
+    <!--  - mantle.ledger.account -->
+    <!--  - mantle.ledger.config -->
+    <!--  - mantle.ledger.reconciliation -->
+    <!--  - mantle.ledger.transaction -->
+    <!-- ========================================================= -->
+
+    <!-- ========================================================= -->
+    <!-- mantle.ledger.account -->
+    <!-- ========================================================= -->
+
+    <entity entity-name="GlAccount" package-name="mantle.ledger.account">
+        <field name="glAccountId" type="id" is-pk="true"/>
+        <field name="parentGlAccountId" type="id"/>
+        <field name="glAccountTypeEnumId" type="id"/>
+        <field name="glAccountClassEnumId" type="id"/>
+        <field name="glResourceTypeEnumId" type="id"/>
+        <field name="glXbrlClassEnumId" type="id"/>
+        <field name="accountCode" type="text-medium" default="glAccountId"/>
+        <field name="accountName" type="text-medium"/>
+        <field name="description" type="text-medium"/>
+        <field name="productId" type="id"/>
+        <field name="externalId" type="id"><description>ID of the account in an external system where the accounts
+            are imported/exported</description></field>
+        <field name="disallowPosting" type="text-indicator"/>
+        <field name="postedBalance" type="currency-amount"/>
+
+        <relationship type="one" title="Parent" related-entity-name="mantle.ledger.account.GlAccount">
+            <key-map field-name="parentGlAccountId" related-field-name="glAccountId"/></relationship>
+        <relationship type="one" title="GlAccountType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="glAccountTypeEnumId"/></relationship>
+        <relationship type="one" title="GlAccountClass" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="glAccountClassEnumId"/></relationship>
+        <relationship type="one" title="GlResourceType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="glResourceTypeEnumId"/></relationship>
+        <relationship type="one" title="GlXbrlClass" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="glXbrlClassEnumId"/></relationship>
+
+        <index name="GLACCT_UNQCD" unique="true"><index-field name="accountCode"/></index>
+
+        <seed-data>
+            <!-- GL Account Classes - account classification for add/subtract to balance, reporting, etc:
+            =DEBIT
+             |===> NON_POSTING (?)
+             |===> CONTRA_REVENUE (Income Statement)
+             |===> ASSET (Balance Sheet)
+             |     |===> CURRENT_ASSET
+             |           |===> CASH_EQUIVALENT
+             |           |===> INVENTORY_ASSET
+             |           |===> ACCOUNTS_RECEIVABLE
+             |           |===> PREPAID_EXPENSE (expenses paid, not yet incurred)
+             |           |===> ACCRUED_REVENUE (revenue earned, cash not yet received)
+             |     |===> LONG_TERM_ASSET
+             |           |===> LAND_BUILDING
+             |           |===> EQUIPMENT
+             |     |===> OTHER_ASSET
+             |===> DISTRIBUTION (?)
+             |     |===> RETURN_OF_CAPITAL
+             |     |===> DIVIDEND
+             |===> COST_OF_SALES (Income Statement)
+                   |===> COST_GOODS_SOLD
+                         |===> INVENTORY_SHRINKAGE
+                   |===> COST_SERVICES_SOLD
+             |===> EXPENSE (Income Statement)
+                   |===> CASH_EXPENSE
+                   |===> INTEREST_EXPENSE
+                   |===> COMPENSATION
+                   |===> SGA_EXPENSE
+                   |===> TAX_EXPENSE
+                   |===> NON_CASH_EXPENSE
+                         |===> DEPRECIATION
+                         |===> AMORTIZATION
+            =CREDIT
+             |===> CONTRA_ASSET (Balance Sheet)
+             |     |===> ACCUM_DEPRECIATION
+             |     |===> ACCUM_AMORTIZATION
+             |===> LIABILITY (Balance Sheet)
+             |     |===> CURRENT_LIABILITY
+             |           |===> ACCOUNTS_PAYABLE
+             |           |===> ACCRUED_EXPENSES (expenses incurred, not yet paid)
+             |           |===> UNEARNED_REVENUE (revenue not earned, cash already received)
+             |           |===> THIRD_PARTY_HOLDINGS
+             |     |===> LONG_TERM_LIABILITY
+             |===> EQUITY (Balance Sheet)
+             |     |===> OWNERS_EQUITY
+             |     |===> RETAINED_EARNINGS
+             |===> REVENUE (Income Statement)
+             |     |===> GOODS_REVENUE
+             |     |===> SERVICES_REVENUE
+             |===> INCOME (Income Statement)
+                   |===> CASH_INCOME
+                   |===> INTEREST_INCOME
+                   |===> NON_CASH_INCOME
+            =RESOURCE
+            -->
+            <!-- GL Account Class -->
+            <moqui.basic.EnumerationType description="GL Account Class" enumTypeId="GlAccountClass"/>
+
+            <moqui.basic.Enumeration description="Resource" enumId="RESOURCE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Non-Posting" enumId="NON_POSTING" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+
+            <!-- DEBIT classes -->
+            <moqui.basic.Enumeration description="Debit" enumId="DEBIT" enumTypeId="GlAccountClass"/>
+
+            <moqui.basic.Enumeration description="Contra Revenue" enumId="CONTRA_REVENUE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+
+            <moqui.basic.Enumeration description="Asset" enumId="ASSET" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Current Asset" enumId="CURRENT_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Cash and Equivalent" enumId="CASH_EQUIVALENT" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Inventory Asset" enumId="INVENTORY_ASSET" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Accounts Receivable" enumId="ACCOUNTS_RECEIVABLE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Prepaid Expense" enumId="PREPAID_EXPENSE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Accrued Revenue" enumId="ACCRUED_REVENUE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Long Term Asset" enumId="LONG_TERM_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Land and Building" enumId="LAND_BUILDING" parentEnumId="LONG_TERM_ASSET" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Equipment" enumId="EQUIPMENT" parentEnumId="LONG_TERM_ASSET" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Other Asset" enumId="OTHER_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
+
+            <moqui.basic.Enumeration description="Equity Distribution" enumId="DISTRIBUTION" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Return of Capital" enumId="RETURN_OF_CAPITAL" parentEnumId="DISTRIBUTION" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Dividends" enumId="DIVIDEND" parentEnumId="DISTRIBUTION" enumTypeId="GlAccountClass"/>
+
+            <moqui.basic.Enumeration description="Cost of Sales" enumId="COST_OF_SALES" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Cost of Goods Sold" enumId="COST_GOODS_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Inventory Shrinkage" enumId="INVENTORY_SHRINKAGE" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Cost of Services Sold" enumId="COST_SERVICES_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
+
+            <moqui.basic.Enumeration description="Expense" enumId="EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Cash Expense" enumId="CASH_EXPENSE" parentEnumId="EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Interest Expense" enumId="INTEREST_EXPENSE" parentEnumId="CASH_EXPENSE" enumTypeId="GlAccountClass"/> <!-- useful for EBITDA, coverage ratios, etc. -->
+            <moqui.basic.Enumeration description="Compensation" enumId="COMPENSATION" parentEnumId="CASH_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Sales, General, and Administrative Expense" enumId="SGA_EXPENSE" parentEnumId="CASH_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Tax Expense" enumId="TAX_EXPENSE" parentEnumId="CASH_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Non-Cash Expense" enumId="NON_CASH_EXPENSE" parentEnumId="EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Depreciation" enumId="DEPRECIATION" parentEnumId="NON_CASH_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Amortization" enumId="AMORTIZATION" parentEnumId="NON_CASH_EXPENSE" enumTypeId="GlAccountClass"/>
+
+            <!-- CREDIT classes -->
+            <moqui.basic.Enumeration description="Credit" enumId="CREDIT" enumTypeId="GlAccountClass"/>
+
+            <moqui.basic.Enumeration description="Contra Asset" enumId="CONTRA_ASSET" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Accumulated Depreciation" enumId="ACCUM_DEPRECIATION" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Accumulated Amortization" enumId="ACCUM_AMORTIZATION" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
+
+            <moqui.basic.Enumeration description="Liability" enumId="LIABILITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Current Liability" enumId="CURRENT_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Accounts Payable" enumId="ACCOUNTS_PAYABLE" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Accrued Expenses" enumId="ACCRUED_EXPENSES" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Unearned Revenue" enumId="UNEARNED_REVENUE" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Third-Party Holdings" enumId="THIRD_PARTY_HOLDINGS" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Long Term Liability" enumId="LONG_TERM_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>
+
+            <moqui.basic.Enumeration description="Equity" enumId="EQUITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Owners Equity" enumId="OWNERS_EQUITY" parentEnumId="EQUITY" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Retained Earnings" enumId="RETAINED_EARNINGS" parentEnumId="EQUITY" enumTypeId="GlAccountClass"/>
+
+            <moqui.basic.Enumeration description="Revenue" enumId="REVENUE" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Goods Revenue" enumId="GOODS_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Services Revenue" enumId="SERVICES_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass"/>
+
+            <moqui.basic.Enumeration description="Income" enumId="INCOME" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Cash Income" enumId="CASH_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Interest Income" enumId="INTEREST_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Non-Cash Income" enumId="NON_CASH_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass"/>
+
+            <!-- ========== GL Account Type, used for automated posting mappings ========== -->
+
+            <moqui.basic.EnumerationType description="GL Account Type" enumTypeId="GlAccountType"/>
+
+            <moqui.basic.Enumeration description="Current Asset" enumId="GatCurrentAsset" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Prepaid Expenses" enumId="GatPrepaidExpenses" parentEnumId="GatCurrentAsset" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Accrued Revenue" enumId="GatAccruedRevenue" parentEnumId="GatCurrentAsset" enumTypeId="GlAccountType"/>
+
+            <moqui.basic.Enumeration description="Accounts Receivable" enumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Receivable from Inventory Transferred Out" enumId="GatRecInventoryTranOut" parentEnumId="GatCurrentAsset" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Interest Income Receivables" enumId="GatInterestIncomeRec" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Accounts Receivable - Unapplied Payments" enumId="GatAccReceivableUnapplied" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Merchant Account Settlement" enumId="GatMerchantSettlement" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
+
+            <moqui.basic.Enumeration description="Accounts Payable" enumId="GatAccountsPayable" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Payable from Inventory Transferred In" enumId="GatPayInventoryTranIn" parentEnumId="GatAccountsPayable" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Accounts Payable - Unapplied Payments" enumId="GatAccPayableUnapplied" parentEnumId="GatAccountsPayable" enumTypeId="GlAccountType"/>
+
+            <!-- unused <moqui.basic.Enumeration description="Balance" enumId="GatBalance" enumTypeId="GlAccountType"/> -->
+            <!-- unused <moqui.basic.Enumeration description="Bank Settlement" enumId="GatBankSettlement" enumTypeId="GlAccountType"/> -->
+            <moqui.basic.Enumeration description="Undeposited Receipts" enumId="GatUndepositedReceipts" enumTypeId="GlAccountType"/>
+
+            <moqui.basic.Enumeration description="Fixed Asset" enumId="GatFixedAsset" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Unreceived Fixed Asset" enumId="GatUnreceivedFixedAsset" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Unissued Fixed Asset" enumId="GatUnissuedFixedAsset" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Fixed Asset Accumulated Depreciation" enumId="GatFaAccumDepreciation" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Fixed Asset Depreciation" enumId="GatFaDepreciation" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Fixed Asset Maintenance" enumId="GatFaMaintenance" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Fixed Asset Shrinkage" enumId="GatFaShrinkage" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Fixed Asset Found" enumId="GatFaFound" enumTypeId="GlAccountType"/>
+            <!-- unused <moqui.basic.Enumeration description="Other Asset" enumId="GatOtherAsset" enumTypeId="GlAccountType"/> -->
+
+            <!-- unused <moqui.basic.Enumeration description="Credit Card" enumId="GatCreditCard" enumTypeId="GlAccountType"/> -->
+            <moqui.basic.Enumeration description="Current Liability" enumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Unearned Revenue" enumId="GatUnearnedRevenue" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Accrued Expenses" enumId="GatAccruedExpenses" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Long Term Liability" enumId="GatLongTermLiability" enumTypeId="GlAccountType"/>
+            <!-- unused <moqui.basic.Enumeration description="Customer" enumId="GatCustomer" enumTypeId="GlAccountType"/> -->
+            <!-- unused <moqui.basic.Enumeration description="Supplier" enumId="GatSupplier" enumTypeId="GlAccountType"/> -->
+            <!-- unused <moqui.basic.Enumeration description="Product" enumId="GatProduct" enumTypeId="GlAccountType"/> -->
+
+            <moqui.basic.Enumeration description="Inventory" enumId="GatInventory" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="WIP Inventory" enumId="GatWipInventory" parentEnumId="GatInventory" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Inventory Adjustment from Average Cost" enumId="GatInvAdjAvgCost" parentEnumId="GatInventory" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Inventory Value Adjustment" enumId="GatInvValueAdj" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Unreceived Inventory" enumId="GatUnreceivedInventory" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Inventory Shrinkage" enumId="GatInvShrinkage" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Inventory Found" enumId="GatInvFound" enumTypeId="GlAccountType"/>
+
+            <moqui.basic.Enumeration description="Tax" enumId="GatTax" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Profit Loss" enumId="GatProfitLoss" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Sales" enumId="GatSales" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Customer Returns" enumId="GatCustomerReturns" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Discounts" enumId="GatDiscounts" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Cost of Goods Sold" enumId="GatCogs" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="COGS - Average Cost Adjustment" enumId="GatCogsAvgCostAdj" parentEnumId="GatCogs" enumTypeId="GlAccountType"/>
+            <!-- unused <moqui.basic.Enumeration description="Purchase" enumId="GatPurchase" enumTypeId="GlAccountType"/> -->
+            <!-- unused <moqui.basic.Enumeration description="Inventory Change" enumId="GatInventoryChange" enumTypeId="GlAccountType"/> -->
+
+            <moqui.basic.Enumeration description="Expense" enumId="GatExpense" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Operating Expense" enumId="GatOperatingExpense" parentEnumId="GatExpense" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Other Expense" enumId="GatOtherExpense" parentEnumId="GatExpense" enumTypeId="GlAccountType"/>
+
+            <moqui.basic.Enumeration description="Owner's Equity" enumId="GatOwnersEquity" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Retained Earnings" enumId="GatRetainedEarnings" enumTypeId="GlAccountType"/>
+
+            <moqui.basic.Enumeration description="Customer Deposits" enumId="GatCustomerDeposits" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Customer Credits" enumId="GatCustomerCredits" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+            <!-- unused <moqui.basic.Enumeration description="Customer Gift Certificate Balances" enumId="GatCustomerGcBalance" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/> -->
+            <moqui.basic.Enumeration description="Uninvoiced Shipment Receipts" enumId="GatUninvoicedShpmntRcpts" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+            <!-- unused <moqui.basic.Enumeration description="Purchase Price Variance" enumId="GatPurchasePriceVar" parentEnumId="GatOtherExpense" enumTypeId="GlAccountType"/> -->
+            <moqui.basic.Enumeration description="Supplier Deposits" enumId="GatSupplierDeposits" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Commissions Accrued" enumId="GatCommissionsAccrued" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+
+            <moqui.basic.Enumeration description="Income" enumId="GatIncome" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Other Income" enumId="GatOtherIncome" parentEnumId="GatIncome" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Interest Income" enumId="GatInterestIncome" parentEnumId="GatIncome" enumTypeId="GlAccountType"/>
+
+            <moqui.basic.Enumeration description="Commission Expense" enumId="GatCommissionExpense" parentEnumId="GatOperatingExpense" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Write Off" enumId="GatWriteOff" parentEnumId="GatOtherExpense" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Accounts Receivables Write Off" enumId="GatAccRecWriteOff" parentEnumId="GatWriteOff" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Accounts Payables Write Off" enumId="GatAccPayWriteOff" parentEnumId="GatWriteOff" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Commissions Payables Write Off" enumId="GatCommissionsPayWriteOff" parentEnumId="GatWriteOff" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Interest Income Write Off" enumId="GatInterestIncWriteOff" parentEnumId="GatWriteOff" enumTypeId="GlAccountType"/>
+
+            <moqui.basic.Enumeration description="Foreign Exchange Gain/Loss" enumId="GatForExGainLoss" parentEnumId="GatOtherExpense" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Foreign Exchange Gain" enumId="GatForExGain" parentEnumId="GatForExGainLoss" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Foreign Exchange Loss" enumId="GatForExLoss" parentEnumId="GatForExGainLoss" enumTypeId="GlAccountType"/>
+
+            <!-- GL Resource Type -->
+            <moqui.basic.EnumerationType description="GL Resource Type" enumTypeId="GlResourceType"/>
+            <moqui.basic.Enumeration description="Money" enumId="GlrtMoney" enumTypeId="GlResourceType"/>
+            <moqui.basic.Enumeration description="Raw Material" enumId="GlrtRawMaterial" enumTypeId="GlResourceType"/>
+            <moqui.basic.Enumeration description="Labor" enumId="GlrtLabor" enumTypeId="GlResourceType"/>
+            <moqui.basic.Enumeration description="Service" enumId="GlrtService" enumTypeId="GlResourceType"/>
+            <moqui.basic.Enumeration description="Finished Good" enumId="GlrtFinishedGood" enumTypeId="GlResourceType"/>
+            <moqui.basic.Enumeration description="Delivered Good" enumId="GlrtDeliveredGood" enumTypeId="GlResourceType"/>
+
+            <!-- GL XBRL Class -->
+            <moqui.basic.EnumerationType description="GL XBRL Class" enumTypeId="GlXbrlClass"/>
+            <moqui.basic.Enumeration description="US GAAP" enumId="US_GAAP" enumTypeId="GlXbrlClass"/>
+            <moqui.basic.Enumeration description="IAS" enumId="IAS" enumTypeId="GlXbrlClass"/>
+        </seed-data>
+    </entity>
+
+    <entity entity-name="GlAccountCategory" package-name="mantle.ledger.account">
+        <field name="glAccountCategoryId" type="id" is-pk="true"/>
+        <field name="categoryTypeEnumId" type="id"/>
+        <field name="description" type="text-medium"/>
+        <relationship type="one" title="GlAccountCategoryType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="categoryTypeEnumId"/></relationship>
+        <seed-data>
+            <!-- GL Account Category Type -->
+            <moqui.basic.EnumerationType description="GL Account Category Type" enumTypeId="GlAccountCategoryType"/>
+            <moqui.basic.Enumeration enumId="COST_CENTER" description="Cost Center Category" enumTypeId="GlAccountCategoryType"/>
+        </seed-data>
+    </entity>
+    <entity entity-name="GlAccountCategoryMember" package-name="mantle.ledger.account">
+        <field name="glAccountId" type="id" is-pk="true"/>
+        <field name="glAccountCategoryId" type="id" is-pk="true"/>
+        <field name="fromDate" type="date-time" is-pk="true"/>
+        <field name="thruDate" type="date-time"/>
+        <field name="amountPercentage" type="number-decimal"/>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccountCategory"/>
+    </entity>
+    <entity entity-name="GlAccountGroup" package-name="mantle.ledger.account">
+        <description>A grouping of GlAccount records for purposes of reporting and populating forms such as tax forms.
+            It is structured so that each GlAccount can be a member of at most one group of each type.</description>
+        <field name="glAccountGroupId" type="id" is-pk="true"/>
+        <field name="groupTypeEnumId" type="id"/>
+        <field name="description" type="text-medium"/>
+        <relationship type="one" title="GlAccountGroupType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="groupTypeEnumId"/></relationship>
+    </entity>
+    <entity entity-name="GlAccountGroupMember" package-name="mantle.ledger.account">
+        <field name="glAccountId" type="id" is-pk="true"/>
+        <field name="groupTypeEnumId" type="id" is-pk="true"/>
+        <field name="glAccountGroupId" type="id"/>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+        <relationship type="one" title="GlAccountGroupType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="groupTypeEnumId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccountGroup"/>
+    </entity>
+
+    <entity entity-name="GlAccountOrganization" package-name="mantle.ledger.account">
+        <field name="glAccountId" type="id" is-pk="true"/>
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <!-- any point in these? <field name="fromDate" type="date-time"/><field name="thruDate" type="date-time"/> -->
+        <field name="postedBalance" type="currency-amount"/>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+    </entity>
+    <entity entity-name="GlAccountOrgTimePeriod" package-name="mantle.ledger.account">
+        <field name="glAccountId" type="id" is-pk="true"/>
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="timePeriodId" type="id" is-pk="true"/>
+        <field name="postedDebits" type="currency-amount"/>
+        <field name="postedCredits" type="currency-amount"/>
+        <field name="beginningBalance" type="currency-amount"/>
+        <field name="endingBalance" type="currency-amount"/>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.party.time.TimePeriod"/>
+    </entity>
+
+    <entity entity-name="GlAccountParty" package-name="mantle.ledger.account">
+        <field name="glAccountId" type="id" is-pk="true"/>
+        <field name="partyId" type="id" is-pk="true"/>
+        <field name="roleTypeId" type="id" is-pk="true"/>
+        <field name="fromDate" type="date-time" is-pk="true"/>
+        <field name="thruDate" type="date-time"/>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+        <relationship type="one" related-entity-name="mantle.party.Party"/>
+        <relationship type="one" related-entity-name="mantle.party.RoleType"/>
+    </entity>
+    <entity entity-name="GlBudgetXref" package-name="mantle.ledger.account">
+        <field name="glAccountId" type="id" is-pk="true"/>
+        <field name="budgetItemTypeEnumId" type="id" is-pk="true"/>
+        <field name="fromDate" type="date-time" is-pk="true"/>
+        <field name="thruDate" type="date-time"/>
+        <field name="allocationPercentage" type="number-decimal"/>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+        <relationship type="one" related-entity-name="moqui.basic.Enumeration">
+            <description>(enumTypeId = BUDGET_ITEM_TYPE)</description>
+            <key-map field-name="budgetItemTypeEnumId"/>
+        </relationship>
+    </entity>
+
+    <!-- ========================================================= -->
+    <!-- mantle.ledger.config -->
+    <!-- ========================================================= -->
+
+    <entity entity-name="AssetTypeGlAccount" package-name="mantle.ledger.config">
+        <description>Found by assetId, then by assetTypeEnumId and classEnumId, then by just assetTypeEnumId</description>
+        <!--
+        - Inventory Purchase: credit Accounts Payable, debit Unreceived Inventory
+        - Inventory Receipt: credit Unreceived Inventory, debit Inventory
+
+        - Inventory Receipt (production run): credit WIP Inventory, debit Inventory (typically Finished Good inventory)
+          - NOTE: for this to be correct the Asset.acquireCost must be calculated from the production run
+          - TODO: For production labor, etc there would be a separate posting (like inventory issuance) to debit WIP Inventory, credit an Operations account
+
+        - Inventory Run Consume (issuance): credit Raw Material Inventory (or Finished Good?), debit Work In Progress Inventory
+        - Inventory Run Produce (receipt): credit Work In Progress Inventory, debit Finished Good Inventory (or Raw Material if sub-assembly)
+
+        - Inventory Sale: credit Sales, debit Accounts Receivable
+        - Inventory Issuance: credit Inventory, debit COGS
+        - Inventory Issuance (production run, same owner):
+            credit Inventory (typically Raw Materials Inventory), debit WIP Inventory
+        - Inventory Issuance (production run, asset owner different from run owner, same as sale!):
+            credit Inventory (typically Raw Materials Inventory), debit COGS
+
+        - Inventory Shrinkage: credit Inventory, debit Inventory Shrinkage
+        - Inventory Found: credit Inventory Found, debit Inventory
+
+
+        - Fixed Asset Purchase: credit Accounts Payable, debit Unreceived Asset
+        - Fixed Asset Receipt: credit Unreceived Asset, debit Asset (fixed assets)
+
+        - Fixed Asset Depreciate: debit Depreciation Expense, credit Accumulated Depreciation
+
+        - Fixed Asset Sale (profit: (sale amount - (acquireCost - depreciation)) > 0):
+            credit Profit/Gain on Sale/Disposal (sale amount - (acquireCost - depreciation)),
+            credit Unissued Asset (acquireCost),
+            debit Accounts Receivable (sale amount),
+            debit Accumulated Depreciation (depreciation)
+        - Fixed Asset Sale (loss: (sale amount - (acquireCost - depreciation)) < 0):
+            debit Loss on Sale/Disposal (sale amount - (acquireCost - depreciation)),
+            credit Unissued Asset (acquireCost),
+            debit Accounts Receivable (sale amount),
+            debit Accumulated Depreciation (depreciation)
+        - Fixed Asset Write Off or Remove (no invoice, do as part of create issuance with no invoice):
+            debit Loss on Sale/Disposal (acquireCost - depreciation; if 0, fully depreciated, skip this),
+            credit Unissued Asset (acquireCost),
+            debit Accumulated Depreciation (depreciation)
+
+        - Fixed Asset Issuance: credit Asset, debit Unissued Asset
+
+        - Fixed Asset Shrinkage: credit Asset, debit Asset Lost
+        - Fixed Asset Found: credit Asset Found, debit Asset
+        -->
+        <field name="assetTypeGlAccountId" type="id" is-pk="true"/>
+        <field name="assetTypeEnumId" type="id"/>
+        <field name="classEnumId" type="id"/>
+        <field name="assetId" type="id"/>
+        <field name="organizationPartyId" type="id"/>
+        <field name="assetGlAccountId" type="id"><description>
+            The debit account for the asset value (purchase cost) on receipt and credit account on issuance;
+            for inventory assets this is the inventory value account (GatInventory);
+            for fixed assets this is a fixed asset value account (GatFixedAsset);
+            for supplies this is an expense account (GatExpense or GatOperatingExpense)
+        </description></field>
+        <field name="wipAssetGlAccountId" type="id"><description>
+            The debit account for the asset value (purchase cost) on issue to production run (inventory consumed).
+            The credit account on receive from production run (inventory produced).
+            The opposing account will be the assetGlAccountId.
+        </description></field>
+        <field name="receiptGlAccountId" type="id">
+            <description>The credit account on receipt (Unreceived Inventory, Unreceived Asset, etc)</description></field>
+        <field name="issuanceGlAccountId" type="id"><description>
+            The debit account on issuance AND credit account for accumulated depreciation for fixed assets;
+            for inventory assets this is the COGS account (GatCogs);
+            for fixed assets this is the Unissued Asset account (GatUnissuedFixedAsset)
+        </description></field>
+        <field name="accDepreciationGlAccountId" type="id">
+            <description>The credit account for the depreciation expense for Fixed Assets (paired with depreciationGlAccountId);
+                A debit account for Fixed Asset sale or write off</description></field>
+        <field name="depreciationGlAccountId" type="id">
+            <description>The debit account for the depreciation expense for Fixed Assets (paired with accDepreciationGlAccountId)</description></field>
+        <field name="profitGlAccountId" type="id"><description>The credit account for the eventual profit/gain derived
+            from the sale of the asset; for inventory assets this is a Sales account;
+            for fixed assets this is a profit/gain on sale/disposal account</description></field>
+        <field name="lossGlAccountId" type="id">
+            <description>The debit account for the loss derived from the disposal of the asset</description></field>
+        <field name="receiptTransTypeEnumId" type="id"/>
+        <field name="issuanceTransTypeEnumId" type="id"/>
+
+        <field name="shrinkageGlAccountId" type="id">
+            <description>The debit account for the loss (or cost) for inventory shrinkage or lost fixed assets</description></field>
+        <field name="foundGlAccountId" type="id">
+            <description>The credit account for the gain from inventory or fixed assets found</description></field>
+
+        <relationship type="one" title="AssetType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="assetTypeEnumId"/></relationship>
+        <relationship type="one" title="AssetClass" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="classEnumId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.product.asset.Asset"/>
+        <relationship type="one" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" title="Asset" related-entity-name="mantle.ledger.account.GlAccount">
+            <key-map field-name="assetGlAccountId"/></relationship>
+        <relationship type="one" title="WipAsset" related-entity-name="mantle.ledger.account.GlAccount">
+            <key-map field-name="wipAssetGlAccountId"/></relationship>
+        <relationship type="one" title="Receipt" related-entity-name="mantle.ledger.account.GlAccount">
+            <key-map field-name="receiptGlAccountId"/></relationship>
+        <relationship type="one" title="Issuance" related-entity-name="mantle.ledger.account.GlAccount">
+            <key-map field-name="issuanceGlAccountId"/></relationship>
+        <relationship type="one" title="Depreciation" related-entity-name="mantle.ledger.account.GlAccount">
+            <key-map field-name="depreciationGlAccountId"/></relationship>
+        <relationship type="one" title="Profit" related-entity-name="mantle.ledger.account.GlAccount">
+            <key-map field-name="profitGlAccountId"/></relationship>
+        <relationship type="one" title="Loss" related-entity-name="mantle.ledger.account.GlAccount">
+            <key-map field-name="lossGlAccountId"/></relationship>
+        <relationship type="one" title="ReceiptTransType" related-entity-name="moqui.basic.Enumeration">
+            <!-- NOTE: enumTypeId=AcctgTransType, different from title -->
+            <key-map field-name="receiptTransTypeEnumId"/></relationship>
+        <relationship type="one" title="IssuanceTransType" related-entity-name="moqui.basic.Enumeration">
+            <!-- NOTE: enumTypeId=AcctgTransType, different from title -->
+            <key-map field-name="issuanceTransTypeEnumId"/></relationship>
+        <relationship type="one" title="Shrinkage" related-entity-name="mantle.ledger.account.GlAccount">
+            <key-map field-name="shrinkageGlAccountId"/></relationship>
+        <relationship type="one" title="Found" related-entity-name="mantle.ledger.account.GlAccount">
+            <key-map field-name="foundGlAccountId"/></relationship>
+    </entity>
+    <entity entity-name="CreditCardTypeGlAccount" package-name="mantle.ledger.config">
+        <field name="creditCardTypeEnumId" type="id" is-pk="true"/>
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="glAccountId" type="id"/>
+        <relationship type="one" title="CreditCardType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="creditCardTypeEnumId"/></relationship>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+    </entity>
+    <entity entity-name="FinancialAccountTypeGlAccount" package-name="mantle.ledger.config">
+        <field name="finAccountTypeId" type="id" is-pk="true"/>
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="glAccountId" type="id"/>
+        <relationship type="one" related-entity-name="FinancialAccountType"/>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+    </entity>
+    <entity entity-name="FinancialAccountReasonGlAccount" package-name="mantle.ledger.config">
+        <field name="reasonEnumId" type="id" is-pk="true"/>
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="glAccountId" type="id"/>
+        <relationship type="one" title="FinancialAccountTransReason" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="reasonEnumId"/></relationship>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+    </entity>
+    <entity entity-name="GlAccountTypePartyDefault" package-name="mantle.ledger.config">
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="partyId" type="id" is-pk="true"/>
+        <field name="roleTypeId" type="id" is-pk="true"/>
+        <field name="glAccountTypeEnumId" type="id" is-pk="true"/>
+        <field name="glAccountId" type="id"/>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.party.Party"/>
+        <relationship type="one" related-entity-name="mantle.party.RoleType"/>
+        <relationship type="one" title="GlAccountType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="glAccountTypeEnumId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+    </entity>
+    <entity entity-name="GlAccountTypeDefault" package-name="mantle.ledger.config">
+        <field name="glAccountTypeEnumId" type="id" is-pk="true"/>
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="glAccountId" type="id"/>
+        <relationship type="one" title="GlAccountType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="glAccountTypeEnumId"/></relationship>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+    </entity>
+    <entity entity-name="InvoiceTypeTransType" package-name="mantle.ledger.config">
+        <field name="invoiceTypeEnumId" type="id" is-pk="true"/>
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="isPayable" type="text-indicator" is-pk="true"><description>If Y is Payable, N is Receivable.</description></field>
+        <field name="acctgTransTypeEnumId" type="id"/>
+        <field name="glAccountId" type="id"><description>If not specified uses the GlAccountTypeDefault setting for
+            GatAccountsReceivable or GatAccountsPayable</description></field>
+        <relationship type="one" title="InvoiceType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="invoiceTypeEnumId"/></relationship>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" title="AcctgTransType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="acctgTransTypeEnumId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+    </entity>
+    <entity entity-name="ItemTypeGlAccount" package-name="mantle.ledger.config">
+        <field name="itemTypeEnumId" type="id" is-pk="true"/>
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="direction" type="text-indicator" is-pk="true"><description>If I for Incoming (Purchase) Invoices
+            and if O for Outgoing (Sales) Invoices. If E is for either.</description></field>
+        <field name="glAccountId" type="id"/>
+        <relationship type="one" title="ItemType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="itemTypeEnumId"/></relationship>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+    </entity>
+    <entity entity-name="PaymentInstrumentGlAccount" package-name="mantle.ledger.config">
+        <field name="paymentInstrumentEnumId" type="id" is-pk="true"/>
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="isPayable" type="text-indicator" is-pk="true"><description>If Y is Payable, N is Receivable, E for either.</description></field>
+        <field name="glAccountId" type="id"/>
+        <relationship type="one" title="PaymentInstrument" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="paymentInstrumentEnumId"/></relationship>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+    </entity>
+    <entity entity-name="PaymentTypeGlAccount" package-name="mantle.ledger.config">
+        <field name="paymentTypeEnumId" type="id" is-pk="true"/>
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="isPayable" type="text-indicator" is-pk="true"><description>If Y is Payable, N is Receivable.</description></field>
+        <field name="isApplied" type="text-indicator" is-pk="true"><description>If Y is for Applied Payment, N for
+            Unapplied Payment, E for either.</description></field>
+        <field name="glAccountId" type="id"/>
+        <relationship type="one" title="PaymentType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="paymentTypeEnumId"/></relationship>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+    </entity>
+    <entity entity-name="ProductCategoryGlAccount" package-name="mantle.ledger.config">
+        <field name="productCategoryId" type="id" is-pk="true"/>
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="glAccountTypeEnumId" type="id" is-pk="true"/>
+        <field name="glAccountId" type="id"/>
+        <relationship type="one" related-entity-name="ProductCategory"/>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" title="GlAccountType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="glAccountTypeEnumId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+    </entity>
+    <entity entity-name="ProductGlAccount" package-name="mantle.ledger.config">
+        <field name="productId" type="id" is-pk="true"/>
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="glAccountTypeEnumId" type="id" is-pk="true"/>
+        <field name="glAccountId" type="id"/>
+        <relationship type="one" related-entity-name="Product"/>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" title="GlAccountType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="glAccountTypeEnumId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+    </entity>
+    <entity entity-name="TaxAuthorityGlAccount" package-name="mantle.ledger.config">
+        <field name="taxAuthorityId" type="id" is-pk="true"/>
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="glAccountId" type="id"/>
+        <relationship type="one" related-entity-name="TaxAuthority"/>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+    </entity>
+    <entity entity-name="VarianceReasonGlAccount" package-name="mantle.ledger.config">
+        <field name="varianceReasonEnumId" type="id" is-pk="true"/>
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="glAccountId" type="id"/>
+        <relationship type="one" title="InventoryVarianceReason" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="varianceReasonEnumId"/></relationship>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+    </entity>
+
+    <entity entity-name="PartyAcctgPreference" package-name="mantle.ledger.config">
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="fiscalYearStartMonth" type="number-integer"/>
+        <field name="fiscalYearStartDay" type="number-integer"/>
+        <field name="hourlyTimePeriodTypeId" type="id"/>
+        <field name="salaryTimePeriodTypeId" type="id"/>
+        <field name="taxFormEnumId" type="id"/>
+        <field name="taxClassificationEnumId" type="id"/>
+        <field name="cogsMethodEnumId" type="id"/>
+        <field name="baseCurrencyUomId" type="id"/>
+        <field name="invoiceSequenceEnumId" type="id"/>
+        <field name="invoiceIdPrefix" type="text-short"/>
+        <field name="invoiceLastNumber" type="number-integer"/>
+        <field name="invoiceLastRestartDate" type="date-time"/>
+        <field name="useInvoiceIdForReturns" type="text-indicator"/>
+        <field name="orderSequenceEnumId" type="id"/>
+        <field name="orderIdPrefix" type="text-short"/>
+        <field name="orderLastNumber" type="number-integer"/>
+        <field name="refundPaymentMethodId" type="id"/>
+        <field name="errorGlJournalId" type="id">
+            <description>
+                Journal to which all the failed automatic transaction are assigned.
+                If the error journal is set, if the GL posting fails for some reason the triggering operation
+                (finalizing an invoice or payment or whatever) would NOT roll back, instead the partial GL post would be
+                placed into the error journal.
+            </description>
+        </field>
+
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" title="Hourly" related-entity-name="mantle.party.time.TimePeriodType">
+            <key-map field-name="hourlyTimePeriodTypeId"/></relationship>
+        <relationship type="one" title="Salary" related-entity-name="mantle.party.time.TimePeriodType">
+            <key-map field-name="salaryTimePeriodTypeId"/></relationship>
+        <relationship type="one" title="TaxForm" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="taxFormEnumId"/></relationship>
+        <relationship type="one" title="TaxClassification" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="taxClassificationEnumId"/></relationship>
+        <relationship type="one" title="CogsMethod" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="cogsMethodEnumId"/></relationship>
+        <relationship type="one" related-entity-name="moqui.basic.Uom">
+            <key-map field-name="baseCurrencyUomId"/></relationship>
+        <relationship type="one" title="Refund" related-entity-name="mantle.account.method.PaymentMethod">
+            <key-map field-name="refundPaymentMethodId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.transaction.GlJournal">
+            <key-map field-name="errorGlJournalId"/></relationship>
+        <relationship type="one" title="InvoiceSequence" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="invoiceSequenceEnumId"/></relationship>
+        <relationship type="one" title="OrderSequence" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="orderSequenceEnumId"/></relationship>
+
+        <seed-data>
+            <!-- Tax Forms -->
+            <moqui.basic.EnumerationType description="Tax Form" enumTypeId="TaxForm"/>
+            <moqui.basic.Enumeration description="Form 1120 (US IRS)" enumId="TxfUsIrs1120" sequenceNum="1" enumTypeId="TaxForm"/>
+            <moqui.basic.Enumeration description="Form 1120S (US IRS)" enumId="TxfUsIrs1120S" sequenceNum="2" enumTypeId="TaxForm"/>
+            <moqui.basic.Enumeration description="Form 1065 (US IRS)" enumId="TxfUsIrs1065" sequenceNum="3" enumTypeId="TaxForm"/>
+            <moqui.basic.Enumeration description="Form 990 (US IRS)" enumId="TxfUsIrs990" sequenceNum="4" enumTypeId="TaxForm"/>
+            <moqui.basic.Enumeration description="Form 990-PF (US IRS)" enumId="TxfUsIrs990PF" sequenceNum="5" enumTypeId="TaxForm"/>
+            <moqui.basic.Enumeration description="Form 990-T (US IRS)" enumId="TxfUsIrs990T" sequenceNum="6" enumTypeId="TaxForm"/>
+            <moqui.basic.Enumeration description="Form 1040 (US IRS)" enumId="TxfUsIrs1040" sequenceNum="7" enumTypeId="TaxForm"/>
+
+            <!-- Tax Classification -->
+            <moqui.basic.EnumerationType description="Tax Classification" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="Individual, Sole Proprietor, Single-member LLC" enumId="TxcIndividual" sequenceNum="1" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="C Corporation" enumId="TxcCCorp" sequenceNum="2" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="S Corporation" enumId="TxcSCorp" sequenceNum="3" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="Partnership" enumId="TxcPartnership" sequenceNum="4" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="Trust/Estate" enumId="TxcTrustEstate" sequenceNum="5" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="LLC as S Corp" enumId="TxcLlcSCorp" sequenceNum="6" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="LLC as C Corp" enumId="TxcLlcCCorp" sequenceNum="7" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="LLC as Partnership" enumId="TxcLlcPartnership" sequenceNum="8" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="Other" enumId="TxcOther" sequenceNum="9" enumTypeId="TaxClassification"/>
+
+            <!-- Cost Of Goods Sold methods -->
+            <moqui.basic.EnumerationType description="COGS Method" enumTypeId="CogsMethod"/>
+            <moqui.basic.Enumeration description="LIFO" enumId="CogsLifo" sequenceNum="1" enumTypeId="CogsMethod"/>
+            <moqui.basic.Enumeration description="FIFO" enumId="CogsFifo" sequenceNum="2" enumTypeId="CogsMethod"/>
+            <moqui.basic.Enumeration description="Average Cost" enumId="CogsAverageCost" sequenceNum="3" enumTypeId="CogsMethod"/>
+            <moqui.basic.Enumeration description="Inventory Actual Cost" enumId="CogsActualCost" sequenceNum="4" enumTypeId="CogsMethod"/>
+
+            <!-- Accounting Preference Sequencing Modes -->
+            <moqui.basic.EnumerationType description="Invoice Sequence Mode" enumTypeId="InvoiceSequence"/>
+            <moqui.basic.Enumeration description="Standard (faster, may have gaps, per system)" enumId="InvSqStandard" sequenceNum="1" enumTypeId="InvoiceSequence"/>
+            <moqui.basic.Enumeration description="Enforced Sequence (no gaps, per organization)" enumId="InvSqEnforced" sequenceNum="2" enumTypeId="InvoiceSequence"/>
+            <moqui.basic.Enumeration description="Enforced and Restart on Fiscal Year (no gaps, per org, reset to 1 each year)" enumId="InvSqEnfRestartYr" sequenceNum="3" enumTypeId="InvoiceSequence"/>
+
+            <moqui.basic.EnumerationType description="Order Sequence Mode" enumTypeId="OrderSequence"/>
+            <moqui.basic.Enumeration description="Standard (faster, may have gaps, per system)" enumId="OrdSqStandard" sequenceNum="1" enumTypeId="OrderSequence"/>
+            <moqui.basic.Enumeration description="Enforced Sequence (no gaps, per organization)" enumId="OrdSqEnforced" sequenceNum="2" enumTypeId="OrderSequence"/>
+        </seed-data>
+    </entity>
+
+    <!-- ========================================================= -->
+    <!-- mantle.ledger.reconciliation -->
+    <!-- ========================================================= -->
+
+    <entity entity-name="GlReconciliation" package-name="mantle.ledger.reconciliation">
+        <field name="glReconciliationId" type="id" is-pk="true"/>
+        <field name="glReconciliationName" type="text-medium"/>
+        <field name="description" type="text-medium"/>
+        <field name="glAccountId" type="id"/>
+        <field name="statusId" type="id" enable-audit-log="true"/>
+        <field name="organizationPartyId" type="id"/>
+        <field name="reconciledBalance" type="currency-amount"/>
+        <field name="openingBalance" type="currency-amount"/>
+        <field name="reconciledDate" type="date-time"/>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" title="GlReconciliation" related-entity-name="moqui.basic.StatusItem"/>
+        <seed-data>
+            <!-- GlReconciliation Status -->
+            <moqui.basic.StatusType statusTypeId="GlReconciliation" description="GL Reconciliation Status"/>
+            <moqui.basic.StatusItem statusId="GLREC_CREATED" statusTypeId="GlReconciliation" sequenceNum="1" description="Created"/>
+            <moqui.basic.StatusItem statusId="GLREC_RECONCILED" statusTypeId="GlReconciliation" sequenceNum="2" description="Reconciled"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="GLREC_CREATED" toStatusId="GLREC_RECONCILED" transitionName="Set Created to Reconciled"/>
+        </seed-data>
+    </entity>
+    <entity entity-name="GlReconciliationEntry" package-name="mantle.ledger.reconciliation">
+        <field name="glReconciliationId" type="id" is-pk="true"/>
+        <field name="acctgTransId" type="id" is-pk="true"/>
+        <field name="acctgTransEntrySeqId" type="id" is-pk="true"/>
+        <field name="reconciledAmount" type="currency-amount"/>
+        <relationship type="one" related-entity-name="mantle.ledger.reconciliation.GlReconciliation"/>
+        <relationship type="one-nofk" related-entity-name="mantle.ledger.transaction.AcctgTrans"/>
+        <relationship type="one" related-entity-name="mantle.ledger.transaction.AcctgTransEntry">
+            <key-map field-name="acctgTransId"/><key-map field-name="acctgTransEntrySeqId"/></relationship>
+    </entity>
+
+    <!-- ========================================================= -->
+    <!-- mantle.ledger.transaction -->
+    <!-- ========================================================= -->
+
+    <entity entity-name="AcctgTrans" package-name="mantle.ledger.transaction" short-alias="acctgTrans">
+        <field name="acctgTransId" type="id" is-pk="true"/>
+        <field name="acctgTransTypeEnumId" type="id"/>
+        <field name="organizationPartyId" type="id"/>
+        <field name="description" type="text-medium"/>
+        <field name="transactionDate" type="date-time"/>
+        <field name="isPosted" type="text-indicator" enable-audit-log="true"/>
+        <field name="postedDate" type="date-time"/>
+        <field name="scheduledPostingDate" type="date-time"/>
+        <field name="glJournalId" type="id"/>
+        <field name="glFiscalTypeEnumId" type="id"/>
+        <field name="voucherRef" type="text-short"/>
+        <field name="voucherDate" type="date-time"/>
+        <field name="groupStatusId" type="id"/>
+        <field name="amountUomId" type="id"/>
+        <field name="originalCurrencyUomId" type="id"/>
+
+        <field name="assetId" type="id"/>
+        <field name="assetIssuanceId" type="id"/>
+        <field name="assetReceiptId" type="id"/>
+        <field name="physicalInventoryId" type="id"/>
+        <field name="otherPartyId" type="id"/>
+        <field name="invoiceId" type="id"/>
+        <field name="paymentId" type="id"/>
+        <field name="paymentApplicationId" type="id"/>
+        <field name="finAccountTransId" type="id"/>
+        <field name="shipmentId" type="id"/>
+        <field name="workEffortId" type="id"/>
+        <field name="theirAcctgTransId" type="id-long"/>
+        <field name="reversedByAcctgTransId" type="id"/>
+        <field name="reverseOfAcctgTransId" type="id"/>
+
+        <relationship type="one" title="AcctgTransType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="acctgTransTypeEnumId"/></relationship>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party" short-alias="organization">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.transaction.GlJournal" short-alias="journal"/>
+        <relationship type="one" title="GlFiscalType" related-entity-name="moqui.basic.Enumeration" short-alias="fiscalType">
+            <key-map field-name="glFiscalTypeEnumId"/></relationship>
+        <relationship type="one" title="Group" related-entity-name="moqui.basic.StatusItem" short-alias="groupStatus">
+            <key-map field-name="groupStatusId"/></relationship>
+        <relationship type="one" title="Amount" related-entity-name="moqui.basic.Uom" short-alias="amountUom">
+            <key-map field-name="amountUomId"/></relationship>
+        <relationship type="one" title="OriginalCurrency" related-entity-name="moqui.basic.Uom" short-alias="originalCurrencyUom">
+            <key-map field-name="originalCurrencyUomId"/></relationship>
+
+        <relationship type="one" related-entity-name="mantle.product.asset.Asset" short-alias="asset"/>
+        <relationship type="one" related-entity-name="mantle.product.issuance.AssetIssuance" short-alias="assetIssuance"/>
+        <relationship type="one" related-entity-name="mantle.product.receipt.AssetReceipt" short-alias="assetReceipt"/>
+        <relationship type="one" related-entity-name="mantle.product.asset.PhysicalInventory" short-alias="physicalInventory"/>
+        <relationship type="one" title="Other" related-entity-name="mantle.party.Party" short-alias="otherParty">
+            <key-map field-name="otherPartyId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.account.invoice.Invoice" short-alias="invoice"/>
+        <relationship type="one" related-entity-name="mantle.account.payment.Payment" short-alias="payment"/>
+        <relationship type="one" related-entity-name="mantle.account.payment.PaymentApplication" short-alias="paymentApplication"/>
+        <relationship type="one" related-entity-name="mantle.account.financial.FinancialAccountTrans" short-alias="financialAccountTrans"/>
+        <relationship type="one" related-entity-name="mantle.shipment.Shipment" short-alias="shipment"/>
+        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+        <relationship type="one" title="ReversedBy" related-entity-name="mantle.ledger.transaction.AcctgTrans" short-alias="reversedBy">
+            <key-map field-name="reversedByAcctgTransId" related-field-name="acctgTransId"/></relationship>
+        <relationship type="one" title="ReverseOf" related-entity-name="mantle.ledger.transaction.AcctgTrans" short-alias="reverseOf">
+            <key-map field-name="reverseOfAcctgTransId" related-field-name="acctgTransId"/></relationship>
+
+        <relationship type="many" related-entity-name="mantle.ledger.transaction.AcctgTransEntry" short-alias="entries">
+            <key-map field-name="acctgTransId"/></relationship>
+        
+        <seed-data>
+            <!-- Accounting Transaction Type -->
+            <moqui.basic.EnumerationType description="Accounting Transaction Type" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttAmortization" description="Amortization" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttDepreciation" description="Depreciation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttCapitalization" description="Capitalization" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttInventoryReceipt" description="Inventory Receipt" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttInventoryIssuance" description="Inventory Issuance" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttInventoryVariance" description="Inventory Variance" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttPeriodClosing" description="Period Closing" enumTypeId="AcctgTransType"/>
+
+            <moqui.basic.Enumeration enumId="AttInternal" description="Internal" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttExternal" description="External" enumTypeId="AcctgTransType"/>
+
+            <moqui.basic.Enumeration enumId="AttObligation" description="Obligation" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttCreditLine" description="Credit Line" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttCreditMemo" description="Credit Memo" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttNote" description="Note" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttOtherObligation" description="Other Obligation" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttSales" description="Sales" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttTaxDue" description="Tax Due" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+
+            <moqui.basic.Enumeration enumId="AttPayment" description="Payment" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttDisbursement" description="Disbursement" parentEnumId="AttPayment" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttReceipt" description="Receipt" parentEnumId="AttPayment" enumTypeId="AcctgTransType"/>
+
+            <moqui.basic.Enumeration enumId="AttSalesInvoice" description="Sales Invoice (from Org to Customer)" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttCustRtnInvoice" description="Customer Return Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttPurchaseInvoice" description="Purchase Invoice (from Vendor to Org)" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttVendRtnInvoice" description="Vendor Return Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+
+            <moqui.basic.Enumeration enumId="AttPayrollInvoice" description="Payroll Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttTaxInvoice" description="Tax Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttGarnishmentInvoice" description="Garnishment Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttCommissionInvoice" description="Commission Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+
+            <moqui.basic.Enumeration enumId="AttInvoiceAdjust" description="Invoice Adjustment" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+
+            <moqui.basic.Enumeration enumId="AttAssetReceipt" description="Fixed Asset Receipt" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttAssetIssuance" description="Fixed Asset Issuance" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttAssetVariance" description="Fixed Asset Variance" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttSalesInventory" description="Sales Inventory" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttReturnInventory" description="Return Inventory" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttManufacturing" description="Manufacturing" enumTypeId="AcctgTransType"/>
+
+            <moqui.basic.Enumeration enumId="AttFinancialDeposit" description="Financial Account Deposit" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttFinancialWithdrawal" description="Financial Account Withdrawal" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttFinancialAdjustment" description="Financial Account Adjustment" enumTypeId="AcctgTransType"/>
+
+            <moqui.basic.Enumeration enumId="AttIncomingPayment" description="Incoming Payment (Receipt)" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttOutgoingPayment" description="Outgoing Payment (Disbursement)" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttIncomingPaymentAp" description="Incoming Payment (Receipt) Application" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttOutgoingPaymentAp" description="Outgoing Payment (Disbursement) Application" enumTypeId="AcctgTransType"/>
+
+            <moqui.basic.Enumeration enumId="AttPaymentApplied" description="Payment Applied" enumTypeId="AcctgTransType"/>
+
+            <!-- GL Fiscal Type -->
+            <moqui.basic.EnumerationType description="GL Fiscal Type" enumTypeId="GlFiscalType"/>
+            <moqui.basic.Enumeration description="Actual" enumId="GLFT_ACTUAL" enumTypeId="GlFiscalType"/>
+            <moqui.basic.Enumeration description="Budget" enumId="GLFT_BUDGET" enumTypeId="GlFiscalType"/>
+            <moqui.basic.Enumeration description="Forecast" enumId="GLFT_FORECAST" enumTypeId="GlFiscalType"/>
+            <moqui.basic.Enumeration description="Plan" enumId="GLFT_PLAN" enumTypeId="GlFiscalType"/>
+            <moqui.basic.Enumeration description="Scenario" enumId="GLFT_SCENARIO" enumTypeId="GlFiscalType"/>
+
+            <!-- Accounting Transaction Result - used on various records to track auto post result -->
+            <moqui.basic.EnumerationType description="Accounting Transaction Result" enumTypeId="AcctgTransResult"/>
+            <moqui.basic.Enumeration enumId="AtrSuccess" description="Success" enumTypeId="AcctgTransResult"/>
+            <moqui.basic.Enumeration enumId="AtrNoAcctgPreference" description="No Accounting Preference" enumTypeId="AcctgTransResult"/>
+            <moqui.basic.Enumeration enumId="AtrNoAcquireCost" description="No Acquire Cost" enumTypeId="AcctgTransResult"/><!-- for AssetReceipt/Issuance/etc -->
+            <moqui.basic.Enumeration enumId="AtrNoTransReason" description="No Transaction Reason" enumTypeId="AcctgTransResult"/><!-- for FinancialAccountTrans -->
+            <moqui.basic.Enumeration enumId="AtrPaymentNotPosted" description="Payment Not Posted" enumTypeId="AcctgTransResult"/><!-- for PaymentApplication -->
+        </seed-data>
+        <master>
+            <detail relationship="type"/><detail relationship="organization"/><detail relationship="journal"/>
+            <detail relationship="fiscalType"/><detail relationship="groupStatus"/><detail relationship="amountUom"/>
+            <detail relationship="originalCurrencyUom"/>
+            <detail relationship="asset"/><detail relationship="assetIssuance"/><detail relationship="assetReceipt"/>
+            <detail relationship="physicalInventory"/><detail relationship="otherParty"/>
+            <detail relationship="invoice"/><detail relationship="payment"/><detail relationship="paymentApplication"/>
+            <detail relationship="financialAccountTrans"/><detail relationship="shipment"/>
+            <detail relationship="workEffort"/><detail relationship="reversedBy"/><detail relationship="reverseOf"/>
+
+            <detail relationship="entries">
+                <detail relationship="glAccountType"/><detail relationship="glAccount"/>
+                <detail relationship="reconcileStatus"/>
+                <detail relationship="product"/><detail relationship="asset"/>
+            </detail>
+        </master>
+    </entity>
+    <entity entity-name="AcctgTransEntry" package-name="mantle.ledger.transaction">
+        <field name="acctgTransId" type="id" is-pk="true"/>
+        <field name="acctgTransEntrySeqId" type="id" is-pk="true"/>
+        <field name="debitCreditFlag" type="text-indicator"><description>If D is a debit, if C is a credit.</description></field>
+        <field name="amount" type="currency-amount"/>
+        <field name="originalCurrencyAmount" type="currency-amount"/>
+        <field name="description" type="text-medium"/>
+        <field name="voucherRef" type="text-short"/>
+        <field name="glAccountTypeEnumId" type="id"/>
+        <field name="glAccountId" type="id"/>
+        <field name="dueDate" type="date"/>
+        <field name="reconcileStatusId" type="id" default="'AterNot'"/>
+        <field name="settlementTermId" type="id"/>
+        <field name="isSummary" type="text-indicator"><description>Set to Y if this is a summary entry from a sub-ledger.</description></field>
+
+        <field name="productId" type="id"/>
+        <field name="externalProductId" type="id"/>
+        <field name="assetId" type="id"/>
+        <field name="invoiceItemSeqId" type="id"/>
+
+        <relationship type="one" related-entity-name="mantle.ledger.transaction.AcctgTrans" short-alias="trans"/>
+        <relationship type="one" title="GlAccountType" related-entity-name="moqui.basic.Enumeration" short-alias="glAccountType">
+            <key-map field-name="glAccountTypeEnumId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount" short-alias="glAccount"/>
+        <relationship type="one" title="AcctgTransEntryReconcile" related-entity-name="moqui.basic.StatusItem" short-alias="reconcileStatus">
+            <key-map field-name="reconcileStatusId"/></relationship>
+        <relationship type="one" related-entity-name="SettlementTerm"/>
+        <relationship type="one" related-entity-name="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related-entity-name="mantle.product.asset.Asset" short-alias="asset"/>
+
+        <seed-data>
+            <!-- Accounting Transaction Entry Reconcile Status -->
+            <moqui.basic.StatusType description="Accounting Transaction Entry Reconcile Status" statusTypeId="AcctgTransEntryReconcile"/>
+            <moqui.basic.StatusItem description="Not Reconciled" sequenceNum="1" statusId="AterNot" statusTypeId="AcctgTransEntryReconcile"/>
+            <moqui.basic.StatusItem description="Partly Reconciled" sequenceNum="2" statusId="AterPartly" statusTypeId="AcctgTransEntryReconcile"/>
+            <moqui.basic.StatusItem description="Reconciled" sequenceNum="3" statusId="AterRec" statusTypeId="AcctgTransEntryReconcile"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AterNot" toStatusId="AterPartly" transitionName="Partly Reconcile"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AterNot" toStatusId="AterRec" transitionName="Reconcile"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AterPartly" toStatusId="AterRec" transitionName="Reconcile"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AterPartly" toStatusId="AterNot" transitionName="Unreconcile"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AterRec" toStatusId="AterNot" transitionName="Unreconcile"/>
+        </seed-data>
+    </entity>
+    <entity entity-name="GlJournal" package-name="mantle.ledger.transaction">
+        <field name="glJournalId" type="id" is-pk="true"/>
+        <field name="glJournalTypeEnumId" type="id"/>
+        <field name="glJournalName" type="text-medium"/>
+        <field name="organizationPartyId" type="id"/>
+        <field name="isPosted" type="text-indicator"/>
+        <field name="postedDate" type="date-time"/>
+        <relationship type="one" title="GlJournalType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="glJournalTypeEnumId"/></relationship>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <seed-data>
+            <!-- GL Journal Type -->
+            <moqui.basic.EnumerationType description="GL Journal Type" enumTypeId="GlJournalType"/>
+            <moqui.basic.Enumeration enumId="GLJRNL_ERROR" description="Error Journal" enumTypeId="GlJournalType"/>
+            <moqui.basic.Enumeration enumId="GLJRNL_MANUAL" description="Manual Transactions Journal" enumTypeId="GlJournalType"/>
+        </seed-data>
+    </entity>
+</entities>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This software is in the public domain under CC0 1.0 Universal plus a 
+Grant of Patent License.
+
+To the extent possible under law, the author(s) have dedicated all
+copyright and related and neighboring rights to this software to the
+public domain worldwide. This software is distributed without any
+warranty.
+
+You should have received a copy of the CC0 Public Domain Dedication
+along with this software (see the LICENSE.md file). If not, see
+<http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<entity-facade-xml type="demo">
+    <!-- NOTE 1265184000000 = 2010-02-03 00:00:00 US/Pacific -->
+
+    <!-- Ziziwork Retail ProductStore -->
+    <mantle.facility.Facility facilityId="ORG_ZIZI_RETAIL_WH" facilityTypeEnumId="FcTpWarehouse"
+            ownerPartyId="ORG_ZIZI_RETAIL" facilityName="Ziziwork Retail Warehouse"/>
+    <mantle.facility.FacilityContactMech facilityId="ORG_ZIZI_RETAIL_WH" contactMechId="ORG_ZIZI_RTL_SA"
+            contactMechPurposeId="PostalPrimary" fromDate="1265184000000"/>
+    <mantle.facility.FacilityContactMech facilityId="ORG_ZIZI_RETAIL_WH" contactMechId="ORG_ZIZI_RTL_PT"
+            contactMechPurposeId="PhonePrimary" fromDate="1265184000000"/>
+
+    <mantle.product.store.ProductStore productStoreId="POPC_DEFAULT" storeName="Ziziwork Retail Store"
+            organizationPartyId="ORG_ZIZI_RETAIL" inventoryFacilityId="ORG_ZIZI_RETAIL_WH"
+            reservationOrderEnumId="AsResOrdFifoRec" requirementMethodEnumId=""
+            defaultLocale="en_US" defaultCurrencyUomId="USD" taxGatewayConfigId="LOCAL"/>
+
+    <mantle.product.store.ProductStorePaymentGateway productStoreId="POPC_DEFAULT"
+            paymentInstrumentEnumId="PiCreditCard" paymentGatewayConfigId="TEST_APPROVE"/>
+    <mantle.product.store.ProductStoreShippingGateway productStoreId="POPC_DEFAULT" carrierPartyId="_NA_"
+            shippingGatewayConfigId="NA_LOCAL"/>
+
+
+    <!-- Default Home Page and Root Browse Categories -->
+    <mantle.product.category.ProductCategory productCategoryId="PopcHome" productCategoryTypeEnumId="PctCatalog"
+            categoryName="Home Page Category"/>
+    <mantle.product.store.ProductStoreCategory productStoreId="POPC_DEFAULT" productCategoryId="PopcHome"
+            storeCategoryTypeEnumId="PsctHomePage" fromDate="1265184000000" thruDate=""/>
+    <mantle.product.category.ProductCategory productCategoryId="PopcBrowseRoot"
+            productCategoryTypeEnumId="PctCatalog" categoryName="Browse Root Category"/>
+    <mantle.product.store.ProductStoreCategory productStoreId="POPC_DEFAULT" productCategoryId="PopcBrowseRoot"
+            storeCategoryTypeEnumId="PsctBrowseRoot" fromDate="1265184000000" thruDate=""/>
+
+    <mantle.product.category.ProductCategory productCategoryId="PopcAllProducts"
+            productCategoryTypeEnumId="PctCatalog" categoryName="POPC All Products Category"/>
+    <mantle.product.store.ProductStoreCategory productStoreId="POPC_DEFAULT" productCategoryId="PopcAllProducts"
+            storeCategoryTypeEnumId="PsctSearch" fromDate="1265184000000" thruDate=""/>
+    <mantle.product.store.ProductStoreCategory productStoreId="POPC_DEFAULT" productCategoryId="PopcAllProducts"
+            storeCategoryTypeEnumId="PsctViewAllow" fromDate="1265184000000" thruDate=""/>
+    <mantle.product.store.ProductStoreCategory productStoreId="POPC_DEFAULT" productCategoryId="PopcAllProducts"
+            storeCategoryTypeEnumId="PsctPurchaseAllow" fromDate="1265184000000" thruDate=""/>
+    <mantle.ledger.config.ProductCategoryGlAccount productCategoryId="PopcAllProducts"
+            organizationPartyId="ORG_ZIZI_RETAIL" glAccountTypeEnumId="GatInventory" glAccountId="141300000"/>
+
+    <!-- Demo Categories -->
+    <mantle.product.category.ProductCategory productCategoryId="DEMO_ONE" productCategoryTypeEnumId="PctCatalog"
+            categoryName="Demo Category One" description=""/>
+    <mantle.product.category.ProductCategoryRollup productCategoryId="DEMO_ONE"
+            parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="1"/>
+
+    <mantle.product.category.ProductCategory productCategoryId="DEMO_TWO" productCategoryTypeEnumId="PctCatalog"
+            categoryName="Demo Category Two" description=""/>
+    <mantle.product.category.ProductCategoryRollup productCategoryId="DEMO_TWO"
+            parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="2"/>
+
+    <mantle.product.category.ProductCategory productCategoryId="DEMO_THREE" productCategoryTypeEnumId="PctCatalog"
+            categoryName="Demo Category Three" description=""/>
+    <mantle.product.category.ProductCategoryRollup productCategoryId="DEMO_THREE"
+            parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="3"/>
+
+    <!-- ========== Demo Products ========== -->
+    <mantle.product.Product productId="DEMO_UNIT" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
+            chargeShipping="Y" returnable="Y" productName="Demo Product One Unit" description=""/>
+    <mantle.product.ProductPrice productPriceId="DEMO_UNIT_C" productId="DEMO_UNIT" productStoreId="POPC_DEFAULT"
+            pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="1265184000000"
+            minQuantity="1" price="1" priceUomId="USD"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="PopcAllProducts" productId="DEMO_UNIT" fromDate="1265184000000"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="DEMO_ONE" productId="DEMO_UNIT" fromDate="1265184000000" sequenceNum="10"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="PopcHome" productId="DEMO_UNIT" fromDate="1265184000000" sequenceNum="3"/>
+    <mantle.product.asset.Asset assetId="DEMO_UNITA" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventoryFin"
+            statusId="AstAvailable" productId="DEMO_UNIT" facilityId="ORG_ZIZI_RETAIL_WH" ownerPartyId="ORG_ZIZI_RETAIL"
+            hasQuantity="Y" quantityOnHandTotal="0" availableToPromiseTotal="0"
+            acquireCost="1" acquireCostUomId="USD" receivedDate="1265184000000"/>
+    <mantle.product.asset.AssetDetail assetDetailId="DEMO_UNITA" assetId="DEMO_UNITA" effectiveDate="1265184000000"
+            quantityOnHandDiff="1000" availableToPromiseDiff="1000" productId="DEMO_UNIT"/>
+
+    <mantle.product.Product productId="DEMO_1_1" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
+            chargeShipping="Y" returnable="Y" productName="Demo Product One-One" description="">
+        <!-- list price -->
+        <mantle.product.ProductPrice productPriceId="DEMO_1_1_L" productStoreId="POPC_DEFAULT"
+                pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptList"  fromDate="1265184000000"
+                minQuantity="1" price="19.99" priceUomId="USD"/>
+        <!-- long-term current price -->
+        <mantle.product.ProductPrice productPriceId="DEMO_1_1_CLT" productStoreId="POPC_DEFAULT"
+                pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="1265184000000"
+                minQuantity="1" price="18.99" priceUomId="USD"/>
+        <!-- temporary lower current price, more recent fromDate so will be used within its valid date range -->
+        <mantle.product.ProductPrice productPriceId="DEMO_1_1_CTL" productStoreId="POPC_DEFAULT"
+                pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="2013-01-01 00:00:00"
+                thruDate="2020-01-01 00:00:00" minQuantity="1" price="16.99" priceUomId="USD"/>
+        <mantle.product.category.ProductCategoryMember productCategoryId="PopcAllProducts" fromDate="1265184000000"/>
+        <mantle.product.category.ProductCategoryMember productCategoryId="DEMO_ONE" fromDate="1265184000000" sequenceNum="1"/>
+        <mantle.product.asset.Asset assetId="DEMO_1_1A" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventoryFin"
+                statusId="AstAvailable" facilityId="ORG_ZIZI_RETAIL_WH" ownerPartyId="ORG_ZIZI_RETAIL"
+                hasQuantity="Y" quantityOnHandTotal="0" availableToPromiseTotal="0"
+                acquireCost="7.50" acquireCostUomId="USD" receivedDate="1265184000000">
+            <mantle.product.asset.AssetDetail assetDetailId="DEMO_1_1A" effectiveDate="1265184000000"
+                    quantityOnHandDiff="100" availableToPromiseDiff="100"/>
+        </mantle.product.asset.Asset>
+        <!-- Supplier prices -->
+        <mantle.product.ProductPrice productPriceId="DEMO_1_1_CS1" vendorPartyId="ZiddlemanInc"
+                pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"
+                fromDate="1265184000000" minQuantity="1" price="9.00" priceUomId="USD"/>
+        <mantle.product.ProductPrice productPriceId="DEMO_1_1_CS100" vendorPartyId="ZiddlemanInc"
+                pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"
+                fromDate="1265184000000" minQuantity="100" price="8.00" priceUomId="USD"/>
+        <mantle.product.ProductDimension dimensionTypeId="ShippingWeight" value="5" valueUomId="WT_lb"/>
+    </mantle.product.Product>
+
+    <mantle.product.Product productId="DEMO_1_2" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
+            productName="Demo Product One-Two" description=""
+            chargeShipping="Y" returnable="Y"/>
+    <mantle.product.ProductPrice productPriceId="DEMO_1_2_C" productId="DEMO_1_2" productStoreId="POPC_DEFAULT"
+            pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="1265184000000"
+            minQuantity="1" price="11119.99" priceUomId="USD"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="PopcAllProducts" productId="DEMO_1_2"
+            fromDate="1265184000000"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="PopcHome" productId="DEMO_1_2"
+            fromDate="1265184000000" sequenceNum="1"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="DEMO_ONE" productId="DEMO_1_2"
+            fromDate="1265184000000" sequenceNum="2"/>
+    <mantle.product.ProductReview productReviewId="100001" productId="DEMO_1_2" productStoreId="POPC_DEFAULT" productRating="5"
+            postedAnonymous="N" statusId="PrvwApproved" userId="EX_JOHN_DOE" productReview="Amazing product !!"
+            postedDateTime="1432675690547" lastUpdatedStamp="1432675690534"/>
+    <mantle.product.ProductReview productReviewId="100002" productId="DEMO_1_2" productStoreId="POPC_DEFAULT" productRating="3"
+            postedAnonymous="Y" statusId="PrvwApproved" userId="_NA_" productReview="I like it ..."
+            postedDateTime="1432675690547" lastUpdatedStamp="1432675690534"/>
+
+    <mantle.product.Product productId="DEMO_2_1" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
+            chargeShipping="Y" returnable="Y" productName="Demo Product Two-One" description=""/>
+    <mantle.product.ProductPrice productPriceId="DEMO_2_1_C" productId="DEMO_2_1" productStoreId="POPC_DEFAULT"
+            pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="1265184000000"
+            minQuantity="1" price="12.12" priceUomId="USD"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="PopcAllProducts" productId="DEMO_2_1"
+            fromDate="1265184000000"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="PopcHome" productId="DEMO_2_1"
+            fromDate="1265184000000" sequenceNum="2"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="DEMO_TWO" productId="DEMO_2_1"
+            fromDate="1265184000000" sequenceNum="1"/>
+    <mantle.product.ProductDimension productId="DEMO_2_1" dimensionTypeId="ShippingWeight" value="2" valueUomId="WT_lb"/>
+    <!-- NOTE: no Asset for this product record so we can test auto-create of Asset, etc -->
+
+
+    <mantle.product.Product productId="DEMO_3_1" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
+            chargeShipping="Y" returnable="Y" productName="Demo Product Three-One" description=""/>
+    <!-- long term price -->
+    <mantle.product.ProductPrice productPriceId="DEMO_3_1_C" productId="DEMO_3_1" productStoreId="POPC_DEFAULT"
+            pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="1265184000000"
+            minQuantity="1" price="7.77" priceUomId="USD"/>
+    <!-- supplier price -->
+    <mantle.product.ProductPrice productPriceId="DEMO_3_1_CS" productId="DEMO_3_1" vendorPartyId="ZiddlemanInc"
+            pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"
+            fromDate="1265184000000" minQuantity="1" price="4.50" priceUomId="USD"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="PopcAllProducts" productId="DEMO_3_1"
+            fromDate="1265184000000"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="DEMO_THREE" productId="DEMO_3_1"
+            fromDate="1265184000000" sequenceNum="1"/>
+    <mantle.product.ProductDimension productId="DEMO_3_1" dimensionTypeId="ShippingWeight" value="0.5" valueUomId="WT_lb"/>
+    <mantle.product.asset.Asset assetId="DEMO_3_1A" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventoryFin"
+            statusId="AstAvailable" productId="DEMO_3_1" facilityId="ORG_ZIZI_RETAIL_WH" ownerPartyId="ORG_ZIZI_RETAIL"
+            hasQuantity="Y" quantityOnHandTotal="0" availableToPromiseTotal="0"
+            acquireCost="4.00" acquireCostUomId="USD" receivedDate="1265184000000"/>
+    <mantle.product.asset.AssetDetail assetDetailId="DEMO_3_1A" assetId="DEMO_3_1A" effectiveDate="1265184000000"
+            quantityOnHandDiff="5" availableToPromiseDiff="5" productId="DEMO_3_1"/>
+
+    <!-- A digital subscription product, specifically for access to a tenant instance -->
+    <mantle.product.Product productId="DEMO_TNT" productTypeEnumId="PtDigital" chargeShipping="N"
+            returnable="Y" productName="Demo Tenant 1 Month Subscription" description=""/>
+    <mantle.product.ProductPrice productPriceId="DEMO_TNT_C" productId="DEMO_TNT" productStoreId="POPC_DEFAULT"
+            pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="1265184000000"
+            minQuantity="1" price="9.99" priceUomId="USD"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="PopcAllProducts" productId="DEMO_TNT"
+            fromDate="1265184000000"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="PopcHome" productId="DEMO_TNT"
+            fromDate="1265184000000" sequenceNum="5"/>
+    <!-- NOTE: could move this to seed data, is used to configure services provided with Mantle -->
+    <mantle.product.subscription.SubscriptionResource subscriptionResourceId="TENANT" description="Tenant System Access"
+            initServiceName="mantle.product.TenantSubscriptionServices.init#Tenant"
+            revokeAccessTime="7" revokeAccessTimeUomId="TF_day"
+            revokeAccessServiceName="mantle.product.TenantSubscriptionServices.revoke#TenantAccess"
+            destroyTime="90" destroyTimeUomId="TF_day"
+            destroyServiceName="mantle.product.TenantSubscriptionServices.destroy#Tenant"/>
+    <mantle.product.subscription.ProductSubscriptionResource productId="DEMO_TNT" subscriptionResourceId="TENANT"
+            fromDate="1265184000000" availableTime="1" availableTimeUomId="TF_mon"/>
+</entity-facade-xml>

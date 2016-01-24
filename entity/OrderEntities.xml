@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This software is in the public domain under CC0 1.0 Universal plus a 
+Grant of Patent License.
+
+To the extent possible under law, the author(s) have dedicated all
+copyright and related and neighboring rights to this software to the
+public domain worldwide. This software is distributed without any
+warranty.
+
+You should have received a copy of the CC0 Public Domain Dedication
+along with this software (see the LICENSE.md file). If not, see
+<http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-1.6.xsd">
+    <!-- ========================================================= -->
+    <!--  - mantle.order -->
+    <!--  - mantle.order.return -->
+    <!-- ========================================================= -->
+
+
+    <!-- ========================================================= -->
+    <!-- mantle.order -->
+    <!-- ========================================================= -->
+
+    <entity entity-name="OrderCommunicationEvent" package-name="mantle.order">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="communicationEventId" type="id" is-pk="true"/>
+        <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
+        <relationship type="one" related-entity-name="mantle.party.communication.CommunicationEvent"/>
+    </entity>
+    <entity entity-name="OrderContent" package-name="mantle.order">
+        <field name="orderContentId" type="id" is-pk="true"/>
+        <field name="orderContentTypeEnumId" type="id"/>
+        <field name="orderId" type="id"/>
+        <field name="orderItemSeqId" type="id"/>
+        <field name="contentLocation" type="text-medium"/>
+        <field name="description" type="text-long"/>
+        <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
+        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
+        <relationship type="one" title="OrderContentType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="orderContentTypeEnumId"/></relationship>
+        <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
+    </entity>
+    <entity entity-name="OrderHeader" package-name="mantle.order" short-alias="orders">
+        <field name="orderId" type="id" is-pk="true"/>
+
+        <field name="orderName" type="text-medium"/>
+        <field name="entryDate" type="date-time"/>
+        <field name="placedDate" type="date-time"/>
+        <field name="statusId" type="id" enable-audit-log="true"/>
+        <field name="orderRevision" type="number-integer"/>
+
+        <field name="currencyUomId" type="id"/>
+        <field name="billingAccountId" type="id"/>
+        <field name="productStoreId" type="id"/>
+        <field name="salesChannelEnumId" type="id"/>
+
+        <field name="terminalId" type="id-long"/>
+        <field name="externalId" type="text-short"/>
+        <field name="externalRevision" type="text-short"/>
+        <field name="syncStatusId" type="id"/>
+        <field name="systemMessageRemoteId" type="id"/>
+
+        <field name="visitId" type="id"/>
+        <field name="parentOrderId" type="id"/>
+        <field name="recurrenceInfoId" type="id"><!-- TODO: replace this with something else to configure the recurrence pattern for auto reorder --></field>
+        <field name="lastOrderedDate" type="date-time"/>
+
+        <field name="remainingSubTotal" type="currency-amount"/>
+        <field name="grandTotal" type="currency-amount"/>
+
+        <relationship type="one" title="OrderHeader" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="Currency" related-entity-name="moqui.basic.Uom" short-alias="currencyUom">
+            <key-map field-name="currencyUomId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.account.billing.BillingAccount"/>
+        <relationship type="one" related-entity-name="mantle.product.store.ProductStore"/>
+        <relationship type="one" title="SalesChannel" related-entity-name="moqui.basic.Enumeration" short-alias="salesChannel">
+            <key-map field-name="salesChannelEnumId"/></relationship>
+        <relationship type="one" title="Sync" related-entity-name="moqui.basic.StatusItem">
+            <key-map field-name="syncStatusId"/></relationship>
+        <relationship type="one" related-entity-name="moqui.service.message.SystemMessageRemote"/>
+        <relationship type="one" related-entity-name="moqui.server.Visit" short-alias="visit"/>
+        <relationship type="one" title="Parent" related-entity-name="mantle.order.OrderHeader">
+            <key-map field-name="parentOrderId" related-field-name="orderId"/></relationship>
+
+        <!-- These are not generally necessary, reverse relationships are created automatically, but needed to specify
+            the short-alias for use in entity REST requests and quick path look ups -->
+        <relationship type="many" related-entity-name="mantle.order.OrderPart" short-alias="parts">
+            <key-map field-name="orderId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.order.OrderItem" short-alias="items">
+            <key-map field-name="orderId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.order.OrderContent" short-alias="contents">
+            <key-map field-name="orderId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.order.OrderNote" short-alias="notes">
+            <key-map field-name="orderId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.order.OrderCommunicationEvent" short-alias="communicationEvents">
+            <key-map field-name="orderId"/></relationship>
+
+        <index name="ORDEREXT_ID_IDX"><index-field name="externalId"/></index>
+
+        <seed-data>
+            <!-- Order Header Status -->
+            <moqui.basic.StatusType description="Order Header Status" statusTypeId="OrderHeader"/>
+            <!-- Use Being Changed to disable automatic changes such as promotions, tax calc, shipping calc, etc -->
+            <moqui.basic.StatusItem description="Being Changed" sequenceNum="0" statusId="OrderBeingChanged" statusTypeId="OrderHeader"/>
+
+            <!-- An Open Order is like a shopping cart -->
+            <moqui.basic.StatusItem description="Open (Tentative)" sequenceNum="1" statusId="OrderOpen" statusTypeId="OrderHeader"/>
+            <!-- Request Quote done by Customer (or at Customer's request) -->
+            <moqui.basic.StatusItem description="Quote Requested" sequenceNum="2" statusId="OrderRequested" statusTypeId="OrderHeader"/>
+            <!-- Propose done by Vendor -->
+            <moqui.basic.StatusItem description="Proposed by Vendor" sequenceNum="3" statusId="OrderProposed" statusTypeId="OrderHeader"/>
+            <!-- Place done by Customer (or at Customer's request) -->
+            <moqui.basic.StatusItem description="Placed" sequenceNum="4" statusId="OrderPlaced" statusTypeId="OrderHeader"/>
+
+            <moqui.basic.StatusItem description="Processing" sequenceNum="11" statusId="OrderProcessing" statusTypeId="OrderHeader"/>
+            <moqui.basic.StatusItem description="Approved" sequenceNum="12" statusId="OrderApproved" statusTypeId="OrderHeader"/>
+            <moqui.basic.StatusItem description="Sent" sequenceNum="13" statusId="OrderSent" statusTypeId="OrderHeader"/>
+
+            <moqui.basic.StatusItem description="Completed" sequenceNum="21" statusId="OrderCompleted" statusTypeId="OrderHeader"/>
+            <moqui.basic.StatusItem description="Held" sequenceNum="22" statusId="OrderHold" statusTypeId="OrderHeader"/>
+
+            <!-- Reject done by Vendor -->
+            <moqui.basic.StatusItem description="Rejected" sequenceNum="98" statusId="OrderRejected" statusTypeId="OrderHeader"/>
+            <!-- Cancel done by Customer (or at Customer's request) -->
+            <moqui.basic.StatusItem description="Cancelled" sequenceNum="99" statusId="OrderCancelled" statusTypeId="OrderHeader"/>
+
+            <moqui.basic.StatusItem description="Wish List" sequenceNum="101" statusId="OrderWishList" statusTypeId="OrderHeader"/>
+            <moqui.basic.StatusItem description="Gift Registry" sequenceNum="102" statusId="OrderGiftRegistry" statusTypeId="OrderHeader"/>
+            <moqui.basic.StatusItem description="Auto Reorder" sequenceNum="103" statusId="OrderAutoReorder" statusTypeId="OrderHeader"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderBeingChanged" toStatusId="OrderOpen" transitionName="Make Open/Tentative"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderBeingChanged" transitionName="Begin Changes"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderPlaced" transitionName="Place"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderRequested" transitionName="Request Quote"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderRequested" toStatusId="OrderProposed" transitionName="Propose Quote"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderRequested" toStatusId="OrderRejected" transitionName="Reject Request"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderBeingChanged" toStatusId="OrderProposed" transitionName="Propose Quote"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderProposed" toStatusId="OrderBeingChanged" transitionName="Begin Changes"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderProposed" toStatusId="OrderPlaced" transitionName="Place from Quote"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderProposed" toStatusId="OrderCancelled" transitionName="Cancel Quote"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderBeingChanged" toStatusId="OrderPlaced" transitionName="Place"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderPlaced" toStatusId="OrderProcessing" transitionName="Process"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderPlaced" toStatusId="OrderApproved" transitionName="Approve"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderPlaced" toStatusId="OrderHold" transitionName="Hold"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderPlaced" toStatusId="OrderRejected" transitionName="Reject"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderPlaced" toStatusId="OrderCancelled" transitionName="Cancel"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderProcessing" toStatusId="OrderHold" transitionName="Hold"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderProcessing" toStatusId="OrderApproved" transitionName="Approve"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderProcessing" toStatusId="OrderRejected" transitionName="Reject"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderProcessing" toStatusId="OrderCancelled" transitionName="Cancel"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderApproved" toStatusId="OrderSent" transitionName="Send"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderApproved" toStatusId="OrderProcessing" transitionName="Process"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderApproved" toStatusId="OrderCompleted" transitionName="Complete"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderApproved" toStatusId="OrderCancelled" transitionName="Cancel"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderApproved" toStatusId="OrderHold" transitionName="Hold"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderHold" toStatusId="OrderProcessing" transitionName="Process"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderHold" toStatusId="OrderApproved" transitionName="Approve"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderHold" toStatusId="OrderCancelled" transitionName="Cancel"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderSent" toStatusId="OrderCompleted" transitionName="Order Completed"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderSent" toStatusId="OrderCancelled" transitionName="Order Cancelled"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderCompleted" toStatusId="OrderApproved" transitionName="Approve (un-complete)"/>
+
+            <!-- Sales Channel -->
+            <moqui.basic.EnumerationType description="Sales Channel" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="Web" enumId="ScWeb" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="POS" enumId="ScPos" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="Fax" enumId="ScFax" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="Phone" enumId="ScPhone" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="E-Mail" enumId="ScEmail" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="Postal Mail" enumId="ScPostal" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="Affiliate" enumId="ScAffiliate" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="eBay" enumId="ScEbay" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="EDI" enumId="ScEdi" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="OAGIS" enumId="ScOagis" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="Unknown" enumId="ScUnknown" enumTypeId="SalesChannel"/>
+
+            <!-- Sync Status -->
+            <moqui.basic.StatusType description="Sync Status" statusTypeId="Sync"/>
+        </seed-data>
+        <master>
+            <detail relationship="status"/>
+            <!-- TODO: add status history using EntityAuditLog -->
+            <detail relationship="currencyUom"/>
+            <detail relationship="salesChannel"/>
+            <detail relationship="visit"/>
+            <detail relationship="parts">
+                <detail relationship="status"/>
+                <detail relationship="items">
+                    <detail relationship="itemType"/>
+                    <detail relationship="product"/>
+                    <detail relationship="quantityUom"/>
+                    <detail relationship="reservations"/>
+                    <detail relationship="issuances"/>
+                    <detail relationship="receipts"/>
+                    <detail relationship="shipmentSources"/>
+                    <detail relationship="billings"/>
+                </detail>
+                <detail relationship="parties">
+                    <!-- NOTE: Party is also a master entity, could use mechanism to inherit detail but better to
+                        be explicit about what is relevant in a Party for orders -->
+                    <detail relationship="party" use-master="contact"/>
+                    <detail relationship="roleType"/>
+                </detail>
+                <detail relationship="contactMechs">
+                    <detail relationship="contactMech" use-master="default"/>
+                </detail>
+                <detail relationship="terms"><detail relationship="term"/></detail>
+                <detail relationship="vendor" use-master="basic"/>
+                <detail relationship="customer" use-master="basic"/>
+                <detail relationship="carrier" use-master="basic"/>
+                <detail relationship="shipmentMethod"/>
+                <detail relationship="postal" use-master="default"/>
+                <detail relationship="telecom" use-master="default"/>
+                <detail relationship="facility"/>
+                <detail relationship="payments" use-master="default"/>
+            </detail>
+            <detail relationship="contents"><detail relationship="type"/></detail>
+            <detail relationship="notes"/>
+            <detail relationship="communicationEvents"/>
+        </master>
+    </entity>
+    <extend-entity entity-name="SystemMessage" package-name="moqui.service.message">
+        <field name="orderId" type="id"/>
+        <field name="orderRevision" type="number-integer"/>
+        <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
+        <!-- should have auto based on FK: <index name="SYSMSG_ORDER"><index-field name="orderId"/></index> -->
+    </extend-entity>
+    <entity entity-name="OrderItem" package-name="mantle.order" short-alias="orderItems">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="orderItemSeqId" type="id" is-pk="true"/>
+        <field name="orderPartSeqId" type="id"/>
+        <field name="parentItemSeqId" type="id"/>
+
+        <field name="itemTypeEnumId" type="id"/>
+        <field name="productId" type="id"/>
+        <field name="productConfigSavedId" type="id"/>
+        <field name="productFeatureId" type="id"/>
+        <field name="otherPartyProductId" type="text-short"/>
+
+        <field name="itemDescription" type="text-medium"/>
+        <field name="comments" type="text-medium"/>
+
+        <field name="quantity" type="number-decimal" enable-audit-log="true"/>
+        <field name="quantityUomId" type="id"/>
+        <field name="quantityCancelled" type="number-decimal"/>
+        <field name="selectedAmount" type="number-decimal"/>
+        <field name="priority" type="number-integer"/>
+        <field name="requiredByDate" type="date-time"/>
+
+        <field name="unitAmount" type="currency-precise" enable-audit-log="true">
+            <description>For barter/exchange orders this represents the market value of the item at the time of the
+                exchange in terms of the OrderHeader.currencyUomId.</description>
+        </field>
+        <field name="unitListPrice" type="currency-precise"/>
+        <field name="isModifiedPrice" type="text-indicator"/>
+
+        <field name="externalItemSeqId" type="id"/>
+        <field name="fromAssetId" type="id"><description>Order for a particular Asset, not just any associated with
+            the Product.</description></field>
+        <field name="budgetId" type="id"/>
+        <field name="budgetItemSeqId" type="id"/>
+        <field name="productPriceId" type="id"/>
+        <field name="productCategoryId" type="id"/>
+        <field name="isPromo" type="text-indicator"/>
+
+        <field name="subscriptionId" type="id"/>
+        <field name="overrideGlAccountId" type="id"><description>Used to specify the override or actual glAccountId
+            used for the item.</description></field>
+        <field name="salesOpportunityId" type="id"/>
+
+        <!-- these fields are for sales/VAT/etc tax items -->
+        <field name="sourceReferenceId" type="id-long"/>
+        <field name="sourcePercentage" type="number-decimal"><description>For tax entries this is the tax percentage</description></field>
+        <field name="amountAlreadyIncluded" type="currency-precise"><description>The amount here is already represented
+            in the item price, such as VAT taxes.</description></field>
+        <field name="exemptAmount" type="currency-amount"><description>An amount that would normally apply, but not to
+            this order; for tax exemption represents the what the tax would have been.</description></field>
+        <field name="customerReferenceId" type="id-long"><description>For tax entries this is partyTaxId</description></field>
+        <field name="primaryGeoId" type="id"><description>For tax entries this is the primary jurisdiction Geo (the
+            smallest or most local Geo that this tax is for, usually a state/province, perhaps a county or a city)</description></field>
+        <field name="secondaryGeoId" type="id"><description>For tax entries this is the secondary jurisdiction Geo
+            (usually a country, or other Geo that the primary is within)</description></field>
+
+        <relationship type="one" related-entity-name="mantle.order.OrderHeader" short-alias="header"/>
+        <relationship type="one" title="ItemType" related-entity-name="moqui.basic.Enumeration" short-alias="itemType">
+            <key-map field-name="itemTypeEnumId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.order.OrderPart" short-alias="part">
+            <key-map field-name="orderId"/><key-map field-name="orderPartSeqId"/></relationship>
+        <relationship type="one-nofk" title="Parent" related-entity-name="mantle.order.OrderItem" short-alias="parent">
+            <key-map field-name="orderId"/>
+            <key-map field-name="parentItemSeqId" related-field-name="orderItemSeqId"/>
+        </relationship>
+        <relationship type="many" title="Child" related-entity-name="mantle.order.OrderItem" short-alias="children">
+            <key-map field-name="orderId"/>
+            <key-map field-name="orderItemSeqId" related-field-name="parentItemSeqId"/>
+        </relationship>
+        <relationship type="one" related-entity-name="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related-entity-name="mantle.product.config.ProductConfigSaved"/>
+        <relationship type="one" related-entity-name="mantle.product.feature.ProductFeature" short-alias="feature"/>
+        <relationship type="one" title="Quantity" related-entity-name="moqui.basic.Uom" short-alias="quantityUom">
+            <key-map field-name="quantityUomId"/></relationship>
+        <relationship type="one" title="From" related-entity-name="mantle.product.asset.Asset" short-alias="fromAsset">
+            <key-map field-name="fromAssetId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.product.ProductPrice" short-alias="price"/>
+        <relationship type="one" related-entity-name="mantle.product.category.ProductCategory" short-alias="category"/>
+        <relationship type="one" title="Override" related-entity-name="mantle.ledger.account.GlAccount" short-alias="overrideGlAccount">
+            <key-map field-name="overrideGlAccountId"/></relationship>
+        <relationship type="one" related-entity-name="SalesOpportunity" short-alias="opportunity"/>
+
+        <relationship type="one" title="Primary" related-entity-name="moqui.basic.Geo" short-alias="primaryGeo">
+            <key-map field-name="primaryGeoId"/></relationship>
+        <relationship type="one" title="Secondary" related-entity-name="moqui.basic.Geo" short-alias="secondaryGeo">
+            <key-map field-name="secondaryGeoId"/></relationship>
+
+        <relationship type="many" related-entity-name="mantle.product.issuance.AssetReservation" short-alias="reservations">
+            <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.product.issuance.AssetIssuance" short-alias="issuances">
+            <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.product.receipt.AssetReceipt" short-alias="receipts">
+            <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.shipment.ShipmentItemSource" short-alias="shipmentSources">
+            <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.order.OrderItemBilling" short-alias="billings">
+            <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
+
+        <index name="ORDITMEXT_ID_IDX"><index-field name="externalItemSeqId"/></index>
+    </entity>
+    <entity entity-name="OrderItemBilling" package-name="mantle.order">
+        <field name="orderItemBillingId" type="id" is-pk="true"/>
+        <field name="orderId" type="id"/>
+        <field name="orderItemSeqId" type="id"/>
+        <field name="invoiceId" type="id"/>
+        <field name="invoiceItemSeqId" type="id"/>
+        <field name="assetIssuanceId" type="id"/>
+        <field name="assetReceiptId" type="id"/>
+        <field name="shipmentId" type="id"><description>For physical items the assetIssuanceId can be used
+            to find the Shipment but for adjustments and such, possibly prorated for a particular Shipment, this is
+            the way to find it.</description></field>
+        <field name="quantity" type="number-decimal"/>
+        <field name="amount" type="currency-amount"/>
+        <relationship type="one" related-entity-name="mantle.order.OrderItem" short-alias="orderItem">
+            <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem">
+            <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.product.receipt.AssetReceipt" short-alias="receipt"/>
+        <relationship type="one" related-entity-name="mantle.product.issuance.AssetIssuance" short-alias="issuance"/>
+        <relationship type="one" related-entity-name="mantle.shipment.Shipment" short-alias="shipment"/>
+    </entity>
+    <entity entity-name="OrderNote" package-name="mantle.order">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="noteDate" type="date-time" is-pk="true" default="ec.user.nowTimestamp"/>
+        <field name="noteText" type="text-very-long" enable-audit-log="true"/>
+        <field name="internalNote" type="text-indicator"/>
+        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
+        <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
+    </entity>
+    <entity entity-name="OrderPart" package-name="mantle.order" short-alias="orderParts">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="orderPartSeqId" type="id" is-pk="true"/>
+        <field name="parentPartSeqId" type="id"/>
+        <field name="partName" type="text-medium"/>
+        <field name="statusId" type="id" enable-audit-log="true"/>
+
+        <field name="vendorPartyId" type="id"><description>The vendor (seller) of the items in the order part.</description></field>
+        <field name="customerPartyId" type="id"><description>The customer (buyer) of the items in the order part.</description></field>
+        <field name="otherPartyOrderId" type="text-short"/>
+        <!-- Planning to remove these, use OrderPartParty for all parties other than vendor and customer:
+        <field name="vendorAgentPartyId" type="id"><description>The agent (sales representative) of the vendor of the items in the group.</description></field>
+        <field name="customerAgentPartyId" type="id"><description>The customer agent who placed the order.</description></field>
+        <field name="shipToPartyId" type="id"><description>The customer to ship the order to.</description></field>
+        -->
+
+        <field name="facilityId" type="id"><description>The Facility to fulfill the order from (if null look up from
+            ProductStore), or for purchase orders the Facility the order will be shipped to.</description></field>
+
+        <field name="carrierPartyId" type="id" enable-audit-log="true"/>
+        <field name="shipmentMethodEnumId" type="id" enable-audit-log="true"/>
+
+        <field name="postalContactMechId" type="id"/>
+        <field name="telecomContactMechId" type="id"/>
+        <field name="trackingNumber" type="text-short"/>
+        <field name="shippingInstructions" type="text-medium"/>
+        <field name="maySplit" type="text-indicator"/>
+        <field name="giftMessage" type="text-medium"/>
+        <field name="isGift" type="text-indicator"/>
+
+        <field name="partTotal" type="currency-amount"/>
+
+        <field name="shipAfterDate" type="date-time"/>
+        <field name="shipBeforeDate" type="date-time"/>
+        <field name="estimatedShipDate" type="date-time"/>
+        <field name="estimatedDeliveryDate" type="date-time"/>
+        <field name="estimatedPickUpDate" type="date-time"/>
+
+        <field name="validFromDate" type="date-time"/>
+        <field name="validThruDate" type="date-time"/>
+
+        <field name="autoCancelDate" type="date-time"/>
+        <field name="dontCancelSetDate" type="date-time"/>
+        <field name="dontCancelSetUserId" type="id-long"/>
+
+        <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
+        <relationship type="one" title="Parent" related-entity-name="mantle.order.OrderPart">
+            <key-map field-name="orderId"/>
+            <key-map field-name="parentPartSeqId" related-field-name="orderPartSeqId"/>
+        </relationship>
+        <!-- has title OrderHeader to use same statuses as OrderHeader -->
+        <relationship type="one" title="OrderHeader" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
+
+        <relationship type="one" title="Vendor" related-entity-name="mantle.party.Party" short-alias="vendor">
+            <key-map field-name="vendorPartyId"/></relationship>
+        <relationship type="many" title="Vendor" related-entity-name="mantle.party.PartyRole" short-alias="vendorRoles">
+            <key-map field-name="vendorPartyId" related-field-name="partyId"/></relationship>
+        <relationship type="one" title="Customer" related-entity-name="mantle.party.Party" short-alias="customer">
+            <key-map field-name="customerPartyId"/></relationship>
+        <relationship type="many" title="Customer" related-entity-name="mantle.party.PartyRole">
+            <key-map field-name="customerPartyId" related-field-name="partyId"/></relationship>
+
+        <relationship type="one" related-entity-name="Facility" short-alias="facility"/>
+        <relationship type="one" title="Carrier" related-entity-name="mantle.party.Party" short-alias="carrier">
+            <key-map field-name="carrierPartyId"/></relationship>
+        <relationship type="one" title="ShipmentMethod" related-entity-name="moqui.basic.Enumeration" short-alias="shipmentMethod">
+            <key-map field-name="shipmentMethodEnumId"/></relationship>
+        <relationship type="one" title="Postal" related-entity-name="mantle.party.contact.ContactMech" short-alias="postal">
+            <key-map field-name="postalContactMechId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.party.contact.PostalAddress">
+            <key-map field-name="postalContactMechId"/></relationship>
+        <relationship type="one" title="Telecom" related-entity-name="mantle.party.contact.ContactMech" short-alias="telecom">
+            <key-map field-name="telecomContactMechId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.party.contact.TelecomNumber">
+            <key-map field-name="telecomContactMechId"/></relationship>
+
+        <relationship type="many" related-entity-name="mantle.order.OrderItem" short-alias="items">
+            <key-map field-name="orderId"/><key-map field-name="orderPartSeqId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.order.OrderPartParty" short-alias="parties">
+            <key-map field-name="orderId"/><key-map field-name="orderPartSeqId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.order.OrderPartContactMech" short-alias="contactMechs">
+            <key-map field-name="orderId"/><key-map field-name="orderPartSeqId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.order.OrderPartTerm" short-alias="terms">
+            <key-map field-name="orderId"/><key-map field-name="orderPartSeqId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.account.payment.Payment" short-alias="payments">
+            <key-map field-name="orderId"/><key-map field-name="orderPartSeqId"/></relationship>
+
+        <index name="ORDPTOPTY_ID_IDX"><index-field name="otherPartyOrderId"/></index>
+    </entity>
+    <entity entity-name="OrderPartParty" package-name="mantle.order">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="orderPartSeqId" type="id" is-pk="true"/>
+        <field name="partyId" type="id" is-pk="true"/>
+        <field name="roleTypeId" type="id" is-pk="true"/>
+        <relationship type="one" related-entity-name="mantle.order.OrderPart"/>
+        <relationship type="one" related-entity-name="mantle.party.Party" short-alias="party"/>
+        <relationship type="one-nofk" related-entity-name="mantle.party.Person" short-alias="person"/>
+        <relationship type="one-nofk" related-entity-name="mantle.party.Organization" short-alias="organization"/>
+        <relationship type="one" related-entity-name="mantle.party.RoleType" short-alias="roleType"/>
+    </entity>
+    <entity entity-name="OrderPartContactMech" package-name="mantle.order">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="orderPartSeqId" type="id" is-pk="true"/>
+        <field name="contactMechPurposeId" type="id" is-pk="true"/>
+        <field name="contactMechId" type="id" is-pk="true"/>
+        <relationship type="one" related-entity-name="mantle.order.OrderPart"/>
+        <relationship type="one" related-entity-name="mantle.party.contact.ContactMechPurpose" short-alias="purpose"/>
+        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech" short-alias="contactMech"/>
+        <relationship type="one-nofk" related-entity-name="mantle.party.contact.TelecomNumber" short-alias="telecomNumber"/>
+        <relationship type="one-nofk" related-entity-name="mantle.party.contact.PostalAddress" short-alias="postalAddress"/>
+    </entity>
+    <entity entity-name="OrderPartTerm" package-name="mantle.order">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="orderPartSeqId" type="id" is-pk="true"/>
+        <field name="settlementTermId" type="id" is-pk="true"/>
+        <relationship type="one" related-entity-name="mantle.order.OrderPart"/>
+        <relationship type="one" related-entity-name="SettlementTerm" short-alias="term"/>
+    </entity>
+    <entity entity-name="OrderItemWorkEffort" package-name="mantle.order">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="orderItemSeqId" type="id" is-pk="true"/>
+        <field name="workEffortId" type="id" is-pk="true"/>
+        <relationship type="one" related-entity-name="mantle.order.OrderItem"/>
+        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
+    </entity>
+
+    <!-- ========================================================= -->
+    <!-- mantle.order.return -->
+    <!-- ========================================================= -->
+
+    <entity entity-name="ReturnContactMech" package-name="mantle.order.return">
+        <field name="returnId" type="id" is-pk="true"/>
+        <field name="contactMechPurposeId" type="id" is-pk="true"/>
+        <field name="contactMechId" type="id" is-pk="true"/>
+        <relationship type="one" related-entity-name="mantle.order.return.ReturnHeader"/>
+        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech"/>
+        <relationship type="one" related-entity-name="mantle.party.contact.ContactMechPurpose"/>
+    </entity>
+    <entity entity-name="ReturnHeader" package-name="mantle.order.return" short-alias="returns">
+        <field name="returnId" type="id" is-pk="true"/>
+        <field name="statusId" type="id" enable-audit-log="true"/>
+        <field name="customerPartyId" type="id"/>
+        <field name="vendorPartyId" type="id"/>
+        <field name="paymentMethodId" type="id"><description>Customer PaymentMethod to refund to, override original</description></field>
+        <field name="finAccountId" type="id"/>
+        <!-- maybe support later: <field name="billingAccountId" type="id"/> -->
+        <field name="entryDate" type="date-time"/>
+        <field name="postalContactMechId" type="id"><description>If customer is internal org is shipment destination, otherwise is origin</description></field>
+        <field name="telecomContactMechId" type="id"><description>If customer is internal org is shipment destination, otherwise is origin</description></field>
+        <field name="facilityId" type="id"><description>If customer is internal org is shipment origin, otherwise is destination</description></field>
+        <field name="shipmentMethodEnumId" type="id"><description>Only needed for generating a return label, can also be specified on return shipment</description></field>
+        <field name="carrierPartyId" type="id"><description>Only needed for generating a return label, can also be specified on return shipment</description></field>
+        <field name="currencyUomId" type="id"/>
+        <field name="supplierRmaId" type="text-short"/>
+        <field name="visitId" type="id"/>
+
+        <relationship type="one" title="Return" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="Customer" related-entity-name="mantle.party.Party" short-alias="customer">
+            <key-map field-name="customerPartyId"/></relationship>
+        <relationship type="one" title="Vendor" related-entity-name="mantle.party.Party" short-alias="vendor">
+            <key-map field-name="vendorPartyId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.account.financial.FinancialAccount"/>
+        <relationship type="one" related-entity-name="mantle.account.method.PaymentMethod"/>
+        <relationship type="one" title="Postal" related-entity-name="mantle.party.contact.ContactMech" short-alias="postal">
+            <key-map field-name="postalContactMechId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.party.contact.PostalAddress">
+            <key-map field-name="postalContactMechId"/></relationship>
+        <relationship type="one" title="Telecom" related-entity-name="mantle.party.contact.ContactMech" short-alias="telecom">
+            <key-map field-name="telecomContactMechId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one" title="ShipmentMethod" related-entity-name="moqui.basic.Enumeration" short-alias="shipmentMethod">
+            <key-map field-name="shipmentMethodEnumId"/></relationship>
+        <relationship type="one" title="Carrier" related-entity-name="mantle.party.Party" short-alias="carrier">
+            <key-map field-name="carrierPartyId"/></relationship>
+        <relationship type="one" title="Currency" related-entity-name="moqui.basic.Uom" short-alias="currencyUom">
+            <key-map field-name="currencyUomId"/></relationship>
+        <relationship type="one" related-entity-name="moqui.server.Visit" short-alias="visit"/>
+
+        <relationship type="many" related-entity-name="mantle.order.return.ReturnItem" short-alias="items">
+            <key-map field-name="returnId"/></relationship>
+
+        <seed-data>
+            <!-- Return Header and Item Status -->
+            <moqui.basic.StatusType description="Return Header and Item Status" statusTypeId="Return"/>
+            <moqui.basic.StatusItem description="Created" sequenceNum="0" statusId="ReturnCreated" statusTypeId="Return"/>
+            <moqui.basic.StatusItem description="Requested" sequenceNum="1" statusId="ReturnRequested" statusTypeId="Return"/>
+            <moqui.basic.StatusItem description="Approved" sequenceNum="2" statusId="ReturnApproved" statusTypeId="Return"/>
+            <moqui.basic.StatusItem description="Shipped" sequenceNum="3" statusId="ReturnShipped" statusTypeId="Return"/>
+            <moqui.basic.StatusItem description="Received" sequenceNum="4" statusId="ReturnReceived" statusTypeId="Return"/>
+            <moqui.basic.StatusItem description="Completed" sequenceNum="10" statusId="ReturnCompleted" statusTypeId="Return"/>
+            <moqui.basic.StatusItem description="Manual Response Required" sequenceNum="11" statusId="ReturnManResp" statusTypeId="Return"/>
+            <moqui.basic.StatusItem description="Cancelled" sequenceNum="99" statusId="ReturnCancelled" statusTypeId="Return"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnCreated" toStatusId="ReturnRequested" transitionName="Request"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnCreated" toStatusId="ReturnApproved" transitionName="Approve"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnRequested" toStatusId="ReturnApproved" transitionName="Approve"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnRequested" toStatusId="ReturnCancelled" transitionName="Cancel"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnApproved" toStatusId="ReturnReceived" transitionName="Receive"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnApproved" toStatusId="ReturnShipped" transitionName="Ship"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnApproved" toStatusId="ReturnCancelled" transitionName="Cancel"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnShipped" toStatusId="ReturnReceived" transitionName="Receive"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnShipped" toStatusId="ReturnCompleted" transitionName="Complete"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnShipped" toStatusId="ReturnCancelled" transitionName="Cancel"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnReceived" toStatusId="ReturnCompleted" transitionName="Complete"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnReceived" toStatusId="ReturnCancelled" transitionName="Cancel"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnReceived" toStatusId="ReturnManResp" transitionName="Manual Response"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnManResp" toStatusId="ReturnCompleted" transitionName="Complete"/>
+        </seed-data>
+        <master>
+            <detail relationship="status"/>
+            <!-- TODO: add status history using EntityAuditLog -->
+            <detail relationship="vendor" use-master="basic"/>
+            <detail relationship="customer" use-master="basic"/>
+            <detail relationship="carrier" use-master="basic"/>
+            <detail relationship="shipmentMethod"/>
+            <detail relationship="postal" use-master="default"/>
+            <detail relationship="telecom" use-master="default"/>
+            <detail relationship="currencyUom"/>
+            <detail relationship="visit"/>
+            <!-- TODO <detail relationship="contents"><detail relationship="type"/></detail> -->
+
+            <detail relationship="items">
+                <detail relationship="reason"/>
+                <detail relationship="response"/>
+                <detail relationship="itemType"/>
+                <detail relationship="status"/>
+                <detail relationship="product"/>
+                <detail relationship="orderItem"/>
+
+                <detail relationship="issuances"/>
+                <detail relationship="receipts"/>
+                <detail relationship="shipmentSources"/>
+                <detail relationship="billings"/>
+            </detail>
+        </master>
+    </entity>
+    <entity entity-name="ReturnItem" package-name="mantle.order.return" short-alias="returnItems">
+        <field name="returnId" type="id" is-pk="true"/>
+        <field name="returnItemSeqId" type="id" is-pk="true"/>
+        <field name="returnReasonEnumId" type="id" enable-audit-log="true"/>
+        <field name="returnResponseEnumId" type="id" enable-audit-log="true"/>
+        <field name="responseImmediate" type="text-indicator"><description>Process response immediately (Y) or wait for returned inventory (N)</description></field>
+        <field name="itemTypeEnumId" type="id"/>
+        <field name="productId" type="id"/>
+        <field name="description" type="text-medium"/>
+        <field name="orderId" type="id"/>
+        <field name="orderItemSeqId" type="id"/>
+        <field name="statusId" type="id" enable-audit-log="true"/>
+        <field name="inventoryStatusId" type="id"><description>If specified the status of received inventory (for resell, damaged, etc)</description></field>
+        <field name="returnQuantity" type="number-decimal" enable-audit-log="true">
+            <description>Quantity promised by customer</description></field>
+        <field name="receivedQuantity" type="number-decimal" enable-audit-log="true">
+            <description>Quantity actually received from customer</description></field>
+        <field name="returnPrice" type="currency-amount" enable-audit-log="true"/>
+        <field name="responseAmount" type="currency-amount"><description>Manually set before response processes to use
+            the given amount, otherwise calculated from received/return quantity OrderItem.unitAmount</description></field>
+        <!-- Response Detail Fields -->
+        <field name="responseDate" type="date-time"/>
+        <field name="replacementOrderId" type="id"/>
+        <field name="finAccountTransId" type="id"/>
+        <field name="refundPaymentId" type="id"/>
+
+        <!-- doesn't make sense, may be multiple payments: <field name="originalPaymentId" type="id"/> -->
+        <!-- maybe future: <field name="billingAccountId" type="id"/> -->
+
+        <relationship type="one" related-entity-name="mantle.order.return.ReturnHeader">
+            <key-map field-name="returnId"/></relationship>
+        <relationship type="one" title="ReturnReason" related-entity-name="moqui.basic.Enumeration" short-alias="reason">
+            <key-map field-name="returnReasonEnumId"/></relationship>
+        <relationship type="one" title="ReturnResponse" related-entity-name="moqui.basic.Enumeration" short-alias="response">
+            <key-map field-name="returnResponseEnumId"/></relationship>
+        <relationship type="one" title="ItemType" related-entity-name="moqui.basic.Enumeration" short-alias="itemType">
+            <key-map field-name="itemTypeEnumId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.order.OrderItem" short-alias="orderItem"/>
+        <relationship type="one" title="Return" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="Asset" related-entity-name="moqui.basic.StatusItem">
+            <key-map field-name="inventoryStatusId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.product.Product" short-alias="product"/>
+
+        <relationship type="one" title="Replacement" related-entity-name="mantle.order.OrderHeader">
+            <key-map field-name="replacementOrderId"/></relationship>
+        <relationship type="one" related-entity-name="mantle.account.financial.FinancialAccountTrans"/>
+        <relationship type="one" title="Refund" related-entity-name="mantle.account.payment.Payment">
+            <key-map field-name="refundPaymentId"/></relationship>
+
+        <relationship type="many" related-entity-name="mantle.product.issuance.AssetIssuance" short-alias="issuances">
+            <key-map field-name="returnId"/><key-map field-name="returnItemSeqId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.product.receipt.AssetReceipt" short-alias="receipts">
+            <key-map field-name="returnId"/><key-map field-name="returnItemSeqId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.shipment.ShipmentItemSource" short-alias="shipmentSources">
+            <key-map field-name="returnId"/><key-map field-name="returnItemSeqId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.order.return.ReturnItemBilling" short-alias="billings">
+            <key-map field-name="returnId"/><key-map field-name="returnItemSeqId"/></relationship>
+
+        <index name="RTN_ITM_BYORDITM"><index-field name="orderId"/><index-field name="orderItemSeqId"/></index>
+
+        <seed-data>
+            <!-- Return Reason -->
+            <moqui.basic.EnumerationType description="Return Reason" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration enumId="RrsnDidNotWant" description="Did Not Want" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration enumId="RrsnDefective" description="Defective" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration enumId="RrsnMisShip" description="Mis-Shipped" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration enumId="RrsnCodPmtRejected" description="COD Payment Rejected" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration enumId="RrsnSizeExchange" description="Size Exchange" enumTypeId="ReturnReason"/>
+
+            <!-- Return Response -->
+            <moqui.basic.EnumerationType description="Return Response" enumTypeId="ReturnResponse"/>
+            <moqui.basic.Enumeration enumId="RrspCredit" description="Credit" enumTypeId="ReturnResponse"/>
+            <moqui.basic.Enumeration enumId="RrspRefund" description="Refund" enumTypeId="ReturnResponse"/>
+            <moqui.basic.Enumeration enumId="RrspReplace" description="Replace" enumTypeId="ReturnResponse"/>
+            <moqui.basic.Enumeration enumId="RrspManual" description="Manual" enumTypeId="ReturnResponse"/>
+        </seed-data>
+    </entity>
+    <entity entity-name="ReturnItemBilling" package-name="mantle.order.return">
+        <field name="returnId" type="id" is-pk="true"/>
+        <field name="returnItemSeqId" type="id" is-pk="true"/>
+        <field name="invoiceId" type="id" is-pk="true"/>
+        <field name="invoiceItemSeqId" type="id" is-pk="true"/>
+        <field name="assetReceiptId" type="id"/>
+        <field name="quantity" type="number-decimal"/>
+        <field name="amount" type="currency-amount"/>
+        <relationship type="one" related-entity-name="mantle.order.return.ReturnItem"/>
+        <relationship type="one" related-entity-name="mantle.account.invoice.InvoiceItem"/>
+        <relationship type="one" related-entity-name="mantle.product.receipt.AssetReceipt"/>
+    </entity>
+</entities>

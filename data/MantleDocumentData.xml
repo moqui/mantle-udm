@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This software is in the public domain under CC0 1.0 Universal plus a 
+Grant of Patent License.
+
+To the extent possible under law, the author(s) have dedicated all
+copyright and related and neighboring rights to this software to the
+public domain worldwide. This software is distributed without any
+warranty.
+
+You should have received a copy of the CC0 Public Domain Dedication
+along with this software (see the LICENSE.md file). If not, see
+<http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<entity-facade-xml type="seed">
+    <!-- NOTE: these documents are meant for cloning; they have no DataFeed/DataFeedDocument records to trigger search
+         indexing or anything else, so don't do anything unless used explicitly -->
+
+    <!-- ========== Party ========== -->
+    <dataDocuments dataDocumentId="MantleParty" indexName="mantle" documentName="Party"
+            primaryEntityName="mantle.party.Party" documentTitle="PartyNameTemplate">
+        <fields fieldPath="partyId"/>
+        <fields fieldPath="pseudoId"/>
+    
+        <fields fieldPath="partyTypeEnumId"/>
+        <fields fieldPath="type:description" fieldNameAlias="type"/>
+    
+        <fields fieldPath="organization:organizationName"/>
+        <fields fieldPath="person:firstName"/>
+        <fields fieldPath="person:lastName"/>
+    
+        <fields fieldPath="roles:roleTypeId"/>
+        <fields fieldPath="roles:role:description" fieldNameAlias="role"/>
+    
+        <fields fieldPath="identifications:idValue"/>
+    
+        <fields fieldPath="contactMechs:postalAddress:address1"/>
+        <fields fieldPath="contactMechs:postalAddress:city"/>
+        <fields fieldPath="contactMechs:postalAddress:postalCode"/>
+        <fields fieldPath="contactMechs:postalAddress:stateProvinceGeo:geoName" fieldNameAlias="state"/>
+    </dataDocuments>
+
+    <!-- ========== Product ========== -->
+    <dataDocuments dataDocumentId="MantleProduct" indexName="mantle" documentName="Product"
+            primaryEntityName="mantle.product.Product" documentTitle="ProductNameTemplate">
+        <fields fieldPath="productId"/>
+        <fields fieldPath="pseudoId"/>
+        <fields fieldPath="productName" fieldNameAlias="name"/>
+        <fields fieldPath="description"/>
+        <fields fieldPath="salesIntroductionDate"/>
+        <fields fieldPath="salesDiscontinuationDate"/>
+        <fields fieldPath="supportDiscontinuationDate"/>
+    
+        <fields fieldPath="productTypeEnumId"/>
+        <fields fieldPath="type:description" fieldNameAlias="type"/>
+        <fields fieldPath="productClassEnumId"/>
+        <fields fieldPath="class:description" fieldNameAlias="class"/>
+        <fields fieldPath="assetTypeEnumId"/>
+        <fields fieldPath="assetType:description" fieldNameAlias="assetType"/>
+        <fields fieldPath="assetClassEnumId"/>
+        <fields fieldPath="assetClass:description" fieldNameAlias="assetClass"/>
+    
+        <fields fieldPath="amountFixed"/>
+        <fields fieldPath="amountUomId"/>
+        <fields fieldPath="amountUom:description" fieldNameAlias="amountUom"/>
+    
+        <fields fieldPath="categories:productCategoryId"/>
+        <!-- TODO: way to automatically filter by from/thru dates without requiring them (make sure condition generated allows nulls...)? -->
+        <fields fieldPath="categories:fromDate" fieldNameAlias="categoryFromDate"/>
+        <fields fieldPath="categories:thruDate" fieldNameAlias="categoryThruDate"/>
+        <fields fieldPath="categories:category:categoryName" fieldNameAlias="category"/>
+        <fields fieldPath="categories:category:pseudoId" fieldNameAlias="categoryPseudoId"/>
+        <fields fieldPath="categories:category:productCategoryTypeEnumId"/>
+        <fields fieldPath="categories:stores:productStoreId"/>
+    
+        <fields fieldPath="features:productFeatureId"/>
+        <fields fieldPath="features:fromDate" fieldNameAlias="featureFromDate"/>
+        <fields fieldPath="features:thruDate" fieldNameAlias="featureThruDate"/>
+        <fields fieldPath="features:applTypeEnumId"/>
+        <fields fieldPath="features:feature:description" fieldNameAlias="feature"/>
+    
+        <fields fieldPath="dimensions:dimensionTypeId"/>
+        <fields fieldPath="dimensions:type:description" fieldNameAlias="dimensionTypeDescription"/>
+        <fields fieldPath="dimensions:value" fieldNameAlias="dimensionValue"/>
+        <fields fieldPath="dimensions:valueUomId" fieldNameAlias="dimensionUomId"/>
+        <fields fieldPath="dimensions:valueUom:description" fieldNameAlias="dimensionUomDescription"/>
+    
+        <fields fieldPath="identifications:idValue"/>
+        <fields fieldPath="identifications:productIdTypeEnumId"/>
+    
+        <fields fieldPath="prices:price"/>
+        <fields fieldPath="prices:productStoreId" fieldNameAlias="priceProductStoreId"/>
+        <fields fieldPath="prices:priceTypeEnumId"/>
+        <fields fieldPath="prices:pricePurposeEnumId"/>
+        <fields fieldPath="prices:fromDate" fieldNameAlias="priceFromDate"/>
+        <fields fieldPath="prices:thruDate" fieldNameAlias="priceThruDate"/>
+        <fields fieldPath="prices:priceUomId"/>
+    
+        <fields fieldPath="assocs:toProductId" fieldNameAlias="assocToId"/>
+        <fields fieldPath="assocs:productAssocTypeEnumId"/>
+        <fields fieldPath="assocs:type:description" fieldNameAlias="assocType"/>
+        <fields fieldPath="toAssocs:productId" fieldNameAlias="assocFromId"/>
+        <fields fieldPath="toAssocs:productAssocTypeEnumId" fieldNameAlias="toProductAssocTypeEnumId"/>
+        <fields fieldPath="toAssocs:type:description" fieldNameAlias="assocTypeTo"/>
+    </dataDocuments>
+
+    <!-- ========== Facility ========== -->
+    <dataDocuments dataDocumentId="MantleFacility" indexName="mantle" documentName="Facility"
+            primaryEntityName="mantle.facility.Facility" documentTitle="FacilityNameTemplate">
+        <fields fieldPath="facilityId"/>
+        <fields fieldPath="pseudoId"/>
+        <fields fieldPath="facilityName" fieldNameAlias="name"/>
+        <fields fieldPath="description"/>
+    
+        <fields fieldPath="facilityTypeEnumId"/>
+        <fields fieldPath="type:description" fieldNameAlias="type"/>
+        <fields fieldPath="status:description" fieldNameAlias="status"/>
+        <fields fieldPath="ownerOrganization:organizationName" fieldNameAlias="ownerName"/>
+    
+        <fields fieldPath="contactMechs:postalAddress:contactMechId"/>
+        <fields fieldPath="contactMechs:postalAddress:address1"/>
+        <fields fieldPath="contactMechs:postalAddress:city"/>
+        <fields fieldPath="contactMechs:postalAddress:postalCode"/>
+        <fields fieldPath="contactMechs:postalAddress:stateProvinceGeo:geoName" fieldNameAlias="state"/>
+    </dataDocuments>
+</entity-facade-xml>
