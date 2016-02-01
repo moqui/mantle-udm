@@ -1020,7 +1020,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderId" type="id"/>
         <field name="orderItemSeqId" type="id"/>
         <field name="productId" type="id"/>
-        <field name="externalSubscriptionId" type="id"/>
+        <field name="externalSubscriptionId" type="text-short"/>
+        <field name="resourceInstanceId" type="text-short"><description>For example: with tenant resources this is the tenantId.</description></field>
         <field name="description" type="text-medium"/>
 
         <field name="fromDate" type="date-time"/>
@@ -1085,6 +1086,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="revokeAccessServiceName" type="text-medium">
             <description>Service called when inactive subscription goes past revokeAccessTime. Must implement the
                 mantle.product.SubscriptionServices.revoke#SubscriptionResourceAccess service interface.</description></field>
+        <field name="restoreAccessServiceName" type="text-medium">
+            <description>Service called when inactive subscription goes past revokeAccessTime. Must implement the
+                mantle.product.SubscriptionServices.restore#SubscriptionResourceAccess service interface.</description></field>
         <field name="destroyTime" type="number-integer"/>
         <field name="destroyTimeUomId" type="id"/>
         <field name="destroyServiceName" type="text-medium">
