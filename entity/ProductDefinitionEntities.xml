@@ -1021,7 +1021,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderItemSeqId" type="id"/>
         <field name="productId" type="id"/>
         <field name="externalSubscriptionId" type="text-short"/>
-        <field name="resourceInstanceId" type="text-short"><description>For example: with tenant resources this is the tenantId.</description></field>
+        <field name="resourceInstanceId" type="text-short"><description>ID of an instance of a resource, like a serial
+            number. For example: with tenant resources this is the tenantId.</description></field>
         <field name="description" type="text-medium"/>
 
         <field name="fromDate" type="date-time"/>
@@ -1081,13 +1082,17 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="initServiceName" type="text-medium">
             <description>Service called when a new subscription to a resource begins. Must implement the
                 mantle.product.SubscriptionServices.init#SubscriptionResource service interface.</description></field>
+        <field name="renewServiceName" type="text-medium">
+            <description>Service called when an existing subscription is renewed. Can be empty or do nothing, using
+                revoke after expire instead. Must implement the mantle.product.SubscriptionServices.renew#SubscriptionResource
+                service interface.</description></field>
         <field name="revokeAccessTime" type="number-integer"/>
         <field name="revokeAccessTimeUomId" type="id"/>
         <field name="revokeAccessServiceName" type="text-medium">
             <description>Service called when inactive subscription goes past revokeAccessTime. Must implement the
                 mantle.product.SubscriptionServices.revoke#SubscriptionResourceAccess service interface.</description></field>
         <field name="restoreAccessServiceName" type="text-medium">
-            <description>Service called when inactive subscription goes past revokeAccessTime. Must implement the
+            <description>Service called on special events (manual or otherwise) to resore access. Must implement the
                 mantle.product.SubscriptionServices.restore#SubscriptionResourceAccess service interface.</description></field>
         <field name="destroyTime" type="number-integer"/>
         <field name="destroyTimeUomId" type="id"/>
