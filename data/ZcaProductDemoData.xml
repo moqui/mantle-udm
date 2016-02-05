@@ -189,8 +189,10 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- NOTE: could move this to seed data, is used to configure services provided with Mantle -->
     <mantle.product.subscription.SubscriptionResource subscriptionResourceId="TENANT" description="Tenant System Access"
             initServiceName="mantle.product.TenantSubscriptionServices.init#Tenant"
+            renewServiceName=""
             revokeAccessTime="7" revokeAccessTimeUomId="TF_day"
             revokeAccessServiceName="mantle.product.TenantSubscriptionServices.revoke#TenantAccess"
+            restoreAccessServiceName="mantle.product.TenantSubscriptionServices.restore#TenantAccess"
             destroyTime="90" destroyTimeUomId="TF_day"
             destroyServiceName="mantle.product.TenantSubscriptionServices.destroy#Tenant"/>
     <mantle.product.subscription.ProductSubscriptionResource productId="DEMO_TNT" subscriptionResourceId="TENANT"
