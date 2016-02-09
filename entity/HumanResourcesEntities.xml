@@ -759,7 +759,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="gender" type="text-indicator"/>
         <field name="experienceMonths" type="number-integer"/>
         <field name="experienceYears" type="number-integer"/>
-        <field name="qualification" type="id-long"/>
+        <field name="qualification" type="text-medium"/>
         <field name="jobLocationFacilityId" type="id"/>
         <field name="skillTypeEnumId" type="id"/>
         <field name="noOfResources" type="number-integer"/>

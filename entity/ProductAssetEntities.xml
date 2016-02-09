@@ -553,7 +553,7 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- <field name="intervalMeterTypeId" type="id"><description>Meter Type for intervalQuantity; if used intervalUomId is generally not used (ie one or the other)</description></field> -->
         <field name="intervalProductMeterId" type="id"/>
         <field name="purchaseOrderId" type="id"/>
-        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related-entity-name="mantle.product.asset.Asset"/>
         <relationship type="one" title="AssetMaintenance" related-entity-name="moqui.basic.StatusItem"/>
         <relationship type="one" title="MaintenanceType" related-entity-name="moqui.basic.Enumeration">
@@ -609,7 +609,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="contentTypeEnumId" type="id"/>
         <field name="contentLocation" type="text-medium"/>
         <field name="description" type="text-long"/>
-        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related-entity-name="mantle.product.maintenance.AssetMaintenance"/>
         <relationship type="one" title="AssetMaintContentType" related-entity-name="moqui.basic.Enumeration">
             <key-map field-name="contentTypeEnumId"/></relationship>
@@ -636,7 +636,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="readingReasonEnumId" type="id"/>
         <field name="assetMaintenanceId" type="id"/>
         <field name="workEffortId" type="id"/>
-        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related-entity-name="mantle.product.asset.Asset"/>
         <relationship type="one" related-entity-name="mantle.product.maintenance.AssetMaintenance"/>
         <relationship type="one" related-entity-name="mantle.product.maintenance.ProductMeterType"/>
@@ -745,7 +745,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="returnId" type="id"/>
         <field name="returnItemSeqId" type="id"/>
         <field name="workEffortId" type="id"/>
-        <field name="receivedByUserId" type="id-long"/>
+        <field name="receivedByUserId" type="id"/>
         <field name="receivedDate" type="date-time"/>
         <field name="itemDescription" type="text-medium"/>
         <field name="quantityAccepted" type="number-decimal"/>

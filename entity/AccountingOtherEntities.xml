@@ -185,7 +185,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="taxAuthorityId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
-        <field name="partyTaxId" type="id-long"/>
+        <field name="partyTaxId" type="text-short"/>
         <field name="isExempt" type="text-indicator"/>
         <field name="isNexus" type="text-indicator">
             <description>If Party has a sufficient presence in the area to have to charge tax set to Y.</description>

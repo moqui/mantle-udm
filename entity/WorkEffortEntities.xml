@@ -37,7 +37,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="WorkEffort" package-name="mantle.work.effort" short-alias="workEfforts">
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="universalId" type="text-medium"/>
-        <field name="sourceReferenceId" type="id-long"/>
+        <field name="sourceReferenceId" type="text-short"/>
         <field name="parentWorkEffortId" type="id"><description>For task/etc breakdown</description></field>
         <field name="rootWorkEffortId" type="id"><description>The root of the tree this is part of (if applicable), like a project</description></field>
 
@@ -50,7 +50,7 @@ along with this software (see the LICENSE.md file). If not, see
             producing inventory this will be used as the Asset.ownerPartyId</description></field>
 
         <field name="statusId" type="id" enable-audit-log="true"/>
-        <field name="statusFlowId" type="id-long"/>
+        <field name="statusFlowId" type="id"/>
         <field name="priority" type="number-integer"/>
         <field name="sendNotificationEmail" type="text-indicator"/>
         <field name="percentComplete" type="number-integer"/>
@@ -382,7 +382,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="contentTypeEnumId" type="id"/>
         <field name="description" type="text-long"/>
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
-        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
         <relationship type="one" title="WorkEffortContentType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="contentTypeEnumId"/></relationship>
@@ -424,7 +424,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="noteDate" type="date-time" is-pk="true" default="ec.user.nowTimestamp"/>
         <field name="noteText" type="text-very-long" enable-audit-log="true"/>
         <field name="internalNote" type="text-indicator"/>
-        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
         <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
     </entity>
@@ -727,7 +727,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="reasonEnumId" type="id"/>
         <field name="productMeterId" type="id"/>
         <field name="assetMaintenanceId" type="id"/>
-        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
 
         <relationship type="one" related-entity-name="mantle.work.measurement.MeasurementType"/>
         <relationship type="one" title="Measurement" related-entity-name="moqui.basic.Uom">
@@ -755,7 +755,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="description" type="text-medium"/>
         <field name="hasValue" type="text-indicator"/>
         <field name="uomTypeEnumId" type="id"/>
-        <field name="enumTypeId" type="id-long"/>
+        <field name="enumTypeId" type="id"/>
         <field name="productMeterTypeId" type="id"/>
 
         <relationship type="one" title="UomType" related-entity-name="moqui.basic.Enumeration">

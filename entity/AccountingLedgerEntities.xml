@@ -806,7 +806,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="finAccountTransId" type="id"/>
         <field name="shipmentId" type="id"/>
         <field name="workEffortId" type="id"/>
-        <field name="theirAcctgTransId" type="id-long"/>
+        <field name="theirAcctgTransId" type="text-short"/>
         <field name="reversedByAcctgTransId" type="id"/>
         <field name="reverseOfAcctgTransId" type="id"/>
 

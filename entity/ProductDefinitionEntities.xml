@@ -258,7 +258,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="thruDate" type="date-time"/>
         <field name="description" type="text-long"/>
         <field name="sequenceNum" type="number-integer"/>
-        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related-entity-name="mantle.product.Product"/>
         <relationship type="one" title="ProductContentType" related-entity-name="moqui.basic.Enumeration">
             <key-map field-name="productContentTypeEnumId"/></relationship>
@@ -355,7 +355,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="ProductIdentification" package-name="mantle.product">
         <field name="productId" type="id" is-pk="true"/>
         <field name="productIdTypeEnumId" type="id" is-pk="true"/>
-        <field name="idValue" type="id-long"/>
+        <field name="idValue" type="text-medium"/>
         <relationship type="one" title="ProductIdentificationType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="productIdTypeEnumId"/></relationship>
         <relationship type="one" related-entity-name="mantle.product.Product"/>
@@ -482,7 +482,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productReviewId" type="id" is-pk="true"/>
         <field name="productStoreId" type="id"/>
         <field name="productId" type="id"/>
-        <field name="userId" type="id-long"/>
+        <field name="userId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="postedAnonymous" type="text-indicator"/>
         <field name="postedDateTime" type="date-time"/>
@@ -830,7 +830,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="defaultAmount" type="currency-amount"/>
         <field name="defaultSequenceNum" type="number-integer"/>
         <field name="abbrev" type="id"/>
-        <field name="idCode" type="id-long"/>
+        <field name="idCode" type="text-short"/>
         <!-- these pallet fields are specific to Packaging Type features, may be a better place for these -->
         <field name="numberPerPallet" type="number-decimal"/>
         <field name="perPalletTier" type="number-decimal"/>

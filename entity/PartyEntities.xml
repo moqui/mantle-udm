@@ -302,7 +302,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="partyContentTypeEnumId" type="id"/>
         <field name="description" type="text-long"/>
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
-        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related-entity-name="mantle.party.Party"/>
         <relationship type="one" title="PartyContentType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyContentTypeEnumId"/></relationship>
@@ -332,7 +332,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="PartyIdentification" package-name="mantle.party">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="partyIdTypeEnumId" type="id" is-pk="true"/>
-        <field name="idValue" type="id-long" encrypt="true"/>
+        <field name="idValue" type="text-medium" encrypt="true"/>
         <field name="issuedBy" type="text-medium"/>
         <field name="issuedByPartyId" type="id"/>
         <field name="expireDate" type="date"/>
@@ -363,7 +363,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="noteDate" type="date-time" is-pk="true" default="ec.user.nowTimestamp"/>
         <field name="noteText" type="text-very-long" enable-audit-log="true"/>
         <field name="internalNote" type="text-indicator"/>
-        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related-entity-name="mantle.party.Party"/>
         <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
     </entity>
@@ -984,7 +984,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="contentTypeEnumId" type="id"/>
         <field name="description" type="text-long"/>
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
-        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <field name="sequenceNum" type="number-integer"/>
         <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
         <relationship type="one" title="CommunicationContentType" related-entity-name="moqui.basic.Enumeration">
