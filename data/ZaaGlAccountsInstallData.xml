@@ -101,30 +101,30 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccount accountName="EQUIPMENT" description="" glAccountClassEnumId="EQUIPMENT"
         glAccountId="131000000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="130000000" disallowPosting="Y"/>
     <mantle.ledger.account.GlAccount accountName="EQUIPMENT - FURNITURE - FIXTURES" description="" glAccountClassEnumId="EQUIPMENT"
-        glAccountId="131100000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="170000000"/>
+        glAccountId="131100000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="131000000"/>
     <mantle.ledger.account.GlAccount accountName="DATA PROCESSING EQUIPMENT" description="" glAccountClassEnumId="EQUIPMENT"
-        glAccountId="131200000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="170000000"/>
+        glAccountId="131200000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="131000000"/>
     <mantle.ledger.account.GlAccount accountName="DATA PROCESSING SOFTWARE" description="" glAccountClassEnumId="EQUIPMENT"
-        glAccountId="131300000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="170000000"/>
+        glAccountId="131300000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="131000000"/>
     <mantle.ledger.account.GlAccount accountName="VEHICLES" description="" glAccountClassEnumId="EQUIPMENT"
-        glAccountId="131400000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="170000000"/>
+        glAccountId="131400000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="131000000"/>
 
     <!-- 132000 ASSET - LAND AND BUILDING -->
     <!-- previous version change note (after 1.0.1): 16* to 132* -->
     <mantle.ledger.account.GlAccount accountName="LAND AND BUILDING" description="" glAccountClassEnumId="LAND_BUILDING"
         glAccountId="132000000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="130000000" disallowPosting="Y"/>
     <mantle.ledger.account.GlAccount accountName="LAND" description="" glAccountClassEnumId="LAND_BUILDING"
-        glAccountId="132100000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="160000000"/>
+        glAccountId="132100000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="132000000"/>
     <mantle.ledger.account.GlAccount accountName="BUILDING" description="" glAccountClassEnumId="LAND_BUILDING"
-        glAccountId="132200000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="160000000"/>
+        glAccountId="132200000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="132000000"/>
     <mantle.ledger.account.GlAccount accountName="LAND IMPROVEMENTS" description="" glAccountClassEnumId="LAND_BUILDING"
-        glAccountId="132300000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="160000000"/>
+        glAccountId="132300000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="132000000"/>
     <mantle.ledger.account.GlAccount accountName="BUILDING IMPROVEMENTS" description="" glAccountClassEnumId="LAND_BUILDING"
-        glAccountId="132400000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="160000000"/>
+        glAccountId="132400000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="132000000"/>
     <mantle.ledger.account.GlAccount accountName="LEASEHOLD IMPROVEMENTS" description="" glAccountClassEnumId="LAND_BUILDING"
-        glAccountId="132500000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="160000000"/>
+        glAccountId="132500000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="132000000"/>
     <mantle.ledger.account.GlAccount accountName="INVESTMENT REAL ESTATE" description="" glAccountClassEnumId="LAND_BUILDING"
-        glAccountId="132800000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="160000000"/>
+        glAccountId="132800000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="132000000"/>
 
     <!-- 133000 ASSET - INTANGIBLE -->
     <!-- previous version change note (after 1.0.1): 191* to 133* -->
