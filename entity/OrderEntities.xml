@@ -38,7 +38,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="contentLocation" type="text-medium"/>
         <field name="description" type="text-long"/>
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
-        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
         <relationship type="one" title="OrderContentType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="orderContentTypeEnumId"/></relationship>
@@ -58,7 +58,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productStoreId" type="id"/>
         <field name="salesChannelEnumId" type="id"/>
 
-        <field name="terminalId" type="id-long"/>
+        <field name="terminalId" type="text-short"/>
         <field name="externalId" type="text-short"/>
         <field name="externalRevision" type="text-short"/>
         <field name="syncStatusId" type="id"/>
@@ -280,13 +280,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="salesOpportunityId" type="id"/>
 
         <!-- these fields are for sales/VAT/etc tax items -->
-        <field name="sourceReferenceId" type="id-long"/>
+        <field name="sourceReferenceId" type="text-short"/>
         <field name="sourcePercentage" type="number-decimal"><description>For tax entries this is the tax percentage</description></field>
         <field name="amountAlreadyIncluded" type="currency-precise"><description>The amount here is already represented
             in the item price, such as VAT taxes.</description></field>
         <field name="exemptAmount" type="currency-amount"><description>An amount that would normally apply, but not to
             this order; for tax exemption represents the what the tax would have been.</description></field>
-        <field name="customerReferenceId" type="id-long"><description>For tax entries this is partyTaxId</description></field>
+        <field name="customerReferenceId" type="text-short"><description>For tax entries this is partyTaxId</description></field>
         <field name="primaryGeoId" type="id"><description>For tax entries this is the primary jurisdiction Geo (the
             smallest or most local Geo that this tax is for, usually a state/province, perhaps a county or a city)</description></field>
         <field name="secondaryGeoId" type="id"><description>For tax entries this is the secondary jurisdiction Geo
@@ -362,7 +362,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="noteDate" type="date-time" is-pk="true" default="ec.user.nowTimestamp"/>
         <field name="noteText" type="text-very-long" enable-audit-log="true"/>
         <field name="internalNote" type="text-indicator"/>
-        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
         <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
     </entity>
@@ -409,7 +409,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="autoCancelDate" type="date-time"/>
         <field name="dontCancelSetDate" type="date-time"/>
-        <field name="dontCancelSetUserId" type="id-long"/>
+        <field name="dontCancelSetUserId" type="id"/>
 
         <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
         <relationship type="one" title="Parent" related-entity-name="mantle.order.OrderPart">

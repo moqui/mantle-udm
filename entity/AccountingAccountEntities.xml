@@ -180,7 +180,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderId" type="id"/>
         <field name="orderItemSeqId" type="id"><description>To be used along with orderId to point to an OrderItem that
             represents the purchase of a product to add money to the account.</description></field>
-        <field name="performedByUserId" type="id-long"/>
+        <field name="performedByUserId" type="id"/>
         <field name="acctgTransResultEnumId" type="id" create-only="false"/>
         <field name="comments" type="text-medium"/>
         <relationship type="one" title="FinancialAccountTransType" related-entity-name="moqui.basic.Enumeration">
@@ -449,7 +449,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="contentTypeEnumId" type="id"/>
         <field name="description" type="text-long"/>
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
-        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related-entity-name="mantle.account.invoice.Invoice"/>
         <relationship type="one" title="InvoiceContentType" related-entity-name="moqui.basic.Enumeration">
             <key-map field-name="contentTypeEnumId"/></relationship>
@@ -686,7 +686,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="contentTypeEnumId" type="id"/>
         <field name="description" type="text-long"/>
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
-        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related-entity-name="mantle.account.method.PaymentMethod"/>
         <relationship type="one" title="PaymentMethodContentType" related-entity-name="moqui.basic.Enumeration">
             <key-map field-name="contentTypeEnumId"/></relationship>
@@ -893,7 +893,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="GiftCardFulfillment" package-name="mantle.account.method">
         <field name="fulfillmentId" type="id" is-pk="true"/>
         <field name="typeEnumId" type="id"/>
-        <field name="merchantId" type="id-long"/>
+        <field name="merchantId" type="text-medium"/>
         <field name="partyId" type="id"/>
         <field name="orderId" type="id"/>
         <field name="orderItemSeqId" type="id"/>
@@ -1260,7 +1260,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="contentTypeEnumId" type="id"/>
         <field name="description" type="text-long"/>
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
-        <field name="userId" type="id-long" default="ec.user.userId"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related-entity-name="mantle.account.payment.Payment"/>
         <relationship type="one" title="PaymentContentType" related-entity-name="moqui.basic.Enumeration">
             <key-map field-name="contentTypeEnumId"/></relationship>
