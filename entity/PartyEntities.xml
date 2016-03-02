@@ -144,6 +144,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="annualRevenue" type="currency-amount"/>
         <field name="numEmployees" type="number-integer"/>
         <relationship type="one" related-entity-name="mantle.party.Party"/>
+        <relationship type="many" title="Owner" related-entity-name="mantle.facility.Facility" short-alias="ownerFacilities">
+            <key-map field-name="partyId" related-field-name="ownerPartyId"/></relationship>
         <index name="PTY_ORG_NAME_IDX"><index-field name="organizationName"/></index>
     </entity>
     <entity entity-name="Person" package-name="mantle.party">
