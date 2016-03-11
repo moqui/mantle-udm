@@ -671,6 +671,7 @@ along with this software (see the LICENSE.md file). If not, see
                 placed into the error journal.
             </description>
         </field>
+        <field name="glAccountCodeMask" type="text-short"/>
 
         <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
