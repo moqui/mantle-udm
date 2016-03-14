@@ -100,12 +100,12 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.Party partyId="ORG_ZIZI_JD" partyTypeEnumId="PtyPerson"/>
     <mantle.party.Person partyId="ORG_ZIZI_JD" firstName="Joe" middleName="" lastName="Developer"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_JD" roleTypeId="Employee"/>
-    <mantle.party.PartyRole partyId="ORG_ZIZI_JD" roleTypeId="Worker"/>
+    <mantle.party.PartyRole partyId="ORG_ZIZI_JD" roleTypeId="Assignee"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ZIZI_JD_EMP" relationshipTypeEnumId="PrtEmployee"
             fromPartyId="ORG_ZIZI_JD" fromRoleTypeId="Employee" toPartyId="ORG_ZIZI_SERVICES" toRoleTypeId="OrgInternal"
             fromDate="1265184000000"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ZIZI_JD_TM" relationshipTypeEnumId="PrtMember"
-            fromPartyId="ORG_ZIZI_JD" fromRoleTypeId="Worker" toPartyId="ORG_ZIZI_DEVA" toRoleTypeId="OrgTeam"
+            fromPartyId="ORG_ZIZI_JD" fromRoleTypeId="Assignee" toPartyId="ORG_ZIZI_DEVA" toRoleTypeId="OrgTeam"
             fromDate="1265184000000"/>
     <mantle.party.contact.ContactMech contactMechId="ORG_ZIZI_JD_EM" contactMechTypeEnumId="CmtEmailAddress" infoString="joe.developer@test.com"/>
     <mantle.party.contact.PartyContactMech partyId="ORG_ZIZI_JD" contactMechId="ORG_ZIZI_JD_EM"
@@ -118,12 +118,12 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.Party partyId="ORG_ZIZI_BD" partyTypeEnumId="PtyPerson"/>
     <mantle.party.Person partyId="ORG_ZIZI_BD" firstName="Bob" middleName="" lastName="Developer"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_BD" roleTypeId="Employee"/>
-    <mantle.party.PartyRole partyId="ORG_ZIZI_BD" roleTypeId="Worker"/>
+    <mantle.party.PartyRole partyId="ORG_ZIZI_BD" roleTypeId="Assignee"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ZIZI_BD_EMP" relationshipTypeEnumId="PrtEmployee"
             fromPartyId="ORG_ZIZI_BD" fromRoleTypeId="Employee" toPartyId="ORG_ZIZI_SERVICES" toRoleTypeId="OrgInternal"
             fromDate="1265184000000"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ZIZI_BD_TM" relationshipTypeEnumId="PrtMember"
-            fromPartyId="ORG_ZIZI_BD" fromRoleTypeId="Worker" toPartyId="ORG_ZIZI_DEVA" toRoleTypeId="OrgTeam"
+            fromPartyId="ORG_ZIZI_BD" fromRoleTypeId="Assignee" toPartyId="ORG_ZIZI_DEVA" toRoleTypeId="OrgTeam"
             fromDate="1265184000000"/>
     <mantle.party.contact.ContactMech contactMechId="ORG_ZIZI_BD_EM" contactMechTypeEnumId="CmtEmailAddress" infoString="bob.developer@test.com"/>
     <mantle.party.contact.PartyContactMech partyId="ORG_ZIZI_BD" contactMechId="ORG_ZIZI_BD_EM"
@@ -167,12 +167,12 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.Party partyId="ORG_ACME_BA" partyTypeEnumId="PtyPerson"/>
     <mantle.party.Person partyId="ORG_ACME_BA" firstName="Bob" middleName="" lastName="Acme"/>
     <mantle.party.PartyRole partyId="ORG_ACME_BA" roleTypeId="ClientBilling"/>
-    <mantle.party.PartyRole partyId="ORG_ACME_BA" roleTypeId="Worker"/>
+    <mantle.party.PartyRole partyId="ORG_ACME_BA" roleTypeId="Assignee"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ACME_BA_CB" relationshipTypeEnumId="PrtRepresentative"
             fromPartyId="ORG_ACME_BA" fromRoleTypeId="ClientBilling" toPartyId="ORG_ACME" toRoleTypeId="CustomerBillTo"
             fromDate="1265184000000"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ACME_BA_TM" relationshipTypeEnumId="PrtMember"
-            fromPartyId="ORG_ACME_BA" fromRoleTypeId="Worker" toPartyId="ORG_ACME_TM" toRoleTypeId="OrgTeam"
+            fromPartyId="ORG_ACME_BA" fromRoleTypeId="Assignee" toPartyId="ORG_ACME_TM" toRoleTypeId="OrgTeam"
             fromDate="1265184000000"/>
     <mantle.party.contact.ContactMech contactMechId="ORG_ACME_BA_EM" contactMechTypeEnumId="CmtEmailAddress" infoString="bob.acme@test.com"/>
     <mantle.party.contact.PartyContactMech partyId="ORG_ACME_BA" contactMechId="ORG_ACME_BA_EM"
@@ -185,7 +185,7 @@ along with this software (see the LICENSE.md file). If not, see
             fromPartyId="ORG_ACME_SA" fromRoleTypeId="ClientManager" toPartyId="ORG_ACME" toRoleTypeId="CustomerBillTo"
             fromDate="1265184000000"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ACME_SA_TM" relationshipTypeEnumId="PrtMember"
-            fromPartyId="ORG_ACME_SA" fromRoleTypeId="Worker" toPartyId="ORG_ACME_TM" toRoleTypeId="OrgTeam"
+            fromPartyId="ORG_ACME_SA" fromRoleTypeId="Assignee" toPartyId="ORG_ACME_TM" toRoleTypeId="OrgTeam"
             fromDate="1265184000000"/>
     <mantle.party.contact.ContactMech contactMechId="ORG_ACME_SA_EM" contactMechTypeEnumId="CmtEmailAddress" infoString="sheldon.acme@test.com"/>
     <mantle.party.contact.PartyContactMech partyId="ORG_ACME_SA" contactMechId="ORG_ACME_SA_EM"
