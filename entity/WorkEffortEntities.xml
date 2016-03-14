@@ -503,6 +503,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="Assignee"/>
             <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="DefaultAssignee"/>
             <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="Manager"/>
+            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="OrgTeam"/>
 
             <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="BusinessAnalyst"/>
             <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="ExpertUser"/>
