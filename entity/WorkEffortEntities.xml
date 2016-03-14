@@ -164,6 +164,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="To Do" enumId="WepToDo" parentEnumId="WetTask" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="Document" enumId="WepDocument" parentEnumId="WetTask" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="Communication" enumId="WepCommunication" parentEnumId="WetTask" enumTypeId="WorkEffortPurpose"/>
+            <moqui.basic.Enumeration description="Placeholder" enumId="WepPlaceholder" parentEnumId="WetTask" enumTypeId="WorkEffortPurpose"/>
 
             <moqui.basic.Enumeration description="Manufacturing" enumId="WepManufacturing" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="Assembling" enumId="WepAssembling" parentEnumId="WepManufacturing" enumTypeId="WorkEffortPurpose"/>
