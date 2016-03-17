@@ -63,6 +63,7 @@ along with this software (see the LICENSE.md file). If not, see
             primaryEntityName="mantle.request.Request" documentTitle="${name}">
         <fields fieldPath="requestId"/>
         <fields fieldPath="requestName" fieldNameAlias="name"/>
+        <fields fieldPath="description"/>
         <fields fieldPath="status:description" fieldNameAlias="status"/>
         <fields fieldPath="type:description" fieldNameAlias="type"/>
         <fields fieldPath="resolution:description" fieldNameAlias="resolution"/>
