@@ -39,7 +39,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="externalId" type="id"><description>ID of the account in an external system where the accounts
             are imported/exported</description></field>
         <field name="disallowPosting" type="text-indicator"/>
-        <field name="postedBalance" type="currency-amount"/>
 
         <relationship type="one" title="Parent" related-entity-name="mantle.ledger.account.GlAccount">
             <key-map field-name="parentGlAccountId" related-field-name="glAccountId"/></relationship>
@@ -327,7 +326,6 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="GlAccountOrganization" package-name="mantle.ledger.account">
         <field name="glAccountId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
-        <!-- any point in these? <field name="fromDate" type="date-time"/><field name="thruDate" type="date-time"/> -->
         <field name="postedBalance" type="currency-amount"/>
         <relationship type="one" related-entity-name="mantle.ledger.account.GlAccount"/>
         <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
