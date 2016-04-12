@@ -2,6 +2,32 @@
 Mantle Business Artifacts - Universal Data Model Release Notes
 
 ===========================================================================
+Release 1.0.2 - TBD
+===========================================================================
+
+Mantle Universal Data Model 1.0.2 is a minor new feature release.
+
+This release is based on Moqui Framework TODO.
+
+Non Backward Compatible Changes
+
+- Agreement fromPartyId, fromRoleTypeId, toPartyId, toRoleTypeId fields
+  replaced with organization and other (instead of from/to); the Agreement
+  entities are not generally used, but any existing data/code would
+  need to be moved/updated
+
+New Features
+
+- Agreement and Term improvements
+  - Refined TermType enums
+  - Parties on Agreement are now organization and other instead of from/to
+  - Added AgreementTerm termText and termNumber fields
+  - New Settlement types for day of current or next month
+
+Bug Fixes
+
+
+===========================================================================
 Release 1.0.1 - 26 Mar 2016
 ===========================================================================
 

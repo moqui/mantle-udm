@@ -648,6 +648,13 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="ClientBilling"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="OrderClerk"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="SalesRepresentative"/>
+
+            <!-- Agreement Roles -->
+            <moqui.basic.Enumeration description="Agreement Roles" enumId="RgpAgreement" enumTypeId="RoleGroup"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAgreement" roleTypeId="Carrier"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAgreement" roleTypeId="Customer"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAgreement" roleTypeId="Employee"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAgreement" roleTypeId="Supplier"/>
         </seed-data>
     </entity>
 
@@ -660,10 +667,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="agreementTypeEnumId" type="id"/>
         <field name="statusId" type="id"/>
         <field name="agreementDate" type="date-time"/>
-        <field name="fromPartyId" type="id"/>
-        <field name="fromRoleTypeId" type="id"/>
-        <field name="toPartyId" type="id"/>
-        <field name="toRoleTypeId" type="id"/>
+        <field name="organizationPartyId" type="id"/>
+        <field name="organizationRoleTypeId" type="id"/>
+        <field name="otherPartyId" type="id"/>
+        <field name="otherRoleTypeId" type="id"/>
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
         <field name="description" type="text-medium"/>
@@ -671,14 +678,14 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="AgreementType" related-entity-name="moqui.basic.Enumeration">
             <key-map field-name="agreementTypeEnumId"/></relationship>
         <relationship type="one" title="Facility" related-entity-name="moqui.basic.StatusItem"/>
-        <relationship type="one" title="From" related-entity-name="mantle.party.Party">
-            <key-map field-name="fromPartyId"/></relationship>
-        <relationship type="one" title="From" related-entity-name="mantle.party.RoleType">
-            <key-map field-name="fromRoleTypeId"/></relationship>
-        <relationship type="one" title="To" related-entity-name="mantle.party.Party">
-            <key-map field-name="toPartyId"/></relationship>
-        <relationship type="one" title="To" related-entity-name="mantle.party.RoleType">
-            <key-map field-name="toRoleTypeId"/></relationship>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.RoleType">
+            <key-map field-name="organizationRoleTypeId"/></relationship>
+        <relationship type="one" title="Other" related-entity-name="mantle.party.Party">
+            <key-map field-name="otherPartyId"/></relationship>
+        <relationship type="one" title="Other" related-entity-name="mantle.party.RoleType">
+            <key-map field-name="otherRoleTypeId"/></relationship>
         <seed-data>
             <!-- Agreement Type -->
             <moqui.basic.EnumerationType description="Agreement Type" enumTypeId="AgreementType"/>
@@ -722,59 +729,17 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="termTypeEnumId" type="id"/>
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
+        <field name="termText" type="text-long"/>
+        <field name="termNumber" type="number-decimal"/>
         <relationship type="one" related-entity-name="mantle.party.agreement.Agreement"/>
         <relationship type="one-nofk" related-entity-name="mantle.party.agreement.AgreementItem">
             <key-map field-name="agreementId"/>
             <key-map field-name="agreementItemSeqId"/>
         </relationship>
-        <relationship type="one" related-entity-name="SettlementTerm"/>
+        <relationship type="one" related-entity-name="mantle.account.invoice.SettlementTerm"/>
         <relationship type="one" title="TermType" related-entity-name="moqui.basic.Enumeration">
             <key-map field-name="termTypeEnumId"/></relationship>
-        <seed-data>
-            <!-- Term Type -->
-            <moqui.basic.EnumerationType description="Term Type" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Financial" enumId="FINANCIAL_TERM" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Payment (net days)" parentEnumId="FINANCIAL_TERM" enumId="FIN_PAYMENT_TERM" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Payment net days, part 1" parentEnumId="FIN_PAYMENT_TERM" enumId="FIN_PAY_NETDAYS_1" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Payment net days, part 2" parentEnumId="FIN_PAYMENT_TERM" enumId="FIN_PAY_NETDAYS_2" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Payment net days, part 3" parentEnumId="FIN_PAYMENT_TERM" enumId="FIN_PAY_NETDAYS_3" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Payment (discounted if paid within specified days)" parentEnumId="FINANCIAL_TERM" enumId="FIN_PAYMENT_DISC" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Payment (due on specified day of month)" parentEnumId="FINANCIAL_TERM" enumId="FIN_PAYMENT_FIXDAY" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Late Fee (percent)" parentEnumId="FINANCIAL_TERM" enumId="FIN_LATE_FEE_TERM" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Penalty For Collection Agency" parentEnumId="FINANCIAL_TERM" enumId="FIN_COLLECT_TERM" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Non-Returnable Sales Item" parentEnumId="FINANCIAL_TERM" enumId="FIN_NORTN_ITEM_TERM" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incentive" enumId="INCENTIVE" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Legal" enumId="LEGAL_TERM" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Threshold" enumId="THRESHOLD" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Clause For Renewal" enumId="CLAUSE_FOR_RENEWAL" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Agreement Termination" enumId="AGREEMENT_TERMINATIO" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Indemnification" enumId="INDEMNIFICATION" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Non-Compete" enumId="NON_COMPETE" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Exclusive Relationship" enumId="EXCLUSIVE_RELATIONSH" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Commission" enumId="COMMISSION_TERM" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Commission Term Fixed Per Unit" parentEnumId="COMMISSION_TERM" enumId="FIN_COMM_FIXED" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Commission Term Variable" parentEnumId="COMMISSION_TERM" enumId="FIN_COMM_VARIABLE" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Commission Term Minimum Per Unit" parentEnumId="COMMISSION_TERM" enumId="FIN_COMM_MIN" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Commission Term Maximum Per Unit" parentEnumId="COMMISSION_TERM" enumId="FIN_COMM_MAX" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm" enumId="INCO_TERM" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Ex Works" parentEnumId="INCO_TERM" enumId="EXW" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Free Carrier" parentEnumId="INCO_TERM" enumId="FCA" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Free Alongside Ship" parentEnumId="INCO_TERM" enumId="FAS" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Free On Board" parentEnumId="INCO_TERM" enumId="FOB" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Cost and Freight" parentEnumId="INCO_TERM" enumId="CFR" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Cost, Insurance and Freight" parentEnumId="INCO_TERM" enumId="CIF" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Carriage Paid To" parentEnumId="INCO_TERM" enumId="CPT" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Carriage and Insurance Paid to" parentEnumId="INCO_TERM" enumId="CIP" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Delivered At Frontier" parentEnumId="INCO_TERM" enumId="DAF" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Delivered Ex Ship" parentEnumId="INCO_TERM" enumId="DES" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Delivered Ex Quay" parentEnumId="INCO_TERM" enumId="DEQ" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Delivered Duty Unpaid" parentEnumId="INCO_TERM" enumId="DDU" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Delivered Duty Paid" parentEnumId="INCO_TERM" enumId="DDP" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Purchasing" enumId="PURCHASING" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Vendor Customer ID" parentEnumId="PURCHASING" enumId="PURCH_VENDOR_ID" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Preferred Freight" parentEnumId="PURCHASING" enumId="PURCH_FREIGHT" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Other" enumId="OTHER_TERM" enumTypeId="TermType"/>
-        </seed-data>
+        <!-- see the mantle.account.invoice.SettlementTerm entity for TermType enums -->
     </entity>
 
     <entity entity-name="AgreementItem" package-name="mantle.party.agreement">
@@ -1274,7 +1239,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="accessCode" type="text-short"/>
         <field name="telecomContactMechId" type="id"/>
         <field name="emailContactMechId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech" short-alias="contactMech"/>
+        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech"/>
         <relationship type="one" title="City" related-entity-name="moqui.basic.Geo" short-alias="cityGeo">
             <key-map field-name="cityGeoId"/></relationship>
         <relationship type="one" title="SchoolDistrict" related-entity-name="moqui.basic.Geo">
@@ -1303,7 +1268,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="areaCode" type="text-short"/>
         <field name="contactNumber" type="text-short"/>
         <field name="askForName" type="text-medium"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech" short-alias="contactMech"/>
+        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech"/>
         <index name="AREA_CONTACT_IDX"><index-field name="areaCode"/><index-field name="contactNumber"/></index>
     </entity>
 
@@ -1337,7 +1302,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="lengthUomId" type="id"/>
         <relationship type="one" title="TimePeriodPurpose" related-entity-name="moqui.basic.Enumeration" short-alias="purpose">
             <key-map field-name="periodPurposeEnumId"/></relationship>
-        <relationship type="one" title="Length" related-entity-name="moqui.basic.Uom" short-alias="lengthUom">
+        <relationship type="one" title="Length" related-entity-name="moqui.basic.Uom" short-alias="">
             <key-map field-name="lengthUomId" related-field-name="uomId"/></relationship>
         <seed-data>
             <moqui.basic.EnumerationType description="Time Period Purpose" enumTypeId="TimePeriodPurpose"/>

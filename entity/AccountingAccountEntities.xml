@@ -567,12 +567,71 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="TermValue" related-entity-name="moqui.basic.Uom">
             <key-map field-name="termValueUomId"/></relationship>
         <seed-data>
-            <!-- NOTE: this is not an Enumeration because it needs additional fields -->
-            <SettlementTerm settlementTermId="Immediate" description="Immediate (Due on Delivery)" termValue="0" termValueUomId="TF_day"/>
-            <SettlementTerm settlementTermId="Net15" description="Net Due in 15 Days" termValue="15" termValueUomId="TF_day"/>
-            <SettlementTerm settlementTermId="Net30" description="Net Due in 30 Days" termValue="30" termValueUomId="TF_day"/>
-            <SettlementTerm settlementTermId="Net60" description="Net Due in 60 Days" termValue="60" termValueUomId="TF_day"/>
-            <SettlementTerm settlementTermId="Net90" description="Net Due in 90 Days" termValue="90" termValueUomId="TF_day"/>
+            <!-- Term Type; these are used for AgreementTerm as well -->
+            <moqui.basic.EnumerationType description="Term Type" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Financial" enumId="TtFinancial" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Payment (net days)" parentEnumId="TtFinancial" enumId="TtFinPaymentDays" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Payment net days, part 1" parentEnumId="TtFinPaymentDays" enumId="TtFinPaymentDaysPt1" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Payment net days, part 2" parentEnumId="TtFinPaymentDays" enumId="TtFinPaymentDaysPt2" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Payment net days, part 3" parentEnumId="TtFinPaymentDays" enumId="TtFinPaymentDaysPt3" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Payment (discounted if paid within specified days)" parentEnumId="TtFinancial" enumId="TtFinPaymentDisc" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Payment (due on specified day of current month)" parentEnumId="TtFinancial" enumId="TtFinPaymentDayCurMonth" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Payment (due on specified day of next month)" parentEnumId="TtFinancial" enumId="TtFinPaymentDayNextMonth" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Late Fee (percent)" parentEnumId="TtFinancial" enumId="TtFinLateFee" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Penalty For Collection Agency" parentEnumId="TtFinancial" enumId="TtFinCollection" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Non-Returnable Sales Item" parentEnumId="TtFinancial" enumId="TtFinNotReturnable" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incentive" enumId="TtIncentive" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Legal" enumId="TtLegal" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Threshold" enumId="TtThreshold" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Clause For Renewal" enumId="TtClauseForRenewal" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Agreement Termination" enumId="TtAgreementTermination" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Indemnification" enumId="TtIndemnification" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Non-Compete" enumId="TtNonCompete" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Exclusive Relationship" enumId="TtExclusive" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Commission" enumId="TtCommission" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Commission Term Fixed Per Unit" parentEnumId="TtCommission" enumId="TtCommissionFixed" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Commission Term Variable" parentEnumId="TtCommission" enumId="TtCommissionVariable" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Commission Term Minimum Per Unit" parentEnumId="TtCommission" enumId="TtCommissionMin" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Commission Term Maximum Per Unit" parentEnumId="TtCommission" enumId="TtCommissionMax" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm" enumId="TtInco" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Ex Works" parentEnumId="TtInco" enumId="TtEXW" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Free Carrier" parentEnumId="TtInco" enumId="TtFCA" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Free Alongside Ship" parentEnumId="TtInco" enumId="TtFAS" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Free On Board" parentEnumId="TtInco" enumId="TtFOB" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Cost and Freight" parentEnumId="TtInco" enumId="TtCFR" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Cost, Insurance and Freight" parentEnumId="TtInco" enumId="TtCIF" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Carriage Paid To" parentEnumId="TtInco" enumId="TtCPT" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Carriage and Insurance Paid to" parentEnumId="TtInco" enumId="TtCIP" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered At Frontier" parentEnumId="TtInco" enumId="TtDAF" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered Ex Ship" parentEnumId="TtInco" enumId="TtDES" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered Ex Quay" parentEnumId="TtInco" enumId="TtDEQ" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered Duty Unpaid" parentEnumId="TtInco" enumId="TtDDU" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered Duty Paid" parentEnumId="TtInco" enumId="TtDDP" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Purchasing" enumId="TtPurchasing" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Preferred Freight" enumId="TtFreight" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Other" enumId="TtOther" enumTypeId="TermType"/>
+
+            <!-- NOTE: SettlementTerm is not an Enumeration because it needs additional fields -->
+            <mantle.account.invoice.SettlementTerm settlementTermId="Immediate" termTypeEnumId="TtFinPaymentDays"
+                    description="Immediate (Due on Delivery)" termValue="0" termValueUomId="TF_day"/>
+            <mantle.account.invoice.SettlementTerm settlementTermId="Net15" termTypeEnumId="TtFinPaymentDays"
+                    description="Net Due in 15 Days" termValue="15" termValueUomId="TF_day"/>
+            <mantle.account.invoice.SettlementTerm settlementTermId="Net30" termTypeEnumId="TtFinPaymentDays"
+                    description="Net Due in 30 Days" termValue="30" termValueUomId="TF_day"/>
+            <mantle.account.invoice.SettlementTerm settlementTermId="Net60" termTypeEnumId="TtFinPaymentDays"
+                    description="Net Due in 60 Days" termValue="60" termValueUomId="TF_day"/>
+            <mantle.account.invoice.SettlementTerm settlementTermId="Net90" termTypeEnumId="TtFinPaymentDays"
+                    description="Net Due in 90 Days" termValue="90" termValueUomId="TF_day"/>
+            <mantle.account.invoice.SettlementTerm settlementTermId="Net15thCur" termTypeEnumId="TtFinPaymentDayCurMonth"
+                    description="Net Due on 15th of Current Month" termValue="15"/>
+            <mantle.account.invoice.SettlementTerm settlementTermId="NetLastCur" termTypeEnumId="TtFinPaymentDayCurMonth"
+                    description="Net Due on Last Day of Current Month" termValue="31"/>
+            <mantle.account.invoice.SettlementTerm settlementTermId="Net1stNext" termTypeEnumId="TtFinPaymentDayNextMonth"
+                    description="Net Due on 1st of Next Month" termValue="1"/>
+            <mantle.account.invoice.SettlementTerm settlementTermId="Net15thNext" termTypeEnumId="TtFinPaymentDayNextMonth"
+                    description="Net Due on 15th of Next Month" termValue="15"/>
+            <mantle.account.invoice.SettlementTerm settlementTermId="NetLastNext" termTypeEnumId="TtFinPaymentDayNextMonth"
+                    description="Net Due on Last Day of Next Month" termValue="31"/>
         </seed-data>
     </entity>
 
