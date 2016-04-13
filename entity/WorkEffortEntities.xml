@@ -220,6 +220,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeInProgress" toStatusId="WeComplete" transitionName="Complete"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeInProgress" toStatusId="WeCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeComplete" toStatusId="WeClosed" transitionName="Close"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeComplete" toStatusId="WeInProgress" transitionName="Resume"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeOnHold" toStatusId="WeInProgress" transitionName="Resume"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeOnHold" toStatusId="WeCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeClosed" toStatusId="WeInPlanning" transitionName="Re-open"/>
