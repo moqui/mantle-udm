@@ -662,7 +662,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.party.agreement -->
     <!-- ========================================================= -->
 
-    <entity entity-name="Agreement" package-name="mantle.party.agreement">
+    <entity entity-name="Agreement" package-name="mantle.party.agreement" short-alias="agreements">
         <field name="agreementId" type="id" is-pk="true"/>
         <field name="agreementTypeEnumId" type="id"/>
         <field name="statusId" type="id"/>
@@ -675,17 +675,21 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="thruDate" type="date-time"/>
         <field name="description" type="text-medium"/>
         <field name="textData" type="text-very-long"/>
-        <relationship type="one" title="AgreementType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="AgreementType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="agreementTypeEnumId"/></relationship>
-        <relationship type="one" title="Facility" related-entity-name="moqui.basic.StatusItem"/>
-        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+        <relationship type="one" title="Agreement" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party" short-alias="organization">
             <key-map field-name="organizationPartyId"/></relationship>
-        <relationship type="one" title="Organization" related-entity-name="mantle.party.RoleType">
+        <relationship type="one" title="Organization" related-entity-name="mantle.party.RoleType" short-alias="organizationRole">
             <key-map field-name="organizationRoleTypeId"/></relationship>
-        <relationship type="one" title="Other" related-entity-name="mantle.party.Party">
+        <relationship type="one" title="Other" related-entity-name="mantle.party.Party" short-alias="other">
             <key-map field-name="otherPartyId"/></relationship>
-        <relationship type="one" title="Other" related-entity-name="mantle.party.RoleType">
+        <relationship type="one" title="Other" related-entity-name="mantle.party.RoleType" short-alias="otherRole">
             <key-map field-name="otherRoleTypeId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.party.agreement.AgreementTerm" short-alias="terms">
+            <key-map field-name="agreementId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.party.agreement.AgreementItem" short-alias="items">
+            <key-map field-name="agreementId"/></relationship>
         <seed-data>
             <!-- Agreement Type -->
             <moqui.basic.EnumerationType description="Agreement Type" enumTypeId="AgreementType"/>
@@ -754,6 +758,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related-entity-name="mantle.party.agreement.Agreement"/>
         <relationship type="one" title="AgreementItemType" related-entity-name="moqui.basic.Enumeration">
             <key-map field-name="agreementItemTypeEnumId"/></relationship>
+        <relationship type="many" related-entity-name="mantle.party.agreement.AgreementTerm" short-alias="terms">
+            <key-map field-name="agreementId"/><key-map field-name="agreementItemSeqId"/></relationship>
         <seed-data>
             <!-- Agreement Item Type -->
             <moqui.basic.EnumerationType description="Agreement Item Type" enumTypeId="AgreementItemType"/>
