@@ -648,13 +648,6 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="ClientBilling"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="OrderClerk"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="SalesRepresentative"/>
-
-            <!-- Agreement Roles -->
-            <moqui.basic.Enumeration description="Agreement Roles" enumId="RgpAgreement" enumTypeId="RoleGroup"/>
-            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAgreement" roleTypeId="Carrier"/>
-            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAgreement" roleTypeId="Customer"/>
-            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAgreement" roleTypeId="Employee"/>
-            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAgreement" roleTypeId="Supplier"/>
         </seed-data>
     </entity>
 
@@ -702,6 +695,13 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- Agreement Status -->
             <moqui.basic.StatusType description="Agreement" statusTypeId="Agreement"/>
+
+            <!-- Agreement Roles -->
+            <moqui.basic.Enumeration description="Agreement Roles" enumId="RgpAgreement" enumTypeId="RoleGroup"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAgreement" roleTypeId="Carrier"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAgreement" roleTypeId="Customer"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAgreement" roleTypeId="Employee"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAgreement" roleTypeId="Supplier"/>
         </seed-data>
     </entity>
     <entity entity-name="AgreementAddendum" package-name="mantle.party.agreement">
@@ -731,8 +731,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="agreementItemSeqId" type="id"/>
         <field name="settlementTermId" type="id"/>
         <field name="termTypeEnumId" type="id"/>
-        <field name="fromDate" type="date-time"/>
-        <field name="thruDate" type="date-time"/>
+        <!-- Really need these? redundant with fields on Agreement: <field name="fromDate" type="date-time"/><field name="thruDate" type="date-time"/> -->
         <field name="termText" type="text-long"/>
         <field name="termNumber" type="number-decimal"/>
         <relationship type="one" related-entity-name="mantle.party.agreement.Agreement"/>
