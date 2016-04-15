@@ -614,6 +614,8 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- NOTE: SettlementTerm is not an Enumeration because it needs additional fields -->
             <mantle.account.invoice.SettlementTerm settlementTermId="Immediate" termTypeEnumId="TtFinPaymentDays"
                     description="Immediate (Due on Delivery)" termValue="0" termValueUomId="TF_day"/>
+            <mantle.account.invoice.SettlementTerm settlementTermId="Net10" termTypeEnumId="TtFinPaymentDays"
+                    description="Net Due in 10 Days" termValue="10" termValueUomId="TF_day"/>
             <mantle.account.invoice.SettlementTerm settlementTermId="Net15" termTypeEnumId="TtFinPaymentDays"
                     description="Net Due in 15 Days" termValue="15" termValueUomId="TF_day"/>
             <mantle.account.invoice.SettlementTerm settlementTermId="Net30" termTypeEnumId="TtFinPaymentDays"
