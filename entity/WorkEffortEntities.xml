@@ -69,20 +69,24 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="actualStartDate" type="date-time"/>
         <field name="actualCompletionDate" type="date-time"/>
 
-        <field name="estimatedWorkTime" type="number-decimal"><description>Total estimated work time across all parties</description></field>
+        <field name="estimatedWorkTime" type="number-decimal" enable-audit-log="true">
+            <description>Total estimated work time across all parties</description></field>
         <field name="estimatedSetupTime" type="number-decimal"><description>Total estimated setup time across all parties</description></field>
-        <field name="remainingWorkTime" type="number-decimal"><description>Total remaining work time across all parties</description></field>
+        <field name="remainingWorkTime" type="number-decimal" enable-audit-log="true">
+            <description>Total remaining work time across all parties</description></field>
         <field name="actualWorkTime" type="number-decimal"><description>Total actual work time across all parties</description></field>
         <field name="actualSetupTime" type="number-decimal"><description>Total actual setup time across all parties</description></field>
-        <field name="totalTimeAllowed" type="number-decimal"><description>Total work time allowed (budgeted) across all parties</description></field>
+        <field name="totalTimeAllowed" type="number-decimal" enable-audit-log="true">
+            <description>Total work time allowed (budgeted) across all parties</description></field>
 
         <field name="estimatedWorkDuration" type="number-decimal">
-            <description>Estimated work duration in calendar time (see actualWorkTime for total worked time across parties)</description></field>
+            <description>Estimated work duration in calendar time (see estimatedWorkTime for total worked time across parties)</description></field>
         <field name="actualWorkDuration" type="number-decimal">
             <description>Actual work duration in calendar time (see actualWorkTime for total worked time across parties)</description></field>
         <field name="actualBreakDuration" type="number-decimal">
             <description>Actual break duration in calendar time</description></field>
-        <field name="timeUomId" type="id"/>
+
+        <field name="timeUomId" type="id"><description>Time unit for all time and duration fields; defaults to hours (TF_hr)</description></field>
 
         <!-- something to consider for future: <field name="estimatedCost" type="currency-amount"/> -->
         <field name="actualCost" type="currency-amount"/>
@@ -90,8 +94,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="totalClientCostAllowed" type="currency-amount"/>
         <field name="costUomId" type="id"/>
 
-        <!-- TODO: replace this -->
-        <field name="recurrenceInfoId" type="id"/>
+        <!-- TODO replace this with something generic like a cron string: <field name="recurrenceInfoId" type="id"/> -->
 
         <relationship type="one" title="Parent" related-entity-name="mantle.work.effort.WorkEffort" short-alias="parent">
             <key-map field-name="parentWorkEffortId" related-field-name="workEffortId"/></relationship>
@@ -113,6 +116,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related-entity-name="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one" title="Time" related-entity-name="moqui.basic.Uom" short-alias="timeUom">
             <key-map field-name="timeUomId"/></relationship>
+        <relationship type="one" title="Cost" related-entity-name="moqui.basic.Uom" short-alias="costUom">
+            <key-map field-name="costUomId"/></relationship>
 
         <relationship type="many" related-entity-name="mantle.work.effort.WorkEffortAssetAssign" short-alias="assets">
             <key-map field-name="workEffortId"/></relationship>
@@ -239,7 +244,8 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="visibility"/><detail relationship="resolution"/>
             <detail relationship="positionClass"/>
             <detail relationship="owner" use-master="basic"/>
-            <detail relationship="status"/><detail relationship="facility"/><detail relationship="timeUom"/>
+            <detail relationship="status"/><detail relationship="facility"/>
+            <detail relationship="timeUom"/><detail relationship="costUom"/>
 
             <detail relationship="assets"><detail relationship="asset"/><detail relationship="status"/></detail>
             <detail relationship="assetsNeeded"><detail relationship="assetProduct"/></detail>
