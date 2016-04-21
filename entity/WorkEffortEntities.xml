@@ -44,7 +44,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="workEffortTypeEnumId" type="id"/>
         <field name="purposeEnumId" type="id"/>
         <field name="visibilityEnumId" type="id"/>
-        <field name="resolutionEnumId" type="id"/>
+        <field name="resolutionEnumId" type="id" enable-audit-log="update"/>
         <field name="emplPositionClassId" type="id"/>
         <field name="ownerPartyId" type="id"><description>The party that "owns" the work effort, for production runs
             producing inventory this will be used as the Asset.ownerPartyId</description></field>
