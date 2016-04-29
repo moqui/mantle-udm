@@ -320,7 +320,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related-entity-name="mantle.product.maintenance.AssetMaintenance"/>
         <relationship type="one" related-entity-name="mantle.product.issuance.AssetIssuance"/>
         <relationship type="one" related-entity-name="mantle.product.receipt.AssetReceipt"/>
-        <relationship type="one" related-entity-name="PhysicalInventory"/>
+        <relationship type="one" related-entity-name="mantle.product.asset.PhysicalInventory"/>
         <relationship type="one" title="InventoryVarianceReason" related-entity-name="moqui.basic.Enumeration">
             <key-map field-name="varianceReasonEnumId"/></relationship>
         <relationship type="one" title="AcctgTransResult" related-entity-name="moqui.basic.Enumeration">
