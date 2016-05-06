@@ -24,7 +24,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.request -->
     <!-- ========================================================= -->
 
-    <entity entity-name="Request" package-name="mantle.request">
+    <entity entity-name="Request" package-name="mantle.request" cache="never">
         <field name="requestId" type="id" is-pk="true"/>
         <field name="requestTypeEnumId" type="id"/>
         <field name="requestCategoryId" type="id"/>
@@ -125,13 +125,13 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Responsible" related-entity-name="Party" short-alias="responsible">
             <key-map field-name="responsiblePartyId"/></relationship>
     </entity>
-    <entity entity-name="RequestCommEvent" package-name="mantle.request">
+    <entity entity-name="RequestCommEvent" package-name="mantle.request" cache="never">
         <field name="requestId" type="id" is-pk="true"/>
         <field name="communicationEventId" type="id" is-pk="true"/>
         <relationship type="one" related-entity-name="mantle.request.Request" short-alias="request"/>
         <relationship type="one" related-entity-name="CommunicationEvent" short-alias="communicationEvent"/>
     </entity>
-    <entity entity-name="RequestContent" package-name="mantle.request">
+    <entity entity-name="RequestContent" package-name="mantle.request" cache="never">
         <field name="requestId" type="id" is-pk="true"/>
         <field name="contentLocation" type="text-medium" is-pk="true"/>
         <field name="requestContentTypeEnumId" type="id" is-pk="true"/>
@@ -148,7 +148,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Image URL"  enumId="RqCntImageUrl" enumTypeId="RequestContentType"/>
         </seed-data>
     </entity>
-    <entity entity-name="RequestItem" package-name="mantle.request">
+    <entity entity-name="RequestItem" package-name="mantle.request" cache="never">
         <field name="requestId" type="id" is-pk="true"/>
         <field name="requestItemSeqId" type="id" is-pk="true"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
@@ -166,7 +166,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Supplier" related-entity-name="mantle.party.Party" short-alias="supplier">
             <key-map field-name="supplierPartyId"/></relationship>
     </entity>
-    <entity entity-name="RequestItemAssoc" package-name="mantle.request">
+    <entity entity-name="RequestItemAssoc" package-name="mantle.request" cache="never">
         <field name="requestId" type="id" is-pk="true"/>
         <field name="requestItemSeqId" type="id" is-pk="true"/>
         <field name="otherRequestId" type="id" is-pk="true"/>
@@ -178,7 +178,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="otherRequestItemSeqId" related-field-name="requestItemSeqId"/>
         </relationship>
     </entity>
-    <entity entity-name="RequestItemOrder" package-name="mantle.request">
+    <entity entity-name="RequestItemOrder" package-name="mantle.request" cache="never">
         <field name="requestItemOrderId" type="id" is-pk="true"/>
         <field name="requestId" type="id"/>
         <field name="requestItemSeqId" type="id"/>
@@ -194,7 +194,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="orderItemSeqId"/>
         </relationship>
     </entity>
-    <entity entity-name="RequestNote" package-name="mantle.request">
+    <entity entity-name="RequestNote" package-name="mantle.request" cache="never">
         <field name="requestId" type="id" is-pk="true"/>
         <field name="noteDate" type="date-time" is-pk="true"/>
         <field name="requestItemSeqId" type="id"/>
@@ -205,7 +205,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="requestItemSeqId"/>
         </relationship>
     </entity>
-    <entity entity-name="RequestParty" package-name="mantle.request">
+    <entity entity-name="RequestParty" package-name="mantle.request" cache="never">
         <field name="requestId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
@@ -226,13 +226,13 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember  roleGroupEnumId="RgpRequest" roleTypeId="CustomerBillTo"/>
         </seed-data>
     </entity>
-    <entity entity-name="RequestWorkEffort" package-name="mantle.request">
+    <entity entity-name="RequestWorkEffort" package-name="mantle.request" cache="never">
         <field name="requestId" type="id" is-pk="true"/>
         <field name="workEffortId" type="id" is-pk="true"/>
         <relationship type="one" related-entity-name="mantle.request.Request" short-alias="request"/>
         <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
     </entity>
-    <entity entity-name="WikiPageRequest" package-name="mantle.request">
+    <entity entity-name="WikiPageRequest" package-name="mantle.request" cache="never">
         <field name="wikiPageId" type="id" is-pk="true"/>
         <field name="requestId" type="id" is-pk="true"/>
         <relationship type="one" related-entity-name="moqui.resource.wiki.WikiPage"/>
@@ -243,7 +243,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.request.requirement -->
     <!-- ========================================================= -->
 
-    <entity entity-name="Requirement" package-name="mantle.request.requirement">
+    <entity entity-name="Requirement" package-name="mantle.request.requirement" cache="never">
         <field name="requirementId" type="id" is-pk="true"/>
         <field name="requirementTypeEnumId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
@@ -290,7 +290,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="RqmtStApproved" toStatusId="RqmtStRejected" transitionName="Reject"/>
         </seed-data>
     </entity>
-    <entity entity-name="RequirementBudgetAllocation" package-name="mantle.request.requirement">
+    <entity entity-name="RequirementBudgetAllocation" package-name="mantle.request.requirement" cache="never">
         <field name="requirementId" type="id" is-pk="true"/>
         <field name="budgetId" type="id" is-pk="true"/>
         <field name="budgetItemSeqId" type="id" is-pk="true"/>
@@ -301,7 +301,7 @@ along with this software (see the LICENSE.md file). If not, see
         </relationship>
         <relationship type="one" related-entity-name="mantle.request.requirement.Requirement"/>
     </entity>
-    <entity entity-name="RequirementRequestItem" package-name="mantle.request.requirement">
+    <entity entity-name="RequirementRequestItem" package-name="mantle.request.requirement" cache="never">
         <field name="requirementId" type="id" is-pk="true"/>
         <field name="requestId" type="id" is-pk="true"/>
         <field name="requestItemSeqId" type="id" is-pk="true"/>
@@ -311,7 +311,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="requestItemSeqId"/>
         </relationship>
     </entity>
-    <entity entity-name="RequirementParty" package-name="mantle.request.requirement">
+    <entity entity-name="RequirementParty" package-name="mantle.request.requirement" cache="never">
         <field name="requirementId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
@@ -321,7 +321,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related-entity-name="mantle.party.Party" short-alias="party"/>
         <relationship type="one" related-entity-name="mantle.party.RoleType" short-alias="role"/>
     </entity>
-    <entity entity-name="RequirementOrderItem" package-name="mantle.request.requirement">
+    <entity entity-name="RequirementOrderItem" package-name="mantle.request.requirement" cache="never">
         <field name="requirementId" type="id" is-pk="true"/>
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderItemSeqId" type="id" is-pk="true"/>
@@ -332,7 +332,7 @@ along with this software (see the LICENSE.md file). If not, see
         </relationship>
         <relationship type="one" related-entity-name="mantle.request.requirement.Requirement" short-alias="requirement"/>
     </entity>
-    <entity entity-name="WorkRequirementFulfillment" package-name="mantle.request.requirement">
+    <entity entity-name="WorkRequirementFulfillment" package-name="mantle.request.requirement" cache="never">
         <field name="requirementId" type="id" is-pk="true"/>
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="fulfillmentTypeEnumId" type="id"/>

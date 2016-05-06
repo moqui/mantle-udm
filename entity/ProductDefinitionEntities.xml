@@ -211,7 +211,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Used to Produce" enumId="PatUsedToProduce" enumTypeId="ProductAssocType"/>
         </seed-data>
     </entity>
-    <entity entity-name="ProductCalculatedInfo" package-name="mantle.product">
+    <entity entity-name="ProductCalculatedInfo" package-name="mantle.product" cache="never">
         <field name="productId" type="id" is-pk="true"/>
         <field name="totalQuantityOrdered" type="number-decimal"/>
         <field name="totalTimesViewed" type="number-integer"/>
@@ -478,7 +478,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="SpoAlternate" sequenceNum="2" description="Alternate Supplier" enumTypeId="SupplierPreferredOrder"/>
         </seed-data>
     </entity>
-    <entity entity-name="ProductReview" package-name="mantle.product">
+    <entity entity-name="ProductReview" package-name="mantle.product" cache="never">
         <field name="productReviewId" type="id" is-pk="true"/>
         <field name="productStoreId" type="id"/>
         <field name="productId" type="id"/>
@@ -1010,7 +1010,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="AvailableTime" related-entity-name="moqui.basic.Uom" short-alias="availableTimeUom">
             <key-map field-name="availableTimeUomId"/></relationship>
     </entity>
-    <entity entity-name="Subscription" package-name="mantle.product.subscription" short-alias="subscriptions">
+    <entity entity-name="Subscription" package-name="mantle.product.subscription" short-alias="subscriptions" cache="never">
         <field name="subscriptionId" type="id" is-pk="true"/>
         <field name="subscriptionTypeEnumId" type="id"/>
         <field name="subscriptionResourceId" type="id"/>
@@ -1065,7 +1065,7 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="useTimeUom"/>
         </master>
     </entity>
-    <entity entity-name="SubscriptionDelivery" package-name="mantle.product.subscription">
+    <entity entity-name="SubscriptionDelivery" package-name="mantle.product.subscription" cache="never">
         <field name="subscriptionId" type="id" is-pk="true"/>
         <field name="dateSent" type="date-time" is-pk="true"/>
         <field name="communicationEventId" type="id"/>

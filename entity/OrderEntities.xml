@@ -24,13 +24,13 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.order -->
     <!-- ========================================================= -->
 
-    <entity entity-name="OrderCommunicationEvent" package-name="mantle.order">
+    <entity entity-name="OrderCommunicationEvent" package-name="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="communicationEventId" type="id" is-pk="true"/>
         <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
         <relationship type="one" related-entity-name="mantle.party.communication.CommunicationEvent"/>
     </entity>
-    <entity entity-name="OrderContent" package-name="mantle.order">
+    <entity entity-name="OrderContent" package-name="mantle.order" cache="never">
         <field name="orderContentId" type="id" is-pk="true"/>
         <field name="orderContentTypeEnumId" type="id"/>
         <field name="orderId" type="id"/>
@@ -44,7 +44,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="orderContentTypeEnumId"/></relationship>
         <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
     </entity>
-    <entity entity-name="OrderHeader" package-name="mantle.order" short-alias="orders">
+    <entity entity-name="OrderHeader" package-name="mantle.order" short-alias="orders" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
 
         <field name="orderName" type="text-medium"/>
@@ -241,7 +241,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
         <!-- should have auto based on FK: <index name="SYSMSG_ORDER"><index-field name="orderId"/></index> -->
     </extend-entity>
-    <entity entity-name="OrderItem" package-name="mantle.order" short-alias="orderItems">
+    <entity entity-name="OrderItem" package-name="mantle.order" short-alias="orderItems" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderItemSeqId" type="id" is-pk="true"/>
         <field name="orderPartSeqId" type="id"/>
@@ -341,7 +341,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <index name="ORDITMEXT_ID_IDX"><index-field name="externalItemSeqId"/></index>
     </entity>
-    <entity entity-name="OrderItemBilling" package-name="mantle.order">
+    <entity entity-name="OrderItemBilling" package-name="mantle.order" cache="never">
         <field name="orderItemBillingId" type="id" is-pk="true"/>
         <field name="orderId" type="id"/>
         <field name="orderItemSeqId" type="id"/>
@@ -362,7 +362,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related-entity-name="mantle.product.issuance.AssetIssuance" short-alias="issuance"/>
         <relationship type="one" related-entity-name="mantle.shipment.Shipment" short-alias="shipment"/>
     </entity>
-    <entity entity-name="OrderNote" package-name="mantle.order">
+    <entity entity-name="OrderNote" package-name="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="noteDate" type="date-time" is-pk="true" default="ec.user.nowTimestamp"/>
         <field name="noteText" type="text-very-long" enable-audit-log="true"/>
@@ -371,7 +371,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
         <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
     </entity>
-    <entity entity-name="OrderPart" package-name="mantle.order" short-alias="orderParts">
+    <entity entity-name="OrderPart" package-name="mantle.order" short-alias="orderParts" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderPartSeqId" type="id" is-pk="true"/>
         <field name="parentPartSeqId" type="id"/>
@@ -460,7 +460,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <index name="ORDPTOPTY_ID_IDX"><index-field name="otherPartyOrderId"/></index>
     </entity>
-    <entity entity-name="OrderPartParty" package-name="mantle.order">
+    <entity entity-name="OrderPartParty" package-name="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderPartSeqId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
@@ -471,7 +471,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one-nofk" related-entity-name="mantle.party.Organization" short-alias="organization"/>
         <relationship type="one" related-entity-name="mantle.party.RoleType" short-alias="roleType"/>
     </entity>
-    <entity entity-name="OrderPartContactMech" package-name="mantle.order">
+    <entity entity-name="OrderPartContactMech" package-name="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderPartSeqId" type="id" is-pk="true"/>
         <field name="contactMechPurposeId" type="id" is-pk="true"/>
@@ -482,14 +482,14 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one-nofk" related-entity-name="mantle.party.contact.TelecomNumber" short-alias="telecomNumber"/>
         <relationship type="one-nofk" related-entity-name="mantle.party.contact.PostalAddress" short-alias="postalAddress"/>
     </entity>
-    <entity entity-name="OrderPartTerm" package-name="mantle.order">
+    <entity entity-name="OrderPartTerm" package-name="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderPartSeqId" type="id" is-pk="true"/>
         <field name="settlementTermId" type="id" is-pk="true"/>
         <relationship type="one" related-entity-name="mantle.order.OrderPart"/>
         <relationship type="one" related-entity-name="SettlementTerm" short-alias="term"/>
     </entity>
-    <entity entity-name="OrderItemWorkEffort" package-name="mantle.order">
+    <entity entity-name="OrderItemWorkEffort" package-name="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderItemSeqId" type="id" is-pk="true"/>
         <field name="workEffortId" type="id" is-pk="true"/>
@@ -501,7 +501,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.order.return -->
     <!-- ========================================================= -->
 
-    <entity entity-name="ReturnContactMech" package-name="mantle.order.return">
+    <entity entity-name="ReturnContactMech" package-name="mantle.order.return" cache="never">
         <field name="returnId" type="id" is-pk="true"/>
         <field name="contactMechPurposeId" type="id" is-pk="true"/>
         <field name="contactMechId" type="id" is-pk="true"/>
@@ -509,7 +509,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related-entity-name="mantle.party.contact.ContactMech"/>
         <relationship type="one" related-entity-name="mantle.party.contact.ContactMechPurpose"/>
     </entity>
-    <entity entity-name="ReturnHeader" package-name="mantle.order.return" short-alias="returns">
+    <entity entity-name="ReturnHeader" package-name="mantle.order.return" short-alias="returns" cache="never">
         <field name="returnId" type="id" is-pk="true"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="customerPartyId" type="id"/>
@@ -606,7 +606,7 @@ along with this software (see the LICENSE.md file). If not, see
             </detail>
         </master>
     </entity>
-    <entity entity-name="ReturnItem" package-name="mantle.order.return" short-alias="returnItems">
+    <entity entity-name="ReturnItem" package-name="mantle.order.return" short-alias="returnItems" cache="never">
         <field name="returnId" type="id" is-pk="true"/>
         <field name="returnItemSeqId" type="id" is-pk="true"/>
         <field name="returnReasonEnumId" type="id" enable-audit-log="true"/>
@@ -683,7 +683,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="RrspManual" description="Manual" enumTypeId="ReturnResponse"/>
         </seed-data>
     </entity>
-    <entity entity-name="ReturnItemBilling" package-name="mantle.order.return">
+    <entity entity-name="ReturnItemBilling" package-name="mantle.order.return" cache="never">
         <field name="returnId" type="id" is-pk="true"/>
         <field name="returnItemSeqId" type="id" is-pk="true"/>
         <field name="invoiceId" type="id" is-pk="true"/>

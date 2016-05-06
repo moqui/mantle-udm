@@ -816,7 +816,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.party.communication -->
     <!-- ========================================================= -->
 
-    <entity entity-name="CommunicationEvent" package-name="mantle.party.communication" short-alias="communicationEvents">
+    <entity entity-name="CommunicationEvent" package-name="mantle.party.communication" short-alias="communicationEvents" cache="never">
         <field name="communicationEventId" type="id" is-pk="true"/>
         <field name="communicationEventTypeId" type="id"/>
         <field name="contactMechTypeEnumId" type="id"/>
@@ -949,7 +949,7 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="orders"/>
         </master>
     </entity>
-    <entity entity-name="CommunicationEventContent" package-name="mantle.party.communication">
+    <entity entity-name="CommunicationEventContent" package-name="mantle.party.communication" cache="never">
         <field name="communicationEventContentId" type="id" is-pk="true"/>
         <field name="communicationEventId" type="id"/>
         <field name="contentLocation" type="text-medium"/>
@@ -968,7 +968,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Attachment" enumId="CmctAttachment" enumTypeId="CommunicationContentType"/>
         </seed-data>
     </entity>
-    <entity entity-name="CommunicationEventParty" package-name="mantle.party.communication">
+    <entity entity-name="CommunicationEventParty" package-name="mantle.party.communication" cache="never">
         <field name="communicationEventId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
@@ -998,7 +998,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CepResolved" toStatusId="CepClosed" transitionName="Close"/>
         </seed-data>
     </entity>
-    <entity entity-name="CommunicationEventProduct" package-name="mantle.party.communication">
+    <entity entity-name="CommunicationEventProduct" package-name="mantle.party.communication" cache="never">
         <field name="productId" type="id" is-pk="true"/>
         <field name="communicationEventId" type="id" is-pk="true"/>
         <relationship type="one" related-entity-name="mantle.product.Product" short-alias="product"/>
@@ -1059,7 +1059,7 @@ along with this software (see the LICENSE.md file). If not, see
             <CommunicationEventType communicationEventTypeId="AutoEmail" description="Auto Email" contactMechTypeEnumId="CmtEmailAddress"/>
         </seed-data>
     </entity>
-    <entity entity-name="WikiPageCommunicationEvent" package-name="mantle.party.communication">
+    <entity entity-name="WikiPageCommunicationEvent" package-name="mantle.party.communication" cache="never">
         <field name="wikiPageId" type="id" is-pk="true"/>
         <field name="communicationEventId" type="id" is-pk="true"/>
         <field name="description" type="text-medium"/>
@@ -1281,7 +1281,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.party.time -->
     <!-- ========================================================= -->
 
-    <entity entity-name="TimePeriod" package-name="mantle.party.time">
+    <entity entity-name="TimePeriod" package-name="mantle.party.time" cache="never">
         <description>For configurable time periods used in accounting, sales quotas, etc.</description>
         <field name="timePeriodId" type="id" is-pk="true"/>
         <field name="parentPeriodId" type="id"/>

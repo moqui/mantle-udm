@@ -24,7 +24,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.shipment -->
     <!-- ========================================================= -->
 
-    <entity entity-name="Shipment" package-name="mantle.shipment" short-alias="shipments">
+    <entity entity-name="Shipment" package-name="mantle.shipment" short-alias="shipments" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentTypeEnumId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
@@ -181,7 +181,7 @@ along with this software (see the LICENSE.md file). If not, see
         <index name="SHIPMENT_BOX_TYPE_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
 
     </entity>
-    <entity entity-name="ShipmentContactMech" package-name="mantle.shipment">
+    <entity entity-name="ShipmentContactMech" package-name="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="contactMechPurposeId" type="id" is-pk="true"/>
         <field name="contactMechId" type="id"/>
@@ -189,7 +189,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related-entity-name="mantle.party.contact.ContactMechPurpose"/>
         <relationship type="one" related-entity-name="mantle.party.contact.ContactMech"/>
     </entity>
-    <entity entity-name="ShipmentContent" package-name="mantle.shipment">
+    <entity entity-name="ShipmentContent" package-name="mantle.shipment" cache="never">
         <field name="shipmentContentId" type="id" is-pk="true"/>
         <field name="shipmentContentTypeEnumId" type="id"/>
         <field name="shipmentId" type="id"/>
@@ -210,7 +210,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="shipmentId"/><key-map field-name="shipmentRouteSegmentSeqId"/></relationship>
         <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
     </entity>
-    <entity entity-name="ShipmentItem" package-name="mantle.shipment">
+    <entity entity-name="ShipmentItem" package-name="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="productId" type="id" is-pk="true"/>
         <field name="quantity" type="number-decimal"/>
@@ -225,7 +225,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related-entity-name="mantle.product.receipt.AssetReceipt" short-alias="receipts">
             <key-map field-name="shipmentId"/><key-map field-name="productId"/></relationship>
     </entity>
-    <entity entity-name="ShipmentItemSource" package-name="mantle.shipment">
+    <entity entity-name="ShipmentItemSource" package-name="mantle.shipment" cache="never">
         <field name="shipmentItemSourceId" type="id" is-pk="true"/>
         <field name="shipmentId" type="id"/>
         <field name="productId" type="id"/>
@@ -268,7 +268,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="SisPending" toStatusId="SisCancelled" transitionName="Cancel"/>
         </seed-data>
     </entity>
-    <entity entity-name="ShipmentPackage" package-name="mantle.shipment">
+    <entity entity-name="ShipmentPackage" package-name="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentPackageSeqId" type="id" is-pk="true"/>
         <field name="shipmentBoxTypeId" type="id"/>
@@ -283,7 +283,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related-entity-name="mantle.shipment.ShipmentPackageRouteSeg" short-alias="routeSegments">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>
     </entity>
-    <entity entity-name="ShipmentPackageContent" package-name="mantle.shipment">
+    <entity entity-name="ShipmentPackageContent" package-name="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentPackageSeqId" type="id" is-pk="true"/>
         <field name="productId" type="id" is-pk="true"/>
@@ -294,7 +294,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related-entity-name="mantle.shipment.ShipmentItem">
             <key-map field-name="shipmentId"/><key-map field-name="productId"/></relationship>
     </entity>
-    <entity entity-name="ShipmentPackageRouteSeg" package-name="mantle.shipment">
+    <entity entity-name="ShipmentPackageRouteSeg" package-name="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentPackageSeqId" type="id" is-pk="true"/>
         <field name="shipmentRouteSegmentSeqId" type="id" is-pk="true"/>
@@ -322,7 +322,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Amount" related-entity-name="moqui.basic.Uom">
             <key-map field-name="amountUomId"/></relationship>
     </entity>
-    <entity entity-name="ShipmentRouteSegment" package-name="mantle.shipment">
+    <entity entity-name="ShipmentRouteSegment" package-name="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentRouteSegmentSeqId" type="id" is-pk="true"/>
         <field name="deliveryId" type="id"/>
@@ -454,7 +454,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Carrier" related-entity-name="mantle.party.Party">
             <key-map field-name="carrierPartyId"/></relationship>
     </entity>
-    <entity entity-name="Delivery" package-name="mantle.shipment.carrier">
+    <entity entity-name="Delivery" package-name="mantle.shipment.carrier" cache="never">
         <field name="deliveryId" type="id" is-pk="true"/>
         <field name="originFacilityId" type="id"/>
         <field name="destFacilityId" type="id"/>
