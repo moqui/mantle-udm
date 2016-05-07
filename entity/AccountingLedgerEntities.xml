@@ -323,7 +323,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related-entity-name="mantle.ledger.account.GlAccountGroup"/>
     </entity>
 
-    <entity entity-name="GlAccountOrganization" package-name="mantle.ledger.account">
+    <entity entity-name="GlAccountOrganization" package-name="mantle.ledger.account" cache="never">
         <field name="glAccountId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="postedBalance" type="currency-amount"/>
@@ -331,7 +331,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
     </entity>
-    <entity entity-name="GlAccountOrgTimePeriod" package-name="mantle.ledger.account">
+    <entity entity-name="GlAccountOrgTimePeriod" package-name="mantle.ledger.account" cache="never">
         <field name="glAccountId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="timePeriodId" type="id" is-pk="true"/>
@@ -643,6 +643,9 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
 
     <entity entity-name="PartyAcctgPreference" package-name="mantle.ledger.config">
+        <!-- TODO: consider refactoring to split out frequently updated fields like invoiceLastNumber, orderLastNumber;
+            caching dilemma for entity as it contains fields that are used frequently, and others that are
+            updated frequently -->
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="fiscalYearStartMonth" type="number-integer"/>
         <field name="fiscalYearStartDay" type="number-integer"/>
@@ -740,7 +743,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.ledger.reconciliation -->
     <!-- ========================================================= -->
 
-    <entity entity-name="GlReconciliation" package-name="mantle.ledger.reconciliation">
+    <entity entity-name="GlReconciliation" package-name="mantle.ledger.reconciliation" cache="never">
         <field name="glReconciliationId" type="id" is-pk="true"/>
         <field name="glReconciliationName" type="text-medium"/>
         <field name="description" type="text-medium"/>
@@ -762,7 +765,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="GLREC_CREATED" toStatusId="GLREC_RECONCILED" transitionName="Set Created to Reconciled"/>
         </seed-data>
     </entity>
-    <entity entity-name="GlReconciliationEntry" package-name="mantle.ledger.reconciliation">
+    <entity entity-name="GlReconciliationEntry" package-name="mantle.ledger.reconciliation" cache="never">
         <field name="glReconciliationId" type="id" is-pk="true"/>
         <field name="acctgTransId" type="id" is-pk="true"/>
         <field name="acctgTransEntrySeqId" type="id" is-pk="true"/>
@@ -777,7 +780,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.ledger.transaction -->
     <!-- ========================================================= -->
 
-    <entity entity-name="AcctgTrans" package-name="mantle.ledger.transaction" short-alias="acctgTrans">
+    <entity entity-name="AcctgTrans" package-name="mantle.ledger.transaction" short-alias="acctgTrans" cache="never">
         <field name="acctgTransId" type="id" is-pk="true"/>
         <field name="acctgTransTypeEnumId" type="id"/>
         <field name="organizationPartyId" type="id"/>
@@ -932,7 +935,7 @@ along with this software (see the LICENSE.md file). If not, see
             </detail>
         </master>
     </entity>
-    <entity entity-name="AcctgTransEntry" package-name="mantle.ledger.transaction">
+    <entity entity-name="AcctgTransEntry" package-name="mantle.ledger.transaction" cache="never">
         <field name="acctgTransId" type="id" is-pk="true"/>
         <field name="acctgTransEntrySeqId" type="id" is-pk="true"/>
         <field name="debitCreditFlag" type="text-indicator"><description>If D is a debit, if C is a credit.</description></field>
@@ -975,7 +978,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AterRec" toStatusId="AterNot" transitionName="Unreconcile"/>
         </seed-data>
     </entity>
-    <entity entity-name="GlJournal" package-name="mantle.ledger.transaction">
+    <entity entity-name="GlJournal" package-name="mantle.ledger.transaction" cache="never">
         <field name="glJournalId" type="id" is-pk="true"/>
         <field name="glJournalTypeEnumId" type="id"/>
         <field name="glJournalName" type="text-medium"/>
