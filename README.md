@@ -4,6 +4,7 @@
 [![release](http://img.shields.io/github/release/moqui/mantle-udm.svg)](https://github.com/moqui/mantle-udm/releases)
 [![commits since release](http://img.shields.io/github/commits-since/moqui/mantle-udm/v1.0.1.svg)](https://github.com/moqui/mantle-udm/commits/master)
 [![downloads](http://img.shields.io/github/downloads/moqui/mantle-udm/total.svg)](https://github.com/moqui/mantle-udm/releases)
+[![Join the chat at https://gitter.im/moqui/mantle-usl](https://badges.gitter.im/moqui/mantle-usl.svg)](https://gitter.im/moqui/mantle-usl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 For details about Mantle see its page on moqui.org:
 
