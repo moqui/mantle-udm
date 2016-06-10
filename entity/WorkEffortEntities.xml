@@ -463,6 +463,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="WorkEffortPartyExpectation" related-entity-name="moqui.basic.Enumeration" short-alias="expectation">
             <key-map field-name="expectationEnumId"/></relationship>
         <relationship type="one" related-entity-name="mantle.humanres.position.EmplPositionClass" short-alias="positionClass"/>
+        <relationship type="many" related-entity-name="moqui.security.UserAccount" short-alias="userAccounts">
+            <key-map field-name="partyId"/></relationship>
         <seed-data>
             <!-- Work Effort Party Status -->
             <moqui.basic.StatusType description="Work Effort Party Status" statusTypeId="WorkEffortParty"/>

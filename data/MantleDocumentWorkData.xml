@@ -51,12 +51,18 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldPath="parties:person:firstName"/>
         <fields fieldPath="parties:person:lastName"/>
         <fields fieldPath="parties:organization:organizationName"/>
+        <fields fieldPath="parties:userAccounts:userId"/>
         <fields fieldPath="assocs:toWorkEffortId" fieldNameAlias="assocToId"/>
         <fields fieldPath="assocs:type:description" fieldNameAlias="assocType"/>
         <fields fieldPath="toAssocs:workEffortId" fieldNameAlias="assocFromId"/>
         <fields fieldPath="toAssocs:type:description" fieldNameAlias="assocTypeTo"/>
         <conditions fieldNameAlias="workEffortTypeEnumId" fieldValue="WetTask"/>
     </dataDocuments>
+
+    <!-- Event (copy of Task) -->
+    <org.moqui.impl.EntityServices.cloneDataDocument dataDocumentId="MantleTask" newDataDocumentId="MantleEvent" newIndexName="mantle"/>
+    <dataDocuments dataDocumentId="MantleEvent" documentName="Event">
+        <conditions fieldNameAlias="workEffortTypeEnumId" fieldValue="WetEvent"/></dataDocuments>
 
     <!-- Request -->
     <dataDocuments dataDocumentId="MantleRequest" indexName="mantle" documentName="Request"
