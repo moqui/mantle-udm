@@ -66,6 +66,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related-entity-name="mantle.account.method.PaymentMethod" short-alias="paymentMethods">
             <key-map field-name="partyId" related-field-name="ownerPartyId"/></relationship>
 
+        <relationship type="many" related-entity-name="moqui.security.UserAccount" short-alias="userAccounts">
+            <key-map field-name="partyId"/></relationship>
+
         <index name="PARTY_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
         <index name="PARTY_ID_EXT"><index-field name="externalId"/></index>
 
@@ -332,6 +335,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related-entity-name="moqui.basic.GeoPoint"/>
     </entity>
     <entity entity-name="PartyIdentification" package-name="mantle.party">
+        <!-- TODO support multiple/history of IDs; single sequenced PK; update lookup/etc services -->
         <field name="partyId" type="id" is-pk="true"/>
         <field name="partyIdTypeEnumId" type="id" is-pk="true"/>
         <field name="idValue" type="text-medium" encrypt="true"/>
