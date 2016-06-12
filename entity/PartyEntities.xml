@@ -860,31 +860,35 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Root" related-entity-name="mantle.party.communication.CommunicationEvent" short-alias="root">
             <key-map field-name="rootCommEventId" related-field-name="communicationEventId"/></relationship>
 
-        <relationship type="one" title="From" related-entity-name="mantle.party.contact.ContactMech" short-alias="fromContactMech" mutable="true">
+        <relationship type="one" title="From" related-entity-name="mantle.party.contact.ContactMech" short-alias="fromContactMech">
             <key-map field-name="fromContactMechId"/></relationship>
-        <relationship type="one" title="To" related-entity-name="mantle.party.contact.ContactMech" short-alias="toContactMech" mutable="true">
+        <relationship type="one" title="To" related-entity-name="mantle.party.contact.ContactMech" short-alias="toContactMech">
             <key-map field-name="toContactMechId"/></relationship>
         <relationship type="one" title="From" related-entity-name="mantle.party.Party" short-alias="fromParty">
             <key-map field-name="fromPartyId"/></relationship>
+        <relationship type="many" title="From" related-entity-name="moqui.security.UserAccount" short-alias="fromUserAccounts">
+            <key-map field-name="fromPartyId" related-field-name="partyId"/></relationship>
         <relationship type="one" title="From" related-entity-name="mantle.party.RoleType" short-alias="fromRole">
             <key-map field-name="fromRoleTypeId"/></relationship>
         <relationship type="one" title="To" related-entity-name="mantle.party.Party" short-alias="toParty">
             <key-map field-name="toPartyId"/></relationship>
+        <relationship type="many" title="From" related-entity-name="moqui.security.UserAccount" short-alias="toUserAccounts">
+            <key-map field-name="toPartyId" related-field-name="partyId"/></relationship>
         <relationship type="one" title="To" related-entity-name="mantle.party.RoleType" short-alias="toRole">
             <key-map field-name="toRoleTypeId"/></relationship>
         <relationship type="one" related-entity-name="ContactList" short-alias="contactList"/>
         <relationship type="one" title="Reason" related-entity-name="moqui.basic.Enumeration" short-alias="reason">
             <key-map field-name="reasonEnumId"/></relationship>
 
-        <relationship type="many" related-entity-name="mantle.party.communication.CommunicationEventContent" short-alias="contents" mutable="true">
+        <relationship type="many" related-entity-name="mantle.party.communication.CommunicationEventContent" short-alias="contents">
             <key-map field-name="communicationEventId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.party.communication.CommunicationEventParty" short-alias="parties" mutable="true">
+        <relationship type="many" related-entity-name="mantle.party.communication.CommunicationEventParty" short-alias="parties">
             <key-map field-name="communicationEventId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.party.communication.CommunicationEventProduct" short-alias="products" mutable="true">
+        <relationship type="many" related-entity-name="mantle.party.communication.CommunicationEventProduct" short-alias="products">
             <key-map field-name="communicationEventId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.party.communication.CommunicationEventPurpose" short-alias="purposes" mutable="true">
+        <relationship type="many" related-entity-name="mantle.party.communication.CommunicationEventPurpose" short-alias="purposes">
             <key-map field-name="communicationEventId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.order.OrderCommunicationEvent" short-alias="orders" mutable="true">
+        <relationship type="many" related-entity-name="mantle.order.OrderCommunicationEvent" short-alias="orders">
             <key-map field-name="communicationEventId"/></relationship>
 
         <seed-data>
@@ -980,9 +984,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="statusId" type="id"/>
         <relationship type="one" related-entity-name="mantle.party.communication.CommunicationEvent" short-alias="communicationEvent"/>
         <relationship type="one" related-entity-name="mantle.party.Party" short-alias="party"/>
+        <relationship type="one-nofk" related-entity-name="mantle.party.Person" short-alias="person"/>
         <relationship type="one" related-entity-name="mantle.party.RoleType" short-alias="role"/>
         <relationship type="one" related-entity-name="mantle.party.contact.ContactMech" short-alias="contactMech"/>
         <relationship type="one" title="CommunicationEventParty" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="many" related-entity-name="moqui.security.UserAccount" short-alias="userAccounts">
+            <key-map field-name="partyId"/></relationship>
         <seed-data>
             <moqui.basic.StatusType description="Communication Event Party" statusTypeId="CommunicationEventParty"/>
             <moqui.basic.StatusItem description="Sent" sequenceNum="1" statusId="CepSent" statusTypeId="CommunicationEventParty"/>
