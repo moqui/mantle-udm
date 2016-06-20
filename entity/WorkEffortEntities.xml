@@ -45,7 +45,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="purposeEnumId" type="id"/>
         <field name="visibilityEnumId" type="id"/>
         <field name="resolutionEnumId" type="id" enable-audit-log="update"/>
-        <field name="emplPositionClassId" type="id"/>
+        <field name="workTypeEnumId" type="id"/>
         <field name="ownerPartyId" type="id"><description>The party that "owns" the work effort, for production runs
             producing inventory this will be used as the Asset.ownerPartyId</description></field>
 
@@ -108,7 +108,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="visibilityEnumId"/></relationship>
         <relationship type="one" title="WorkEffortResolution" related-entity-name="moqui.basic.Enumeration" short-alias="resolution">
             <key-map field-name="resolutionEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.humanres.position.EmplPositionClass" short-alias="positionClass"/>
+        <relationship type="one" title="WorkType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="workTypeEnumId"/></relationship>
         <relationship type="one" title="Owner" related-entity-name="mantle.party.Party" short-alias="owner">
             <key-map field-name="ownerPartyId"/></relationship>
 
@@ -446,6 +447,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="availabilityEnumId" type="id"/>
         <field name="delegateReasonEnumId" type="id"/>
         <field name="expectationEnumId" type="id"/>
+        <field name="workTypeEnumId" type="id"/>
         <field name="emplPositionClassId" type="id"/>
         <field name="comments" type="text-medium"/>
         <field name="mustRsvp" type="text-indicator"/>
@@ -462,6 +464,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="delegateReasonEnumId"/></relationship>
         <relationship type="one" title="WorkEffortPartyExpectation" related-entity-name="moqui.basic.Enumeration" short-alias="expectation">
             <key-map field-name="expectationEnumId"/></relationship>
+        <relationship type="one" title="WorkType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="workTypeEnumId"/></relationship>
         <relationship type="one" related-entity-name="mantle.humanres.position.EmplPositionClass" short-alias="positionClass"/>
         <relationship type="many" related-entity-name="moqui.security.UserAccount" short-alias="userAccounts">
             <key-map field-name="partyId"/></relationship>
@@ -643,6 +647,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="partyId" type="id"/>
         <field name="clientPartyId" type="id"><description>Should always be set, may get through timesheetId or workEffortId</description></field>
         <field name="rateTypeEnumId" type="id"/>
+        <field name="workTypeEnumId" type="id"/>
         <field name="emplPositionClassId" type="id"/>
         <field name="rateAmountId" type="id"/>
         <field name="vendorRateAmountId" type="id"/>
@@ -667,6 +672,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="clientPartyId"/></relationship>
         <relationship type="one" title="RateType" related-entity-name="moqui.basic.Enumeration">
             <key-map field-name="rateTypeEnumId"/></relationship>
+        <relationship type="one" title="WorkType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="workTypeEnumId"/></relationship>
         <relationship type="one" related-entity-name="mantle.humanres.position.EmplPositionClass"/>
         <relationship type="one" related-entity-name="mantle.humanres.rate.RateAmount"/>
         <relationship type="one" title="Vendor" related-entity-name="mantle.humanres.rate.RateAmount">

@@ -608,15 +608,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="description" type="text-long"/>
         <!-- TODO: associate skills with position class -->
         <seed-data>
-            <!-- Employment Position Classes -->
-            <mantle.humanres.position.EmplPositionClass title="Quality Analyst" emplPositionClassId="QualityAnalyst"/>
-            <mantle.humanres.position.EmplPositionClass title="Quality Lead" emplPositionClassId="QualityLead"/>
-            <mantle.humanres.position.EmplPositionClass title="Programmer" emplPositionClassId="Programmer"/>
-            <mantle.humanres.position.EmplPositionClass title="Programmer Lead" emplPositionClassId="ProgrammerLead"/>
-            <mantle.humanres.position.EmplPositionClass title="System Administrator" emplPositionClassId="SysAdmin"/>
-            <mantle.humanres.position.EmplPositionClass title="System Architect" emplPositionClassId="SysArchitect"/>
-            <mantle.humanres.position.EmplPositionClass title="Business Analyst" emplPositionClassId="BusinessAnalyst"/>
-            <mantle.humanres.position.EmplPositionClass title="Expert User" emplPositionClassId="ExpertUser"/>
             <mantle.humanres.position.EmplPositionClass title="Project Manager" emplPositionClassId="ProjectManager"/>
             <mantle.humanres.position.EmplPositionClass title="General Manager" emplPositionClassId="GeneralManager"/>
         </seed-data>
@@ -631,6 +622,15 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="comments" type="text-medium"/>
         <relationship type="one" related-entity-name="mantle.humanres.position.EmplPositionClass"/>
         <relationship type="one" related-entity-name="mantle.party.Party"/>
+    </entity>
+    <entity entity-name="EmplPositionClassWorkType" package-name="mantle.humanres.position">
+        <description>An alternative to EmplPosition and Employment to represent an employee in a position class for
+            billing purposes, etc. Can be used in addition to EmplPosition or instead of.</description>
+        <field name="emplPositionClassId" type="id" is-pk="true"/>
+        <field name="workTypeEnumId" type="id" is-pk="true"/>
+        <relationship type="one" related-entity-name="mantle.humanres.position.EmplPositionClass"/>
+        <relationship type="one" title="WorkType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="workTypeEnumId"/></relationship>
     </entity>
     <entity entity-name="EmplPositionParty" package-name="mantle.humanres.position">
         <description>For manager, department/etc internal organization, etc; use Employment entity for employee</description>
@@ -700,29 +700,40 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
     <entity entity-name="RateAmount" package-name="mantle.humanres.rate">
         <field name="rateAmountId" type="id" is-pk="true"/>
-        <field name="rateTypeEnumId" type="id"/>
-        <field name="ratePurposeEnumId" type="id"/>
-        <field name="timePeriodUomId" type="id"/>
-        <field name="workEffortId" type="id"/>
-        <field name="partyId" type="id"/>
-        <field name="payGradeId" type="id"/>
-        <field name="emplPositionClassId" type="id"/>
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
-        <field name="rateAmount" type="currency-amount"/>
+        <!-- must match -->
+        <field name="rateTypeEnumId" type="id"/>
+        <field name="ratePurposeEnumId" type="id"/>
         <field name="rateCurrencyUomId" type="id"/>
+        <field name="timePeriodUomId" type="id"/>
+        <!-- filter by if any records have these not null matching the current TimeEntry values -->
+        <field name="workEffortId" type="id"/>
+        <field name="partyId" type="id"/>
+        <!-- must match or null; match as many as possible (to allow for nulls) with this priority if more than one match with same number of fields -->
+        <field name="workTypeEnumId" type="id"/>
+        <field name="payGradeId" type="id"/>
+        <field name="emplPositionClassId" type="id"/>
+        <!-- what we're looking for -->
+        <field name="rateAmount" type="currency-amount"/>
+
         <relationship type="one" title="RateType" related-entity-name="moqui.basic.Enumeration">
             <key-map field-name="rateTypeEnumId"/></relationship>
         <relationship type="one" title="RatePurpose" related-entity-name="moqui.basic.Enumeration">
             <key-map field-name="ratePurposeEnumId"/></relationship>
-        <relationship type="one" title="TimePeriod" related-entity-name="moqui.basic.Uom">
-            <key-map field-name="timePeriodUomId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" related-entity-name="mantle.humanres.rate.PayGrade"/>
-        <relationship type="one" related-entity-name="mantle.humanres.position.EmplPositionClass"/>
         <relationship type="one" title="RateCurrency" related-entity-name="moqui.basic.Uom">
             <key-map field-name="rateCurrencyUomId"/></relationship>
+        <relationship type="one" title="TimePeriod" related-entity-name="moqui.basic.Uom">
+            <key-map field-name="timePeriodUomId"/></relationship>
+
+        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
+        <relationship type="one" related-entity-name="mantle.party.Party"/>
+
+        <relationship type="one" related-entity-name="mantle.humanres.rate.PayGrade"/>
+        <relationship type="one" related-entity-name="mantle.humanres.position.EmplPositionClass"/>
+        <relationship type="one" title="WorkType" related-entity-name="moqui.basic.Enumeration">
+            <key-map field-name="workTypeEnumId"/></relationship>
+
         <seed-data>
             <!-- Rate Type -->
             <moqui.basic.EnumerationType description="Rate Type" enumTypeId="RateType"/>
@@ -745,6 +756,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Rate Purpose" enumTypeId="RatePurpose"/>
             <moqui.basic.Enumeration enumId="RaprClient" description="Client Billing" enumTypeId="RatePurpose"/>
             <moqui.basic.Enumeration enumId="RaprVendor" description="Worker/Vendor Payment" enumTypeId="RatePurpose"/>
+
+            <!-- Work Type -->
+            <moqui.basic.EnumerationType description="Work Type" enumTypeId="WorkType"/>
         </seed-data>
     </entity>
 
