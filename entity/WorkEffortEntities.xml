@@ -108,7 +108,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="visibilityEnumId"/></relationship>
         <relationship type="one" title="WorkEffortResolution" related-entity-name="moqui.basic.Enumeration" short-alias="resolution">
             <key-map field-name="resolutionEnumId"/></relationship>
-        <relationship type="one" title="WorkType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="WorkType" related-entity-name="moqui.basic.Enumeration" short-alias="workType">
             <key-map field-name="workTypeEnumId"/></relationship>
         <relationship type="one" title="Owner" related-entity-name="mantle.party.Party" short-alias="owner">
             <key-map field-name="ownerPartyId"/></relationship>
@@ -243,7 +243,7 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="parent"/><detail relationship="root"/>
             <detail relationship="type"/><detail relationship="purpose"/>
             <detail relationship="visibility"/><detail relationship="resolution"/>
-            <detail relationship="positionClass"/>
+            <detail relationship="workType"/>
             <detail relationship="owner" use-master="basic"/>
             <detail relationship="status"/><detail relationship="facility"/>
             <detail relationship="timeUom"/><detail relationship="costUom"/>
