@@ -502,6 +502,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Payroll" roleTypeId="Payroll"/>
             <mantle.party.RoleType description="Picker" roleTypeId="Picker"/>
             <mantle.party.RoleType description="Production Manager" roleTypeId="ProductionManager"/>
+            <mantle.party.RoleType description="Production Worker" roleTypeId="ProductionWorker"/>
             <mantle.party.RoleType description="Receiver" roleTypeId="Receiver"/>
             <mantle.party.RoleType description="Reporter" roleTypeId="Reporter"/>
             <mantle.party.RoleType description="Sales Representative" roleTypeId="SalesRepresentative"/>
