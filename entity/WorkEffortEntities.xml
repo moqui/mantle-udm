@@ -145,6 +145,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related-entity-name="mantle.work.effort.WorkEffortProduct" short-alias="products">
             <key-map field-name="workEffortId"/></relationship>
 
+        <index name="WORK_EFF_ST_WET" unique="false"><index-field name="statusId"/><index-field name="workEffortTypeEnumId"/></index>
+
         <seed-data>
             <!-- Work Effort Type -->
             <moqui.basic.EnumerationType description="Work Effort Type" enumTypeId="WorkEffortType"/>

@@ -892,6 +892,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related-entity-name="mantle.order.OrderCommunicationEvent" short-alias="orders">
             <key-map field-name="communicationEventId"/></relationship>
 
+        <index name="COMMEVT_TP_ST_CET" unique="false"><index-field name="toPartyId"/><index-field name="statusId"/>
+            <index-field name="communicationEventTypeId"/></index>
+
         <seed-data>
             <!-- Communication Event Status -->
             <moqui.basic.StatusType description="Communication Event" statusTypeId="CommunicationEvent"/>
