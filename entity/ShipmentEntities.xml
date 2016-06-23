@@ -36,6 +36,7 @@ along with this software (see the LICENSE.md file). If not, see
             picklist instead of having a separate Picklist entity. This may be overridden within a Shipment with the
             field of the same name on ShipmentItemSource.</description></field>
 
+        <field name="entryDate" type="date-time"/>
         <field name="estimatedReadyDate" type="date-time"/>
         <field name="estimatedShipDate" type="date-time"/>
         <field name="estimatedArrivalDate" type="date-time"/>
