@@ -904,6 +904,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related-entity-name="mantle.product.feature.ProductFeature" short-alias="feature"/>
         <relationship type="one" title="ProductFeatureApplType" related-entity-name="moqui.basic.Enumeration">
             <key-map field-name="applTypeEnumId"/></relationship>
+        <index name="PRODFTAP_PID_PFID" unique="false"><index-field name="productId"/><index-field name="productFeatureId"/></index>
         <seed-data>
             <!-- Product Feature Appl Type -->
             <moqui.basic.EnumerationType description="Product Feature Appl Type" enumTypeId="ProductFeatureApplType"/>

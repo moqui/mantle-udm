@@ -772,6 +772,9 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="rejectionReasonEnumId"/></relationship>
         <relationship type="one" title="AcctgTransResult" related-entity-name="moqui.basic.Enumeration">
             <key-map field-name="acctgTransResultEnumId"/></relationship>
+
+        <index name="ASSET_REC_ORDID" unique="false"><index-field name="orderId"/></index>
+
         <seed-data>
             <moqui.basic.EnumerationType description="Rejection Reason" enumTypeId="RejectionReason"/>
             <moqui.basic.Enumeration enumId="ArjDamaged" description="Damaged" enumTypeId="RejectionReason"/>

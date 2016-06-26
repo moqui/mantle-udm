@@ -25,6 +25,11 @@ New Features
   - Parties on Agreement are now organization and other instead of from/to
   - Added AgreementTerm termText and termNumber fields
   - New Settlement types for day of current or next month
+- Added Enumeration type WorkType and workTypeEnumId to RateAmount,
+  TimeEntry, WorkEffortParty, and replaced emplPositionClassId on
+  WorkEffort work workTypeEnumId; this is useful for defining work types
+  separate from position classes for a generally cleaner model and to
+  better represent how position classes can have many work types
 
 Bug Fixes
 

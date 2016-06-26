@@ -502,6 +502,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Payroll" roleTypeId="Payroll"/>
             <mantle.party.RoleType description="Picker" roleTypeId="Picker"/>
             <mantle.party.RoleType description="Production Manager" roleTypeId="ProductionManager"/>
+            <mantle.party.RoleType description="Production Worker" roleTypeId="ProductionWorker"/>
             <mantle.party.RoleType description="Receiver" roleTypeId="Receiver"/>
             <mantle.party.RoleType description="Reporter" roleTypeId="Reporter"/>
             <mantle.party.RoleType description="Sales Representative" roleTypeId="SalesRepresentative"/>
@@ -890,6 +891,9 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="communicationEventId"/></relationship>
         <relationship type="many" related-entity-name="mantle.order.OrderCommunicationEvent" short-alias="orders">
             <key-map field-name="communicationEventId"/></relationship>
+
+        <index name="COMMEVT_TP_ST_CET" unique="false"><index-field name="toPartyId"/><index-field name="statusId"/>
+            <index-field name="communicationEventTypeId"/></index>
 
         <seed-data>
             <!-- Communication Event Status -->
