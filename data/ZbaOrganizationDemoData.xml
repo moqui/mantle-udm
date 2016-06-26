@@ -16,6 +16,11 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- NOTE 1265184000000 = 2010-02-03 00:00:00 US/Pacific -->
 
+    <!-- A position for demo/test data -->
+    <moqui.basic.Enumeration description="Programming" enumId="WktpProgramming" enumTypeId="WorkType"/>
+    <mantle.humanres.position.EmplPositionClass title="Programmer" emplPositionClassId="Programmer"/>
+    <mantle.humanres.position.EmplPositionClassWorkType emplPositionClassId="Programmer" workTypeEnumId="WktpProgramming"/>
+
     <!-- ========== DEMO VENDOR Ziziwork Industries (internal organization) DATA ========== -->
     <mantle.party.Party partyId="ORG_ZIZI_CORP" partyTypeEnumId="PtyOrganization"/>
     <mantle.party.Organization partyId="ORG_ZIZI_CORP" organizationName="Ziziwork Industries"/>

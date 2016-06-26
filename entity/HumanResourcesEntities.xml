@@ -606,10 +606,17 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="emplPositionClassId" type="id" is-pk="true"/>
         <field name="title" type="text-medium"/>
         <field name="description" type="text-long"/>
-        <!-- TODO: associate skills with position class -->
+        <!-- FUTURE: associate skills with position class -->
         <seed-data>
+            <!-- Work Type -->
+            <moqui.basic.EnumerationType description="Work Type" enumTypeId="WorkType"/>
+            <moqui.basic.Enumeration description="Management" enumId="WktpManagement" enumTypeId="WorkType"/>
+
+            <!-- Empl Position Class -->
             <mantle.humanres.position.EmplPositionClass title="Project Manager" emplPositionClassId="ProjectManager"/>
+            <mantle.humanres.position.EmplPositionClassWorkType emplPositionClassId="ProjectManager" workTypeEnumId="WktpManagement"/>
             <mantle.humanres.position.EmplPositionClass title="General Manager" emplPositionClassId="GeneralManager"/>
+            <mantle.humanres.position.EmplPositionClassWorkType emplPositionClassId="GeneralManager" workTypeEnumId="WktpManagement"/>
         </seed-data>
     </entity>
     <entity entity-name="EmplPositionClassParty" package-name="mantle.humanres.position">
@@ -756,9 +763,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Rate Purpose" enumTypeId="RatePurpose"/>
             <moqui.basic.Enumeration enumId="RaprClient" description="Client Billing" enumTypeId="RatePurpose"/>
             <moqui.basic.Enumeration enumId="RaprVendor" description="Worker/Vendor Payment" enumTypeId="RatePurpose"/>
-
-            <!-- Work Type -->
-            <moqui.basic.EnumerationType description="Work Type" enumTypeId="WorkType"/>
         </seed-data>
     </entity>
 
