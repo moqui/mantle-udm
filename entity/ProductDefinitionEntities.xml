@@ -558,10 +558,11 @@ along with this software (see the LICENSE.md file). If not, see
         </master>
     </entity>
     <entity entity-name="ProductCategoryContent" package-name="mantle.product.category">
-        <field name="productCategoryId" type="id" is-pk="true"/>
-        <field name="contentLocation" type="text-medium" is-pk="true"/>
-        <field name="categoryContentTypeEnumId" type="id" is-pk="true"/>
-        <field name="fromDate" type="date-time" is-pk="true"/>
+        <field name="productCategoryContentId" type="id" is-pk="true"/>
+        <field name="productCategoryId" type="id"/>
+        <field name="contentLocation" type="text-medium"/>
+        <field name="categoryContentTypeEnumId" type="id"/>
+        <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
         <relationship type="one" related-entity-name="mantle.product.category.ProductCategory"/>
         <relationship type="one" title="ProductCategoryContentType" related-entity-name="moqui.basic.Enumeration">
