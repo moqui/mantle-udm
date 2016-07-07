@@ -26,7 +26,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.marketing.campaign -->
     <!-- ========================================================= -->
 
-    <entity entity-name="MarketingCampaign" package-name="mantle.marketing.campaign">
+    <entity entity-name="MarketingCampaign" package="mantle.marketing.campaign">
         <field name="marketingCampaignId" type="id" is-pk="true"/>
         <field name="parentCampaignId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
@@ -44,10 +44,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="expectedRevenue" type="currency-amount"/>
         <field name="numSent" type="number-integer"/>
         <field name="startDate" type="date-time"/>
-        <relationship type="one" title="Parent" related-entity-name="mantle.marketing.campaign.MarketingCampaign">
-            <key-map field-name="parentCampaignId" related-field-name="marketingCampaignId"/></relationship>
-        <relationship type="one" title="MarketingCampaign" related-entity-name="moqui.basic.StatusItem"/>
-        <relationship type="one" title="Cost" related-entity-name="moqui.basic.Uom">
+        <relationship type="one" title="Parent" related="mantle.marketing.campaign.MarketingCampaign">
+            <key-map field-name="parentCampaignId" related="marketingCampaignId"/></relationship>
+        <relationship type="one" title="MarketingCampaign" related="moqui.basic.StatusItem"/>
+        <relationship type="one" title="Cost" related="moqui.basic.Uom">
             <key-map field-name="costUomId"/></relationship>
         <seed-data>
             <!-- Marketing Campaign Status -->
@@ -65,28 +65,28 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="MKTG_CAMP_INPROGRESS" toStatusId="MKTG_CAMP_CANCELLED" transitionName="Cancel Marketing Campaign"/>
         </seed-data>
     </entity>
-    <entity entity-name="MarketingCampaignNote" package-name="mantle.marketing.campaign">
+    <entity entity-name="MarketingCampaignNote" package="mantle.marketing.campaign">
         <field name="marketingCampaignId" type="id" is-pk="true"/>
         <field name="noteDate" type="date-time" is-pk="true"/>
         <field name="noteText" type="text-very-long"/>
-        <relationship type="one" related-entity-name="mantle.marketing.campaign.MarketingCampaign"/>
+        <relationship type="one" related="mantle.marketing.campaign.MarketingCampaign"/>
     </entity>
-    <entity entity-name="MarketingCampaignParty" package-name="mantle.marketing.campaign">
+    <entity entity-name="MarketingCampaignParty" package="mantle.marketing.campaign">
         <field name="marketingCampaignId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
-        <relationship type="one" related-entity-name="mantle.marketing.campaign.MarketingCampaign"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" related-entity-name="mantle.party.RoleType"/>
+        <relationship type="one" related="mantle.marketing.campaign.MarketingCampaign"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="mantle.party.RoleType"/>
     </entity>
 
     <!-- ========================================================= -->
     <!-- mantle.marketing.contact -->
     <!-- ========================================================= -->
 
-    <entity entity-name="ContactList" package-name="mantle.marketing.contact">
+    <entity entity-name="ContactList" package="mantle.marketing.contact">
         <field name="contactListId" type="id" is-pk="true"/>
         <field name="contactListTypeEnumId" type="id"/>
         <field name="contactMechTypeEnumId" type="id"/>
@@ -104,12 +104,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="verifyEmailSubject" type="text-long"/>
         <field name="verifyEmailWebSiteId" type="id"/>
         <field name="optOutScreen" type="text-medium"/>
-        <relationship type="one" related-entity-name="mantle.marketing.campaign.MarketingCampaign"/>
-        <relationship type="one" title="ContactListType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.marketing.campaign.MarketingCampaign"/>
+        <relationship type="one" title="ContactListType" related="moqui.basic.Enumeration">
             <key-map field-name="contactListTypeEnumId"/></relationship>
-        <relationship type="one" title="ContactMechType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="ContactMechType" related="moqui.basic.Enumeration">
             <key-map field-name="contactMechTypeEnumId"/></relationship>
-        <relationship type="one" title="Owner" related-entity-name="mantle.party.Party">
+        <relationship type="one" title="Owner" related="mantle.party.Party">
             <key-map field-name="ownerPartyId"/></relationship>
         <seed-data>
             <!-- Contact List Type -->
@@ -119,16 +119,16 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="ANNOUNCEMENT" description="Announcement" enumTypeId="ContactListType"/>
         </seed-data>
     </entity>
-    <entity entity-name="ContactListEmail" package-name="mantle.marketing.contact">
+    <entity entity-name="ContactListEmail" package="mantle.marketing.contact">
         <field name="contactListId" type="id" is-pk="true"/>
         <field name="emailTypeEnumId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
         <field name="emailTemplateId" type="id"/>
-        <relationship type="one" related-entity-name="ContactList"/>
-        <relationship type="one" title="ContactListEmailType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" related="ContactList"/>
+        <relationship type="one" title="ContactListEmailType" related="moqui.basic.Enumeration">
             <key-map field-name="emailTypeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="moqui.basic.email.EmailTemplate"/>
+        <relationship type="one" related="moqui.basic.email.EmailTemplate"/>
         <seed-data>
             <!-- Contact List Email Type -->
             <moqui.basic.EnumerationType description="Contact List Email Type" enumTypeId="ContactListEmailType"/>
@@ -138,21 +138,21 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Outgoing Email" enumId="CONT_EMAIL_TEMPLATE" enumTypeId="ContactListEmailType"/>
         </seed-data>
     </entity>
-    <entity entity-name="ContactListCommStatus" package-name="mantle.marketing.contact">
+    <entity entity-name="ContactListCommStatus" package="mantle.marketing.contact">
         <field name="contactListId" type="id" is-pk="true"/>
         <field name="communicationEventId" type="id" is-pk="true"/>
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="partyId" type="id"/>
         <field name="messageId" type="text-medium"/>
         <field name="statusId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.marketing.contact.ContactList"/>
-        <relationship type="one" related-entity-name="mantle.party.communication.CommunicationEvent"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" related-entity-name="moqui.basic.StatusItem"/>
+        <relationship type="one" related="mantle.marketing.contact.ContactList"/>
+        <relationship type="one" related="mantle.party.communication.CommunicationEvent"/>
+        <relationship type="one" related="mantle.party.contact.ContactMech"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="moqui.basic.StatusItem"/>
         <index name="CNTLSTCST_MSG_ID" unique="true"><index-field name="messageId"/></index>
     </entity>
-    <entity entity-name="ContactListParty" package-name="mantle.marketing.contact">
+    <entity entity-name="ContactListParty" package="mantle.marketing.contact">
         <field name="contactListId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
@@ -160,10 +160,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="preferredContactMechId" type="id"/>
         <field name="optInVerifyCode" type="text-short"/>
-        <relationship type="one" related-entity-name="mantle.marketing.contact.ContactList"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" title="ContactListParty" related-entity-name="moqui.basic.StatusItem"/>
-        <relationship type="one" title="Preferred" related-entity-name="mantle.party.contact.ContactMech">
+        <relationship type="one" related="mantle.marketing.contact.ContactList"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" title="ContactListParty" related="moqui.basic.StatusItem"/>
+        <relationship type="one" title="Preferred" related="mantle.party.contact.ContactMech">
             <key-map field-name="preferredContactMechId"/></relationship>
         <seed-data>
             <!-- Contact List Party Status -->
@@ -197,22 +197,22 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.marketing.segment -->
     <!-- ========================================================= -->
 
-    <entity entity-name="MarketInterest" package-name="mantle.marketing.segment">
+    <entity entity-name="MarketInterest" package="mantle.marketing.segment">
         <field name="productCategoryId" type="id" is-pk="true"/>
         <field name="marketSegmentId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
-        <relationship type="one" related-entity-name="ProductCategory"/>
-        <relationship type="one" related-entity-name="mantle.marketing.segment.MarketSegment"/>
+        <relationship type="one" related="ProductCategory"/>
+        <relationship type="one" related="mantle.marketing.segment.MarketSegment"/>
     </entity>
-    <entity entity-name="MarketSegment" package-name="mantle.marketing.segment">
+    <entity entity-name="MarketSegment" package="mantle.marketing.segment">
         <field name="marketSegmentId" type="id" is-pk="true"/>
         <field name="marketSegmentTypeEnumId" type="id"/>
         <field name="description" type="text-medium"/>
         <field name="productStoreId" type="id"/>
-        <relationship type="one" title="MarketSegmentType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="MarketSegmentType" related="moqui.basic.Enumeration">
             <key-map field-name="marketSegmentTypeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="ProductStore"/>
+        <relationship type="one" related="ProductStore"/>
         <seed-data>
             <!-- Market Segment Type -->
             <moqui.basic.EnumerationType description="Market Segment Type" enumTypeId="MarketSegmentType"/>
@@ -220,32 +220,32 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="SALES_SEGMENT" description="Sales Segment" enumTypeId="MarketSegmentType"/>
         </seed-data>
     </entity>
-    <entity entity-name="MarketSegmentClassification" package-name="mantle.marketing.segment">
+    <entity entity-name="MarketSegmentClassification" package="mantle.marketing.segment">
         <field name="marketSegmentId" type="id" is-pk="true"/>
         <field name="partyClassificationId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.marketing.segment.MarketSegment"/>
-        <relationship type="one" related-entity-name="mantle.party.PartyClassification"/>
+        <relationship type="one" related="mantle.marketing.segment.MarketSegment"/>
+        <relationship type="one" related="mantle.party.PartyClassification"/>
     </entity>
-    <entity entity-name="MarketSegmentGeo" package-name="mantle.marketing.segment">
+    <entity entity-name="MarketSegmentGeo" package="mantle.marketing.segment">
         <field name="marketSegmentId" type="id" is-pk="true"/>
         <field name="geoId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.marketing.segment.MarketSegment"/>
-        <relationship type="one" related-entity-name="moqui.basic.Geo"/>
+        <relationship type="one" related="mantle.marketing.segment.MarketSegment"/>
+        <relationship type="one" related="moqui.basic.Geo"/>
     </entity>
-    <entity entity-name="MarketSegmentParty" package-name="mantle.marketing.segment">
+    <entity entity-name="MarketSegmentParty" package="mantle.marketing.segment">
         <field name="marketSegmentId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.marketing.segment.MarketSegment"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" related-entity-name="mantle.party.RoleType"/>
+        <relationship type="one" related="mantle.marketing.segment.MarketSegment"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="mantle.party.RoleType"/>
     </entity>
 
     <!-- ========================================================= -->
     <!-- mantle.marketing.tracking -->
     <!-- ========================================================= -->
 
-    <entity entity-name="TrackingCode" package-name="mantle.marketing.tracking">
+    <entity entity-name="TrackingCode" package="mantle.marketing.tracking">
         <field name="trackingCodeId" type="id" is-pk="true"/>
         <field name="trackingCodeTypeEnumId" type="id"/>
         <field name="marketingCampaignId" type="id"/>
@@ -258,8 +258,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="thruDate" type="date-time"/>
         <field name="groupId" type="id"/>
         <field name="subgroupId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.marketing.campaign.MarketingCampaign"/>
-        <relationship type="one" title="TrackingCodeType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.marketing.campaign.MarketingCampaign"/>
+        <relationship type="one" title="TrackingCodeType" related="moqui.basic.Enumeration">
             <key-map field-name="trackingCodeTypeEnumId"/></relationship>
         <seed-data>
             <!-- Tracking Code Type -->
@@ -270,7 +270,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="PARTNER_MGD" description="Partner Managed" enumTypeId="TrackingCodeType"/>
         </seed-data>
     </entity>
-    <entity entity-name="TrackingCodeOrder" package-name="mantle.marketing.tracking">
+    <entity entity-name="TrackingCodeOrder" package="mantle.marketing.tracking">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="trackingCodeTypeEnumId" type="id" is-pk="true"/>
         <field name="trackingCodeId" type="id"/>
@@ -278,12 +278,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="siteId" type="text-medium"/>
         <field name="hasExported" type="text-indicator"/>
         <field name="affiliateReferredTimeStamp" type="date-time"/>
-        <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
-        <relationship type="one" related-entity-name="mantle.marketing.tracking.TrackingCode"/>
-        <relationship type="one" title="TrackingCodeType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.order.OrderHeader"/>
+        <relationship type="one" related="mantle.marketing.tracking.TrackingCode"/>
+        <relationship type="one" title="TrackingCodeType" related="moqui.basic.Enumeration">
             <key-map field-name="trackingCodeTypeEnumId"/></relationship>
     </entity>
-    <entity entity-name="TrackingCodeOrderReturn" package-name="mantle.marketing.tracking">
+    <entity entity-name="TrackingCodeOrderReturn" package="mantle.marketing.tracking">
         <field name="trackingCodeTypeEnumId" type="id" is-pk="true"/>
         <field name="returnId" type="id" is-pk="true"/>
         <field name="orderId" type="id" is-pk="true"/>
@@ -293,20 +293,20 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="siteId" type="text-medium"/>
         <field name="hasExported" type="text-indicator"/>
         <field name="affiliateReferredTimeStamp" type="date-time"/>
-        <relationship type="one" title="TrackingCodeType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="TrackingCodeType" related="moqui.basic.Enumeration">
             <key-map field-name="trackingCodeTypeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.order.return.ReturnHeader"/>
-        <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
-        <relationship type="one" related-entity-name="mantle.marketing.tracking.TrackingCode"/>
+        <relationship type="one" related="mantle.order.return.ReturnHeader"/>
+        <relationship type="one" related="mantle.order.OrderHeader"/>
+        <relationship type="one" related="mantle.marketing.tracking.TrackingCode"/>
     </entity>
-    <entity entity-name="TrackingCodeVisit" package-name="mantle.marketing.tracking">
+    <entity entity-name="TrackingCodeVisit" package="mantle.marketing.tracking">
         <field name="trackingCodeId" type="id" is-pk="true"/>
         <field name="visitId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="sourceEnumId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.marketing.tracking.TrackingCode"/>
-        <relationship type="one" related-entity-name="moqui.server.Visit"/>
-        <relationship type="one" title="TrackingCodeSource" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.marketing.tracking.TrackingCode"/>
+        <relationship type="one" related="moqui.server.Visit"/>
+        <relationship type="one" title="TrackingCodeSource" related="moqui.basic.Enumeration">
             <key-map field-name="sourceEnumId"/></relationship>
         <seed-data>
             <!-- Tracking Code Source -->

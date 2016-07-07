@@ -24,13 +24,13 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.order -->
     <!-- ========================================================= -->
 
-    <entity entity-name="OrderCommunicationEvent" package-name="mantle.order" cache="never">
+    <entity entity-name="OrderCommunicationEvent" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="communicationEventId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
-        <relationship type="one" related-entity-name="mantle.party.communication.CommunicationEvent"/>
+        <relationship type="one" related="mantle.order.OrderHeader"/>
+        <relationship type="one" related="mantle.party.communication.CommunicationEvent"/>
     </entity>
-    <entity entity-name="OrderContent" package-name="mantle.order" cache="never">
+    <entity entity-name="OrderContent" package="mantle.order" cache="never">
         <field name="orderContentId" type="id" is-pk="true"/>
         <field name="orderContentTypeEnumId" type="id"/>
         <field name="orderId" type="id"/>
@@ -39,12 +39,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="description" type="text-long"/>
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="userId" type="id" default="ec.user.userId"/>
-        <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
-        <relationship type="one" title="OrderContentType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" related="mantle.order.OrderHeader"/>
+        <relationship type="one" title="OrderContentType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="orderContentTypeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
+        <relationship type="one" related="moqui.security.UserAccount"/>
     </entity>
-    <entity entity-name="OrderHeader" package-name="mantle.order" short-alias="orders" cache="never">
+    <entity entity-name="OrderHeader" package="mantle.order" short-alias="orders" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
 
         <field name="orderName" type="text-medium"/>
@@ -73,33 +73,33 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="remainingSubTotal" type="currency-amount"/>
         <field name="grandTotal" type="currency-amount"/>
 
-        <relationship type="one" title="OrderHeader" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="one" title="Currency" related-entity-name="moqui.basic.Uom" short-alias="currencyUom">
+        <relationship type="one" title="OrderHeader" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="Currency" related="moqui.basic.Uom" short-alias="currencyUom">
             <key-map field-name="currencyUomId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.account.billing.BillingAccount"/>
-        <relationship type="one" related-entity-name="mantle.product.store.ProductStore"/>
-        <relationship type="one" title="SalesChannel" related-entity-name="moqui.basic.Enumeration" short-alias="salesChannel">
+        <relationship type="one" related="mantle.account.billing.BillingAccount"/>
+        <relationship type="one" related="mantle.product.store.ProductStore"/>
+        <relationship type="one" title="SalesChannel" related="moqui.basic.Enumeration" short-alias="salesChannel">
             <key-map field-name="salesChannelEnumId"/></relationship>
-        <relationship type="one" title="Sync" related-entity-name="moqui.basic.StatusItem">
+        <relationship type="one" title="Sync" related="moqui.basic.StatusItem">
             <key-map field-name="syncStatusId"/></relationship>
-        <relationship type="one" related-entity-name="moqui.service.message.SystemMessageRemote"/>
-        <relationship type="one" related-entity-name="moqui.server.Visit" short-alias="visit"/>
-        <relationship type="one" title="EnteredBy" related-entity-name="mantle.party.Party">
-            <key-map field-name="enteredByPartyId" related-field-name="partyId"/></relationship>
-        <relationship type="one" title="Parent" related-entity-name="mantle.order.OrderHeader">
-            <key-map field-name="parentOrderId" related-field-name="orderId"/></relationship>
+        <relationship type="one" related="moqui.service.message.SystemMessageRemote"/>
+        <relationship type="one" related="moqui.server.Visit" short-alias="visit"/>
+        <relationship type="one" title="EnteredBy" related="mantle.party.Party">
+            <key-map field-name="enteredByPartyId" related="partyId"/></relationship>
+        <relationship type="one" title="Parent" related="mantle.order.OrderHeader">
+            <key-map field-name="parentOrderId" related="orderId"/></relationship>
 
         <!-- These are not generally necessary, reverse relationships are created automatically, but needed to specify
             the short-alias for use in entity REST requests and quick path look ups -->
-        <relationship type="many" related-entity-name="mantle.order.OrderPart" short-alias="parts">
+        <relationship type="many" related="mantle.order.OrderPart" short-alias="parts">
             <key-map field-name="orderId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.order.OrderItem" short-alias="items">
+        <relationship type="many" related="mantle.order.OrderItem" short-alias="items">
             <key-map field-name="orderId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.order.OrderContent" short-alias="contents">
+        <relationship type="many" related="mantle.order.OrderContent" short-alias="contents">
             <key-map field-name="orderId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.order.OrderNote" short-alias="notes">
+        <relationship type="many" related="mantle.order.OrderNote" short-alias="notes">
             <key-map field-name="orderId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.order.OrderCommunicationEvent" short-alias="communicationEvents">
+        <relationship type="many" related="mantle.order.OrderCommunicationEvent" short-alias="communicationEvents">
             <key-map field-name="orderId"/></relationship>
 
         <index name="ORDEREXT_ID_IDX"><index-field name="externalId"/></index>
@@ -235,13 +235,13 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="communicationEvents"/>
         </master>
     </entity>
-    <extend-entity entity-name="SystemMessage" package-name="moqui.service.message">
+    <extend-entity entity-name="SystemMessage" package="moqui.service.message">
         <field name="orderId" type="id"/>
         <field name="orderRevision" type="number-integer"/>
-        <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
+        <relationship type="one" related="mantle.order.OrderHeader"/>
         <!-- should have auto based on FK: <index name="SYSMSG_ORDER"><index-field name="orderId"/></index> -->
     </extend-entity>
-    <entity entity-name="OrderItem" package-name="mantle.order" short-alias="orderItems" cache="never">
+    <entity entity-name="OrderItem" package="mantle.order" short-alias="orderItems" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderItemSeqId" type="id" is-pk="true"/>
         <field name="orderPartSeqId" type="id"/>
@@ -297,51 +297,51 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="secondaryGeoId" type="id"><description>For tax entries this is the secondary jurisdiction Geo
             (usually a country, or other Geo that the primary is within)</description></field>
 
-        <relationship type="one" related-entity-name="mantle.order.OrderHeader" short-alias="header"/>
-        <relationship type="one" title="ItemType" related-entity-name="moqui.basic.Enumeration" short-alias="itemType">
+        <relationship type="one" related="mantle.order.OrderHeader" short-alias="header"/>
+        <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemType">
             <key-map field-name="itemTypeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.order.OrderPart" short-alias="part">
+        <relationship type="one" related="mantle.order.OrderPart" short-alias="part">
             <key-map field-name="orderId"/><key-map field-name="orderPartSeqId"/></relationship>
-        <relationship type="one-nofk" title="Parent" related-entity-name="mantle.order.OrderItem" short-alias="parent">
+        <relationship type="one-nofk" title="Parent" related="mantle.order.OrderItem" short-alias="parent">
             <key-map field-name="orderId"/>
-            <key-map field-name="parentItemSeqId" related-field-name="orderItemSeqId"/>
+            <key-map field-name="parentItemSeqId" related="orderItemSeqId"/>
         </relationship>
-        <relationship type="many" title="Child" related-entity-name="mantle.order.OrderItem" short-alias="children">
+        <relationship type="many" title="Child" related="mantle.order.OrderItem" short-alias="children">
             <key-map field-name="orderId"/>
-            <key-map field-name="orderItemSeqId" related-field-name="parentItemSeqId"/>
+            <key-map field-name="orderItemSeqId" related="parentItemSeqId"/>
         </relationship>
-        <relationship type="one" related-entity-name="mantle.product.Product" short-alias="product"/>
-        <relationship type="one" related-entity-name="mantle.product.config.ProductConfigSaved"/>
-        <relationship type="one" related-entity-name="mantle.product.feature.ProductFeature" short-alias="feature"/>
-        <relationship type="one" title="Quantity" related-entity-name="moqui.basic.Uom" short-alias="quantityUom">
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related="mantle.product.config.ProductConfigSaved"/>
+        <relationship type="one" related="mantle.product.feature.ProductFeature" short-alias="feature"/>
+        <relationship type="one" title="Quantity" related="moqui.basic.Uom" short-alias="quantityUom">
             <key-map field-name="quantityUomId"/></relationship>
-        <relationship type="one" title="From" related-entity-name="mantle.product.asset.Asset" short-alias="fromAsset">
+        <relationship type="one" title="From" related="mantle.product.asset.Asset" short-alias="fromAsset">
             <key-map field-name="fromAssetId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.product.ProductPrice" short-alias="price"/>
-        <relationship type="one" related-entity-name="mantle.product.category.ProductCategory" short-alias="category"/>
-        <relationship type="one" title="Override" related-entity-name="mantle.ledger.account.GlAccount" short-alias="overrideGlAccount">
+        <relationship type="one" related="mantle.product.ProductPrice" short-alias="price"/>
+        <relationship type="one" related="mantle.product.category.ProductCategory" short-alias="category"/>
+        <relationship type="one" title="Override" related="mantle.ledger.account.GlAccount" short-alias="overrideGlAccount">
             <key-map field-name="overrideGlAccountId"/></relationship>
-        <relationship type="one" related-entity-name="SalesOpportunity" short-alias="opportunity"/>
+        <relationship type="one" related="SalesOpportunity" short-alias="opportunity"/>
 
-        <relationship type="one" title="Primary" related-entity-name="moqui.basic.Geo" short-alias="primaryGeo">
+        <relationship type="one" title="Primary" related="moqui.basic.Geo" short-alias="primaryGeo">
             <key-map field-name="primaryGeoId"/></relationship>
-        <relationship type="one" title="Secondary" related-entity-name="moqui.basic.Geo" short-alias="secondaryGeo">
+        <relationship type="one" title="Secondary" related="moqui.basic.Geo" short-alias="secondaryGeo">
             <key-map field-name="secondaryGeoId"/></relationship>
 
-        <relationship type="many" related-entity-name="mantle.product.issuance.AssetReservation" short-alias="reservations">
+        <relationship type="many" related="mantle.product.issuance.AssetReservation" short-alias="reservations">
             <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.product.issuance.AssetIssuance" short-alias="issuances">
+        <relationship type="many" related="mantle.product.issuance.AssetIssuance" short-alias="issuances">
             <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.product.receipt.AssetReceipt" short-alias="receipts">
+        <relationship type="many" related="mantle.product.receipt.AssetReceipt" short-alias="receipts">
             <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.shipment.ShipmentItemSource" short-alias="shipmentSources">
+        <relationship type="many" related="mantle.shipment.ShipmentItemSource" short-alias="shipmentSources">
             <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.order.OrderItemBilling" short-alias="billings">
+        <relationship type="many" related="mantle.order.OrderItemBilling" short-alias="billings">
             <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
 
         <index name="ORDITMEXT_ID_IDX"><index-field name="externalItemSeqId"/></index>
     </entity>
-    <entity entity-name="OrderItemBilling" package-name="mantle.order" cache="never">
+    <entity entity-name="OrderItemBilling" package="mantle.order" cache="never">
         <field name="orderItemBillingId" type="id" is-pk="true"/>
         <field name="orderId" type="id"/>
         <field name="orderItemSeqId" type="id"/>
@@ -354,24 +354,24 @@ along with this software (see the LICENSE.md file). If not, see
             the way to find it.</description></field>
         <field name="quantity" type="number-decimal"/>
         <field name="amount" type="currency-amount"/>
-        <relationship type="one" related-entity-name="mantle.order.OrderItem" short-alias="orderItem">
+        <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem">
             <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem">
+        <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem">
             <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.product.receipt.AssetReceipt" short-alias="receipt"/>
-        <relationship type="one" related-entity-name="mantle.product.issuance.AssetIssuance" short-alias="issuance"/>
-        <relationship type="one" related-entity-name="mantle.shipment.Shipment" short-alias="shipment"/>
+        <relationship type="one" related="mantle.product.receipt.AssetReceipt" short-alias="receipt"/>
+        <relationship type="one" related="mantle.product.issuance.AssetIssuance" short-alias="issuance"/>
+        <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
     </entity>
-    <entity entity-name="OrderNote" package-name="mantle.order" cache="never">
+    <entity entity-name="OrderNote" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="noteDate" type="date-time" is-pk="true" default="ec.user.nowTimestamp"/>
         <field name="noteText" type="text-very-long" enable-audit-log="true"/>
         <field name="internalNote" type="text-indicator"/>
         <field name="userId" type="id" default="ec.user.userId"/>
-        <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
-        <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
+        <relationship type="one" related="mantle.order.OrderHeader"/>
+        <relationship type="one" related="moqui.security.UserAccount"/>
     </entity>
-    <entity entity-name="OrderPart" package-name="mantle.order" short-alias="orderParts" cache="never">
+    <entity entity-name="OrderPart" package="mantle.order" short-alias="orderParts" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderPartSeqId" type="id" is-pk="true"/>
         <field name="parentPartSeqId" type="id"/>
@@ -416,100 +416,100 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="dontCancelSetDate" type="date-time"/>
         <field name="dontCancelSetUserId" type="id"/>
 
-        <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
-        <relationship type="one" title="Parent" related-entity-name="mantle.order.OrderPart">
+        <relationship type="one" related="mantle.order.OrderHeader"/>
+        <relationship type="one" title="Parent" related="mantle.order.OrderPart">
             <key-map field-name="orderId"/>
-            <key-map field-name="parentPartSeqId" related-field-name="orderPartSeqId"/>
+            <key-map field-name="parentPartSeqId" related="orderPartSeqId"/>
         </relationship>
         <!-- has title OrderHeader to use same statuses as OrderHeader -->
-        <relationship type="one" title="OrderHeader" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="OrderHeader" related="moqui.basic.StatusItem" short-alias="status"/>
 
-        <relationship type="one" title="Vendor" related-entity-name="mantle.party.Party" short-alias="vendor">
+        <relationship type="one" title="Vendor" related="mantle.party.Party" short-alias="vendor">
             <key-map field-name="vendorPartyId"/></relationship>
-        <relationship type="many" title="Vendor" related-entity-name="mantle.party.PartyRole" short-alias="vendorRoles">
-            <key-map field-name="vendorPartyId" related-field-name="partyId"/></relationship>
-        <relationship type="one" title="Customer" related-entity-name="mantle.party.Party" short-alias="customer">
+        <relationship type="many" title="Vendor" related="mantle.party.PartyRole" short-alias="vendorRoles">
+            <key-map field-name="vendorPartyId" related="partyId"/></relationship>
+        <relationship type="one" title="Customer" related="mantle.party.Party" short-alias="customer">
             <key-map field-name="customerPartyId"/></relationship>
-        <relationship type="many" title="Customer" related-entity-name="mantle.party.PartyRole">
-            <key-map field-name="customerPartyId" related-field-name="partyId"/></relationship>
+        <relationship type="many" title="Customer" related="mantle.party.PartyRole">
+            <key-map field-name="customerPartyId" related="partyId"/></relationship>
 
-        <relationship type="one" related-entity-name="Facility" short-alias="facility"/>
-        <relationship type="one" title="Carrier" related-entity-name="mantle.party.Party" short-alias="carrier">
+        <relationship type="one" related="Facility" short-alias="facility"/>
+        <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
             <key-map field-name="carrierPartyId"/></relationship>
-        <relationship type="one" title="ShipmentMethod" related-entity-name="moqui.basic.Enumeration" short-alias="shipmentMethod">
+        <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration" short-alias="shipmentMethod">
             <key-map field-name="shipmentMethodEnumId"/></relationship>
-        <relationship type="one" title="Postal" related-entity-name="mantle.party.contact.ContactMech" short-alias="postal">
+        <relationship type="one" title="Postal" related="mantle.party.contact.ContactMech" short-alias="postal">
             <key-map field-name="postalContactMechId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.party.contact.PostalAddress">
+        <relationship type="one" related="mantle.party.contact.PostalAddress">
             <key-map field-name="postalContactMechId"/></relationship>
-        <relationship type="one" title="Telecom" related-entity-name="mantle.party.contact.ContactMech" short-alias="telecom">
+        <relationship type="one" title="Telecom" related="mantle.party.contact.ContactMech" short-alias="telecom">
             <key-map field-name="telecomContactMechId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.party.contact.TelecomNumber">
+        <relationship type="one" related="mantle.party.contact.TelecomNumber">
             <key-map field-name="telecomContactMechId"/></relationship>
 
-        <relationship type="many" related-entity-name="mantle.order.OrderItem" short-alias="items">
+        <relationship type="many" related="mantle.order.OrderItem" short-alias="items">
             <key-map field-name="orderId"/><key-map field-name="orderPartSeqId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.order.OrderPartParty" short-alias="parties">
+        <relationship type="many" related="mantle.order.OrderPartParty" short-alias="parties">
             <key-map field-name="orderId"/><key-map field-name="orderPartSeqId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.order.OrderPartContactMech" short-alias="contactMechs">
+        <relationship type="many" related="mantle.order.OrderPartContactMech" short-alias="contactMechs">
             <key-map field-name="orderId"/><key-map field-name="orderPartSeqId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.order.OrderPartTerm" short-alias="terms">
+        <relationship type="many" related="mantle.order.OrderPartTerm" short-alias="terms">
             <key-map field-name="orderId"/><key-map field-name="orderPartSeqId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.account.payment.Payment" short-alias="payments">
+        <relationship type="many" related="mantle.account.payment.Payment" short-alias="payments">
             <key-map field-name="orderId"/><key-map field-name="orderPartSeqId"/></relationship>
 
         <index name="ORDPTOPTY_ID_IDX"><index-field name="otherPartyOrderId"/></index>
     </entity>
-    <entity entity-name="OrderPartParty" package-name="mantle.order" cache="never">
+    <entity entity-name="OrderPartParty" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderPartSeqId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.order.OrderPart"/>
-        <relationship type="one" related-entity-name="mantle.party.Party" short-alias="party"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.Person" short-alias="person"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.Organization" short-alias="organization"/>
-        <relationship type="one" related-entity-name="mantle.party.RoleType" short-alias="roleType"/>
+        <relationship type="one" related="mantle.order.OrderPart"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one-nofk" related="mantle.party.Person" short-alias="person"/>
+        <relationship type="one-nofk" related="mantle.party.Organization" short-alias="organization"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="roleType"/>
     </entity>
-    <entity entity-name="OrderPartContactMech" package-name="mantle.order" cache="never">
+    <entity entity-name="OrderPartContactMech" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderPartSeqId" type="id" is-pk="true"/>
         <field name="contactMechPurposeId" type="id" is-pk="true"/>
         <field name="contactMechId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.order.OrderPart"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMechPurpose" short-alias="purpose"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech" short-alias="contactMech"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.contact.TelecomNumber" short-alias="telecomNumber"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.contact.PostalAddress" short-alias="postalAddress"/>
+        <relationship type="one" related="mantle.order.OrderPart"/>
+        <relationship type="one" related="mantle.party.contact.ContactMechPurpose" short-alias="purpose"/>
+        <relationship type="one" related="mantle.party.contact.ContactMech" short-alias="contactMech"/>
+        <relationship type="one-nofk" related="mantle.party.contact.TelecomNumber" short-alias="telecomNumber"/>
+        <relationship type="one-nofk" related="mantle.party.contact.PostalAddress" short-alias="postalAddress"/>
     </entity>
-    <entity entity-name="OrderPartTerm" package-name="mantle.order" cache="never">
+    <entity entity-name="OrderPartTerm" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderPartSeqId" type="id" is-pk="true"/>
         <field name="settlementTermId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.order.OrderPart"/>
-        <relationship type="one" related-entity-name="SettlementTerm" short-alias="term"/>
+        <relationship type="one" related="mantle.order.OrderPart"/>
+        <relationship type="one" related="SettlementTerm" short-alias="term"/>
     </entity>
-    <entity entity-name="OrderItemWorkEffort" package-name="mantle.order" cache="never">
+    <entity entity-name="OrderItemWorkEffort" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderItemSeqId" type="id" is-pk="true"/>
         <field name="workEffortId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.order.OrderItem"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
+        <relationship type="one" related="mantle.order.OrderItem"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort"/>
     </entity>
 
     <!-- ========================================================= -->
     <!-- mantle.order.return -->
     <!-- ========================================================= -->
 
-    <entity entity-name="ReturnContactMech" package-name="mantle.order.return" cache="never">
+    <entity entity-name="ReturnContactMech" package="mantle.order.return" cache="never">
         <field name="returnId" type="id" is-pk="true"/>
         <field name="contactMechPurposeId" type="id" is-pk="true"/>
         <field name="contactMechId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.order.return.ReturnHeader"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMechPurpose"/>
+        <relationship type="one" related="mantle.order.return.ReturnHeader"/>
+        <relationship type="one" related="mantle.party.contact.ContactMech"/>
+        <relationship type="one" related="mantle.party.contact.ContactMechPurpose"/>
     </entity>
-    <entity entity-name="ReturnHeader" package-name="mantle.order.return" short-alias="returns" cache="never">
+    <entity entity-name="ReturnHeader" package="mantle.order.return" short-alias="returns" cache="never">
         <field name="returnId" type="id" is-pk="true"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="customerPartyId" type="id"/>
@@ -527,29 +527,29 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="supplierRmaId" type="text-short"/>
         <field name="visitId" type="id"/>
 
-        <relationship type="one" title="Return" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="one" title="Customer" related-entity-name="mantle.party.Party" short-alias="customer">
+        <relationship type="one" title="Return" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="Customer" related="mantle.party.Party" short-alias="customer">
             <key-map field-name="customerPartyId"/></relationship>
-        <relationship type="one" title="Vendor" related-entity-name="mantle.party.Party" short-alias="vendor">
+        <relationship type="one" title="Vendor" related="mantle.party.Party" short-alias="vendor">
             <key-map field-name="vendorPartyId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.account.financial.FinancialAccount"/>
-        <relationship type="one" related-entity-name="mantle.account.method.PaymentMethod"/>
-        <relationship type="one" title="Postal" related-entity-name="mantle.party.contact.ContactMech" short-alias="postal">
+        <relationship type="one" related="mantle.account.financial.FinancialAccount"/>
+        <relationship type="one" related="mantle.account.method.PaymentMethod"/>
+        <relationship type="one" title="Postal" related="mantle.party.contact.ContactMech" short-alias="postal">
             <key-map field-name="postalContactMechId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.party.contact.PostalAddress">
+        <relationship type="one" related="mantle.party.contact.PostalAddress">
             <key-map field-name="postalContactMechId"/></relationship>
-        <relationship type="one" title="Telecom" related-entity-name="mantle.party.contact.ContactMech" short-alias="telecom">
+        <relationship type="one" title="Telecom" related="mantle.party.contact.ContactMech" short-alias="telecom">
             <key-map field-name="telecomContactMechId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.facility.Facility" short-alias="facility"/>
-        <relationship type="one" title="ShipmentMethod" related-entity-name="moqui.basic.Enumeration" short-alias="shipmentMethod">
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration" short-alias="shipmentMethod">
             <key-map field-name="shipmentMethodEnumId"/></relationship>
-        <relationship type="one" title="Carrier" related-entity-name="mantle.party.Party" short-alias="carrier">
+        <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
             <key-map field-name="carrierPartyId"/></relationship>
-        <relationship type="one" title="Currency" related-entity-name="moqui.basic.Uom" short-alias="currencyUom">
+        <relationship type="one" title="Currency" related="moqui.basic.Uom" short-alias="currencyUom">
             <key-map field-name="currencyUomId"/></relationship>
-        <relationship type="one" related-entity-name="moqui.server.Visit" short-alias="visit"/>
+        <relationship type="one" related="moqui.server.Visit" short-alias="visit"/>
 
-        <relationship type="many" related-entity-name="mantle.order.return.ReturnItem" short-alias="items">
+        <relationship type="many" related="mantle.order.return.ReturnItem" short-alias="items">
             <key-map field-name="returnId"/></relationship>
 
         <seed-data>
@@ -606,7 +606,7 @@ along with this software (see the LICENSE.md file). If not, see
             </detail>
         </master>
     </entity>
-    <entity entity-name="ReturnItem" package-name="mantle.order.return" short-alias="returnItems" cache="never">
+    <entity entity-name="ReturnItem" package="mantle.order.return" short-alias="returnItems" cache="never">
         <field name="returnId" type="id" is-pk="true"/>
         <field name="returnItemSeqId" type="id" is-pk="true"/>
         <field name="returnReasonEnumId" type="id" enable-audit-log="true"/>
@@ -635,33 +635,33 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- doesn't make sense, may be multiple payments: <field name="originalPaymentId" type="id"/> -->
         <!-- maybe future: <field name="billingAccountId" type="id"/> -->
 
-        <relationship type="one" related-entity-name="mantle.order.return.ReturnHeader">
+        <relationship type="one" related="mantle.order.return.ReturnHeader">
             <key-map field-name="returnId"/></relationship>
-        <relationship type="one" title="ReturnReason" related-entity-name="moqui.basic.Enumeration" short-alias="reason">
+        <relationship type="one" title="ReturnReason" related="moqui.basic.Enumeration" short-alias="reason">
             <key-map field-name="returnReasonEnumId"/></relationship>
-        <relationship type="one" title="ReturnResponse" related-entity-name="moqui.basic.Enumeration" short-alias="response">
+        <relationship type="one" title="ReturnResponse" related="moqui.basic.Enumeration" short-alias="response">
             <key-map field-name="returnResponseEnumId"/></relationship>
-        <relationship type="one" title="ItemType" related-entity-name="moqui.basic.Enumeration" short-alias="itemType">
+        <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemType">
             <key-map field-name="itemTypeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.order.OrderItem" short-alias="orderItem"/>
-        <relationship type="one" title="Return" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="one" title="Asset" related-entity-name="moqui.basic.StatusItem">
+        <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem"/>
+        <relationship type="one" title="Return" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="Asset" related="moqui.basic.StatusItem">
             <key-map field-name="inventoryStatusId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
 
-        <relationship type="one" title="Replacement" related-entity-name="mantle.order.OrderHeader">
+        <relationship type="one" title="Replacement" related="mantle.order.OrderHeader">
             <key-map field-name="replacementOrderId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.account.financial.FinancialAccountTrans"/>
-        <relationship type="one" title="Refund" related-entity-name="mantle.account.payment.Payment">
+        <relationship type="one" related="mantle.account.financial.FinancialAccountTrans"/>
+        <relationship type="one" title="Refund" related="mantle.account.payment.Payment">
             <key-map field-name="refundPaymentId"/></relationship>
 
-        <relationship type="many" related-entity-name="mantle.product.issuance.AssetIssuance" short-alias="issuances">
+        <relationship type="many" related="mantle.product.issuance.AssetIssuance" short-alias="issuances">
             <key-map field-name="returnId"/><key-map field-name="returnItemSeqId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.product.receipt.AssetReceipt" short-alias="receipts">
+        <relationship type="many" related="mantle.product.receipt.AssetReceipt" short-alias="receipts">
             <key-map field-name="returnId"/><key-map field-name="returnItemSeqId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.shipment.ShipmentItemSource" short-alias="shipmentSources">
+        <relationship type="many" related="mantle.shipment.ShipmentItemSource" short-alias="shipmentSources">
             <key-map field-name="returnId"/><key-map field-name="returnItemSeqId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.order.return.ReturnItemBilling" short-alias="billings">
+        <relationship type="many" related="mantle.order.return.ReturnItemBilling" short-alias="billings">
             <key-map field-name="returnId"/><key-map field-name="returnItemSeqId"/></relationship>
 
         <index name="RTN_ITM_BYORDITM"><index-field name="orderId"/><index-field name="orderItemSeqId"/></index>
@@ -683,7 +683,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="RrspManual" description="Manual" enumTypeId="ReturnResponse"/>
         </seed-data>
     </entity>
-    <entity entity-name="ReturnItemBilling" package-name="mantle.order.return" cache="never">
+    <entity entity-name="ReturnItemBilling" package="mantle.order.return" cache="never">
         <field name="returnId" type="id" is-pk="true"/>
         <field name="returnItemSeqId" type="id" is-pk="true"/>
         <field name="invoiceId" type="id" is-pk="true"/>
@@ -691,8 +691,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="assetReceiptId" type="id"/>
         <field name="quantity" type="number-decimal"/>
         <field name="amount" type="currency-amount"/>
-        <relationship type="one" related-entity-name="mantle.order.return.ReturnItem"/>
-        <relationship type="one" related-entity-name="mantle.account.invoice.InvoiceItem"/>
-        <relationship type="one" related-entity-name="mantle.product.receipt.AssetReceipt"/>
+        <relationship type="one" related="mantle.order.return.ReturnItem"/>
+        <relationship type="one" related="mantle.account.invoice.InvoiceItem"/>
+        <relationship type="one" related="mantle.product.receipt.AssetReceipt"/>
     </entity>
 </entities>

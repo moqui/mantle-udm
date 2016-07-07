@@ -26,15 +26,15 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.work.effort -->
     <!-- ========================================================= -->
 
-    <entity entity-name="Deliverable" package-name="mantle.work.effort">
+    <entity entity-name="Deliverable" package="mantle.work.effort">
         <field name="deliverableId" type="id" is-pk="true"/>
         <field name="deliverableTypeEnumId" type="id"/>
         <field name="deliverableName" type="text-medium"/>
         <field name="description" type="text-medium"/>
-        <relationship type="one" title="DeliverableType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="DeliverableType" related="moqui.basic.Enumeration">
             <key-map field-name="deliverableTypeEnumId"/></relationship>
     </entity>
-    <entity entity-name="WorkEffort" package-name="mantle.work.effort" short-alias="workEfforts" cache="never">
+    <entity entity-name="WorkEffort" package="mantle.work.effort" short-alias="workEfforts" cache="never">
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="universalId" type="text-medium"/>
         <field name="sourceReferenceId" type="text-short"/>
@@ -96,53 +96,53 @@ along with this software (see the LICENSE.md file). If not, see
 
         <!-- TODO replace this with something generic like a cron string: <field name="recurrenceInfoId" type="id"/> -->
 
-        <relationship type="one" title="Parent" related-entity-name="mantle.work.effort.WorkEffort" short-alias="parent">
-            <key-map field-name="parentWorkEffortId" related-field-name="workEffortId"/></relationship>
-        <relationship type="one" title="Root" related-entity-name="mantle.work.effort.WorkEffort" short-alias="root">
-            <key-map field-name="rootWorkEffortId" related-field-name="workEffortId"/></relationship>
-        <relationship type="one" title="WorkEffortType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" title="Parent" related="mantle.work.effort.WorkEffort" short-alias="parent">
+            <key-map field-name="parentWorkEffortId" related="workEffortId"/></relationship>
+        <relationship type="one" title="Root" related="mantle.work.effort.WorkEffort" short-alias="root">
+            <key-map field-name="rootWorkEffortId" related="workEffortId"/></relationship>
+        <relationship type="one" title="WorkEffortType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="workEffortTypeEnumId"/></relationship>
-        <relationship type="one" title="WorkEffortPurpose" related-entity-name="moqui.basic.Enumeration" short-alias="purpose">
+        <relationship type="one" title="WorkEffortPurpose" related="moqui.basic.Enumeration" short-alias="purpose">
             <key-map field-name="purposeEnumId"/></relationship>
-        <relationship type="one" title="WorkEffortVisibility" related-entity-name="moqui.basic.Enumeration" short-alias="visibility">
+        <relationship type="one" title="WorkEffortVisibility" related="moqui.basic.Enumeration" short-alias="visibility">
             <key-map field-name="visibilityEnumId"/></relationship>
-        <relationship type="one" title="WorkEffortResolution" related-entity-name="moqui.basic.Enumeration" short-alias="resolution">
+        <relationship type="one" title="WorkEffortResolution" related="moqui.basic.Enumeration" short-alias="resolution">
             <key-map field-name="resolutionEnumId"/></relationship>
-        <relationship type="one" title="WorkType" related-entity-name="moqui.basic.Enumeration" short-alias="workType">
+        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workType">
             <key-map field-name="workTypeEnumId"/></relationship>
-        <relationship type="one" title="Owner" related-entity-name="mantle.party.Party" short-alias="owner">
+        <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
             <key-map field-name="ownerPartyId"/></relationship>
 
-        <relationship type="one" title="WorkEffort" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="one" related-entity-name="mantle.facility.Facility" short-alias="facility"/>
-        <relationship type="one" title="Time" related-entity-name="moqui.basic.Uom" short-alias="timeUom">
+        <relationship type="one" title="WorkEffort" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one" title="Time" related="moqui.basic.Uom" short-alias="timeUom">
             <key-map field-name="timeUomId"/></relationship>
-        <relationship type="one" title="Cost" related-entity-name="moqui.basic.Uom" short-alias="costUom">
+        <relationship type="one" title="Cost" related="moqui.basic.Uom" short-alias="costUom">
             <key-map field-name="costUomId"/></relationship>
 
-        <relationship type="many" related-entity-name="mantle.work.effort.WorkEffortAssetAssign" short-alias="assets">
+        <relationship type="many" related="mantle.work.effort.WorkEffortAssetAssign" short-alias="assets">
             <key-map field-name="workEffortId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.work.effort.WorkEffortAssetNeeded" short-alias="assetsNeeded">
+        <relationship type="many" related="mantle.work.effort.WorkEffortAssetNeeded" short-alias="assetsNeeded">
             <key-map field-name="workEffortId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.work.effort.WorkEffortAssoc" short-alias="assocs">
+        <relationship type="many" related="mantle.work.effort.WorkEffortAssoc" short-alias="assocs">
             <key-map field-name="workEffortId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.work.effort.WorkEffortAssoc" short-alias="toAssocs">
-            <key-map field-name="workEffortId" related-field-name="toWorkEffortId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.work.effort.WorkEffortBilling" short-alias="billings">
+        <relationship type="many" related="mantle.work.effort.WorkEffortAssoc" short-alias="toAssocs">
+            <key-map field-name="workEffortId" related="toWorkEffortId"/></relationship>
+        <relationship type="many" related="mantle.work.effort.WorkEffortBilling" short-alias="billings">
             <key-map field-name="workEffortId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.work.effort.WorkEffortCommEvent" short-alias="communicationEvents">
+        <relationship type="many" related="mantle.work.effort.WorkEffortCommEvent" short-alias="communicationEvents">
             <key-map field-name="workEffortId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.work.effort.WorkEffortContactMech" short-alias="contactMechs">
+        <relationship type="many" related="mantle.work.effort.WorkEffortContactMech" short-alias="contactMechs">
             <key-map field-name="workEffortId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.work.effort.WorkEffortContent" short-alias="contents">
+        <relationship type="many" related="mantle.work.effort.WorkEffortContent" short-alias="contents">
             <key-map field-name="workEffortId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.work.effort.WorkEffortFacility" short-alias="facilities">
+        <relationship type="many" related="mantle.work.effort.WorkEffortFacility" short-alias="facilities">
             <key-map field-name="workEffortId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.work.effort.WorkEffortNote" short-alias="notes">
+        <relationship type="many" related="mantle.work.effort.WorkEffortNote" short-alias="notes">
             <key-map field-name="workEffortId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.work.effort.WorkEffortParty" short-alias="parties">
+        <relationship type="many" related="mantle.work.effort.WorkEffortParty" short-alias="parties">
             <key-map field-name="workEffortId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.work.effort.WorkEffortProduct" short-alias="products">
+        <relationship type="many" related="mantle.work.effort.WorkEffortProduct" short-alias="products">
             <key-map field-name="workEffortId"/></relationship>
 
         <index name="WORK_EFF_ST_WET" unique="false"><index-field name="statusId"/><index-field name="workEffortTypeEnumId"/></index>
@@ -278,7 +278,7 @@ along with this software (see the LICENSE.md file). If not, see
         </master>
     </entity>
 
-    <entity entity-name="WorkEffortAssetAssign" package-name="mantle.work.effort" cache="never">
+    <entity entity-name="WorkEffortAssetAssign" package="mantle.work.effort" cache="never">
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="assetId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
@@ -286,9 +286,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="allocatedCost" type="currency-amount"/>
         <field name="comments" type="text-medium"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
-        <relationship type="one" related-entity-name="mantle.product.asset.Asset" short-alias="asset"/>
-        <relationship type="one" title="WorkEffortAssetAssign" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+        <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
+        <relationship type="one" title="WorkEffortAssetAssign" related="moqui.basic.StatusItem" short-alias="status"/>
         <seed-data>
             <!-- Work Effort Asset Assignment Status -->
             <moqui.basic.StatusType description="Work Effort Asset Assignment Status" statusTypeId="WorkEffortAssetAssign"/>
@@ -304,29 +304,29 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeaaDeparted" toStatusId="WeaaArrived" transitionName="Arrive"/>
         </seed-data>
     </entity>
-    <entity entity-name="WorkEffortAssetNeeded" package-name="mantle.work.effort" cache="never">
+    <entity entity-name="WorkEffortAssetNeeded" package="mantle.work.effort" cache="never">
         <description>For equipment, inventory, etc needed in the work effort.</description>
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="assetProductId" type="id" is-pk="true"/>
         <field name="estimatedQuantity" type="number-decimal"/>
         <field name="estimatedDuration" type="number-decimal"/>
         <field name="estimatedCost" type="currency-amount"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
-        <relationship type="one" title="Asset" related-entity-name="mantle.product.Product" short-alias="assetProduct">
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+        <relationship type="one" title="Asset" related="mantle.product.Product" short-alias="assetProduct">
             <key-map field-name="assetProductId"/></relationship>
     </entity>
 
-    <entity entity-name="WorkEffortAssoc" package-name="mantle.work.effort" cache="never">
+    <entity entity-name="WorkEffortAssoc" package="mantle.work.effort" cache="never">
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="toWorkEffortId" type="id" is-pk="true"/>
         <field name="workEffortAssocTypeEnumId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
         <field name="sequenceNum" type="number-integer"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
-        <relationship type="one" title="To" related-entity-name="mantle.work.effort.WorkEffort" short-alias="toWorkEffort">
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+        <relationship type="one" title="To" related="mantle.work.effort.WorkEffort" short-alias="toWorkEffort">
             <key-map field-name="toWorkEffortId"/></relationship>
-        <relationship type="one" title="WorkEffortAssocType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" title="WorkEffortAssocType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="workEffortAssocTypeEnumId"/></relationship>
         <seed-data>
             <!-- Work Effort Association Type -->
@@ -347,32 +347,32 @@ along with this software (see the LICENSE.md file). If not, see
         </seed-data>
     </entity>
 
-    <entity entity-name="WorkEffortBilling" package-name="mantle.work.effort" cache="never">
+    <entity entity-name="WorkEffortBilling" package="mantle.work.effort" cache="never">
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="invoiceId" type="id" is-pk="true"/>
         <field name="invoiceItemSeqId" type="id" is-pk="true"/>
         <field name="percentage" type="number-decimal"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
-        <relationship type="one" related-entity-name="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem">
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+        <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem">
             <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
     </entity>
-    <entity entity-name="WorkEffortInvoice" package-name="mantle.work.effort" cache="never">
+    <entity entity-name="WorkEffortInvoice" package="mantle.work.effort" cache="never">
         <field name="invoiceId" type="id" is-pk="true"/>
         <field name="workEffortId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.account.invoice.Invoice"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
+        <relationship type="one" related="mantle.account.invoice.Invoice"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort"/>
     </entity>
 
-    <entity entity-name="WorkEffortCommEvent" package-name="mantle.work.effort" cache="never">
+    <entity entity-name="WorkEffortCommEvent" package="mantle.work.effort" cache="never">
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="communicationEventId" type="id" is-pk="true"/>
         <field name="description" type="text-medium"/>
         <field name="sequenceNum" type="number-integer"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
-        <relationship type="one" related-entity-name="mantle.party.communication.CommunicationEvent" short-alias="communicationEvent"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+        <relationship type="one" related="mantle.party.communication.CommunicationEvent" short-alias="communicationEvent"/>
     </entity>
 
-    <entity entity-name="WorkEffortContactMech" package-name="mantle.work.effort" cache="never">
+    <entity entity-name="WorkEffortContactMech" package="mantle.work.effort" cache="never">
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="contactMechPurposeId" type="id" is-pk="true"/>
@@ -380,13 +380,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="thruDate" type="date-time"/>
         <field name="extension" type="text-short"/>
         <field name="comments" type="text-medium"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech" short-alias="contactMech"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMechPurpose" short-alias="purpose"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.contact.PostalAddress"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.contact.TelecomNumber"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+        <relationship type="one" related="mantle.party.contact.ContactMech" short-alias="contactMech"/>
+        <relationship type="one" related="mantle.party.contact.ContactMechPurpose" short-alias="purpose"/>
+        <relationship type="one-nofk" related="mantle.party.contact.PostalAddress"/>
+        <relationship type="one-nofk" related="mantle.party.contact.TelecomNumber"/>
     </entity>
-    <entity entity-name="WorkEffortContent" package-name="mantle.work.effort" cache="never">
+    <entity entity-name="WorkEffortContent" package="mantle.work.effort" cache="never">
         <field name="workEffortContentId" type="id" is-pk="true"/>
         <field name="workEffortId" type="id"/>
         <field name="contentLocation" type="text-medium"/>
@@ -394,8 +394,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="description" type="text-long"/>
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="userId" type="id" default="ec.user.userId"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
-        <relationship type="one" title="WorkEffortContentType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" related="mantle.work.effort.WorkEffort"/>
+        <relationship type="one" title="WorkEffortContentType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="contentTypeEnumId"/></relationship>
         <seed-data>
             <!-- Work Effort Content Type -->
@@ -409,19 +409,19 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="WectCreatedMedia" description="Created Media" enumTypeId="WorkEffortContentType"/>
         </seed-data>
     </entity>
-    <entity entity-name="WorkEffortDeliverableProd" package-name="mantle.work.effort" cache="never">
+    <entity entity-name="WorkEffortDeliverableProd" package="mantle.work.effort" cache="never">
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="deliverableId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.Deliverable"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort"/>
+        <relationship type="one" related="mantle.work.effort.Deliverable"/>
     </entity>
-    <entity entity-name="WorkEffortFacility" package-name="mantle.work.effort" cache="never">
+    <entity entity-name="WorkEffortFacility" package="mantle.work.effort" cache="never">
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="typeEnumId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
-        <relationship type="one" related-entity-name="mantle.facility.Facility" short-alias="facility"/>
-        <relationship type="one" title="WorkEffortFacilityType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one" title="WorkEffortFacilityType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="typeEnumId"/></relationship>
         <seed-data>
             <!-- Work Effort Product Type -->
@@ -430,16 +430,16 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="WeftUsed" description="Also Used" enumTypeId="WorkEffortFacilityType"/>
         </seed-data>
     </entity>
-    <entity entity-name="WorkEffortNote" package-name="mantle.work.effort" cache="never">
+    <entity entity-name="WorkEffortNote" package="mantle.work.effort" cache="never">
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="noteDate" type="date-time" is-pk="true" default="ec.user.nowTimestamp"/>
         <field name="noteText" type="text-very-long" enable-audit-log="true"/>
         <field name="internalNote" type="text-indicator"/>
         <field name="userId" type="id" default="ec.user.userId"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
-        <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort"/>
+        <relationship type="one" related="moqui.security.UserAccount"/>
     </entity>
-    <entity entity-name="WorkEffortParty" package-name="mantle.work.effort" cache="never">
+    <entity entity-name="WorkEffortParty" package="mantle.work.effort" cache="never">
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
@@ -454,22 +454,22 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="comments" type="text-medium"/>
         <field name="mustRsvp" type="text-indicator"/>
         <field name="receiveNotifications" type="text-indicator"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
-        <relationship type="one" related-entity-name="mantle.party.Party" short-alias="party"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.Person" short-alias="person"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.Organization" short-alias="organization"/>
-        <relationship type="one" related-entity-name="mantle.party.RoleType" short-alias="role"/>
-        <relationship type="one" title="WorkEffortParty" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="one" title="WorkEffortPartyAvailability" related-entity-name="moqui.basic.Enumeration" short-alias="availability">
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one-nofk" related="mantle.party.Person" short-alias="person"/>
+        <relationship type="one-nofk" related="mantle.party.Organization" short-alias="organization"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
+        <relationship type="one" title="WorkEffortParty" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="WorkEffortPartyAvailability" related="moqui.basic.Enumeration" short-alias="availability">
             <key-map field-name="availabilityEnumId"/></relationship>
-        <relationship type="one" title="WorkEffortPartyDelegateReason" related-entity-name="moqui.basic.Enumeration" short-alias="delegateReason">
+        <relationship type="one" title="WorkEffortPartyDelegateReason" related="moqui.basic.Enumeration" short-alias="delegateReason">
             <key-map field-name="delegateReasonEnumId"/></relationship>
-        <relationship type="one" title="WorkEffortPartyExpectation" related-entity-name="moqui.basic.Enumeration" short-alias="expectation">
+        <relationship type="one" title="WorkEffortPartyExpectation" related="moqui.basic.Enumeration" short-alias="expectation">
             <key-map field-name="expectationEnumId"/></relationship>
-        <relationship type="one" title="WorkType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration">
             <key-map field-name="workTypeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.humanres.position.EmplPositionClass" short-alias="positionClass"/>
-        <relationship type="many" related-entity-name="moqui.security.UserAccount" short-alias="userAccounts">
+        <relationship type="one" related="mantle.humanres.position.EmplPositionClass" short-alias="positionClass"/>
+        <relationship type="many" related="moqui.security.UserAccount" short-alias="userAccounts">
             <key-map field-name="partyId"/></relationship>
         <seed-data>
             <!-- Work Effort Party Status -->
@@ -553,7 +553,7 @@ along with this software (see the LICENSE.md file). If not, see
         </seed-data>
     </entity>
 
-    <entity entity-name="WorkEffortProduct" package-name="mantle.work.effort" cache="never">
+    <entity entity-name="WorkEffortProduct" package="mantle.work.effort" cache="never">
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="productId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
@@ -562,14 +562,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="statusId" type="id"/>
         <field name="estimatedQuantity" type="number-decimal"/>
         <field name="estimatedCost" type="currency-amount"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
-        <relationship type="one" related-entity-name="mantle.product.Product" short-alias="product"/>
-        <relationship type="one" title="WorkEffortProductType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" title="WorkEffortProductType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="typeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="many" related-entity-name="mantle.product.receipt.AssetReceipt" short-alias="receipts">
+        <relationship type="one" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="many" related="mantle.product.receipt.AssetReceipt" short-alias="receipts">
             <key-map field-name="workEffortId"/><key-map field-name="productId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.product.issuance.AssetIssuance" short-alias="issuances">
+        <relationship type="many" related="mantle.product.issuance.AssetIssuance" short-alias="issuances">
             <key-map field-name="workEffortId"/><key-map field-name="productId"/></relationship>
         <seed-data>
             <!-- Work Effort Product Type -->
@@ -586,29 +586,29 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusItem description="Cancelled" sequenceNum="3" statusId="WepdCancelled" statusTypeId="WorkEffortProduct"/>
         </seed-data>
     </entity>
-    <entity entity-name="WorkEffortSkillStandard" package-name="mantle.work.effort" cache="never">
+    <entity entity-name="WorkEffortSkillStandard" package="mantle.work.effort" cache="never">
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="skillTypeEnumId" type="id" is-pk="true"/>
         <field name="estimatedNumPeople" type="number-decimal"/>
         <field name="estimatedDuration" type="number-decimal"/>
         <field name="estimatedCost" type="currency-amount"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
-        <relationship type="one" title="SkillType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.work.effort.WorkEffort"/>
+        <relationship type="one" title="SkillType" related="moqui.basic.Enumeration">
             <key-map field-name="skillTypeEnumId"/></relationship>
     </entity>
 
-    <entity entity-name="WikiPageWorkEffort" package-name="mantle.work.effort" cache="never">
+    <entity entity-name="WikiPageWorkEffort" package="mantle.work.effort" cache="never">
         <field name="wikiPageId" type="id" is-pk="true"/>
         <field name="workEffortId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="moqui.resource.wiki.WikiPage"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
+        <relationship type="one" related="moqui.resource.wiki.WikiPage"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort"/>
     </entity>
 
     <!-- ========================================================= -->
     <!-- mantle.work.estimate -->
     <!-- ========================================================= -->
 
-    <entity entity-name="ProductionEstimate" package-name="mantle.work.estimate" cache="never">
+    <entity entity-name="ProductionEstimate" package="mantle.work.estimate" cache="never">
         <field name="productionEstimateId" type="id" is-pk="true"/>
         <field name="estimateName" type="text-medium"/>
         <field name="productId" type="id"/>
@@ -617,33 +617,33 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="quantity" type="number-decimal"/>
         <field name="quantityUomId" type="id"/>
         <field name="readyDate" type="date"/>
-        <relationship type="one" related-entity-name="mantle.product.Product"/>
-        <relationship type="one" related-entity-name="mantle.facility.Facility"/>
-        <relationship type="one" title="Destination" related-entity-name="mantle.facility.Facility">
+        <relationship type="one" related="mantle.product.Product"/>
+        <relationship type="one" related="mantle.facility.Facility"/>
+        <relationship type="one" title="Destination" related="mantle.facility.Facility">
             <key-map field-name="destinationFacilityId"/></relationship>
-        <relationship type="one" title="Quantity" related-entity-name="moqui.basic.Uom">
+        <relationship type="one" title="Quantity" related="moqui.basic.Uom">
             <key-map field-name="quantityUomId"/></relationship>
         <index name="PRODEST_PDDFRD"><index-field name="productId"/><index-field name="destinationFacilityId"/>
             <index-field name="readyDate"/></index>
     </entity>
-    <entity entity-name="ProductionEstimateWorkEff" package-name="mantle.work.estimate" cache="never">
+    <entity entity-name="ProductionEstimateWorkEff" package="mantle.work.estimate" cache="never">
         <field name="productionEstimateId" type="id" is-pk="true"/>
         <field name="workEffortId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.work.estimate.ProductionEstimate"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
+        <relationship type="one" related="mantle.work.estimate.ProductionEstimate"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort"/>
     </entity>
-    <entity entity-name="ProductionEstimateAsset" package-name="mantle.work.estimate" cache="never">
+    <entity entity-name="ProductionEstimateAsset" package="mantle.work.estimate" cache="never">
         <field name="productionEstimateId" type="id" is-pk="true"/>
         <field name="assetId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.work.estimate.ProductionEstimate"/>
-        <relationship type="one" related-entity-name="mantle.product.asset.Asset"/>
+        <relationship type="one" related="mantle.work.estimate.ProductionEstimate"/>
+        <relationship type="one" related="mantle.product.asset.Asset"/>
     </entity>
 
     <!-- ========================================================= -->
     <!-- mantle.work.time -->
     <!-- ========================================================= -->
 
-    <entity entity-name="TimeEntry" package-name="mantle.work.time" short-alias="timeEntries" cache="never">
+    <entity entity-name="TimeEntry" package="mantle.work.time" short-alias="timeEntries" cache="never">
         <field name="timeEntryId" type="id" is-pk="true"/>
         <field name="timesheetId" type="id"/>
         <field name="partyId" type="id"/>
@@ -667,37 +667,37 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="invoiceItemSeqId" type="id"/>
         <field name="vendorInvoiceId" type="id"/>
         <field name="vendorInvoiceItemSeqId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.work.time.Timesheet"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.Person"/>
-        <relationship type="one" title="Client" related-entity-name="mantle.party.Party">
+        <relationship type="one" related="mantle.work.time.Timesheet"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one-nofk" related="mantle.party.Person"/>
+        <relationship type="one" title="Client" related="mantle.party.Party">
             <key-map field-name="clientPartyId"/></relationship>
-        <relationship type="one" title="RateType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="RateType" related="moqui.basic.Enumeration">
             <key-map field-name="rateTypeEnumId"/></relationship>
-        <relationship type="one" title="WorkType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration">
             <key-map field-name="workTypeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.humanres.position.EmplPositionClass"/>
-        <relationship type="one" related-entity-name="mantle.humanres.rate.RateAmount"/>
-        <relationship type="one" title="Vendor" related-entity-name="mantle.humanres.rate.RateAmount">
+        <relationship type="one" related="mantle.humanres.position.EmplPositionClass"/>
+        <relationship type="one" related="mantle.humanres.rate.RateAmount"/>
+        <relationship type="one" title="Vendor" related="mantle.humanres.rate.RateAmount">
             <key-map field-name="vendorRateAmountId"/></relationship>
-        <relationship type="one" title="PieceRateType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="PieceRateType" related="moqui.basic.Enumeration">
             <key-map field-name="pieceRateTypeEnumId"/></relationship><!-- Uses enumTypeId = RateType -->
-        <relationship type="one" title="Piece" related-entity-name="mantle.humanres.rate.RateAmount">
+        <relationship type="one" title="Piece" related="mantle.humanres.rate.RateAmount">
             <key-map field-name="pieceRateAmountId"/></relationship>
-        <relationship type="one" title="VendorPiece" related-entity-name="mantle.humanres.rate.RateAmount">
+        <relationship type="one" title="VendorPiece" related="mantle.humanres.rate.RateAmount">
             <key-map field-name="vendorPieceRateAmountId"/></relationship>
 
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
-        <relationship type="one" related-entity-name="mantle.account.invoice.InvoiceItem">
+        <relationship type="one" related="mantle.work.effort.WorkEffort"/>
+        <relationship type="one" related="mantle.account.invoice.InvoiceItem">
             <key-map field-name="invoiceId"/>
             <key-map field-name="invoiceItemSeqId"/>
         </relationship>
-        <relationship type="one" title="Vendor" related-entity-name="mantle.account.invoice.InvoiceItem">
-            <key-map field-name="vendorInvoiceId" related-field-name="invoiceId"/>
-            <key-map field-name="vendorInvoiceItemSeqId" related-field-name="invoiceItemSeqId"/>
+        <relationship type="one" title="Vendor" related="mantle.account.invoice.InvoiceItem">
+            <key-map field-name="vendorInvoiceId" related="invoiceId"/>
+            <key-map field-name="vendorInvoiceItemSeqId" related="invoiceItemSeqId"/>
         </relationship>
     </entity>
-    <entity entity-name="Timesheet" package-name="mantle.work.time" cache="never">
+    <entity entity-name="Timesheet" package="mantle.work.time" cache="never">
         <field name="timesheetId" type="id" is-pk="true"/>
         <field name="partyId" type="id"/>
         <field name="clientPartyId" type="id"/>
@@ -705,10 +705,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="thruDate" type="date-time"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="comments" type="text-medium"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" title="Client" related-entity-name="mantle.party.Party">
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" title="Client" related="mantle.party.Party">
             <key-map field-name="clientPartyId"/></relationship>
-        <relationship type="one" title="Timesheet" related-entity-name="moqui.basic.StatusItem"/>
+        <relationship type="one" title="Timesheet" related="moqui.basic.StatusItem"/>
         <seed-data>
             <!-- Timesheet Status -->
             <moqui.basic.StatusType description="Timesheet" statusTypeId="Timesheet"/>
@@ -719,20 +719,20 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="TmshCompleted" toStatusId="TmshApproved" transitionName="Approve"/>
         </seed-data>
     </entity>
-    <entity entity-name="TimesheetParty" package-name="mantle.work.time" cache="never">
+    <entity entity-name="TimesheetParty" package="mantle.work.time" cache="never">
         <field name="timesheetId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.work.time.Timesheet"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" related-entity-name="mantle.party.RoleType"/>
+        <relationship type="one" related="mantle.work.time.Timesheet"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="mantle.party.RoleType"/>
     </entity>
 
     <!-- ========================================================= -->
     <!-- mantle.work.measurement -->
     <!-- ========================================================= -->
 
-    <entity entity-name="Measurement" package-name="mantle.work.measurement" short-alias="measurements" cache="never">
+    <entity entity-name="Measurement" package="mantle.work.measurement" short-alias="measurements" cache="never">
         <field name="measurementId" type="id" is-pk="true"/>
         <field name="measurementTypeId" type="id"/>
         <field name="measurementDate" type="date-time"/>
@@ -749,28 +749,28 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="assetMaintenanceId" type="id"/>
         <field name="userId" type="id" default="ec.user.userId"/>
 
-        <relationship type="one" related-entity-name="mantle.work.measurement.MeasurementType"/>
-        <relationship type="one" title="Measurement" related-entity-name="moqui.basic.Uom">
+        <relationship type="one" related="mantle.work.measurement.MeasurementType"/>
+        <relationship type="one" title="Measurement" related="moqui.basic.Uom">
             <key-map field-name="measurementUomId"/></relationship>
-        <relationship type="one" title="Measurement" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="Measurement" related="moqui.basic.Enumeration">
             <!-- The title won't match the enumTypeId for this field -->
             <key-map field-name="measurementEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
-        <relationship type="one" related-entity-name="mantle.product.asset.Asset"/>
-        <relationship type="one" related-entity-name="mantle.facility.Facility"/>
-        <relationship type="one" related-entity-name="mantle.product.Product"/>
-        <relationship type="one" title="MeasurementReason" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.work.effort.WorkEffort"/>
+        <relationship type="one" related="mantle.product.asset.Asset"/>
+        <relationship type="one" related="mantle.facility.Facility"/>
+        <relationship type="one" related="mantle.product.Product"/>
+        <relationship type="one" title="MeasurementReason" related="moqui.basic.Enumeration">
             <key-map field-name="reasonEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.product.maintenance.AssetMaintenance"/>
-        <relationship type="one" related-entity-name="mantle.product.maintenance.ProductMeter"/>
-        <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
+        <relationship type="one" related="mantle.product.maintenance.AssetMaintenance"/>
+        <relationship type="one" related="mantle.product.maintenance.ProductMeter"/>
+        <relationship type="one" related="moqui.security.UserAccount"/>
 
         <!-- Measurement Reason -->
         <seed-data>
             <moqui.basic.EnumerationType description="Measurement Reason" enumTypeId="MeasurementReason"/>
         </seed-data>
     </entity>
-    <entity entity-name="MeasurementType" package-name="mantle.work.measurement">
+    <entity entity-name="MeasurementType" package="mantle.work.measurement">
         <field name="measurementTypeId" type="id" is-pk="true"/>
         <field name="description" type="text-medium"/>
         <field name="hasValue" type="text-indicator"/>
@@ -778,10 +778,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="enumTypeId" type="id"/>
         <field name="productMeterTypeId" type="id"/>
 
-        <relationship type="one" title="UomType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="UomType" related="moqui.basic.Enumeration">
             <key-map field-name="uomTypeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="moqui.basic.EnumerationType"/>
-        <relationship type="one" related-entity-name="mantle.product.maintenance.ProductMeterType"/>
+        <relationship type="one" related="moqui.basic.EnumerationType"/>
+        <relationship type="one" related="mantle.product.maintenance.ProductMeterType"/>
         <seed-data>
             <moqui.basic.EnumerationType description="Sixteen Point Compass" enumTypeId="SixteenPointCompass"/>
             <moqui.basic.Enumeration description="North (0°)" enumCode="N" enumId="SPC_N" enumTypeId="SixteenPointCompass"/>

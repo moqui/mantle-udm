@@ -26,7 +26,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.sales.opportunity -->
     <!-- ========================================================= -->
 
-    <entity entity-name="SalesOpportunity" package-name="mantle.sales.opportunity">
+    <entity entity-name="SalesOpportunity" package="mantle.sales.opportunity">
         <field name="salesOpportunityId" type="id" is-pk="true"/>
         <field name="typeEnumId" type="id"/>
         <field name="accountPartyId" type="id"/>
@@ -40,67 +40,67 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="marketingCampaignId" type="id"/>
         <field name="dataSourceId" type="id"/>
         <field name="opportunityStageId" type="id" enable-audit-log="true"/>
-        <relationship type="one" title="SalesOpportunityType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="SalesOpportunityType" related="moqui.basic.Enumeration">
             <key-map field-name="typeEnumId"/></relationship>
-        <relationship type="one" title="Account" related-entity-name="mantle.party.Party">
+        <relationship type="one" title="Account" related="mantle.party.Party">
             <key-map field-name="accountPartyId"/></relationship>
-        <relationship type="one" title="Currency" related-entity-name="moqui.basic.Uom">
+        <relationship type="one" title="Currency" related="moqui.basic.Uom">
             <key-map field-name="currencyUomId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.sales.opportunity.SalesOpportunityStage">
+        <relationship type="one" related="mantle.sales.opportunity.SalesOpportunityStage">
             <key-map field-name="opportunityStageId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.marketing.campaign.MarketingCampaign"/>
+        <relationship type="one" related="mantle.marketing.campaign.MarketingCampaign"/>
     </entity>
-    <entity entity-name="SalesOpportunityParty" package-name="mantle.sales.opportunity">
+    <entity entity-name="SalesOpportunityParty" package="mantle.sales.opportunity">
         <field name="salesOpportunityId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
-        <relationship type="one" related-entity-name="mantle.sales.opportunity.SalesOpportunity">
+        <relationship type="one" related="mantle.sales.opportunity.SalesOpportunity">
             <key-map field-name="salesOpportunityId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" related-entity-name="mantle.party.RoleType"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="mantle.party.RoleType"/>
     </entity>
-    <entity entity-name="SalesOpportunityStage" package-name="mantle.sales.opportunity">
+    <entity entity-name="SalesOpportunityStage" package="mantle.sales.opportunity">
         <field name="opportunityStageId" type="id" is-pk="true"/>
         <field name="description" type="text-medium"/>
         <field name="defaultProbability" type="number-decimal"/>
         <field name="sequenceNum" type="number-integer"/>
     </entity>
-    <entity entity-name="SalesOpportunityWorkEffort" package-name="mantle.sales.opportunity">
+    <entity entity-name="SalesOpportunityWorkEffort" package="mantle.sales.opportunity">
         <field name="salesOpportunityId" type="id" is-pk="true"/>
         <field name="workEffortId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.sales.opportunity.SalesOpportunity"/>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
+        <relationship type="one" related="mantle.sales.opportunity.SalesOpportunity"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort"/>
     </entity>
-    <entity entity-name="SalesOpportunityOrder" package-name="mantle.sales.opportunity">
+    <entity entity-name="SalesOpportunityOrder" package="mantle.sales.opportunity">
         <description>Associate orders (including proposed/quote orders) with an opportunity</description>
         <field name="salesOpportunityId" type="id" is-pk="true"/>
         <field name="orderId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.sales.opportunity.SalesOpportunity"/>
-        <relationship type="one" related-entity-name="mantle.order.OrderHeader"/>
+        <relationship type="one" related="mantle.sales.opportunity.SalesOpportunity"/>
+        <relationship type="one" related="mantle.order.OrderHeader"/>
     </entity>
-    <entity entity-name="SalesOpportunityCompetitor" package-name="mantle.sales.opportunity">
+    <entity entity-name="SalesOpportunityCompetitor" package="mantle.sales.opportunity">
         <field name="salesOpportunityId" type="id" is-pk="true"/>
         <field name="competitorPartyId" type="id" is-pk="true"/>
         <field name="positionEnumId" type="id"/>
         <field name="strengths" type="text-long"/>
         <field name="weaknesses" type="text-long"/>
-        <relationship type="one" related-entity-name="mantle.sales.opportunity.SalesOpportunity"/>
+        <relationship type="one" related="mantle.sales.opportunity.SalesOpportunity"/>
     </entity>
-    <entity entity-name="SalesOpportunityTracking" package-name="mantle.sales.opportunity">
+    <entity entity-name="SalesOpportunityTracking" package="mantle.sales.opportunity">
         <field name="salesOpportunityId" type="id" is-pk="true"/>
         <field name="trackingCodeId" type="id" is-pk="true"/>
         <field name="receivedDate" type="date-time"/>
-        <relationship type="one" related-entity-name="mantle.sales.opportunity.SalesOpportunity"/>
-        <relationship type="one" related-entity-name="mantle.marketing.tracking.TrackingCode"/>
+        <relationship type="one" related="mantle.sales.opportunity.SalesOpportunity"/>
+        <relationship type="one" related="mantle.marketing.tracking.TrackingCode"/>
     </entity>
 
     <!-- ========================================================= -->
     <!-- mantle.sales.forecast -->
     <!-- ========================================================= -->
 
-    <entity entity-name="SalesForecast" package-name="mantle.sales.forecast">
+    <entity entity-name="SalesForecast" package="mantle.sales.forecast">
         <field name="salesForecastId" type="id" is-pk="true"/>
         <field name="parentSalesForecastId" type="id"/>
         <field name="organizationPartyId" type="id"/>
@@ -114,17 +114,17 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="percentOfQuotaForecast" type="number-decimal"/>
         <field name="percentOfQuotaClosed" type="number-decimal"/>
         <field name="pipelineAmount" type="currency-amount"/>
-        <relationship type="one" title="Parent" related-entity-name="mantle.sales.forecast.SalesForecast">
-            <key-map field-name="parentSalesForecastId" related-field-name="salesForecastId"/></relationship>
-        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+        <relationship type="one" title="Parent" related="mantle.sales.forecast.SalesForecast">
+            <key-map field-name="parentSalesForecastId" related="salesForecastId"/></relationship>
+        <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
-        <relationship type="one" title="Internal" related-entity-name="mantle.party.Party">
+        <relationship type="one" title="Internal" related="mantle.party.Party">
             <key-map field-name="internalPartyId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.party.time.TimePeriod"/>
-        <relationship type="one" title="Currency" related-entity-name="moqui.basic.Uom">
+        <relationship type="one" related="mantle.party.time.TimePeriod"/>
+        <relationship type="one" title="Currency" related="moqui.basic.Uom">
             <key-map field-name="currencyUomId"/></relationship>
     </entity>
-    <entity entity-name="SalesForecastDetail" package-name="mantle.sales.forecast">
+    <entity entity-name="SalesForecastDetail" package="mantle.sales.forecast">
         <field name="salesForecastId" type="id" is-pk="true"/>
         <field name="salesForecastDetailSeqId" type="id" is-pk="true"/>
         <field name="amount" type="currency-amount"/>
@@ -132,18 +132,18 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="quantityUomId" type="id"/>
         <field name="productId" type="id"/>
         <field name="productCategoryId" type="id"/>
-        <relationship type="one" related-entity-name="SalesForecast"/>
-        <relationship type="one" title="Quantity" related-entity-name="moqui.basic.Uom">
+        <relationship type="one" related="SalesForecast"/>
+        <relationship type="one" title="Quantity" related="moqui.basic.Uom">
             <key-map field-name="quantityUomId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.product.Product"/>
-        <relationship type="one" related-entity-name="mantle.product.category.ProductCategory"/>
+        <relationship type="one" related="mantle.product.Product"/>
+        <relationship type="one" related="mantle.product.category.ProductCategory"/>
     </entity>
 
     <!-- ========================================================= -->
     <!-- mantle.sales.need -->
     <!-- ========================================================= -->
 
-    <entity entity-name="PartyNeed" package-name="mantle.sales.need">
+    <entity entity-name="PartyNeed" package="mantle.sales.need">
         <field name="partyNeedId" type="id" is-pk="true"/>
         <field name="needTypeEnumId" type="id"/>
         <field name="partyId" type="id"/>
@@ -154,13 +154,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="visitId" type="id"/>
         <field name="datetimeRecorded" type="date-time"/>
         <field name="description" type="text-medium"/>
-        <relationship type="one" title="NeedType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="NeedType" related="moqui.basic.Enumeration">
             <key-map field-name="needTypeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" related-entity-name="mantle.party.RoleType"/>
-        <relationship type="one" related-entity-name="mantle.party.communication.CommunicationEvent"/>
-        <relationship type="one" related-entity-name="mantle.product.Product"/>
-        <relationship type="one" related-entity-name="mantle.product.category.ProductCategory"/>
-        <relationship type="one" related-entity-name="moqui.server.Visit"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="mantle.party.RoleType"/>
+        <relationship type="one" related="mantle.party.communication.CommunicationEvent"/>
+        <relationship type="one" related="mantle.product.Product"/>
+        <relationship type="one" related="mantle.product.category.ProductCategory"/>
+        <relationship type="one" related="moqui.server.Visit"/>
     </entity>
 </entities>

@@ -24,7 +24,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.shipment -->
     <!-- ========================================================= -->
 
-    <entity entity-name="Shipment" package-name="mantle.shipment" short-alias="shipments" cache="never">
+    <entity entity-name="Shipment" package="mantle.shipment" short-alias="shipments" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentTypeEnumId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
@@ -53,29 +53,29 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="handlingInstructions" type="text-medium"/>
         <field name="systemMessageRemoteId" type="id"/>
 
-        <relationship type="one" title="ShipmentType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" title="ShipmentType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="shipmentTypeEnumId"/></relationship>
-        <relationship type="one" title="Shipment" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="one" title="From" related-entity-name="mantle.party.Party" short-alias="fromParty">
+        <relationship type="one" title="Shipment" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="From" related="mantle.party.Party" short-alias="fromParty">
             <key-map field-name="fromPartyId"/></relationship>
-        <relationship type="one" title="To" related-entity-name="mantle.party.Party" short-alias="toParty">
+        <relationship type="one" title="To" related="mantle.party.Party" short-alias="toParty">
             <key-map field-name="toPartyId"/></relationship>
 
-        <relationship type="one" title="Ship" related-entity-name="mantle.work.effort.WorkEffort" short-alias="shipWorkEffort">
+        <relationship type="one" title="Ship" related="mantle.work.effort.WorkEffort" short-alias="shipWorkEffort">
             <key-map field-name="shipWorkEffortId"/></relationship>
-        <relationship type="one" title="Receive" related-entity-name="mantle.work.effort.WorkEffort" short-alias="receiveWorkEffort">
+        <relationship type="one" title="Receive" related="mantle.work.effort.WorkEffort" short-alias="receiveWorkEffort">
             <key-map field-name="receiveWorkEffortId"/></relationship>
-        <relationship type="one" title="Cost" related-entity-name="moqui.basic.Uom" short-alias="costUom">
+        <relationship type="one" title="Cost" related="moqui.basic.Uom" short-alias="costUom">
             <key-map field-name="costUomId"/></relationship>
-        <relationship type="one" related-entity-name="moqui.service.message.SystemMessageRemote"/>
+        <relationship type="one" related="moqui.service.message.SystemMessageRemote"/>
 
-        <relationship type="many" related-entity-name="mantle.shipment.ShipmentContent" short-alias="contents">
+        <relationship type="many" related="mantle.shipment.ShipmentContent" short-alias="contents">
             <key-map field-name="shipmentId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.shipment.ShipmentItem" short-alias="items">
+        <relationship type="many" related="mantle.shipment.ShipmentItem" short-alias="items">
             <key-map field-name="shipmentId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.shipment.ShipmentPackage" short-alias="packages">
+        <relationship type="many" related="mantle.shipment.ShipmentPackage" short-alias="packages">
             <key-map field-name="shipmentId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.shipment.ShipmentRouteSegment" short-alias="routeSegments">
+        <relationship type="many" related="mantle.shipment.ShipmentRouteSegment" short-alias="routeSegments">
             <key-map field-name="shipmentId"/></relationship>
 
         <seed-data>
@@ -155,12 +155,12 @@ along with this software (see the LICENSE.md file). If not, see
             </detail>
         </master>
     </entity>
-    <extend-entity entity-name="SystemMessage" package-name="moqui.service.message">
+    <extend-entity entity-name="SystemMessage" package="moqui.service.message">
         <field name="shipmentId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.shipment.Shipment"/>
+        <relationship type="one" related="mantle.shipment.Shipment"/>
     </extend-entity>
 
-    <entity entity-name="ShipmentBoxType" package-name="mantle.shipment">
+    <entity entity-name="ShipmentBoxType" package="mantle.shipment">
         <field name="shipmentBoxTypeId" type="id" is-pk="true"/>
         <field name="pseudoId" type="id" default="shipmentBoxTypeId"/>
         <field name="description" type="text-medium"/>
@@ -172,25 +172,25 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="boxWeight" type="number-decimal"/>
         <field name="capacityUomId" type="id"/>
         <field name="boxCapacity" type="number-decimal"/>
-        <relationship type="one" title="Dimension" related-entity-name="moqui.basic.Uom">
+        <relationship type="one" title="Dimension" related="moqui.basic.Uom">
             <key-map field-name="dimensionUomId"/></relationship>
-        <relationship type="one" title="Weight" related-entity-name="moqui.basic.Uom">
+        <relationship type="one" title="Weight" related="moqui.basic.Uom">
             <key-map field-name="weightUomId"/></relationship>
-        <relationship type="one" title="Capacity" related-entity-name="moqui.basic.Uom">
+        <relationship type="one" title="Capacity" related="moqui.basic.Uom">
             <key-map field-name="capacityUomId"/></relationship>
 
         <index name="SHIPMENT_BOX_TYPE_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
 
     </entity>
-    <entity entity-name="ShipmentContactMech" package-name="mantle.shipment" cache="never">
+    <entity entity-name="ShipmentContactMech" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="contactMechPurposeId" type="id" is-pk="true"/>
         <field name="contactMechId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.shipment.Shipment"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMechPurpose"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech"/>
+        <relationship type="one" related="mantle.shipment.Shipment"/>
+        <relationship type="one" related="mantle.party.contact.ContactMechPurpose"/>
+        <relationship type="one" related="mantle.party.contact.ContactMech"/>
     </entity>
-    <entity entity-name="ShipmentContent" package-name="mantle.shipment" cache="never">
+    <entity entity-name="ShipmentContent" package="mantle.shipment" cache="never">
         <field name="shipmentContentId" type="id" is-pk="true"/>
         <field name="shipmentContentTypeEnumId" type="id"/>
         <field name="shipmentId" type="id"/>
@@ -201,32 +201,32 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="description" type="text-long"/>
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="userId" type="id" default="ec.user.userId"/>
-        <relationship type="one" title="ShipmentContentType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="ShipmentContentType" related="moqui.basic.Enumeration">
             <key-map field-name="shipmentContentTypeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.shipment.Shipment"/>
-        <relationship type="one" related-entity-name="mantle.product.Product"/>
-        <relationship type="one-nofk" related-entity-name="mantle.shipment.ShipmentPackage">
+        <relationship type="one" related="mantle.shipment.Shipment"/>
+        <relationship type="one" related="mantle.product.Product"/>
+        <relationship type="one-nofk" related="mantle.shipment.ShipmentPackage">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>
-        <relationship type="one-nofk" related-entity-name="mantle.shipment.ShipmentRouteSegment">
+        <relationship type="one-nofk" related="mantle.shipment.ShipmentRouteSegment">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentRouteSegmentSeqId"/></relationship>
-        <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
+        <relationship type="one" related="moqui.security.UserAccount"/>
     </entity>
-    <entity entity-name="ShipmentItem" package-name="mantle.shipment" cache="never">
+    <entity entity-name="ShipmentItem" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="productId" type="id" is-pk="true"/>
         <field name="quantity" type="number-decimal"/>
-        <relationship type="one" related-entity-name="mantle.shipment.Shipment"/>
-        <relationship type="one" related-entity-name="mantle.product.Product"/>
-        <relationship type="many" related-entity-name="mantle.shipment.ShipmentItemSource" short-alias="sources">
+        <relationship type="one" related="mantle.shipment.Shipment"/>
+        <relationship type="one" related="mantle.product.Product"/>
+        <relationship type="many" related="mantle.shipment.ShipmentItemSource" short-alias="sources">
             <key-map field-name="shipmentId"/><key-map field-name="productId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.shipment.ShipmentPackageContent" short-alias="contents">
+        <relationship type="many" related="mantle.shipment.ShipmentPackageContent" short-alias="contents">
             <key-map field-name="shipmentId"/><key-map field-name="productId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.product.issuance.AssetIssuance" short-alias="issuances">
+        <relationship type="many" related="mantle.product.issuance.AssetIssuance" short-alias="issuances">
             <key-map field-name="shipmentId"/><key-map field-name="productId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.product.receipt.AssetReceipt" short-alias="receipts">
+        <relationship type="many" related="mantle.product.receipt.AssetReceipt" short-alias="receipts">
             <key-map field-name="shipmentId"/><key-map field-name="productId"/></relationship>
     </entity>
-    <entity entity-name="ShipmentItemSource" package-name="mantle.shipment" cache="never">
+    <entity entity-name="ShipmentItemSource" package="mantle.shipment" cache="never">
         <field name="shipmentItemSourceId" type="id" is-pk="true"/>
         <field name="shipmentId" type="id"/>
         <field name="productId" type="id"/>
@@ -243,12 +243,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="quantityNotHandled" type="number-decimal"/>
         <field name="invoiceId" type="id"/>
         <field name="invoiceItemSeqId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.shipment.ShipmentItem"/>
-        <relationship type="one-nofk" related-entity-name="mantle.order.OrderHeader"/>
-        <relationship type="one" related-entity-name="mantle.order.OrderItem"/>
-        <relationship type="one" related-entity-name="mantle.order.return.ReturnHeader"/>
-        <relationship type="one" title="ShipmentItemSource" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="one" related-entity-name="mantle.account.invoice.InvoiceItem">
+        <relationship type="one" related="mantle.shipment.ShipmentItem"/>
+        <relationship type="one-nofk" related="mantle.order.OrderHeader"/>
+        <relationship type="one" related="mantle.order.OrderItem"/>
+        <relationship type="one" related="mantle.order.return.ReturnHeader"/>
+        <relationship type="one" title="ShipmentItemSource" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" related="mantle.account.invoice.InvoiceItem">
             <key-map field-name="invoiceId"/>
             <key-map field-name="invoiceItemSeqId"/>
         </relationship>
@@ -269,33 +269,33 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="SisPending" toStatusId="SisCancelled" transitionName="Cancel"/>
         </seed-data>
     </entity>
-    <entity entity-name="ShipmentPackage" package-name="mantle.shipment" cache="never">
+    <entity entity-name="ShipmentPackage" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentPackageSeqId" type="id" is-pk="true"/>
         <field name="shipmentBoxTypeId" type="id"/>
         <field name="weight" type="number-decimal"/>
         <field name="weightUomId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.shipment.Shipment"/>
-        <relationship type="one" related-entity-name="mantle.shipment.ShipmentBoxType"/>
-        <relationship type="one" title="Weight" related-entity-name="moqui.basic.Uom">
+        <relationship type="one" related="mantle.shipment.Shipment"/>
+        <relationship type="one" related="mantle.shipment.ShipmentBoxType"/>
+        <relationship type="one" title="Weight" related="moqui.basic.Uom">
             <key-map field-name="weightUomId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.shipment.ShipmentPackageContent" short-alias="contents">
+        <relationship type="many" related="mantle.shipment.ShipmentPackageContent" short-alias="contents">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.shipment.ShipmentPackageRouteSeg" short-alias="routeSegments">
+        <relationship type="many" related="mantle.shipment.ShipmentPackageRouteSeg" short-alias="routeSegments">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>
     </entity>
-    <entity entity-name="ShipmentPackageContent" package-name="mantle.shipment" cache="never">
+    <entity entity-name="ShipmentPackageContent" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentPackageSeqId" type="id" is-pk="true"/>
         <field name="productId" type="id" is-pk="true"/>
         <field name="quantity" type="number-decimal"/>
-        <relationship type="one-nofk" related-entity-name="mantle.shipment.Shipment"/>
-        <relationship type="one" related-entity-name="mantle.shipment.ShipmentPackage">
+        <relationship type="one-nofk" related="mantle.shipment.Shipment"/>
+        <relationship type="one" related="mantle.shipment.ShipmentPackage">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.shipment.ShipmentItem">
+        <relationship type="one" related="mantle.shipment.ShipmentItem">
             <key-map field-name="shipmentId"/><key-map field-name="productId"/></relationship>
     </entity>
-    <entity entity-name="ShipmentPackageRouteSeg" package-name="mantle.shipment" cache="never">
+    <entity entity-name="ShipmentPackageRouteSeg" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentPackageSeqId" type="id" is-pk="true"/>
         <field name="shipmentRouteSegmentSeqId" type="id" is-pk="true"/>
@@ -315,15 +315,15 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="codAmount" type="currency-amount"/>
         <field name="insuredAmount" type="currency-amount"/>
         <field name="amountUomId" type="id"/>
-        <relationship type="one-nofk" related-entity-name="mantle.shipment.Shipment"/>
-        <relationship type="one" related-entity-name="mantle.shipment.ShipmentPackage">
+        <relationship type="one-nofk" related="mantle.shipment.Shipment"/>
+        <relationship type="one" related="mantle.shipment.ShipmentPackage">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.shipment.ShipmentRouteSegment">
+        <relationship type="one" related="mantle.shipment.ShipmentRouteSegment">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentRouteSegmentSeqId"/></relationship>
-        <relationship type="one" title="Amount" related-entity-name="moqui.basic.Uom">
+        <relationship type="one" title="Amount" related="moqui.basic.Uom">
             <key-map field-name="amountUomId"/></relationship>
     </entity>
-    <entity entity-name="ShipmentRouteSegment" package-name="mantle.shipment" cache="never">
+    <entity entity-name="ShipmentRouteSegment" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentRouteSegmentSeqId" type="id" is-pk="true"/>
         <field name="deliveryId" type="id"/>
@@ -368,36 +368,36 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="upsHighValueReport" type="binary-very-long"/>
 
-        <relationship type="one" related-entity-name="mantle.shipment.Shipment"/>
-        <relationship type="one" related-entity-name="mantle.shipment.carrier.Delivery"/>
-        <relationship type="one" title="Carrier" related-entity-name="mantle.party.Party" short-alias="carrierParty">
+        <relationship type="one" related="mantle.shipment.Shipment"/>
+        <relationship type="one" related="mantle.shipment.carrier.Delivery"/>
+        <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrierParty">
             <key-map field-name="carrierPartyId"/></relationship>
-        <relationship type="one" title="ShipmentMethod" related-entity-name="moqui.basic.Enumeration" short-alias="shipmentMethod">
+        <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration" short-alias="shipmentMethod">
             <key-map field-name="shipmentMethodEnumId"/></relationship>
-        <relationship type="one" title="Origin" related-entity-name="mantle.facility.Facility" short-alias="originFacility">
+        <relationship type="one" title="Origin" related="mantle.facility.Facility" short-alias="originFacility">
             <key-map field-name="originFacilityId"/></relationship>
-        <relationship type="one-nofk" title="Origin" related-entity-name="mantle.party.contact.ContactMech" short-alias="originPostal">
+        <relationship type="one-nofk" title="Origin" related="mantle.party.contact.ContactMech" short-alias="originPostal">
             <key-map field-name="originPostalContactMechId"/></relationship>
-        <relationship type="one" title="Origin" related-entity-name="mantle.party.contact.PostalAddress">
+        <relationship type="one" title="Origin" related="mantle.party.contact.PostalAddress">
             <key-map field-name="originPostalContactMechId"/></relationship>
-        <relationship type="one-nofk" title="Origin" related-entity-name="mantle.party.contact.ContactMech" short-alias="originTelecom">
+        <relationship type="one-nofk" title="Origin" related="mantle.party.contact.ContactMech" short-alias="originTelecom">
             <key-map field-name="originTelecomContactMechId"/></relationship>
-        <relationship type="one" title="Origin" related-entity-name="mantle.party.contact.TelecomNumber">
+        <relationship type="one" title="Origin" related="mantle.party.contact.TelecomNumber">
             <key-map field-name="originTelecomContactMechId"/></relationship>
-        <relationship type="one" title="Destination" related-entity-name="mantle.facility.Facility" short-alias="destFacility">
+        <relationship type="one" title="Destination" related="mantle.facility.Facility" short-alias="destFacility">
             <key-map field-name="destinationFacilityId"/></relationship>
-        <relationship type="one-nofk" title="Destination" related-entity-name="mantle.party.contact.ContactMech" short-alias="destPostal">
+        <relationship type="one-nofk" title="Destination" related="mantle.party.contact.ContactMech" short-alias="destPostal">
             <key-map field-name="destPostalContactMechId"/></relationship>
-        <relationship type="one" title="Destination" related-entity-name="mantle.party.contact.PostalAddress">
+        <relationship type="one" title="Destination" related="mantle.party.contact.PostalAddress">
             <key-map field-name="destPostalContactMechId"/></relationship>
-        <relationship type="one-nofk" title="Destination" related-entity-name="mantle.party.contact.ContactMech" short-alias="destTelecom">
+        <relationship type="one-nofk" title="Destination" related="mantle.party.contact.ContactMech" short-alias="destTelecom">
             <key-map field-name="destTelecomContactMechId"/></relationship>
-        <relationship type="one" title="Destination" related-entity-name="mantle.party.contact.TelecomNumber">
+        <relationship type="one" title="Destination" related="mantle.party.contact.TelecomNumber">
             <key-map field-name="destTelecomContactMechId"/></relationship>
-        <relationship type="one" title="ShipmentRouteSegment" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="one" title="Cost" related-entity-name="moqui.basic.Uom" short-alias="costUom">
+        <relationship type="one" title="ShipmentRouteSegment" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="Cost" related="moqui.basic.Uom" short-alias="costUom">
             <key-map field-name="costUomId"/></relationship>
-        <relationship type="one" title="BillingWeight" related-entity-name="moqui.basic.Uom" short-alias="billingWeightUom">
+        <relationship type="one" title="BillingWeight" related="moqui.basic.Uom" short-alias="billingWeightUom">
             <key-map field-name="billingWeightUomId"/></relationship>
         <seed-data>
             <!-- Shipment Route Segment Status -->
@@ -417,15 +417,15 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.shipment.carrier -->
     <!-- ========================================================= -->
 
-    <entity entity-name="CarrierShipmentMethod" package-name="mantle.shipment.carrier">
+    <entity entity-name="CarrierShipmentMethod" package="mantle.shipment.carrier">
         <field name="carrierPartyId" type="id" is-pk="true"/>
         <field name="shipmentMethodEnumId" type="id" is-pk="true"/>
         <field name="sequenceNum" type="number-integer"/>
         <field name="carrierServiceCode" type="text-short"/>
         <field name="scaCode" type="text-short"><description>Standard Carrier Alpha Code</description></field>
-        <relationship type="one" title="Carrier" related-entity-name="mantle.party.Party">
+        <relationship type="one" title="Carrier" related="mantle.party.Party">
             <key-map field-name="carrierPartyId"/></relationship>
-        <relationship type="one" title="ShipmentMethod" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration">
             <key-map field-name="shipmentMethodEnumId"/></relationship>
         <seed-data>
             <!-- Shipment Method -->
@@ -446,16 +446,16 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- DHL: DZNA, DDAG, AAJL (international air) -->
         </seed-data>
     </entity>
-    <entity entity-name="CarrierShipmentBoxType" package-name="mantle.shipment.carrier">
+    <entity entity-name="CarrierShipmentBoxType" package="mantle.shipment.carrier">
         <field name="carrierPartyId" type="id" is-pk="true"/>
         <field name="shipmentBoxTypeId" type="id" is-pk="true"/>
         <field name="packagingTypeCode" type="id"/>
         <field name="oversizeCode" type="text-short"/>
-        <relationship type="one" related-entity-name="mantle.shipment.ShipmentBoxType"/>
-        <relationship type="one" title="Carrier" related-entity-name="mantle.party.Party">
+        <relationship type="one" related="mantle.shipment.ShipmentBoxType"/>
+        <relationship type="one" title="Carrier" related="mantle.party.Party">
             <key-map field-name="carrierPartyId"/></relationship>
     </entity>
-    <entity entity-name="Delivery" package-name="mantle.shipment.carrier" cache="never">
+    <entity entity-name="Delivery" package="mantle.shipment.carrier" cache="never">
         <field name="deliveryId" type="id" is-pk="true"/>
         <field name="originFacilityId" type="id"/>
         <field name="destFacilityId" type="id"/>
@@ -467,24 +467,24 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="startMileage" type="number-decimal"/>
         <field name="endMileage" type="number-decimal"/>
         <field name="fuelUsed" type="number-decimal"/>
-        <relationship type="one" related-entity-name="mantle.product.asset.Asset"/>
-        <relationship type="one" title="Origin" related-entity-name="mantle.facility.Facility">
+        <relationship type="one" related="mantle.product.asset.Asset"/>
+        <relationship type="one" title="Origin" related="mantle.facility.Facility">
             <key-map field-name="originFacilityId"/></relationship>
-        <relationship type="one" title="Dest" related-entity-name="mantle.facility.Facility">
+        <relationship type="one" title="Dest" related="mantle.facility.Facility">
             <key-map field-name="destFacilityId"/></relationship>
     </entity>
-    <entity entity-name="PartyCarrierAccount" package-name="mantle.shipment.carrier">
+    <entity entity-name="PartyCarrierAccount" package="mantle.shipment.carrier">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="carrierPartyId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
         <field name="accountNumber" type="id"/>
-        <relationship type="one" related-entity-name="mantle.party.Party">
+        <relationship type="one" related="mantle.party.Party">
             <key-map field-name="partyId"/></relationship>
-        <relationship type="one" title="Carrier" related-entity-name="mantle.party.Party">
+        <relationship type="one" title="Carrier" related="mantle.party.Party">
             <key-map field-name="carrierPartyId"/></relationship>
     </entity>
-    <entity entity-name="ShippingGatewayConfig" package-name="mantle.shipment.carrier">
+    <entity entity-name="ShippingGatewayConfig" package="mantle.shipment.carrier">
         <field name="shippingGatewayConfigId" type="id" is-pk="true"/>
         <field name="shippingGatewayTypeEnumId" type="id"><description>Each shipping gateway integration should define a
             ShippingGatewayType Enumeration record plus an entity with a shared PK (ie PK is shippingGatewayConfigId).</description></field>
@@ -501,7 +501,7 @@ along with this software (see the LICENSE.md file). If not, see
             mantle.shipment.CarrierServices.track#ShippingLabels interface.</description></field>
         <field name="validateAddressServiceName" type="text-medium"><description>Service implementing
             mantle.shipment.CarrierServices.validate#ShippingPostalAddress interface.</description></field>
-        <relationship type="one" title="ShippingGatewayType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="ShippingGatewayType" related="moqui.basic.Enumeration">
             <key-map field-name="shippingGatewayTypeEnumId"/></relationship>
         <seed-data>
             <!-- Shipping Gateway Type -->

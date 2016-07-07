@@ -18,7 +18,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!--  - mantle.product.store -->
     <!-- ========================================================= -->
 
-    <entity entity-name="ProductStore" package-name="mantle.product.store" short-alias="productStores">
+    <entity entity-name="ProductStore" package="mantle.product.store" short-alias="productStores">
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="storeName" type="text-medium"/>
         <field name="organizationPartyId" type="id">
@@ -35,33 +35,33 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="requireCustomerRole" type="text-indicator"/>
         <field name="taxGatewayConfigId" type="id"/>
 
-        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party" short-alias="organization">
+        <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organization">
             <key-map field-name="organizationPartyId"/></relationship>
-        <relationship type="one" title="Inventory" related-entity-name="mantle.facility.Facility" short-alias="inventoryFacility">
+        <relationship type="one" title="Inventory" related="mantle.facility.Facility" short-alias="inventoryFacility">
             <key-map field-name="inventoryFacilityId"/></relationship>
-        <relationship type="one" title="AssetReservationOrder" related-entity-name="moqui.basic.Enumeration" short-alias="assetReservationOrder">
+        <relationship type="one" title="AssetReservationOrder" related="moqui.basic.Enumeration" short-alias="assetReservationOrder">
             <key-map field-name="reservationOrderEnumId"/></relationship>
-        <relationship type="one" title="RequirementMethod" related-entity-name="moqui.basic.Enumeration" short-alias="requirementMethod">
+        <relationship type="one" title="RequirementMethod" related="moqui.basic.Enumeration" short-alias="requirementMethod">
             <key-map field-name="requirementMethodEnumId"/></relationship>
-        <relationship type="one" title="DefaultCurrency" related-entity-name="moqui.basic.Uom" short-alias="defaultCurrencyUom">
+        <relationship type="one" title="DefaultCurrency" related="moqui.basic.Uom" short-alias="defaultCurrencyUom">
             <key-map field-name="defaultCurrencyUomId"/></relationship>
-        <relationship type="one" title="DefaultSalesChannel" related-entity-name="moqui.basic.Enumeration" short-alias="defaultSalesChannel">
+        <relationship type="one" title="DefaultSalesChannel" related="moqui.basic.Enumeration" short-alias="defaultSalesChannel">
             <key-map field-name="defaultSalesChannelEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.other.tax.TaxGatewayConfig" short-alias="taxGatewayConfig"/>
+        <relationship type="one" related="mantle.other.tax.TaxGatewayConfig" short-alias="taxGatewayConfig"/>
 
-        <relationship type="many" related-entity-name="mantle.product.store.ProductStoreCategory" short-alias="categories">
+        <relationship type="many" related="mantle.product.store.ProductStoreCategory" short-alias="categories">
             <key-map field-name="productStoreId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.product.store.ProductStoreEmail" short-alias="emails">
+        <relationship type="many" related="mantle.product.store.ProductStoreEmail" short-alias="emails">
             <key-map field-name="productStoreId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.product.store.ProductStoreFacility" short-alias="facilities">
+        <relationship type="many" related="mantle.product.store.ProductStoreFacility" short-alias="facilities">
             <key-map field-name="productStoreId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.product.store.ProductStoreParty" short-alias="parties">
+        <relationship type="many" related="mantle.product.store.ProductStoreParty" short-alias="parties">
             <key-map field-name="productStoreId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.product.store.ProductStorePaymentGateway" short-alias="paymentGateways">
+        <relationship type="many" related="mantle.product.store.ProductStorePaymentGateway" short-alias="paymentGateways">
             <key-map field-name="productStoreId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.product.store.ProductStoreShippingGateway" short-alias="shippingGateways">
+        <relationship type="many" related="mantle.product.store.ProductStoreShippingGateway" short-alias="shippingGateways">
             <key-map field-name="productStoreId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.product.store.ProductStoreGroupMember" short-alias="groups">
+        <relationship type="many" related="mantle.product.store.ProductStoreGroupMember" short-alias="groups">
             <key-map field-name="productStoreId"/></relationship>
 
         <seed-data>
@@ -109,16 +109,16 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="groups"><detail relationship="group"/></detail>
         </master>
     </entity>
-    <entity entity-name="ProductStoreCategory" package-name="mantle.product.store">
+    <entity entity-name="ProductStoreCategory" package="mantle.product.store">
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="productCategoryId" type="id" is-pk="true"/>
         <field name="storeCategoryTypeEnumId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
         <field name="sequenceNum" type="number-integer"/>
-        <relationship type="one" related-entity-name="mantle.product.store.ProductStore" short-alias="store"/>
-        <relationship type="one" related-entity-name="mantle.product.category.ProductCategory" short-alias="category"/>
-        <relationship type="one" title="ProductStoreCategoryType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" related="mantle.product.category.ProductCategory" short-alias="category"/>
+        <relationship type="one" title="ProductStoreCategoryType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="storeCategoryTypeEnumId"/></relationship>
         <seed-data>
             <!-- Product Store Category Type -->
@@ -133,16 +133,16 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Admin Allow (One)" enumId="PsctAdminAllow" enumTypeId="ProductStoreCategoryType"/>
         </seed-data>
     </entity>
-    <entity entity-name="ProductStoreEmail" package-name="mantle.product.store">
+    <entity entity-name="ProductStoreEmail" package="mantle.product.store">
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="emailTypeEnumId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
         <field name="emailTemplateId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.product.store.ProductStore" short-alias="store"/>
-        <relationship type="one" title="ProductStoreEmailType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" title="ProductStoreEmailType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="emailTypeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="moqui.basic.email.EmailTemplate" short-alias="template"/>
+        <relationship type="one" related="moqui.basic.email.EmailTemplate" short-alias="template"/>
         <seed-data>
             <!-- Product Store Email Type -->
             <moqui.basic.EnumerationType description="Product Store Email Notification Type" enumTypeId="ProductStoreEmailType"/>
@@ -164,69 +164,69 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Shipment Complete" enumId="PsetShipmentComplete" enumTypeId="ProductStoreEmailType"/>
         </seed-data>
     </entity>
-    <entity entity-name="ProductStoreFacility" package-name="mantle.product.store">
+    <entity entity-name="ProductStoreFacility" package="mantle.product.store">
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
         <field name="sequenceNum" type="number-integer"/>
-        <relationship type="one" related-entity-name="mantle.product.store.ProductStore" short-alias="store"/>
-        <relationship type="one" related-entity-name="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
     </entity>
-    <entity entity-name="ProductStoreParty" package-name="mantle.product.store">
+    <entity entity-name="ProductStoreParty" package="mantle.product.store">
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
         <field name="sequenceNum" type="number-integer"/>
-        <relationship type="one" related-entity-name="mantle.product.store.ProductStore" short-alias="store"/>
-        <relationship type="one" related-entity-name="mantle.party.Party" short-alias="party"/>
-        <relationship type="one" related-entity-name="mantle.party.RoleType" short-alias="role"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
     </entity>
-    <entity entity-name="ProductStorePaymentGateway" package-name="mantle.product.store">
+    <entity entity-name="ProductStorePaymentGateway" package="mantle.product.store">
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="paymentInstrumentEnumId" type="id" is-pk="true"/>
         <field name="paymentGatewayConfigId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.product.store.ProductStore" short-alias="store"/>
-        <relationship type="one" title="PaymentInstrument" related-entity-name="moqui.basic.Enumeration" short-alias="paymentInstrument">
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" title="PaymentInstrument" related="moqui.basic.Enumeration" short-alias="paymentInstrument">
             <key-map field-name="paymentInstrumentEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.account.method.PaymentGatewayConfig" short-alias="config"/>
+        <relationship type="one" related="mantle.account.method.PaymentGatewayConfig" short-alias="config"/>
     </entity>
-    <entity entity-name="ProductStoreShippingGateway" package-name="mantle.product.store">
+    <entity entity-name="ProductStoreShippingGateway" package="mantle.product.store">
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="carrierPartyId" type="id" is-pk="true"/>
         <field name="shippingGatewayConfigId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.product.store.ProductStore" short-alias="store"/>
-        <relationship type="one" title="Carrier" related-entity-name="mantle.party.Party" short-alias="carrier">
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
             <key-map field-name="carrierPartyId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.shipment.carrier.ShippingGatewayConfig" short-alias="config"/>
+        <relationship type="one" related="mantle.shipment.carrier.ShippingGatewayConfig" short-alias="config"/>
     </entity>
 
-    <entity entity-name="ProductStoreGroup" package-name="mantle.product.store">
+    <entity entity-name="ProductStoreGroup" package="mantle.product.store">
         <field name="productStoreGroupId" type="id" is-pk="true"/>
         <field name="storeGroupTypeEnumId" type="id"/>
         <field name="description" type="text-medium"/>
-        <relationship type="one" title="ProductStoreGroupType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="ProductStoreGroupType" related="moqui.basic.Enumeration">
             <key-map field-name="storeGroupTypeEnumId"/></relationship>
     </entity>
-    <entity entity-name="ProductStoreGroupMember" package-name="mantle.product.store">
+    <entity entity-name="ProductStoreGroupMember" package="mantle.product.store">
         <field name="productStoreGroupId" type="id" is-pk="true"/>
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
         <field name="sequenceNum" type="number-integer"/>
-        <relationship type="one" related-entity-name="mantle.product.store.ProductStore" short-alias="store"/>
-        <relationship type="one" related-entity-name="mantle.product.store.ProductStoreGroup" short-alias="group"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" related="mantle.product.store.ProductStoreGroup" short-alias="group"/>
     </entity>
-    <entity entity-name="ProductStoreGroupParty" package-name="mantle.product.store">
+    <entity entity-name="ProductStoreGroupParty" package="mantle.product.store">
         <field name="productStoreGroupId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
-        <relationship type="one" related-entity-name="mantle.product.store.ProductStoreGroup"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" related-entity-name="mantle.party.RoleType"/>
+        <relationship type="one" related="mantle.product.store.ProductStoreGroup"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="mantle.party.RoleType"/>
     </entity>
 </entities>

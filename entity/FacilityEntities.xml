@@ -19,7 +19,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.facility -->
     <!-- ========================================================= -->
 
-    <entity entity-name="Facility" package-name="mantle.facility" short-alias="facilities">
+    <entity entity-name="Facility" package="mantle.facility" short-alias="facilities">
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="pseudoId" type="id" default="facilityId"/>
         <field name="facilityTypeEnumId" type="id"/>
@@ -36,37 +36,37 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="geoPointId" type="id"/>
         <field name="assetAllowOtherOwner" type="text-indicator"/>
         <field name="defaultDaysToShip" type="number-integer"/>
-        <relationship type="one" title="FacilityType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" title="FacilityType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="facilityTypeEnumId"/></relationship>
-        <relationship type="one" title="Parent" related-entity-name="mantle.facility.Facility" short-alias="parent">
-            <key-map field-name="parentFacilityId" related-field-name="facilityId"/></relationship>
-        <relationship type="one" title="Facility" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="one" title="Owner" related-entity-name="mantle.party.Party" short-alias="owner">
+        <relationship type="one" title="Parent" related="mantle.facility.Facility" short-alias="parent">
+            <key-map field-name="parentFacilityId" related="facilityId"/></relationship>
+        <relationship type="one" title="Facility" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
             <key-map field-name="ownerPartyId"/></relationship>
-        <relationship type="one-nofk" title="Owner" related-entity-name="mantle.party.Organization" short-alias="ownerOrganization">
+        <relationship type="one-nofk" title="Owner" related="mantle.party.Organization" short-alias="ownerOrganization">
             <key-map field-name="ownerPartyId"/></relationship>
-        <relationship type="one-nofk" title="Owner" related-entity-name="mantle.party.Person" short-alias="ownerPerson">
+        <relationship type="one-nofk" title="Owner" related="mantle.party.Person" short-alias="ownerPerson">
             <key-map field-name="ownerPartyId"/></relationship>
-        <relationship type="one" title="FacilitySize" related-entity-name="moqui.basic.Uom" short-alias="sizeUom">
+        <relationship type="one" title="FacilitySize" related="moqui.basic.Uom" short-alias="sizeUom">
             <key-map field-name="facilitySizeUomId"/></relationship>
-        <relationship type="one" related-entity-name="moqui.basic.Geo" short-alias="geo"/>
-        <relationship type="one" related-entity-name="moqui.basic.GeoPoint" short-alias="geoPoint"/>
+        <relationship type="one" related="moqui.basic.Geo" short-alias="geo"/>
+        <relationship type="one" related="moqui.basic.GeoPoint" short-alias="geoPoint"/>
 
-        <relationship type="many" related-entity-name="mantle.facility.FacilityCertification" short-alias="certifications">
+        <relationship type="many" related="mantle.facility.FacilityCertification" short-alias="certifications">
             <key-map field-name="facilityId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.facility.FacilityContactMech" short-alias="contactMechs">
+        <relationship type="many" related="mantle.facility.FacilityContactMech" short-alias="contactMechs">
             <key-map field-name="facilityId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.facility.FacilityContent" short-alias="contents">
+        <relationship type="many" related="mantle.facility.FacilityContent" short-alias="contents">
             <key-map field-name="facilityId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.facility.FacilityGroupMember" short-alias="groups">
+        <relationship type="many" related="mantle.facility.FacilityGroupMember" short-alias="groups">
             <key-map field-name="facilityId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.facility.FacilityLocation" short-alias="locations">
+        <relationship type="many" related="mantle.facility.FacilityLocation" short-alias="locations">
             <key-map field-name="facilityId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.facility.FacilityNote" short-alias="notes">
+        <relationship type="many" related="mantle.facility.FacilityNote" short-alias="notes">
             <key-map field-name="facilityId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.facility.FacilityParty" short-alias="parties">
+        <relationship type="many" related="mantle.facility.FacilityParty" short-alias="parties">
             <key-map field-name="facilityId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.facility.FacilityPrinter" short-alias="printers">
+        <relationship type="many" related="mantle.facility.FacilityPrinter" short-alias="printers">
             <key-map field-name="facilityId"/></relationship>
 
         <seed-data>
@@ -109,7 +109,7 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="printers"><detail relationship="printer"/></detail>
         </master>
     </entity>
-    <entity entity-name="FacilityCertification" package-name="mantle.facility">
+    <entity entity-name="FacilityCertification" package="mantle.facility">
         <field name="facilityCertificationId" type="id" is-pk="true"/>
         <field name="facilityId" type="id"/>
         <field name="certificationTypeEnumId" type="id"/>
@@ -125,14 +125,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="otherCertId" type="text-short"/>
         <field name="documentLocation" type="text-medium"/>
 
-        <relationship type="one" related-entity-name="mantle.facility.Facility"/>
-        <relationship type="one" title="FacilityCertificationType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.facility.Facility"/>
+        <relationship type="one" title="FacilityCertificationType" related="moqui.basic.Enumeration">
             <key-map field-name="certificationTypeEnumId"/></relationship>
-        <relationship type="one" title="Contact" related-entity-name="mantle.party.Party">
+        <relationship type="one" title="Contact" related="mantle.party.Party">
             <key-map field-name="contactPartyId"/></relationship>
-        <relationship type="one" title="Auditor" related-entity-name="mantle.party.Party">
+        <relationship type="one" title="Auditor" related="mantle.party.Party">
             <key-map field-name="auditorPartyId"/></relationship>
-        <relationship type="one" title="AuditorOrg" related-entity-name="mantle.party.Party">
+        <relationship type="one" title="AuditorOrg" related="mantle.party.Party">
             <key-map field-name="auditorOrgPartyId"/></relationship>
 
         <seed-data>
@@ -140,7 +140,7 @@ along with this software (see the LICENSE.md file). If not, see
         </seed-data>
     </entity>
 
-    <entity entity-name="FacilityContactMech" package-name="mantle.facility">
+    <entity entity-name="FacilityContactMech" package="mantle.facility">
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="contactMechPurposeId" type="id" is-pk="true"/>
@@ -148,20 +148,20 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="thruDate" type="date-time"/>
         <field name="extension" type="text-short"/>
         <field name="comments" type="text-medium"/>
-        <relationship type="one" related-entity-name="mantle.facility.Facility" short-alias="facility"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech" short-alias="contactMech"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMechPurpose" short-alias="purpose"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.contact.PostalAddress" short-alias="postalAddress"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.contact.TelecomNumber" short-alias="telecomNumber"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one" related="mantle.party.contact.ContactMech" short-alias="contactMech"/>
+        <relationship type="one" related="mantle.party.contact.ContactMechPurpose" short-alias="purpose"/>
+        <relationship type="one-nofk" related="mantle.party.contact.PostalAddress" short-alias="postalAddress"/>
+        <relationship type="one-nofk" related="mantle.party.contact.TelecomNumber" short-alias="telecomNumber"/>
     </entity>
-    <entity entity-name="FacilityContent" package-name="mantle.facility">
+    <entity entity-name="FacilityContent" package="mantle.facility">
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="contentLocation" type="text-medium" is-pk="true"/>
         <field name="facilityContentTypeEnumId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
-        <relationship type="one" related-entity-name="mantle.facility.Facility"/>
-        <relationship type="one" title="FacilityContentType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.facility.Facility"/>
+        <relationship type="one" title="FacilityContentType" related="moqui.basic.Enumeration">
             <key-map field-name="facilityContentTypeEnumId"/></relationship>
         <seed-data>
             <!-- Facility Content Type -->
@@ -171,14 +171,14 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Image URL"  enumId="FcntImageUrl" enumTypeId="FacilityContentType"/>
         </seed-data>
     </entity>
-    <entity entity-name="FacilityGroup" package-name="mantle.facility" short-alias="facilityGroups">
+    <entity entity-name="FacilityGroup" package="mantle.facility" short-alias="facilityGroups">
         <field name="facilityGroupId" type="id" is-pk="true"/>
         <field name="parentGroupId" type="id"/>
         <field name="facilityGroupTypeEnumId" type="id"/>
         <field name="description" type="text-medium"/>
-        <relationship type="one" title="Parent" related-entity-name="mantle.facility.FacilityGroup">
-            <key-map field-name="parentGroupId" related-field-name="facilityGroupId"/></relationship>
-        <relationship type="one" title="FacilityGroupType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="Parent" related="mantle.facility.FacilityGroup">
+            <key-map field-name="parentGroupId" related="facilityGroupId"/></relationship>
+        <relationship type="one" title="FacilityGroupType" related="moqui.basic.Enumeration">
             <key-map field-name="facilityGroupTypeEnumId"/></relationship>
         <seed-data>
             <!-- Facility Group Type -->
@@ -187,24 +187,24 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Pricing Group" enumId="PRICING_GROUP" enumTypeId="FacilityGroupType"/>
         </seed-data>
     </entity>
-    <entity entity-name="FacilityGroupMember" package-name="mantle.facility">
+    <entity entity-name="FacilityGroupMember" package="mantle.facility">
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="facilityGroupId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
         <field name="sequenceNum" type="number-integer"/>
-        <relationship type="one" related-entity-name="mantle.facility.Facility" short-alias="facility"/>
-        <relationship type="one" related-entity-name="mantle.facility.FacilityGroup" short-alias="group"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one" related="mantle.facility.FacilityGroup" short-alias="group"/>
     </entity>
-    <entity entity-name="FacilityGroupParty" package-name="mantle.facility">
+    <entity entity-name="FacilityGroupParty" package="mantle.facility">
         <field name="facilityGroupId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.facility.FacilityGroup" short-alias="group"/>
-        <relationship type="one" related-entity-name="mantle.party.Party" short-alias="party"/>
-        <relationship type="one" related-entity-name="mantle.party.RoleType" short-alias="role"/>
+        <relationship type="one" related="mantle.facility.FacilityGroup" short-alias="group"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
     </entity>
-    <entity entity-name="FacilityLocation" package-name="mantle.facility">
+    <entity entity-name="FacilityLocation" package="mantle.facility">
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="locationSeqId" type="id" is-pk="true"/>
         <field name="locationTypeEnumId" type="id"/>
@@ -217,10 +217,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="geoPointId" type="id" enable-audit-log="true"/>
         <field name="capacity" type="number-decimal"/>
         <field name="capacityUomId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.facility.Facility"/>
-        <relationship type="one" title="FacilityLocationType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" related="mantle.facility.Facility"/>
+        <relationship type="one" title="FacilityLocationType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="locationTypeEnumId"/></relationship>
-        <relationship type="one" title="Capacity" related-entity-name="moqui.basic.Uom" short-alias="capacityUom">
+        <relationship type="one" title="Capacity" related="moqui.basic.Uom" short-alias="capacityUom">
             <key-map field-name="capacityUomId"/></relationship>
         <seed-data>
             <!-- Facility Location Type -->
@@ -229,25 +229,25 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Bulk" enumId="FLT_BULK" enumTypeId="FacilityLocationType"/>
         </seed-data>
     </entity>
-    <entity entity-name="FacilityNote" package-name="mantle.facility">
+    <entity entity-name="FacilityNote" package="mantle.facility">
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="noteDate" type="date-time" is-pk="true"/>
         <field name="userId" type="id"/>
         <field name="noteText" type="text-very-long"/>
-        <relationship type="one" related-entity-name="mantle.facility.Facility"/>
-        <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
+        <relationship type="one" related="mantle.facility.Facility"/>
+        <relationship type="one" related="moqui.security.UserAccount"/>
     </entity>
-    <entity entity-name="FacilityParty" package-name="mantle.facility">
+    <entity entity-name="FacilityParty" package="mantle.facility">
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
-        <relationship type="one" related-entity-name="mantle.facility.Facility" short-alias="facility"/>
-        <relationship type="one" related-entity-name="mantle.party.Party" short-alias="party"/>
-        <relationship type="one" related-entity-name="mantle.party.RoleType" short-alias="role"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
     </entity>
-    <view-entity entity-name="FacilityAndParty" package-name="mantle.facility">
+    <view-entity entity-name="FacilityAndParty" package="mantle.facility">
         <member-entity entity-alias="FACPTY" entity-name="mantle.facility.FacilityParty"/>
         <member-entity entity-alias="FAC" entity-name="mantle.facility.Facility" join-from-alias="FACPTY">
             <key-map field-name="facilityId"/></member-entity>
@@ -257,14 +257,14 @@ along with this software (see the LICENSE.md file). If not, see
         <alias-all entity-alias="FAC"/>
         <alias entity-alias="ORG" name="organizationName"/>
     </view-entity>
-    <entity entity-name="FacilityPrinter" package-name="mantle.facility">
+    <entity entity-name="FacilityPrinter" package="mantle.facility">
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="printerPurposeEnumId" type="id" is-pk="true"/>
         <field name="networkPrinterId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.facility.Facility"/>
-        <relationship type="one" title="PrinterPurpose" related-entity-name="moqui.basic.Enumeration" short-alias="purpose">
+        <relationship type="one" related="mantle.facility.Facility"/>
+        <relationship type="one" title="PrinterPurpose" related="moqui.basic.Enumeration" short-alias="purpose">
             <key-map field-name="printerPurposeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="moqui.basic.print.NetworkPrinter" short-alias="printer"/>
+        <relationship type="one" related="moqui.basic.print.NetworkPrinter" short-alias="printer"/>
         <seed-data>
             <moqui.basic.EnumerationType description="Printer Purpose" enumTypeId="PrinterPurpose"/>
             <moqui.basic.Enumeration description="Container Label" enumId="PtpContainerLabel" enumTypeId="PrinterPurpose"/>
@@ -274,23 +274,23 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Shipment Documents" enumId="PtpShipmentDocuments" enumTypeId="PrinterPurpose"/>
         </seed-data>
     </entity>
-    <entity entity-name="ProductFacility" package-name="mantle.facility">
+    <entity entity-name="ProductFacility" package="mantle.facility">
         <field name="productId" type="id" is-pk="true"/>
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="minimumStock" type="number-decimal"/>
         <field name="reorderQuantity" type="number-decimal"/>
         <field name="daysToShip" type="number-integer"/>
-        <relationship type="one" related-entity-name="mantle.product.Product" short-alias="product"/>
-        <relationship type="one" related-entity-name="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
     </entity>
-    <entity entity-name="ProductFacilityLocation" package-name="mantle.facility">
+    <entity entity-name="ProductFacilityLocation" package="mantle.facility">
         <field name="productId" type="id" is-pk="true"/>
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="locationSeqId" type="id" is-pk="true"/>
         <field name="minimumStock" type="number-decimal"/>
         <field name="moveQuantity" type="number-decimal"/>
-        <relationship type="one" related-entity-name="mantle.product.Product" short-alias="product"/>
-        <relationship type="one" related-entity-name="mantle.facility.FacilityLocation" short-alias="location">
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related="mantle.facility.FacilityLocation" short-alias="location">
             <key-map field-name="facilityId"/><key-map field-name="locationSeqId"/></relationship>
     </entity>
 </entities>

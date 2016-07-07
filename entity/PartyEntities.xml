@@ -27,7 +27,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.party -->
     <!-- ========================================================= -->
 
-    <entity entity-name="Party" package-name="mantle.party" short-alias="parties">
+    <entity entity-name="Party" package="mantle.party" short-alias="parties">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="pseudoId" type="id" default="partyId"/>
         <field name="partyTypeEnumId" type="id"/>
@@ -35,38 +35,38 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="externalId" type="id"/>
         <field name="dataSourceId" type="id"/>
         <field name="comments" type="text-long"/>
-        <relationship type="one" title="PartyType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" title="PartyType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyTypeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="moqui.basic.DataSource"/>
+        <relationship type="one" related="moqui.basic.DataSource"/>
 
-        <relationship type="one-nofk" related-entity-name="mantle.party.Organization" short-alias="organization" mutable="true"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.Person" short-alias="person" mutable="true"/>
-        <relationship type="many" related-entity-name="mantle.party.PartyBadge" short-alias="badges">
+        <relationship type="one-nofk" related="mantle.party.Organization" short-alias="organization" mutable="true"/>
+        <relationship type="one-nofk" related="mantle.party.Person" short-alias="person" mutable="true"/>
+        <relationship type="many" related="mantle.party.PartyBadge" short-alias="badges">
             <key-map field-name="partyId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.party.PartyClassificationAppl" short-alias="classifications">
+        <relationship type="many" related="mantle.party.PartyClassificationAppl" short-alias="classifications">
             <key-map field-name="partyId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.party.PartyContent" short-alias="contents">
+        <relationship type="many" related="mantle.party.PartyContent" short-alias="contents">
             <key-map field-name="partyId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.party.PartyIdentification" short-alias="identifications">
+        <relationship type="many" related="mantle.party.PartyIdentification" short-alias="identifications">
             <key-map field-name="partyId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.party.PartyNote" short-alias="notes">
+        <relationship type="many" related="mantle.party.PartyNote" short-alias="notes">
             <key-map field-name="partyId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.party.PartyRole" short-alias="roles">
-            <key-map field-name="partyId"/></relationship>
-
-        <relationship type="many" title="From" related-entity-name="mantle.party.PartyRelationship" short-alias="fromRelationships">
-            <key-map field-name="partyId" related-field-name="fromPartyId"/></relationship>
-        <relationship type="many" title="To" related-entity-name="mantle.party.PartyRelationship" short-alias="toRelationships">
-            <key-map field-name="partyId" related-field-name="toPartyId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.party.contact.PartyContactMech" short-alias="contactMechs">
+        <relationship type="many" related="mantle.party.PartyRole" short-alias="roles">
             <key-map field-name="partyId"/></relationship>
 
-        <relationship type="many" related-entity-name="mantle.account.financial.FinancialAccount" short-alias="financialAccounts">
-            <key-map field-name="partyId" related-field-name="ownerPartyId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.account.method.PaymentMethod" short-alias="paymentMethods">
-            <key-map field-name="partyId" related-field-name="ownerPartyId"/></relationship>
+        <relationship type="many" title="From" related="mantle.party.PartyRelationship" short-alias="fromRelationships">
+            <key-map field-name="partyId" related="fromPartyId"/></relationship>
+        <relationship type="many" title="To" related="mantle.party.PartyRelationship" short-alias="toRelationships">
+            <key-map field-name="partyId" related="toPartyId"/></relationship>
+        <relationship type="many" related="mantle.party.contact.PartyContactMech" short-alias="contactMechs">
+            <key-map field-name="partyId"/></relationship>
 
-        <relationship type="many" related-entity-name="moqui.security.UserAccount" short-alias="userAccounts">
+        <relationship type="many" related="mantle.account.financial.FinancialAccount" short-alias="financialAccounts">
+            <key-map field-name="partyId" related="ownerPartyId"/></relationship>
+        <relationship type="many" related="mantle.account.method.PaymentMethod" short-alias="paymentMethods">
+            <key-map field-name="partyId" related="ownerPartyId"/></relationship>
+
+        <relationship type="many" related="moqui.security.UserAccount" short-alias="userAccounts">
             <key-map field-name="partyId"/></relationship>
 
         <index name="PARTY_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
@@ -140,18 +140,18 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="identifications"><detail relationship="type"/></detail>
         </master>
     </entity>
-    <entity entity-name="Organization" package-name="mantle.party">
+    <entity entity-name="Organization" package="mantle.party">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="organizationName" type="text-medium"/>
         <field name="officeSiteName" type="text-medium"/>
         <field name="annualRevenue" type="currency-amount"/>
         <field name="numEmployees" type="number-integer"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="many" title="Owner" related-entity-name="mantle.facility.Facility" short-alias="ownerFacilities">
-            <key-map field-name="partyId" related-field-name="ownerPartyId"/></relationship>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="many" title="Owner" related="mantle.facility.Facility" short-alias="ownerFacilities">
+            <key-map field-name="partyId" related="ownerPartyId"/></relationship>
         <index name="PTY_ORG_NAME_IDX"><index-field name="organizationName"/></index>
     </entity>
-    <entity entity-name="Person" package-name="mantle.party">
+    <entity entity-name="Person" package="mantle.party">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="salutation" type="text-medium"/>
         <field name="firstName" type="text-medium"/>
@@ -170,12 +170,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="employmentStatusEnumId" type="id"/>
         <field name="residenceStatusEnumId" type="id"/>
         <field name="occupation" type="text-medium"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" title="MaritalStatus" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" title="MaritalStatus" related="moqui.basic.Enumeration">
             <key-map field-name="maritalStatusEnumId"/></relationship>
-        <relationship type="one" title="EmploymentStatus" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="EmploymentStatus" related="moqui.basic.Enumeration">
             <key-map field-name="employmentStatusEnumId"/></relationship>
-        <relationship type="one" title="ResidenceStatus" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="ResidenceStatus" related="moqui.basic.Enumeration">
             <key-map field-name="residenceStatusEnumId"/></relationship>
         <index name="FIRST_NAME_IDX"><index-field name="firstName"/></index>
         <index name="LAST_NAME_IDX"><index-field name="lastName"/></index>
@@ -203,12 +203,12 @@ along with this software (see the LICENSE.md file). If not, see
         </seed-data>
     </entity>
 
-    <extend-entity entity-name="UserAccount" package-name="moqui.security">
+    <extend-entity entity-name="UserAccount" package="moqui.security">
         <field name="partyId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
+        <relationship type="one" related="mantle.party.Party"/>
     </extend-entity>
 
-    <entity entity-name="PartyBadge" package-name="mantle.party">
+    <entity entity-name="PartyBadge" package="mantle.party">
         <field name="partyBadgeId" type="id" is-pk="true"/>
         <field name="partyId" type="id"/>
         <field name="organizationPartyId" type="id"/>
@@ -217,13 +217,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="serialNumber" type="text-short"/>
         <field name="storedValue" type="text-medium"><description>For RFID this is the unique tracking identifier
             (the TID can be tracked in the serialNumber field)</description></field>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party">
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
         <index name="PartyBadgeSerial" unique="true"><index-field name="serialNumber"/></index>
         <index name="PartyBadgeStored" unique="true"><index-field name="storedValue"/></index>
     </entity>
-    <entity entity-name="PartyBadgeScan" package-name="mantle.party">
+    <entity entity-name="PartyBadgeScan" package="mantle.party">
         <field name="partyBadgeId" type="id" is-pk="true"/>
         <field name="scanDate" type="date-time" is-pk="true"/>
         <field name="scanValue" type="text-short"/>
@@ -231,13 +231,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="scanResultEnumId" type="id"/>
         <field name="facilityId" type="id"/>
         <field name="timeEntryId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.party.PartyBadge"/>
-        <relationship type="one" title="PartyBadgeScanPurpose" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.party.PartyBadge"/>
+        <relationship type="one" title="PartyBadgeScanPurpose" related="moqui.basic.Enumeration">
             <key-map field-name="scanPurposeEnumId"/></relationship>
-        <relationship type="one" title="PartyBadgeScanResult" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="PartyBadgeScanResult" related="moqui.basic.Enumeration">
             <key-map field-name="scanResultEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.facility.Facility"/>
-        <relationship type="one" related-entity-name="mantle.work.time.TimeEntry"/>
+        <relationship type="one" related="mantle.facility.Facility"/>
+        <relationship type="one" related="mantle.work.time.TimeEntry"/>
         <seed-data>
             <moqui.basic.EnumerationType description="Party Badge Scan Purpose" enumTypeId="PartyBadgeScanPurpose"/>
             <moqui.basic.Enumeration description="Access" enumId="PbspAccess" enumTypeId="PartyBadgeScanPurpose"/>
@@ -250,16 +250,16 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Expired" enumId="PbsrExpired" enumTypeId="PartyBadgeScanResult"/>
         </seed-data>
     </entity>
-    <entity entity-name="PartyClassification" package-name="mantle.party">
+    <entity entity-name="PartyClassification" package="mantle.party">
         <field name="partyClassificationId" type="id" is-pk="true"/>
         <field name="classificationTypeEnumId" type="id"/>
         <field name="parentClassificationId" type="id"/>
         <field name="description" type="text-medium"/>
         <field name="standardCode" type="text-medium"/>
-        <relationship type="one" title="PartyClassificationType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" title="PartyClassificationType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="classificationTypeEnumId"/></relationship>
-        <relationship type="one" title="Parent" related-entity-name="mantle.party.PartyClassification">
-            <key-map field-name="parentClassificationId" related-field-name="partyClassificationId"/></relationship>
+        <relationship type="one" title="Parent" related="mantle.party.PartyClassification">
+            <key-map field-name="parentClassificationId" related="partyClassificationId"/></relationship>
         <seed-data>
             <moqui.basic.EnumerationType description="Party Classification Type" enumTypeId="PartyClassificationType"/>
             <moqui.basic.Enumeration description="EEOC (Equal Opportunity)" enumId="PctEeoc" enumTypeId="PartyClassificationType"/>
@@ -291,16 +291,16 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Computer Training" standardCode="611420"/>
         </seed-data>
     </entity>
-    <entity entity-name="PartyClassificationAppl" package-name="mantle.party">
+    <entity entity-name="PartyClassificationAppl" package="mantle.party">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="partyClassificationId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" related-entity-name="mantle.party.PartyClassification" short-alias="classification"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="mantle.party.PartyClassification" short-alias="classification"/>
     </entity>
 
-    <entity entity-name="PartyContent" package-name="mantle.party">
+    <entity entity-name="PartyContent" package="mantle.party">
         <field name="partyContentId" type="id" is-pk="true"/>
         <field name="partyId" type="id"/>
         <field name="contentLocation" type="text-medium"/>
@@ -308,8 +308,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="description" type="text-long"/>
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="userId" type="id" default="ec.user.userId"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" title="PartyContentType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" title="PartyContentType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyContentTypeEnumId"/></relationship>
         <seed-data>
             <!-- Party Content Type -->
@@ -326,15 +326,15 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Employment Authorization Document"  enumId="PcntEmplAuthzDocument" enumTypeId="PartyContentType"/>
         </seed-data>
     </entity>
-    <entity entity-name="PartyGeoPoint" package-name="mantle.party">
+    <entity entity-name="PartyGeoPoint" package="mantle.party">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="geoPointId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" related-entity-name="moqui.basic.GeoPoint"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="moqui.basic.GeoPoint"/>
     </entity>
-    <entity entity-name="PartyIdentification" package-name="mantle.party">
+    <entity entity-name="PartyIdentification" package="mantle.party">
         <!-- TODO support multiple/history of IDs; single sequenced PK; update lookup/etc services -->
         <field name="partyId" type="id" is-pk="true"/>
         <field name="partyIdTypeEnumId" type="id" is-pk="true"/>
@@ -342,10 +342,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="issuedBy" type="text-medium"/>
         <field name="issuedByPartyId" type="id"/>
         <field name="expireDate" type="date"/>
-        <relationship type="one" title="PartyIdType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" title="PartyIdType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyIdTypeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" title="IssuedBy" related-entity-name="mantle.party.Party">
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" title="IssuedBy" related="mantle.party.Party">
             <key-map field-name="issuedByPartyId"/></relationship>
         <index name="PARTY_ID_VALUE" unique="false"><index-field name="idValue"/></index>
         <seed-data>
@@ -364,16 +364,16 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Vendor Assigned" enumId="PtidVend" enumTypeId="PartyIdType"/>
         </seed-data>
     </entity>
-    <entity entity-name="PartyNote" package-name="mantle.party">
+    <entity entity-name="PartyNote" package="mantle.party">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="noteDate" type="date-time" is-pk="true" default="ec.user.nowTimestamp"/>
         <field name="noteText" type="text-very-long" enable-audit-log="true"/>
         <field name="internalNote" type="text-indicator"/>
         <field name="userId" type="id" default="ec.user.userId"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="moqui.security.UserAccount"/>
     </entity>
-    <entity entity-name="PartyRelationship" package-name="mantle.party">
+    <entity entity-name="PartyRelationship" package="mantle.party">
         <field name="partyRelationshipId" type="id" is-pk="true"/>
         <field name="relationshipTypeEnumId" type="id"/>
         <field name="fromPartyId" type="id"/>
@@ -389,18 +389,18 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="relationshipName" type="text-medium">
             <description>Official name of relationship, such as title in an organization.</description>
         </field>
-        <relationship type="one" title="From" related-entity-name="mantle.party.Party" short-alias="fromParty">
+        <relationship type="one" title="From" related="mantle.party.Party" short-alias="fromParty">
             <key-map field-name="fromPartyId"/></relationship>
-        <relationship type="one" title="From" related-entity-name="mantle.party.RoleType" short-alias="fromRole">
+        <relationship type="one" title="From" related="mantle.party.RoleType" short-alias="fromRole">
             <key-map field-name="fromRoleTypeId"/></relationship>
-        <relationship type="one" title="To" related-entity-name="mantle.party.Party" short-alias="toParty">
+        <relationship type="one" title="To" related="mantle.party.Party" short-alias="toParty">
             <key-map field-name="toPartyId"/></relationship>
-        <relationship type="one" title="To" related-entity-name="mantle.party.RoleType" short-alias="toRole">
+        <relationship type="one" title="To" related="mantle.party.RoleType" short-alias="toRole">
             <key-map field-name="toRoleTypeId"/></relationship>
-        <relationship type="one" title="PartyRelationship" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="one" title="PriorityType" related-entity-name="moqui.basic.Enumeration" short-alias="priorityType">
+        <relationship type="one" title="PartyRelationship" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="PriorityType" related="moqui.basic.Enumeration" short-alias="priorityType">
             <key-map field-name="priorityTypeEnumId"/></relationship>
-        <relationship type="one" title="PartyRelationshipType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" title="PartyRelationshipType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="relationshipTypeEnumId"/></relationship>
         <seed-data>
             <!-- NOTE: The partyRelationshipTypeEnumId describes the FROM party, ie Joe is a customer of ACME, so Joe
@@ -426,32 +426,32 @@ along with this software (see the LICENSE.md file). If not, see
         </seed-data>
     </entity>
 
-    <entity entity-name="PartyRole" package-name="mantle.party">
+    <entity entity-name="PartyRole" package="mantle.party">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.party.Party" short-alias="party"/>
-        <relationship type="one" related-entity-name="mantle.party.RoleType" short-alias="role"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
         <!-- This relationship is necessary as a backward relationship used in a DataDocument, otherwise wouldn't be needed -->
-        <relationship type="many" title="Vendor" related-entity-name="mantle.order.OrderPart">
-            <key-map field-name="partyId" related-field-name="vendorPartyId"/></relationship>
+        <relationship type="many" title="Vendor" related="mantle.order.OrderPart">
+            <key-map field-name="partyId" related="vendorPartyId"/></relationship>
     </entity>
-    <entity entity-name="RoleGroupMember" package-name="mantle.party">
+    <entity entity-name="RoleGroupMember" package="mantle.party">
         <field name="roleGroupEnumId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
-        <relationship type="one" title="RoleGroup" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="RoleGroup" related="moqui.basic.Enumeration">
             <key-map field-name="roleGroupEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.party.RoleType"/>
+        <relationship type="one" related="mantle.party.RoleType"/>
         <seed-data>
             <moqui.basic.EnumerationType description="Role Group" enumTypeId="RoleGroup"/>
         </seed-data>
     </entity>
-    <entity entity-name="RoleType" package-name="mantle.party" cache="true">
+    <entity entity-name="RoleType" package="mantle.party" cache="true">
         <!-- NOTE: RoleType is not moved to Enumeration because there are many of them (ID conflicts) and it is referred to in many places. -->
         <field name="roleTypeId" type="id" is-pk="true"/>
         <field name="parentTypeId" type="id"/>
         <field name="description" type="text-medium"/>
-        <relationship type="one" title="Parent" related-entity-name="mantle.party.RoleType">
-            <key-map field-name="parentTypeId" related-field-name="roleTypeId"/></relationship>
+        <relationship type="one" title="Parent" related="mantle.party.RoleType">
+            <key-map field-name="parentTypeId" related="roleTypeId"/></relationship>
         <seed-data>
             <!-- Role to use when a role is not really applicable for the party association with a record. -->
             <mantle.party.RoleType description="Not Applicable" roleTypeId="_NA_"/>
@@ -660,7 +660,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.party.agreement -->
     <!-- ========================================================= -->
 
-    <entity entity-name="Agreement" package-name="mantle.party.agreement" short-alias="agreements">
+    <entity entity-name="Agreement" package="mantle.party.agreement" short-alias="agreements">
         <field name="agreementId" type="id" is-pk="true"/>
         <field name="agreementTypeEnumId" type="id"/>
         <field name="statusId" type="id"/>
@@ -673,20 +673,20 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="thruDate" type="date-time"/>
         <field name="description" type="text-medium"/>
         <field name="textData" type="text-very-long"/>
-        <relationship type="one" title="AgreementType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" title="AgreementType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="agreementTypeEnumId"/></relationship>
-        <relationship type="one" title="Agreement" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="one" title="Organization" related-entity-name="mantle.party.Party" short-alias="organization">
+        <relationship type="one" title="Agreement" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organization">
             <key-map field-name="organizationPartyId"/></relationship>
-        <relationship type="one" title="Organization" related-entity-name="mantle.party.RoleType" short-alias="organizationRole">
+        <relationship type="one" title="Organization" related="mantle.party.RoleType" short-alias="organizationRole">
             <key-map field-name="organizationRoleTypeId"/></relationship>
-        <relationship type="one" title="Other" related-entity-name="mantle.party.Party" short-alias="other">
+        <relationship type="one" title="Other" related="mantle.party.Party" short-alias="other">
             <key-map field-name="otherPartyId"/></relationship>
-        <relationship type="one" title="Other" related-entity-name="mantle.party.RoleType" short-alias="otherRole">
+        <relationship type="one" title="Other" related="mantle.party.RoleType" short-alias="otherRole">
             <key-map field-name="otherRoleTypeId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.party.agreement.AgreementTerm" short-alias="terms">
+        <relationship type="many" related="mantle.party.agreement.AgreementTerm" short-alias="terms">
             <key-map field-name="agreementId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.party.agreement.AgreementItem" short-alias="items">
+        <relationship type="many" related="mantle.party.agreement.AgreementItem" short-alias="items">
             <key-map field-name="agreementId"/></relationship>
         <seed-data>
             <!-- Agreement Type -->
@@ -709,28 +709,28 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAgreement" roleTypeId="Supplier"/>
         </seed-data>
     </entity>
-    <entity entity-name="AgreementAddendum" package-name="mantle.party.agreement">
+    <entity entity-name="AgreementAddendum" package="mantle.party.agreement">
         <field name="agreementAddendumId" type="id" is-pk="true"/>
         <field name="agreementId" type="id"/>
         <field name="agreementItemSeqId" type="id"/>
         <field name="addendumCreationDate" type="date-time"/>
         <field name="addendumEffectiveDate" type="date-time"/>
         <field name="addendumText" type="text-long"/>
-        <relationship type="one" related-entity-name="mantle.party.agreement.Agreement"/>
-        <relationship type="one" related-entity-name="mantle.party.agreement.AgreementItem">
+        <relationship type="one" related="mantle.party.agreement.Agreement"/>
+        <relationship type="one" related="mantle.party.agreement.AgreementItem">
             <key-map field-name="agreementId"/>
             <key-map field-name="agreementItemSeqId"/>
         </relationship>
     </entity>
-    <entity entity-name="AgreementParty" package-name="mantle.party.agreement">
+    <entity entity-name="AgreementParty" package="mantle.party.agreement">
         <field name="agreementId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.party.agreement.Agreement"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" related-entity-name="mantle.party.RoleType"/>
+        <relationship type="one" related="mantle.party.agreement.Agreement"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="mantle.party.RoleType"/>
     </entity>
-    <entity entity-name="AgreementTerm" package-name="mantle.party.agreement">
+    <entity entity-name="AgreementTerm" package="mantle.party.agreement">
         <field name="agreementTermId" type="id" is-pk="true"/>
         <field name="agreementId" type="id"/>
         <field name="agreementItemSeqId" type="id"/>
@@ -739,18 +739,18 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- Really need these? redundant with fields on Agreement: <field name="fromDate" type="date-time"/><field name="thruDate" type="date-time"/> -->
         <field name="termText" type="text-long"/>
         <field name="termNumber" type="number-decimal"/>
-        <relationship type="one" related-entity-name="mantle.party.agreement.Agreement"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.agreement.AgreementItem">
+        <relationship type="one" related="mantle.party.agreement.Agreement"/>
+        <relationship type="one-nofk" related="mantle.party.agreement.AgreementItem">
             <key-map field-name="agreementId"/>
             <key-map field-name="agreementItemSeqId"/>
         </relationship>
-        <relationship type="one" related-entity-name="mantle.account.invoice.SettlementTerm"/>
-        <relationship type="one" title="TermType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.account.invoice.SettlementTerm"/>
+        <relationship type="one" title="TermType" related="moqui.basic.Enumeration">
             <key-map field-name="termTypeEnumId"/></relationship>
         <!-- see the mantle.account.invoice.SettlementTerm entity for TermType enums -->
     </entity>
 
-    <entity entity-name="AgreementItem" package-name="mantle.party.agreement">
+    <entity entity-name="AgreementItem" package="mantle.party.agreement">
         <description>For price lists associated with an AgreementItem use the ProducePrice entity.</description>
         <field name="agreementId" type="id" is-pk="true"/>
         <field name="agreementItemSeqId" type="id" is-pk="true"/>
@@ -759,10 +759,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
         <field name="itemText" type="text-very-long"/>
-        <relationship type="one" related-entity-name="mantle.party.agreement.Agreement"/>
-        <relationship type="one" title="AgreementItemType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.party.agreement.Agreement"/>
+        <relationship type="one" title="AgreementItemType" related="moqui.basic.Enumeration">
             <key-map field-name="agreementItemTypeEnumId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.party.agreement.AgreementTerm" short-alias="terms">
+        <relationship type="many" related="mantle.party.agreement.AgreementTerm" short-alias="terms">
             <key-map field-name="agreementId"/><key-map field-name="agreementItemSeqId"/></relationship>
         <seed-data>
             <!-- Agreement Item Type -->
@@ -774,54 +774,54 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="AitCommissionRate" description="Commission Rate" enumTypeId="AgreementItemType"/>
         </seed-data>
     </entity>
-    <entity entity-name="AgreementItemEmployment" package-name="mantle.party.agreement">
+    <entity entity-name="AgreementItemEmployment" package="mantle.party.agreement">
         <field name="agreementId" type="id" is-pk="true"/>
         <field name="agreementItemSeqId" type="id" is-pk="true"/>
         <field name="partyRelationshipId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.humanres.employment.Employment"/>
-        <relationship type="one" related-entity-name="mantle.party.agreement.AgreementItem">
+        <relationship type="one" related="mantle.humanres.employment.Employment"/>
+        <relationship type="one" related="mantle.party.agreement.AgreementItem">
             <key-map field-name="agreementId"/>
             <key-map field-name="agreementItemSeqId"/>
         </relationship>
     </entity>
-    <entity entity-name="AgreementItemGeo" package-name="mantle.party.agreement">
+    <entity entity-name="AgreementItemGeo" package="mantle.party.agreement">
         <field name="agreementId" type="id" is-pk="true"/>
         <field name="agreementItemSeqId" type="id" is-pk="true"/>
         <field name="geoId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.party.agreement.AgreementItem">
+        <relationship type="one" related="mantle.party.agreement.AgreementItem">
             <key-map field-name="agreementId"/>
             <key-map field-name="agreementItemSeqId"/>
         </relationship>
-        <relationship type="one" related-entity-name="Geo"/>
+        <relationship type="one" related="Geo"/>
     </entity>
-    <entity entity-name="AgreementItemParty" package-name="mantle.party.agreement">
+    <entity entity-name="AgreementItemParty" package="mantle.party.agreement">
         <field name="agreementId" type="id" is-pk="true"/>
         <field name="agreementItemSeqId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.party.agreement.AgreementItem">
+        <relationship type="one" related="mantle.party.agreement.AgreementItem">
             <key-map field-name="agreementId"/>
             <key-map field-name="agreementItemSeqId"/>
         </relationship>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" related-entity-name="mantle.party.RoleType"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="mantle.party.RoleType"/>
     </entity>
-    <entity entity-name="AgreementItemWorkEffort" package-name="mantle.party.agreement">
+    <entity entity-name="AgreementItemWorkEffort" package="mantle.party.agreement">
         <field name="agreementId" type="id" is-pk="true"/>
         <field name="agreementItemSeqId" type="id" is-pk="true"/>
         <field name="workEffortId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.party.agreement.AgreementItem">
+        <relationship type="one" related="mantle.party.agreement.AgreementItem">
             <key-map field-name="agreementId"/>
             <key-map field-name="agreementItemSeqId"/>
         </relationship>
-        <relationship type="one" related-entity-name="mantle.work.effort.WorkEffort"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort"/>
     </entity>
 
     <!-- ========================================================= -->
     <!-- mantle.party.communication -->
     <!-- ========================================================= -->
 
-    <entity entity-name="CommunicationEvent" package-name="mantle.party.communication" short-alias="communicationEvents" cache="never">
+    <entity entity-name="CommunicationEvent" package="mantle.party.communication" short-alias="communicationEvents" cache="never">
         <field name="communicationEventId" type="id" is-pk="true"/>
         <field name="communicationEventTypeId" type="id"/>
         <field name="contactMechTypeEnumId" type="id"/>
@@ -850,46 +850,46 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="contactListId" type="id"/>
         <field name="emailMessageId" type="id"/>
 
-        <relationship type="one" related-entity-name="mantle.party.communication.CommunicationEventType" short-alias="type"/>
-        <relationship type="one" title="ContactMechType" related-entity-name="moqui.basic.Enumeration" short-alias="contactMechType">
+        <relationship type="one" related="mantle.party.communication.CommunicationEventType" short-alias="type"/>
+        <relationship type="one" title="ContactMechType" related="moqui.basic.Enumeration" short-alias="contactMechType">
             <key-map field-name="contactMechTypeEnumId"/></relationship>
-        <relationship type="one" title="CommunicationEvent" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="one" title="Parent" related-entity-name="mantle.party.communication.CommunicationEvent" short-alias="parent">
-            <key-map field-name="parentCommEventId" related-field-name="communicationEventId"/></relationship>
-        <relationship type="many" title="Child" related-entity-name="mantle.party.communication.CommunicationEvent" short-alias="children">
-            <key-map field-name="communicationEventId" related-field-name="parentCommEventId"/></relationship>
-        <relationship type="one" title="Root" related-entity-name="mantle.party.communication.CommunicationEvent" short-alias="root">
-            <key-map field-name="rootCommEventId" related-field-name="communicationEventId"/></relationship>
+        <relationship type="one" title="CommunicationEvent" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="Parent" related="mantle.party.communication.CommunicationEvent" short-alias="parent">
+            <key-map field-name="parentCommEventId" related="communicationEventId"/></relationship>
+        <relationship type="many" title="Child" related="mantle.party.communication.CommunicationEvent" short-alias="children">
+            <key-map field-name="communicationEventId" related="parentCommEventId"/></relationship>
+        <relationship type="one" title="Root" related="mantle.party.communication.CommunicationEvent" short-alias="root">
+            <key-map field-name="rootCommEventId" related="communicationEventId"/></relationship>
 
-        <relationship type="one" title="From" related-entity-name="mantle.party.contact.ContactMech" short-alias="fromContactMech">
+        <relationship type="one" title="From" related="mantle.party.contact.ContactMech" short-alias="fromContactMech">
             <key-map field-name="fromContactMechId"/></relationship>
-        <relationship type="one" title="To" related-entity-name="mantle.party.contact.ContactMech" short-alias="toContactMech">
+        <relationship type="one" title="To" related="mantle.party.contact.ContactMech" short-alias="toContactMech">
             <key-map field-name="toContactMechId"/></relationship>
-        <relationship type="one" title="From" related-entity-name="mantle.party.Party" short-alias="fromParty">
+        <relationship type="one" title="From" related="mantle.party.Party" short-alias="fromParty">
             <key-map field-name="fromPartyId"/></relationship>
-        <relationship type="many" title="From" related-entity-name="moqui.security.UserAccount" short-alias="fromUserAccounts">
-            <key-map field-name="fromPartyId" related-field-name="partyId"/></relationship>
-        <relationship type="one" title="From" related-entity-name="mantle.party.RoleType" short-alias="fromRole">
+        <relationship type="many" title="From" related="moqui.security.UserAccount" short-alias="fromUserAccounts">
+            <key-map field-name="fromPartyId" related="partyId"/></relationship>
+        <relationship type="one" title="From" related="mantle.party.RoleType" short-alias="fromRole">
             <key-map field-name="fromRoleTypeId"/></relationship>
-        <relationship type="one" title="To" related-entity-name="mantle.party.Party" short-alias="toParty">
+        <relationship type="one" title="To" related="mantle.party.Party" short-alias="toParty">
             <key-map field-name="toPartyId"/></relationship>
-        <relationship type="many" title="From" related-entity-name="moqui.security.UserAccount" short-alias="toUserAccounts">
-            <key-map field-name="toPartyId" related-field-name="partyId"/></relationship>
-        <relationship type="one" title="To" related-entity-name="mantle.party.RoleType" short-alias="toRole">
+        <relationship type="many" title="From" related="moqui.security.UserAccount" short-alias="toUserAccounts">
+            <key-map field-name="toPartyId" related="partyId"/></relationship>
+        <relationship type="one" title="To" related="mantle.party.RoleType" short-alias="toRole">
             <key-map field-name="toRoleTypeId"/></relationship>
-        <relationship type="one" related-entity-name="ContactList" short-alias="contactList"/>
-        <relationship type="one" title="Reason" related-entity-name="moqui.basic.Enumeration" short-alias="reason">
+        <relationship type="one" related="ContactList" short-alias="contactList"/>
+        <relationship type="one" title="Reason" related="moqui.basic.Enumeration" short-alias="reason">
             <key-map field-name="reasonEnumId"/></relationship>
 
-        <relationship type="many" related-entity-name="mantle.party.communication.CommunicationEventContent" short-alias="contents">
+        <relationship type="many" related="mantle.party.communication.CommunicationEventContent" short-alias="contents">
             <key-map field-name="communicationEventId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.party.communication.CommunicationEventParty" short-alias="parties">
+        <relationship type="many" related="mantle.party.communication.CommunicationEventParty" short-alias="parties">
             <key-map field-name="communicationEventId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.party.communication.CommunicationEventProduct" short-alias="products">
+        <relationship type="many" related="mantle.party.communication.CommunicationEventProduct" short-alias="products">
             <key-map field-name="communicationEventId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.party.communication.CommunicationEventPurpose" short-alias="purposes">
+        <relationship type="many" related="mantle.party.communication.CommunicationEventPurpose" short-alias="purposes">
             <key-map field-name="communicationEventId"/></relationship>
-        <relationship type="many" related-entity-name="mantle.order.OrderCommunicationEvent" short-alias="orders">
+        <relationship type="many" related="mantle.order.OrderCommunicationEvent" short-alias="orders">
             <key-map field-name="communicationEventId"/></relationship>
 
         <index name="COMMEVT_TP_ST_CET" unique="false"><index-field name="toPartyId"/><index-field name="statusId"/>
@@ -961,7 +961,7 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="orders"/>
         </master>
     </entity>
-    <entity entity-name="CommunicationEventContent" package-name="mantle.party.communication" cache="never">
+    <entity entity-name="CommunicationEventContent" package="mantle.party.communication" cache="never">
         <field name="communicationEventContentId" type="id" is-pk="true"/>
         <field name="communicationEventId" type="id"/>
         <field name="contentLocation" type="text-medium"/>
@@ -970,8 +970,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="userId" type="id" default="ec.user.userId"/>
         <field name="sequenceNum" type="number-integer"/>
-        <relationship type="one" related-entity-name="moqui.security.UserAccount"/>
-        <relationship type="one" title="CommunicationContentType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" related="moqui.security.UserAccount"/>
+        <relationship type="one" title="CommunicationContentType" related="moqui.basic.Enumeration">
             <key-map field-name="contentTypeEnumId"/></relationship>
         <seed-data>
             <moqui.basic.EnumerationType description="Communication Content Type" enumTypeId="CommunicationContentType"/>
@@ -980,19 +980,19 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Attachment" enumId="CmctAttachment" enumTypeId="CommunicationContentType"/>
         </seed-data>
     </entity>
-    <entity entity-name="CommunicationEventParty" package-name="mantle.party.communication" cache="never">
+    <entity entity-name="CommunicationEventParty" package="mantle.party.communication" cache="never">
         <field name="communicationEventId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
         <field name="contactMechId" type="id"/>
         <field name="statusId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.party.communication.CommunicationEvent" short-alias="communicationEvent"/>
-        <relationship type="one" related-entity-name="mantle.party.Party" short-alias="party"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.Person" short-alias="person"/>
-        <relationship type="one" related-entity-name="mantle.party.RoleType" short-alias="role"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech" short-alias="contactMech"/>
-        <relationship type="one" title="CommunicationEventParty" related-entity-name="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="many" related-entity-name="moqui.security.UserAccount" short-alias="userAccounts">
+        <relationship type="one" related="mantle.party.communication.CommunicationEvent" short-alias="communicationEvent"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one-nofk" related="mantle.party.Person" short-alias="person"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
+        <relationship type="one" related="mantle.party.contact.ContactMech" short-alias="contactMech"/>
+        <relationship type="one" title="CommunicationEventParty" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="many" related="moqui.security.UserAccount" short-alias="userAccounts">
             <key-map field-name="partyId"/></relationship>
         <seed-data>
             <moqui.basic.StatusType description="Communication Event Party" statusTypeId="CommunicationEventParty"/>
@@ -1013,18 +1013,18 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CepResolved" toStatusId="CepClosed" transitionName="Close"/>
         </seed-data>
     </entity>
-    <entity entity-name="CommunicationEventProduct" package-name="mantle.party.communication" cache="never">
+    <entity entity-name="CommunicationEventProduct" package="mantle.party.communication" cache="never">
         <field name="productId" type="id" is-pk="true"/>
         <field name="communicationEventId" type="id" is-pk="true"/>
-        <relationship type="one" related-entity-name="mantle.product.Product" short-alias="product"/>
-        <relationship type="one" related-entity-name="mantle.party.communication.CommunicationEvent" short-alias="communicationEvent"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related="mantle.party.communication.CommunicationEvent" short-alias="communicationEvent"/>
     </entity>
-    <entity entity-name="CommunicationEventPurpose" package-name="mantle.party.communication">
+    <entity entity-name="CommunicationEventPurpose" package="mantle.party.communication">
         <field name="communicationEventId" type="id" is-pk="true"/>
         <field name="purposeEnumId" type="id" is-pk="true"/>
         <field name="description" type="text-medium"/>
-        <relationship type="one" related-entity-name="mantle.party.communication.CommunicationEvent" short-alias="communicationEvent"/>
-        <relationship type="one" title="CommunicationPurpose" related-entity-name="moqui.basic.Enumeration" short-alias="purpose">
+        <relationship type="one" related="mantle.party.communication.CommunicationEvent" short-alias="communicationEvent"/>
+        <relationship type="one" title="CommunicationPurpose" related="moqui.basic.Enumeration" short-alias="purpose">
             <key-map field-name="purposeEnumId"/></relationship>
         <seed-data>
             <!-- Communication Purpose -->
@@ -1040,14 +1040,14 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="CpSeminar" description="Seminar" enumTypeId="CommunicationPurpose"/>
         </seed-data>
     </entity>
-    <entity entity-name="CommunicationEventType" package-name="mantle.party.communication">
+    <entity entity-name="CommunicationEventType" package="mantle.party.communication">
         <field name="communicationEventTypeId" type="id" is-pk="true"/>
         <field name="parentTypeId" type="id"/>
         <field name="description" type="text-medium"/>
         <field name="contactMechTypeEnumId" type="id"/>
-        <relationship type="one" title="Parent" related-entity-name="mantle.party.communication.CommunicationEventType">
-            <key-map field-name="parentTypeId" related-field-name="communicationEventTypeId"/></relationship>
-        <relationship type="one" title="ContactMechType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="Parent" related="mantle.party.communication.CommunicationEventType">
+            <key-map field-name="parentTypeId" related="communicationEventTypeId"/></relationship>
+        <relationship type="one" title="ContactMechType" related="moqui.basic.Enumeration">
             <key-map field-name="contactMechTypeEnumId"/></relationship>
         <seed-data>
             <!--  - mantle.party.contact (partial data moved up to satisfy dependency) -->
@@ -1074,20 +1074,20 @@ along with this software (see the LICENSE.md file). If not, see
             <CommunicationEventType communicationEventTypeId="AutoEmail" description="Auto Email" contactMechTypeEnumId="CmtEmailAddress"/>
         </seed-data>
     </entity>
-    <entity entity-name="WikiPageCommunicationEvent" package-name="mantle.party.communication" cache="never">
+    <entity entity-name="WikiPageCommunicationEvent" package="mantle.party.communication" cache="never">
         <field name="wikiPageId" type="id" is-pk="true"/>
         <field name="communicationEventId" type="id" is-pk="true"/>
         <field name="description" type="text-medium"/>
         <field name="sequenceNum" type="number-integer"/>
-        <relationship type="one" related-entity-name="moqui.resource.wiki.WikiPage" short-alias="page"/>
-        <relationship type="one" related-entity-name="mantle.party.communication.CommunicationEvent" short-alias="communicationEvent"/>
+        <relationship type="one" related="moqui.resource.wiki.WikiPage" short-alias="page"/>
+        <relationship type="one" related="mantle.party.communication.CommunicationEvent" short-alias="communicationEvent"/>
     </entity>
 
     <!-- ========================================================= -->
     <!-- mantle.party.contact -->
     <!-- ========================================================= -->
 
-    <entity entity-name="ContactMech" package-name="mantle.party.contact" short-alias="contactMechs">
+    <entity entity-name="ContactMech" package="mantle.party.contact" short-alias="contactMechs">
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="contactMechTypeEnumId" type="id"/>
         <field name="dataSourceId" type="id"/>
@@ -1095,16 +1095,16 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="trustLevelEnumId" type="id"/>
         <field name="paymentFraudEvidenceId" type="id"><description>Refer to evidence here if trustLevelEnumId is gray listed or black listed.</description></field>
 
-        <relationship type="one" title="ContactMechType" related-entity-name="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" title="ContactMechType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="contactMechTypeEnumId"/></relationship>
-        <relationship type="one" related-entity-name="moqui.basic.DataSource"/>
-        <relationship type="one" title="ContactPaymentTrustLevel" related-entity-name="moqui.basic.Enumeration" short-alias="trustLevel">
+        <relationship type="one" related="moqui.basic.DataSource"/>
+        <relationship type="one" title="ContactPaymentTrustLevel" related="moqui.basic.Enumeration" short-alias="trustLevel">
             <key-map field-name="trustLevelEnumId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.account.payment.PaymentFraudEvidence" short-alias="fraudEvidence" mutable="true"/>
+        <relationship type="one" related="mantle.account.payment.PaymentFraudEvidence" short-alias="fraudEvidence" mutable="true"/>
         
-        <relationship type="one-nofk" related-entity-name="mantle.party.contact.TelecomNumber" short-alias="telecomNumber" mutable="true"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.contact.PostalAddress" short-alias="postalAddress" mutable="true"/>
-        <relationship type="many" related-entity-name="mantle.party.contact.PartyContactMech" short-alias="parties"/>
+        <relationship type="one-nofk" related="mantle.party.contact.TelecomNumber" short-alias="telecomNumber" mutable="true"/>
+        <relationship type="one-nofk" related="mantle.party.contact.PostalAddress" short-alias="postalAddress" mutable="true"/>
+        <relationship type="many" related="mantle.party.contact.PartyContactMech" short-alias="parties"/>
 
         <index name="INFO_STRING_IDX"><index-field name="infoString"/></index>
         <seed-data>
@@ -1132,11 +1132,11 @@ along with this software (see the LICENSE.md file). If not, see
             </detail>
         </master>
     </entity>
-    <entity entity-name="ContactMechPurpose" package-name="mantle.party.contact" cache="true">
+    <entity entity-name="ContactMechPurpose" package="mantle.party.contact" cache="true">
         <field name="contactMechPurposeId" type="id" is-pk="true"/>
         <field name="contactMechTypeEnumId" type="id"/>
         <field name="description" type="text-medium"/>
-        <relationship type="one" title="ContactMechType" related-entity-name="moqui.basic.Enumeration">
+        <relationship type="one" title="ContactMechType" related="moqui.basic.Enumeration">
             <key-map field-name="contactMechTypeEnumId"/></relationship>
         <seed-data>
             <ContactMechPurpose contactMechPurposeId="PostalShippingDest" contactMechTypeEnumId="CmtPostalAddress"
@@ -1220,7 +1220,7 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Website URL - Payment (AR)"/>
         </seed-data>
     </entity>
-    <entity entity-name="PartyContactMech" package-name="mantle.party.contact">
+    <entity entity-name="PartyContactMech" package="mantle.party.contact">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="contactMechPurposeId" type="id" is-pk="true"/>
@@ -1231,13 +1231,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="allowSolicitation" type="text-indicator"/>
         <field name="usedSince" type="date"/>
         <field name="verifyCode" type="text-medium"/>
-        <relationship type="one" related-entity-name="mantle.party.Party"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech" short-alias="contactMech" mutable="true"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMechPurpose" short-alias="purpose"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.contact.PostalAddress" short-alias="postalAddress" mutable="true"/>
-        <relationship type="one-nofk" related-entity-name="mantle.party.contact.TelecomNumber" short-alias="telecomNumber" mutable="true"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="mantle.party.contact.ContactMech" short-alias="contactMech" mutable="true"/>
+        <relationship type="one" related="mantle.party.contact.ContactMechPurpose" short-alias="purpose"/>
+        <relationship type="one-nofk" related="mantle.party.contact.PostalAddress" short-alias="postalAddress" mutable="true"/>
+        <relationship type="one-nofk" related="mantle.party.contact.TelecomNumber" short-alias="telecomNumber" mutable="true"/>
     </entity>
-    <entity entity-name="PostalAddress" package-name="mantle.party.contact">
+    <entity entity-name="PostalAddress" package="mantle.party.contact">
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="toName" type="text-medium"/>
         <field name="attnName" type="text-medium"/>
@@ -1259,36 +1259,36 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="accessCode" type="text-short"/>
         <field name="telecomContactMechId" type="id"/>
         <field name="emailContactMechId" type="id"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech"/>
-        <relationship type="one" title="City" related-entity-name="moqui.basic.Geo" short-alias="cityGeo">
+        <relationship type="one" related="mantle.party.contact.ContactMech"/>
+        <relationship type="one" title="City" related="moqui.basic.Geo" short-alias="cityGeo">
             <key-map field-name="cityGeoId"/></relationship>
-        <relationship type="one" title="SchoolDistrict" related-entity-name="moqui.basic.Geo">
+        <relationship type="one" title="SchoolDistrict" related="moqui.basic.Geo">
             <key-map field-name="schoolDistrictGeoId"/></relationship>
-        <relationship type="one" title="County" related-entity-name="moqui.basic.Geo" short-alias="countyGeo">
+        <relationship type="one" title="County" related="moqui.basic.Geo" short-alias="countyGeo">
             <key-map field-name="countyGeoId"/></relationship>
-        <relationship type="one" title="StateProvince" related-entity-name="moqui.basic.Geo" short-alias="stateProvinceGeo">
+        <relationship type="one" title="StateProvince" related="moqui.basic.Geo" short-alias="stateProvinceGeo">
             <key-map field-name="stateProvinceGeoId"/></relationship>
-        <relationship type="one" title="Country" related-entity-name="moqui.basic.Geo" short-alias="countryGeo">
+        <relationship type="one" title="Country" related="moqui.basic.Geo" short-alias="countryGeo">
             <key-map field-name="countryGeoId"/></relationship>
-        <relationship type="one" title="PostalCode" related-entity-name="moqui.basic.Geo" short-alias="postalCodeGeo">
+        <relationship type="one" title="PostalCode" related="moqui.basic.Geo" short-alias="postalCodeGeo">
             <key-map field-name="postalCodeGeoId"/></relationship>
-        <relationship type="one" related-entity-name="GeoPoint"/>
-        <relationship type="one-nofk" title="Telecom" related-entity-name="mantle.party.contact.ContactMech" short-alias="telecomContactMech" mutable="true">
+        <relationship type="one" related="GeoPoint"/>
+        <relationship type="one-nofk" title="Telecom" related="mantle.party.contact.ContactMech" short-alias="telecomContactMech" mutable="true">
             <key-map field-name="telecomContactMechId"/></relationship>
-        <relationship type="one" title="Telecom" related-entity-name="mantle.party.contact.TelecomNumber" mutable="true">
+        <relationship type="one" title="Telecom" related="mantle.party.contact.TelecomNumber" mutable="true">
             <key-map field-name="telecomContactMechId"/></relationship>
-        <relationship type="one" title="Email" related-entity-name="mantle.party.contact.ContactMech" short-alias="emailContactMech" mutable="true">
+        <relationship type="one" title="Email" related="mantle.party.contact.ContactMech" short-alias="emailContactMech" mutable="true">
             <key-map field-name="emailContactMechId"/></relationship>
         <index name="CITY_IDX"><index-field name="city"/></index>
         <index name="POSTAL_CODE_IDX"><index-field name="postalCode"/></index>
     </entity>
-    <entity entity-name="TelecomNumber" package-name="mantle.party.contact">
+    <entity entity-name="TelecomNumber" package="mantle.party.contact">
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="countryCode" type="text-short"/>
         <field name="areaCode" type="text-short"/>
         <field name="contactNumber" type="text-short"/>
         <field name="askForName" type="text-medium"/>
-        <relationship type="one" related-entity-name="mantle.party.contact.ContactMech"/>
+        <relationship type="one" related="mantle.party.contact.ContactMech"/>
         <index name="AREA_CONTACT_IDX"><index-field name="areaCode"/><index-field name="contactNumber"/></index>
     </entity>
 
@@ -1296,7 +1296,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.party.time -->
     <!-- ========================================================= -->
 
-    <entity entity-name="TimePeriod" package-name="mantle.party.time" cache="never">
+    <entity entity-name="TimePeriod" package="mantle.party.time" cache="never">
         <description>For configurable time periods used in accounting, sales quotas, etc.</description>
         <field name="timePeriodId" type="id" is-pk="true"/>
         <field name="parentPeriodId" type="id"/>
@@ -1308,22 +1308,22 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="fromDate" type="date"><description>The first day of the period.</description></field>
         <field name="thruDate" type="date"><description>The last day of the period.</description></field>
         <field name="isClosed" type="text-indicator"/>
-        <relationship type="one" title="Parent" related-entity-name="mantle.party.time.TimePeriod" short-alias="parent">
-            <key-map field-name="parentPeriodId" related-field-name="timePeriodId"/></relationship>
-        <relationship type="one" title="Previous" related-entity-name="mantle.party.time.TimePeriod" short-alias="previous">
-            <key-map field-name="previousPeriodId" related-field-name="timePeriodId"/></relationship>
-        <relationship type="one" related-entity-name="mantle.party.time.TimePeriodType" short-alias="type"/>
+        <relationship type="one" title="Parent" related="mantle.party.time.TimePeriod" short-alias="parent">
+            <key-map field-name="parentPeriodId" related="timePeriodId"/></relationship>
+        <relationship type="one" title="Previous" related="mantle.party.time.TimePeriod" short-alias="previous">
+            <key-map field-name="previousPeriodId" related="timePeriodId"/></relationship>
+        <relationship type="one" related="mantle.party.time.TimePeriodType" short-alias="type"/>
     </entity>
-    <entity entity-name="TimePeriodType" package-name="mantle.party.time">
+    <entity entity-name="TimePeriodType" package="mantle.party.time">
         <field name="timePeriodTypeId" type="id" is-pk="true"/>
         <field name="periodPurposeEnumId" type="id"/>
         <field name="description" type="text-medium"/>
         <field name="periodLength" type="number-decimal"/>
         <field name="lengthUomId" type="id"/>
-        <relationship type="one" title="TimePeriodPurpose" related-entity-name="moqui.basic.Enumeration" short-alias="purpose">
+        <relationship type="one" title="TimePeriodPurpose" related="moqui.basic.Enumeration" short-alias="purpose">
             <key-map field-name="periodPurposeEnumId"/></relationship>
-        <relationship type="one" title="Length" related-entity-name="moqui.basic.Uom" short-alias="">
-            <key-map field-name="lengthUomId" related-field-name="uomId"/></relationship>
+        <relationship type="one" title="Length" related="moqui.basic.Uom" short-alias="">
+            <key-map field-name="lengthUomId" related="uomId"/></relationship>
         <seed-data>
             <moqui.basic.EnumerationType description="Time Period Purpose" enumTypeId="TimePeriodPurpose"/>
             <moqui.basic.Enumeration enumId="Fiscal" description="Fiscal" enumTypeId="TimePeriodPurpose"/>
