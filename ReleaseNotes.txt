@@ -15,6 +15,10 @@ Non Backward Compatible Changes
   replaced with organization and other (instead of from/to); the Agreement
   entities are not generally used, but any existing data/code would
   need to be moved/updated
+- Changed FacilityContent, RequestContent, ProductCategoryContent,
+  and ProductConfigItemContent to use a single PK field like other content
+  entities; these entities are not currently used in services, etc but if
+  used in custom code the code and existing data will need to be updated
 
 New Features
 
