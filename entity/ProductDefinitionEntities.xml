@@ -558,10 +558,11 @@ along with this software (see the LICENSE.md file). If not, see
         </master>
     </entity>
     <entity entity-name="ProductCategoryContent" package="mantle.product.category">
-        <field name="productCategoryId" type="id" is-pk="true"/>
-        <field name="contentLocation" type="text-medium" is-pk="true"/>
-        <field name="categoryContentTypeEnumId" type="id" is-pk="true"/>
-        <field name="fromDate" type="date-time" is-pk="true"/>
+        <field name="productCategoryContentId" type="id" is-pk="true"/>
+        <field name="productCategoryId" type="id"/>
+        <field name="contentLocation" type="text-medium"/>
+        <field name="categoryContentTypeEnumId" type="id"/>
+        <field name="fromDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="thruDate" type="date-time"/>
         <relationship type="one" related="mantle.product.category.ProductCategory"/>
         <relationship type="one" title="ProductCategoryContentType" related="moqui.basic.Enumeration">
@@ -645,11 +646,11 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="configItemTypeEnumId"/></relationship>
     </entity>
     <entity entity-name="ProductConfigItemContent" package="mantle.product.config">
-        <field name="configItemId" type="id" is-pk="true"/>
-        <field name="contentLocation" type="text-medium" is-pk="true"/>
-        <field name="fromDate" type="date-time" is-pk="true"/>
-        <field name="thruDate" type="date-time"/>
+        <field name="configItemContentId" type="id" is-pk="true"/>
+        <field name="configItemId" type="id"/>
+        <field name="contentLocation" type="text-medium"/>
         <field name="itemContentTypeEnumId" type="id"/>
+        <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
         <relationship type="one" related="ProductConfigItem"/>
         <relationship type="one" title="ProductConfigItemContentType" related="moqui.basic.Enumeration">
             <key-map field-name="itemContentTypeEnumId"/></relationship>

@@ -132,11 +132,11 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="CommunicationEvent" short-alias="communicationEvent"/>
     </entity>
     <entity entity-name="RequestContent" package="mantle.request" cache="never">
-        <field name="requestId" type="id" is-pk="true"/>
-        <field name="contentLocation" type="text-medium" is-pk="true"/>
-        <field name="requestContentTypeEnumId" type="id" is-pk="true"/>
-        <field name="fromDate" type="date-time" is-pk="true"/>
-        <field name="thruDate" type="date-time"/>
+        <field name="requestContentId" type="id" is-pk="true"/>
+        <field name="requestId" type="id"/>
+        <field name="contentLocation" type="text-medium"/>
+        <field name="requestContentTypeEnumId" type="id"/>
+        <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
         <relationship type="one" related="mantle.request.Request" short-alias="request"/>
         <relationship type="one" title="RequestContentType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="requestContentTypeEnumId"/></relationship>
