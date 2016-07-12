@@ -94,7 +94,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Asset" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
             <key-map field-name="ownerPartyId"/></relationship>
-        <relationship type="one" related="mantle.product.Product"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" title="OriginalQuantity" related="moqui.basic.Uom" short-alias="originalQuantityUom">
             <key-map field-name="originalQuantityUomId"/></relationship>
         <relationship type="one" title="Origin" related="mantle.facility.Facility" short-alias="originFacility">

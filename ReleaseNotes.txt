@@ -19,6 +19,7 @@ Non Backward Compatible Changes
   and ProductConfigItemContent to use a single PK field like other content
   entities; these entities are not currently used in services, etc but if
   used in custom code the code and existing data will need to be updated
+- EmplPosition.exemptFlag replaced by taxExemptEnumId and taxFormId
 
 New Features
 
@@ -34,6 +35,10 @@ New Features
   WorkEffort work workTypeEnumId; this is useful for defining work types
   separate from position classes for a generally cleaner model and to
   better represent how position classes can have many work types
+- Employment Tax Settings
+  - Added Employment.taxFormId to override EmplPosition.taxFormId
+  - Added PayrollAdjustmentExempt entity to configure exemptions based on
+    EmplPosition.taxExemptEnumId
 
 Bug Fixes
 
