@@ -403,7 +403,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="PartyRelationshipType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="relationshipTypeEnumId"/></relationship>
         <seed-data>
-            <!-- NOTE: The partyRelationshipTypeEnumId describes the FROM party, ie Joe is a customer of ACME, so Joe
+            <!-- NOTE: The partyRelationshipTypeEnumId describes the FROM Party, ie Joe is a customer of ACME, so Joe
                 is the fromPartyId (fromRoleTypeId=Customer) and ACME is the toPartyId (toRoleTypeId=OrgInternal); for
                 other examples see Table 2.5 in "The Data Model Resource Book, Revised Edition, Volume 1"-->
             <moqui.basic.EnumerationType description="Party Relationship Type" enumTypeId="PartyRelationshipType"/>
@@ -421,6 +421,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Sales Affiliate" enumId="PrtSalesAffiliate" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Spouse" enumId="PrtSpouse" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Supplier" enumId="PrtSupplier" enumTypeId="PartyRelationshipType"/>
+            <!-- Generally only one relationship at a time (for from Party) -->
+            <moqui.basic.Enumeration description="Team Member" enumId="PrtTeamMember" enumTypeId="PartyRelationshipType"/>
 
             <moqui.basic.StatusType description="Party Relationship" statusTypeId="PartyRelationship"/>
         </seed-data>
