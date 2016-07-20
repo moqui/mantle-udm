@@ -58,6 +58,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="partyId" related="fromPartyId"/></relationship>
         <relationship type="many" title="To" related="mantle.party.PartyRelationship" short-alias="toRelationships">
             <key-map field-name="partyId" related="toPartyId"/></relationship>
+        <relationship type="many" related="mantle.party.PartyBadge" short-alias="badges">
+            <key-map field-name="partyId"/></relationship>
         <relationship type="many" related="mantle.party.contact.PartyContactMech" short-alias="contactMechs">
             <key-map field-name="partyId"/></relationship>
 
@@ -421,8 +423,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Sales Affiliate" enumId="PrtSalesAffiliate" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Spouse" enumId="PrtSpouse" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Supplier" enumId="PrtSupplier" enumTypeId="PartyRelationshipType"/>
-            <!-- Generally only one relationship at a time (for from Party) -->
-            <moqui.basic.Enumeration description="Team Member" enumId="PrtTeamMember" enumTypeId="PartyRelationshipType"/>
 
             <moqui.basic.StatusType description="Party Relationship" statusTypeId="PartyRelationship"/>
         </seed-data>
