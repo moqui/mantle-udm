@@ -58,6 +58,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="partyId" related="fromPartyId"/></relationship>
         <relationship type="many" title="To" related="mantle.party.PartyRelationship" short-alias="toRelationships">
             <key-map field-name="partyId" related="toPartyId"/></relationship>
+        <relationship type="many" related="mantle.party.PartyBadge" short-alias="badges">
+            <key-map field-name="partyId"/></relationship>
         <relationship type="many" related="mantle.party.contact.PartyContactMech" short-alias="contactMechs">
             <key-map field-name="partyId"/></relationship>
 
@@ -403,7 +405,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="PartyRelationshipType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="relationshipTypeEnumId"/></relationship>
         <seed-data>
-            <!-- NOTE: The partyRelationshipTypeEnumId describes the FROM party, ie Joe is a customer of ACME, so Joe
+            <!-- NOTE: The partyRelationshipTypeEnumId describes the FROM Party, ie Joe is a customer of ACME, so Joe
                 is the fromPartyId (fromRoleTypeId=Customer) and ACME is the toPartyId (toRoleTypeId=OrgInternal); for
                 other examples see Table 2.5 in "The Data Model Resource Book, Revised Edition, Volume 1"-->
             <moqui.basic.EnumerationType description="Party Relationship Type" enumTypeId="PartyRelationshipType"/>

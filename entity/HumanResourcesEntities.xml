@@ -195,15 +195,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="terminationReasonEnumId" type="id"/>
         <field name="terminationTypeEnumId" type="id"/>
         <field name="jobRequisitionId" type="id"/>
+
         <field name="identityTypeEnumId" type="id"/>
         <field name="emplAuthzTypeEnumId" type="id"/>
-        <!-- use PartyContent instead
-        <field name="identityLocation" type="text-medium"/>
-        <field name="emplAuthzLocation" type="text-medium"/>
-        -->
+        <field name="distGroupEnumId" type="id"/>
         <field name="timePeriodTypeId" type="id"><description>Payroll time period</description></field>
         <field name="taxFormId" type="id"/>
         <field name="taxClassificationEnumId" type="id"/>
+
         <field name="taxName" type="text-medium"><description>Defaults to Person or Organization name fields</description></field>
         <field name="taxLastName" type="text-medium"><description>Defaults to Person.lastName if applicable</description></field>
         <field name="taxBusinessName" type="text-medium"/>
@@ -229,15 +228,19 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="TerminationType" related="moqui.basic.Enumeration">
             <key-map field-name="terminationTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.humanres.recruitment.JobRequisition"/>
+
         <relationship type="one" title="IdentityType" related="moqui.basic.Enumeration">
             <key-map field-name="identityTypeEnumId"/></relationship>
         <relationship type="one" title="EmplAuthzType" related="moqui.basic.Enumeration">
             <key-map field-name="emplAuthzTypeEnumId"/></relationship>
+        <relationship type="one" title="PayDistributionGroup" related="moqui.basic.Enumeration" short-alias="distGroup">
+            <key-map field-name="distGroupEnumId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType"/>
         <relationship type="one" title="Tax" related="moqui.screen.form.DbForm">
             <key-map field-name="taxFormId"/></relationship>
         <relationship type="one" title="TaxClassification" related="moqui.basic.Enumeration">
             <key-map field-name="taxClassificationEnumId"/></relationship>
+
         <relationship type="one" title="TaxHome" related="mantle.party.contact.PostalAddress">
             <key-map field-name="taxHomeContactMechId"/></relationship>
         <relationship type="one" title="TaxWork" related="mantle.party.contact.PostalAddress">
@@ -643,6 +646,9 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Work Type -->
             <moqui.basic.EnumerationType description="Work Type" enumTypeId="WorkType"/>
             <moqui.basic.Enumeration description="Management" enumId="WktpManagement" enumTypeId="WorkType"/>
+            <moqui.basic.Enumeration description="General Labor" enumId="WktpGeneralLabor" enumTypeId="WorkType"/>
+            <moqui.basic.Enumeration description="General Office" enumId="WktpGeneralOffice" enumTypeId="WorkType"/>
+            <moqui.basic.Enumeration description="Paid Break" enumId="WktpPaidBreak" enumTypeId="WorkType"/>
 
             <!-- Empl Position Class -->
             <mantle.humanres.position.EmplPositionClass title="Project Manager" emplPositionClassId="ProjectManager"/>
