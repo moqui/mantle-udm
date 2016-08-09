@@ -667,32 +667,32 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="invoiceItemSeqId" type="id"/>
         <field name="vendorInvoiceId" type="id"/>
         <field name="vendorInvoiceItemSeqId" type="id"/>
-        <relationship type="one" related="mantle.work.time.Timesheet"/>
-        <relationship type="one" related="mantle.party.Party"/>
-        <relationship type="one-nofk" related="mantle.party.Person"/>
-        <relationship type="one" title="Client" related="mantle.party.Party">
+        <relationship type="one" related="mantle.work.time.Timesheet" short-alias="timesheet"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one-nofk" related="mantle.party.Person" short-alias="person"/>
+        <relationship type="one" title="Client" related="mantle.party.Party" short-alias="clientParty">
             <key-map field-name="clientPartyId"/></relationship>
-        <relationship type="one" title="RateType" related="moqui.basic.Enumeration">
+        <relationship type="one" title="RateType" related="moqui.basic.Enumeration" short-alias="rateType">
             <key-map field-name="rateTypeEnumId"/></relationship>
-        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration">
+        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workType">
             <key-map field-name="workTypeEnumId"/></relationship>
-        <relationship type="one" related="mantle.humanres.position.EmplPositionClass"/>
-        <relationship type="one" related="mantle.humanres.rate.RateAmount"/>
-        <relationship type="one" title="Vendor" related="mantle.humanres.rate.RateAmount">
+        <relationship type="one" related="mantle.humanres.position.EmplPositionClass" short-alias="emplPositionClass"/>
+        <relationship type="one" related="mantle.humanres.rate.RateAmount" short-alias="rateAmount"/>
+        <relationship type="one" title="Vendor" related="mantle.humanres.rate.RateAmount" short-alias="vendorRateAmount">
             <key-map field-name="vendorRateAmountId"/></relationship>
-        <relationship type="one" title="PieceRateType" related="moqui.basic.Enumeration">
+        <relationship type="one" title="PieceRateType" related="moqui.basic.Enumeration" short-alias="pieceRateType">
             <key-map field-name="pieceRateTypeEnumId"/></relationship><!-- Uses enumTypeId = RateType -->
-        <relationship type="one" title="Piece" related="mantle.humanres.rate.RateAmount">
+        <relationship type="one" title="Piece" related="mantle.humanres.rate.RateAmount" short-alias="pieceRateAmount">
             <key-map field-name="pieceRateAmountId"/></relationship>
-        <relationship type="one" title="VendorPiece" related="mantle.humanres.rate.RateAmount">
+        <relationship type="one" title="VendorPiece" related="mantle.humanres.rate.RateAmount" short-alias="vendorPieceRateAmount">
             <key-map field-name="vendorPieceRateAmountId"/></relationship>
 
-        <relationship type="one" related="mantle.work.effort.WorkEffort"/>
-        <relationship type="one" related="mantle.account.invoice.InvoiceItem">
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+        <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem">
             <key-map field-name="invoiceId"/>
             <key-map field-name="invoiceItemSeqId"/>
         </relationship>
-        <relationship type="one" title="Vendor" related="mantle.account.invoice.InvoiceItem">
+        <relationship type="one" title="Vendor" related="mantle.account.invoice.InvoiceItem" short-alias="vendorInvoiceItem">
             <key-map field-name="vendorInvoiceId" related="invoiceId"/>
             <key-map field-name="vendorInvoiceItemSeqId" related="invoiceItemSeqId"/>
         </relationship>
