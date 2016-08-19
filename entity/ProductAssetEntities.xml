@@ -141,7 +141,10 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.product.receipt.AssetReceipt" short-alias="receipts">
             <key-map field-name="assetId"/></relationship>
 
-        <index name="INVITEM_SN"><index-field name="serialNumber"/></index>
+        <index name="ASSET_SN"><index-field name="serialNumber"/></index>
+        <!-- this index is used for the main asset reservation query, important for larger Asset tables -->
+        <index name="ASSET_PdStFacAtp"><index-field name="productId"/><index-field name="statusId"/>
+            <index-field name="facilityId"/><index-field name="availableToPromiseTotal"/></index>
         <!-- might be useful in some cases:
             <index name="INVITEM_SOFID" unique="true"><index-field name="softIdentifier"/></index>
             <index name="INVITEM_ACTNM" unique="true"><index-field name="activationNumber"/></index>
