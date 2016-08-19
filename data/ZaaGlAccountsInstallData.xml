@@ -1380,7 +1380,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="139000000" direction="I" itemTypeEnumId="ItemAsset" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="814000000" direction="O" itemTypeEnumId="ItemAsset" organizationPartyId="DefaultSettings"/>
 
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="700000000" direction="E" itemTypeEnumId="ItemExpense" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="799000000" direction="E" itemTypeEnumId="ItemExpense" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="621600000" direction="E" itemTypeEnumId="ItemExpAdvertising" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="796000000" direction="E" itemTypeEnumId="ItemExpCharitable" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="614110000" direction="E" itemTypeEnumId="ItemExpCommTelephone" organizationPartyId="DefaultSettings"/>
@@ -1462,7 +1462,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="260000000" direction="O" itemTypeEnumId="ItemAdvancePay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="260000000" direction="O" itemTypeEnumId="ItemPayAdjPay" organizationPartyId="DefaultSettings"/>
 
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="700000000" direction="E" itemTypeEnumId="ItemReimbursement" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="799000000" direction="E" itemTypeEnumId="ItemReimbursement" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="" direction="E" itemTypeEnumId="ItemPayrollDeduct" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDed125Compy" organizationPartyId="DefaultSettings"/>
