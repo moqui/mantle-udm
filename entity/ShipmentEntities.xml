@@ -244,14 +244,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="invoiceId" type="id"/>
         <field name="invoiceItemSeqId" type="id"/>
         <relationship type="one" related="mantle.shipment.ShipmentItem"/>
-        <relationship type="one-nofk" related="mantle.order.OrderHeader"/>
-        <relationship type="one" related="mantle.order.OrderItem"/>
-        <relationship type="one" related="mantle.order.return.ReturnHeader"/>
+        <relationship type="one-nofk" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
+        <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem"/>
+        <relationship type="one" related="mantle.order.return.ReturnHeader" short-alias="returnHeader"/>
         <relationship type="one" title="ShipmentItemSource" related="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="one" related="mantle.account.invoice.InvoiceItem">
-            <key-map field-name="invoiceId"/>
-            <key-map field-name="invoiceItemSeqId"/>
-        </relationship>
+        <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem">
+            <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
         <seed-data>
             <!-- Shipment Item Pick Status -->
             <moqui.basic.StatusType description="Shipment Item Pick Status" statusTypeId="ShipmentItemSource"/>
