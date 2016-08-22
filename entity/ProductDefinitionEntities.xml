@@ -27,7 +27,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.product -->
     <!-- ========================================================= -->
 
-    <entity entity-name="Product" package="mantle.product" short-alias="products">
+    <entity entity-name="Product" package="mantle.product" short-alias="products" cache="true">
         <field name="productId" type="id" is-pk="true"/>
         <field name="pseudoId" type="id" default="productId"/>
         <field name="productTypeEnumId" type="id"/>
