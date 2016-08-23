@@ -482,6 +482,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="returnId" type="id"/>
         <field name="returnItemSeqId" type="id"/>
         <field name="workEffortId" type="id"/>
+        <field name="facilityId" type="id"/>
         <field name="assetMaintenanceId" type="id"/>
         <field name="issuedDate" type="date-time"/>
         <field name="quantity" type="number-decimal" enable-audit-log="true"/>
@@ -496,6 +497,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="returnId"/><key-map field-name="returnItemSeqId"/></relationship>
         <relationship type="one" related="mantle.product.Product"/>
         <relationship type="one" related="mantle.work.effort.WorkEffort"/>
+        <relationship type="one" related="mantle.facility.Facility"/>
         <relationship type="one" related="mantle.product.maintenance.AssetMaintenance"/>
         <relationship type="many" related="mantle.work.effort.WorkEffortProduct">
             <key-map field-name="workEffortId"/><key-map field-name="productId"/></relationship>
