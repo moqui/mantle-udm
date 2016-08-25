@@ -74,11 +74,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="budgetId" type="id" not-null="true"/>
         <field name="budgetItemSeqId" type="id" not-null="true"/>
         <field name="facilityId" type="id"/>
+        <field name="assetId" type="id"/>
         <field name="quantity" type="number-decimal"/>
 
         <relationship type="one-nofk" related="mantle.other.budget.Budget"/>
         <relationship type="one" related="mantle.other.budget.BudgetItem"/>
         <relationship type="one" related="mantle.facility.Facility"/>
+        <relationship type="one" related="mantle.product.asset.Asset"/>
     </entity>
     <entity entity-name="BudgetReview" package="mantle.other.budget">
         <field name="budgetReviewId" type="id" is-pk="true"/>
