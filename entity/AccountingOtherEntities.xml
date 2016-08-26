@@ -47,18 +47,40 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="budgetId" type="id" is-pk="true"/>
         <field name="budgetItemSeqId" type="id" is-pk="true"/>
         <field name="budgetItemTypeEnumId" type="id"/>
+        <field name="itemTypeEnumId" type="id"/>
+        <field name="productId" type="id"/>
+        <field name="quantity" type="number-decimal"/>
+        <field name="quantityUomId" type="id"/>
         <field name="amount" type="currency-amount"/>
         <field name="purpose" type="text-medium"/>
         <field name="justification" type="text-medium"/>
         <relationship type="one" related="Budget"/>
         <relationship type="one" title="BudgetItemType" related="moqui.basic.Enumeration">
             <key-map field-name="budgetItemTypeEnumId"/></relationship>
+        <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="itemTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" title="Quantity" related="moqui.basic.Uom" short-alias="quantityUom">
+            <key-map field-name="quantityUomId"/></relationship>
         <seed-data>
             <!-- Budget Item Type -->
             <moqui.basic.EnumerationType description="Budget Item Type" enumTypeId="BudgetItemType"/>
             <moqui.basic.Enumeration description="Required" enumId="BIT_REQUIRED" enumTypeId="BudgetItemType"/>
             <moqui.basic.Enumeration description="Discretionary" enumId="BIT_DISCRETIONARY" enumTypeId="BudgetItemType"/>
         </seed-data>
+    </entity>
+    <entity entity-name="BudgetItemDetail" package="mantle.other.budget" cache="never">
+        <field name="budgetItemDetailId" type="id" is-pk="true"/>
+        <field name="budgetId" type="id" not-null="true"/>
+        <field name="budgetItemSeqId" type="id" not-null="true"/>
+        <field name="facilityId" type="id"/>
+        <field name="assetId" type="id"/>
+        <field name="quantity" type="number-decimal"/>
+
+        <relationship type="one-nofk" related="mantle.other.budget.Budget"/>
+        <relationship type="one" related="mantle.other.budget.BudgetItem"/>
+        <relationship type="one" related="mantle.facility.Facility"/>
+        <relationship type="one" related="mantle.product.asset.Asset"/>
     </entity>
     <entity entity-name="BudgetReview" package="mantle.other.budget">
         <field name="budgetReviewId" type="id" is-pk="true"/>
