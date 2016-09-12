@@ -1024,7 +1024,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productId" type="id"/>
         <field name="externalSubscriptionId" type="text-short"/>
         <field name="resourceInstanceId" type="text-short"><description>ID of an instance of a resource, like a serial
-            number. For example: with tenant resources this is the tenantId.</description></field>
+            number or executing instance ID.</description></field>
         <field name="description" type="text-medium"/>
 
         <field name="fromDate" type="date-time"/>

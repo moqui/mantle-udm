@@ -176,7 +176,8 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.product.asset.AssetDetail assetDetailId="DEMO_3_1A" assetId="DEMO_3_1A" effectiveDate="1265184000000"
             quantityOnHandDiff="5" availableToPromiseDiff="5" productId="DEMO_3_1"/>
 
-    <!-- A digital subscription product, specifically for access to a tenant instance -->
+    <!-- A digital subscription product, was used for tenant provisioning but multi-tenant support deprecated, leaving as model for executing instance provisioning -->
+    <!--
     <mantle.product.Product productId="DEMO_TNT" productTypeEnumId="PtDigital" chargeShipping="N"
             returnable="Y" productName="Demo Tenant 1 Month Subscription" description=""/>
     <mantle.product.ProductPrice productPriceId="DEMO_TNT_C" productId="DEMO_TNT" productStoreId="POPC_DEFAULT"
@@ -186,7 +187,7 @@ along with this software (see the LICENSE.md file). If not, see
             fromDate="1265184000000"/>
     <mantle.product.category.ProductCategoryMember productCategoryId="PopcHome" productId="DEMO_TNT"
             fromDate="1265184000000" sequenceNum="5"/>
-    <!-- NOTE: could move this to seed data, is used to configure services provided with Mantle -->
+    <!- - NOTE: could move this to seed data, is used to configure services provided with Mantle - ->
     <mantle.product.subscription.SubscriptionResource subscriptionResourceId="TENANT" description="Tenant System Access"
             initServiceName="mantle.product.TenantSubscriptionServices.init#Tenant"
             renewServiceName=""
@@ -197,4 +198,5 @@ along with this software (see the LICENSE.md file). If not, see
             destroyServiceName="mantle.product.TenantSubscriptionServices.destroy#Tenant"/>
     <mantle.product.subscription.ProductSubscriptionResource productId="DEMO_TNT" subscriptionResourceId="TENANT"
             fromDate="1265184000000" availableTime="1" availableTimeUomId="TF_mon"/>
+    -->
 </entity-facade-xml>
