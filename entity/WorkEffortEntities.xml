@@ -785,7 +785,7 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <moqui.basic.EnumerationType description="Sixteen Point Compass" enumTypeId="SixteenPointCompass"/>
             <moqui.basic.Enumeration description="North (0°)" enumCode="N" enumId="SPC_N" enumTypeId="SixteenPointCompass"/>
-            <moqui.basic.Enumeration description="North Northeast (22.5°)" enumCode="NNW" enumId="SPC_NNW" enumTypeId="SixteenPointCompass"/>
+            <moqui.basic.Enumeration description="North Northeast (22.5°)" enumCode="NNE" enumId="SPC_NNE" enumTypeId="SixteenPointCompass"/>
             <moqui.basic.Enumeration description="Northeast (45°)" enumCode="NE" enumId="SPC_NE" enumTypeId="SixteenPointCompass"/>
             <moqui.basic.Enumeration description="East Northeast (67.5°)" enumCode="ENE" enumId="SPC_ENE" enumTypeId="SixteenPointCompass"/>
             <moqui.basic.Enumeration description="East (90°)" enumCode="E" enumId="SPC_E" enumTypeId="SixteenPointCompass"/>

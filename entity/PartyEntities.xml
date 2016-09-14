@@ -262,32 +262,32 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="parentClassificationId" related="partyClassificationId"/></relationship>
         <seed-data>
             <moqui.basic.EnumerationType description="Party Classification Type" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="EEOC (Equal Opportunity)" enumId="PctEeoc" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Minority" enumId="PctMinority" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Income" enumId="PctIncome" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Industry" enumId="PctIndustry" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Organization" enumId="PctOrganization" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Person" enumId="PctPerson" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Size" enumId="PctSize" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Trade" enumId="PctTrade" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Trade - Wholesale" parentEnumId="PctTrade" enumId="PctTradeWholesale" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Trade - Retail" parentEnumId="PctTrade" enumId="PctTradeRetail" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Annual Revenue" enumId="PctAnnualRevenue" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Number of Employees" enumId="PctNumberEmployees" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Value Rating" enumId="PctValueRating" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="SIC Code" enumId="PctSicCode" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="NAICS Code" enumId="PctNaicsCode" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Ownership" enumId="PctOwnership" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="EEOC (Equal Opportunity)" enumId="PcltEeoc" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Minority" enumId="PcltMinority" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Income" enumId="PcltIncome" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Industry" enumId="PcltIndustry" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Organization" enumId="PcltOrganization" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Person" enumId="PcltPerson" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Size" enumId="PcltSize" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Trade" enumId="PcltTrade" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Trade - Wholesale" parentEnumId="PcltTrade" enumId="PcltTradeWholesale" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Trade - Retail" parentEnumId="PcltTrade" enumId="PcltTradeRetail" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Annual Revenue" enumId="PcltAnnualRevenue" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Number of Employees" enumId="PcltNumberEmployees" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Value Rating" enumId="PcltValueRating" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="SIC Code" enumId="PcltSicCode" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="NAICS Code" enumId="PcltNaicsCode" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Ownership" enumId="PcltOwnership" enumTypeId="PartyClassificationType"/>
 
-            <mantle.party.PartyClassification partyClassificationId="NAICS_511210" classificationTypeEnumId="PctNaicsCode"
+            <mantle.party.PartyClassification partyClassificationId="NAICS_511210" classificationTypeEnumId="PcltNaicsCode"
                     description="Software Publishers" standardCode="511210"/>
-            <mantle.party.PartyClassification partyClassificationId="NAICS_541511" classificationTypeEnumId="PctNaicsCode"
+            <mantle.party.PartyClassification partyClassificationId="NAICS_541511" classificationTypeEnumId="PcltNaicsCode"
                     description="Custom Computer Programming Services" standardCode="541511"/>
-            <mantle.party.PartyClassification partyClassificationId="NAICS_541512" classificationTypeEnumId="PctNaicsCode"
+            <mantle.party.PartyClassification partyClassificationId="NAICS_541512" classificationTypeEnumId="PcltNaicsCode"
                     description="Computer Systems Design Services" standardCode="541512"/>
-            <mantle.party.PartyClassification partyClassificationId="NAICS_541519" classificationTypeEnumId="PctNaicsCode"
+            <mantle.party.PartyClassification partyClassificationId="NAICS_541519" classificationTypeEnumId="PcltNaicsCode"
                     description="Other Computer Related Services" standardCode="541519"/>
-            <mantle.party.PartyClassification partyClassificationId="NAICS_611420" classificationTypeEnumId="PctNaicsCode"
+            <mantle.party.PartyClassification partyClassificationId="NAICS_611420" classificationTypeEnumId="PcltNaicsCode"
                     description="Computer Training" standardCode="611420"/>
         </seed-data>
     </entity>

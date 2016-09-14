@@ -1356,9 +1356,9 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Payment Content Type -->
             <moqui.basic.EnumerationType description="Payment Content Type" enumTypeId="PaymentContentType"/>
-            <moqui.basic.Enumeration enumId="IctPaymentDocument" description="Payment Document" enumTypeId="PaymentContentType"/>
-            <moqui.basic.Enumeration enumId="IctReceipt" description="Receipt" enumTypeId="PaymentContentType"/>
-            <moqui.basic.Enumeration enumId="IctCheckImage" description="Check Image" enumTypeId="PaymentContentType"/>
+            <moqui.basic.Enumeration enumId="PctPaymentDocument" description="Payment Document" enumTypeId="PaymentContentType"/>
+            <moqui.basic.Enumeration enumId="PctReceipt" description="Receipt" enumTypeId="PaymentContentType"/>
+            <moqui.basic.Enumeration enumId="PctCheckImage" description="Check Image" enumTypeId="PaymentContentType"/>
         </seed-data>
     </entity>
 </entities>

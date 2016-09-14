@@ -268,8 +268,8 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- NOTE: there are many variations, especially for USA MACRS ADS; future effort to model all of them -->
             <!-- For a summary of USA IRS MACRS deprecations see: https://en.wikipedia.org/wiki/MACRS -->
             <moqui.basic.EnumerationType description="Tax Depreciation Type" enumTypeId="TaxDepreciationType"/>
-            <moqui.basic.Enumeration description="MACRS GDS 5 Year" enumId="TdtpUnitsProduction" enumTypeId="TaxDepreciationType"/>
-            <moqui.basic.Enumeration description="MACRS GDS 7 Year" enumId="TdtpUnitsProduction" enumTypeId="TaxDepreciationType"/>
+            <moqui.basic.Enumeration description="MACRS GDS 5 Year" enumId="TxdtMacrsGds5Yr" enumTypeId="TaxDepreciationType"/>
+            <moqui.basic.Enumeration description="MACRS GDS 7 Year" enumId="TxdtMacrsGds7Yr" enumTypeId="TaxDepreciationType"/>
         </seed-data>
         <master>
             <detail relationship="parent"/><detail relationship="type"/><detail relationship="class"/>
