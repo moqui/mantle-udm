@@ -48,10 +48,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="budgetItemSeqId" type="id" is-pk="true"/>
         <field name="budgetItemTypeEnumId" type="id"/>
         <field name="itemTypeEnumId" type="id"/>
+        <field name="glAccountId" type="id"/>
+        <field name="amount" type="currency-amount"/>
         <field name="productId" type="id"/>
         <field name="quantity" type="number-decimal"/>
         <field name="quantityUomId" type="id"/>
-        <field name="amount" type="currency-amount"/>
         <field name="purpose" type="text-medium"/>
         <field name="justification" type="text-medium"/>
         <relationship type="one" related="Budget"/>
@@ -59,6 +60,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="budgetItemTypeEnumId"/></relationship>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="itemTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.ledger.account.GlAccount" short-alias="glAccount"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" title="Quantity" related="moqui.basic.Uom" short-alias="quantityUom">
             <key-map field-name="quantityUomId"/></relationship>
@@ -75,6 +77,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="budgetItemSeqId" type="id" not-null="true"/>
         <field name="facilityId" type="id"/>
         <field name="assetId" type="id"/>
+        <field name="amount" type="currency-precise"/>
         <field name="quantity" type="number-decimal"/>
 
         <relationship type="one-nofk" related="mantle.other.budget.Budget"/>
