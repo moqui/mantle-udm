@@ -171,6 +171,14 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Image URL"  enumId="FcntImageUrl" enumTypeId="FacilityContentType"/>
         </seed-data>
     </entity>
+    <entity entity-name="FacilityGlAccount" package="mantle.facility">
+        <description>Used to specify relevant GL Accounts for a Facility (expense, revenue, etc)</description>
+        <field name="facilityId" type="id" is-pk="true"/>
+        <field name="glAccountId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one" related="mantle.ledger.account.GlAccount" short-alias="glAccount"/>
+    </entity>
+
     <entity entity-name="FacilityGroup" package="mantle.facility" short-alias="facilityGroups">
         <field name="facilityGroupId" type="id" is-pk="true"/>
         <field name="parentGroupId" type="id"/>
