@@ -352,6 +352,13 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Shipment Exclude" enumId="PgpShipmentExclude" enumTypeId="ProductGeoPurpose"/>
         </seed-data>
     </entity>
+    <entity entity-name="ProductGlAppl" package="mantle.product">
+        <description>Used to specify relevant GL Accounts for a Product (expense, revenue, etc); not related to posting conf</description>
+        <field name="productId" type="id" is-pk="true"/>
+        <field name="glAccountId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related="mantle.ledger.account.GlAccount" short-alias="glAccount"/>
+    </entity>
     <entity entity-name="ProductIdentification" package="mantle.product">
         <field name="productId" type="id" is-pk="true"/>
         <field name="productIdTypeEnumId" type="id" is-pk="true"/>
