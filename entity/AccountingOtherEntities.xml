@@ -27,17 +27,19 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="budgetId" type="id" is-pk="true"/>
         <field name="budgetTypeEnumId" type="id"/>
         <field name="timePeriodId" type="id"/>
+        <field name="subTimePeriodTypeId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
+        <field name="description" type="text-medium"/>
         <field name="comments" type="text-long"/>
         <relationship type="one" title="BudgetType" related="moqui.basic.Enumeration">
             <key-map field-name="budgetTypeEnumId"/></relationship>
-        <relationship type="one" related="TimePeriod"/>
+        <relationship type="one" related="mantle.party.time.TimePeriod"/>
         <relationship type="one" title="Budget" related="moqui.basic.StatusItem"/>
         <seed-data>
             <!-- Budget Type -->
             <moqui.basic.EnumerationType description="Budget Type" enumTypeId="BudgetType"/>
-            <moqui.basic.Enumeration description="Capital" enumId="BUDGET_CAPITAL" enumTypeId="BudgetType"/>
-            <moqui.basic.Enumeration description="Operating" enumId="BUDGET_OPERATING" enumTypeId="BudgetType"/>
+            <moqui.basic.Enumeration description="Capital" enumId="BudgetCapital" enumTypeId="BudgetType"/>
+            <moqui.basic.Enumeration description="Operating" enumId="BudgetOperating" enumTypeId="BudgetType"/>
 
             <!-- Budget Status -->
             <moqui.basic.StatusType description="Budget" statusTypeId="Budget"/>
@@ -55,6 +57,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="quantityUomId" type="id"/>
         <field name="purpose" type="text-medium"/>
         <field name="justification" type="text-medium"/>
+        <field name="subTimePeriodId" type="id"><description>A TimePeriod for the item within the TimePeriod for the entire budget</description></field>
         <relationship type="one" related="Budget"/>
         <relationship type="one" title="BudgetItemType" related="moqui.basic.Enumeration">
             <key-map field-name="budgetItemTypeEnumId"/></relationship>
@@ -64,11 +67,13 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" title="Quantity" related="moqui.basic.Uom" short-alias="quantityUom">
             <key-map field-name="quantityUomId"/></relationship>
+        <relationship type="one" title="Sub" related="mantle.party.time.TimePeriod" short-alias="subTimePeriod">
+            <key-map field-name="subTimePeriodId"/></relationship>
         <seed-data>
             <!-- Budget Item Type -->
             <moqui.basic.EnumerationType description="Budget Item Type" enumTypeId="BudgetItemType"/>
-            <moqui.basic.Enumeration description="Required" enumId="BIT_REQUIRED" enumTypeId="BudgetItemType"/>
-            <moqui.basic.Enumeration description="Discretionary" enumId="BIT_DISCRETIONARY" enumTypeId="BudgetItemType"/>
+            <moqui.basic.Enumeration description="Required" enumId="BdgItRequired" enumTypeId="BudgetItemType"/>
+            <moqui.basic.Enumeration description="Discretionary" enumId="BdgItDiscretionary" enumTypeId="BudgetItemType"/>
         </seed-data>
     </entity>
     <entity entity-name="BudgetItemDetail" package="mantle.other.budget" cache="never">
@@ -195,8 +200,8 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <moqui.basic.EnumerationType description="Tax Authority Assoc Type" enumTypeId="TaxAuthorityAssocType"/>
             <!-- Example: California is a tax exemption inheritor of the USA, there is a tax exemption inheritance from USA to CA, taxAuthGeoId=USA toTaxAuthGeoId=CA -->
-            <moqui.basic.Enumeration enumId="EXEMPT_INHER" description="Exemption Inheritance" enumTypeId="TaxAuthorityAssocType"/>
-            <moqui.basic.Enumeration enumId="COLLECT_AGENT" description="Collection Agent" enumTypeId="TaxAuthorityAssocType"/>
+            <moqui.basic.Enumeration enumId="TaatExemption" description="Exemption Inheritance" enumTypeId="TaxAuthorityAssocType"/>
+            <moqui.basic.Enumeration enumId="TaatCollAgent" description="Collection Agent" enumTypeId="TaxAuthorityAssocType"/>
         </seed-data>
     </entity>
     <entity entity-name="TaxAuthorityCategory" package="mantle.other.tax">
