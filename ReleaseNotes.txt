@@ -2,12 +2,14 @@
 Mantle Business Artifacts - Universal Data Model Release Notes
 
 ===========================================================================
-Release 1.0.2 - TBD
+Release 1.1.0 - Not Yet Released
 ===========================================================================
 
-Mantle Universal Data Model 1.0.2 is a minor new feature release.
+Mantle Universal Data Model 1.1.0 is a minor new feature release.
 
-This release is based on Moqui Framework TODO.
+This release is based on Moqui Framework 2.0.0.
+
+TODO
 
 Non Backward Compatible Changes
 
