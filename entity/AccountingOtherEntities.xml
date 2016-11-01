@@ -58,10 +58,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="purpose" type="text-medium"/>
         <field name="justification" type="text-medium"/>
         <field name="subTimePeriodId" type="id"><description>A TimePeriod for the item within the TimePeriod for the entire budget</description></field>
-        <relationship type="one" related="Budget"/>
-        <relationship type="one" title="BudgetItemType" related="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.other.budget.Budget" short-alias="budget"/>
+        <relationship type="one" title="BudgetItemType" related="moqui.basic.Enumeration" short-alias="budgetItemType">
             <key-map field-name="budgetItemTypeEnumId"/></relationship>
-        <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="type">
+        <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemType">
             <key-map field-name="itemTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount" short-alias="glAccount"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
@@ -69,6 +69,10 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="quantityUomId"/></relationship>
         <relationship type="one" title="Sub" related="mantle.party.time.TimePeriod" short-alias="subTimePeriod">
             <key-map field-name="subTimePeriodId"/></relationship>
+
+        <relationship type="many" related="mantle.other.budget.BudgetItemDetail" short-alias="details">
+            <key-map field-name="budgetId"/><key-map field-name="budgetItemSeqId"/></relationship>
+
         <seed-data>
             <!-- Budget Item Type -->
             <moqui.basic.EnumerationType description="Budget Item Type" enumTypeId="BudgetItemType"/>
@@ -83,12 +87,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="facilityId" type="id"/>
         <field name="assetId" type="id"/>
         <field name="amount" type="currency-precise"/>
+        <field name="productId" type="id"/>
         <field name="quantity" type="number-decimal"/>
 
-        <relationship type="one-nofk" related="mantle.other.budget.Budget"/>
-        <relationship type="one" related="mantle.other.budget.BudgetItem"/>
-        <relationship type="one" related="mantle.facility.Facility"/>
-        <relationship type="one" related="mantle.product.asset.Asset"/>
+        <relationship type="one-nofk" related="mantle.other.budget.Budget" short-alias="budget"/>
+        <relationship type="one" related="mantle.other.budget.BudgetItem" short-alias="budgetItem"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
     </entity>
     <entity entity-name="BudgetReview" package="mantle.other.budget">
         <field name="budgetReviewId" type="id" is-pk="true"/>
