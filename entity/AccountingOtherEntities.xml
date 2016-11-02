@@ -31,10 +31,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="description" type="text-medium"/>
         <field name="comments" type="text-long"/>
-        <relationship type="one" title="BudgetType" related="moqui.basic.Enumeration">
+        <relationship type="one" title="BudgetType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="budgetTypeEnumId"/></relationship>
-        <relationship type="one" related="mantle.party.time.TimePeriod"/>
-        <relationship type="one" title="Budget" related="moqui.basic.StatusItem"/>
+        <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
+        <relationship type="one" title="Budget" related="moqui.basic.StatusItem" short-alias="status"/>
         <seed-data>
             <!-- Budget Type -->
             <moqui.basic.EnumerationType description="Budget Type" enumTypeId="BudgetType"/>
