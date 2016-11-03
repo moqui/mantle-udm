@@ -29,12 +29,15 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="timePeriodId" type="id"/>
         <field name="subTimePeriodTypeId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
+        <field name="currencyUomId" type="id"/>
         <field name="description" type="text-medium"/>
         <field name="comments" type="text-long"/>
         <relationship type="one" title="BudgetType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="budgetTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
         <relationship type="one" title="Budget" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="Currency" related="moqui.basic.Uom" short-alias="currencyUom">
+            <key-map field-name="currencyUomId"/></relationship>
         <seed-data>
             <!-- Budget Type -->
             <moqui.basic.EnumerationType description="Budget Type" enumTypeId="BudgetType"/>
