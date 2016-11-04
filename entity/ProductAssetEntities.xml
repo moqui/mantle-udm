@@ -463,8 +463,45 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="PhysicalInventory" package="mantle.product.asset" cache="never">
         <field name="physicalInventoryId" type="id" is-pk="true"/>
         <field name="physicalInventoryDate" type="date-time"/>
+        <field name="statusId" type="id" default="PIPlanning" enable-audit-log="true"/>
+        <field name="facilityId" type="id"/>
         <field name="partyId" type="id"/>
         <field name="comments" type="text-long"/>
+        <relationship type="one" title="PhysicalInventory" related="moqui.basic.StatusItem" short-alias="status"
+                      fk-name="physicalInventoryStatusId"/>
+        <relationship type="one" related="mantle.facility.Facility"/>
+        <seed-data>
+            <moqui.basic.StatusType description="Physical Inventory Status" statusTypeId="PhysicalInventory"/>
+            <moqui.basic.StatusItem description="Planning" sequenceNum="1" statusId="PIPlanning" statusTypeId="PhysicalInventory"/>
+            <moqui.basic.StatusItem description="Executing" sequenceNum="2" statusId="PIExecuting" statusTypeId="PhysicalInventory"/>
+            <moqui.basic.StatusItem description="Validating" sequenceNum="3" statusId="PIValidating" statusTypeId="PhysicalInventory"/>
+            <moqui.basic.StatusItem description="Finished" sequenceNum="4" statusId="PIFinished" statusTypeId="PhysicalInventory"/>
+        </seed-data>
+    </entity>
+    <entity entity-name="PhysicalInventoryCount" package="mantle.product.asset">
+        <field name="physicalInventoryId" type="id" is-pk="true"/>
+        <field name="facilityId" type="id" is-pk="true"/>
+        <field name="locationSeqId" type="id" is-pk="true"/>
+        <field name="physicalInventoryCountSeqId" type="id" is-pk="true"/>
+        <field name="productId" type="id"/>
+        <field name="assignedPartyId" type="id" not-null="true"/>
+        <field name="assignDate" type="date-time" default="ec.user.nowTimestamp"/>
+        <field name="statusId" type="id"/>
+        <field name="countDate" type="date-time"/>
+        <field name="count" type="number-integer"/>
+        <relationship related="mantle.product.asset.PhysicalInventory" type="one"/>
+        <relationship related="mantle.facility.FacilityLocation" type="one"/>
+        <relationship related="mantle.product.Product" type="one"/>
+        <relationship related="mantle.party.Party" type="one">
+            <key-map field-name="assignedPartyId"/>
+        </relationship>
+        <relationship type="one" title="PhysicalInventoryCount" related="moqui.basic.StatusItem" short-alias="status"/>
+        <seed-data>
+            <moqui.basic.StatusType description="Physical Inventory Count Status" statusTypeId="PhysicalInventoryCount"/>
+            <moqui.basic.StatusItem description="Planning" sequenceNum="1" statusId="PICPlanning" statusTypeId="PhysicalInventoryCount"/>
+            <moqui.basic.StatusItem description="Assigned" sequenceNum="2" statusId="PICAssigned" statusTypeId="PhysicalInventoryCount"/>
+            <moqui.basic.StatusItem description="Completed" sequenceNum="3" statusId="PICCompleted" statusTypeId="PhysicalInventoryCount"/>
+        </seed-data>
     </entity>
 
     <!-- ========================================================= -->
