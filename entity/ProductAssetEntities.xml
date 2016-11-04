@@ -311,6 +311,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="assetIssuanceId" type="id"/>
         <field name="assetReceiptId" type="id"/>
         <field name="physicalInventoryId" type="id"/>
+        <field name="physicalInventoryCountSeqId" type="id"/>
         <field name="varianceReasonEnumId" type="id"/>
         <field name="description" type="text-medium"/>
         <field name="acctgTransResultEnumId" type="id" create-only="false"/>
@@ -324,6 +325,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.issuance.AssetIssuance"/>
         <relationship type="one" related="mantle.product.receipt.AssetReceipt"/>
         <relationship type="one" related="mantle.product.asset.PhysicalInventory"/>
+        <relationship type="one" related="mantle.product.asset.PhysicalInventoryCount"/>
         <relationship type="one" title="InventoryVarianceReason" related="moqui.basic.Enumeration">
             <key-map field-name="varianceReasonEnumId"/></relationship>
         <relationship type="one" title="AcctgTransResult" related="moqui.basic.Enumeration">
