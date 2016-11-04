@@ -83,7 +83,7 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- explicit many relationship, used in MantleProduct DataDocument -->
         <relationship type="many" related="mantle.product.ProductAssoc" short-alias="assocs">
             <key-map field-name="productId"/></relationship>
-        <relationship type="many" related="mantle.product.ProductAssoc" short-alias="toAssocs">
+        <relationship type="many" title="To" related="mantle.product.ProductAssoc" short-alias="toAssocs">
             <key-map field-name="productId" related="toProductId"/></relationship>
         <relationship type="many" related="mantle.product.ProductContent" short-alias="contents">
             <key-map field-name="productId"/></relationship>
