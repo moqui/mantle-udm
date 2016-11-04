@@ -5,11 +5,12 @@ Mantle Business Artifacts - Universal Data Model Release Notes
 Release 1.1.0 - Not Yet Released
 ===========================================================================
 
-Mantle Universal Data Model 1.1.0 is a minor new feature release.
+Mantle Universal Data Model 1.1.0 is a minor new feature release. This
+release is based on Moqui Framework 2.0.0.
 
-This release is based on Moqui Framework 2.0.0.
-
-TODO
+The changes in this release are generally minor refinements and cleanups
+plus improvements for agreements, work types, employment, and budgets and
+expense management.
 
 Non Backward Compatible Changes
 
@@ -41,9 +42,11 @@ New Features
   - Added Employment.taxFormId to override EmplPosition.taxFormId
   - Added PayrollAdjustmentExempt entity to configure exemptions based on
     EmplPosition.taxExemptEnumId
-
-Bug Fixes
-
+- Added InvoiceItemDetail to allocate expenses to Assets, Facilities, etc
+- Expanded Budget and related entities to handle common budgeting scenarios
+  such as a budget that parallels GL expense accounts and budgets for
+  Assets and Facilities, and for budgets with a longer time period such as
+  a year with sub-periods such as months within the year
 
 ===========================================================================
 Release 1.0.1 - 26 Mar 2016
