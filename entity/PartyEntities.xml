@@ -1305,9 +1305,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="partyId" type="id"><description>The Party that owns the TimePeriod, generally an Internal Organization.</description></field>
         <field name="periodNum" type="number-integer"/>
         <field name="periodName" type="text-medium"/>
-        <field name="fromDate" type="date"><description>The first day of the period.</description></field>
-        <field name="thruDate" type="date"><description>The last day of the period.</description></field>
-        <field name="isClosed" type="text-indicator"/>
+        <field name="fromDate" type="date" not-null="true"><description>The first day of the period.</description></field>
+        <field name="thruDate" type="date" not-null="true"><description>The last day of the period.</description></field>
+        <field name="isClosed" type="text-indicator" default="'N'"/>
         <relationship type="one" title="Parent" related="mantle.party.time.TimePeriod" short-alias="parent">
             <key-map field-name="parentPeriodId" related="timePeriodId"/></relationship>
         <relationship type="one" title="Previous" related="mantle.party.time.TimePeriod" short-alias="previous">
@@ -1317,12 +1317,15 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="TimePeriodType" package="mantle.party.time">
         <field name="timePeriodTypeId" type="id" is-pk="true"/>
         <field name="periodPurposeEnumId" type="id"/>
+        <field name="parentPeriodTypeId" type="id"/>
         <field name="description" type="text-medium"/>
         <field name="periodLength" type="number-decimal"/>
         <field name="lengthUomId" type="id"/>
         <relationship type="one" title="TimePeriodPurpose" related="moqui.basic.Enumeration" short-alias="purpose">
             <key-map field-name="periodPurposeEnumId"/></relationship>
-        <relationship type="one" title="Length" related="moqui.basic.Uom" short-alias="">
+        <relationship type="one" title="Parent" related="mantle.party.time.TimePeriodType" short-alias="parentPeriodType">
+            <key-map field-name="parentPeriodTypeId"/></relationship>
+        <relationship type="one" title="Length" related="moqui.basic.Uom" short-alias="lengthUom">
             <key-map field-name="lengthUomId" related="uomId"/></relationship>
         <seed-data>
             <moqui.basic.EnumerationType description="Time Period Purpose" enumTypeId="TimePeriodPurpose"/>
@@ -1334,42 +1337,42 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.time.TimePeriodType description="Fiscal Year" timePeriodTypeId="FiscalYear"
                     periodPurposeEnumId="Fiscal" periodLength="1" lengthUomId="TF_yr"/>
             <mantle.party.time.TimePeriodType description="Fiscal Quarter" timePeriodTypeId="FiscalQuarter"
-                    periodPurposeEnumId="Fiscal" periodLength="3" lengthUomId="TF_mon"/>
+                    parentPeriodTypeId="FiscalYear" periodPurposeEnumId="Fiscal" periodLength="3" lengthUomId="TF_mon"/>
             <mantle.party.time.TimePeriodType description="Fiscal Month" timePeriodTypeId="FiscalMonth"
-                    periodPurposeEnumId="Fiscal" periodLength="1" lengthUomId="TF_mon"/>
+                    parentPeriodTypeId="FiscalQuarter" periodPurposeEnumId="Fiscal" periodLength="1" lengthUomId="TF_mon"/>
             <mantle.party.time.TimePeriodType description="Fiscal Bi-Week" timePeriodTypeId="FiscalBiWeek"
-                    periodPurposeEnumId="Fiscal" periodLength="2" lengthUomId="TF_wk"/>
+                    parentPeriodTypeId="FiscalMonth" periodPurposeEnumId="Fiscal" periodLength="2" lengthUomId="TF_wk"/>
             <mantle.party.time.TimePeriodType description="Fiscal Week" timePeriodTypeId="FiscalWeek"
-                    periodPurposeEnumId="Fiscal" periodLength="1" lengthUomId="TF_wk"/>
+                    parentPeriodTypeId="FiscalMonth" periodPurposeEnumId="Fiscal" periodLength="1" lengthUomId="TF_wk"/>
 
             <mantle.party.time.TimePeriodType description="Payroll Year" timePeriodTypeId="PayrollYear"
                     periodPurposeEnumId="Payroll" periodLength="1" lengthUomId="TF_yr"/>
             <mantle.party.time.TimePeriodType description="Payroll Semi-Year" timePeriodTypeId="PayrollSemiYear"
-                    periodPurposeEnumId="Payroll" periodLength="6" lengthUomId="TF_mon"/>
+                    parentPeriodTypeId="PayrollYear" periodPurposeEnumId="Payroll" periodLength="6" lengthUomId="TF_mon"/>
             <mantle.party.time.TimePeriodType description="Payroll Quarter" timePeriodTypeId="PayrollQuarter"
-                    periodPurposeEnumId="Payroll" periodLength="3" lengthUomId="TF_mon"/>
+                    parentPeriodTypeId="PayrollYear" periodPurposeEnumId="Payroll" periodLength="3" lengthUomId="TF_mon"/>
             <mantle.party.time.TimePeriodType description="Payroll Month" timePeriodTypeId="PayrollMonth"
-                    periodPurposeEnumId="Payroll" periodLength="1" lengthUomId="TF_mon"/>
+                    parentPeriodTypeId="PayrollQuarter" periodPurposeEnumId="Payroll" periodLength="1" lengthUomId="TF_mon"/>
             <mantle.party.time.TimePeriodType description="Payroll Semi-Month" timePeriodTypeId="PayrollSemiMonth"
-                    periodPurposeEnumId="Payroll" periodLength="0.5" lengthUomId="TF_mon"/>
+                    parentPeriodTypeId="PayrollMonth" periodPurposeEnumId="Payroll" periodLength="0.5" lengthUomId="TF_mon"/>
             <mantle.party.time.TimePeriodType description="Payroll Bi-Week" timePeriodTypeId="PayrollBiWeek"
-                    periodPurposeEnumId="Payroll" periodLength="2" lengthUomId="TF_wk"/>
+                    parentPeriodTypeId="PayrollMonth" periodPurposeEnumId="Payroll" periodLength="2" lengthUomId="TF_wk"/>
             <mantle.party.time.TimePeriodType description="Payroll Week" timePeriodTypeId="PayrollWeek"
-                    periodPurposeEnumId="Payroll" periodLength="1" lengthUomId="TF_wk"/>
+                    parentPeriodTypeId="PayrollMonth" periodPurposeEnumId="Payroll" periodLength="1" lengthUomId="TF_wk"/>
 
             <mantle.party.time.TimePeriodType description="Sales Year" timePeriodTypeId="SalesYear"
                     periodPurposeEnumId="Sales" periodLength="1" lengthUomId="TF_yr"/>
             <mantle.party.time.TimePeriodType description="Sales Quarter" timePeriodTypeId="SalesQuarter"
-                    periodPurposeEnumId="Sales" periodLength="3" lengthUomId="TF_mon"/>
+                    parentPeriodTypeId="SalesYear" periodPurposeEnumId="Sales" periodLength="3" lengthUomId="TF_mon"/>
             <mantle.party.time.TimePeriodType description="Sales Month" timePeriodTypeId="SalesMonth"
-                    periodPurposeEnumId="Sales" periodLength="1" lengthUomId="TF_mon"/>
+                    parentPeriodTypeId="SalesQuarter" periodPurposeEnumId="Sales" periodLength="1" lengthUomId="TF_mon"/>
 
             <mantle.party.time.TimePeriodType description="Tax Year" timePeriodTypeId="TaxYear"
                     periodPurposeEnumId="Tax" periodLength="1" lengthUomId="TF_yr"/>
             <mantle.party.time.TimePeriodType description="Tax Quarter" timePeriodTypeId="TaxQuarter"
-                    periodPurposeEnumId="Tax" periodLength="3" lengthUomId="TF_mon"/>
+                    parentPeriodTypeId="TaxYear" periodPurposeEnumId="Tax" periodLength="3" lengthUomId="TF_mon"/>
             <mantle.party.time.TimePeriodType description="Tax Month" timePeriodTypeId="TaxMonth"
-                    periodPurposeEnumId="Tax" periodLength="1" lengthUomId="TF_mon"/>
+                    parentPeriodTypeId="TaxQuarter" periodPurposeEnumId="Tax" periodLength="1" lengthUomId="TF_mon"/>
         </seed-data>
     </entity>
 </entities>

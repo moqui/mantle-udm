@@ -311,24 +311,24 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="assetIssuanceId" type="id"/>
         <field name="assetReceiptId" type="id"/>
         <field name="physicalInventoryId" type="id"/>
-        <field name="physicalInventoryCountSeqId" type="id"/>
+        <field name="physicalInventoryCountId" type="id"/>
         <field name="varianceReasonEnumId" type="id"/>
         <field name="description" type="text-medium"/>
         <field name="acctgTransResultEnumId" type="id" create-only="false"/>
-        <relationship type="one" related="mantle.product.asset.Asset"/>
-        <relationship type="one-nofk" related="mantle.product.issuance.AssetReservation"/><!-- no FK for when record is deleted -->
-        <relationship type="one" related="mantle.shipment.Shipment"/>
-        <relationship type="one" related="mantle.product.Product"/>
-        <relationship type="one" related="mantle.order.return.ReturnItem"/>
-        <relationship type="one" related="mantle.work.effort.WorkEffort"/>
-        <relationship type="one" related="mantle.product.maintenance.AssetMaintenance"/>
-        <relationship type="one" related="mantle.product.issuance.AssetIssuance"/>
-        <relationship type="one" related="mantle.product.receipt.AssetReceipt"/>
-        <relationship type="one" related="mantle.product.asset.PhysicalInventory"/>
-        <relationship type="one" related="mantle.product.asset.PhysicalInventoryCount"/>
-        <relationship type="one" title="InventoryVarianceReason" related="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
+        <relationship type="one-nofk" related="mantle.product.issuance.AssetReservation" short-alias="assetReservation"/><!-- no FK for when record is deleted -->
+        <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related="mantle.order.return.ReturnItem" short-alias="returnItem"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+        <relationship type="one" related="mantle.product.maintenance.AssetMaintenance" short-alias="assetMaintenance"/>
+        <relationship type="one" related="mantle.product.issuance.AssetIssuance" short-alias="assetIssuance"/>
+        <relationship type="one" related="mantle.product.receipt.AssetReceipt" short-alias="assetReceipt"/>
+        <relationship type="one" related="mantle.product.asset.PhysicalInventory" short-alias="physicalInventory"/>
+        <relationship type="one" related="mantle.product.asset.PhysicalInventoryCount" short-alias="physicalInventoryCount"/>
+        <relationship type="one" title="InventoryVarianceReason" related="moqui.basic.Enumeration" short-alias="varianceReasonEnum">
             <key-map field-name="varianceReasonEnumId"/></relationship>
-        <relationship type="one" title="AcctgTransResult" related="moqui.basic.Enumeration">
+        <relationship type="one" title="AcctgTransResult" related="moqui.basic.Enumeration" short-alias="acctgTransResultEnum">
             <key-map field-name="acctgTransResultEnumId"/></relationship>
         <seed-data>
             <!-- Inventory Variance Reason -->
@@ -466,44 +466,31 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="physicalInventoryId" type="id" is-pk="true"/>
         <field name="physicalInventoryDate" type="date-time"/>
         <field name="statusId" type="id" default="PIPlanning" enable-audit-log="true"/>
-        <field name="facilityId" type="id"/>
         <field name="partyId" type="id"/>
         <field name="comments" type="text-long"/>
-        <relationship type="one" title="PhysicalInventory" related="moqui.basic.StatusItem" short-alias="status"
-                      fk-name="physicalInventoryStatusId"/>
-        <relationship type="one" related="mantle.facility.Facility"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" title="PhysicalInventory" related="moqui.basic.StatusItem" short-alias="status" fk-name="physicalInventoryStatusId"/>
         <seed-data>
             <moqui.basic.StatusType description="Physical Inventory Status" statusTypeId="PhysicalInventory"/>
-            <moqui.basic.StatusItem description="Planning" sequenceNum="1" statusId="PIPlanning" statusTypeId="PhysicalInventory"/>
-            <moqui.basic.StatusItem description="Executing" sequenceNum="2" statusId="PIExecuting" statusTypeId="PhysicalInventory"/>
-            <moqui.basic.StatusItem description="Validating" sequenceNum="3" statusId="PIValidating" statusTypeId="PhysicalInventory"/>
-            <moqui.basic.StatusItem description="Finished" sequenceNum="4" statusId="PIFinished" statusTypeId="PhysicalInventory"/>
+            <moqui.basic.StatusItem description="In Planning" sequenceNum="1" statusId="PIInPlanning" statusTypeId="PhysicalInventory"/>
+            <moqui.basic.StatusItem description="In Progress" sequenceNum="2" statusId="PIInProgress" statusTypeId="PhysicalInventory"/>
+            <moqui.basic.StatusItem description="In Validation" sequenceNum="3" statusId="PIInValidation" statusTypeId="PhysicalInventory"/>
+            <moqui.basic.StatusItem description="Complete" sequenceNum="4" statusId="PIComplete" statusTypeId="PhysicalInventory"/>
         </seed-data>
     </entity>
-    <entity entity-name="PhysicalInventoryCount" package="mantle.product.asset">
-        <field name="physicalInventoryId" type="id" is-pk="true"/>
-        <field name="facilityId" type="id" is-pk="true"/>
-        <field name="locationSeqId" type="id" is-pk="true"/>
-        <field name="physicalInventoryCountSeqId" type="id" is-pk="true"/>
+    <entity entity-name="PhysicalInventoryCount" package="mantle.product.asset" cache="never">
+        <field name="physicalInventoryCountId" type="id" is-pk="true"/>
+        <field name="physicalInventoryId" type="id"/>
+        <field name="facilityId" type="id"/>
+        <field name="locationSeqId" type="id"/>
         <field name="productId" type="id"/>
-        <field name="assignedPartyId" type="id" not-null="true"/>
-        <field name="assignDate" type="date-time" default="ec.user.nowTimestamp"/>
-        <field name="statusId" type="id"/>
         <field name="countDate" type="date-time"/>
-        <field name="count" type="number-integer"/>
-        <relationship related="mantle.product.asset.PhysicalInventory" type="one"/>
-        <relationship related="mantle.facility.FacilityLocation" type="one"/>
-        <relationship related="mantle.product.Product" type="one"/>
-        <relationship related="mantle.party.Party" type="one">
-            <key-map field-name="assignedPartyId"/>
-        </relationship>
-        <relationship type="one" title="PhysicalInventoryCount" related="moqui.basic.StatusItem" short-alias="status"/>
-        <seed-data>
-            <moqui.basic.StatusType description="Physical Inventory Count Status" statusTypeId="PhysicalInventoryCount"/>
-            <moqui.basic.StatusItem description="Planning" sequenceNum="1" statusId="PICPlanning" statusTypeId="PhysicalInventoryCount"/>
-            <moqui.basic.StatusItem description="Assigned" sequenceNum="2" statusId="PICAssigned" statusTypeId="PhysicalInventoryCount"/>
-            <moqui.basic.StatusItem description="Completed" sequenceNum="3" statusId="PICCompleted" statusTypeId="PhysicalInventoryCount"/>
-        </seed-data>
+        <field name="quantityOnHand" type="number-decimal"/>
+        <field name="comments" type="text-medium"/>
+        <relationship type="one" related="mantle.product.asset.PhysicalInventory" short-alias="physicalInventory"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one-nofk" related="mantle.facility.FacilityLocation" short-alias="facilityLocation"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
     </entity>
 
     <!-- ========================================================= -->
