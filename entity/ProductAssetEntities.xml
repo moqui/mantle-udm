@@ -465,9 +465,18 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="PhysicalInventory" package="mantle.product.asset" cache="never">
         <field name="physicalInventoryId" type="id" is-pk="true"/>
         <field name="physicalInventoryDate" type="date-time"/>
+        <field name="statusId" type="id" default="PIPlanning" enable-audit-log="true"/>
         <field name="partyId" type="id"/>
         <field name="comments" type="text-long"/>
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" title="PhysicalInventory" related="moqui.basic.StatusItem" short-alias="status" fk-name="physicalInventoryStatusId"/>
+        <seed-data>
+            <moqui.basic.StatusType description="Physical Inventory Status" statusTypeId="PhysicalInventory"/>
+            <moqui.basic.StatusItem description="In Planning" sequenceNum="1" statusId="PIInPlanning" statusTypeId="PhysicalInventory"/>
+            <moqui.basic.StatusItem description="In Progress" sequenceNum="2" statusId="PIInProgress" statusTypeId="PhysicalInventory"/>
+            <moqui.basic.StatusItem description="In Validation" sequenceNum="3" statusId="PIInValidation" statusTypeId="PhysicalInventory"/>
+            <moqui.basic.StatusItem description="Complete" sequenceNum="4" statusId="PIComplete" statusTypeId="PhysicalInventory"/>
+        </seed-data>
     </entity>
     <entity entity-name="PhysicalInventoryCount" package="mantle.product.asset" cache="never">
         <field name="physicalInventoryCountId" type="id" is-pk="true"/>
@@ -478,6 +487,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="countDate" type="date-time"/>
         <field name="quantityOnHand" type="number-decimal"/>
         <field name="comments" type="text-medium"/>
+        <relationship type="one" related="mantle.product.asset.PhysicalInventory" short-alias="physicalInventory"/>
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one-nofk" related="mantle.facility.FacilityLocation" short-alias="facilityLocation"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
