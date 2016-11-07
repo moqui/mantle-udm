@@ -92,6 +92,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Expense - Utilities Electricity" enumId="ItemExpUtilElec" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Expense - Utilities Water/Sewer" enumId="ItemExpUtilWater" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Expense - Utilities Trash/Recycle" enumId="ItemExpUtilTrash" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Expense - Utilities Vehicle Fuel" enumId="ItemExpUtilVehFuel" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Expense - Medical and Health Care" enumId="ItemExpMedical" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Expense - Royalties" enumId="ItemExpRoyalties" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
