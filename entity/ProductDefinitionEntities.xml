@@ -91,6 +91,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="productId"/></relationship>
         <relationship type="many" related="mantle.product.ProductGeo" short-alias="geos">
             <key-map field-name="productId"/></relationship>
+        <relationship type="many" related="mantle.product.ProductGlAppl" short-alias="glAppls">
+            <key-map field-name="productId"/></relationship>
         <relationship type="many" related="mantle.product.ProductIdentification" short-alias="identifications">
             <key-map field-name="productId"/></relationship>
         <relationship type="many" related="mantle.product.ProductParty" short-alias="parties">
@@ -101,6 +103,10 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.product.category.ProductCategoryMember" short-alias="categories">
             <key-map field-name="productId"/></relationship>
         <relationship type="many" related="mantle.product.feature.ProductFeatureAppl" short-alias="features">
+            <key-map field-name="productId"/></relationship>
+        <relationship type="many" related="mantle.product.maintenance.ProductMaintenance" short-alias="maintenances">
+            <key-map field-name="productId"/></relationship>
+        <relationship type="many" related="mantle.product.maintenance.ProductMeter" short-alias="meters">
             <key-map field-name="productId"/></relationship>
 
         <index name="PRODUCT_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
