@@ -1072,6 +1072,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="835000000" glAccountTypeEnumId="GatOtherIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="800000000"/>
     <mantle.ledger.account.GlAccount accountName="MEMBERSHIP FEES COLLECTED" description="" glAccountClassEnumId="CASH_INCOME"
         glAccountId="836000000" glAccountTypeEnumId="GatOtherIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="800000000"/>
+    <mantle.ledger.account.GlAccount accountName="MANUFACTURING FEES COLLECTED" description="" glAccountClassEnumId="CASH_INCOME"
+        glAccountId="837000000" glAccountTypeEnumId="GatOtherIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="800000000"/>
     <!-- 840000 INTEREST INCOME -->
     <mantle.ledger.account.GlAccount accountName="INTEREST INCOME" description="" glAccountClassEnumId="INTEREST_INCOME"
         glAccountId="840000000" glAccountTypeEnumId="GatInterestIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="800000000"/>
@@ -1213,6 +1215,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccountOrganization glAccountId="611220000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="611230000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="611240000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="611250000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="612300000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="612400000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="613100000" organizationPartyId="DefaultSettings"/>
@@ -1227,6 +1230,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <mantle.ledger.account.GlAccountOrganization glAccountId="630000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="631100000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="631300000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="631600000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="631700000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="631710000" organizationPartyId="DefaultSettings"/>
@@ -1245,6 +1249,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccountOrganization glAccountId="633710000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="633720000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="634100000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="635000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="637000000" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.account.GlAccountOrganization glAccountId="641000000" organizationPartyId="DefaultSettings"/>
@@ -1255,6 +1260,9 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccountOrganization glAccountId="652900000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="653100000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="670000000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="671100000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="671300000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="672400000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="681100000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="681200000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="691000000" organizationPartyId="DefaultSettings"/>
@@ -1277,6 +1285,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccountOrganization glAccountId="815000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="816000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="834000000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="837000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="850000000" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.config.GlAccountTypeDefault glAccountId="121000000" glAccountTypeEnumId="GatAccountsReceivable" organizationPartyId="DefaultSettings"/>
