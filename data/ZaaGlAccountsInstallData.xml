@@ -513,7 +513,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- 410000 SALES - SALES REVENUE -->
     <mantle.ledger.account.GlAccount accountName="SALES REVENUE" description="" glAccountClassEnumId="REVENUE"
-        glAccountId="410000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="" disallowPosting="Y"/>
+        glAccountId="410000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="400000000" disallowPosting="Y"/>
     <mantle.ledger.account.GlAccount accountName="PRODUCT SALES" description="" glAccountClassEnumId="GOODS_REVENUE"
         glAccountId="411000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="410000000"/>
     <mantle.ledger.account.GlAccount accountName="SERVICE SALES" description="" glAccountClassEnumId="SERVICES_REVENUE"
