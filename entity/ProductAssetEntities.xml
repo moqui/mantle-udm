@@ -370,6 +370,7 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Asset Identification Type -->
             <moqui.basic.EnumerationType description="Asset Identification Type" enumTypeId="AssetIdentificationType"/>
             <moqui.basic.Enumeration description="Manufacturer Serial Number" enumId="AitMfgSerial" enumTypeId="AssetIdentificationType"/>
+            <moqui.basic.Enumeration description="Media Access Control (MAC) Address" enumId="AitMac" enumTypeId="AssetIdentificationType"/>
             <moqui.basic.Enumeration description="Vendor Inventory/Tracking" enumId="AitVendorInventory" enumTypeId="AssetIdentificationType"/>
             <moqui.basic.Enumeration description="Tracking Label Number" enumId="AitTrackingLabel" enumTypeId="AssetIdentificationType"/>
             <moqui.basic.Enumeration description="Vehicle Identification Number (VIN)" enumId="AitVin" enumTypeId="AssetIdentificationType"/>
