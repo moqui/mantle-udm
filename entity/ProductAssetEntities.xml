@@ -823,4 +823,13 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="ArjOverShipped" description="Over Shipped" enumTypeId="RejectionReason"/>
         </seed-data>
     </entity>
+
+    <!-- ========================================================= -->
+    <!-- moqui.basic.print -->
+    <!-- ========================================================= -->
+
+    <extend-entity entity-name="NetworkPrinter" package="moqui.basic.print">
+        <field name="assetId" type="id"/>
+        <relationship type="one" related="mantle.product.asset.Asset"/>
+    </extend-entity>
 </entities>
