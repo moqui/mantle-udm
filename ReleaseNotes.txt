@@ -2,7 +2,7 @@
 Mantle Business Artifacts - Universal Data Model Release Notes
 
 ===========================================================================
-Release 1.1.0 - Not Yet Released
+Release 1.1.0 - 24 Nov 2016
 ===========================================================================
 
 Mantle Universal Data Model 1.1.0 is a minor new feature release. This
