@@ -1301,8 +1301,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="timePeriodId" type="id" is-pk="true"/>
         <field name="parentPeriodId" type="id"/>
         <field name="previousPeriodId" type="id"/>
-        <field name="timePeriodTypeId" type="id"/>
-        <field name="partyId" type="id"><description>The Party that owns the TimePeriod, generally an Internal Organization.</description></field>
+        <field name="timePeriodTypeId" type="id" not-null="true"/>
+        <field name="partyId" type="id" not-null="true"><description>The Party that owns the TimePeriod, generally an Internal Organization.</description></field>
         <field name="periodNum" type="number-integer"/>
         <field name="periodName" type="text-medium"/>
         <field name="fromDate" type="date" not-null="true"><description>The first day of the period.</description></field>
@@ -1313,6 +1313,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Previous" related="mantle.party.time.TimePeriod" short-alias="previous">
             <key-map field-name="previousPeriodId" related="timePeriodId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType" short-alias="type"/>
+        <index name="TIMEPER_TP_PTY_FR" unique="true"><index-field name="timePeriodTypeId"/><index-field name="partyId"/>
+            <index-field name="fromDate"/></index>
     </entity>
     <entity entity-name="TimePeriodType" package="mantle.party.time">
         <field name="timePeriodTypeId" type="id" is-pk="true"/>
