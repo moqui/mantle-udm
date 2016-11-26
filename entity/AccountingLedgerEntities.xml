@@ -656,6 +656,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="fiscalYearStartMonth" type="number-integer"/>
         <field name="fiscalYearStartDay" type="number-integer"/>
+        <field name="realTimeGlSummary" type="text-indicator">
+            <description>Defaults to N. If set to Y GlAccountOrganization and GlAccountOrgTimePeriod are updated with each AcctgTrans post.</description></field>
         <field name="hourlyTimePeriodTypeId" type="id"/>
         <field name="salaryTimePeriodTypeId" type="id"/>
         <field name="taxFormEnumId" type="id"/>
@@ -671,14 +673,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderIdPrefix" type="text-short"/>
         <field name="orderLastNumber" type="number-integer"/>
         <field name="refundPaymentMethodId" type="id"/>
-        <field name="errorGlJournalId" type="id">
-            <description>
-                Journal to which all the failed automatic transaction are assigned.
-                If the error journal is set, if the GL posting fails for some reason the triggering operation
-                (finalizing an invoice or payment or whatever) would NOT roll back, instead the partial GL post would be
-                placed into the error journal.
-            </description>
-        </field>
+        <field name="errorGlJournalId" type="id"><description>
+            Journal to which all the failed automatic transaction are assigned.
+            If the error journal is set, if the GL posting fails for some reason the triggering operation
+            (finalizing an invoice or payment or whatever) would NOT roll back, instead the partial GL post would be
+            placed into the error journal.
+        </description></field>
         <field name="glAccountCodeMask" type="text-short"/>
 
         <relationship type="one" title="Organization" related="mantle.party.Party">
