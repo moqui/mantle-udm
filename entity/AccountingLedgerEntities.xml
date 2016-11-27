@@ -327,6 +327,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="glAccountId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="postedBalance" type="currency-amount"/>
+        <field name="balanceLastUpdated" type="date-time"/>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
@@ -339,6 +340,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="postedCredits" type="currency-amount"/>
         <field name="beginningBalance" type="currency-amount"/>
         <field name="endingBalance" type="currency-amount"/>
+        <field name="balanceLastUpdated" type="date-time"/>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
