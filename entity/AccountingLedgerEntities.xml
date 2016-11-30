@@ -719,14 +719,14 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- Tax Classification -->
             <moqui.basic.EnumerationType description="Tax Classification" enumTypeId="TaxClassification"/>
-            <moqui.basic.Enumeration description="Individual, Sole Proprietor, Single-member LLC" enumId="TxcIndividual" sequenceNum="1" enumTypeId="TaxClassification"/>
-            <moqui.basic.Enumeration description="C Corporation" enumId="TxcCCorp" sequenceNum="2" enumTypeId="TaxClassification"/>
-            <moqui.basic.Enumeration description="S Corporation" enumId="TxcSCorp" sequenceNum="3" enumTypeId="TaxClassification"/>
-            <moqui.basic.Enumeration description="Partnership" enumId="TxcPartnership" sequenceNum="4" enumTypeId="TaxClassification"/>
-            <moqui.basic.Enumeration description="Trust/Estate" enumId="TxcTrustEstate" sequenceNum="5" enumTypeId="TaxClassification"/>
-            <moqui.basic.Enumeration description="LLC as S Corp" enumId="TxcLlcSCorp" sequenceNum="6" enumTypeId="TaxClassification"/>
-            <moqui.basic.Enumeration description="LLC as C Corp" enumId="TxcLlcCCorp" sequenceNum="7" enumTypeId="TaxClassification"/>
-            <moqui.basic.Enumeration description="LLC as Partnership" enumId="TxcLlcPartnership" sequenceNum="8" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="USA - Individual, Sole Proprietor, Single-member LLC" enumId="TxcIndividual" sequenceNum="1" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="USA - C Corporation" enumId="TxcCCorp" sequenceNum="2" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="USA - S Corporation" enumId="TxcSCorp" sequenceNum="3" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="USA - Partnership" enumId="TxcPartnership" sequenceNum="4" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="USA - Trust/Estate" enumId="TxcTrustEstate" sequenceNum="5" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="USA - LLC as S Corp" enumId="TxcLlcSCorp" sequenceNum="6" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="USA - LLC as C Corp" enumId="TxcLlcCCorp" sequenceNum="7" enumTypeId="TaxClassification"/>
+            <moqui.basic.Enumeration description="USA - LLC as Partnership" enumId="TxcLlcPartnership" sequenceNum="8" enumTypeId="TaxClassification"/>
             <moqui.basic.Enumeration description="Other" enumId="TxcOther" sequenceNum="9" enumTypeId="TaxClassification"/>
 
             <!-- Cost Of Goods Sold methods -->
