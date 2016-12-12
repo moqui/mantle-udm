@@ -141,6 +141,12 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- don't include auth and trans, too many of them -->
         </master>
     </entity>
+
+    <extend-entity entity-name="Party" package="mantle.party">
+        <relationship type="many" related="mantle.account.financial.FinancialAccount" short-alias="financialAccounts">
+            <key-map field-name="partyId" related="ownerPartyId"/></relationship>
+    </extend-entity>
+
     <entity entity-name="FinancialAccountAuth" package="mantle.account.financial" cache="never">
         <field name="finAccountAuthId" type="id" is-pk="true"/>
         <field name="finAccountId" type="id"/>
@@ -755,6 +761,12 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="payPalAccount"/>
         </master>
     </entity>
+
+    <extend-entity entity-name="Party" package="mantle.party">
+        <relationship type="many" related="mantle.account.method.PaymentMethod" short-alias="paymentMethods">
+            <key-map field-name="partyId" related="ownerPartyId"/></relationship>
+    </extend-entity>
+
     <entity entity-name="PaymentMethodContent" package="mantle.account.method" cache="never">
         <field name="paymentMethodContentId" type="id" is-pk="true"/>
         <field name="paymentMethodId" type="id"/>
