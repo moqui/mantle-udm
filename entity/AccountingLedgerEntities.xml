@@ -35,9 +35,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="accountCode" type="text-medium" default="glAccountId"/>
         <field name="accountName" type="text-medium"/>
         <field name="description" type="text-medium"/>
-        <field name="productId" type="id"/>
-        <field name="externalId" type="id"><description>ID of the account in an external system where the accounts
-            are imported/exported</description></field>
+        <field name="externalId" type="id"><description>ID of the account in an external system where the accounts are imported/exported</description></field>
         <field name="disallowPosting" type="text-indicator"/>
 
         <relationship type="one" title="Parent" related="mantle.ledger.account.GlAccount">
