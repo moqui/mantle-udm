@@ -782,6 +782,7 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Rate Type -->
             <moqui.basic.EnumerationType description="Rate Type" enumTypeId="RateType"/>
+            <moqui.basic.Enumeration enumId="RatpNoCharge" description="No Charge" enumTypeId="RateType"/>
             <moqui.basic.Enumeration enumId="RatpStandard" description="Standard" enumTypeId="RateType"/>
             <moqui.basic.Enumeration enumId="RatpOvertime" description="Overtime" enumTypeId="RateType"/>
             <moqui.basic.Enumeration enumId="RatpDoubleTime" description="Double-time" enumTypeId="RateType"/>
