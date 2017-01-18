@@ -342,6 +342,12 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
 
         <index name="ORDITMEXT_ID_IDX"><index-field name="externalItemSeqId"/></index>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Order Item Quantity Change Reason" enumTypeId="OrderItemQuantityReason"/>
+            <moqui.basic.Enumeration enumId="OiqrInventory" description="Insufficient Inventory" enumTypeId="OrderItemQuantityReason"/>
+            <moqui.basic.Enumeration enumId="OiqrSingleLot" description="Single Lot Unavailable" enumTypeId="OrderItemQuantityReason"/>
+            <moqui.basic.Enumeration enumId="OiqrCustomer" description="Customer Request" enumTypeId="OrderItemQuantityReason"/>
+        </seed-data>
     </entity>
     <entity entity-name="OrderItemBilling" package="mantle.order" cache="never">
         <field name="orderItemBillingId" type="id" is-pk="true"/>
