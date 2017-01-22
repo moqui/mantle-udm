@@ -12,8 +12,7 @@ You should have received a copy of the CC0 Public Domain Dedication
 along with this software (see the LICENSE.md file). If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.
 -->
-<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-2.0.xsd">
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-2.0.xsd">
     <!-- ========================================================= -->
     <!--  - mantle.product.store -->
     <!-- ========================================================= -->
@@ -22,12 +21,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="storeName" type="text-medium"/>
         <field name="organizationPartyId" type="id">
-            <description>The Organization Party that Orders, Invoices, GL transactions, etc will be associated with.</description>
-        </field>
+            <description>The Organization Party that Orders, Invoices, GL transactions, etc will be associated with.</description></field>
         <field name="inventoryFacilityId" type="id"/>
         <field name="reservationOrderEnumId" type="id"/>
         <field name="requirementMethodEnumId" type="id"/>
 
+        <field name="wikiSpaceId" type="id"/>
         <field name="defaultLocale" type="text-short"/>
         <field name="defaultCurrencyUomId" type="id"/>
         <field name="defaultSalesChannelEnumId" type="id"/>
@@ -43,6 +42,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="reservationOrderEnumId"/></relationship>
         <relationship type="one" title="RequirementMethod" related="moqui.basic.Enumeration" short-alias="requirementMethod">
             <key-map field-name="requirementMethodEnumId"/></relationship>
+
+        <relationship type="one" related="moqui.resource.wiki.WikiSpace" short-alias="wikiSpace"/>
         <relationship type="one" title="DefaultCurrency" related="moqui.basic.Uom" short-alias="defaultCurrencyUom">
             <key-map field-name="defaultCurrencyUomId"/></relationship>
         <relationship type="one" title="DefaultSalesChannel" related="moqui.basic.Enumeration" short-alias="defaultSalesChannel">

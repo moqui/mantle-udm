@@ -15,7 +15,51 @@ along with this software (see the LICENSE.md file). If not, see
 <entity-facade-xml type="demo">
     <!-- NOTE 1265184000000 = 2010-02-03 00:00:00 US/Pacific -->
 
-    <!-- Ziziwork Retail ProductStore -->
+    <!-- Ziziwork Retail Wiki/Content -->
+    <moqui.resource.DbResource filename="Ziziwork" isFile="N" resourceId="Ziziwork" parentResourceId=""/>
+    <moqui.resource.DbResource filename="retail" isFile="N" resourceId="zzw_retail" parentResourceId="Ziziwork"/>
+    <moqui.resource.DbResource filename="content.html" isFile="Y" resourceId="zzw_content" parentResourceId="zzw_retail">
+        <file mimeType="text/html" versionName="01" rootVersionName="01">
+            <fileData><![CDATA[<h3>Welcome to Ziziwork Retail</h3>]]></fileData>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+        </file>
+    </moqui.resource.DbResource>
+    <!-- this is the directory to put all site content under -->
+    <moqui.resource.DbResource filename="content" isFile="N" resourceId="zzw_content_dir" parentResourceId="zzw_retail"/>
+    <!-- WikiSpace and root page -->
+    <moqui.resource.wiki.WikiSpace wikiSpaceId="ZZW_RETAIL" description="Content for Ziziwork Retail" restrictView="N" allowAnyHtml="Y"
+                                   rootPageLocation="dbresource://Ziziwork/retail/content.html" decoratorScreenLocation=""/>
+    <moqui.resource.wiki.WikiPage wikiPageId="zzw_content" wikiSpaceId="ZZW_RETAIL" pagePath="">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    </moqui.resource.wiki.WikiPage>
+    <!-- About Us -->
+    <moqui.resource.DbResource filename="about.html" isFile="Y" resourceId="zzw_about" parentResourceId="zzw_content_dir">
+        <file mimeType="text/html" versionName="01" rootVersionName="01">
+            <fileData><![CDATA[
+            <h1>About Us</h1>
+            <p>Ziziwork Retail takes busy work to the Z! Innovative products since 2010 to make your work and life easier.</p>
+            ]]></fileData>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+        </file>
+    </moqui.resource.DbResource>
+    <moqui.resource.wiki.WikiPage wikiPageId="zzw_about" wikiSpaceId="ZZW_RETAIL" pagePath="about" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    </moqui.resource.wiki.WikiPage>
+    <!-- Contact Us -->
+    <moqui.resource.DbResource filename="contact.html" isFile="Y" resourceId="zzw_contact" parentResourceId="zzw_content_dir">
+        <file mimeType="text/html" versionName="01" rootVersionName="01">
+            <fileData><![CDATA[
+            <h1>Contact Us</h1>
+            <p>Ziziwork Retail is an imaginary demonstration company. To contact us close your eyes and imagine.</p>
+            ]]></fileData>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+        </file>
+    </moqui.resource.DbResource>
+    <moqui.resource.wiki.WikiPage wikiPageId="zzw_contact" wikiSpaceId="ZZW_RETAIL" pagePath="contact" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    </moqui.resource.wiki.WikiPage>
+
+    <!-- Ziziwork Retail Warehouse Facility -->
     <mantle.facility.Facility facilityId="ORG_ZIZI_RETAIL_WH" facilityTypeEnumId="FcTpWarehouse"
             ownerPartyId="ORG_ZIZI_RETAIL" facilityName="Ziziwork Retail Warehouse"/>
     <mantle.facility.FacilityContactMech facilityId="ORG_ZIZI_RETAIL_WH" contactMechId="ORG_ZIZI_RTL_SA"
@@ -23,10 +67,11 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.facility.FacilityContactMech facilityId="ORG_ZIZI_RETAIL_WH" contactMechId="ORG_ZIZI_RTL_PT"
             contactMechPurposeId="PhonePrimary" fromDate="1265184000000"/>
 
+    <!-- Ziziwork Retail ProductStore -->
     <mantle.product.store.ProductStore productStoreId="POPC_DEFAULT" storeName="Ziziwork Retail Store"
             organizationPartyId="ORG_ZIZI_RETAIL" inventoryFacilityId="ORG_ZIZI_RETAIL_WH"
             reservationOrderEnumId="AsResOrdFifoRec" requirementMethodEnumId=""
-            defaultLocale="en_US" defaultCurrencyUomId="USD" taxGatewayConfigId="LOCAL"/>
+            wikiSpaceId="ZZW_RETAIL" defaultLocale="en_US" defaultCurrencyUomId="USD" taxGatewayConfigId="LOCAL"/>
 
     <mantle.product.store.ProductStorePaymentGateway productStoreId="POPC_DEFAULT"
             paymentInstrumentEnumId="PiCreditCard" paymentGatewayConfigId="TEST_APPROVE"/>
