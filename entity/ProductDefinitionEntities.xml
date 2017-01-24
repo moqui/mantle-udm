@@ -295,15 +295,17 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Warnings" enumId="PcntWarnings" enumTypeId="ProductContentType"/>
             <moqui.basic.Enumeration description="Warranty" enumId="PcntWarranty" enumTypeId="ProductContentType"/>
 
-            <moqui.basic.Enumeration description="Image - Small" enumId="PcntImageUrlSmall" enumTypeId="ProductContentType"/>
-            <moqui.basic.Enumeration description="Image - Medium" enumId="PcntImageUrlMedium" enumTypeId="ProductContentType"/>
-            <moqui.basic.Enumeration description="Image - Large" enumId="PcntImageUrlLarge" enumTypeId="ProductContentType"/>
-            <moqui.basic.Enumeration description="Image - Detail" enumId="PcntImageUrlDetail" enumTypeId="ProductContentType"/>
-            <moqui.basic.Enumeration description="Image - Original" enumId="PcntImageUrlOriginal" enumTypeId="ProductContentType"/>
-            <moqui.basic.Enumeration description="Image Alt Text - Small" enumId="PcntImageAltSmall" enumTypeId="ProductContentType"/>
-            <moqui.basic.Enumeration description="Image Alt Text - Medium" enumId="PcntImageAltMedium" enumTypeId="ProductContentType"/>
-            <moqui.basic.Enumeration description="Image Alt Text - Large" enumId="PcntImageAltLarge" enumTypeId="ProductContentType"/>
-            <moqui.basic.Enumeration description="Image Alt Text - Detail" enumId="PcntImageAltDetail" enumTypeId="ProductContentType"/>
+            <moqui.basic.Enumeration description="Image - Small" enumId="PcntImageSmall" enumTypeId="ProductContentType"/>
+            <moqui.basic.Enumeration description="Image - Medium" enumId="PcntImageMedium" enumTypeId="ProductContentType"/>
+            <moqui.basic.Enumeration description="Image - Large" enumId="PcntImageLarge" enumTypeId="ProductContentType"/>
+            <moqui.basic.Enumeration description="Image - Detail" enumId="PcntImageDetail" enumTypeId="ProductContentType"/>
+            <moqui.basic.Enumeration description="Image - Original" enumId="PcntImageOriginal" enumTypeId="ProductContentType"/>
+            <moqui.basic.Enumeration description="Image URL - Small" enumId="PcntImageUrlSmall" enumTypeId="ProductContentType"/>
+            <moqui.basic.Enumeration description="Image URL - Medium" enumId="PcntImageUrlMedium" enumTypeId="ProductContentType"/>
+            <moqui.basic.Enumeration description="Image URL - Large" enumId="PcntImageUrlLarge" enumTypeId="ProductContentType"/>
+            <moqui.basic.Enumeration description="Image URL - Detail" enumId="PcntImageUrlDetail" enumTypeId="ProductContentType"/>
+            <moqui.basic.Enumeration description="Image URL - Original" enumId="PcntImageUrlOriginal" enumTypeId="ProductContentType"/>
+            <!-- NOTE: use the ProductContent.description field for image alt text -->
 
             <moqui.basic.Enumeration description="Add To Cart Label" enumId="PcntAddToCartLabel" enumTypeId="ProductContentType"/>
             <moqui.basic.Enumeration description="Add To Cart Image" enumId="PcntAddToCartImage" enumTypeId="ProductContentType"/>
