@@ -117,6 +117,7 @@ along with this software (see the LICENSE.md file). If not, see
             parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="3"/>
 
     <!-- ========== Demo Products ========== -->
+
     <mantle.product.Product productId="DEMO_UNIT" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
             chargeShipping="Y" returnable="Y" productName="Demo Product One Unit" description=""/>
     <mantle.product.ProductPrice productPriceId="DEMO_UNIT_C" productId="DEMO_UNIT" productStoreId="POPC_DEFAULT"
@@ -132,22 +133,29 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.product.asset.AssetDetail assetDetailId="DEMO_UNITA" assetId="DEMO_UNITA" effectiveDate="1265184000000"
             quantityOnHandDiff="1000" availableToPromiseDiff="1000" productId="DEMO_UNIT"/>
 
+    <moqui.resource.DbResource resourceId="MCNT_PROD_DEMO_1_1" filename="DEMO_1_1" isFile="N" parentResourceId="MCNT_PRODUCT"/>
+    <moqui.resource.DbResource filename="PcntDescriptionLong.html" isFile="Y" resourceId="MCNT_PROD_DEMO_1_1_DL" parentResourceId="MCNT_PROD_DEMO_1_1">
+        <file mimeType="text/html" versionName="01" rootVersionName="01">
+            <fileData><![CDATA[<p>The first product of the first category.</p><p>If that doesn't impress you our price will!</p>]]></fileData>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+        </file>
+    </moqui.resource.DbResource>
     <mantle.product.Product productId="DEMO_1_1" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
             chargeShipping="Y" returnable="Y" productName="Demo Product One-One" description="">
         <!-- list price -->
-        <mantle.product.ProductPrice productPriceId="DEMO_1_1_L" productStoreId="POPC_DEFAULT"
+        <prices productPriceId="DEMO_1_1_L" productStoreId="POPC_DEFAULT"
                 pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptList"  fromDate="1265184000000"
                 minQuantity="1" price="19.99" priceUomId="USD"/>
         <!-- long-term current price -->
-        <mantle.product.ProductPrice productPriceId="DEMO_1_1_CLT" productStoreId="POPC_DEFAULT"
+        <prices productPriceId="DEMO_1_1_CLT" productStoreId="POPC_DEFAULT"
                 pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="1265184000000"
                 minQuantity="1" price="18.99" priceUomId="USD"/>
         <!-- temporary lower current price, more recent fromDate so will be used within its valid date range -->
-        <mantle.product.ProductPrice productPriceId="DEMO_1_1_CTL" productStoreId="POPC_DEFAULT"
+        <prices productPriceId="DEMO_1_1_CTL" productStoreId="POPC_DEFAULT"
                 pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="2013-01-01 00:00:00"
                 thruDate="2020-01-01 00:00:00" minQuantity="1" price="16.99" priceUomId="USD"/>
-        <mantle.product.category.ProductCategoryMember productCategoryId="PopcAllProducts" fromDate="1265184000000"/>
-        <mantle.product.category.ProductCategoryMember productCategoryId="DEMO_ONE" fromDate="1265184000000" sequenceNum="1"/>
+        <categories productCategoryId="PopcAllProducts" fromDate="1265184000000"/>
+        <categories productCategoryId="DEMO_ONE" fromDate="1265184000000" sequenceNum="1"/>
         <mantle.product.asset.Asset assetId="DEMO_1_1A" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventoryFin"
                 statusId="AstAvailable" facilityId="ORG_ZIZI_RETAIL_WH" ownerPartyId="ORG_ZIZI_RETAIL"
                 hasQuantity="Y" quantityOnHandTotal="0" availableToPromiseTotal="0"
@@ -156,18 +164,19 @@ along with this software (see the LICENSE.md file). If not, see
                     quantityOnHandDiff="100" availableToPromiseDiff="100"/>
         </mantle.product.asset.Asset>
         <!-- Supplier prices -->
-        <mantle.product.ProductPrice productPriceId="DEMO_1_1_CS1" vendorPartyId="ZiddlemanInc"
+        <prices productPriceId="DEMO_1_1_CS1" vendorPartyId="ZiddlemanInc"
                 pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"
                 fromDate="1265184000000" minQuantity="1" price="9.00" priceUomId="USD"/>
-        <mantle.product.ProductPrice productPriceId="DEMO_1_1_CS100" vendorPartyId="ZiddlemanInc"
+        <prices productPriceId="DEMO_1_1_CS100" vendorPartyId="ZiddlemanInc"
                 pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"
                 fromDate="1265184000000" minQuantity="100" price="8.00" priceUomId="USD"/>
-        <mantle.product.ProductDimension dimensionTypeId="ShippingWeight" value="5" valueUomId="WT_lb"/>
+        <dimensions dimensionTypeId="ShippingWeight" value="5" valueUomId="WT_lb"/>
+        <contents productContentTypeEnumId="PcntDescriptionLong" locale="en_US"
+                contentLocation="dbresource://mantle/content/product/DEMO_1_1/PcntDescriptionLong.html"/>
     </mantle.product.Product>
 
     <mantle.product.Product productId="DEMO_1_2" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
-            productName="Demo Product One-Two" description=""
-            chargeShipping="Y" returnable="Y"/>
+            productName="Demo Product One-Two" description="" chargeShipping="Y" returnable="Y"/>
     <mantle.product.ProductPrice productPriceId="DEMO_1_2_C" productId="DEMO_1_2" productStoreId="POPC_DEFAULT"
             pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="1265184000000"
             minQuantity="1" price="11119.99" priceUomId="USD"/>

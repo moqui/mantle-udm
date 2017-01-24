@@ -281,7 +281,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Fulfillment Email" enumId="PcntEmail" enumTypeId="ProductContentType"/>
             <moqui.basic.Enumeration description="Frequently Asked Questions" enumId="PcntFAQ" enumTypeId="ProductContentType"/>
             <moqui.basic.Enumeration description="Ingredients" enumId="PcntIngredients" enumTypeId="ProductContentType"/>
-            <moqui.basic.Enumeration description="Ingredients Unique" enumId="PcntUniqueIngred" enumTypeId="ProductContentType"/>
+            <moqui.basic.Enumeration description="Ingredients - Unique" enumId="PcntUniqueIngred" enumTypeId="ProductContentType"/>
             <moqui.basic.Enumeration description="Installation" enumId="PcntInstallation" enumTypeId="ProductContentType"/>
             <moqui.basic.Enumeration description="Label Image" enumId="PcntLabelImage" enumTypeId="ProductContentType"/>
             <moqui.basic.Enumeration description="Label Text" enumId="PcntLabelText" enumTypeId="ProductContentType"/>
