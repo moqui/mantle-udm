@@ -146,6 +146,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========== DEMO CLIENT DATA ========== -->
     <mantle.party.Party partyId="ORG_ACME" partyTypeEnumId="PtyOrganization"/>
     <mantle.party.Organization partyId="ORG_ACME" organizationName="Another Company Making Everything"/>
+    <mantle.party.PartyRole partyId="ORG_ACME" roleTypeId="Customer"/>
     <mantle.party.PartyRole partyId="ORG_ACME" roleTypeId="CustomerBillTo"/>
 
     <mantle.party.contact.ContactMech contactMechId="ORG_ACME_BA" contactMechTypeEnumId="CmtPostalAddress"/>
@@ -203,6 +204,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- Another CLIENT -->
     <mantle.party.Party partyId="ORG_BLUTH" partyTypeEnumId="PtyOrganization"/>
     <mantle.party.Organization partyId="ORG_BLUTH" organizationName="Bluth Corp"/>
+    <mantle.party.PartyRole partyId="ORG_BLUTH" roleTypeId="Customer"/>
     <mantle.party.PartyRole partyId="ORG_BLUTH" roleTypeId="CustomerBillTo"/>
 
     <mantle.party.Party partyId="ORG_BLUTH_GOB" partyTypeEnumId="PtyPerson"/>
@@ -319,7 +321,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- ========== DEMO SUPPLIER DATA ========== -->
     <mantle.party.Party partyId="ZiddlemanInc" partyTypeEnumId="PtyOrganization"/>
-    <mantle.party.Organization partyId="ZiddlemanInc" organizationName="Ziddleman Incorporated"/>
+    <mantle.party.Organization partyId="ZiddlemanInc" organizationName="Ziddleman Suppliers Inc."/>
     <mantle.party.PartyRole partyId="ZiddlemanInc" roleTypeId="VendorBillFrom"/>
     <mantle.party.PartyRole partyId="ZiddlemanInc" roleTypeId="Supplier"/>
 
