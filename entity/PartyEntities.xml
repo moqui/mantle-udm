@@ -362,6 +362,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Passport Number" enumId="PtidPassport" enumTypeId="PartyIdType"/>
             <moqui.basic.Enumeration description="Driver License Number" enumId="PtidDriverLicense" enumTypeId="PartyIdType"/>
             <moqui.basic.Enumeration description="Social Security Number" enumId="PtidSsn" enumTypeId="PartyIdType"/>
+            <moqui.basic.Enumeration description="Federal Agent Indicator Code" enumId="PtidFaic" enumTypeId="PartyIdType"/>
             <moqui.basic.Enumeration description="Federal EIN" enumId="PtidFein" enumTypeId="PartyIdType"/>
             <moqui.basic.Enumeration description="Federal User Id" enumId="PtidFuid" enumTypeId="PartyIdType"/>
             <moqui.basic.Enumeration description="Matricula Consular ID" enumId="PtidMcid" enumTypeId="PartyIdType"/>
