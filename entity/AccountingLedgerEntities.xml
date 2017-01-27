@@ -689,15 +689,15 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="hourlyTimePeriodTypeId"/></relationship>
         <relationship type="one" title="Salary" related="mantle.party.time.TimePeriodType">
             <key-map field-name="salaryTimePeriodTypeId"/></relationship>
-        <relationship type="one" title="TaxForm" related="moqui.basic.Enumeration">
+        <relationship type="one" title="TaxForm" related="moqui.basic.Enumeration" short-alias="taxForm">
             <key-map field-name="taxFormEnumId"/></relationship>
-        <relationship type="one" title="PayrollTaxForm" related="moqui.basic.Enumeration">
+        <relationship type="one" title="PayrollTaxForm" related="moqui.basic.Enumeration" short-alias="payrollTaxForm">
             <key-map field-name="payrollTaxFormEnumId"/></relationship>
-        <relationship type="one" title="TaxClassification" related="moqui.basic.Enumeration">
+        <relationship type="one" title="TaxClassification" related="moqui.basic.Enumeration" short-alias="taxClassification">
             <key-map field-name="taxClassificationEnumId"/></relationship>
-        <relationship type="one" title="EmployerClassification" related="moqui.basic.Enumeration">
+        <relationship type="one" title="EmployerClassification" related="moqui.basic.Enumeration" short-alias="employerClassification">
             <key-map field-name="employerClassEnumId"/></relationship>
-        <relationship type="one" title="CogsMethod" related="moqui.basic.Enumeration">
+        <relationship type="one" title="CogsMethod" related="moqui.basic.Enumeration" short-alias="cogsMethod">
             <key-map field-name="cogsMethodEnumId"/></relationship>
         <relationship type="one" related="moqui.basic.Uom">
             <key-map field-name="baseCurrencyUomId"/></relationship>
