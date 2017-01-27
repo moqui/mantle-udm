@@ -298,8 +298,8 @@ along with this software (see the LICENSE.md file). If not, see
 
         <mantle.party.contact.ContactMech contactMechId="CustJqpTeln" contactMechTypeEnumId="CmtTelecomNumber">
             <telecomNumber countryCode="1" areaCode="702" contactNumber="234-5678"/>
-            <parties contactMechPurposeId="PhoneShippingDest" fromDate="1265184000000"/>
-            <parties contactMechPurposeId="PhoneBilling" fromDate="1265184000000"/>
+            <parties contactMechPurposeId="PhoneShippingDest" fromDate="1265184000000" extension="1234" allowSolicitation="Y"/>
+            <parties contactMechPurposeId="PhoneBilling" fromDate="1265184000000" extension="4321" allowSolicitation="N"/>
         </mantle.party.contact.ContactMech>
 
         <mantle.party.contact.ContactMech contactMechId="CustJqpAddr" contactMechTypeEnumId="CmtPostalAddress">

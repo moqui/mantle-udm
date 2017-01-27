@@ -273,9 +273,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="shipmentBoxTypeId" type="id"/>
         <field name="weight" type="number-decimal"/>
         <field name="weightUomId" type="id"/>
-        <relationship type="one" related="mantle.shipment.Shipment"/>
-        <relationship type="one" related="mantle.shipment.ShipmentBoxType"/>
-        <relationship type="one" title="Weight" related="moqui.basic.Uom">
+        <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
+        <relationship type="one" related="mantle.shipment.ShipmentBoxType" short-alias="boxType"/>
+        <relationship type="one" title="Weight" related="moqui.basic.Uom" short-alias="weightUom">
             <key-map field-name="weightUomId"/></relationship>
         <relationship type="many" related="mantle.shipment.ShipmentPackageContent" short-alias="contents">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>

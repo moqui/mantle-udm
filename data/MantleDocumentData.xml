@@ -33,11 +33,23 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldPath="roles:role:description" fieldNameAlias="role"/>
     
         <fields fieldPath="identifications:idValue"/>
-    
-        <fields fieldPath="contactMechs:postalAddress:address1"/>
-        <fields fieldPath="contactMechs:postalAddress:city"/>
-        <fields fieldPath="contactMechs:postalAddress:postalCode"/>
-        <fields fieldPath="contactMechs:postalAddress:stateProvinceGeo:geoName" fieldNameAlias="state"/>
+
+        <fields fieldPath="contactMechs:contactMechId"/>
+        <fields fieldPath="contactMechs:contactMechPurposeId"/>
+        <fields fieldPath="contactMechs:contactMech:contactMechTypeEnumId"/>
+        <fields fieldPath="contactMechs:contactMech:infoString"/>
+        <fields fieldPath="contactMechs:contactMech:postalAddress:address1"/>
+        <fields fieldPath="contactMechs:contactMech:postalAddress:city"/>
+        <fields fieldPath="contactMechs:contactMech:postalAddress:postalCode"/>
+        <fields fieldPath="contactMechs:contactMech:postalAddress:stateProvinceGeo:geoName" fieldNameAlias="state"/>
+        <fields fieldPath="contactMechs:contactMech:telecomNumber:countryCode"/>
+        <fields fieldPath="contactMechs:contactMech:telecomNumber:areaCode"/>
+        <fields fieldPath="contactMechs:contactMech:telecomNumber:contactNumber"/>
+
+        <fields fieldPath="userAccounts:userId"/>
+        <fields fieldPath="userAccounts:username"/>
+        <fields fieldPath="userAccounts:userFullName"/>
+        <fields fieldPath="userAccounts:emailAddress"/>
     </dataDocuments>
     <dataDocuments dataDocumentId="MantleCommunicationEvent" indexName="mantle" documentName="Communication Event"
             primaryEntityName="mantle.party.communication.CommunicationEvent" documentTitle="${subject}">

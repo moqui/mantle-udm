@@ -1115,7 +1115,8 @@ along with this software (see the LICENSE.md file). If not, see
         
         <relationship type="one-nofk" related="mantle.party.contact.TelecomNumber" short-alias="telecomNumber" mutable="true"/>
         <relationship type="one-nofk" related="mantle.party.contact.PostalAddress" short-alias="postalAddress" mutable="true"/>
-        <relationship type="many" related="mantle.party.contact.PartyContactMech" short-alias="parties"/>
+        <relationship type="many" related="mantle.party.contact.PartyContactMech" short-alias="parties">
+            <key-map field-name="contactMechId"/></relationship>
 
         <index name="INFO_STRING_IDX"><index-field name="infoString"/></index>
         <seed-data>
