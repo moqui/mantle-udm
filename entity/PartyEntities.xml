@@ -250,7 +250,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Expired" enumId="PbsrExpired" enumTypeId="PartyBadgeScanResult"/>
         </seed-data>
     </entity>
-    <entity entity-name="PartyClassification" package="mantle.party">
+    <entity entity-name="PartyClassification" package="mantle.party" cache="true">
         <field name="partyClassificationId" type="id" is-pk="true"/>
         <field name="classificationTypeEnumId" type="id"/>
         <field name="parentClassificationId" type="id"/>
