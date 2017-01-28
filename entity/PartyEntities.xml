@@ -262,22 +262,37 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="parentClassificationId" related="partyClassificationId"/></relationship>
         <seed-data>
             <moqui.basic.EnumerationType description="Party Classification Type" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Customer" enumId="PcltCustomer" enumTypeId="PartyClassificationType"/>
             <moqui.basic.Enumeration description="EEOC (Equal Opportunity)" enumId="PcltEeoc" enumTypeId="PartyClassificationType"/>
             <moqui.basic.Enumeration description="Minority" enumId="PcltMinority" enumTypeId="PartyClassificationType"/>
             <moqui.basic.Enumeration description="Income" enumId="PcltIncome" enumTypeId="PartyClassificationType"/>
             <moqui.basic.Enumeration description="Industry" enumId="PcltIndustry" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Organization" enumId="PcltOrganization" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Person" enumId="PcltPerson" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Size" enumId="PcltSize" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Trade" enumId="PcltTrade" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Trade - Wholesale" parentEnumId="PcltTrade" enumId="PcltTradeWholesale" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Trade - Retail" parentEnumId="PcltTrade" enumId="PcltTradeRetail" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Annual Revenue" enumId="PcltAnnualRevenue" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Revenue" enumId="PcltRevenue" enumTypeId="PartyClassificationType"/>
             <moqui.basic.Enumeration description="Number of Employees" enumId="PcltNumberEmployees" enumTypeId="PartyClassificationType"/>
-            <moqui.basic.Enumeration description="Value Rating" enumId="PcltValueRating" enumTypeId="PartyClassificationType"/>
             <moqui.basic.Enumeration description="SIC Code" enumId="PcltSicCode" enumTypeId="PartyClassificationType"/>
             <moqui.basic.Enumeration description="NAICS Code" enumId="PcltNaicsCode" enumTypeId="PartyClassificationType"/>
             <moqui.basic.Enumeration description="Ownership" enumId="PcltOwnership" enumTypeId="PartyClassificationType"/>
+
+            <!-- commenting these to simplify options; most are redundant with or less specific than remaining types:
+            <moqui.basic.Enumeration description="Trade" enumId="PcltTrade" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Trade - Wholesale" parentEnumId="PcltTrade" enumId="PcltTradeWholesale" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Trade - Retail" parentEnumId="PcltTrade" enumId="PcltTradeRetail" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Organization" enumId="PcltOrganization" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Person" enumId="PcltPerson" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Size" enumId="PcltSize" enumTypeId="PartyClassificationType"/>
+            <moqui.basic.Enumeration description="Value Rating" enumId="PcltValueRating" enumTypeId="PartyClassificationType"/>
+            -->
+
+            <mantle.party.PartyClassification partyClassificationId="CustConsumer" classificationTypeEnumId="PcltCustomer"
+                    description="Consumer"/>
+            <mantle.party.PartyClassification partyClassificationId="CustWholesale" classificationTypeEnumId="PcltCustomer"
+                    description="Wholesale"/>
+            <mantle.party.PartyClassification partyClassificationId="CustRetailStore" classificationTypeEnumId="PcltCustomer"
+                    description="Retail Store"/>
+            <mantle.party.PartyClassification partyClassificationId="CustDistributor" classificationTypeEnumId="PcltCustomer"
+                    description="Distributor"/>
+            <mantle.party.PartyClassification partyClassificationId="CustEnterprise" classificationTypeEnumId="PcltCustomer"
+                    description="Enterprise"/>
 
             <mantle.party.PartyClassification partyClassificationId="NAICS_511210" classificationTypeEnumId="PcltNaicsCode"
                     description="Software Publishers" standardCode="511210"/>
@@ -299,6 +314,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one" related="mantle.party.PartyClassification" short-alias="classification"/>
     </entity>
+    <!-- in general PartyClassificationAppl is better, enforce single through service while retaining history
     <entity entity-name="PartyClassificationSingle" package="mantle.party">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="classificationTypeEnumId" type="id" is-pk="true"/>
@@ -308,6 +324,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="classificationTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.party.PartyClassification" short-alias="classification"/>
     </entity>
+    -->
 
     <entity entity-name="PartyContent" package="mantle.party">
         <field name="partyContentId" type="id" is-pk="true"/>

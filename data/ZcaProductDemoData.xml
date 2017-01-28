@@ -72,12 +72,12 @@ along with this software (see the LICENSE.md file). If not, see
             organizationPartyId="ORG_ZIZI_RETAIL" inventoryFacilityId="ORG_ZIZI_RETAIL_WH"
             reservationOrderEnumId="AsResOrdFifoRec" requirementMethodEnumId=""
             wikiSpaceId="ZZW_RETAIL" defaultLocale="en_US" defaultCurrencyUomId="USD" taxGatewayConfigId="LOCAL"/>
-
     <mantle.product.store.ProductStorePaymentGateway productStoreId="POPC_DEFAULT"
             paymentInstrumentEnumId="PiCreditCard" paymentGatewayConfigId="TEST_APPROVE"/>
     <mantle.product.store.ProductStoreShippingGateway productStoreId="POPC_DEFAULT" carrierPartyId="_NA_"
             shippingGatewayConfigId="NA_LOCAL"/>
-
+    <!-- add the ProductPriceKS drools rules -->
+    <mantle.product.ProductPriceModify priceModifyId="ProductPriceKS" serviceName="mantle.product.PriceServices.run#ProductPriceKS"/>
 
     <!-- Default Home Page and Root Browse Categories -->
     <mantle.product.category.ProductCategory productCategoryId="PopcHome" productCategoryTypeEnumId="PctCatalog"
