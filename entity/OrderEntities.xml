@@ -77,16 +77,16 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Currency" related="moqui.basic.Uom" short-alias="currencyUom">
             <key-map field-name="currencyUomId"/></relationship>
         <relationship type="one" related="mantle.account.billing.BillingAccount"/>
-        <relationship type="one" related="mantle.product.store.ProductStore"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="productStore"/>
         <relationship type="one" title="SalesChannel" related="moqui.basic.Enumeration" short-alias="salesChannel">
             <key-map field-name="salesChannelEnumId"/></relationship>
-        <relationship type="one" title="Sync" related="moqui.basic.StatusItem">
+        <relationship type="one" title="Sync" related="moqui.basic.StatusItem" short-alias="syncStatus">
             <key-map field-name="syncStatusId"/></relationship>
         <relationship type="one" related="moqui.service.message.SystemMessageRemote"/>
         <relationship type="one" related="moqui.server.Visit" short-alias="visit"/>
-        <relationship type="one" title="EnteredBy" related="mantle.party.Party">
+        <relationship type="one" title="EnteredBy" related="mantle.party.Party" short-alias="enteredByParty">
             <key-map field-name="enteredByPartyId" related="partyId"/></relationship>
-        <relationship type="one" title="Parent" related="mantle.order.OrderHeader">
+        <relationship type="one" title="Parent" related="mantle.order.OrderHeader" short-alias="parentOrder">
             <key-map field-name="parentOrderId" related="orderId"/></relationship>
 
         <!-- These are not generally necessary, reverse relationships are created automatically, but needed to specify
