@@ -333,7 +333,7 @@ along with this software (see the LICENSE.md file). If not, see
         </mantle.party.contact.ContactMech>
 
         <mantle.party.contact.ContactMech contactMechId="JoeDistAddr" contactMechTypeEnumId="CmtPostalAddress">
-            <postalAddress toName="Joe Q. Public" attnName="" address1="1350 E. Flamingo Rd." address2="" unitNumber="3456"
+            <postalAddress toName="Joe's Distributing" attnName="" address1="1350 E. Flamingo Rd." address2="" unitNumber="3456"
                     city="Las Vegas" stateProvinceGeoId="USA_NV" countryGeoId="USA" postalCode="89119" postalCodeExt="5263"
                     telecomContactMechId="JoeDistTeln"/>
             <parties contactMechPurposeId="PostalPrimary" fromDate="1265184000000"/>
@@ -343,7 +343,7 @@ along with this software (see the LICENSE.md file). If not, see
         <paymentMethods paymentMethodId="JoeDistCc" paymentMethodTypeEnumId="PmtCreditCard"
                 ownerPartyId="JoeDist" fromDate="1265184000000" description="Visa ************1111"
                 postalContactMechId="JoeDistAddr" telecomContactMechId="JoeDistTeln"
-                firstNameOnAccount="JOE Q" lastNameOnAccount="DISTRIBUTOR" companyNameOnAccount="JOE'S DISTRIBUTING">
+                firstNameOnAccount="JOE Q" lastNameOnAccount="PUBLIC" companyNameOnAccount="JOE'S DISTRIBUTING">
             <creditCard creditCardTypeEnumId="CctVisa" cardNumber="4111111111111111" expireDate="08/2020"/>
         </paymentMethods>
     </mantle.party.Party>
