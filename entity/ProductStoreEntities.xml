@@ -17,7 +17,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!--  - mantle.product.store -->
     <!-- ========================================================= -->
 
-    <entity entity-name="ProductStore" package="mantle.product.store" short-alias="productStores">
+    <entity entity-name="ProductStore" package="mantle.product.store" short-alias="productStores" cache="true">
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="storeName" type="text-medium"/>
         <field name="organizationPartyId" type="id">
