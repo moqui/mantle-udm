@@ -80,17 +80,17 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Product Requirement Method -->
             <moqui.basic.EnumerationType description="Product Requirement Method" enumTypeId="RequirementMethod"/>
             <!-- NONE: no requirement is created (default) -->
-            <moqui.basic.Enumeration description="No Requirement Created" enumId="PRODRQM_NONE" enumTypeId="RequirementMethod"/>
+            <moqui.basic.Enumeration description="No Requirement Created" enumId="PrqmNone" enumTypeId="RequirementMethod"/>
             <!-- AUTO: a requirement is created every time a sales order is entered; This is useful to implement cross-dock shipping processes -->
-            <moqui.basic.Enumeration description="Automatic For Every Sales Order" enumId="PRODRQM_AUTO" enumTypeId="RequirementMethod"/>
+            <moqui.basic.Enumeration description="Automatic For Every Sales Order" enumId="PrqmAuto" enumTypeId="RequirementMethod"/>
             <!-- STOCK: a requirement is created when qoh reaches the minimum stock quantity (from ProductFacility) -->
-            <moqui.basic.Enumeration description="When QOH Reaches Minimum Stock for Product-Facility" enumId="PRODRQM_STOCK_QOH" enumTypeId="RequirementMethod"/>
+            <moqui.basic.Enumeration description="When QOH Reaches Minimum Stock for Product-Facility" enumId="PrqmStockQoh" enumTypeId="RequirementMethod"/>
             <!-- STOCK_ATP: a requirement is created when atp reaches the minimum stock quantity (from ProductFacility) -->
-            <moqui.basic.Enumeration description="When ATP Reaches Minimum Stock for Product-Facility" enumId="PRODRQM_STOCK_ATP" enumTypeId="RequirementMethod"/>
+            <moqui.basic.Enumeration description="When ATP Reaches Minimum Stock for Product-Facility" enumId="PrqmStockAtp" enumTypeId="RequirementMethod"/>
             <!-- PRODRQM_DS: a drop ship group is created to trigger automatic creation of a purchase order (drop shipment) every time a sales order is created-->
-            <moqui.basic.Enumeration description="Drop-ship only" enumId="PRODRQM_DS" enumTypeId="RequirementMethod"/>
+            <moqui.basic.Enumeration description="Drop-ship only" enumId="PrqmDropShip" enumTypeId="RequirementMethod"/>
             <!-- PRODRQM_DSQOH: auto drop ship on low quantity on hand -->
-            <moqui.basic.Enumeration description="Auto drop-ship on low quantity" enumId="PRODRQM_DSATP" enumTypeId="RequirementMethod"/>
+            <moqui.basic.Enumeration description="Auto drop-ship on low quantity" enumId="PrqmDropShipLowQoh" enumTypeId="RequirementMethod"/>
         </seed-data>
         <master>
             <detail relationship="organization"/><detail relationship="inventoryFacility"/>
