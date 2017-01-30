@@ -204,7 +204,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="taxClassificationEnumId" type="id"/>
 
         <field name="taxName" type="text-medium"><description>Defaults to Person or Organization name fields</description></field>
+        <field name="taxMiddleName" type="text-medium"><description>Defaults to Person.middleName if applicable</description></field>
         <field name="taxLastName" type="text-medium"><description>Defaults to Person.lastName if applicable</description></field>
+        <field name="taxNameSuffix" type="text-medium"><description>Defaults to Person.suffix if applicable</description></field>
         <field name="taxBusinessName" type="text-medium"/>
         <field name="taxHomeContactMechId" type="id"/>
         <field name="taxWorkContactMechId" type="id"/>

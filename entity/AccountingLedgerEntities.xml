@@ -661,7 +661,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="hourlyTimePeriodTypeId" type="id"/>
         <field name="salaryTimePeriodTypeId" type="id"/>
         <field name="taxFormEnumId" type="id"/>
+        <field name="payrollTaxFormEnumId" type="id"/>
         <field name="taxClassificationEnumId" type="id"/>
+        <field name="employerClassEnumId" type="id"/>
         <field name="cogsMethodEnumId" type="id"/>
         <field name="baseCurrencyUomId" type="id"/>
         <field name="invoiceSequenceEnumId" type="id"/>
@@ -687,11 +689,15 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="hourlyTimePeriodTypeId"/></relationship>
         <relationship type="one" title="Salary" related="mantle.party.time.TimePeriodType">
             <key-map field-name="salaryTimePeriodTypeId"/></relationship>
-        <relationship type="one" title="TaxForm" related="moqui.basic.Enumeration">
+        <relationship type="one" title="TaxForm" related="moqui.basic.Enumeration" short-alias="taxForm">
             <key-map field-name="taxFormEnumId"/></relationship>
-        <relationship type="one" title="TaxClassification" related="moqui.basic.Enumeration">
+        <relationship type="one" title="PayrollTaxForm" related="moqui.basic.Enumeration" short-alias="payrollTaxForm">
+            <key-map field-name="payrollTaxFormEnumId"/></relationship>
+        <relationship type="one" title="TaxClassification" related="moqui.basic.Enumeration" short-alias="taxClassification">
             <key-map field-name="taxClassificationEnumId"/></relationship>
-        <relationship type="one" title="CogsMethod" related="moqui.basic.Enumeration">
+        <relationship type="one" title="EmployerClassification" related="moqui.basic.Enumeration" short-alias="employerClassification">
+            <key-map field-name="employerClassEnumId"/></relationship>
+        <relationship type="one" title="CogsMethod" related="moqui.basic.Enumeration" short-alias="cogsMethod">
             <key-map field-name="cogsMethodEnumId"/></relationship>
         <relationship type="one" related="moqui.basic.Uom">
             <key-map field-name="baseCurrencyUomId"/></relationship>
@@ -707,13 +713,21 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Tax Forms -->
             <moqui.basic.EnumerationType description="Tax Form" enumTypeId="TaxForm"/>
-            <moqui.basic.Enumeration description="Form 1120 (US IRS)" enumId="TxfUsIrs1120" sequenceNum="1" enumTypeId="TaxForm"/>
-            <moqui.basic.Enumeration description="Form 1120S (US IRS)" enumId="TxfUsIrs1120S" sequenceNum="2" enumTypeId="TaxForm"/>
-            <moqui.basic.Enumeration description="Form 1065 (US IRS)" enumId="TxfUsIrs1065" sequenceNum="3" enumTypeId="TaxForm"/>
-            <moqui.basic.Enumeration description="Form 990 (US IRS)" enumId="TxfUsIrs990" sequenceNum="4" enumTypeId="TaxForm"/>
-            <moqui.basic.Enumeration description="Form 990-PF (US IRS)" enumId="TxfUsIrs990PF" sequenceNum="5" enumTypeId="TaxForm"/>
-            <moqui.basic.Enumeration description="Form 990-T (US IRS)" enumId="TxfUsIrs990T" sequenceNum="6" enumTypeId="TaxForm"/>
-            <moqui.basic.Enumeration description="Form 1040 (US IRS)" enumId="TxfUsIrs1040" sequenceNum="7" enumTypeId="TaxForm"/>
+            <moqui.basic.Enumeration description="US IRS Form 1120" enumId="TxfUsIrs1120" sequenceNum="1" enumTypeId="TaxForm"/>
+            <moqui.basic.Enumeration description="US IRS Form 1120S" enumId="TxfUsIrs1120S" sequenceNum="2" enumTypeId="TaxForm"/>
+            <moqui.basic.Enumeration description="US IRS Form 1065" enumId="TxfUsIrs1065" sequenceNum="3" enumTypeId="TaxForm"/>
+            <moqui.basic.Enumeration description="US IRS Form 990" enumId="TxfUsIrs990" sequenceNum="4" enumTypeId="TaxForm"/>
+            <moqui.basic.Enumeration description="US IRS Form 990-PF" enumId="TxfUsIrs990PF" sequenceNum="5" enumTypeId="TaxForm"/>
+            <moqui.basic.Enumeration description="US IRS Form 990-T" enumId="TxfUsIrs990T" sequenceNum="6" enumTypeId="TaxForm"/>
+            <moqui.basic.Enumeration description="US IRS Form 1040" enumId="TxfUsIrs1040" sequenceNum="7" enumTypeId="TaxForm"/>
+
+            <!-- Payroll Tax Forms -->
+            <moqui.basic.EnumerationType description="Payroll Tax Form" enumTypeId="PayrollTaxForm"/>
+            <moqui.basic.Enumeration description="US IRS Form 941" enumId="PtxfUsIrs941" enumTypeId="PayrollTaxForm"/>
+            <moqui.basic.Enumeration description="US IRS Form 943" enumId="PtxfUsIrs943" enumTypeId="PayrollTaxForm"/>
+            <moqui.basic.Enumeration description="US IRS Form 944" enumId="PtxfUsIrs944" enumTypeId="PayrollTaxForm"/>
+            <moqui.basic.Enumeration description="US IRS Schedule H" enumId="PtxfUsIrs944" enumTypeId="PayrollTaxForm"/>
+            <moqui.basic.Enumeration description="US IRS CT-1" enumId="PtxfUsIrs944" enumTypeId="PayrollTaxForm"/>
 
             <!-- Tax Classification -->
             <moqui.basic.EnumerationType description="Tax Classification" enumTypeId="TaxClassification"/>
@@ -726,6 +740,16 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="USA - LLC as C Corp" enumId="TxcLlcCCorp" sequenceNum="7" enumTypeId="TaxClassification"/>
             <moqui.basic.Enumeration description="USA - LLC as Partnership" enumId="TxcLlcPartnership" sequenceNum="8" enumTypeId="TaxClassification"/>
             <moqui.basic.Enumeration description="Other" enumId="TxcOther" sequenceNum="9" enumTypeId="TaxClassification"/>
+
+            <!-- Employer Classification -->
+            <moqui.basic.EnumerationType description="Employer Classification" enumTypeId="EmployerClassification"/>
+            <moqui.basic.Enumeration description="US IRS Agriculture (943)" enumId="EmclsUsIrsAgriculture" enumCode="A" enumTypeId="EmployerClassification"/>
+            <moqui.basic.Enumeration description="US IRS Household (Sch H)" enumId="EmclsUsIrsHousehold" enumCode="H" enumTypeId="EmployerClassification"/>
+            <moqui.basic.Enumeration description="US IRS Military (941)" enumId="EmclsUsIrsMilitary" enumCode="M" enumTypeId="EmployerClassification"/>
+            <moqui.basic.Enumeration description="US IRS Medicare Qualified Government (941)" enumId="EmclsUsIrsQualGovernment" enumCode="Q" enumTypeId="EmployerClassification"/>
+            <moqui.basic.Enumeration description="US IRS Railroad (CT-1)" enumId="EmclsUsIrsRailroad" enumCode="X" enumTypeId="EmployerClassification"/>
+            <moqui.basic.Enumeration description="US IRS Regular (944)" enumId="EmclsUsIrsRegular" enumCode="F" enumTypeId="EmployerClassification"/>
+            <moqui.basic.Enumeration description="US IRS Regular (all others) (941)" enumId="EmclsUsIrsRegularOther" enumCode="R" enumTypeId="EmployerClassification"/>
 
             <!-- Cost Of Goods Sold methods -->
             <moqui.basic.EnumerationType description="COGS Method" enumTypeId="CogsMethod"/>
