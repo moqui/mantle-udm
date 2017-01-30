@@ -228,8 +228,8 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
     <entity entity-name="ShipmentItemSource" package="mantle.shipment" cache="never">
         <field name="shipmentItemSourceId" type="id" is-pk="true"/>
-        <field name="shipmentId" type="id"/>
-        <field name="productId" type="id"/>
+        <field name="shipmentId" type="id" not-null="true"/>
+        <field name="productId" type="id" not-null="true"/>
         <field name="binLocationNumber" type="number-integer">
             <description>This overrides the corresponding Shipment.binLocationNumber so that a shipment may be split
                 across picklist bins, such as when one bin per order on the shipment is needed.</description>

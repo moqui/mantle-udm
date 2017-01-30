@@ -286,36 +286,65 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========== DEMO CUSTOMER DATA ========== -->
     <!-- Demo Customer: Joe Q Public (joe@public.com) -->
     <mantle.party.Party partyId="CustJqp" partyTypeEnumId="PtyPerson">
-        <mantle.party.Person firstName="Joe" middleName="Q" lastName="Public"/>
-        <mantle.party.PartyRole roleTypeId="Customer"/>
-        <moqui.security.UserAccount userId="CustJqp" username="joe@public.com" userFullName="Joe Q Public"
+        <person firstName="Joe" middleName="Q" lastName="Public"/>
+        <roles roleTypeId="Customer"/>
+        <classifications partyClassificationId="CustConsumer" fromDate="1265184000000"/>
+
+        <userAccounts userId="CustJqp" username="joe@public.com" userFullName="Joe Q Public"
                 currentPassword="16ac58bbfa332c1c55bd98b53e60720bfa90d394" passwordHashType="SHA"
                 passwordHint="framework name, lowercase" currencyUomId="USD" locale="en_US" emailAddress="joe@public.com"/>
-        <mantle.party.contact.ContactMech contactMechId="CustJqpPem" contactMechTypeEnumId="CmtEmailAddress"
-                infoString="joe@public.com">
-            <parties contactMechPurposeId="EmailPrimary" fromDate="1265184000000"/>
-        </mantle.party.contact.ContactMech>
+        <mantle.party.contact.ContactMech contactMechId="CustJqpPem" contactMechTypeEnumId="CmtEmailAddress" infoString="joe@public.com">
+            <parties contactMechPurposeId="EmailPrimary" fromDate="1265184000000"/></mantle.party.contact.ContactMech>
 
         <mantle.party.contact.ContactMech contactMechId="CustJqpTeln" contactMechTypeEnumId="CmtTelecomNumber">
             <telecomNumber countryCode="1" areaCode="702" contactNumber="234-5678"/>
-            <parties contactMechPurposeId="PhoneShippingDest" fromDate="1265184000000" extension="1234" allowSolicitation="Y"/>
-            <parties contactMechPurposeId="PhoneBilling" fromDate="1265184000000" extension="4321" allowSolicitation="N"/>
+            <parties contactMechPurposeId="PhonePrimary" fromDate="1265184000000" allowSolicitation="Y"/>
         </mantle.party.contact.ContactMech>
 
         <mantle.party.contact.ContactMech contactMechId="CustJqpAddr" contactMechTypeEnumId="CmtPostalAddress">
             <postalAddress toName="Joe Q. Public" attnName="" address1="1350 E. Flamingo Rd." address2="" unitNumber="2345"
                     city="Las Vegas" stateProvinceGeoId="USA_NV" countryGeoId="USA" postalCode="89119" postalCodeExt="5263"
                     telecomContactMechId="CustJqpTeln"/>
-            <parties contactMechPurposeId="PostalShippingDest" fromDate="1265184000000"/>
-            <parties contactMechPurposeId="PostalBilling" fromDate="1265184000000"/>
+            <parties contactMechPurposeId="PostalPrimary" fromDate="1265184000000"/>
         </mantle.party.contact.ContactMech>
 
         <paymentMethods paymentMethodId="CustJqpCc" paymentMethodTypeEnumId="PmtCreditCard"
                 ownerPartyId="CustJqp" fromDate="1265184000000" description="Visa ************1111"
                 postalContactMechId="CustJqpAddr" telecomContactMechId="CustJqpTeln"
                 firstNameOnAccount="JOE Q" lastNameOnAccount="PUBLIC">
-            <creditCard creditCardTypeEnumId="CctVisa"
-                    cardNumber="4111111111111111" expireDate="08/2018"/>
+            <creditCard creditCardTypeEnumId="CctVisa" cardNumber="4111111111111111" expireDate="08/2020"/>
+        </paymentMethods>
+    </mantle.party.Party>
+    <!-- Demo Company Customer: Joe's Distributing -->
+    <mantle.party.Party partyId="JoeDist" partyTypeEnumId="PtyOrganization">
+        <organization organizationName="Joe's Distributing"/>
+        <roles roleTypeId="Customer"/>
+        <classifications partyClassificationId="CustDistributor" fromDate="1265184000000"/>
+        <settings partySettingTypeId="CustomerSetting" settingValue="CsstSingleLot"/>
+        <settings partySettingTypeId="CustomerSetting" settingValue="CsstNewerInventory"/>
+
+        <mantle.party.contact.ContactMech contactMechId="JoeDistPem" contactMechTypeEnumId="CmtEmailAddress" infoString="joe@public.com">
+            <parties contactMechPurposeId="EmailPrimary" fromDate="1265184000000"/></mantle.party.contact.ContactMech>
+
+        <mantle.party.contact.ContactMech contactMechId="JoeDistTeln" contactMechTypeEnumId="CmtTelecomNumber">
+            <telecomNumber countryCode="1" areaCode="702" contactNumber="234-5678"/>
+            <parties contactMechPurposeId="PhonePrimary" fromDate="1265184000000" extension="1234" allowSolicitation="Y"/>
+            <parties contactMechPurposeId="PhoneBilling" fromDate="1265184000000" extension="4321" allowSolicitation="N"/>
+        </mantle.party.contact.ContactMech>
+
+        <mantle.party.contact.ContactMech contactMechId="JoeDistAddr" contactMechTypeEnumId="CmtPostalAddress">
+            <postalAddress toName="Joe's Distributing" attnName="" address1="1350 E. Flamingo Rd." address2="" unitNumber="3456"
+                    city="Las Vegas" stateProvinceGeoId="USA_NV" countryGeoId="USA" postalCode="89119" postalCodeExt="5263"
+                    telecomContactMechId="JoeDistTeln"/>
+            <parties contactMechPurposeId="PostalPrimary" fromDate="1265184000000"/>
+            <parties contactMechPurposeId="PostalBilling" fromDate="1265184000000"/>
+        </mantle.party.contact.ContactMech>
+
+        <paymentMethods paymentMethodId="JoeDistCc" paymentMethodTypeEnumId="PmtCreditCard"
+                ownerPartyId="JoeDist" fromDate="1265184000000" description="Visa ************1111"
+                postalContactMechId="JoeDistAddr" telecomContactMechId="JoeDistTeln"
+                firstNameOnAccount="JOE Q" lastNameOnAccount="PUBLIC" companyNameOnAccount="JOE'S DISTRIBUTING">
+            <creditCard creditCardTypeEnumId="CctVisa" cardNumber="4111111111111111" expireDate="08/2020"/>
         </paymentMethods>
     </mantle.party.Party>
 
