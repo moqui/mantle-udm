@@ -462,6 +462,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="isMedicalTaxable" type="text-indicator"><description>For medical (in USA: Medicare program) taxable
             positive adjustments and deductible negative adjustments.</description></field>
         <field name="taxAuthorityId" type="id"/>
+        <field name="taxBox" type="text-short"><description>For tax forms, the alphanumeric box</description></field>
+        <field name="taxBoxCode" type="text-short"><description>For tax forms, the code/type</description></field>
         <field name="isEmployerPaid" type="text-indicator"><description>If Y is paid by the employer and not included
             in employee pay invoices.</description></field>
         <field name="applyStdDeduction" type="text-indicator"/>
@@ -597,6 +599,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <entity entity-name="EmplPosition" package="mantle.humanres.position" use="configuration">
         <field name="emplPositionId" type="id" is-pk="true"/>
+        <field name="pseudoId" type="id" default="emplPositionId"/>
         <field name="organizationPartyId" type="id"/>
         <field name="emplPositionClassId" type="id" enable-audit-log="true"/>
         <field name="description" type="text-medium"/>
@@ -623,6 +626,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="taxExemptEnumId"/></relationship>
         <relationship type="one" title="Tax" related="moqui.screen.form.DbForm">
             <key-map field-name="taxFormId"/></relationship>
+        <index name="EMPL_POSITION_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
         <seed-data>
             <!-- Employment Position Status -->
             <moqui.basic.StatusType description="Employment Position Status" statusTypeId="EmplPosition"/>
