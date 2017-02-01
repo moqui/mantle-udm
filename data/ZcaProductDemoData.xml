@@ -61,11 +61,32 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- Ziziwork Retail Warehouse Facility -->
     <mantle.facility.Facility facilityId="ORG_ZIZI_RETAIL_WH" facilityTypeEnumId="FcTpWarehouse"
-            ownerPartyId="ORG_ZIZI_RETAIL" facilityName="Ziziwork Retail Warehouse"/>
-    <mantle.facility.FacilityContactMech facilityId="ORG_ZIZI_RETAIL_WH" contactMechId="ORG_ZIZI_RTL_SA"
-            contactMechPurposeId="PostalPrimary" fromDate="1265184000000"/>
-    <mantle.facility.FacilityContactMech facilityId="ORG_ZIZI_RETAIL_WH" contactMechId="ORG_ZIZI_RTL_PT"
-            contactMechPurposeId="PhonePrimary" fromDate="1265184000000"/>
+            ownerPartyId="ORG_ZIZI_RETAIL" facilityName="Ziziwork Retail Warehouse">
+        <contactMechs contactMechId="ORG_ZIZI_RTL_SA" contactMechPurposeId="PostalPrimary"/>
+        <contactMechs contactMechId="ORG_ZIZI_RTL_PT" contactMechPurposeId="PhonePrimary"/>
+
+        <locations locationTypeEnumId="FltPick" locationSeqId="01010101" areaId="01" aisleId="01" sectionId="01" levelId="01" positionId=""/>
+        <locations locationTypeEnumId="FltPick" locationSeqId="01010201" areaId="01" aisleId="01" sectionId="02" levelId="01" positionId=""/>
+        <locations locationTypeEnumId="FltPick" locationSeqId="01010301" areaId="01" aisleId="01" sectionId="03" levelId="01" positionId=""/>
+        <locations locationTypeEnumId="FltPick" locationSeqId="01010401" areaId="01" aisleId="01" sectionId="04" levelId="01" positionId=""/>
+        <locations locationTypeEnumId="FltPick" locationSeqId="01010501" areaId="01" aisleId="01" sectionId="05" levelId="01" positionId=""/>
+        <locations locationTypeEnumId="FltPick" locationSeqId="01020101" areaId="01" aisleId="02" sectionId="01" levelId="01" positionId=""/>
+        <locations locationTypeEnumId="FltPick" locationSeqId="01020201" areaId="01" aisleId="02" sectionId="02" levelId="01" positionId=""/>
+        <locations locationTypeEnumId="FltPick" locationSeqId="01020301" areaId="01" aisleId="02" sectionId="03" levelId="01" positionId=""/>
+        <locations locationTypeEnumId="FltPick" locationSeqId="01020401" areaId="01" aisleId="02" sectionId="04" levelId="01" positionId=""/>
+        <locations locationTypeEnumId="FltPick" locationSeqId="01020501" areaId="01" aisleId="02" sectionId="05" levelId="01" positionId=""/>
+
+        <locations locationTypeEnumId="FltBulk" locationSeqId="01010102" areaId="01" aisleId="01" sectionId="01" levelId="02" positionId=""/>
+        <locations locationTypeEnumId="FltBulk" locationSeqId="01010202" areaId="01" aisleId="01" sectionId="02" levelId="02" positionId=""/>
+        <locations locationTypeEnumId="FltBulk" locationSeqId="01010302" areaId="01" aisleId="01" sectionId="03" levelId="02" positionId=""/>
+        <locations locationTypeEnumId="FltBulk" locationSeqId="01010402" areaId="01" aisleId="01" sectionId="04" levelId="02" positionId=""/>
+        <locations locationTypeEnumId="FltBulk" locationSeqId="01010502" areaId="01" aisleId="01" sectionId="05" levelId="02" positionId=""/>
+        <locations locationTypeEnumId="FltBulk" locationSeqId="01020102" areaId="01" aisleId="02" sectionId="01" levelId="02" positionId=""/>
+        <locations locationTypeEnumId="FltBulk" locationSeqId="01020202" areaId="01" aisleId="02" sectionId="02" levelId="02" positionId=""/>
+        <locations locationTypeEnumId="FltBulk" locationSeqId="01020302" areaId="01" aisleId="02" sectionId="03" levelId="02" positionId=""/>
+        <locations locationTypeEnumId="FltBulk" locationSeqId="01020402" areaId="01" aisleId="02" sectionId="04" levelId="02" positionId=""/>
+        <locations locationTypeEnumId="FltBulk" locationSeqId="01020502" areaId="01" aisleId="02" sectionId="05" levelId="02" positionId=""/>
+    </mantle.facility.Facility>
 
     <!-- Ziziwork Retail ProductStore -->
     <mantle.product.store.ProductStore productStoreId="POPC_DEFAULT" storeName="Ziziwork Retail Store"

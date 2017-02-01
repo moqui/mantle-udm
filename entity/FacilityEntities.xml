@@ -232,13 +232,14 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.facility.Facility"/>
         <relationship type="one" title="FacilityLocationType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="locationTypeEnumId"/></relationship>
+        <relationship type="one" related="moqui.basic.GeoPoint" short-alias="geoPoint"/>
         <relationship type="one" title="Capacity" related="moqui.basic.Uom" short-alias="capacityUom">
             <key-map field-name="capacityUomId"/></relationship>
         <seed-data>
             <!-- Facility Location Type -->
             <moqui.basic.EnumerationType description="Facility Location Type" enumTypeId="FacilityLocationType"/>
-            <moqui.basic.Enumeration description="Pick/Primary" enumId="FLT_PICKLOC" enumTypeId="FacilityLocationType"/>
-            <moqui.basic.Enumeration description="Bulk" enumId="FLT_BULK" enumTypeId="FacilityLocationType"/>
+            <moqui.basic.Enumeration description="Pick/Primary" enumId="FltPick" enumTypeId="FacilityLocationType"/>
+            <moqui.basic.Enumeration description="Bulk" enumId="FltBulk" enumTypeId="FacilityLocationType"/>
         </seed-data>
     </entity>
     <entity entity-name="FacilityNote" package="mantle.facility">
