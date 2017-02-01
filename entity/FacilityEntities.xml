@@ -232,6 +232,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.facility.Facility"/>
         <relationship type="one" title="FacilityLocationType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="locationTypeEnumId"/></relationship>
+        <relationship type="one" related="moqui.basic.GeoPoint" short-alias="geoPoint"/>
         <relationship type="one" title="Capacity" related="moqui.basic.Uom" short-alias="capacityUom">
             <key-map field-name="capacityUomId"/></relationship>
         <seed-data>
