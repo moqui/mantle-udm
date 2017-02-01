@@ -443,10 +443,12 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="currencyUomId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType"/>
     </entity>
+    
     <entity entity-name="PayrollAdjustment" package="mantle.humanres.employment" use="configuration">
         <field name="payrollAdjustmentId" type="id" is-pk="true"/>
         <field name="description" type="text-medium"/>
-        <field name="partyRelationshipId" type="id"><description>If null applies to all employees.</description></field>
+        <field name="organizationPartyId" type="id"><description>If null applies to all organizations</description></field>
+        <field name="partyRelationshipId" type="id"><description>If null applies to all employees</description></field>
         <field name="itemTypeEnumId" type="id"/>
         <field name="timePeriodTypeId" type="id"/>
         <field name="fromDate" type="date-time"/>
@@ -478,6 +480,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="garnishCaseNumber" type="text-short"/>
         <field name="deductFromDisposable" type="text-indicator"/>
 
+        <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organizationParty">
+            <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
             <key-map field-name="itemTypeEnumId"/></relationship>
@@ -591,6 +595,28 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Unemployment Claim Status -->
             <moqui.basic.StatusType description="Unemployment Claim Status" statusTypeId="UnemploymentClaim"/>
         </seed-data>
+    </entity>
+    <entity entity-name="WorkTypeGlOverride" package="mantle.humanres.employment" use="configuration">
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="workTypeEnumId" type="id" is-pk="true"/>
+        <field name="itemTypeEnumId" type="id" is-pk="true"/>
+        <field name="overrideGlAccountId" type="id"/>
+        <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organizationParty">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration">
+            <key-map field-name="workTypeEnumId"/></relationship>
+        <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
+            <key-map field-name="itemTypeEnumId"/></relationship>
+        <relationship type="one" title="Override" related="mantle.ledger.account.GlAccount">
+            <key-map field-name="overrideGlAccountId"/></relationship>
+    </entity>
+    <entity entity-name="WorkTypeTaxCode" package="mantle.humanres.employment" use="configuration">
+        <field name="taxAuthorityId" type="id" is-pk="true"/>
+        <field name="workTypeEnumId" type="id" is-pk="true"/>
+        <field name="workCode" type="text-short"/>
+        <relationship type="one" related="mantle.other.tax.TaxAuthority"/>
+        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration">
+            <key-map field-name="workTypeEnumId"/></relationship>
     </entity>
 
     <!-- ========================================================= -->
