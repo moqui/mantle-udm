@@ -237,8 +237,8 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Facility Location Type -->
             <moqui.basic.EnumerationType description="Facility Location Type" enumTypeId="FacilityLocationType"/>
-            <moqui.basic.Enumeration description="Pick/Primary" enumId="FLT_PICKLOC" enumTypeId="FacilityLocationType"/>
-            <moqui.basic.Enumeration description="Bulk" enumId="FLT_BULK" enumTypeId="FacilityLocationType"/>
+            <moqui.basic.Enumeration description="Pick/Primary" enumId="FltPick" enumTypeId="FacilityLocationType"/>
+            <moqui.basic.Enumeration description="Bulk" enumId="FltBulk" enumTypeId="FacilityLocationType"/>
         </seed-data>
     </entity>
     <entity entity-name="FacilityNote" package="mantle.facility">
