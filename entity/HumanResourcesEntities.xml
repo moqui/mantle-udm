@@ -834,6 +834,10 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Rate Purpose" enumTypeId="RatePurpose"/>
             <moqui.basic.Enumeration enumId="RaprClient" description="Client Billing" enumTypeId="RatePurpose"/>
             <moqui.basic.Enumeration enumId="RaprVendor" description="Worker/Vendor Payment" enumTypeId="RatePurpose"/>
+            <!-- Default no charge client rate, always 0 -->
+            <mantle.humanres.rate.RateAmount rateAmountId="NoChargeClient" rateTypeEnumId="RatpNoCharge" ratePurposeEnumId="RaprClient"
+                    timePeriodUomId="TF_hr" workEffortId="" partyId="" emplPositionClassId=""
+                    fromDate="1265184000000" thruDate="" rateAmount="0.00" rateCurrencyUomId=""/>
         </seed-data>
     </entity>
 

@@ -101,6 +101,10 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.humanres.rate.RateAmount rateAmountId="EX_JOHN_DOE-STVN" rateTypeEnumId="RatpStandard" ratePurposeEnumId="RaprVendor"
             timePeriodUomId="TF_hr" workEffortId="" partyId="EX_JOHN_DOE" emplPositionClassId=""
             fromDate="1265184000000" thruDate="" rateAmount="75.00" rateCurrencyUomId="USD"/>
+    <!-- pay John Doe (vendor) even if no charge to client -->
+    <mantle.humanres.rate.RateAmount rateAmountId="EX_JOHN_DOE-NCVN" rateTypeEnumId="RatpNoCharge" ratePurposeEnumId="RaprVendor"
+            timePeriodUomId="TF_hr" workEffortId="" partyId="EX_JOHN_DOE" emplPositionClassId=""
+            fromDate="1265184000000" thruDate="" rateAmount="75.00" rateCurrencyUomId="USD"/>
 
     <mantle.party.Party partyId="ORG_ZIZI_JD" partyTypeEnumId="PtyPerson"/>
     <mantle.party.Person partyId="ORG_ZIZI_JD" firstName="Joe" middleName="" lastName="Developer"/>
