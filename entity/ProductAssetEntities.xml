@@ -304,6 +304,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="unitCost" type="number-decimal"/>
         <field name="assetReservationId" type="id"/>
+        <field name="otherAssetId" type="id"/>
         <field name="shipmentId" type="id"/>
         <field name="productId" type="id"/>
         <field name="returnId" type="id"/>
@@ -319,6 +320,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="acctgTransResultEnumId" type="id" create-only="false"/>
         <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
         <relationship type="one-nofk" related="mantle.product.issuance.AssetReservation" short-alias="assetReservation"/><!-- no FK for when record is deleted -->
+        <relationship type="one" title="Other" related="mantle.product.asset.Asset" short-alias="otherAsset">
+            <key-map field-name="otherAssetId"/></relationship>
         <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" related="mantle.order.return.ReturnItem" short-alias="returnItem"/>
