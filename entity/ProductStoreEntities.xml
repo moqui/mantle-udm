@@ -148,6 +148,8 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Product Store Email Type -->
             <moqui.basic.EnumerationType description="Product Store Email Notification Type" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Registration" enumId="PsetRegistration" enumTypeId="ProductStoreEmailType"/>
+            <moqui.basic.Enumeration description="Order Quote Requested" enumId="PsetOrderRequested" enumTypeId="ProductStoreEmailType"/>
+            <moqui.basic.Enumeration description="Order Quote Proposed" enumId="PsetOrderProposed" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Order Placed" enumId="PsetOrderPlaced" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Order Approved" enumId="PsetOrderApproved" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Order Complete" enumId="PsetOrderComplete" enumTypeId="ProductStoreEmailType"/>
@@ -161,8 +163,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Tell-A-Friend" enumId="PsetTellAFriend" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Gift Card Purchase" enumId="PsetGiftCardPurchase" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Gift Card Reload" enumId="PsetGiftCardReload" enumTypeId="ProductStoreEmailType"/>
-            <moqui.basic.Enumeration description="Quote Created" enumId="PsetQuoteCreated" enumTypeId="ProductStoreEmailType"/>
-            <moqui.basic.Enumeration description="Quote Confirmation" enumId="PsetQuoteConfirmation" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Shipment Shipped" enumId="PsetShipmentShipped" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Shipment Delivered" enumId="PsetShipmentDelivered" enumTypeId="ProductStoreEmailType"/>
         </seed-data>
