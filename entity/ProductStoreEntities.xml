@@ -26,6 +26,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="reservationOrderEnumId" type="id"/>
         <field name="requirementMethodEnumId" type="id"/>
 
+        <field name="storeDomain" type="text-short"/>
+        <field name="profileUrlPath" type="text-medium"/>
         <field name="wikiSpaceId" type="id"/>
         <field name="defaultLocale" type="text-short"/>
         <field name="defaultCurrencyUomId" type="id"/>
@@ -140,6 +142,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
         <field name="emailTemplateId" type="id"/>
+        <field name="headerImagePath" type="text-medium"/>
+        <field name="detailLinkPath" type="text-medium"/>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" title="ProductStoreEmailType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="emailTypeEnumId"/></relationship>

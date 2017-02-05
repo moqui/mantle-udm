@@ -211,6 +211,12 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="shipmentId"/><key-map field-name="shipmentRouteSegmentSeqId"/></relationship>
         <relationship type="one" related="moqui.security.UserAccount"/>
     </entity>
+    <entity entity-name="ShipmentEmailMessage" package="mantle.shipment" cache="never">
+        <field name="shipmentId" type="id" is-pk="true"/>
+        <field name="emailMessageId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.shipment.Shipment"/>
+        <relationship type="one" related="moqui.basic.email.EmailMessage"/>
+    </entity>
     <entity entity-name="ShipmentItem" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="productId" type="id" is-pk="true"/>
