@@ -47,6 +47,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="OrderEmailMessage" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="emailMessageId" type="id" is-pk="true"/>
+        <field name="orderRevision" type="number-integer"/>
         <relationship type="one" related="mantle.order.OrderHeader"/>
         <relationship type="one" related="moqui.basic.email.EmailMessage"/>
     </entity>
