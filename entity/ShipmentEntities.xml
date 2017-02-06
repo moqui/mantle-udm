@@ -249,7 +249,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="quantityNotHandled" type="number-decimal"/>
         <field name="invoiceId" type="id"/>
         <field name="invoiceItemSeqId" type="id"/>
-        <relationship type="one" related="mantle.shipment.ShipmentItem"/>
+        <relationship type="one" related="mantle.shipment.ShipmentItem" short-alias="item"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one-nofk" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
         <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem"/>
         <relationship type="one" related="mantle.order.return.ReturnHeader" short-alias="returnHeader"/>
@@ -293,11 +294,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="shipmentPackageSeqId" type="id" is-pk="true"/>
         <field name="productId" type="id" is-pk="true"/>
         <field name="quantity" type="number-decimal"/>
-        <relationship type="one-nofk" related="mantle.shipment.Shipment"/>
-        <relationship type="one" related="mantle.shipment.ShipmentPackage">
+        <relationship type="one-nofk" related="mantle.shipment.Shipment" short-alias="shipment"/>
+        <relationship type="one" related="mantle.shipment.ShipmentPackage" short-alias="package">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>
-        <relationship type="one" related="mantle.shipment.ShipmentItem">
+        <relationship type="one" related="mantle.shipment.ShipmentItem" short-alias="item">
             <key-map field-name="shipmentId"/><key-map field-name="productId"/></relationship>
+        <relationship type="one-nofk" related="mantle.product.Product" short-alias="product"/>
     </entity>
     <entity entity-name="ShipmentPackageRouteSeg" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
@@ -370,7 +372,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="thirdPartyPostalCode" type="id"/>
         <field name="thirdPartyCountryGeoCode" type="id"/>
 
-        <field name="upsHighValueReport" type="binary-very-long"/>
+        <field name="highValueReport" type="binary-very-long"/>
 
         <relationship type="one" related="mantle.shipment.Shipment"/>
         <relationship type="one" related="mantle.shipment.carrier.Delivery"/>
