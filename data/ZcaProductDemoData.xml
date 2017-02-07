@@ -92,11 +92,14 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.product.store.ProductStore productStoreId="POPC_DEFAULT" storeName="Ziziwork Retail Store"
             organizationPartyId="ORG_ZIZI_RETAIL" inventoryFacilityId="ORG_ZIZI_RETAIL_WH"
             reservationOrderEnumId="AsResOrdFifoRec" requirementMethodEnumId=""
-            wikiSpaceId="ZZW_RETAIL" defaultLocale="en_US" defaultCurrencyUomId="USD" taxGatewayConfigId="LOCAL"/>
-    <mantle.product.store.ProductStorePaymentGateway productStoreId="POPC_DEFAULT"
-            paymentInstrumentEnumId="PiCreditCard" paymentGatewayConfigId="TEST_APPROVE"/>
-    <mantle.product.store.ProductStoreShippingGateway productStoreId="POPC_DEFAULT" carrierPartyId="_NA_"
-            shippingGatewayConfigId="NA_LOCAL"/>
+            wikiSpaceId="ZZW_RETAIL" defaultLocale="en_US" defaultCurrencyUomId="USD" taxGatewayConfigId="LOCAL">
+        <!-- use these to limit options for store, defaults to all CarrierShipmentMethod options for each carrier there is a shipping gateway for:
+        <shipOptions carrierPartyId="_NA_" shipmentMethodEnumId="ShMthGround" sequenceNum="1"/>
+        <shipOptions carrierPartyId="_NA_" shipmentMethodEnumId="ShMthNextDay" sequenceNum="2"/>
+        -->
+        <shippingGateways carrierPartyId="_NA_" shippingGatewayConfigId="NA_LOCAL"/>
+        <paymentGateways paymentInstrumentEnumId="PiCreditCard" paymentGatewayConfigId="TEST_APPROVE"/>
+    </mantle.product.store.ProductStore>
     <!-- add the ProductPriceKS drools rules -->
     <mantle.product.ProductPriceModify priceModifyId="ProductPriceKS" serviceName="mantle.product.PriceServices.run#ProductPriceKS"/>
 
