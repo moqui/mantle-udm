@@ -64,6 +64,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="productStoreId"/></relationship>
         <relationship type="many" related="mantle.product.store.ProductStoreShippingGateway" short-alias="shippingGateways">
             <key-map field-name="productStoreId"/></relationship>
+        <relationship type="many" related="mantle.product.store.ProductStoreShipOption" short-alias="shipOptions">
+            <key-map field-name="productStoreId"/></relationship>
         <relationship type="many" related="mantle.product.store.ProductStoreGroupMember" short-alias="groups">
             <key-map field-name="productStoreId"/></relationship>
 
@@ -208,6 +210,17 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
             <key-map field-name="carrierPartyId"/></relationship>
         <relationship type="one" related="mantle.shipment.carrier.ShippingGatewayConfig" short-alias="config"/>
+    </entity>
+    <entity entity-name="ProductStoreShipOption" package="mantle.product.store">
+        <field name="productStoreId" type="id" is-pk="true"/>
+        <field name="carrierPartyId" type="id" is-pk="true"/>
+        <field name="shipmentMethodEnumId" type="id" is-pk="true"/>
+        <field name="sequenceNum" type="number-integer"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
+            <key-map field-name="carrierPartyId"/></relationship>
+        <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration" short-alias="shipmentMethodEnum">
+            <key-map field-name="shipmentMethodEnumId"/></relationship>
     </entity>
 
     <entity entity-name="ProductStoreGroup" package="mantle.product.store">
