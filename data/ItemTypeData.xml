@@ -18,6 +18,13 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumerationType description="Item Type (Order, Return, Invoice)" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Sales" enumId="ItemSales" enumTypeId="ItemType"/>
+
+    <moqui.basic.Enumeration description="Sales - Product" enumId="ItemProduct" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Sales - Service Product" enumId="ItemServiceProduct" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Sales - Sales Tax" enumId="ItemSalesTax" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Sales - VAT Tax (not added to totals)" enumId="ItemVatTax" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Sales - Shipping and Handling" enumId="ItemShipping" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+
     <moqui.basic.Enumeration description="Sales - Work Effort" enumId="ItemWorkEffort" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Sales - Time Entry" enumId="ItemTimeEntry" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Sales - Rental" enumId="ItemRental" parentEnumId="ItemSales" enumTypeId="ItemType"/>
@@ -26,15 +33,10 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Sales - Donation" enumId="ItemDonation" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Sales - Fee" enumId="ItemFee" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Sales - Miscellaneous Charge" enumId="ItemMiscCharge" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Sales Tax" enumId="ItemSalesTax" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - VAT Tax (not added to totals)" enumId="ItemVatTax" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Shipping and Handling" enumId="ItemShipping" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Sales - Surcharge" enumId="ItemSurcharge" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Sales - Additional Feature" enumId="ItemAddtlFeature" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Sales - Warranty" enumId="ItemWarranty" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Sales - Marketing Package Adjustment" enumId="ItemMkgtPkgAdj" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Product" enumId="ItemProduct" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Service Product" enumId="ItemServiceProduct" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Sales - Third Party" enumId="ItemSalesThirdParty" parentEnumId="ItemSales" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Asset - Inventory" enumId="ItemInventory" enumTypeId="ItemType"/>
@@ -53,6 +55,7 @@ along with this software (see the LICENSE.md file). If not, see
     -->
 
     <moqui.basic.Enumeration description="Expense" enumId="ItemExpense" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+
     <moqui.basic.Enumeration description="Expense - Advertising" enumId="ItemExpAdvertising" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Expense - Charitable Contribution" enumId="ItemExpCharitable" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Expense - Communication Telephone" enumId="ItemExpCommTelephone" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
