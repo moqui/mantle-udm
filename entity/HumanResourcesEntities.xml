@@ -463,6 +463,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="isMedicalTax" type="text-indicator"/>
         <field name="isMedicalTaxable" type="text-indicator"><description>For medical (in USA: Medicare program) taxable
             positive adjustments and deductible negative adjustments.</description></field>
+        <field name="percentageBasisEnumId" type="id"/>
         <field name="taxAuthorityId" type="id"/>
         <field name="taxBox" type="text-short"><description>For tax forms, the alphanumeric box</description></field>
         <field name="taxBoxCode" type="text-short"><description>For tax forms, the code/type</description></field>
@@ -486,6 +487,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
             <key-map field-name="itemTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType" short-alias="timePeriodType"/>
+        <relationship type="one" title="PayrollPercentageBasis" related="moqui.basic.Enumeration">
+            <key-map field-name="percentageBasisEnumId"/></relationship>
         <relationship type="one" related="mantle.other.tax.TaxAuthority" short-alias="taxAuthority"/>
         <relationship type="one" title="Garnish" related="mantle.party.Party" short-alias="garnishParty">
             <key-map field-name="garnishPartyId"/></relationship>
@@ -498,6 +501,17 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="payrollAdjustmentId"/></relationship>
         <relationship type="many" related="mantle.humanres.employment.PayrollAdjustmentStateStts" short-alias="stateStatuses">
             <key-map field-name="payrollAdjustmentId"/></relationship>
+
+        <seed-data>
+            <!-- Payroll Allowance Amount Type -->
+            <moqui.basic.EnumerationType description="Payroll Percentage Basis" enumTypeId="PayrollPercentageBasis"/>
+            <moqui.basic.Enumeration description="Income Taxable" enumId="PpbsIncome" enumTypeId="PayrollPercentageBasis"/>
+            <moqui.basic.Enumeration description="Social Taxable" enumId="PpbsSocial" enumTypeId="PayrollPercentageBasis"/>
+            <moqui.basic.Enumeration description="Medical Taxable" enumId="PpbsMedical" enumTypeId="PayrollPercentageBasis"/>
+            <moqui.basic.Enumeration description="Gross" enumId="PpbsGross" enumTypeId="PayrollPercentageBasis"/><!-- default -->
+            <moqui.basic.Enumeration description="Straight Time Gross" enumId="PpbsStraightGross" enumTypeId="PayrollPercentageBasis"/>
+            <moqui.basic.Enumeration description="Hours Worked" enumId="PpbsHours" enumTypeId="PayrollPercentageBasis"/>
+        </seed-data>
     </entity>
     <entity entity-name="PayrollAdjustmentDetail" package="mantle.humanres.employment" use="configuration">
         <field name="payrollAdjustmentId" type="id" is-pk="true"/>
