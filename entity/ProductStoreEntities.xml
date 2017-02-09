@@ -26,6 +26,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="reservationOrderEnumId" type="id"/>
         <field name="requirementMethodEnumId" type="id"/>
 
+        <field name="storeDomain" type="text-short"/>
+        <field name="profileUrlPath" type="text-medium"/>
         <field name="wikiSpaceId" type="id"/>
         <field name="defaultLocale" type="text-short"/>
         <field name="defaultCurrencyUomId" type="id"/>
@@ -61,6 +63,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.product.store.ProductStorePaymentGateway" short-alias="paymentGateways">
             <key-map field-name="productStoreId"/></relationship>
         <relationship type="many" related="mantle.product.store.ProductStoreShippingGateway" short-alias="shippingGateways">
+            <key-map field-name="productStoreId"/></relationship>
+        <relationship type="many" related="mantle.product.store.ProductStoreShipOption" short-alias="shipOptions">
             <key-map field-name="productStoreId"/></relationship>
         <relationship type="many" related="mantle.product.store.ProductStoreGroupMember" short-alias="groups">
             <key-map field-name="productStoreId"/></relationship>
@@ -140,6 +144,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
         <field name="emailTemplateId" type="id"/>
+        <field name="headerImagePath" type="text-medium"/>
+        <field name="detailLinkPath" type="text-medium"/>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" title="ProductStoreEmailType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="emailTypeEnumId"/></relationship>
@@ -148,6 +154,8 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Product Store Email Type -->
             <moqui.basic.EnumerationType description="Product Store Email Notification Type" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Registration" enumId="PsetRegistration" enumTypeId="ProductStoreEmailType"/>
+            <moqui.basic.Enumeration description="Order Quote Requested" enumId="PsetOrderRequested" enumTypeId="ProductStoreEmailType"/>
+            <moqui.basic.Enumeration description="Order Quote Proposed" enumId="PsetOrderProposed" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Order Placed" enumId="PsetOrderPlaced" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Order Approved" enumId="PsetOrderApproved" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Order Complete" enumId="PsetOrderComplete" enumTypeId="ProductStoreEmailType"/>
@@ -161,8 +169,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Tell-A-Friend" enumId="PsetTellAFriend" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Gift Card Purchase" enumId="PsetGiftCardPurchase" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Gift Card Reload" enumId="PsetGiftCardReload" enumTypeId="ProductStoreEmailType"/>
-            <moqui.basic.Enumeration description="Quote Created" enumId="PsetQuoteCreated" enumTypeId="ProductStoreEmailType"/>
-            <moqui.basic.Enumeration description="Quote Confirmation" enumId="PsetQuoteConfirmation" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Shipment Shipped" enumId="PsetShipmentShipped" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Shipment Delivered" enumId="PsetShipmentDelivered" enumTypeId="ProductStoreEmailType"/>
         </seed-data>
@@ -204,6 +210,17 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
             <key-map field-name="carrierPartyId"/></relationship>
         <relationship type="one" related="mantle.shipment.carrier.ShippingGatewayConfig" short-alias="config"/>
+    </entity>
+    <entity entity-name="ProductStoreShipOption" package="mantle.product.store">
+        <field name="productStoreId" type="id" is-pk="true"/>
+        <field name="carrierPartyId" type="id" is-pk="true"/>
+        <field name="shipmentMethodEnumId" type="id" is-pk="true"/>
+        <field name="sequenceNum" type="number-integer"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
+            <key-map field-name="carrierPartyId"/></relationship>
+        <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration" short-alias="shipmentMethodEnum">
+            <key-map field-name="shipmentMethodEnumId"/></relationship>
     </entity>
 
     <entity entity-name="ProductStoreGroup" package="mantle.product.store">

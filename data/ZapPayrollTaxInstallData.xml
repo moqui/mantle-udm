@@ -36,10 +36,10 @@ along with this software (see the LICENSE.md file). If not, see
     -->
 
     <mantle.party.Party partyId="UsaIrs" partyTypeEnumId="PtyOrganization">
-        <mantle.party.Organization organizationName="USA Internal Revenue Service"/>
-        <mantle.party.PartyRole roleTypeId="OrgTaxAuthority"/>
+        <organization organizationName="USA Internal Revenue Service"/>
+        <roles roleTypeId="OrgTaxAuthority"/>
         <mantle.party.contact.ContactMech contactMechId="UsaIrs_PTN" contactMechTypeEnumId="CmtTelecomNumber">
-            <mantle.party.contact.TelecomNumber countryCode="1" areaCode="800" contactNumber="555-3453"/>
+            <telecomNumber countryCode="1" areaCode="800" contactNumber="555-3453"/>
             <mantle.party.contact.PartyContactMech contactMechPurposeId="PhonePayment"/>
         </mantle.party.contact.ContactMech>
         <mantle.party.contact.ContactMech contactMechId="UsaIrs_PWS" contactMechTypeEnumId="CmtWebAddress"

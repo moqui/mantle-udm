@@ -44,6 +44,13 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="orderContentTypeEnumId"/></relationship>
         <relationship type="one" related="moqui.security.UserAccount"/>
     </entity>
+    <entity entity-name="OrderEmailMessage" package="mantle.order" cache="never">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="emailMessageId" type="id" is-pk="true"/>
+        <field name="orderRevision" type="number-integer"/>
+        <relationship type="one" related="mantle.order.OrderHeader"/>
+        <relationship type="one" related="moqui.basic.email.EmailMessage"/>
+    </entity>
     <entity entity-name="OrderHeader" package="mantle.order" short-alias="orders" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
 
@@ -294,10 +301,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="exemptAmount" type="currency-amount"><description>An amount that would normally apply, but not to
             this order; for tax exemption represents the what the tax would have been.</description></field>
         <field name="customerReferenceId" type="text-short"><description>For tax entries this is partyTaxId</description></field>
-        <field name="primaryGeoId" type="id"><description>For tax entries this is the primary jurisdiction Geo (the
-            smallest or most local Geo that this tax is for, usually a state/province, perhaps a county or a city)</description></field>
-        <field name="secondaryGeoId" type="id"><description>For tax entries this is the secondary jurisdiction Geo
-            (usually a country, or other Geo that the primary is within)</description></field>
+        <field name="taxAuthorityId" type="id"/>
 
         <relationship type="one" related="mantle.order.OrderHeader" short-alias="header"/>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemType">
@@ -324,11 +328,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Override" related="mantle.ledger.account.GlAccount" short-alias="overrideGlAccount">
             <key-map field-name="overrideGlAccountId"/></relationship>
         <relationship type="one" related="SalesOpportunity" short-alias="opportunity"/>
-
-        <relationship type="one" title="Primary" related="moqui.basic.Geo" short-alias="primaryGeo">
-            <key-map field-name="primaryGeoId"/></relationship>
-        <relationship type="one" title="Secondary" related="moqui.basic.Geo" short-alias="secondaryGeo">
-            <key-map field-name="secondaryGeoId"/></relationship>
+        <relationship type="one" related="mantle.other.tax.TaxAuthority"/>
 
         <relationship type="many" related="mantle.product.issuance.AssetReservation" short-alias="reservations">
             <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
