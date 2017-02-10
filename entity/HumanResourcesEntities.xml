@@ -624,13 +624,13 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Override" related="mantle.ledger.account.GlAccount">
             <key-map field-name="overrideGlAccountId"/></relationship>
     </entity>
-    <entity entity-name="WorkTypeTaxCode" package="mantle.humanres.employment" use="configuration">
+    <entity entity-name="WorkTypeRiskClass" package="mantle.humanres.employment" use="configuration">
         <field name="taxAuthorityId" type="id" is-pk="true"/>
         <field name="workTypeEnumId" type="id" is-pk="true"/>
-        <field name="workCode" type="text-short"/>
-        <relationship type="one" related="mantle.other.tax.TaxAuthority"/>
-        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration">
+        <field name="riskClassCode" type="text-short"/>
+        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workTypeEnum">
             <key-map field-name="workTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.other.tax.TaxAuthority" short-alias="taxAuthority"/>
     </entity>
 
     <!-- ========================================================= -->
