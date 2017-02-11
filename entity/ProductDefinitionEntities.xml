@@ -256,7 +256,7 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
     <entity entity-name="ProductContent" package="mantle.product">
         <field name="productContentId" type="id" is-pk="true"/>
-        <field name="productId" type="id"/>
+        <field name="productId" type="id" not-null="true"/>
         <field name="contentLocation" type="text-medium"/>
         <field name="productContentTypeEnumId" type="id"/>
         <field name="locale" type="text-short"/>
