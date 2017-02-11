@@ -285,6 +285,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productPriceId" type="id"/>
         <field name="productCategoryId" type="id"/>
         <field name="isPromo" type="text-indicator"/>
+        <field name="promoQuantity" type="number-decimal"/>
 
         <field name="subscriptionId" type="id"/>
         <field name="overrideGlAccountId" type="id"><description>Used to specify the override or actual glAccountId
