@@ -26,9 +26,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="reservationOrderEnumId" type="id"/>
         <field name="requirementMethodEnumId" type="id"/>
 
-        <field name="storeDomain" type="text-short"/>
-        <field name="profileUrlPath" type="text-medium"/>
-        <field name="wikiSpaceId" type="id"/>
+        <field name="storeDomain" type="text-short"><description>Store domain for use in emails</description></field>
+        <field name="profileUrlPath" type="text-medium"><description>Path to profile page for use in emails</description></field>
+        <field name="wikiSpaceId" type="id"><description>For a WikiSpace mounted as content</description></field>
+
         <field name="defaultLocale" type="text-short"/>
         <field name="defaultCurrencyUomId" type="id"/>
         <field name="defaultSalesChannelEnumId" type="id"/>
