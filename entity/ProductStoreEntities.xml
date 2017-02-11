@@ -26,9 +26,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="reservationOrderEnumId" type="id"/>
         <field name="requirementMethodEnumId" type="id"/>
 
-        <field name="storeDomain" type="text-short"/>
-        <field name="profileUrlPath" type="text-medium"/>
-        <field name="wikiSpaceId" type="id"/>
+        <field name="storeDomain" type="text-short"><description>Store domain for use in emails</description></field>
+        <field name="profileUrlPath" type="text-medium"><description>Path to profile page for use in emails</description></field>
+        <field name="wikiSpaceId" type="id"><description>For a WikiSpace mounted as content</description></field>
+
         <field name="defaultLocale" type="text-short"/>
         <field name="defaultCurrencyUomId" type="id"/>
         <field name="defaultSalesChannelEnumId" type="id"/>
@@ -201,6 +202,25 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="PaymentInstrument" related="moqui.basic.Enumeration" short-alias="paymentInstrument">
             <key-map field-name="paymentInstrumentEnumId"/></relationship>
         <relationship type="one" related="mantle.account.method.PaymentGatewayConfig" short-alias="config"/>
+    </entity>
+    <entity entity-name="ProductStorePromotion" package="mantle.product.store" use="configuration" cache="true">
+        <field name="storePromotionId" type="id" is-pk="true"/>
+        <field name="productStoreId" type="id" not-null="true"/>
+        <field name="itemDescription" type="text-medium"><description>Description for the OrderItem (itemDescription), promo service
+            should run this through ResourceFacade.expand() with parameters depending on the promo service</description></field>
+        <field name="serviceRegisterId" type="id" not-null="true"><description>Registered Service of type ProductStorePromotion that implements the
+            mantle.product.StoreServices.apply#Promotion interface</description></field>
+        <field name="sequenceNum" type="number-integer"/>
+        <relationship type="one" related="moqui.service.ServiceRegister" short-alias="serviceRegister"/>
+        <relationship type="many" related="mantle.product.store.ProductStorePromoParameter" short-alias="parameters">
+            <key-map field-name="storePromotionId"/></relationship>
+        <seed-data><moqui.basic.Enumeration description="Product Store Promotion" enumId="ProductStorePromotion" enumTypeId="ServiceRegisterType"/></seed-data>
+    </entity>
+    <entity entity-name="ProductStorePromoParameter" package="mantle.product.store" use="configuration" cache="true">
+        <field name="storePromotionId" type="id" is-pk="true"/>
+        <field name="parameterName" type="text-short" is-pk="true"/>
+        <field name="parameterValue" type="text-medium"/>
+        <relationship type="one" related="mantle.product.store.ProductStorePromotion" short-alias="storePromotion"/>
     </entity>
     <entity entity-name="ProductStoreShippingGateway" package="mantle.product.store">
         <field name="productStoreId" type="id" is-pk="true"/>

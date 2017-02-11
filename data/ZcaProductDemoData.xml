@@ -101,7 +101,7 @@ along with this software (see the LICENSE.md file). If not, see
         <paymentGateways paymentInstrumentEnumId="PiCreditCard" paymentGatewayConfigId="TEST_APPROVE"/>
     </mantle.product.store.ProductStore>
     <!-- add the ProductPriceKS drools rules -->
-    <mantle.product.ProductPriceModify priceModifyId="ProductPriceKS" serviceName="mantle.product.PriceServices.run#ProductPriceKS"/>
+    <mantle.product.ProductPriceModify priceModifyId="ProductPriceKS" serviceRegisterId="ProductPriceKS"/>
 
     <!-- Default Home Page and Root Browse Categories -->
     <mantle.product.category.ProductCategory productCategoryId="PopcHome" productCategoryTypeEnumId="PctCatalog"

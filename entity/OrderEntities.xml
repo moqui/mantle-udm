@@ -282,11 +282,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="externalItemSeqId" type="id"/>
         <field name="fromAssetId" type="id"><description>Order for a particular Asset, not just any associated with
             the Product.</description></field>
-        <field name="budgetId" type="id"/>
-        <field name="budgetItemSeqId" type="id"/>
         <field name="productPriceId" type="id"/>
         <field name="productCategoryId" type="id"/>
         <field name="isPromo" type="text-indicator"/>
+        <field name="promoQuantity" type="number-decimal"/>
 
         <field name="subscriptionId" type="id"/>
         <field name="overrideGlAccountId" type="id"><description>Used to specify the override or actual glAccountId
@@ -295,7 +294,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <!-- these fields are for sales/VAT/etc tax items -->
         <field name="sourceReferenceId" type="text-short"/>
-        <field name="sourcePercentage" type="number-decimal"><description>For tax entries this is the tax percentage</description></field>
+        <field name="sourcePercentage" type="number-decimal"><description>The percentage used for tax, promo, etc items</description></field>
         <field name="amountAlreadyIncluded" type="currency-precise"><description>The amount here is already represented
             in the item price, such as VAT taxes.</description></field>
         <field name="exemptAmount" type="currency-amount"><description>An amount that would normally apply, but not to

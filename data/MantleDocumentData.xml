@@ -89,7 +89,8 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- ========== Product ========== -->
     <dataDocuments dataDocumentId="MantleProduct" indexName="mantle" documentName="Product"
-            primaryEntityName="mantle.product.Product" documentTitle="ProductNameTemplate">
+            primaryEntityName="mantle.product.Product" documentTitle="ProductNameTemplate"
+            manualDataServiceName="mantle.product.ProductServices.get#ProductManualDocumentData">
         <fields fieldPath="productId"/>
         <fields fieldPath="pseudoId"/>
         <fields fieldPath="productName" fieldNameAlias="name"/>

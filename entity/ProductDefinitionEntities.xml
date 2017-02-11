@@ -256,7 +256,7 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
     <entity entity-name="ProductContent" package="mantle.product">
         <field name="productContentId" type="id" is-pk="true"/>
-        <field name="productId" type="id"/>
+        <field name="productId" type="id" not-null="true"/>
         <field name="contentLocation" type="text-medium"/>
         <field name="productContentTypeEnumId" type="id"/>
         <field name="locale" type="text-short"/>
@@ -498,10 +498,21 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="SpoAlternate" sequenceNum="2" description="Alternate Supplier" enumTypeId="SupplierPreferredOrder"/>
         </seed-data>
     </entity>
-    <entity entity-name="ProductPriceModify" package="mantle.product">
+    <entity entity-name="ProductPriceModify" package="mantle.product" use="configuration" cache="true">
         <field name="priceModifyId" type="id" is-pk="true"/>
-        <field name="serviceName" type="text-medium"><description>Service that implements the mantle.product.PriceServices.modify#ProductPrice interface</description></field>
-        <field name="configData" type="text-long"><description>Groovy expression that evaluates to a Map and is passed to the service</description></field>
+        <field name="serviceRegisterId" type="id" not-null="true"><description>Registered Service of type ProductPriceModify that implements the
+            mantle.product.PriceServices.modify#ProductPrice interface</description></field>
+        <field name="sequenceNum" type="number-integer"/>
+        <relationship type="one" related="moqui.service.ServiceRegister" short-alias="serviceRegister"/>
+        <relationship type="many" related="mantle.product.ProductPriceModifyParameter" short-alias="parameters">
+            <key-map field-name="priceModifyId"/></relationship>
+        <seed-data><moqui.basic.Enumeration description="Product Price Modify" enumId="ProductPriceModify" enumTypeId="ServiceRegisterType"/></seed-data>
+    </entity>
+    <entity entity-name="ProductPriceModifyParameter" package="mantle.product" use="configuration" cache="true">
+        <field name="priceModifyId" type="id" is-pk="true"/>
+        <field name="parameterName" type="text-short" is-pk="true"/>
+        <field name="parameterValue" type="text-medium"/>
+        <relationship type="one" related="mantle.product.ProductPriceModify" short-alias="priceModify"/>
     </entity>
     <entity entity-name="ProductReview" package="mantle.product" cache="never">
         <field name="productReviewId" type="id" is-pk="true"/>
