@@ -517,10 +517,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="payrollAdjustmentId" type="id" is-pk="true"/>
         <field name="detailSeqId" type="id" is-pk="true"/>
         <field name="rate" type="number-float"/>
-        <field name="percAfterYtdMin" type="text-indicator"/>
+        <field name="rateAfterYtdMin" type="text-indicator"/>
         <field name="ytdMin" type="currency-amount"/>
         <field name="ytdMax" type="currency-amount"/>
-        <field name="percAfterPeriodMin" type="text-indicator"/>
+        <field name="rateAfterPeriodMin" type="text-indicator"/>
         <field name="periodMin" type="currency-amount"/>
         <field name="periodMax" type="currency-amount"/>
         <field name="flatAmount" type="currency-amount"/>
