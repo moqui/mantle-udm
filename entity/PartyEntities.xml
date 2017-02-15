@@ -397,7 +397,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="PartyNote" package="mantle.party">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="noteDate" type="date-time" is-pk="true" default="ec.user.nowTimestamp"/>
-        <field name="noteText" type="text-very-long" enable-audit-log="true"/>
+        <field name="noteText" type="text-long" enable-audit-log="true"/>
         <field name="internalNote" type="text-indicator"/>
         <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related="mantle.party.Party"/>
@@ -413,12 +413,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
-        <field name="priorityTypeEnumId" type="id"/>
-        <field name="permissionsEnumId" type="id"/>
+        <!-- not used: <field name="priorityTypeEnumId" type="id"/> -->
+        <!-- not used: <field name="permissionsEnumId" type="id"/> -->
         <field name="comments" type="text-medium"/>
         <field name="relationshipName" type="text-medium">
             <description>Official name of relationship, such as title in an organization.</description>
         </field>
+        <relationship type="one" title="PartyRelationshipType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="relationshipTypeEnumId"/></relationship>
         <relationship type="one" title="From" related="mantle.party.Party" short-alias="fromParty">
             <key-map field-name="fromPartyId"/></relationship>
         <relationship type="one" title="From" related="mantle.party.RoleType" short-alias="fromRole">
@@ -428,10 +430,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="To" related="mantle.party.RoleType" short-alias="toRole">
             <key-map field-name="toRoleTypeId"/></relationship>
         <relationship type="one" title="PartyRelationship" related="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="one" title="PriorityType" related="moqui.basic.Enumeration" short-alias="priorityType">
-            <key-map field-name="priorityTypeEnumId"/></relationship>
-        <relationship type="one" title="PartyRelationshipType" related="moqui.basic.Enumeration" short-alias="type">
-            <key-map field-name="relationshipTypeEnumId"/></relationship>
+        <!-- not used: <relationship type="one" title="PriorityType" related="moqui.basic.Enumeration" short-alias="priorityType">
+            <key-map field-name="priorityTypeEnumId"/></relationship> -->
         <seed-data>
             <!-- NOTE: The partyRelationshipTypeEnumId describes the FROM Party, ie Joe is a customer of ACME, so Joe
                 is the fromPartyId (fromRoleTypeId=Customer) and ACME is the toPartyId (toRoleTypeId=OrgInternal); for
