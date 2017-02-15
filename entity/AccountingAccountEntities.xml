@@ -647,6 +647,9 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Net Due on 15th of Next Month" termValue="15"/>
             <mantle.account.invoice.SettlementTerm settlementTermId="NetLastNext" termTypeEnumId="TtFinPaymentDayNextMonth"
                     description="Net Due on Last Day of Next Month" termValue="31"/>
+
+            <mantle.account.invoice.SettlementTerm settlementTermId="Net45Disc2Pct15" termTypeEnumId="TtFinPaymentDisc"
+                    description="Net Due in 45 Days, 2% Discount within 15 Days" termValue="30" termValueUomId="TF_day"/>
         </seed-data>
     </entity>
 
