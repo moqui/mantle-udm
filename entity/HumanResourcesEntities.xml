@@ -503,7 +503,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="payrollAdjustmentId"/></relationship>
 
         <seed-data>
-            <!-- Payroll Allowance Amount Type -->
+            <!-- Payroll Percentage Basis -->
             <moqui.basic.EnumerationType description="Payroll Percentage Basis" enumTypeId="PayrollPercentageBasis"/>
             <moqui.basic.Enumeration description="Income Taxable" enumId="PpbsIncome" enumTypeId="PayrollPercentageBasis"/>
             <moqui.basic.Enumeration description="Social Taxable" enumId="PpbsSocial" enumTypeId="PayrollPercentageBasis"/>
@@ -524,6 +524,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="periodMin" type="currency-amount"/>
         <field name="periodMax" type="currency-amount"/>
         <field name="flatAmount" type="currency-amount"/>
+        <field name="riskClassCode" type="text-short"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment"/>
     </entity>
     <entity entity-name="PayrollAdjustmentExempt" package="mantle.humanres.employment" use="configuration">
