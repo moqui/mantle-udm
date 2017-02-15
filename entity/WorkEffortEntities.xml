@@ -646,21 +646,26 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="TimeEntry" package="mantle.work.time" short-alias="timeEntries" cache="never">
         <field name="timeEntryId" type="id" is-pk="true"/>
         <field name="timesheetId" type="id"/>
-        <field name="partyId" type="id"/>
+        <field name="partyId" type="id"><description>The party performing work (worker, may be the vendor or work for the vendor)</description></field>
         <field name="clientPartyId" type="id"><description>Should always be set, may get through timesheetId or workEffortId</description></field>
         <field name="rateTypeEnumId" type="id"/>
         <field name="workTypeEnumId" type="id"/>
         <field name="emplPositionClassId" type="id"/>
-        <field name="rateAmountId" type="id"/>
-        <field name="vendorRateAmountId" type="id"/>
+        <field name="hasModifiedRates" type="text-indicator"><description>Set to Y when *Rate fields are manually set and not from RateAmount lookups</description></field>
+        <field name="rateAmountId" type="id"><description>Client/customer hourly RateAmount reference</description></field>
+        <field name="clientHourRate" type="number-decimal"/>
+        <field name="vendorRateAmountId" type="id"><description>Vendor/worker hourly RateAmount reference</description></field>
+        <field name="vendorHourRate" type="number-decimal"/>
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
         <field name="hours" type="number-decimal"/>
         <field name="breakHours" type="number-decimal"/>
         <field name="pieceCount" type="number-decimal"/>
         <field name="pieceRateTypeEnumId" type="id"/>
-        <field name="pieceRateAmountId" type="id"/>
-        <field name="vendorPieceRateAmountId" type="id"/>
+        <field name="pieceRateAmountId" type="id"><description>Client/customer piece RateAmount reference</description></field>
+        <field name="clientPieceRate" type="number-decimal"/>
+        <field name="vendorPieceRateAmountId" type="id"><description>Vendor/worker piece RateAmount reference</description></field>
+        <field name="vendorPieceRate" type="number-decimal"/>
         <field name="comments" type="text-long"/>
         <field name="workEffortId" type="id"/>
         <field name="invoiceId" type="id"/>
