@@ -625,17 +625,16 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="overrideGlAccountId"/></relationship>
     </entity>
     <entity entity-name="WorkTypeRiskClass" package="mantle.humanres.employment" use="configuration">
-        <field name="taxAuthorityId" type="id" is-pk="true"/>
+        <field name="stateGeoId" type="id" is-pk="true"/>
         <field name="workTypeEnumId" type="id" is-pk="true"/>
-        <field name="riskClassEnumId" type="id"/>
-        <relationship type="one" related="mantle.other.tax.TaxAuthority" short-alias="taxAuthority"/>
+        <field name="riskClassCode" type="text-short"/>
         <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workTypeEnum">
             <key-map field-name="workTypeEnumId"/></relationship>
-        <relationship type="one" title="RiskClass" related="moqui.basic.Enumeration" short-alias="riskClassEnum">
-            <key-map field-name="riskClassEnumId"/></relationship>
-        <seed-data>
-            <moqui.basic.EnumerationType description="Risk Class" enumTypeId="RiskClass"/>
-        </seed-data>
+        <relationship type="one" title="State" related="moqui.basic.Geo">
+            <key-map field-name="stateGeoId"/></relationship>
+    </entity>
+    <entity entity-name="" package="mantle.humanres.employment">
+        <field name="" type=""></field>
     </entity>
 
     <!-- ========================================================= -->
