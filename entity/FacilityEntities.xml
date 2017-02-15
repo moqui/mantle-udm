@@ -34,6 +34,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="description" type="text-medium"/>
         <field name="geoId" type="id"><description>A geographic boundary describing the area of the facility (not a geographic boundary like a state that the facility is in).</description></field>
         <field name="geoPointId" type="id"/>
+        <field name="countyGeoId" type="id"/>
+        <field name="stateGeoId" type="id"/>
         <field name="assetAllowOtherOwner" type="text-indicator"/>
         <field name="defaultDaysToShip" type="number-integer"/>
         <relationship type="one" title="FacilityType" related="moqui.basic.Enumeration" short-alias="type">
@@ -51,6 +53,10 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="facilitySizeUomId"/></relationship>
         <relationship type="one" related="moqui.basic.Geo" short-alias="geo"/>
         <relationship type="one" related="moqui.basic.GeoPoint" short-alias="geoPoint"/>
+        <relationship type="one" title="County" related="moqui.basic.Geo">
+            <key-map field-name="countyGeoId"/></relationship>
+        <relationship type="one" title="State" related="moqui.basic.Geo">
+            <key-map field-name="stateGeoId"/></relationship>
 
         <relationship type="many" related="mantle.facility.FacilityCertification" short-alias="certifications">
             <key-map field-name="facilityId"/></relationship>

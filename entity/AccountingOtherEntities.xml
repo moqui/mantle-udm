@@ -173,7 +173,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========================================================= -->
 
     <entity entity-name="TaxAuthority" package="mantle.other.tax">
-        <description>For any type of tax authority (sales, VAT, income, etc)</description>
+        <description>For tax and other government authorities in any domain (sales/VAT, income, labor, etc)</description>
         <field name="taxAuthorityId" type="id" is-pk="true"/>
         <field name="taxAuthorityTypeEnumId" type="id"/>
         <field name="description" type="text-medium"/>
@@ -192,7 +192,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Tax Authority Type" enumTypeId="TaxAuthorityType"/>
             <moqui.basic.Enumeration enumId="TatFederal" description="Federal/Country" enumTypeId="TaxAuthorityType"/>
             <moqui.basic.Enumeration enumId="TatState" description="State/Province" enumTypeId="TaxAuthorityType"/>
-            <moqui.basic.Enumeration enumId="TatLocal" description="Local" enumTypeId="TaxAuthorityType"/>
+            <moqui.basic.Enumeration enumId="TatCounty" description="County/Parish/Borough" enumTypeId="TaxAuthorityType"/>
+            <moqui.basic.Enumeration enumId="TatCity" description="City" enumTypeId="TaxAuthorityType"/>
+            <!-- use TatCounty or TatCity instead: <moqui.basic.Enumeration enumId="TatLocal" description="Local" enumTypeId="TaxAuthorityType"/> -->
         </seed-data>
     </entity>
     <entity entity-name="TaxAuthorityAssoc" package="mantle.other.tax">
