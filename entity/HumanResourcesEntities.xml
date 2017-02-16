@@ -634,9 +634,6 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="State" related="moqui.basic.Geo">
             <key-map field-name="stateGeoId"/></relationship>
     </entity>
-    <entity entity-name="" package="mantle.humanres.employment">
-        <field name="" type=""></field>
-    </entity>
 
     <!-- ========================================================= -->
     <!-- mantle.humanres.position -->
