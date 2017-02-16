@@ -530,8 +530,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="workEffortId" type="id"/>
         <field name="facilityId" type="id"/>
         <field name="assetMaintenanceId" type="id"/>
+        <field name="issuedByUserId" type="id"/>
         <field name="issuedDate" type="date-time"/>
-        <field name="quantity" type="number-decimal" enable-audit-log="true"/>
+        <field name="quantity" type="number-decimal" enable-audit-log="update"/>
         <field name="quantityCancelled" type="number-decimal"/>
         <field name="acctgTransResultEnumId" type="id"/>
         <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
@@ -548,6 +549,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.maintenance.AssetMaintenance" short-alias="assetMaintenance"/>
         <relationship type="many" related="mantle.work.effort.WorkEffortProduct" short-alias="workEffortProducts">
             <key-map field-name="workEffortId"/><key-map field-name="productId"/></relationship>
+        <relationship type="one" title="IssuedBy" related="moqui.security.UserAccount" short-alias="issuedByUserAccount">
+            <key-map field-name="issuedByUserId"/></relationship>
         <relationship type="one" title="AcctgTransResult" related="moqui.basic.Enumeration" short-alias="acctgTransResult">
             <key-map field-name="acctgTransResultEnumId"/></relationship>
     </entity>
@@ -830,8 +833,10 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <moqui.basic.EnumerationType description="Rejection Reason" enumTypeId="RejectionReason"/>
             <moqui.basic.Enumeration enumId="ArjDamaged" description="Damaged" enumTypeId="RejectionReason"/>
+            <moqui.basic.Enumeration enumId="ArjLost" description="Lost in Transit" enumTypeId="RejectionReason"/>
             <moqui.basic.Enumeration enumId="ArjNotOrdered" description="Not Ordered" enumTypeId="RejectionReason"/>
             <moqui.basic.Enumeration enumId="ArjOverShipped" description="Over Shipped" enumTypeId="RejectionReason"/>
+            <moqui.basic.Enumeration enumId="ArjNotToSpec" description="Not to Specification" enumTypeId="RejectionReason"/>
         </seed-data>
     </entity>
 
