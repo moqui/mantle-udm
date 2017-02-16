@@ -107,7 +107,6 @@ along with this software (see the LICENSE.md file). If not, see
                 </detail>
                 <detail relationship="toRole"/>
                 <detail relationship="status"/>
-                <detail relationship="priorityType"/>
                 <detail relationship="type"/>
             </detail>
             <detail relationship="toRelationships">
