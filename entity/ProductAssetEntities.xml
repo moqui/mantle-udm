@@ -483,7 +483,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="PhysicalInventory" package="mantle.product.asset" cache="never">
         <field name="physicalInventoryId" type="id" is-pk="true"/>
         <field name="physicalInventoryDate" type="date-time"/>
-        <field name="statusId" type="id" default="PIPlanning" enable-audit-log="true"/>
+        <field name="statusId" type="id" default="PIInPlanning" enable-audit-log="true"/>
         <field name="partyId" type="id"/>
         <field name="comments" type="text-long"/>
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
