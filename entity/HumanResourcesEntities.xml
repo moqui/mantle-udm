@@ -464,6 +464,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="isMedicalTaxable" type="text-indicator"><description>For medical (in USA: Medicare program) taxable
             positive adjustments and deductible negative adjustments.</description></field>
         <field name="rateBasisEnumId" type="id"/>
+        <field name="riskClassCode" type="text-short"/>
         <field name="taxAuthorityId" type="id"/>
         <field name="taxBox" type="text-short"><description>For tax forms, the alphanumeric box</description></field>
         <field name="taxBoxCode" type="text-short"><description>For tax forms, the code/type</description></field>
@@ -524,7 +525,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="periodMin" type="currency-amount"/>
         <field name="periodMax" type="currency-amount"/>
         <field name="flatAmount" type="currency-amount"/>
-        <field name="riskClassCode" type="text-short"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment"/>
     </entity>
     <entity entity-name="PayrollAdjustmentExempt" package="mantle.humanres.employment" use="configuration">
