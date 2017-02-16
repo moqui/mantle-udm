@@ -919,9 +919,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="cardNumber" type="text-medium" encrypt="true"/>
         <field name="cardNumberLookupHash" type="text-medium"><description>A one-way hash (SHA, etc) of the cardNumber
             used for looking up a credit card by its number in a secure way.</description></field>
-        <field name="validFromDate" type="text-short"><description>Not common in some parts of the world.</description></field>
+        <field name="validFromDate" type="text-short"><description>Not common but used in some parts of the world</description></field>
         <field name="expireDate" type="text-short"><description>String representing the date in the format: MM/yyyy</description></field>
-        <field name="issueNumber" type="text-short"><description>Single digit number on some Switch and Maestro cards.</description></field>
+        <field name="issueNumber" type="text-short"><description>Single digit number on some Switch and Maestro cards</description></field>
         <field name="cardSecurityCode" type="text-medium" encrypt="true"><description>CVV/etc number for card.
             By PCI rules can only be recorded until authorization is complete, after that must be deleted.
             Set the mantle.account.PaymentServices.authorize#SinglePayment service for where this is done.</description></field>
