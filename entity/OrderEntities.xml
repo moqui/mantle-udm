@@ -74,7 +74,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="visitId" type="id"/>
         <field name="enteredByPartyId" type="id"/>
         <field name="parentOrderId" type="id"/>
-        <field name="recurrenceInfoId" type="id"><!-- TODO: replace this with something else to configure the recurrence pattern for auto reorder --></field>
+        <!-- <field name="recurrenceInfoId" type="id"/> TODO: replace this with something else to configure the recurrence pattern for auto reorder -->
         <field name="lastOrderedDate" type="date-time"/>
 
         <field name="remainingSubTotal" type="currency-amount"/>
