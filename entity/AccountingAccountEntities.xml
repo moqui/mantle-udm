@@ -357,12 +357,13 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- Invoice Status -->
             <moqui.basic.StatusType description="Invoice Status" statusTypeId="Invoice"/>
+            <!-- Outgoing Invoices -->
             <moqui.basic.StatusItem description="In-Process" sequenceNum="1" statusId="InvoiceInProcess" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Finalized" sequenceNum="2" statusId="InvoiceFinalized" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Sent" sequenceNum="3" statusId="InvoiceSent" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Payment Received" sequenceNum="4" statusId="InvoicePmtRecvd" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Write Off" sequenceNum="9" statusId="InvoiceWriteOff" statusTypeId="Invoice"/>
-
+            <!-- Incoming Invoices -->
             <moqui.basic.StatusItem description="Incoming" sequenceNum="10" statusId="InvoiceIncoming" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Received" sequenceNum="11" statusId="InvoiceReceived" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Approved" sequenceNum="12" statusId="InvoiceApproved" statusTypeId="Invoice"/>
@@ -553,8 +554,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="invoiceId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
-        <field name="datetimePerformed" type="date-time"/>
-        <field name="percentage" type="number-decimal"/>
         <relationship type="one" related="mantle.account.invoice.Invoice"/>
         <relationship type="one" related="mantle.party.Party"/>
         <relationship type="one" related="mantle.party.RoleType"/>
