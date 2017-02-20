@@ -886,7 +886,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="AttInventoryReceipt" description="Inventory Receipt" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttInventoryIssuance" description="Inventory Issuance" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttInventoryVariance" description="Inventory Variance" enumTypeId="AcctgTransType"/>
-            <moqui.basic.Enumeration enumId="AttPeriodClosing" description="Period Closing" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttPeriodClosing" description="Period Closing Adjustment" enumTypeId="AcctgTransType"/>
 
             <moqui.basic.Enumeration enumId="AttInternal" description="Internal" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttExternal" description="External" enumTypeId="AcctgTransType"/>

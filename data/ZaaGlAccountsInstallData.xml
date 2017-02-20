@@ -366,10 +366,12 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- SALES TAX COLLECTED -->
     <mantle.ledger.account.GlAccount accountName="SALES TAX COLLECTED" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="224000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="220000000"/>
+    <!-- better not to have any region or tax authority specific accounts, report on that elsewhere
     <mantle.ledger.account.GlAccount accountName="SALES TAX COLLECTED USA" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="224100000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="224000000"/>
     <mantle.ledger.account.GlAccount accountName="SALES TAX COLLECTED CANADA" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="224200000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="224000000"/>
+    -->
 
     <mantle.ledger.account.GlAccount accountName="ACCRUED USE TAX" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="225000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="220000000"/>
@@ -453,59 +455,64 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="300000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="" disallowPosting="Y"/>
 
     <!-- 310000 OWNERS EQUITY - SOLE PROPRIETORSHIP -->
-    <mantle.ledger.account.GlAccount accountName="CAPITAL" description="" glAccountClassEnumId="OWNERS_EQUITY"
+    <mantle.ledger.account.GlAccount accountName="OWNERS EQUITY - SOLE PROPRIETORSHIP" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="310000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="300000000"/>
-    <mantle.ledger.account.GlAccount accountName="DRAWINGS" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
+    <mantle.ledger.account.GlAccount accountName="CAPITAL - SOLE PROPRIETOR" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
         glAccountId="311000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="310000000"/>
+    <mantle.ledger.account.GlAccount accountName="DRAWINGS - SOLE PROPRIETOR" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
+        glAccountId="312000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="310000000"/>
 
     <!-- 320000 OWNERS EQUITY - PARTNERSHIP -->
-    <mantle.ledger.account.GlAccount accountName="CAPITAL" description="" glAccountClassEnumId="OWNERS_EQUITY"
+    <mantle.ledger.account.GlAccount accountName="OWNERS EQUITY - PARTNERSHIP" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="320000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="300000000"/>
-    <mantle.ledger.account.GlAccount accountName="DRAWINGS" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
+    <mantle.ledger.account.GlAccount accountName="CAPITAL - PARTNERSHIP" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
         glAccountId="321000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="320000000"/>
+    <mantle.ledger.account.GlAccount accountName="DRAWINGS - PARTNERSHIP" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
+        glAccountId="322000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="320000000"/>
 
     <!-- 330000 OWNERS EQUITY - CORPORATION -->
-    <mantle.ledger.account.GlAccount accountName="COMMON STOCK" description="" glAccountClassEnumId="OWNERS_EQUITY"
+    <mantle.ledger.account.GlAccount accountName="OWNERS EQUITY - CORPORATION" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="330000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="300000000"/>
-    <mantle.ledger.account.GlAccount accountName="PAID-IN CAPITAL IN EXCESS OF PAR ON COMMON STOCK" description="" glAccountClassEnumId="OWNERS_EQUITY"
+    <mantle.ledger.account.GlAccount accountName="COMMON STOCK - CORPORATION" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="331000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="330000000"/>
-    <mantle.ledger.account.GlAccount accountName="PREFERRED STOCK" description="" glAccountClassEnumId="OWNERS_EQUITY"
+    <mantle.ledger.account.GlAccount accountName="PAID-IN CAPITAL IN EXCESS OF PAR ON COMMON STOCK" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="332000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="330000000"/>
-    <mantle.ledger.account.GlAccount accountName="PAID-IN CAPITAL IN EXCESS OF PAR ON PREFERRED STOCK" description="" glAccountClassEnumId="OWNERS_EQUITY"
+    <mantle.ledger.account.GlAccount accountName="PREFERRED STOCK" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="333000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="330000000"/>
-    <mantle.ledger.account.GlAccount accountName="DIVIDENDS, COMMON STOCK" description="" glAccountClassEnumId="DIVIDEND"
+    <mantle.ledger.account.GlAccount accountName="PAID-IN CAPITAL IN EXCESS OF PAR ON PREFERRED STOCK" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="334000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="330000000"/>
-    <mantle.ledger.account.GlAccount accountName="DIVIDENDS, PREFERRED STOCK" description="" glAccountClassEnumId="DIVIDEND"
+    <mantle.ledger.account.GlAccount accountName="DIVIDENDS, COMMON STOCK" description="" glAccountClassEnumId="DIVIDEND"
         glAccountId="335000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="330000000"/>
-    <mantle.ledger.account.GlAccount accountName="RETAINED EARNINGS" description="" glAccountClassEnumId="RETAINED_EARNINGS"
-        glAccountId="336000000" glAccountTypeEnumId="GatRetainedEarnings" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="330000000"/>
+    <mantle.ledger.account.GlAccount accountName="DIVIDENDS, PREFERRED STOCK" description="" glAccountClassEnumId="DIVIDEND"
+        glAccountId="336000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="330000000"/>
+    <mantle.ledger.account.GlAccount accountName="RETAINED EARNINGS - CORPORATION" description="" glAccountClassEnumId="RETAINED_EARNINGS"
+        glAccountId="337000000" glAccountTypeEnumId="GatRetainedEarnings" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="330000000"/>
 
     <!-- 340000 OWNERS EQUITY - SUBCHAPTER S CORPORATION -->
-    <mantle.ledger.account.GlAccount accountName="COMMON STOCK" description="" glAccountClassEnumId="OWNERS_EQUITY"
+    <mantle.ledger.account.GlAccount accountName="OWNERS EQUITY - SUBCHAPTER S CORPORATION" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="340000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="300000000"/>
-    <mantle.ledger.account.GlAccount accountName="PAID-IN CAPITAL IN EXCESS OF PAR ON COMMON STOCK" description="" glAccountClassEnumId="OWNERS_EQUITY"
+    <mantle.ledger.account.GlAccount accountName="COMMON STOCK - S CORPORATION" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="341000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="340000000"/>
-
-    <mantle.ledger.account.GlAccount accountName="DIVIDENDS" description="" glAccountClassEnumId="DIVIDEND"
+    <mantle.ledger.account.GlAccount accountName="PAID-IN CAPITAL IN EXCESS OF PAR ON COMMON STOCK" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="342000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="340000000"/>
-    <mantle.ledger.account.GlAccount accountName="DIVIDENDS - SHAREHOLDER 1" description="" glAccountClassEnumId="DIVIDEND"
-        glAccountId="342100000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="342000000"/>
-    <mantle.ledger.account.GlAccount accountName="DIVIDENDS - SHAREHOLDER 2" description="" glAccountClassEnumId="DIVIDEND"
-        glAccountId="342200000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="342000000"/>
-    <mantle.ledger.account.GlAccount accountName="DIVIDENDS - SHAREHOLDER 3" description="" glAccountClassEnumId="DIVIDEND"
-        glAccountId="342300000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="342000000"/>
-
-    <mantle.ledger.account.GlAccount accountName="DRAWINGS" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
-        glAccountId="343000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="300000000"/>
-    <mantle.ledger.account.GlAccount accountName="DRAWINGS - SHAREHOLDER 1" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
-        glAccountId="343100000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="343000000"/>
-    <mantle.ledger.account.GlAccount accountName="DRAWINGS - SHAREHOLDER 2" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
-        glAccountId="343200000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="343000000"/>
-    <mantle.ledger.account.GlAccount accountName="DRAWINGS - SHAREHOLDER 3" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
-        glAccountId="343300000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="343000000"/>
-
-    <mantle.ledger.account.GlAccount accountName="RETAINED EARNINGS" description="" glAccountClassEnumId="RETAINED_EARNINGS"
-        glAccountId="344000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="340000000"/>
+    <mantle.ledger.account.GlAccount accountName="DIVIDENDS" description="" glAccountClassEnumId="DIVIDEND"
+        glAccountId="343000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="340000000"/>
+    <mantle.ledger.account.GlAccount accountName="DIVIDENDS - CORP SHAREHOLDER 1" description="" glAccountClassEnumId="DIVIDEND"
+        glAccountId="343100000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="342000000"/>
+    <mantle.ledger.account.GlAccount accountName="DIVIDENDS - CORP SHAREHOLDER 2" description="" glAccountClassEnumId="DIVIDEND"
+        glAccountId="343200000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="342000000"/>
+    <mantle.ledger.account.GlAccount accountName="DIVIDENDS - CORP SHAREHOLDER 3" description="" glAccountClassEnumId="DIVIDEND"
+        glAccountId="343300000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="342000000"/>
+    <mantle.ledger.account.GlAccount accountName="DRAWINGS - S CORPORATION" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
+        glAccountId="344000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="300000000"/>
+    <mantle.ledger.account.GlAccount accountName="DRAWINGS - S CORP SHAREHOLDER 1" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
+        glAccountId="344100000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="343000000"/>
+    <mantle.ledger.account.GlAccount accountName="DRAWINGS - S CORP SHAREHOLDER 2" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
+        glAccountId="344200000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="343000000"/>
+    <mantle.ledger.account.GlAccount accountName="DRAWINGS - S CORP SHAREHOLDER 3" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
+        glAccountId="344300000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="343000000"/>
+    <mantle.ledger.account.GlAccount accountName="RETAINED EARNINGS - S CORPORATION" description="" glAccountClassEnumId="RETAINED_EARNINGS"
+        glAccountId="345000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="340000000"/>
 
     <!-- ========== 400000 SALES ========== -->
     <mantle.ledger.account.GlAccount accountName="SALES" description="" glAccountClassEnumId="REVENUE"
