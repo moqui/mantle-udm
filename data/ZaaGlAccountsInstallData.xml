@@ -76,13 +76,13 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccount accountName="VENDOR ADVERTISING ALLOWANCES RECEIVABLE" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
         glAccountId="123000000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="120000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="LOANS RECEIVABLE" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="LOANS RECEIVABLE" description="" glAccountClassEnumId="LOANS_RECEIVABLE"
         glAccountId="124000000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="120000000"/>
-    <mantle.ledger.account.GlAccount accountName="LOANS RECEIVABLE - EMPLOYEES" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="LOANS RECEIVABLE - EMPLOYEES" description="" glAccountClassEnumId="LOANS_RECEIVABLE"
         glAccountId="124100000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="124000000"/>
-    <mantle.ledger.account.GlAccount accountName="LOANS RECEIVABLE - OWNERS" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="LOANS RECEIVABLE - OWNERS" description="" glAccountClassEnumId="LOANS_RECEIVABLE"
         glAccountId="124200000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="124000000"/>
-    <mantle.ledger.account.GlAccount accountName="LOANS RECEIVABLE - OTHERS" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="LOANS RECEIVABLE - OTHERS" description="" glAccountClassEnumId="LOANS_RECEIVABLE"
         glAccountId="124300000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="124000000"/>
 
     <mantle.ledger.account.GlAccount accountName="RECEIVABLE FROM INVENTORY TRANSFERRED OUT" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
@@ -102,7 +102,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- previous version change note (after 1.0.1): 17* to 131* -->
     <mantle.ledger.account.GlAccount accountName="EQUIPMENT" description="" glAccountClassEnumId="EQUIPMENT"
         glAccountId="131000000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="130000000" disallowPosting="Y"/>
-    <mantle.ledger.account.GlAccount accountName="EQUIPMENT - FURNITURE - FIXTURES" description="" glAccountClassEnumId="EQUIPMENT"
+    <mantle.ledger.account.GlAccount accountName="OFFICE EQUIPMENT - FURNITURE - FIXTURES" description="" glAccountClassEnumId="EQUIPMENT"
         glAccountId="131100000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="131000000"/>
     <mantle.ledger.account.GlAccount accountName="DATA PROCESSING EQUIPMENT" description="" glAccountClassEnumId="EQUIPMENT"
         glAccountId="131200000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="131000000"/>
@@ -110,6 +110,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="131300000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="131000000"/>
     <mantle.ledger.account.GlAccount accountName="VEHICLES" description="" glAccountClassEnumId="EQUIPMENT"
         glAccountId="131400000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="131000000"/>
+    <mantle.ledger.account.GlAccount accountName="PLANT EQUIPMENT" description="" glAccountClassEnumId="EQUIPMENT"
+        glAccountId="131500000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="131000000"/>
 
     <!-- 132000 ASSET - LAND AND BUILDING -->
     <!-- previous version change note (after 1.0.1): 16* to 132* -->
@@ -138,6 +140,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="133200000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
     <mantle.ledger.account.GlAccount accountName="CUSTOMER LISTS" description="" glAccountClassEnumId="OTHER_ASSET"
         glAccountId="133300000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
+    <mantle.ledger.account.GlAccount accountName="INTELLECTUAL PROPERTY ASSETS" description="" glAccountClassEnumId="OTHER_ASSET"
+        glAccountId="133400000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
     <mantle.ledger.account.GlAccount accountName="OTHER INTANGIBLE ASSETS" description="" glAccountClassEnumId="OTHER_ASSET"
         glAccountId="133800000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
 
@@ -156,7 +160,9 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- 138000 ASSET - ACCUMULATED AMORTIZATION -->
     <mantle.ledger.account.GlAccount accountName="ACCUMULATED AMORTIZATION" description="" glAccountClassEnumId="ACCUM_AMORTIZATION"
-        glAccountId="138000000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="130000000"/>
+        glAccountId="138000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="130000000"/>
+    <mantle.ledger.account.GlAccount accountName="ACCUMULATED AMORTIZATION - INTELLECTUAL PROPERTY" description="" glAccountClassEnumId="ACCUM_AMORTIZATION"
+        glAccountId="138400000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="138000000"/>
 
     <!-- 139000 ASSET - FIXED ASSETS UNRECEIVED -->
     <!-- previous version change note (after 1.0.1): 179000000 => 139100000, 169000000 => 139200000, 199000000 => 139300000 -->
@@ -182,6 +188,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="141200000" glAccountTypeEnumId="GatWipInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="141000000"/>
     <mantle.ledger.account.GlAccount accountName="FINISHED GOOD INVENTORY" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="141300000" glAccountTypeEnumId="GatInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="141000000"/>
+    <mantle.ledger.account.GlAccount accountName="PACKAGING COMPONENTS INVENTORY" description="" glAccountClassEnumId="INVENTORY_ASSET"
+        glAccountId="141400000" glAccountTypeEnumId="GatInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="141000000"/>
 
     <mantle.ledger.account.GlAccount accountName="INVENTORY - AVERAGE COST VALUATION ADJUSTMENT" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="148000000" glAccountTypeEnumId="GatInvAdjAvgCost" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="140000000"/>
@@ -251,14 +259,16 @@ along with this software (see the LICENSE.md file). If not, see
 
     <mantle.ledger.account.GlAccount accountName="ACCUMULATED DEPRECIATION - EQUIPMENT" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="182000000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="180000000"/>
-    <mantle.ledger.account.GlAccount accountName="ACCUMULATED DEPRECIATION - FURNITURE FIXTURES EQUIPMENT" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="ACCUMULATED DEPRECIATION - OFFICE FURNITURE FIXTURES EQUIPMENT" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="182100000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="182000000"/>
-    <mantle.ledger.account.GlAccount accountName="ACCUMULATED DEPRECIATION - DATA PROCESSING EQUIP" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="ACCUMULATED DEPRECIATION - DATA PROCESSING EQUIPMENT" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="182200000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="182000000"/>
     <mantle.ledger.account.GlAccount accountName="ACCUMULATED DEPRECIATION - DATA PROCESSING SOFTWARE" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="182300000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="182000000"/>
     <mantle.ledger.account.GlAccount accountName="ACCUMULATED DEPRECIATION - VEHICLES" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="182400000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="182000000"/>
+    <mantle.ledger.account.GlAccount accountName="ACCUMULATED DEPRECIATION - PLANT EQUIPMENT" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+        glAccountId="182500000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="182000000"/>
 
     <mantle.ledger.account.GlAccount accountName="ACCUMULATED DEPRECIATION - OTHER ASSETS ROOT" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="183000000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="180000000" disallowPosting="Y"/>
@@ -275,7 +285,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccount accountName="ACCOUNTS PAYABLE" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
         glAccountId="210000000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="200000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="ACCOUNTS PAYABLE - MERCHANDISE" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
+    <mantle.ledger.account.GlAccount accountName="ACCRUED ACCOUNTS PAYABLE" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
         glAccountId="211000000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="210000000"/>
     <mantle.ledger.account.GlAccount accountName="ACCOUNTS PAYABLE - OPERATING" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
         glAccountId="212000000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="210000000"/>
@@ -287,6 +297,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="212300000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="212000000"/>
     <mantle.ledger.account.GlAccount accountName="ACCOUNTS PAYABLE - GARNISHMENT" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
         glAccountId="212400000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="212000000"/>
+    <mantle.ledger.account.GlAccount accountName="ACCOUNTS PAYABLE - LOAN" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
+        glAccountId="212500000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="212000000"/>
 
     <mantle.ledger.account.GlAccount accountName="UNINVOICED ITEM RECEIPT" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
         glAccountId="214000000" glAccountTypeEnumId="GatUninvoicedShpmntRcpts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="210000000"/>
@@ -384,11 +396,11 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="229000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="220000000"/>
 
     <!-- 230000 LIABILITY - CURRENT NOTES PAYABLE -->
-    <mantle.ledger.account.GlAccount accountName="CURRENT NOTES PAYABLE" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="CURRENT NOTES PAYABLE" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="230000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="200000000" disallowPosting="Y"/>
-    <mantle.ledger.account.GlAccount accountName="SHORT TERM OBLIGATION" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="SHORT TERM OBLIGATION" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="231000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="230000000"/>
-    <mantle.ledger.account.GlAccount accountName="CURRENT PORTION OF LONG-TERM DEBT" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="CURRENT PORTION OF LONG-TERM DEBT" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="239000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="230000000"/>
 
     <!-- 240000 LIABILITY - LONG-TERM NOTES PAYABLE -->
@@ -1107,6 +1119,14 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccount accountName="OTHER PURCHASE DISCOUNTS" description="" glAccountClassEnumId="NON_CASH_INCOME"
         glAccountId="865000000" glAccountTypeEnumId="GatIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="860000000"/>
 
+    <mantle.ledger.account.GlAccount accountName="TRANSFER CLEARING ACCOUNTS" description="" glAccountClassEnumId="ASSET" disallowPosting="Y"
+            glAccountId="910000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId=""/>
+    <mantle.ledger.account.GlAccount accountName="TRANSFER CLEARING - ASSET" description="" glAccountClassEnumId="ASSET"
+            glAccountId="911000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="910000000"/>
+    <mantle.ledger.account.GlAccount accountName="TRANSFER CLEARING - LIABILITY" description="" glAccountClassEnumId="LIABILITY"
+            glAccountId="912000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="910000000"/>
+
+
 
     <!-- ========================================== -->
     <!-- ========== Default Settings Org ========== -->
@@ -1131,6 +1151,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccountOrganization glAccountId="121000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="121500000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="122000000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="124000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="125000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="126000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="131100000" organizationPartyId="DefaultSettings"/>

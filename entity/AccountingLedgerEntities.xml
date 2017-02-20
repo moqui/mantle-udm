@@ -123,6 +123,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Cash and Equivalent" enumId="CASH_EQUIVALENT" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Inventory Asset" enumId="INVENTORY_ASSET" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Accounts Receivable" enumId="ACCOUNTS_RECEIVABLE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Loans Receivable" enumId="LOANS_RECEIVABLE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Prepaid Expense" enumId="PREPAID_EXPENSE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Accrued Revenue" enumId="ACCRUED_REVENUE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Long Term Asset" enumId="LONG_TERM_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
