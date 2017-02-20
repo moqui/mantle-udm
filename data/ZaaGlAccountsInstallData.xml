@@ -588,16 +588,27 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="517000000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="510000000"/>
     <mantle.ledger.account.GlAccount accountName="OTHER COGS" description="" glAccountClassEnumId="COST_GOODS_SOLD"
         glAccountId="518000000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="510000000"/>
+    <mantle.ledger.account.GlAccount accountName="SLOTTING FEES" description="" glAccountClassEnumId="COST_GOODS_SOLD"
+        glAccountId="518100000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="518000000"/>
     <mantle.ledger.account.GlAccount accountName="FREIGHT IN" description="" glAccountClassEnumId="COST_GOODS_SOLD"
         glAccountId="519000000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="510000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="DISCOUNTS AND WRITE DOWNS" description="" glAccountClassEnumId="COST_OF_SALES"
+    <mantle.ledger.account.GlAccount accountName="DISCOUNTS AND WRITE DOWNS" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="520000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="500000000"/>
-    <mantle.ledger.account.GlAccount accountName="PROMPT PAYMENT DISCOUNTS" description="" glAccountClassEnumId="COST_OF_SALES"
-        glAccountId="521000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="520000000"/>
-    <mantle.ledger.account.GlAccount accountName="DISCOUNTS ON SALES" description="" glAccountClassEnumId="COST_OF_SALES"
+    <mantle.ledger.account.GlAccount accountName="PROMPT PAYMENT DISCOUNTS" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+        glAccountId="521000000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="520000000"/>
+    <mantle.ledger.account.GlAccount accountName="DISCOUNTS ON SALES" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="522000000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="520000000"/>
-    <mantle.ledger.account.GlAccount accountName="WRITE DOWNS BELOW COST" description="" glAccountClassEnumId="COST_OF_SALES"
+    <mantle.ledger.account.GlAccount accountName="COUPONS AND CREDITS" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+        glAccountId="522100000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="522000000"/>
+    <mantle.ledger.account.GlAccount accountName="PROMOTIONAL DISCOUNTS" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+        glAccountId="522200000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="522000000"/>
+    <mantle.ledger.account.GlAccount accountName="FREE FILLS" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+        glAccountId="522300000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="522000000"/>
+    <mantle.ledger.account.GlAccount accountName="BROKER SAMPLES" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+        glAccountId="522400000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="522000000"/>
+
+    <mantle.ledger.account.GlAccount accountName="WRITE DOWNS BELOW COST" description="" glAccountClassEnumId="COST_GOODS_SOLD"
         glAccountId="525000000" glAccountTypeEnumId="GatInvValueAdj" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="520000000"/>
     <mantle.ledger.account.GlAccount accountName="INVENTORY ADJUSTMENT" description="" glAccountClassEnumId="INVENTORY_SHRINKAGE"
         glAccountId="526000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="520000000"/>
@@ -1120,11 +1131,11 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="865000000" glAccountTypeEnumId="GatIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="860000000"/>
 
     <mantle.ledger.account.GlAccount accountName="TRANSFER CLEARING ACCOUNTS" description="" glAccountClassEnumId="ASSET" disallowPosting="Y"
-            glAccountId="910000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId=""/>
+        glAccountId="910000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId=""/>
     <mantle.ledger.account.GlAccount accountName="TRANSFER CLEARING - ASSET" description="" glAccountClassEnumId="ASSET"
-            glAccountId="911000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="910000000"/>
+        glAccountId="911000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="910000000"/>
     <mantle.ledger.account.GlAccount accountName="TRANSFER CLEARING - LIABILITY" description="" glAccountClassEnumId="LIABILITY"
-            glAccountId="912000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="910000000"/>
+        glAccountId="912000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="910000000"/>
 
 
 

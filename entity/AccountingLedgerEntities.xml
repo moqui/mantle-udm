@@ -74,6 +74,7 @@ along with this software (see the LICENSE.md file). If not, see
                    |===> COST_GOODS_SOLD
                          |===> INVENTORY_SHRINKAGE
                    |===> COST_SERVICES_SOLD
+                   |===> COST_OF_DISCOUNTS
              |===> EXPENSE (Income Statement)
                    |===> CASH_EXPENSE
                    |===> INTEREST_EXPENSE
@@ -139,6 +140,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Cost of Goods Sold" enumId="COST_GOODS_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Inventory Shrinkage" enumId="INVENTORY_SHRINKAGE" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Cost of Services Sold" enumId="COST_SERVICES_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Discounts and Write-downs" enumId="COST_OF_DISCOUNTS" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
 
             <moqui.basic.Enumeration description="Expense" enumId="EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Cash Expense" enumId="CASH_EXPENSE" parentEnumId="EXPENSE" enumTypeId="GlAccountClass"/>
