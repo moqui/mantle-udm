@@ -946,6 +946,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="682300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="682000000"/>
     <mantle.ledger.account.GlAccount accountName="EDUCATION - OTHER" description="" glAccountClassEnumId="SGA_EXPENSE"
         glAccountId="682400000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="682000000"/>
+    <mantle.ledger.account.GlAccount accountName="EDUCATION - PRODUCT RESEARCH" description="" glAccountClassEnumId="SGA_EXPENSE"
+        glAccountId="682500000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="682000000"/>
     <!-- 683000 EXPENSE - DUES AND SUBSCRIPTIONS -->
     <mantle.ledger.account.GlAccount accountName="DUES AND SUBSCRIPTIONS" description="" glAccountClassEnumId="SGA_EXPENSE"
         glAccountId="683000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="680000000"/>
@@ -971,6 +973,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="693000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="690000000"/>
     <mantle.ledger.account.GlAccount accountName="OTHER INSURANCE" description="" glAccountClassEnumId="SGA_EXPENSE"
         glAccountId="694000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="690000000"/>
+    <mantle.ledger.account.GlAccount accountName="KEY MAN INSURANCE" description="" glAccountClassEnumId="SGA_EXPENSE"
+        glAccountId="695000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="690000000"/>
 
     <!-- 700000 OTHER EXPENSE -->
     <mantle.ledger.account.GlAccount accountName="OTHER EXPENSE" description="" glAccountClassEnumId="SGA_EXPENSE"
