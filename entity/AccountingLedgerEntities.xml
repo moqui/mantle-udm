@@ -87,6 +87,7 @@ along with this software (see the LICENSE.md file). If not, see
              |===> CONTRA_ASSET (Balance Sheet)
              |     |===> ACCUM_DEPRECIATION
              |     |===> ACCUM_AMORTIZATION
+             |     |===> ALLOWANCE_BAD_DEBT
              |===> LIABILITY (Balance Sheet)
              |     |===> CURRENT_LIABILITY
              |           |===> ACCOUNTS_PAYABLE
@@ -154,6 +155,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Contra Asset" enumId="CONTRA_ASSET" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Accumulated Depreciation" enumId="ACCUM_DEPRECIATION" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Accumulated Amortization" enumId="ACCUM_AMORTIZATION" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Allowance For Bad Debts" enumId="ALLOWANCE_BAD_DEBT" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
 
             <moqui.basic.Enumeration description="Liability" enumId="LIABILITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Current Liability" enumId="CURRENT_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>
@@ -189,6 +191,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Interest Income Receivables" enumId="GatInterestIncomeRec" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Accounts Receivable - Unapplied Payments" enumId="GatAccReceivableUnapplied" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Merchant Account Settlement" enumId="GatMerchantSettlement" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Allowance for Bad Receivables" enumId="GatAccRecBadRec" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
 
             <moqui.basic.Enumeration description="Accounts Payable" enumId="GatAccountsPayable" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Payable from Inventory Transferred In" enumId="GatPayInventoryTranIn" parentEnumId="GatAccountsPayable" enumTypeId="GlAccountType"/>

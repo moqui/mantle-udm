@@ -61,15 +61,17 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="121100000" glAccountTypeEnumId="GatAccountsReceivable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="121000000"/>
     <mantle.ledger.account.GlAccount accountName="ACCOUNTS RECEIVABLE - NON-SUFFICIENT FUNDS RETURNED CHECKS" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
         glAccountId="121200000" glAccountTypeEnumId="GatAccountsReceivable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="121000000"/>
-    <mantle.ledger.account.GlAccount accountName="ACCOUNTS RECEIVABLE TRADE - INTEREST RECEIVABLE" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
-        glAccountId="121800000" glAccountTypeEnumId="GatInterestIncomeRec" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="121000000"/>
-    <mantle.ledger.account.GlAccount accountName="ACCOUNTS RECEIVABLE TRADE - ALLOWANCE FOR BAD DEBT" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
-        glAccountId="121900000" glAccountTypeEnumId="GatAccountsReceivable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="121000000"/>
+    <mantle.ledger.account.GlAccount accountName="ACCOUNTS RECEIVABLE - INTEREST RECEIVABLE" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
+        glAccountId="121500000" glAccountTypeEnumId="GatInterestIncomeRec" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="121000000"/>
+    <mantle.ledger.account.GlAccount accountName="ACCOUNTS RECEIVABLE - DISCOUNT ON INTEREST RECEIVABLE" description="" glAccountClassEnumId="ALLOWANCE_BAD_DEBT"
+        glAccountId="121600000" glAccountTypeEnumId="GatAccRecBadRec" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="121000000"/>
+    <mantle.ledger.account.GlAccount accountName="ACCOUNTS RECEIVABLE - ALLOWANCE FOR BAD DEBTS" description="" glAccountClassEnumId="ALLOWANCE_BAD_DEBT"
+        glAccountId="121900000" glAccountTypeEnumId="GatAccRecBadRec" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="121000000"/>
 
     <mantle.ledger.account.GlAccount accountName="IN TRANSIT FROM CREDIT CARD PROCESSORS" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
         glAccountId="122000000" glAccountTypeEnumId="GatMerchantSettlement" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="120000000"/>
-    <mantle.ledger.account.GlAccount accountName="ACCOUNTS RECEIVABLE CREDIT CARDS - ALLOWANCE FOR BAD DEBT" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
-        glAccountId="122900000" glAccountTypeEnumId="GatMerchantSettlement" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="122000000"/>
+    <mantle.ledger.account.GlAccount accountName="ACCOUNTS RECEIVABLE CREDIT CARDS - ALLOWANCE FOR BAD DEBTS" description="" glAccountClassEnumId="ALLOWANCE_BAD_DEBT"
+        glAccountId="122900000" glAccountTypeEnumId="GatAccRecBadRec" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="122000000"/>
 
     <mantle.ledger.account.GlAccount accountName="VENDOR ADVERTISING ALLOWANCES RECEIVABLE" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
         glAccountId="123000000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="120000000"/>
@@ -1127,7 +1129,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccountOrganization glAccountId="111100000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="120000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="121000000" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.account.GlAccountOrganization glAccountId="121800000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="121500000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="122000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="125000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="126000000" organizationPartyId="DefaultSettings"/>
@@ -1303,7 +1305,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccountOrganization glAccountId="865000000" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.config.GlAccountTypeDefault glAccountId="121000000" glAccountTypeEnumId="GatAccountsReceivable" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.GlAccountTypeDefault glAccountId="121800000" glAccountTypeEnumId="GatInterestIncomeRec" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.GlAccountTypeDefault glAccountId="121500000" glAccountTypeEnumId="GatInterestIncomeRec" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.GlAccountTypeDefault glAccountId="125000000" glAccountTypeEnumId="GatRecInventoryTranOut" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.GlAccountTypeDefault glAccountId="126000000" glAccountTypeEnumId="GatAccReceivableUnapplied" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.GlAccountTypeDefault glAccountId="141000000" glAccountTypeEnumId="GatInventory" organizationPartyId="DefaultSettings"/>
