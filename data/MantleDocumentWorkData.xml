@@ -51,7 +51,7 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldPath="parties:person:firstName"/>
         <fields fieldPath="parties:person:lastName"/>
         <fields fieldPath="parties:organization:organizationName"/>
-        <!-- only so useful and causing issues with false update notice for other fields on UserAccount like during login: <fields fieldPath="parties:userAccounts:userId"/> -->
+        <!-- no longer used for update notifications and causing issues with false update notice for other fields on UserAccount like during login: <fields fieldPath="parties:userAccounts:userId"/> -->
         <fields fieldPath="assocs:toWorkEffortId" fieldNameAlias="assocToId"/>
         <fields fieldPath="assocs:type:description" fieldNameAlias="assocType"/>
         <fields fieldPath="toAssocs:workEffortId" fieldNameAlias="assocFromId"/>
