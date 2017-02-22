@@ -22,11 +22,11 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.humanres.position.EmplPositionClassWorkType emplPositionClassId="Programmer" workTypeEnumId="WktpProgramming"/>
 
     <!-- ========== DEMO VENDOR Ziziwork Industries (internal organization) DATA ========== -->
-    <mantle.party.Party partyId="ORG_ZIZI_CORP" partyTypeEnumId="PtyOrganization"/>
+    <mantle.party.Party partyId="ORG_ZIZI_CORP" pseudoId="ZICORP" partyTypeEnumId="PtyOrganization"/>
     <mantle.party.Organization partyId="ORG_ZIZI_CORP" organizationName="Ziziwork Industries"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_CORP" roleTypeId="OrgInternal"/>
 
-    <mantle.party.Party partyId="ORG_ZIZI_SALES" partyTypeEnumId="PtyOrganization"/>
+    <mantle.party.Party partyId="ORG_ZIZI_SALES" pseudoId="ZISAL" partyTypeEnumId="PtyOrganization"/>
     <mantle.party.Organization partyId="ORG_ZIZI_SALES" organizationName="Ziziwork Sales"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_SALES" roleTypeId="OrgInternal"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_SALES" roleTypeId="CustomerBillTo"/>
@@ -34,7 +34,7 @@ along with this software (see the LICENSE.md file). If not, see
             fromPartyId="ORG_ZIZI_SALES" fromRoleTypeId="OrgInternal" toPartyId="ORG_ZIZI_CORP" toRoleTypeId="OrgInternal"
             fromDate="1265184000000"/>
 
-    <mantle.party.Party partyId="ORG_ZIZI_HR" partyTypeEnumId="PtyOrganization"/>
+    <mantle.party.Party partyId="ORG_ZIZI_HR" pseudoId="ZIHR" partyTypeEnumId="PtyOrganization"/>
     <mantle.party.Organization partyId="ORG_ZIZI_HR" organizationName="Ziziwork Human Resources"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_HR" roleTypeId="OrgInternal"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_HR" roleTypeId="CustomerBillTo"/>
@@ -42,7 +42,7 @@ along with this software (see the LICENSE.md file). If not, see
             fromPartyId="ORG_ZIZI_HR" fromRoleTypeId="OrgInternal" toPartyId="ORG_ZIZI_CORP" toRoleTypeId="OrgInternal"
             fromDate="1265184000000"/>
 
-    <mantle.party.Party partyId="ORG_ZIZI_SERVICES" partyTypeEnumId="PtyOrganization"/>
+    <mantle.party.Party partyId="ORG_ZIZI_SERVICES" pseudoId="ZISER" partyTypeEnumId="PtyOrganization"/>
     <mantle.party.Organization partyId="ORG_ZIZI_SERVICES" organizationName="Ziziwork Services"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_SERVICES" roleTypeId="OrgInternal"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_SERVICES" roleTypeId="VendorBillFrom"/>
@@ -75,11 +75,11 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.contact.PartyContactMech partyId="ORG_ZIZI_SERVICES" contactMechId="ORG_ZIZI_SVCS_BE"
             contactMechPurposeId="EmailBilling" fromDate="1265184000000"/>
 
-    <mantle.party.Party partyId="ORG_ZIZI_DEVA" partyTypeEnumId="PtyOrganization"/>
+    <mantle.party.Party partyId="ORG_ZIZI_DEVA" pseudoId="ZIDVA" partyTypeEnumId="PtyOrganization"/>
     <mantle.party.Organization partyId="ORG_ZIZI_DEVA" organizationName="Ziziwork Dev Team A"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_DEVA" roleTypeId="OrgTeam"/>
 
-    <mantle.party.Party partyId="ORG_ZIZI_DEVB" partyTypeEnumId="PtyOrganization"/>
+    <mantle.party.Party partyId="ORG_ZIZI_DEVB" pseudoId="ZIDVB" partyTypeEnumId="PtyOrganization"/>
     <mantle.party.Organization partyId="ORG_ZIZI_DEVB" organizationName="Ziziwork Dev Team B"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_DEVB" roleTypeId="OrgTeam"/>
 
@@ -227,7 +227,7 @@ along with this software (see the LICENSE.md file). If not, see
             emailAddress="gob.bluth@test.com" partyId="ORG_BLUTH_GOB"/>
 
     <!-- ========== DEMO RETAILER DATA ========== -->
-    <mantle.party.Party partyId="ORG_ZIZI_RETAIL" partyTypeEnumId="PtyOrganization">
+    <mantle.party.Party partyId="ORG_ZIZI_RETAIL" pseudoId="ZIRET" partyTypeEnumId="PtyOrganization">
         <mantle.party.Organization organizationName="Ziziwork Retail"/>
         <mantle.party.PartyRole roleTypeId="OrgInternal"/>
         <mantle.party.PartyRole roleTypeId="VendorBillFrom"/>
