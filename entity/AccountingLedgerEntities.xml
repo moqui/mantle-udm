@@ -74,6 +74,7 @@ along with this software (see the LICENSE.md file). If not, see
                    |===> COST_GOODS_SOLD
                          |===> INVENTORY_SHRINKAGE
                    |===> COST_SERVICES_SOLD
+                   |===> COST_OF_DISCOUNTS
              |===> EXPENSE (Income Statement)
                    |===> CASH_EXPENSE
                    |===> INTEREST_EXPENSE
@@ -87,6 +88,7 @@ along with this software (see the LICENSE.md file). If not, see
              |===> CONTRA_ASSET (Balance Sheet)
              |     |===> ACCUM_DEPRECIATION
              |     |===> ACCUM_AMORTIZATION
+             |     |===> ALLOWANCE_BAD_DEBT
              |===> LIABILITY (Balance Sheet)
              |     |===> CURRENT_LIABILITY
              |           |===> ACCOUNTS_PAYABLE
@@ -122,6 +124,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Cash and Equivalent" enumId="CASH_EQUIVALENT" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Inventory Asset" enumId="INVENTORY_ASSET" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Accounts Receivable" enumId="ACCOUNTS_RECEIVABLE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Loans Receivable" enumId="LOANS_RECEIVABLE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Prepaid Expense" enumId="PREPAID_EXPENSE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Accrued Revenue" enumId="ACCRUED_REVENUE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Long Term Asset" enumId="LONG_TERM_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
@@ -137,6 +140,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Cost of Goods Sold" enumId="COST_GOODS_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Inventory Shrinkage" enumId="INVENTORY_SHRINKAGE" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Cost of Services Sold" enumId="COST_SERVICES_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Discounts and Write-downs" enumId="COST_OF_DISCOUNTS" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
 
             <moqui.basic.Enumeration description="Expense" enumId="EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Cash Expense" enumId="CASH_EXPENSE" parentEnumId="EXPENSE" enumTypeId="GlAccountClass"/>
@@ -154,6 +158,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Contra Asset" enumId="CONTRA_ASSET" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Accumulated Depreciation" enumId="ACCUM_DEPRECIATION" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Accumulated Amortization" enumId="ACCUM_AMORTIZATION" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Allowance For Bad Debts" enumId="ALLOWANCE_BAD_DEBT" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
 
             <moqui.basic.Enumeration description="Liability" enumId="LIABILITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Current Liability" enumId="CURRENT_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>
@@ -189,6 +194,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Interest Income Receivables" enumId="GatInterestIncomeRec" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Accounts Receivable - Unapplied Payments" enumId="GatAccReceivableUnapplied" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Merchant Account Settlement" enumId="GatMerchantSettlement" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Allowance for Bad Receivables" enumId="GatAccRecBadRec" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
 
             <moqui.basic.Enumeration description="Accounts Payable" enumId="GatAccountsPayable" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Payable from Inventory Transferred In" enumId="GatPayInventoryTranIn" parentEnumId="GatAccountsPayable" enumTypeId="GlAccountType"/>
@@ -886,7 +892,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="AttInventoryReceipt" description="Inventory Receipt" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttInventoryIssuance" description="Inventory Issuance" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttInventoryVariance" description="Inventory Variance" enumTypeId="AcctgTransType"/>
-            <moqui.basic.Enumeration enumId="AttPeriodClosing" description="Period Closing" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttPeriodClosing" description="Period Closing Adjustment" enumTypeId="AcctgTransType"/>
 
             <moqui.basic.Enumeration enumId="AttInternal" description="Internal" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttExternal" description="External" enumTypeId="AcctgTransType"/>

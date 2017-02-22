@@ -333,7 +333,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Default" related="moqui.basic.Uom" short-alias="defaultUom">
             <key-map field-name="defaultUomId"/></relationship>
         <seed-data>
-            <mantle.product.ProductDimensionType description="Quantity Included" dimensionTypeId="QuantityIncluded" defaultUomId="OTH_ea"/>
+            <mantle.product.ProductDimensionType description="Quantity Included" dimensionTypeId="QuantityIncluded" defaultUomId="OTH_ct"/>
             <mantle.product.ProductDimensionType description="Pieces Included" dimensionTypeId="PiecesIncluded" defaultUomId="OTH_ea"/>
             <mantle.product.ProductDimensionType description="Weight" dimensionTypeId="Weight" uomTypeEnumId="UT_WEIGHT_MEASURE"/>
             <mantle.product.ProductDimensionType description="Height" dimensionTypeId="Height" uomTypeEnumId="UT_LENGTH_MEASURE"/>

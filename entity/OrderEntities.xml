@@ -74,7 +74,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="visitId" type="id"/>
         <field name="enteredByPartyId" type="id"/>
         <field name="parentOrderId" type="id"/>
-        <field name="recurrenceInfoId" type="id"><!-- TODO: replace this with something else to configure the recurrence pattern for auto reorder --></field>
+        <!-- <field name="recurrenceInfoId" type="id"/> TODO: replace this with something else to configure the recurrence pattern for auto reorder -->
         <field name="lastOrderedDate" type="date-time"/>
 
         <field name="remainingSubTotal" type="currency-amount"/>
@@ -372,7 +372,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="OrderNote" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="noteDate" type="date-time" is-pk="true" default="ec.user.nowTimestamp"/>
-        <field name="noteText" type="text-very-long" enable-audit-log="true"/>
+        <field name="noteText" type="text-long" enable-audit-log="true"/>
         <field name="internalNote" type="text-indicator"/>
         <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related="mantle.order.OrderHeader"/>

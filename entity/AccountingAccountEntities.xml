@@ -353,16 +353,18 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Tax" enumId="InvoiceTax" enumTypeId="InvoiceType"/>
             <moqui.basic.Enumeration description="Garnishment" enumId="InvoiceGarnishment" enumTypeId="InvoiceType"/>
             <moqui.basic.Enumeration description="Commission" enumId="InvoiceCommission" enumTypeId="InvoiceType"/>
+            <moqui.basic.Enumeration description="Credit Memo" enumId="InvoiceCreditMemo" enumTypeId="InvoiceType"/>
             <moqui.basic.Enumeration description="Template" enumId="InvoiceTemplate" enumTypeId="InvoiceType"/>
 
             <!-- Invoice Status -->
             <moqui.basic.StatusType description="Invoice Status" statusTypeId="Invoice"/>
+            <!-- Outgoing Invoices -->
             <moqui.basic.StatusItem description="In-Process" sequenceNum="1" statusId="InvoiceInProcess" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Finalized" sequenceNum="2" statusId="InvoiceFinalized" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Sent" sequenceNum="3" statusId="InvoiceSent" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Payment Received" sequenceNum="4" statusId="InvoicePmtRecvd" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Write Off" sequenceNum="9" statusId="InvoiceWriteOff" statusTypeId="Invoice"/>
-
+            <!-- Incoming Invoices -->
             <moqui.basic.StatusItem description="Incoming" sequenceNum="10" statusId="InvoiceIncoming" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Received" sequenceNum="11" statusId="InvoiceReceived" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Approved" sequenceNum="12" statusId="InvoiceApproved" statusTypeId="Invoice"/>
@@ -553,8 +555,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="invoiceId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
-        <field name="datetimePerformed" type="date-time"/>
-        <field name="percentage" type="number-decimal"/>
         <relationship type="one" related="mantle.account.invoice.Invoice"/>
         <relationship type="one" related="mantle.party.Party"/>
         <relationship type="one" related="mantle.party.RoleType"/>
@@ -732,6 +732,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Gift Card" enumId="PmtGiftCard" enumTypeId="PaymentMethodType"/>
             <moqui.basic.Enumeration description="Financial Account" enumId="PmtFinancialAccount" enumTypeId="PaymentMethodType"/>
             <moqui.basic.Enumeration description="PayPal Account" enumId="PmtPayPalAccount" enumTypeId="PaymentMethodType"/>
+            <moqui.basic.Enumeration description="Other Type (no detail record)" enumId="PmtOther" enumTypeId="PaymentMethodType"/>
 
             <!-- Payment Method Purpose -->
             <moqui.basic.EnumerationType description="Payment Method Purpose" enumTypeId="PaymentMethodPurpose"/>
@@ -919,9 +920,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="cardNumber" type="text-medium" encrypt="true"/>
         <field name="cardNumberLookupHash" type="text-medium"><description>A one-way hash (SHA, etc) of the cardNumber
             used for looking up a credit card by its number in a secure way.</description></field>
-        <field name="validFromDate" type="text-short"><description>Not common in some parts of the world.</description></field>
+        <field name="validFromDate" type="text-short"><description>Not common but used in some parts of the world</description></field>
         <field name="expireDate" type="text-short"><description>String representing the date in the format: MM/yyyy</description></field>
-        <field name="issueNumber" type="text-short"><description>Single digit number on some Switch and Maestro cards.</description></field>
+        <field name="issueNumber" type="text-short"><description>Single digit number on some Switch and Maestro cards</description></field>
         <field name="cardSecurityCode" type="text-medium" encrypt="true"><description>CVV/etc number for card.
             By PCI rules can only be recorded until authorization is complete, after that must be deleted.
             Set the mantle.account.PaymentServices.authorize#SinglePayment service for where this is done.</description></field>
@@ -1193,6 +1194,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Refund" enumId="PtRefund" enumTypeId="PaymentType"/>
             <moqui.basic.Enumeration description="Invoice Payment" enumId="PtInvoicePayment" enumTypeId="PaymentType"/>
             <moqui.basic.Enumeration description="Financial Account Transaction" enumId="PtFinancialAccount" enumTypeId="PaymentType"/>
+            <moqui.basic.Enumeration description="Pre Payment" enumId="PtPrePayment" enumTypeId="PaymentType"/>
 
             <!-- Payment Instrument -->
             <moqui.basic.EnumerationType description="Payment Instrument" enumTypeId="PaymentInstrument"/>
@@ -1200,6 +1202,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Bitcoin" enumId="PiBitcoinWallet" enumTypeId="PaymentInstrument" relatedEnumId="PmtBitcoinWallet"/>
             <moqui.basic.Enumeration description="Credit Card" enumId="PiCreditCard" enumTypeId="PaymentInstrument" relatedEnumId="PmtCreditCard"/>
             <moqui.basic.Enumeration description="Debit Card" enumId="PiDebitCard" enumTypeId="PaymentInstrument" relatedEnumId="PmtCreditCard"/>
+            <moqui.basic.Enumeration description="PayPal Account" enumId="PiPayPalAccount" enumTypeId="PaymentInstrument" relatedEnumId="PmtPayPalAccount"/>
             <moqui.basic.Enumeration description="Gift Card" enumId="PiGiftCard" enumTypeId="PaymentInstrument" relatedEnumId="PmtGiftCard"/>
             <moqui.basic.Enumeration description="Gift Certificate" enumId="PiGiftCerificate" enumTypeId="PaymentInstrument"/>
             <moqui.basic.Enumeration description="Cash" enumId="PiCash" enumTypeId="PaymentInstrument"/>
@@ -1211,6 +1214,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Company Account" enumId="PiCompanyAccount" enumTypeId="PaymentInstrument" relatedEnumId="PmtFinancialAccount"/>
             <moqui.basic.Enumeration description="Billing Account" enumId="PiBillingAccount" enumTypeId="PaymentInstrument"/>
             <moqui.basic.Enumeration description="Cash On Delivery" enumId="PiCod" enumTypeId="PaymentInstrument"/>
+            <moqui.basic.Enumeration description="Other" enumId="PiOther" enumTypeId="PaymentInstrument"/>
             <!-- Using Payment for these is messy, use adjust#Invoice with appropriate item type instead:
             <moqui.basic.Enumeration description="Write-off" enumId="PiWriteOff" enumTypeId="PaymentInstrument"/>
             <moqui.basic.Enumeration description="Discount" enumId="PiDiscount" enumTypeId="PaymentInstrument"/>

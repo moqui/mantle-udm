@@ -17,27 +17,29 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- General Item Types (Order, Return, Invoice) -->
     <moqui.basic.EnumerationType description="Item Type (Order, Return, Invoice)" enumTypeId="ItemType"/>
 
+    <moqui.basic.Enumeration description="Sales Tax" enumId="ItemSalesTax" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="VAT Tax (not added to totals)" enumId="ItemVatTax" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Shipping and Handling" enumId="ItemShipping" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Other Shipping (Non-Inventory)" enumId="ItemShippingOther" enumTypeId="ItemType"/>
+
+    <moqui.basic.Enumeration description="Discount" enumId="ItemDiscount" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Fee" enumId="ItemFee" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Miscellaneous Charge" enumId="ItemMiscCharge" enumTypeId="ItemType"/>
+
     <moqui.basic.Enumeration description="Sales" enumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Product" enumId="ItemProduct" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Service Product" enumId="ItemServiceProduct" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Work Effort" enumId="ItemWorkEffort" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Time Entry" enumId="ItemTimeEntry" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Rental" enumId="ItemRental" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Replacement" enumId="ItemReplacement" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Donation" enumId="ItemDonation" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Surcharge" enumId="ItemSurcharge" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Additional Feature" enumId="ItemAddtlFeature" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Warranty" enumId="ItemWarranty" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Marketing Package Adjustment" enumId="ItemMkgtPkgAdj" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Third Party" enumId="ItemSalesThirdParty" parentEnumId="ItemSales" enumTypeId="ItemType"/>
 
-    <moqui.basic.Enumeration description="Sales - Product" enumId="ItemProduct" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Service Product" enumId="ItemServiceProduct" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Sales Tax" enumId="ItemSalesTax" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - VAT Tax (not added to totals)" enumId="ItemVatTax" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Shipping and Handling" enumId="ItemShipping" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-
-    <moqui.basic.Enumeration description="Sales - Work Effort" enumId="ItemWorkEffort" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Time Entry" enumId="ItemTimeEntry" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Rental" enumId="ItemRental" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Replacement" enumId="ItemReplacement" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Discount" enumId="ItemDiscount" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Donation" enumId="ItemDonation" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Fee" enumId="ItemFee" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Miscellaneous Charge" enumId="ItemMiscCharge" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Surcharge" enumId="ItemSurcharge" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Additional Feature" enumId="ItemAddtlFeature" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Warranty" enumId="ItemWarranty" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Marketing Package Adjustment" enumId="ItemMkgtPkgAdj" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Sales - Third Party" enumId="ItemSalesThirdParty" parentEnumId="ItemSales" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Asset - Inventory" enumId="ItemInventory" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Asset - Fixed Asset" enumId="ItemAsset" enumTypeId="ItemType"/>
@@ -56,60 +58,59 @@ along with this software (see the LICENSE.md file). If not, see
 
     <moqui.basic.Enumeration description="Expense" enumId="ItemExpense" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
 
-    <moqui.basic.Enumeration description="Expense - Advertising" enumId="ItemExpAdvertising" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Charitable Contribution" enumId="ItemExpCharitable" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Communication Telephone" enumId="ItemExpCommTelephone" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Communication Cellular" enumId="ItemExpCommCellular" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Communication Network" enumId="ItemExpCommNetwork" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Commission/Fee" enumId="ItemExpCommissionFee" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Computer Server Hosting" enumId="ItemExpHosting" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Advertising" enumId="ItemExpAdvertising" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Charitable Contribution" enumId="ItemExpCharitable" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Communication Telephone" enumId="ItemExpCommTelephone" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Communication Cellular" enumId="ItemExpCommCellular" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Communication Network" enumId="ItemExpCommNetwork" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Commission/Fee" enumId="ItemExpCommissionFee" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Computer Server Hosting" enumId="ItemExpHosting" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
 
-    <moqui.basic.Enumeration description="Expense - Services Accounting" enumId="ItemExpServAccount" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Services Legal" enumId="ItemExpServLegal" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Services Labor" enumId="ItemExpServLabor" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Office Supplies" enumId="ItemExpOfficeSup" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Office Postage" enumId="ItemExpOfficePostage" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Services Accounting" enumId="ItemExpServAccount" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Services Legal" enumId="ItemExpServLegal" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Services Labor" enumId="ItemExpServLabor" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Office Supplies" enumId="ItemExpOfficeSup" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Office Postage" enumId="ItemExpOfficePostage" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
 
-    <moqui.basic.Enumeration description="Expense - Lease/Rent Vehicle" enumId="ItemExpLeaseVehicle" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Lease/Rent Equipment" enumId="ItemExpLeaseEquip" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Lease/Rent Real Estate" enumId="ItemExpLeaseRealEst" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Lease/Rent Other" enumId="ItemExpLeaseOther" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Maintenance/Repair Vehicle" enumId="ItemExpMaintVehicle" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Maintenance/Repair Equipment" enumId="ItemExpMaintEquip" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Maintenance/Repair Real Estate" enumId="ItemExpMaintRealEst" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Maintenance/Repair Other" enumId="ItemExpMaintOther" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Lease/Rent Vehicle" enumId="ItemExpLeaseVehicle" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Lease/Rent Equipment" enumId="ItemExpLeaseEquip" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Lease/Rent Real Estate" enumId="ItemExpLeaseRealEst" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Lease/Rent Other" enumId="ItemExpLeaseOther" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Maintenance/Repair Vehicle" enumId="ItemExpMaintVehicle" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Maintenance/Repair Equipment" enumId="ItemExpMaintEquip" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Maintenance/Repair Real Estate" enumId="ItemExpMaintRealEst" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Maintenance/Repair Other" enumId="ItemExpMaintOther" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
 
-    <moqui.basic.Enumeration description="Expense - Interest Vehicle" enumId="ItemExpInterestVehi" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Interest Equipment" enumId="ItemExpInterestEquip" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Interest Real Estate" enumId="ItemExpInterestReal" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Interest Other" enumId="ItemExpInterestOther" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Interest Vehicle" enumId="ItemExpInterestVehi" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Interest Equipment" enumId="ItemExpInterestEquip" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Interest Real Estate" enumId="ItemExpInterestReal" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Interest Other" enumId="ItemExpInterestOther" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
 
-    <moqui.basic.Enumeration description="Expense - Insurance Business" enumId="ItemExpInsBusiness" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Insurance Health" enumId="ItemExpInsHealth" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Insurance Vehicle" enumId="ItemExpInsVehicle" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Insurance Equipment" enumId="ItemExpInsEquipment" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Insurance Real Estate" enumId="ItemExpInsRealEst" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Insurance Other" enumId="ItemExpInsOther" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Insurance Business" enumId="ItemExpInsBusiness" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Insurance Health" enumId="ItemExpInsHealth" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Insurance Vehicle" enumId="ItemExpInsVehicle" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Insurance Equipment" enumId="ItemExpInsEquipment" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Insurance Real Estate" enumId="ItemExpInsRealEst" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Insurance Other" enumId="ItemExpInsOther" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
 
-    <moqui.basic.Enumeration description="Expense - Utilities Heating" enumId="ItemExpUtilHeating" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Utilities Electricity" enumId="ItemExpUtilElec" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Utilities Water/Sewer" enumId="ItemExpUtilWater" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Utilities Trash/Recycle" enumId="ItemExpUtilTrash" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Utilities Vehicle Fuel" enumId="ItemExpUtilVehFuel" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Utilities Heating" enumId="ItemExpUtilHeating" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Utilities Electricity" enumId="ItemExpUtilElec" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Utilities Water/Sewer" enumId="ItemExpUtilWater" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Utilities Trash/Recycle" enumId="ItemExpUtilTrash" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Utilities Vehicle Fuel" enumId="ItemExpUtilVehFuel" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
 
-    <moqui.basic.Enumeration description="Expense - Medical and Health Care" enumId="ItemExpMedical" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Royalties" enumId="ItemExpRoyalties" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Shipping" enumId="ItemExpShipping" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Supplies" enumId="ItemExpSupplies" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Taxes and Licenses" enumId="ItemExpTaxesLic" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Other" enumId="ItemExpOther" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Medical and Health Care" enumId="ItemExpMedical" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Royalties" enumId="ItemExpRoyalties" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Supplies" enumId="ItemExpSupplies" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Taxes and Licenses" enumId="ItemExpTaxesLic" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Other" enumId="ItemExpOther" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
 
-    <moqui.basic.Enumeration description="Expense - Travel Meals/Entertainment" enumId="ItemExpTravMealsEnt" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Travel Local/Parking/Tolls" enumId="ItemExpTravLocal" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Travel Air" enumId="ItemExpTravAir" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Travel Car Rental" enumId="ItemExpTravCarRental" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Travel Other" enumId="ItemExpTravOther" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Expense - Travel Lodging" enumId="ItemExpTravLodging" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Travel Meals/Entertainment" enumId="ItemExpTravMealsEnt" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Travel Local/Parking/Tolls" enumId="ItemExpTravLocal" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Travel Air" enumId="ItemExpTravAir" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Travel Car Rental" enumId="ItemExpTravCarRental" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Travel Other" enumId="ItemExpTravOther" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Travel Lodging" enumId="ItemExpTravLodging" parentEnumId="ItemExpense" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Commission Line Item" enumId="ItemCommission" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Commission Adjustment" enumId="ItemCommissionAdj" enumTypeId="ItemType"/>
@@ -120,6 +121,9 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Ivc. Adjust - Prompt Payment Discount" enumId="ItemPromptDiscount" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Ivc. Adjust - Late Payment Charge" enumId="ItemLateCharge" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Ivc. Adjust - Return" enumId="ItemReturnAdjust" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Ivc. Adjust - Chargeback" enumId="ItemChargebackAdjust" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Ivc. Adjust - Compliance Fee" enumId="ItemComplianceFee" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Ivc. Adjust - Shrinkage" enumId="ItemShrinkage" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Payroll Income" enumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Hourly Earnings" enumId="ItemHourlyEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
@@ -134,7 +138,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Payroll Income - Pay Period Adjustment - Overpay" enumId="ItemPayAdjOverpay" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Pay Period Adjustment - Pay" enumId="ItemPayAdjPay" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
 
-    <moqui.basic.Enumeration description="Payroll - Reimbursement" enumId="ItemReimbursement" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Payroll - Reimbursement" enumId="ItemReimbursement" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Payroll Deduction" enumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Deduction - 125*Compy. Contr Other Premium" enumId="ItemDed125Compy" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
@@ -191,4 +195,100 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Payroll Expense Tax - Head Employer" enumId="ItemPrlExpTaxHeadEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Expense Tax - School District Employer" enumId="ItemPrlExpTaxSchoolDistEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Expense Tax - Surtax Employer" enumId="ItemPrlExpTaxSurtaxEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+
+    <!-- Outgoing/Receivable/Sales Items -->
+
+    <moqui.basic.Enumeration description="Outgoing/Receivable/Sales Items" enumId="EngItemsSales" enumTypeId="EnumGroup"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemSalesTax" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemVatTax" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemShipping" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDiscount" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemFee" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemMiscCharge" enumGroupEnumId="EngItemsSales"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemProduct" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemServiceProduct" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemWorkEffort" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTimeEntry" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemRental" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDonation" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemSurcharge" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemReplacement" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemAddtlFeature" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemWarranty" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemMkgtPkgAdj" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemSalesThirdParty" enumGroupEnumId="EngItemsSales"/>
+
+    <!-- Incoming/Payable/Purchase Items -->
+
+    <moqui.basic.Enumeration description="Incoming/Payable/Purchase Items" enumId="EngItemsPurchase" enumTypeId="EnumGroup"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemSalesTax" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemVatTax" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemShipping" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemShippingOther" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDiscount" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemFee" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemMiscCharge" enumGroupEnumId="EngItemsPurchase"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemInventory" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemAsset" enumGroupEnumId="EngItemsPurchase"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemExpAdvertising" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpCharitable" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpCommTelephone" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpCommCellular" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpCommNetwork" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpCommissionFee" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpHosting" enumGroupEnumId="EngItemsPurchase"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemExpServAccount" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpServLegal" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpServLabor" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpOfficeSup" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpOfficePostage" enumGroupEnumId="EngItemsPurchase"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemExpLeaseVehicle" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpLeaseEquip" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpLeaseRealEst" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpLeaseOther" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpMaintVehicle" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpMaintEquip" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpMaintRealEst" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpMaintOther" enumGroupEnumId="EngItemsPurchase"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemExpInterestVehi" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpInterestEquip" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpInterestReal" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpInterestOther" enumGroupEnumId="EngItemsPurchase"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemExpInsBusiness" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpInsHealth" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpInsVehicle" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpInsEquipment" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpInsRealEst" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpInsOther" enumGroupEnumId="EngItemsPurchase"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemExpUtilHeating" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpUtilElec" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpUtilWater" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpUtilTrash" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpUtilVehFuel" enumGroupEnumId="EngItemsPurchase"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemExpMedical" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpRoyalties" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpSupplies" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpTaxesLic" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpOther" enumGroupEnumId="EngItemsPurchase"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemExpTravMealsEnt" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpTravLocal" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpTravAir" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpTravCarRental" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpTravOther" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpTravLodging" enumGroupEnumId="EngItemsPurchase"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemCommission" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemCommissionAdj" enumGroupEnumId="EngItemsPurchase"/>
 </entity-facade-xml>

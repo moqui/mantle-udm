@@ -107,7 +107,6 @@ along with this software (see the LICENSE.md file). If not, see
                 </detail>
                 <detail relationship="toRole"/>
                 <detail relationship="status"/>
-                <detail relationship="priorityType"/>
                 <detail relationship="type"/>
             </detail>
             <detail relationship="toRelationships">
@@ -1272,6 +1271,14 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Website URL - Primary"/>
             <ContactMechPurpose contactMechPurposeId="WebUrlPayment" contactMechTypeEnumId="CmtWebAddress"
                     description="Website URL - Payment (AR)"/>
+            <ContactMechPurpose contactMechPurposeId="WebUrlFacebook" contactMechTypeEnumId="CmtWebAddress"
+                    description="Website URL - Facebook"/>
+            <ContactMechPurpose contactMechPurposeId="WebUrlICal" contactMechTypeEnumId="CmtWebAddress"
+                    description="Website URL - iCal"/>
+            <ContactMechPurpose contactMechPurposeId="WebUrlLinkedIn" contactMechTypeEnumId="CmtWebAddress"
+                    description="Website URL - LinkedIn"/>
+            <ContactMechPurpose contactMechPurposeId="WebUrlTwitter" contactMechTypeEnumId="CmtWebAddress"
+                    description="Website URL - Twitter"/>
         </seed-data>
     </entity>
     <entity entity-name="PartyContactMech" package="mantle.party.contact">
