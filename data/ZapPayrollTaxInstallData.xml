@@ -52,39 +52,42 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- USA Allowance Deduction Amounts -->
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="UsaIrs" timePeriodTypeId="PayrollWeek"
-            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="76.90"/>
+            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="76.90"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="UsaIrs" timePeriodTypeId="PayrollBiWeek"
-            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="153.80"/>
+            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="153.80"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="UsaIrs" timePeriodTypeId="PayrollSemiMonth"
-            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="166.70"/>
+            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="166.70"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="UsaIrs" timePeriodTypeId="PayrollMonth"
-            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="333.30"/>
+            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="333.30"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="UsaIrs" timePeriodTypeId="PayrollQuarter"
-            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="1000"/>
+            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="1000"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="UsaIrs" timePeriodTypeId="PayrollSemiYear"
-            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="2000"/>
+            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="2000"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="UsaIrs" timePeriodTypeId="PayrollYear"
-            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="4000"/>
+            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="4000"/>
 
     <!-- USA Social Security and Medicare (Employee Share) -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsSocSec2015" taxAuthorityId="UsaIrs"
             description="USA Social Security Withholding 2015" deductFromDisposable="Y"
-            itemTypeEnumId="ItemTaxSocialSecEmpe" isSocialTax="Y" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
-        <details ytdMin="0" ytdMax="118,500" flatAmount="" percentage="-6.2"/>
+            itemTypeEnumId="ItemTaxSocialSecEmpe" rateBasisEnumId="PrbsSocial" isSocialTax="Y"
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
+        <details ytdMin="0" ytdMax="118,500" flatAmount="" rate="-0.062"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsMedicare2015" taxAuthorityId="UsaIrs"
             description="USA Medicare Withholding 2015" deductFromDisposable="Y"
-            itemTypeEnumId="ItemTaxMedEmpe" isMedicalTax="Y" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
-        <details ytdMin="" ytdMax="" flatAmount="" percentage="-1.45"/>
+            itemTypeEnumId="ItemTaxMedEmpe" rateBasisEnumId="PrbsMedical" isMedicalTax="Y"
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
+        <details ytdMin="" ytdMax="" flatAmount="" rate="-0.0145"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsAddtlMedicare2015" taxAuthorityId="UsaIrs"
             description="USA Additional Medicare Withholding 2015" deductFromDisposable="Y"
-            itemTypeEnumId="ItemTaxAddtlMedEmpe" isMedicalTax="Y" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
-        <details ytdMin="200,000" ytdMax="" flatAmount="" percentage="-0.9" percAfterYtdMin="Y"/>
+            itemTypeEnumId="ItemTaxAddtlMedEmpe" rateBasisEnumId="PrbsMedical" isMedicalTax="Y"
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
+        <details ytdMin="200,000" ytdMax="" flatAmount="" rate="-0.009" rateAfterYtdMin="Y"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
@@ -92,15 +95,17 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- USA Social Security and Medicare (Employer Share) -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsSocSecEmpr2015" taxAuthorityId="UsaIrs"
             description="USA Social Security Employer 2015" isEmployerPaid="Y"
-            itemTypeEnumId="ItemPrlExpTaxSocialSecEmpr" isSocialTax="Y" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
-        <details ytdMin="0" ytdMax="118,500" flatAmount="" percentage="-6.2"/>
+            itemTypeEnumId="ItemPrlExpTaxSocialSecEmpr" rateBasisEnumId="PrbsSocial" isSocialTax="Y"
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
+        <details ytdMin="0" ytdMax="118,500" flatAmount="" rate="-0.062"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsMedicareEmpr2015" taxAuthorityId="UsaIrs"
             description="USA Medicare Employer 2015" isEmployerPaid="Y"
-            itemTypeEnumId="ItemPrlExpTaxMedEmpr" isMedicalTax="Y" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
-        <details ytdMin="" ytdMax="" flatAmount="" percentage="-1.45"/>
+            itemTypeEnumId="ItemPrlExpTaxMedEmpr" rateBasisEnumId="PrbsMedical" isMedicalTax="Y"
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
+        <details ytdMin="" ytdMax="" flatAmount="" rate="-0.0145"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
@@ -108,17 +113,17 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- USA Federal Income Withholding Bi-Weekly Single -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsFitBiWeekSingle2015" taxAuthorityId="UsaIrs"
             description="USA Federal Income Tax Withholding Bi-Weekly Single 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxFederalWhold" isTax="Y" applyAllowanceDeduction="Y"
-            fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
+            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxFederalWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
+            applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <fedStatuses taxFederalStatusEnumId="TfsSingle"/>
-        <details detailSeqId="01" periodMin="0" periodMax="88" flatAmount="-0" percentage="-0" percAfterPeriodMin="Y"/>
-        <details detailSeqId="02" periodMin="88" periodMax="443" flatAmount="-0" percentage="-10" percAfterPeriodMin="Y"/>
-        <details detailSeqId="03" periodMin="443" periodMax="1529" flatAmount="-35.50" percentage="-15" percAfterPeriodMin="Y"/>
-        <details detailSeqId="04" periodMin="1529" periodMax="3579" flatAmount="-198.40" percentage="-25" percAfterPeriodMin="Y"/>
-        <details detailSeqId="05" periodMin="3579" periodMax="7369" flatAmount="-710.90" percentage="-28" percAfterPeriodMin="Y"/>
-        <details detailSeqId="06" periodMin="7369" periodMax="15915" flatAmount="-1772.10" percentage="-33" percAfterPeriodMin="Y"/>
-        <details detailSeqId="07" periodMin="15915" periodMax="15981" flatAmount="-4592.28" percentage="-35" percAfterPeriodMin="Y"/>
-        <details detailSeqId="08" periodMin="15981" periodMax="" flatAmount="-4592.28" percentage="-39.6" percAfterPeriodMin="Y"/>
+        <details detailSeqId="01" periodMin="0" periodMax="88" flatAmount="-0" rate="-0" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="02" periodMin="88" periodMax="443" flatAmount="-0" rate="-0.10" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="03" periodMin="443" periodMax="1529" flatAmount="-35.50" rate="-0.15" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="04" periodMin="1529" periodMax="3579" flatAmount="-198.40" rate="-0.25" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="05" periodMin="3579" periodMax="7369" flatAmount="-710.90" rate="-0.28" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="06" periodMin="7369" periodMax="15915" flatAmount="-1772.10" rate="-0.33" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="07" periodMin="15915" periodMax="15981" flatAmount="-4592.28" rate="-0.35" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="08" periodMin="15981" periodMax="" flatAmount="-4592.28" rate="-0.396" rateAfterPeriodMin="Y"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
@@ -126,17 +131,17 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- USA Federal Income Withholding Bi-Weekly Married -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsFitBiWeekMarried2015" taxAuthorityId="UsaIrs"
             description="USA Federal Income Tax Withholding Bi-Weekly Married 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxFederalWhold" isTax="Y" applyAllowanceDeduction="Y"
-            fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
+            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxFederalWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
+            applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <fedStatuses taxFederalStatusEnumId="TfsMarriedJoint"/>
-        <details detailSeqId="01" periodMin="0" periodMax="331" flatAmount="-0" percentage="-0" percAfterPeriodMin="Y"/>
-        <details detailSeqId="02" periodMin="331" periodMax="1040" flatAmount="-0" percentage="-10" percAfterPeriodMin="Y"/>
-        <details detailSeqId="03" periodMin="1040" periodMax="3212" flatAmount="-70.90" percentage="-15" percAfterPeriodMin="Y"/>
-        <details detailSeqId="04" periodMin="3212" periodMax="6146" flatAmount="-396.70" percentage="-25" percAfterPeriodMin="Y"/>
-        <details detailSeqId="05" periodMin="6146" periodMax="9194" flatAmount="-1130.20" percentage="-28" percAfterPeriodMin="Y"/>
-        <details detailSeqId="06" periodMin="9194" periodMax="16158" flatAmount="-1983.64" percentage="-33" percAfterPeriodMin="Y"/>
-        <details detailSeqId="07" periodMin="16158" periodMax="18210" flatAmount="-4281.76" percentage="-35" percAfterPeriodMin="Y"/>
-        <details detailSeqId="08" periodMin="18210" periodMax="" flatAmount="-4999.96" percentage="-39.6" percAfterPeriodMin="Y"/>
+        <details detailSeqId="01" periodMin="0" periodMax="331" flatAmount="-0" rate="-0" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="02" periodMin="331" periodMax="1040" flatAmount="-0" rate="-0.10" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="03" periodMin="1040" periodMax="3212" flatAmount="-70.90" rate="-0.15" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="04" periodMin="3212" periodMax="6146" flatAmount="-396.70" rate="-0.25" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="05" periodMin="6146" periodMax="9194" flatAmount="-1130.20" rate="-0.28" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="06" periodMin="9194" periodMax="16158" flatAmount="-1983.64" rate="-0.33" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="07" periodMin="16158" periodMax="18210" flatAmount="-4281.76" rate="-0.35" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="08" periodMin="18210" periodMax="" flatAmount="-4999.96" rate="-0.396" rateAfterPeriodMin="Y"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
@@ -144,17 +149,17 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- USA Federal Income Withholding Weekly Single -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsFitWeekSingle2015" taxAuthorityId="UsaIrs"
             description="USA Federal Income Tax Withholding Weekly Single 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxFederalWhold" isTax="Y" applyAllowanceDeduction="Y"
-            fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
+            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxFederalWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
+            applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <fedStatuses taxFederalStatusEnumId="TfsSingle"/>
-        <details detailSeqId="01" periodMin="0" periodMax="44" flatAmount="-0" percentage="-0" percAfterPeriodMin="Y"/>
-        <details detailSeqId="02" periodMin="44" periodMax="222" flatAmount="-0" percentage="-10" percAfterPeriodMin="Y"/>
-        <details detailSeqId="03" periodMin="222" periodMax="764" flatAmount="-17.80" percentage="-15" percAfterPeriodMin="Y"/>
-        <details detailSeqId="04" periodMin="764" periodMax="1789" flatAmount="-99.10" percentage="-25" percAfterPeriodMin="Y"/>
-        <details detailSeqId="05" periodMin="1789" periodMax="3685" flatAmount="-355.35" percentage="-28" percAfterPeriodMin="Y"/>
-        <details detailSeqId="06" periodMin="3685" periodMax="7958" flatAmount="-886.23" percentage="-33" percAfterPeriodMin="Y"/>
-        <details detailSeqId="07" periodMin="7958" periodMax="7990" flatAmount="-2296.32" percentage="-35" percAfterPeriodMin="Y"/>
-        <details detailSeqId="08" periodMin="7990" periodMax="" flatAmount="-2307.52" percentage="-39.6" percAfterPeriodMin="Y"/>
+        <details detailSeqId="01" periodMin="0" periodMax="44" flatAmount="-0" rate="-0" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="02" periodMin="44" periodMax="222" flatAmount="-0" rate="-0.10" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="03" periodMin="222" periodMax="764" flatAmount="-17.80" rate="-0.15" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="04" periodMin="764" periodMax="1789" flatAmount="-99.10" rate="-0.25" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="05" periodMin="1789" periodMax="3685" flatAmount="-355.35" rate="-0.28" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="06" periodMin="3685" periodMax="7958" flatAmount="-886.23" rate="-0.33" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="07" periodMin="7958" periodMax="7990" flatAmount="-2296.32" rate="-0.35" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="08" periodMin="7990" periodMax="" flatAmount="-2307.52" rate="-0.396" rateAfterPeriodMin="Y"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
@@ -162,17 +167,17 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- USA Federal Income Withholding Weekly Married -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsFitWeekMarried2015" taxAuthorityId="UsaIrs"
             description="USA Federal Income Tax Withholding Weekly Married 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxFederalWhold" isTax="Y" applyAllowanceDeduction="Y"
-            fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
+            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxFederalWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
+            applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <fedStatuses taxFederalStatusEnumId="TfsMarriedJoint"/>
-        <details detailSeqId="01" periodMin="0" periodMax="165" flatAmount="-0" percentage="-0" percAfterPeriodMin="Y"/>
-        <details detailSeqId="02" periodMin="165" periodMax="520" flatAmount="-0" percentage="-10" percAfterPeriodMin="Y"/>
-        <details detailSeqId="03" periodMin="520" periodMax="1606" flatAmount="-35.50" percentage="-15" percAfterPeriodMin="Y"/>
-        <details detailSeqId="04" periodMin="1606" periodMax="3073" flatAmount="-198.40" percentage="-25" percAfterPeriodMin="Y"/>
-        <details detailSeqId="05" periodMin="3073" periodMax="4597" flatAmount="-565.15" percentage="-28" percAfterPeriodMin="Y"/>
-        <details detailSeqId="06" periodMin="4597" periodMax="8079" flatAmount="-991.87" percentage="-33" percAfterPeriodMin="Y"/>
-        <details detailSeqId="07" periodMin="8079" periodMax="9105" flatAmount="-2140.93" percentage="-35" percAfterPeriodMin="Y"/>
-        <details detailSeqId="08" periodMin="9105" periodMax="" flatAmount="-2500.03" percentage="-39.6" percAfterPeriodMin="Y"/>
+        <details detailSeqId="01" periodMin="0" periodMax="165" flatAmount="-0" rate="-0" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="02" periodMin="165" periodMax="520" flatAmount="-0" rate="-0.10" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="03" periodMin="520" periodMax="1606" flatAmount="-35.50" rate="-0.15" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="04" periodMin="1606" periodMax="3073" flatAmount="-198.40" rate="-0.25" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="05" periodMin="3073" periodMax="4597" flatAmount="-565.15" rate="-0.28" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="06" periodMin="4597" periodMax="8079" flatAmount="-991.87" rate="-0.33" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="07" periodMin="8079" periodMax="9105" flatAmount="-2140.93" rate="-0.35" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="08" periodMin="9105" periodMax="" flatAmount="-2500.03" rate="-0.396" rateAfterPeriodMin="Y"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
@@ -193,92 +198,95 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- Allowance Deductions for CA PIT -->
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="CaEdd" timePeriodTypeId="PayrollWeek"
-            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="19"/>
+            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="19"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="CaEdd" timePeriodTypeId="PayrollBiWeek"
-            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="38"/>
+            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="38"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="CaEdd" timePeriodTypeId="PayrollSemiMonth"
-            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="42"/>
+            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="42"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="CaEdd" timePeriodTypeId="PayrollMonth"
-            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="83"/>
+            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="83"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="CaEdd" timePeriodTypeId="PayrollQuarter"
-            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="250"/>
+            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="250"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="CaEdd" timePeriodTypeId="PayrollSemiYear"
-            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="500"/>
+            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="500"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="CaEdd" timePeriodTypeId="PayrollYear"
-            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="1000"/>
+            amountTypeEnumId="PaatDeduction" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="1000"/>
 
     <!-- Standard Deductions (NOTE: Week and Bi-Week only) -->
     <mantle.humanres.employment.PayrollStdDeduction taxAuthorityId="CaEdd" timePeriodTypeId="PayrollWeek"
             taxStateStatusEnumId="TssMarriedFileJoint1" minAllowances="0" maxAllowances="1"
-            fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="77"/>
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="77"/>
     <mantle.humanres.employment.PayrollStdDeduction taxAuthorityId="CaEdd" timePeriodTypeId="PayrollWeek"
             taxStateStatusEnumId="TssMarriedFileJoint1" minAllowances="2" maxAllowances=""
-            fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="154"/>
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="154"/>
     <mantle.humanres.employment.PayrollStdDeduction taxAuthorityId="CaEdd" timePeriodTypeId="PayrollWeek"
-            taxStateStatusEnumId="TssMarriedFileJoint2" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="77"/>
+            taxStateStatusEnumId="TssMarriedFileJoint2" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="77"/>
     <mantle.humanres.employment.PayrollStdDeduction taxAuthorityId="CaEdd" timePeriodTypeId="PayrollWeek"
-            taxStateStatusEnumId="TssMarriedSeparate" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="77"/>
+            taxStateStatusEnumId="TssMarriedSeparate" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="77"/>
     <mantle.humanres.employment.PayrollStdDeduction taxAuthorityId="CaEdd" timePeriodTypeId="PayrollWeek"
-            taxStateStatusEnumId="TssHeadHousehold" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="154"/>
+            taxStateStatusEnumId="TssHeadHousehold" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="154"/>
     <mantle.humanres.employment.PayrollStdDeduction taxAuthorityId="CaEdd" timePeriodTypeId="PayrollWeek"
-            taxStateStatusEnumId="TssSingle" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="77"/>
+            taxStateStatusEnumId="TssSingle" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="77"/>
 
     <mantle.humanres.employment.PayrollStdDeduction taxAuthorityId="CaEdd" timePeriodTypeId="PayrollBiWeek"
             taxStateStatusEnumId="TssMarriedFileJoint1" minAllowances="0" maxAllowances="1"
-            fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="154"/>
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="154"/>
     <mantle.humanres.employment.PayrollStdDeduction taxAuthorityId="CaEdd" timePeriodTypeId="PayrollBiWeek"
             taxStateStatusEnumId="TssMarriedFileJoint1" minAllowances="2" maxAllowances=""
-            fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="307"/>
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="307"/>
     <mantle.humanres.employment.PayrollStdDeduction taxAuthorityId="CaEdd" timePeriodTypeId="PayrollBiWeek"
-            taxStateStatusEnumId="TssMarriedFileJoint2" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="154"/>
+            taxStateStatusEnumId="TssMarriedFileJoint2" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="154"/>
     <mantle.humanres.employment.PayrollStdDeduction taxAuthorityId="CaEdd" timePeriodTypeId="PayrollBiWeek"
-            taxStateStatusEnumId="TssMarriedSeparate" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="154"/>
+            taxStateStatusEnumId="TssMarriedSeparate" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="154"/>
     <mantle.humanres.employment.PayrollStdDeduction taxAuthorityId="CaEdd" timePeriodTypeId="PayrollBiWeek"
-            taxStateStatusEnumId="TssHeadHousehold" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="307"/>
+            taxStateStatusEnumId="TssHeadHousehold" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="307"/>
     <mantle.humanres.employment.PayrollStdDeduction taxAuthorityId="CaEdd" timePeriodTypeId="PayrollBiWeek"
-            taxStateStatusEnumId="TssSingle" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="154"/>
+            taxStateStatusEnumId="TssSingle" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="154"/>
 
     <!-- Allowance Exemptions for CA PIT -->
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="CaEdd" timePeriodTypeId="PayrollWeek"
-            amountTypeEnumId="PaatExemption" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="2.28"/>
+            amountTypeEnumId="PaatExemption" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="2.28"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="CaEdd" timePeriodTypeId="PayrollBiWeek"
-            amountTypeEnumId="PaatExemption" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="4.57"/>
+            amountTypeEnumId="PaatExemption" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="4.57"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="CaEdd" timePeriodTypeId="PayrollSemiMonth"
-            amountTypeEnumId="PaatExemption" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="4.95"/>
+            amountTypeEnumId="PaatExemption" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="4.95"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="CaEdd" timePeriodTypeId="PayrollMonth"
-            amountTypeEnumId="PaatExemption" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="9.90"/>
+            amountTypeEnumId="PaatExemption" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="9.90"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="CaEdd" timePeriodTypeId="PayrollQuarter"
-            amountTypeEnumId="PaatExemption" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="29.70"/>
+            amountTypeEnumId="PaatExemption" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="29.70"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="CaEdd" timePeriodTypeId="PayrollSemiYear"
-            amountTypeEnumId="PaatExemption" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="59.40"/>
+            amountTypeEnumId="PaatExemption" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="59.40"/>
     <mantle.humanres.employment.PayrollAllowance taxAuthorityId="CaEdd" timePeriodTypeId="PayrollYear"
-            amountTypeEnumId="PaatExemption" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59" amount="118.80"/>
+            amountTypeEnumId="PaatExemption" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59" amount="118.80"/>
 
     <!-- CA UI, ETT, SDI -->
     <!-- NOTE: all of these use isTax instead of isMedicalTax or isSocialTax because the income basis is the same for
         all; if that is not correct this needs to be changed -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaUnInsEmpr2015" taxAuthorityId="CaEdd" timePeriodTypeId=""
             description="CA Unemployment Insurance Employer 2015" isEmployerPaid="Y"
-            itemTypeEnumId="ItemPrlExpTaxStateUnInsEmpr" isTax="Y" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
+            itemTypeEnumId="ItemPrlExpTaxStateUnInsEmpr" rateBasisEnumId="PrbsIncome" isTax="Y"
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <!-- NOTE: this rate will vary over time (min 1.5% max 6.2%) for employers and should be adjusted over time with
             additional PayrollAdjustment/Detail records; see de44.pdf page 9 and http://www.edd.ca.gov/pdf_pub_ctr/de231z.pdf -->
-        <details ytdMin="0" ytdMax="7,000" flatAmount="" percentage="-3.4"/>
+        <details ytdMin="0" ytdMax="7,000" flatAmount="" rate="-0.034"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
 
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaEttEmpr2015" taxAuthorityId="CaEdd" timePeriodTypeId=""
             description="CA Employment Training Tax Employer 2015" isEmployerPaid="Y"
-            itemTypeEnumId="ItemPrlExpTaxStateMiscEmpr" isTax="Y" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
-        <details ytdMin="0" ytdMax="7,000" flatAmount="" percentage="-0.1"/>
+            itemTypeEnumId="ItemPrlExpTaxStateMiscEmpr" rateBasisEnumId="PrbsIncome" isTax="Y"
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
+        <details ytdMin="0" ytdMax="7,000" flatAmount="" rate="-0.001"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <!-- TODO: foreign ag exempt? <exempts taxExemptEnumId="EtxForeignAg"/> -->
     </mantle.humanres.employment.PayrollAdjustment>
 
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaSdiEmpe2015" taxAuthorityId="CaEdd" timePeriodTypeId=""
             description="CA State Disability Insurance Employee 2015" deductFromDisposable="Y"
-            itemTypeEnumId="ItemTaxStateDisInsEmpe" isSocialTax="Y" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
-        <details ytdMin="0" ytdMax="104,378" flatAmount="" percentage="-0.9"/>
+            itemTypeEnumId="ItemTaxStateDisInsEmpe" rateBasisEnumId="PrbsSocial" isSocialTax="Y"
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
+        <details ytdMin="0" ytdMax="104,378" flatAmount="" rate="-0.009"/>
         <exempts taxExemptEnumId="EtxContract"/>
     </mantle.humanres.employment.PayrollAdjustment>
 
@@ -287,22 +295,22 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- CA State Income Withholding Bi-Weekly Married File Separate (NOTE: same rates as Single) -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaPitBiWeekSingle2015" taxAuthorityId="CaEdd"
             description="CA Personal Income Tax Withholding Bi-Weekly Single 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxStateWhold" isTax="Y"
+            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxStateWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
             applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
-            fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <stateStatuses taxStateStatusEnumId="TssSingle"/>
         <stateStatuses taxStateStatusEnumId="TssMarriedFileJoint2"/>
         <stateStatuses taxStateStatusEnumId="TssMarriedSeparate"/>
-        <details detailSeqId="01" periodMin="0" periodMax="298" flatAmount="-0" percentage="-1.1" percAfterPeriodMin="Y"/>
-        <details detailSeqId="02" periodMin="298" periodMax="706" flatAmount="-3.28" percentage="-2.2" percAfterPeriodMin="Y"/>
-        <details detailSeqId="03" periodMin="706" periodMax="1116" flatAmount="-12.26" percentage="-4.4" percAfterPeriodMin="Y"/>
-        <details detailSeqId="04" periodMin="1116" periodMax="1548" flatAmount="-30.30" percentage="-6.6" percAfterPeriodMin="Y"/>
-        <details detailSeqId="05" periodMin="1548" periodMax="1956" flatAmount="-58.81" percentage="-8.8" percAfterPeriodMin="Y"/>
-        <details detailSeqId="06" periodMin="1956" periodMax="9994" flatAmount="-94.71" percentage="-10.23" percAfterPeriodMin="Y"/>
-        <details detailSeqId="07" periodMin="9994" periodMax="11992" flatAmount="-917.00" percentage="-11.33" percAfterPeriodMin="Y"/>
-        <details detailSeqId="08" periodMin="11992" periodMax="19988" flatAmount="-1143.37" percentage="-12.43" percAfterPeriodMin="Y"/>
-        <details detailSeqId="09" periodMin="19988" periodMax="38462" flatAmount="-2137.27" percentage="-13.53" percAfterPeriodMin="Y"/>
-        <details detailSeqId="10" periodMin="38462" periodMax="" flatAmount="-4636.80" percentage="-14.63" percAfterPeriodMin="Y"/>
+        <details detailSeqId="01" periodMin="0" periodMax="298" flatAmount="-0" rate="-0.011" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="02" periodMin="298" periodMax="706" flatAmount="-3.28" rate="-0.022" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="03" periodMin="706" periodMax="1116" flatAmount="-12.26" rate="-0.044" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="04" periodMin="1116" periodMax="1548" flatAmount="-30.30" rate="-0.066" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="05" periodMin="1548" periodMax="1956" flatAmount="-58.81" rate="-0.088" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="06" periodMin="1956" periodMax="9994" flatAmount="-94.71" rate="-0.1023" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="07" periodMin="9994" periodMax="11992" flatAmount="-917.00" rate="-0.1133" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="08" periodMin="11992" periodMax="19988" flatAmount="-1143.37" rate="-0.1243" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="09" periodMin="19988" periodMax="38462" flatAmount="-2137.27" rate="-0.1353" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="10" periodMin="38462" periodMax="" flatAmount="-4636.80" rate="-0.1463" rateAfterPeriodMin="Y"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
@@ -310,20 +318,20 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- CA State Income Withholding Bi-Weekly Married -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaPitBiWeekMarried2015" taxAuthorityId="CaEdd"
             description="CA Personal Income Tax Withholding Bi-Weekly Married 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxStateWhold" isTax="Y"
+            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxStateWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
             applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
-            fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <stateStatuses taxStateStatusEnumId="TssMarriedFileJoint1"/>
-        <details detailSeqId="01" periodMin="0" periodMax="596" flatAmount="-0" percentage="-1.1" percAfterPeriodMin="Y"/>
-        <details detailSeqId="02" periodMin="596" periodMax="1412" flatAmount="-6.56" percentage="-2.2" percAfterPeriodMin="Y"/>
-        <details detailSeqId="03" periodMin="1412" periodMax="2232" flatAmount="-24.51" percentage="-4.4" percAfterPeriodMin="Y"/>
-        <details detailSeqId="04" periodMin="2232" periodMax="3096" flatAmount="-60.59" percentage="-6.6" percAfterPeriodMin="Y"/>
-        <details detailSeqId="05" periodMin="3096" periodMax="3912" flatAmount="-117.61" percentage="-8.8" percAfterPeriodMin="Y"/>
-        <details detailSeqId="06" periodMin="3912" periodMax="19988" flatAmount="-189.42" percentage="-10.23" percAfterPeriodMin="Y"/>
-        <details detailSeqId="07" periodMin="19988" periodMax="23984" flatAmount="-1833.99" percentage="-11.33" percAfterPeriodMin="Y"/>
-        <details detailSeqId="08" periodMin="23984" periodMax="38462" flatAmount="-2286.74" percentage="-12.43" percAfterPeriodMin="Y"/>
-        <details detailSeqId="09" periodMin="38462" periodMax="39976" flatAmount="-4086.36" percentage="-13.53" percAfterPeriodMin="Y"/>
-        <details detailSeqId="10" periodMin="39976" periodMax="" flatAmount="-4291.20" percentage="-14.63" percAfterPeriodMin="Y"/>
+        <details detailSeqId="01" periodMin="0" periodMax="596" flatAmount="-0" rate="-0.011" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="02" periodMin="596" periodMax="1412" flatAmount="-6.56" rate="-0.022" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="03" periodMin="1412" periodMax="2232" flatAmount="-24.51" rate="-0.044" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="04" periodMin="2232" periodMax="3096" flatAmount="-60.59" rate="-0.066" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="05" periodMin="3096" periodMax="3912" flatAmount="-117.61" rate="-0.088" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="06" periodMin="3912" periodMax="19988" flatAmount="-189.42" rate="-0.1023" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="07" periodMin="19988" periodMax="23984" flatAmount="-1833.99" rate="-0.1133" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="08" periodMin="23984" periodMax="38462" flatAmount="-2286.74" rate="-0.1243" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="09" periodMin="38462" periodMax="39976" flatAmount="-4086.36" rate="-0.1353" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="10" periodMin="39976" periodMax="" flatAmount="-4291.20" rate="-0.1463" rateAfterPeriodMin="Y"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
@@ -331,20 +339,20 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- CA State Income Withholding Bi-Weekly Unmarried Head of Household -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaPitBiWeekHead2015" taxAuthorityId="CaEdd"
             description="CA Personal Income Tax Withholding Bi-Weekly Head 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxStateWhold" isTax="Y"
+            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxStateWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
             applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
-            fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <stateStatuses taxStateStatusEnumId="TssHeadHousehold"/>
-        <details detailSeqId="01" periodMin="0" periodMax="596" flatAmount="-0" percentage="-1.1" percAfterPeriodMin="Y" />
-        <details detailSeqId="02" periodMin="596" periodMax="1412" flatAmount="-6.56" percentage="-2.2" percAfterPeriodMin="Y"/>
-        <details detailSeqId="03" periodMin="1412" periodMax="1822" flatAmount="-24.56" percentage="-4.4" percAfterPeriodMin="Y"/>
-        <details detailSeqId="04" periodMin="1822" periodMax="2254" flatAmount="-42.51" percentage="-6.6" percAfterPeriodMin="Y"/>
-        <details detailSeqId="05" periodMin="2254" periodMax="2664" flatAmount="-71.02" percentage="-8.8" percAfterPeriodMin="Y"/>
-        <details detailSeqId="06" periodMin="2664" periodMax="13592" flatAmount="-107.10" percentage="-10.23" percAfterPeriodMin="Y"/>
-        <details detailSeqId="07" periodMin="13592" periodMax="16310" flatAmount="-1225.03" percentage="-11.33" percAfterPeriodMin="Y"/>
-        <details detailSeqId="08" periodMin="16310" periodMax="27184" flatAmount="-1532.98" percentage="-12.43" percAfterPeriodMin="Y"/>
-        <details detailSeqId="09" periodMin="27184" periodMax="38462" flatAmount="-2884.62" percentage="-13.53" percAfterPeriodMin="Y"/>
-        <details detailSeqId="10" periodMin="38462" periodMax="" flatAmount="-4410.53" percentage="-14.63" percAfterPeriodMin="Y"/>
+        <details detailSeqId="01" periodMin="0" periodMax="596" flatAmount="-0" rate="-0.011" rateAfterPeriodMin="Y" />
+        <details detailSeqId="02" periodMin="596" periodMax="1412" flatAmount="-6.56" rate="-0.022" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="03" periodMin="1412" periodMax="1822" flatAmount="-24.56" rate="-0.044" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="04" periodMin="1822" periodMax="2254" flatAmount="-42.51" rate="-0.066" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="05" periodMin="2254" periodMax="2664" flatAmount="-71.02" rate="-0.088" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="06" periodMin="2664" periodMax="13592" flatAmount="-107.10" rate="-0.1023" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="07" periodMin="13592" periodMax="16310" flatAmount="-1225.03" rate="-0.1133" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="08" periodMin="16310" periodMax="27184" flatAmount="-1532.98" rate="-0.1243" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="09" periodMin="27184" periodMax="38462" flatAmount="-2884.62" rate="-0.1353" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="10" periodMin="38462" periodMax="" flatAmount="-4410.53" rate="-0.1463" rateAfterPeriodMin="Y"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
@@ -354,22 +362,22 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- CA State Income Withholding Weekly Married File Separate (NOTE: same rates as Single) -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaPitWeekSingle2015" taxAuthorityId="CaEdd"
             description="CA Personal Income Tax Withholding Weekly Single 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxStateWhold" isTax="Y"
+            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxStateWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
             applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
-            fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <stateStatuses taxStateStatusEnumId="TssSingle"/>
         <stateStatuses taxStateStatusEnumId="TssMarriedFileJoint2"/>
         <stateStatuses taxStateStatusEnumId="TssMarriedSeparate"/>
-        <details detailSeqId="01" periodMin="0" periodMax="149" flatAmount="-0" percentage="-1.1" percAfterPeriodMin="Y"/>
-        <details detailSeqId="02" periodMin="149" periodMax="353" flatAmount="-1.64" percentage="-2.2" percAfterPeriodMin="Y"/>
-        <details detailSeqId="03" periodMin="353" periodMax="558" flatAmount="-6.13" percentage="-4.4" percAfterPeriodMin="Y"/>
-        <details detailSeqId="04" periodMin="558" periodMax="774" flatAmount="-15.15" percentage="-6.6" percAfterPeriodMin="Y"/>
-        <details detailSeqId="05" periodMin="774" periodMax="978" flatAmount="-29.41" percentage="-8.8" percAfterPeriodMin="Y"/>
-        <details detailSeqId="06" periodMin="978" periodMax="4997" flatAmount="-47.36" percentage="-10.23" percAfterPeriodMin="Y"/>
-        <details detailSeqId="07" periodMin="4997" periodMax="5996" flatAmount="-458.50" percentage="-11.33" percAfterPeriodMin="Y"/>
-        <details detailSeqId="08" periodMin="5996" periodMax="9994" flatAmount="-571.69" percentage="-12.43" percAfterPeriodMin="Y"/>
-        <details detailSeqId="09" periodMin="9994" periodMax="19231" flatAmount="-1068.64" percentage="-13.53" percAfterPeriodMin="Y"/>
-        <details detailSeqId="10" periodMin="19231" periodMax="" flatAmount="-2318.41" percentage="-14.63" percAfterPeriodMin="Y"/>
+        <details detailSeqId="01" periodMin="0" periodMax="149" flatAmount="-0" rate="-0.011" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="02" periodMin="149" periodMax="353" flatAmount="-1.64" rate="-0.022" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="03" periodMin="353" periodMax="558" flatAmount="-6.13" rate="-0.044" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="04" periodMin="558" periodMax="774" flatAmount="-15.15" rate="-0.066" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="05" periodMin="774" periodMax="978" flatAmount="-29.41" rate="-0.088" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="06" periodMin="978" periodMax="4997" flatAmount="-47.36" rate="-0.1023" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="07" periodMin="4997" periodMax="5996" flatAmount="-458.50" rate="-0.1133" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="08" periodMin="5996" periodMax="9994" flatAmount="-571.69" rate="-0.1243" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="09" periodMin="9994" periodMax="19231" flatAmount="-1068.64" rate="-0.1353" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="10" periodMin="19231" periodMax="" flatAmount="-2318.41" rate="-0.1463" rateAfterPeriodMin="Y"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
@@ -377,20 +385,20 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- CA State Income Withholding Weekly Married -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaPitWeekMarried2015" taxAuthorityId="CaEdd"
             description="CA Personal Income Tax Withholding Weekly Married 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxStateWhold" isTax="Y"
+            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxStateWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
             applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
-            fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <stateStatuses taxStateStatusEnumId="TssMarriedFileJoint1"/>
-        <details detailSeqId="01" periodMin="0" periodMax="298" flatAmount="-0" percentage="-1.1" percAfterPeriodMin="Y"/>
-        <details detailSeqId="02" periodMin="298" periodMax="706" flatAmount="-3.28" percentage="-2.2" percAfterPeriodMin="Y"/>
-        <details detailSeqId="03" periodMin="706" periodMax="1116" flatAmount="-12.26" percentage="-4.4" percAfterPeriodMin="Y"/>
-        <details detailSeqId="04" periodMin="1116" periodMax="1548" flatAmount="-30.30" percentage="-6.6" percAfterPeriodMin="Y"/>
-        <details detailSeqId="05" periodMin="1548" periodMax="1956" flatAmount="-58.81" percentage="-8.8" percAfterPeriodMin="Y"/>
-        <details detailSeqId="06" periodMin="1956" periodMax="9994" flatAmount="-94.71" percentage="-10.23" percAfterPeriodMin="Y"/>
-        <details detailSeqId="07" periodMin="9994" periodMax="11992" flatAmount="-917.00" percentage="-11.33" percAfterPeriodMin="Y"/>
-        <details detailSeqId="08" periodMin="11992" periodMax="19231" flatAmount="-1143.37" percentage="-12.43" percAfterPeriodMin="Y"/>
-        <details detailSeqId="09" periodMin="19231" periodMax="19988" flatAmount="-2043.18" percentage="-13.53" percAfterPeriodMin="Y"/>
-        <details detailSeqId="10" periodMin="19988" periodMax="" flatAmount="-2145.60" percentage="-14.63" percAfterPeriodMin="Y"/>
+        <details detailSeqId="01" periodMin="0" periodMax="298" flatAmount="-0" rate="-0.011" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="02" periodMin="298" periodMax="706" flatAmount="-3.28" rate="-0.022" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="03" periodMin="706" periodMax="1116" flatAmount="-12.26" rate="-0.044" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="04" periodMin="1116" periodMax="1548" flatAmount="-30.30" rate="-0.066" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="05" periodMin="1548" periodMax="1956" flatAmount="-58.81" rate="-0.088" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="06" periodMin="1956" periodMax="9994" flatAmount="-94.71" rate="-0.1023" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="07" periodMin="9994" periodMax="11992" flatAmount="-917.00" rate="-0.1133" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="08" periodMin="11992" periodMax="19231" flatAmount="-1143.37" rate="-0.1243" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="09" periodMin="19231" periodMax="19988" flatAmount="-2043.18" rate="-0.1353" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="10" periodMin="19988" periodMax="" flatAmount="-2145.60" rate="-0.1463" rateAfterPeriodMin="Y"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
@@ -398,20 +406,20 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- CA State Income Withholding Weekly Unmarried Head of Household -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaPitWeekHead2015" taxAuthorityId="CaEdd"
             description="CA Personal Income Tax Withholding Weekly Head 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxStateWhold" isTax="Y"
+            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxStateWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
             applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
-            fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
+            fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <stateStatuses taxStateStatusEnumId="TssHeadHousehold"/>
-        <details detailSeqId="01" periodMin="0" periodMax="298" flatAmount="-0" percentage="-1.1" percAfterPeriodMin="Y" />
-        <details detailSeqId="02" periodMin="298" periodMax="707" flatAmount="-3.28" percentage="-2.2" percAfterPeriodMin="Y"/>
-        <details detailSeqId="03" periodMin="707" periodMax="911" flatAmount="-12.28" percentage="-4.4" percAfterPeriodMin="Y"/>
-        <details detailSeqId="04" periodMin="911" periodMax="1127" flatAmount="-21.26" percentage="-6.6" percAfterPeriodMin="Y"/>
-        <details detailSeqId="05" periodMin="1127" periodMax="1332" flatAmount="-35.52" percentage="-8.8" percAfterPeriodMin="Y"/>
-        <details detailSeqId="06" periodMin="1332" periodMax="6796" flatAmount="-53.56" percentage="-10.23" percAfterPeriodMin="Y"/>
-        <details detailSeqId="07" periodMin="6796" periodMax="8155" flatAmount="-612.53" percentage="-11.33" percAfterPeriodMin="Y"/>
-        <details detailSeqId="08" periodMin="8155" periodMax="13592" flatAmount="-766.50" percentage="-12.43" percAfterPeriodMin="Y"/>
-        <details detailSeqId="09" periodMin="13592" periodMax="19231" flatAmount="-1442.32" percentage="-13.53" percAfterPeriodMin="Y"/>
-        <details detailSeqId="10" periodMin="19231" periodMax="" flatAmount="-2205.28" percentage="-14.63" percAfterPeriodMin="Y"/>
+        <details detailSeqId="01" periodMin="0" periodMax="298" flatAmount="-0" rate="-0.011" rateAfterPeriodMin="Y" />
+        <details detailSeqId="02" periodMin="298" periodMax="707" flatAmount="-3.28" rate="-0.022" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="03" periodMin="707" periodMax="911" flatAmount="-12.28" rate="-0.044" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="04" periodMin="911" periodMax="1127" flatAmount="-21.26" rate="-0.066" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="05" periodMin="1127" periodMax="1332" flatAmount="-35.52" rate="-0.088" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="06" periodMin="1332" periodMax="6796" flatAmount="-53.56" rate="-0.1023" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="07" periodMin="6796" periodMax="8155" flatAmount="-612.53" rate="-0.1133" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="08" periodMin="8155" periodMax="13592" flatAmount="-766.50" rate="-0.1243" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="09" periodMin="13592" periodMax="19231" flatAmount="-1442.32" rate="-0.1353" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="10" periodMin="19231" periodMax="" flatAmount="-2205.28" rate="-0.1463" rateAfterPeriodMin="Y"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
@@ -448,7 +456,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="FILL THIS IN"
             timePeriodTypeId="PayrollBiWeek" partyRelationshipId="FILL THIS IN" description="CA Child Support"
             garnishPartyId="CaDocss" garnishDisposablePercent="50" garnishDueDays="3" garnishCaseNumber="CS12345" garnishPriority="1"
-            itemTypeEnumId="ItemDedChildGarnish" fromDate="2015-01-01" thruDate="2016-12-31 23:59:59">
+            itemTypeEnumId="ItemDedChildGarnish" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <details flatAmount="-300"/>
     </mantle.humanres.employment.PayrollAdjustment>
     -->

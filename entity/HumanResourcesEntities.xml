@@ -443,10 +443,12 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="currencyUomId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType"/>
     </entity>
+    
     <entity entity-name="PayrollAdjustment" package="mantle.humanres.employment" use="configuration">
         <field name="payrollAdjustmentId" type="id" is-pk="true"/>
         <field name="description" type="text-medium"/>
-        <field name="partyRelationshipId" type="id"><description>If null applies to all employees.</description></field>
+        <field name="organizationPartyId" type="id"><description>If null applies to all organizations</description></field>
+        <field name="partyRelationshipId" type="id"><description>If null applies to all employees</description></field>
         <field name="itemTypeEnumId" type="id"/>
         <field name="timePeriodTypeId" type="id"/>
         <field name="fromDate" type="date-time"/>
@@ -461,7 +463,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="isMedicalTax" type="text-indicator"/>
         <field name="isMedicalTaxable" type="text-indicator"><description>For medical (in USA: Medicare program) taxable
             positive adjustments and deductible negative adjustments.</description></field>
+        <field name="rateBasisEnumId" type="id"/>
+        <field name="riskClassCode" type="text-short"/>
         <field name="taxAuthorityId" type="id"/>
+        <field name="taxBox" type="text-short"><description>For tax forms, the alphanumeric box</description></field>
+        <field name="taxBoxCode" type="text-short"><description>For tax forms, the code/type</description></field>
         <field name="isEmployerPaid" type="text-indicator"><description>If Y is paid by the employer and not included
             in employee pay invoices.</description></field>
         <field name="applyStdDeduction" type="text-indicator"/>
@@ -476,10 +482,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="garnishCaseNumber" type="text-short"/>
         <field name="deductFromDisposable" type="text-indicator"/>
 
+        <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organizationParty">
+            <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
             <key-map field-name="itemTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType" short-alias="timePeriodType"/>
+        <relationship type="one" title="PayrollRateBasis" related="moqui.basic.Enumeration">
+            <key-map field-name="rateBasisEnumId"/></relationship>
         <relationship type="one" related="mantle.other.tax.TaxAuthority" short-alias="taxAuthority"/>
         <relationship type="one" title="Garnish" related="mantle.party.Party" short-alias="garnishParty">
             <key-map field-name="garnishPartyId"/></relationship>
@@ -492,15 +502,26 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="payrollAdjustmentId"/></relationship>
         <relationship type="many" related="mantle.humanres.employment.PayrollAdjustmentStateStts" short-alias="stateStatuses">
             <key-map field-name="payrollAdjustmentId"/></relationship>
+
+        <seed-data>
+            <!-- Payroll Rate Basis -->
+            <moqui.basic.EnumerationType description="Payroll Rate Basis" enumTypeId="PayrollRateBasis"/>
+            <moqui.basic.Enumeration description="Income Taxable" enumId="PrbsIncome" enumTypeId="PayrollRateBasis"/>
+            <moqui.basic.Enumeration description="Social Taxable" enumId="PrbsSocial" enumTypeId="PayrollRateBasis"/>
+            <moqui.basic.Enumeration description="Medical Taxable" enumId="PrbsMedical" enumTypeId="PayrollRateBasis"/>
+            <moqui.basic.Enumeration description="Gross" enumId="PrbsGross" enumTypeId="PayrollRateBasis"/><!-- default -->
+            <moqui.basic.Enumeration description="Straight Time Gross" enumId="PrbsStraightGross" enumTypeId="PayrollRateBasis"/>
+            <moqui.basic.Enumeration description="Hours Worked" enumId="PrbsHours" enumTypeId="PayrollRateBasis"/>
+        </seed-data>
     </entity>
     <entity entity-name="PayrollAdjustmentDetail" package="mantle.humanres.employment" use="configuration">
         <field name="payrollAdjustmentId" type="id" is-pk="true"/>
         <field name="detailSeqId" type="id" is-pk="true"/>
-        <field name="percentage" type="number-float"/>
-        <field name="percAfterYtdMin" type="text-indicator"/>
+        <field name="rate" type="number-float"/>
+        <field name="rateAfterYtdMin" type="text-indicator"/>
         <field name="ytdMin" type="currency-amount"/>
         <field name="ytdMax" type="currency-amount"/>
-        <field name="percAfterPeriodMin" type="text-indicator"/>
+        <field name="rateAfterPeriodMin" type="text-indicator"/>
         <field name="periodMin" type="currency-amount"/>
         <field name="periodMax" type="currency-amount"/>
         <field name="flatAmount" type="currency-amount"/>
@@ -590,6 +611,29 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusType description="Unemployment Claim Status" statusTypeId="UnemploymentClaim"/>
         </seed-data>
     </entity>
+    <entity entity-name="WorkTypeGlOverride" package="mantle.humanres.employment" use="configuration">
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="workTypeEnumId" type="id" is-pk="true"/>
+        <field name="itemTypeEnumId" type="id" is-pk="true"/>
+        <field name="overrideGlAccountId" type="id"/>
+        <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organizationParty">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration">
+            <key-map field-name="workTypeEnumId"/></relationship>
+        <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
+            <key-map field-name="itemTypeEnumId"/></relationship>
+        <relationship type="one" title="Override" related="mantle.ledger.account.GlAccount">
+            <key-map field-name="overrideGlAccountId"/></relationship>
+    </entity>
+    <entity entity-name="WorkTypeRiskClass" package="mantle.humanres.employment" use="configuration">
+        <field name="stateGeoId" type="id" is-pk="true"/>
+        <field name="workTypeEnumId" type="id" is-pk="true"/>
+        <field name="riskClassCode" type="text-short"/>
+        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workTypeEnum">
+            <key-map field-name="workTypeEnumId"/></relationship>
+        <relationship type="one" title="State" related="moqui.basic.Geo">
+            <key-map field-name="stateGeoId"/></relationship>
+    </entity>
 
     <!-- ========================================================= -->
     <!-- mantle.humanres.position -->
@@ -597,6 +641,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <entity entity-name="EmplPosition" package="mantle.humanres.position" use="configuration">
         <field name="emplPositionId" type="id" is-pk="true"/>
+        <field name="pseudoId" type="id" default="emplPositionId"/>
         <field name="organizationPartyId" type="id"/>
         <field name="emplPositionClassId" type="id" enable-audit-log="true"/>
         <field name="description" type="text-medium"/>
@@ -623,6 +668,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="taxExemptEnumId"/></relationship>
         <relationship type="one" title="Tax" related="moqui.screen.form.DbForm">
             <key-map field-name="taxFormId"/></relationship>
+        <index name="EMPL_POSITION_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
         <seed-data>
             <!-- Employment Position Status -->
             <moqui.basic.StatusType description="Employment Position Status" statusTypeId="EmplPosition"/>
@@ -762,7 +808,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="payGradeId" type="id"/>
         <field name="emplPositionClassId" type="id"/>
         <!-- what we're looking for -->
-        <field name="rateAmount" type="currency-amount"/>
+        <field name="rateAmount" type="number-decimal"/>
 
         <relationship type="one" title="RateType" related="moqui.basic.Enumeration">
             <key-map field-name="rateTypeEnumId"/></relationship>
