@@ -35,6 +35,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="externalId" type="id"/>
         <field name="dataSourceId" type="id"/>
         <field name="comments" type="text-long"/>
+        <field name="hasDuplicates" type="text-indicator"/>
+        <field name="lastDupCheckDate" type="date-time"/>
         <relationship type="one" title="PartyType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyTypeEnumId"/></relationship>
         <relationship type="one" related="moqui.basic.DataSource"/>
