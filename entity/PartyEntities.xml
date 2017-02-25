@@ -37,6 +37,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="comments" type="text-long"/>
         <field name="hasDuplicates" type="text-indicator"/>
         <field name="lastDupCheckDate" type="date-time"/>
+        <field name="mergedToPartyId" type="id"/><!-- no fk to avoid circular dependency, set automatically -->
         <relationship type="one" title="PartyType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyTypeEnumId"/></relationship>
         <relationship type="one" related="moqui.basic.DataSource"/>
@@ -75,6 +76,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <index name="PARTY_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
         <index name="PARTY_ID_EXT"><index-field name="externalId"/></index>
+        <index name="PARTY_ID_MERGETO"><index-field name="mergedToPartyId"/></index>
 
         <seed-data>
             <!-- Party Type -->
