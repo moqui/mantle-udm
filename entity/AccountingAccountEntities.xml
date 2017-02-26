@@ -685,6 +685,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="postalContactMechId" type="id"/>
         <field name="telecomContactMechId" type="id"/>
         <field name="emailContactMechId" type="id"/>
+        <field name="gatewayCimId" type="text-short"/>
+
         <field name="trustLevelEnumId" type="id"/>
         <field name="paymentFraudEvidenceId" type="id"><description>Refer to evidence here if trust level is gray listed or black listed</description></field>
         <field name="glAccountId" type="id"><description>A GL Account associated with this PaymentMethod for reconciliation, etc</description></field>
@@ -703,19 +705,19 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="currencyUomId"/></relationship>
         <relationship type="one" title="Postal" related="mantle.party.contact.ContactMech" short-alias="postal" mutable="true">
             <key-map field-name="postalContactMechId"/></relationship>
-        <relationship type="one" related="mantle.party.contact.PostalAddress" mutable="true">
+        <relationship type="one" related="mantle.party.contact.PostalAddress" short-alias="postalAddress" mutable="true">
             <key-map field-name="postalContactMechId"/></relationship>
         <relationship type="one" title="Telecom" related="mantle.party.contact.ContactMech" short-alias="telecom" mutable="true">
             <key-map field-name="telecomContactMechId"/></relationship>
-        <relationship type="one" related="mantle.party.contact.TelecomNumber" mutable="true">
+        <relationship type="one" related="mantle.party.contact.TelecomNumber" short-alias="telecomNumber" mutable="true">
             <key-map field-name="telecomContactMechId"/></relationship>
         <relationship type="one" title="Email" related="mantle.party.contact.ContactMech" short-alias="email" mutable="true">
             <key-map field-name="emailContactMechId"/></relationship>
         <relationship type="one" title="ContactPaymentTrustLevel" related="moqui.basic.Enumeration" short-alias="trustLevel">
             <key-map field-name="trustLevelEnumId"/></relationship>
         <relationship type="one" related="mantle.account.payment.PaymentFraudEvidence" mutable="true"/>
-        <relationship type="one" related="mantle.ledger.account.GlAccount"/>
-        <relationship type="one" related="mantle.account.financial.FinancialAccount"/>
+        <relationship type="one" related="mantle.ledger.account.GlAccount" short-alias="glAccount"/>
+        <relationship type="one" related="mantle.account.financial.FinancialAccount" short-alias="financialAccount"/>
 
         <relationship type="one-nofk" related="mantle.account.method.BankAccount" short-alias="bankAccount" mutable="true"/>
         <relationship type="one-nofk" related="mantle.account.method.BitcoinWallet" short-alias="bitcoinWallet" mutable="true"/>
@@ -1031,7 +1033,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="paymentId" type="id"/>
         <field name="paymentMethodId" type="id"/>
         <field name="finAccountId" type="id"/>
-        <field name="transCodeEnumId" type="id"/><!-- used? needed? -->
         <field name="amount" type="currency-amount"/>
         <field name="amountUomId" type="id"/>
         <field name="referenceNum" type="text-short"/>
@@ -1053,8 +1054,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="resultBadCardNumber" type="text-indicator"/>
         <relationship type="one" title="PaymentOperation" related="moqui.basic.Enumeration">
             <key-map field-name="paymentOperationEnumId" related="enumId"/></relationship>
-        <relationship type="one" title="TransCode" related="moqui.basic.Enumeration">
-            <key-map field-name="transCodeEnumId" related="enumId"/></relationship>
         <relationship type="one" title="Amount" related="moqui.basic.Uom">
             <key-map field-name="amountUomId"/></relationship>
         <relationship type="one" related="mantle.account.payment.Payment"/>

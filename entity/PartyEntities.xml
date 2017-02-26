@@ -34,6 +34,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="disabled" type="text-indicator" enable-audit-log="true"/>
         <field name="externalId" type="id"/>
         <field name="dataSourceId" type="id"/>
+        <field name="gatewayCimId" type="text-short"/>
         <field name="comments" type="text-long"/>
         <field name="hasDuplicates" type="text-indicator"/>
         <field name="lastDupCheckDate" type="date-time"/>
@@ -1148,6 +1149,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="contactMechTypeEnumId" type="id"/>
         <field name="dataSourceId" type="id"/>
         <field name="infoString" type="text-medium"/>
+        <field name="gatewayCimId" type="text-short"/>
         <field name="trustLevelEnumId" type="id"/>
         <field name="paymentFraudEvidenceId" type="id"><description>Refer to evidence here if trustLevelEnumId is gray listed or black listed.</description></field>
 
