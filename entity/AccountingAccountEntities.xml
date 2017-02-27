@@ -685,7 +685,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="postalContactMechId" type="id"/>
         <field name="telecomContactMechId" type="id"/>
         <field name="emailContactMechId" type="id"/>
-        <field name="gatewayCimId" type="text-short"/>
+        <field name="gatewayCimId" type="text-short" enable-audit-log="update"/>
 
         <field name="trustLevelEnumId" type="id"/>
         <field name="paymentFraudEvidenceId" type="id"><description>Refer to evidence here if trust level is gray listed or black listed</description></field>
@@ -1061,6 +1061,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.account.financial.FinancialAccount"/>
         <seed-data>
             <moqui.basic.EnumerationType description="Payment Gateway Operation" enumTypeId="PaymentOperation"/>
+            <moqui.basic.Enumeration description="Store CIM Profile" enumId="PgoStoreCim" enumTypeId="PaymentOperation"/>
             <moqui.basic.Enumeration description="Validate Authorize" enumId="PgoValidateAuthorize" enumTypeId="PaymentOperation"/>
             <moqui.basic.Enumeration description="Authorize" enumId="PgoAuthorize" enumTypeId="PaymentOperation"/>
             <moqui.basic.Enumeration description="Capture" enumId="PgoCapture" enumTypeId="PaymentOperation"/>

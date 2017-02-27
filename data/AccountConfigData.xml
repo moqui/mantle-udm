@@ -14,13 +14,13 @@ along with this software (see the LICENSE.md file). If not, see
 -->
 <entity-facade-xml type="seed">
     <mantle.account.method.PaymentGatewayConfig paymentGatewayConfigId="TEST_APPROVE" paymentGatewayTypeEnumId="PgtTest"
-            description="Local Test Gateway, Always Approves"
+            description="Local Test: Always Approves"
             authorizeServiceName="mantle.account.PaymentTestServices.alwaysApprove#PaymentAuthorization"
             captureServiceName="mantle.account.PaymentTestServices.alwaysApprove#PaymentCapture"
             releaseServiceName="mantle.account.PaymentTestServices.alwaysApprove#PaymentRelease"
             refundServiceName="mantle.account.PaymentTestServices.alwaysApprove#PaymentRefund"/>
     <mantle.account.method.PaymentGatewayConfig paymentGatewayConfigId="TEST_DECLINE" paymentGatewayTypeEnumId="PgtTest"
-            description="Local Test Gateway, Declines Auth and Capture, Approves Release and Refund"
+            description="Local Test, Declines Auth and Capture, Approves Release and Refund"
             authorizeServiceName="mantle.account.PaymentTestServices.alwaysDecline#PaymentAuthorization"
             captureServiceName="mantle.account.PaymentTestServices.alwaysDecline#PaymentCapture"
             releaseServiceName="mantle.account.PaymentTestServices.alwaysApprove#PaymentRelease"
