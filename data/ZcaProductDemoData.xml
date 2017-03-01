@@ -197,11 +197,11 @@ along with this software (see the LICENSE.md file). If not, see
                 contentLocation="dbresource://mantle/content/product/DEMO_1_1/PcntDescriptionLong.html"/>
         <!-- these are for resource based product images -->
         <contents productContentTypeEnumId="PcntImageSmall" locale="" sequenceNum="1" description="Parties"
-                contentLocation="component://PopCommerce/screen/PopCommerceRoot/static/images/Parties.png"/>
+                contentLocation="component://SimpleScreens/screen/ssstatic/images/Parties.png"/>
         <contents productContentTypeEnumId="PcntImageSmall" locale="" sequenceNum="2" description="Sales"
-                contentLocation="component://PopCommerce/screen/PopCommerceRoot/static/images/Sales.png"/>
+                contentLocation="component://SimpleScreens/screen/ssstatic/images/Sales.png"/>
         <contents productContentTypeEnumId="PcntImageSmall" locale="" sequenceNum="3" description="Vendor"
-                contentLocation="component://PopCommerce/screen/PopCommerceRoot/static/images/Vendor.png"/>
+                contentLocation="component://SimpleScreens/screen/ssstatic/images/Vendor.png"/>
     </mantle.product.Product>
 
     <mantle.product.Product productId="DEMO_1_2" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"

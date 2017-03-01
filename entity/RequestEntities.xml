@@ -31,7 +31,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="requestName" type="text-medium"/>
         <field name="description" type="text-long"/>
-        <field name="storyLocation" type="text-medium"/>
         <field name="priority" type="number-integer"/>
         <field name="requestDate" type="date-time"/>
         <field name="responseRequiredDate" type="date-time"/>
@@ -135,17 +134,22 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="requestContentId" type="id" is-pk="true"/>
         <field name="requestId" type="id"/>
         <field name="contentLocation" type="text-medium"/>
-        <field name="requestContentTypeEnumId" type="id"/>
+        <field name="contentTypeEnumId" type="id"/>
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
+        <field name="description" type="text-long"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related="mantle.request.Request" short-alias="request"/>
         <relationship type="one" title="RequestContentType" related="moqui.basic.Enumeration" short-alias="type">
-            <key-map field-name="requestContentTypeEnumId"/></relationship>
+            <key-map field-name="contentTypeEnumId"/></relationship>
+        <relationship type="one" related="moqui.security.UserAccount"/>
         <seed-data>
-            <!-- Facility Content Type -->
+            <!-- Request Content Type -->
             <moqui.basic.EnumerationType description="Request Content Type" enumTypeId="RequestContentType"/>
-            <moqui.basic.Enumeration description="Internal Content" enumId="RqCntInternal" enumTypeId="RequestContentType"/>
-            <moqui.basic.Enumeration description="User Defined Content"  enumId="RqCntUserDefined" enumTypeId="RequestContentType"/>
-            <moqui.basic.Enumeration description="Image URL"  enumId="RqCntImageUrl" enumTypeId="RequestContentType"/>
+            <moqui.basic.Enumeration description="Internal" enumId="RqCntInternal" enumTypeId="RequestContentType"/>
+            <moqui.basic.Enumeration description="User Defined" enumId="RqCntUserDefined" enumTypeId="RequestContentType"/>
+            <moqui.basic.Enumeration description="Documentation" enumId="RqCntDocumentation" enumTypeId="RequestContentType"/>
+            <moqui.basic.Enumeration description="Story" enumId="RqCntStory" enumTypeId="RequestContentType"/>
+            <moqui.basic.Enumeration description="Image" enumId="RqCntImage" enumTypeId="RequestContentType"/>
         </seed-data>
     </entity>
     <entity entity-name="RequestItem" package="mantle.request" cache="never">
@@ -223,6 +227,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember  roleGroupEnumId="RgpRequest" roleTypeId="Manager"/>
             <mantle.party.RoleGroupMember  roleGroupEnumId="RgpRequest" roleTypeId="Reporter"/>
             <mantle.party.RoleGroupMember  roleGroupEnumId="RgpRequest" roleTypeId="Watcher"/>
+            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpRequest" roleTypeId="Customer"/>
             <mantle.party.RoleGroupMember  roleGroupEnumId="RgpRequest" roleTypeId="CustomerBillTo"/>
         </seed-data>
     </entity>
