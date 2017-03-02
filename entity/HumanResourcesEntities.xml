@@ -829,22 +829,57 @@ along with this software (see the LICENSE.md file). If not, see
 
         <seed-data>
             <!-- Rate Type -->
-            <moqui.basic.EnumerationType description="Rate Type" enumTypeId="RateType"/>
-            <moqui.basic.Enumeration enumId="RatpNoCharge" description="No Charge" enumTypeId="RateType"/>
+            <moqui.basic.EnumerationType description="Hourly Rate Type" enumTypeId="RateType"/>
+            <moqui.basic.EnumerationType description="Piece Rate Type" enumTypeId="PieceRateType"/>
+            <!-- these are the primary types for manual time entry -->
             <moqui.basic.Enumeration enumId="RatpStandard" description="Standard" enumTypeId="RateType"/>
-            <moqui.basic.Enumeration enumId="RatpOvertime" description="Overtime" enumTypeId="RateType"/>
-            <moqui.basic.Enumeration enumId="RatpDoubleTime" description="Double-time" enumTypeId="RateType"/>
-            <moqui.basic.Enumeration enumId="RatpDiscounted" description="Discounted" enumTypeId="RateType"/>
-            <moqui.basic.Enumeration enumId="RatpOnsite" description="On-site" enumTypeId="RateType"/>
-            <moqui.basic.Enumeration enumId="RatpRemote" description="Remote" enumTypeId="RateType"/>
-            <moqui.basic.Enumeration enumId="RatpPiece" description="Std Piece Count" enumTypeId="RateType" relatedEnumId="RatpStandard"/>
-            <moqui.basic.Enumeration enumId="RatpPieceOvertime" description="Overtime Piece" enumTypeId="RateType" relatedEnumId="RatpOvertime"/>
-            <moqui.basic.Enumeration enumId="RatpPieceDoubleTime" description="Double-time Piece" enumTypeId="RateType" relatedEnumId="RatpDoubleTime"/>
+            <moqui.basic.Enumeration enumId="RatpVacation" description="PTO - Vacation" enumTypeId="RateType"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpHoliday" description="PTO - Holiday" enumTypeId="RateType"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpSick" description="PTO - Sick" enumTypeId="RateType"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpPtoOther" description="PTO - Other" enumTypeId="RateType"/><!-- calculated, not configured -->
+            <!-- see store#TimeEntry, relatedEnumId used to find piece rate type based on hourly rate type -->
+            <moqui.basic.Enumeration enumId="RatpPiece" description="Std Piece Count" enumTypeId="PieceRateType" relatedEnumId="RatpStandard"/>
+            <!-- these are less commonly used (NOTE if not configured looks for relatedEnumId to fill in) -->
+            <moqui.basic.Enumeration enumId="RatpUnpaid" description="Unpaid" enumTypeId="RateType" relatedEnumId="RatpStandard"/>
+            <moqui.basic.Enumeration enumId="RatpNoCharge" description="No Charge" enumTypeId="RateType" relatedEnumId="RatpStandard"/>
+            <moqui.basic.Enumeration enumId="RatpDiscounted" description="Discounted" enumTypeId="RateType" relatedEnumId="RatpStandard"/>
+            <!-- shift premiums and other differential rates, related to Standard for workers comp calculations and default to if no rates found -->
+            <moqui.basic.Enumeration enumId="RatpOnsite" description="On-site" enumTypeId="RateType" relatedEnumId="RatpStandard"/>
+            <moqui.basic.Enumeration enumId="RatpEvening" description="Shift - Evening" enumTypeId="RateType" relatedEnumId="RatpStandard"/>
+            <moqui.basic.Enumeration enumId="RatpNight" description="Shift - Night" enumTypeId="RateType" relatedEnumId="RatpStandard"/>
+            <moqui.basic.Enumeration enumId="RatpWeekend" description="Shift - Weekend" enumTypeId="RateType" relatedEnumId="RatpStandard"/>
+            <moqui.basic.Enumeration enumId="RatpHoliday" description="Shift - Holiday" enumTypeId="RateType" relatedEnumId="RatpStandard"/>
+            <!-- these should not be manually entered, are normally calculated, but are for TimeEntry imports from other systems that have already done that -->
+            <moqui.basic.Enumeration enumId="RatpOvertime" description="Overtime" enumTypeId="RateType"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpDoubleTime" description="Double-time" enumTypeId="RateType"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpPieceOvertime" description="Overtime Piece" enumTypeId="PieceRateType" relatedEnumId="RatpOvertime"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpPieceDoubleTime" description="Double-time Piece" enumTypeId="PieceRateType" relatedEnumId="RatpDoubleTime"/><!-- calculated, not configured -->
             <!-- leave these out until we have a reason to use them:
             <moqui.basic.Enumeration enumId="RatpAverage" description="Average Pay" enumTypeId="RateType"/>
             <moqui.basic.Enumeration enumId="RatpHighest" description="Highest Pay" enumTypeId="RateType"/>
             <moqui.basic.Enumeration enumId="RatpLowest" description="Lowest Pay" enumTypeId="RateType"/>
             -->
+
+            <moqui.basic.Enumeration description="Common Manual TimeEntry Rate Types" enumId="EngRateCommonEntry" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="RatpStandard" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpVacation" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpHoliday" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpSick" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPtoOther" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpOnsite" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpEvening" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpNight" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpWeekend" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpHoliday" enumGroupEnumId="EngRateCommonEntry"/>
+
+            <moqui.basic.Enumeration description="Common Configuration Rate Types" enumId="EngRateCommonConfig" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="RatpStandard" enumGroupEnumId="EngRateCommonConfig"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPiece" enumGroupEnumId="EngRateCommonConfig"/>
+            <moqui.basic.EnumGroupMember enumId="RatpOnsite" enumGroupEnumId="EngRateCommonConfig"/>
+            <moqui.basic.EnumGroupMember enumId="RatpEvening" enumGroupEnumId="EngRateCommonConfig"/>
+            <moqui.basic.EnumGroupMember enumId="RatpNight" enumGroupEnumId="EngRateCommonConfig"/>
+            <moqui.basic.EnumGroupMember enumId="RatpWeekend" enumGroupEnumId="EngRateCommonConfig"/>
+            <moqui.basic.EnumGroupMember enumId="RatpHoliday" enumGroupEnumId="EngRateCommonConfig"/>
 
             <!-- Rate Purpose -->
             <moqui.basic.EnumerationType description="Rate Purpose" enumTypeId="RatePurpose"/>
@@ -852,6 +887,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="RaprVendor" description="Worker/Vendor Payment" enumTypeId="RatePurpose"/>
             <!-- Default no charge client rate, always 0 -->
             <mantle.humanres.rate.RateAmount rateAmountId="NoChargeClient" rateTypeEnumId="RatpNoCharge" ratePurposeEnumId="RaprClient"
+                    timePeriodUomId="TF_hr" workEffortId="" partyId="" emplPositionClassId=""
+                    fromDate="1265184000000" thruDate="" rateAmount="0.00" rateCurrencyUomId=""/>
+            <mantle.humanres.rate.RateAmount rateAmountId="UnpaidVendor" rateTypeEnumId="RatpUnpaid" ratePurposeEnumId="RaprVendor"
                     timePeriodUomId="TF_hr" workEffortId="" partyId="" emplPositionClassId=""
                     fromDate="1265184000000" thruDate="" rateAmount="0.00" rateCurrencyUomId=""/>
         </seed-data>

@@ -647,6 +647,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="timeEntryId" type="id" is-pk="true"/>
         <field name="timesheetId" type="id"/>
         <field name="partyId" type="id"><description>The party performing work (worker, may be the vendor or work for the vendor)</description></field>
+        <field name="teamPartyId" type="id"/>
         <field name="clientPartyId" type="id"><description>Should always be set, may get through timesheetId or workEffortId</description></field>
         <field name="rateTypeEnumId" type="id"/>
         <field name="workTypeEnumId" type="id"/>
@@ -675,6 +676,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.work.time.Timesheet" short-alias="timesheet"/>
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one-nofk" related="mantle.party.Person" short-alias="person"/>
+        <relationship type="one" title="Team" related="mantle.party.Party" short-alias="teamParty">
+            <key-map field-name="teamPartyId"/></relationship>
         <relationship type="one" title="Client" related="mantle.party.Party" short-alias="clientParty">
             <key-map field-name="clientPartyId"/></relationship>
         <relationship type="one" title="RateType" related="moqui.basic.Enumeration" short-alias="rateType">
