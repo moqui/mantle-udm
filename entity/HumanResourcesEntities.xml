@@ -833,6 +833,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Piece Rate Type" enumTypeId="PieceRateType"/>
             <!-- these are the primary types for manual time entry -->
             <moqui.basic.Enumeration enumId="RatpStandard" description="Standard" enumTypeId="RateType"/>
+            <moqui.basic.Enumeration enumId="RatpPaidBreak" description="Paid Break" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpVacation" description="PTO - Vacation" enumTypeId="RateType"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpHoliday" description="PTO - Holiday" enumTypeId="RateType"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpSick" description="PTO - Sick" enumTypeId="RateType"/><!-- calculated, not configured -->
@@ -861,25 +862,26 @@ along with this software (see the LICENSE.md file). If not, see
             -->
 
             <moqui.basic.Enumeration description="Common Manual TimeEntry Rate Types" enumId="EngRateCommonEntry" enumTypeId="EnumGroup"/>
-            <moqui.basic.EnumGroupMember enumId="RatpStandard" enumGroupEnumId="EngRateCommonEntry"/>
-            <moqui.basic.EnumGroupMember enumId="RatpVacation" enumGroupEnumId="EngRateCommonEntry"/>
-            <moqui.basic.EnumGroupMember enumId="RatpHoliday" enumGroupEnumId="EngRateCommonEntry"/>
-            <moqui.basic.EnumGroupMember enumId="RatpSick" enumGroupEnumId="EngRateCommonEntry"/>
-            <moqui.basic.EnumGroupMember enumId="RatpPtoOther" enumGroupEnumId="EngRateCommonEntry"/>
-            <moqui.basic.EnumGroupMember enumId="RatpOnsite" enumGroupEnumId="EngRateCommonEntry"/>
-            <moqui.basic.EnumGroupMember enumId="RatpEvening" enumGroupEnumId="EngRateCommonEntry"/>
-            <moqui.basic.EnumGroupMember enumId="RatpNight" enumGroupEnumId="EngRateCommonEntry"/>
-            <moqui.basic.EnumGroupMember enumId="RatpWeekend" enumGroupEnumId="EngRateCommonEntry"/>
-            <moqui.basic.EnumGroupMember enumId="RatpHoliday" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpStandard" sequenceNum="1" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPaidBreak" sequenceNum="5" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpVacation" sequenceNum="11" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpHoliday" sequenceNum="12" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpSick" sequenceNum="13" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPtoOther" sequenceNum="14" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpEvening" sequenceNum="21" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpNight" sequenceNum="22" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpWeekend" sequenceNum="23" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpHoliday" sequenceNum="24" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpOnsite" sequenceNum="25" enumGroupEnumId="EngRateCommonEntry"/>
 
             <moqui.basic.Enumeration description="Common Configuration Rate Types" enumId="EngRateCommonConfig" enumTypeId="EnumGroup"/>
-            <moqui.basic.EnumGroupMember enumId="RatpStandard" enumGroupEnumId="EngRateCommonConfig"/>
-            <moqui.basic.EnumGroupMember enumId="RatpPiece" enumGroupEnumId="EngRateCommonConfig"/>
-            <moqui.basic.EnumGroupMember enumId="RatpOnsite" enumGroupEnumId="EngRateCommonConfig"/>
-            <moqui.basic.EnumGroupMember enumId="RatpEvening" enumGroupEnumId="EngRateCommonConfig"/>
-            <moqui.basic.EnumGroupMember enumId="RatpNight" enumGroupEnumId="EngRateCommonConfig"/>
-            <moqui.basic.EnumGroupMember enumId="RatpWeekend" enumGroupEnumId="EngRateCommonConfig"/>
-            <moqui.basic.EnumGroupMember enumId="RatpHoliday" enumGroupEnumId="EngRateCommonConfig"/>
+            <moqui.basic.EnumGroupMember enumId="RatpStandard" sequenceNum="1" enumGroupEnumId="EngRateCommonConfig"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPiece" sequenceNum="5" enumGroupEnumId="EngRateCommonConfig"/>
+            <moqui.basic.EnumGroupMember enumId="RatpEvening" sequenceNum="21" enumGroupEnumId="EngRateCommonConfig"/>
+            <moqui.basic.EnumGroupMember enumId="RatpNight" sequenceNum="22" enumGroupEnumId="EngRateCommonConfig"/>
+            <moqui.basic.EnumGroupMember enumId="RatpWeekend" sequenceNum="23" enumGroupEnumId="EngRateCommonConfig"/>
+            <moqui.basic.EnumGroupMember enumId="RatpHoliday" sequenceNum="24" enumGroupEnumId="EngRateCommonConfig"/>
+            <moqui.basic.EnumGroupMember enumId="RatpOnsite" sequenceNum="25" enumGroupEnumId="EngRateCommonConfig"/>
 
             <!-- Rate Purpose -->
             <moqui.basic.EnumerationType description="Rate Purpose" enumTypeId="RatePurpose"/>
