@@ -32,7 +32,7 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="111100000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="111000000"/>
     <mantle.ledger.account.GlAccount accountName="PAYROLL CHECKING ACCOUNT" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="111200000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="111000000"/>
-    <mantle.ledger.account.GlAccount accountName="SINGLE TITLE ORDER PLAN (STOP) CHECKING" description="" glAccountClassEnumId="CASH_EQUIVALENT"
+    <mantle.ledger.account.GlAccount accountName="OTHER CHECKING ACCOUNT" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="111300000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="111000000"/>
     <mantle.ledger.account.GlAccount accountName="MONEY MARKET" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="111400000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="111000000"/>
@@ -811,8 +811,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="631600000" glAccountTypeEnumId="GatCommissionExpense" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
     <mantle.ledger.account.GlAccount accountName="SALES COMMISSIONS - NON-EMPLOYEE" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="631700000" glAccountTypeEnumId="GatCommissionExpense" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
-    <mantle.ledger.account.GlAccount accountName="SALES COMMISSION ADJUSTMENTS - NON-EMPLOYEE" description="" glAccountClassEnumId="COMPENSATION"
-        glAccountId="631710000" glAccountTypeEnumId="GatCommissionExpense" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631700000"/>
+    <mantle.ledger.account.GlAccount accountName="SALES COMMISSION ADJUSTMENTS" description="" glAccountClassEnumId="COMPENSATION"
+        glAccountId="631800000" glAccountTypeEnumId="GatCommissionExpense" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
     <mantle.ledger.account.GlAccount accountName="BONUS" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="631900000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
 
@@ -941,10 +941,10 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="653000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="650000000"/>
     <mantle.ledger.account.GlAccount accountName="POSTAGE EXPENSE" description="" glAccountClassEnumId="SGA_EXPENSE"
         glAccountId="653100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="653000000"/>
-    <mantle.ledger.account.GlAccount accountName="CUSTOMER PACKAGE CHARGES" description="" glAccountClassEnumId="SGA_EXPENSE"
-        glAccountId="653110000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="653100000"/>
     <mantle.ledger.account.GlAccount accountName="OTHER POSTAGE EXPENSE" description="" glAccountClassEnumId="SGA_EXPENSE"
         glAccountId="653200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="653000000"/>
+    <mantle.ledger.account.GlAccount accountName="CUSTOMER PACKAGE CHARGES" description="" glAccountClassEnumId="SGA_EXPENSE"
+        glAccountId="653300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="653100000"/>
 
     <!-- 670000 EXPENSE - DEPRECIATION -->
     <mantle.ledger.account.GlAccount accountName="DEPRECIATION" description="" glAccountClassEnumId="DEPRECIATION"
@@ -1049,7 +1049,7 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="695000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="690000000"/>
 
     <!-- 700000 OTHER EXPENSE -->
-    <mantle.ledger.account.GlAccount accountName="OTHER EXPENSE" description="" glAccountClassEnumId="SGA_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="OTHER EXPENSE" description="" glAccountClassEnumId="EXPENSE"
         glAccountId="700000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="" disallowPosting="Y"/>
 
     <!-- 710000 OTHER EXPENSE - SERVICE CHARGES -->
@@ -1365,7 +1365,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccountOrganization glAccountId="631300000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="631600000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="631700000" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.account.GlAccountOrganization glAccountId="631710000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="631800000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="631900000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="632100000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="632300000" organizationPartyId="DefaultSettings"/>
@@ -1572,7 +1572,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="681100000" direction="E" itemTypeEnumId="ItemExpTravLodging" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631700000" direction="E" itemTypeEnumId="ItemCommission" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631710000" direction="E" itemTypeEnumId="ItemCommissionAdj" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631800000" direction="E" itemTypeEnumId="ItemCommissionAdj" organizationPartyId="DefaultSettings"/>
 
     <!-- Accounts Receivable Write-off -->
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="782100000" direction="O" itemTypeEnumId="ItemWriteOff" organizationPartyId="DefaultSettings"/>
