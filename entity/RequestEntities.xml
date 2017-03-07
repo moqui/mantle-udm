@@ -38,10 +38,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="facilityId" type="id"/>
         <field name="productStoreId" type="id"/>
         <field name="salesChannelEnumId" type="id"/>
-        <field name="fulfillContactMechId" type="id"><description>Where to send the results of the request.</description></field>
+        <field name="emailContactMechId" type="id"><description>Where to send the results of the request.</description></field>
         <field name="maximumAmountUomId" type="id"/>
         <field name="currencyUomId" type="id"/>
         <field name="filedByPartyId" type="id"/>
+        <field name="visitId" type="id"/>
 
         <relationship type="one" title="RequestType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="requestTypeEnumId"/></relationship>
@@ -53,8 +54,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one" title="SalesChannel" related="moqui.basic.Enumeration" short-alias="salesChannel">
             <key-map field-name="salesChannelEnumId"/></relationship>
-        <relationship type="one" title="Fulfill" related="mantle.party.contact.ContactMech" short-alias="fulfillContactMech">
-            <key-map field-name="fulfillContactMechId"/></relationship>
+        <relationship type="one" title="Email" related="mantle.party.contact.ContactMech" short-alias="emailContactMech">
+            <key-map field-name="emailContactMechId"/></relationship>
         <relationship type="one" title="MaximumAmount" related="moqui.basic.Uom" short-alias="maximumAmountUom">
             <key-map field-name="maximumAmountUomId"/></relationship>
         <relationship type="one" title="Currency" related="moqui.basic.Uom" short-alias="currencyUom">
@@ -65,6 +66,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="requestId"/></relationship>
         <relationship type="many" related="mantle.request.RequestParty" short-alias="parties">
             <key-map field-name="requestId"/></relationship>
+        <relationship type="one" related="moqui.server.Visit" short-alias="visit"/>
 
         <seed-data>
             <!-- Request Type -->
@@ -77,6 +79,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="RqtSupport" description="Support" enumTypeId="RequestType"/>
             <moqui.basic.Enumeration enumId="RqtInventory" description="Inventory" enumTypeId="RequestType"/>
             <moqui.basic.Enumeration enumId="RqtPurchase" description="Purchase" enumTypeId="RequestType"/>
+            <moqui.basic.Enumeration enumId="RqtContact" description="Contact Us" enumTypeId="RequestType"/>
 
             <!-- Request Status -->
             <moqui.basic.StatusType description="Request Status" statusTypeId="Request"/>
