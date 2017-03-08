@@ -280,8 +280,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="isModifiedPrice" type="text-indicator"/>
 
         <field name="externalItemSeqId" type="id"/>
-        <field name="fromAssetId" type="id"><description>Order for a particular Asset, not just any associated with
-            the Product.</description></field>
+        <field name="fromAssetId" type="id"><description>Order for a particular Asset, not just any associated with the Product.</description></field>
         <field name="productPriceId" type="id"/>
         <field name="productCategoryId" type="id"/>
         <field name="isPromo" type="text-indicator"/>

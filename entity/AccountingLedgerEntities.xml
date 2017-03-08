@@ -38,13 +38,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="externalId" type="id"><description>ID of the account in an external system where the accounts are imported/exported</description></field>
         <field name="disallowPosting" type="text-indicator"/>
 
-        <relationship type="one" title="Parent" related="mantle.ledger.account.GlAccount">
+        <relationship type="one" title="Parent" related="mantle.ledger.account.GlAccount" short-alias="parent">
             <key-map field-name="parentGlAccountId" related="glAccountId"/></relationship>
-        <relationship type="one" title="GlAccountType" related="moqui.basic.Enumeration">
+        <relationship type="one" title="GlAccountType" related="moqui.basic.Enumeration" short-alias="typeEnum">
             <key-map field-name="glAccountTypeEnumId"/></relationship>
-        <relationship type="one" title="GlAccountClass" related="moqui.basic.Enumeration">
+        <relationship type="one" title="GlAccountClass" related="moqui.basic.Enumeration" short-alias="classEnum">
             <key-map field-name="glAccountClassEnumId"/></relationship>
-        <relationship type="one" title="GlResourceType" related="moqui.basic.Enumeration">
+        <relationship type="one" title="GlResourceType" related="moqui.basic.Enumeration" short-alias="resourceTypeEnum">
             <key-map field-name="glResourceTypeEnumId"/></relationship>
         <relationship type="one" title="GlXbrlClass" related="moqui.basic.Enumeration">
             <key-map field-name="glXbrlClassEnumId"/></relationship>
@@ -53,49 +53,50 @@ along with this software (see the LICENSE.md file). If not, see
 
         <seed-data>
             <!-- GL Account Classes - account classification for add/subtract to balance, reporting, etc:
-            =DEBIT
+            DEBIT
              |===> NON_POSTING (?)
-             |===> CONTRA_REVENUE (Income Statement)
              |===> ASSET (Balance Sheet)
              |     |===> CURRENT_ASSET
              |           |===> CASH_EQUIVALENT
              |           |===> INVENTORY_ASSET
              |           |===> ACCOUNTS_RECEIVABLE
+             |           |===> LOANS_RECEIVABLE
              |           |===> PREPAID_EXPENSE (expenses paid, not yet incurred)
-             |           |===> ACCRUED_REVENUE (revenue earned, cash not yet received)
+             |           |===> ACCRUED_REVENUE (revenue earned, not yet received)
              |     |===> LONG_TERM_ASSET
              |           |===> LAND_BUILDING
              |           |===> EQUIPMENT
              |     |===> OTHER_ASSET
+             |===> COST_OF_SALES (Income Statement)
+             |     |===> COST_GOODS_SOLD
+             |           |===> INVENTORY_SHRINKAGE
+             |     |===> COST_SERVICES_SOLD
+             |     |===> COST_OF_DISCOUNTS
+             |===> EXPENSE (Income Statement)
+             |     |===> CASH_EXPENSE
+             |     |===> INTEREST_EXPENSE
+             |     |===> COMPENSATION
+             |     |===> SGA_EXPENSE
+             |     |===> TAX_EXPENSE
+             |     |===> NON_CASH_EXPENSE
+             |           |===> DEPRECIATION
+             |           |===> AMORTIZATION
+             |===> CONTRA_REVENUE (Income Statement)
              |===> DISTRIBUTION (?)
              |     |===> RETURN_OF_CAPITAL
              |     |===> DIVIDEND
-             |===> COST_OF_SALES (Income Statement)
-                   |===> COST_GOODS_SOLD
-                         |===> INVENTORY_SHRINKAGE
-                   |===> COST_SERVICES_SOLD
-                   |===> COST_OF_DISCOUNTS
-             |===> EXPENSE (Income Statement)
-                   |===> CASH_EXPENSE
-                   |===> INTEREST_EXPENSE
-                   |===> COMPENSATION
-                   |===> SGA_EXPENSE
-                   |===> TAX_EXPENSE
-                   |===> NON_CASH_EXPENSE
-                         |===> DEPRECIATION
-                         |===> AMORTIZATION
-            =CREDIT
-             |===> CONTRA_ASSET (Balance Sheet)
-             |     |===> ACCUM_DEPRECIATION
-             |     |===> ACCUM_AMORTIZATION
-             |     |===> ALLOWANCE_BAD_DEBT
+            CREDIT
              |===> LIABILITY (Balance Sheet)
              |     |===> CURRENT_LIABILITY
              |           |===> ACCOUNTS_PAYABLE
              |           |===> ACCRUED_EXPENSES (expenses incurred, not yet paid)
-             |           |===> UNEARNED_REVENUE (revenue not earned, cash already received)
+             |           |===> UNEARNED_REVENUE (revenue not earned, already received)
              |           |===> THIRD_PARTY_HOLDINGS
              |     |===> LONG_TERM_LIABILITY
+             |===> CONTRA_ASSET (Balance Sheet)
+             |     |===> ACCUM_DEPRECIATION
+             |     |===> ACCUM_AMORTIZATION
+             |     |===> ALLOWANCE_BAD_DEBT
              |===> EQUITY (Balance Sheet)
              |     |===> OWNERS_EQUITY
              |     |===> RETAINED_EARNINGS
@@ -106,7 +107,7 @@ along with this software (see the LICENSE.md file). If not, see
                    |===> CASH_INCOME
                    |===> INTEREST_INCOME
                    |===> NON_CASH_INCOME
-            =RESOURCE
+            RESOURCE
             -->
             <!-- GL Account Class -->
             <moqui.basic.EnumerationType description="GL Account Class" enumTypeId="GlAccountClass"/>

@@ -64,10 +64,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="shipmentMethodEnumId" type="id"><description>Mostly for Shipment Load/Ship (WepShipmentShip)
             purpose, using WorkEffort as a more task and planning oriented approach to a picklist.</description></field>
 
+        <!-- for estimated and actual time ranges -->
         <field name="estimatedStartDate" type="date-time"/>
         <field name="estimatedCompletionDate" type="date-time"/>
         <field name="actualStartDate" type="date-time"/>
         <field name="actualCompletionDate" type="date-time"/>
+        <!-- for all day events, separate date fields to avoid issues with time zones, etc -->
+        <field name="allDayStart" type="date"/>
+        <field name="allDayEnd" type="date"><description>Can be null for single day events</description></field>
 
         <field name="estimatedWorkTime" type="number-decimal" enable-audit-log="true">
             <description>Total estimated work time across all parties</description></field>
@@ -130,6 +134,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="workEffortId" related="toWorkEffortId"/></relationship>
         <relationship type="many" related="mantle.work.effort.WorkEffortBilling" short-alias="billings">
             <key-map field-name="workEffortId"/></relationship>
+        <relationship type="many" related="mantle.work.effort.WorkEffortCategoryAppl" short-alias="categories">
+            <key-map field-name="workEffortId"/></relationship>
         <relationship type="many" related="mantle.work.effort.WorkEffortCommEvent" short-alias="communicationEvents">
             <key-map field-name="workEffortId"/></relationship>
         <relationship type="many" related="mantle.work.effort.WorkEffortContactMech" short-alias="contactMechs">
@@ -188,6 +194,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Business Travel" enumId="WepBusinessTravel" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="Meeting" enumId="WepMeeting" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="Training" enumId="WepTraining" enumTypeId="WorkEffortPurpose"/>
+            <moqui.basic.Enumeration description="Holiday" enumId="WepHoliday" enumTypeId="WorkEffortPurpose"/>
 
             <moqui.basic.Enumeration description="Maintenance" enumId="WepMaintenance" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="Research" enumId="WepResearch" enumTypeId="WorkEffortPurpose"/>
@@ -236,6 +243,9 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- Work Effort Visibility -->
             <moqui.basic.EnumerationType description="Work Effort Visibility" enumTypeId="WorkEffortVisibility"/>
+            <!-- if set to all users then may show in calendars/etc for all users -->
+            <moqui.basic.Enumeration description="All Users" enumId="WevAllUsers" enumTypeId="WorkEffortVisibility"/>
+            <!-- for these settings will show only if associated with something, but will have limited visibility based on this setting -->
             <moqui.basic.Enumeration description="General (public access)" enumId="WevGeneral" enumTypeId="WorkEffortVisibility"/>
             <moqui.basic.Enumeration description="Work Group (group only access)" enumId="WevWorkGroup" enumTypeId="WorkEffortVisibility"/>
             <moqui.basic.Enumeration description="Restricted (private access)" enumId="WevRestricted" enumTypeId="WorkEffortVisibility"/>
@@ -361,6 +371,19 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="workEffortId" type="id" is-pk="true"/>
         <relationship type="one" related="mantle.account.invoice.Invoice"/>
         <relationship type="one" related="mantle.work.effort.WorkEffort"/>
+    </entity>
+
+    <entity entity-name="WorkEffortCategory" package="mantle.work.effort">
+        <description>Categories for WorkEffort, especially events like iCal/VCALENDAR categories</description>
+        <field name="workEffortCategoryId" type="id" is-pk="true"/>
+        <field name="description" type="text-medium"/>
+        <field name="ownerPartyId" type="id"/>
+        <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
+            <key-map field-name="ownerPartyId"/></relationship>
+    </entity>
+    <entity entity-name="WorkEffortCategoryAppl" package="mantle.work.effort">
+        <field name="workEffortId" type="id" is-pk="true"/>
+        <field name="workEffortCategoryId" type="id" is-pk="true"/>
     </entity>
 
     <entity entity-name="WorkEffortCommEvent" package="mantle.work.effort" cache="never">
