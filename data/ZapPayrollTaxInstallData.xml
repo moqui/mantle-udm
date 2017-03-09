@@ -20,7 +20,7 @@ along with this software (see the LICENSE.md file). If not, see
          ============================================================================================================= -->
 
     <!--
-        Example Payroll Adjustments (based on USA TY 2015)
+        Example Payroll Adjustments (based on USA Tax Year 2015)
         See: http://www.irs.gov/pub/irs-pdf/p15.pdf
         See: http://www.bankrate.com/calculators/tax-planning/payroll-tax-deductions-calculator.aspx
         See: http://quickbooks.intuit.com/r/paycheck-calculator/
@@ -69,7 +69,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- USA Social Security and Medicare (Employee Share) -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsSocSec2015" taxAuthorityId="UsaIrs"
             description="USA Social Security Withholding 2015" deductFromDisposable="Y"
-            itemTypeEnumId="ItemTaxSocialSecEmpe" rateBasisEnumId="PrbsSocial" isSocialTax="Y"
+            itemTypeEnumId="ItemTaxSocialSecEmpe" payrollPhaseEnumId="PrphTax" rateBasisEnumId="PrbsSocial" isSocialTax="Y"
             fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <details ytdMin="0" ytdMax="118,500" flatAmount="" rate="-0.062"/>
         <exempts taxExemptEnumId="EtxContract"/>
@@ -77,7 +77,7 @@ along with this software (see the LICENSE.md file). If not, see
     </mantle.humanres.employment.PayrollAdjustment>
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsMedicare2015" taxAuthorityId="UsaIrs"
             description="USA Medicare Withholding 2015" deductFromDisposable="Y"
-            itemTypeEnumId="ItemTaxMedEmpe" rateBasisEnumId="PrbsMedical" isMedicalTax="Y"
+            itemTypeEnumId="ItemTaxMedEmpe" payrollPhaseEnumId="PrphTax" rateBasisEnumId="PrbsMedical" isMedicalTax="Y"
             fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <details ytdMin="" ytdMax="" flatAmount="" rate="-0.0145"/>
         <exempts taxExemptEnumId="EtxContract"/>
@@ -85,7 +85,7 @@ along with this software (see the LICENSE.md file). If not, see
     </mantle.humanres.employment.PayrollAdjustment>
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsAddtlMedicare2015" taxAuthorityId="UsaIrs"
             description="USA Additional Medicare Withholding 2015" deductFromDisposable="Y"
-            itemTypeEnumId="ItemTaxAddtlMedEmpe" rateBasisEnumId="PrbsMedical" isMedicalTax="Y"
+            itemTypeEnumId="ItemTaxAddtlMedEmpe" payrollPhaseEnumId="PrphTax" rateBasisEnumId="PrbsMedical" isMedicalTax="Y"
             fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <details ytdMin="200,000" ytdMax="" flatAmount="" rate="-0.009" rateAfterYtdMin="Y"/>
         <exempts taxExemptEnumId="EtxContract"/>
@@ -95,7 +95,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- USA Social Security and Medicare (Employer Share) -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsSocSecEmpr2015" taxAuthorityId="UsaIrs"
             description="USA Social Security Employer 2015" isEmployerPaid="Y"
-            itemTypeEnumId="ItemPrlExpTaxSocialSecEmpr" rateBasisEnumId="PrbsSocial" isSocialTax="Y"
+            itemTypeEnumId="ItemPrlExpTaxSocialSecEmpr" payrollPhaseEnumId="PrphTax" rateBasisEnumId="PrbsSocial" isSocialTax="Y"
             fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <details ytdMin="0" ytdMax="118,500" flatAmount="" rate="-0.062"/>
         <exempts taxExemptEnumId="EtxContract"/>
@@ -103,7 +103,7 @@ along with this software (see the LICENSE.md file). If not, see
     </mantle.humanres.employment.PayrollAdjustment>
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsMedicareEmpr2015" taxAuthorityId="UsaIrs"
             description="USA Medicare Employer 2015" isEmployerPaid="Y"
-            itemTypeEnumId="ItemPrlExpTaxMedEmpr" rateBasisEnumId="PrbsMedical" isMedicalTax="Y"
+            itemTypeEnumId="ItemPrlExpTaxMedEmpr" payrollPhaseEnumId="PrphTax" rateBasisEnumId="PrbsMedical" isMedicalTax="Y"
             fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <details ytdMin="" ytdMax="" flatAmount="" rate="-0.0145"/>
         <exempts taxExemptEnumId="EtxContract"/>
@@ -113,8 +113,8 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- USA Federal Income Withholding Bi-Weekly Single -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsFitBiWeekSingle2015" taxAuthorityId="UsaIrs"
             description="USA Federal Income Tax Withholding Bi-Weekly Single 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxFederalWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
-            applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
+            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxFederalWhold" payrollPhaseEnumId="PrphTax"
+            rateBasisEnumId="PrbsIncome" isTax="Y" applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <fedStatuses taxFederalStatusEnumId="TfsSingle"/>
         <details detailSeqId="01" periodMin="0" periodMax="88" flatAmount="-0" rate="-0" rateAfterPeriodMin="Y"/>
         <details detailSeqId="02" periodMin="88" periodMax="443" flatAmount="-0" rate="-0.10" rateAfterPeriodMin="Y"/>
@@ -131,8 +131,8 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- USA Federal Income Withholding Bi-Weekly Married -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsFitBiWeekMarried2015" taxAuthorityId="UsaIrs"
             description="USA Federal Income Tax Withholding Bi-Weekly Married 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxFederalWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
-            applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
+            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxFederalWhold" payrollPhaseEnumId="PrphTax"
+            rateBasisEnumId="PrbsIncome" isTax="Y" applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <fedStatuses taxFederalStatusEnumId="TfsMarriedJoint"/>
         <details detailSeqId="01" periodMin="0" periodMax="331" flatAmount="-0" rate="-0" rateAfterPeriodMin="Y"/>
         <details detailSeqId="02" periodMin="331" periodMax="1040" flatAmount="-0" rate="-0.10" rateAfterPeriodMin="Y"/>
@@ -149,8 +149,8 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- USA Federal Income Withholding Weekly Single -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsFitWeekSingle2015" taxAuthorityId="UsaIrs"
             description="USA Federal Income Tax Withholding Weekly Single 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxFederalWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
-            applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
+            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxFederalWhold" payrollPhaseEnumId="PrphTax"
+            rateBasisEnumId="PrbsIncome" isTax="Y" applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <fedStatuses taxFederalStatusEnumId="TfsSingle"/>
         <details detailSeqId="01" periodMin="0" periodMax="44" flatAmount="-0" rate="-0" rateAfterPeriodMin="Y"/>
         <details detailSeqId="02" periodMin="44" periodMax="222" flatAmount="-0" rate="-0.10" rateAfterPeriodMin="Y"/>
@@ -167,8 +167,8 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- USA Federal Income Withholding Weekly Married -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsFitWeekMarried2015" taxAuthorityId="UsaIrs"
             description="USA Federal Income Tax Withholding Weekly Married 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxFederalWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
-            applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
+            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxFederalWhold" payrollPhaseEnumId="PrphTax"
+            rateBasisEnumId="PrbsIncome" isTax="Y" applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <fedStatuses taxFederalStatusEnumId="TfsMarriedJoint"/>
         <details detailSeqId="01" periodMin="0" periodMax="165" flatAmount="-0" rate="-0" rateAfterPeriodMin="Y"/>
         <details detailSeqId="02" periodMin="165" periodMax="520" flatAmount="-0" rate="-0.10" rateAfterPeriodMin="Y"/>
@@ -264,7 +264,7 @@ along with this software (see the LICENSE.md file). If not, see
         all; if that is not correct this needs to be changed -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaUnInsEmpr2015" taxAuthorityId="CaEdd" timePeriodTypeId=""
             description="CA Unemployment Insurance Employer 2015" isEmployerPaid="Y"
-            itemTypeEnumId="ItemPrlExpTaxStateUnInsEmpr" rateBasisEnumId="PrbsIncome" isTax="Y"
+            itemTypeEnumId="ItemPrlExpTaxStateUnInsEmpr" payrollPhaseEnumId="PrphTax" rateBasisEnumId="PrbsIncome" isTax="Y"
             fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <!-- NOTE: this rate will vary over time (min 1.5% max 6.2%) for employers and should be adjusted over time with
             additional PayrollAdjustment/Detail records; see de44.pdf page 9 and http://www.edd.ca.gov/pdf_pub_ctr/de231z.pdf -->
@@ -275,7 +275,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaEttEmpr2015" taxAuthorityId="CaEdd" timePeriodTypeId=""
             description="CA Employment Training Tax Employer 2015" isEmployerPaid="Y"
-            itemTypeEnumId="ItemPrlExpTaxStateMiscEmpr" rateBasisEnumId="PrbsIncome" isTax="Y"
+            itemTypeEnumId="ItemPrlExpTaxStateMiscEmpr" payrollPhaseEnumId="PrphTax" rateBasisEnumId="PrbsIncome" isTax="Y"
             fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <details ytdMin="0" ytdMax="7,000" flatAmount="" rate="-0.001"/>
         <exempts taxExemptEnumId="EtxContract"/>
@@ -284,7 +284,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaSdiEmpe2015" taxAuthorityId="CaEdd" timePeriodTypeId=""
             description="CA State Disability Insurance Employee 2015" deductFromDisposable="Y"
-            itemTypeEnumId="ItemTaxStateDisInsEmpe" rateBasisEnumId="PrbsSocial" isSocialTax="Y"
+            itemTypeEnumId="ItemTaxStateDisInsEmpe" payrollPhaseEnumId="PrphTax" rateBasisEnumId="PrbsSocial" isSocialTax="Y"
             fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <details ytdMin="0" ytdMax="104,378" flatAmount="" rate="-0.009"/>
         <exempts taxExemptEnumId="EtxContract"/>
@@ -295,8 +295,8 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- CA State Income Withholding Bi-Weekly Married File Separate (NOTE: same rates as Single) -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaPitBiWeekSingle2015" taxAuthorityId="CaEdd"
             description="CA Personal Income Tax Withholding Bi-Weekly Single 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxStateWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
-            applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
+            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxStateWhold" payrollPhaseEnumId="PrphTax"
+            rateBasisEnumId="PrbsIncome" isTax="Y" applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
             fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <stateStatuses taxStateStatusEnumId="TssSingle"/>
         <stateStatuses taxStateStatusEnumId="TssMarriedFileJoint2"/>
@@ -318,8 +318,8 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- CA State Income Withholding Bi-Weekly Married -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaPitBiWeekMarried2015" taxAuthorityId="CaEdd"
             description="CA Personal Income Tax Withholding Bi-Weekly Married 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxStateWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
-            applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
+            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxStateWhold" payrollPhaseEnumId="PrphTax"
+            rateBasisEnumId="PrbsIncome" isTax="Y" applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
             fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <stateStatuses taxStateStatusEnumId="TssMarriedFileJoint1"/>
         <details detailSeqId="01" periodMin="0" periodMax="596" flatAmount="-0" rate="-0.011" rateAfterPeriodMin="Y"/>
@@ -339,8 +339,8 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- CA State Income Withholding Bi-Weekly Unmarried Head of Household -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaPitBiWeekHead2015" taxAuthorityId="CaEdd"
             description="CA Personal Income Tax Withholding Bi-Weekly Head 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxStateWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
-            applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
+            timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxStateWhold" payrollPhaseEnumId="PrphTax"
+            rateBasisEnumId="PrbsIncome" isTax="Y" applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
             fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <stateStatuses taxStateStatusEnumId="TssHeadHousehold"/>
         <details detailSeqId="01" periodMin="0" periodMax="596" flatAmount="-0" rate="-0.011" rateAfterPeriodMin="Y" />
@@ -362,8 +362,8 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- CA State Income Withholding Weekly Married File Separate (NOTE: same rates as Single) -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaPitWeekSingle2015" taxAuthorityId="CaEdd"
             description="CA Personal Income Tax Withholding Weekly Single 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxStateWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
-            applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
+            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxStateWhold" payrollPhaseEnumId="PrphTax"
+            rateBasisEnumId="PrbsIncome" isTax="Y" applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
             fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <stateStatuses taxStateStatusEnumId="TssSingle"/>
         <stateStatuses taxStateStatusEnumId="TssMarriedFileJoint2"/>
@@ -385,8 +385,8 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- CA State Income Withholding Weekly Married -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaPitWeekMarried2015" taxAuthorityId="CaEdd"
             description="CA Personal Income Tax Withholding Weekly Married 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxStateWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
-            applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
+            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxStateWhold" payrollPhaseEnumId="PrphTax"
+            rateBasisEnumId="PrbsIncome" isTax="Y" applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
             fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <stateStatuses taxStateStatusEnumId="TssMarriedFileJoint1"/>
         <details detailSeqId="01" periodMin="0" periodMax="298" flatAmount="-0" rate="-0.011" rateAfterPeriodMin="Y"/>
@@ -406,8 +406,8 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- CA State Income Withholding Weekly Unmarried Head of Household -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="CaPitWeekHead2015" taxAuthorityId="CaEdd"
             description="CA Personal Income Tax Withholding Weekly Head 2015" deductFromDisposable="Y"
-            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxStateWhold" rateBasisEnumId="PrbsIncome" isTax="Y"
-            applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
+            timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxStateWhold" payrollPhaseEnumId="PrphTax"
+            rateBasisEnumId="PrbsIncome" isTax="Y" applyStdDeduction="Y" applyAllowanceDeduction="Y" applyAllowanceExemption="Y"
             fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <stateStatuses taxStateStatusEnumId="TssHeadHousehold"/>
         <details detailSeqId="01" periodMin="0" periodMax="298" flatAmount="-0" rate="-0.011" rateAfterPeriodMin="Y" />
@@ -456,7 +456,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="FILL THIS IN"
             timePeriodTypeId="PayrollBiWeek" partyRelationshipId="FILL THIS IN" description="CA Child Support"
             garnishPartyId="CaDocss" garnishDisposablePercent="50" garnishDueDays="3" garnishCaseNumber="CS12345" garnishPriority="1"
-            itemTypeEnumId="ItemDedChildGarnish" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
+            itemTypeEnumId="ItemDedChildGarnish" payrollPhaseEnumId="PrphGarnish" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <details flatAmount="-300"/>
     </mantle.humanres.employment.PayrollAdjustment>
     -->

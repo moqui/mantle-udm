@@ -450,6 +450,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="organizationPartyId" type="id"><description>If null applies to all organizations</description></field>
         <field name="partyRelationshipId" type="id"><description>If null applies to all employees</description></field>
         <field name="itemTypeEnumId" type="id"/>
+        <field name="payrollPhaseEnumId" type="id"/>
         <field name="timePeriodTypeId" type="id"/>
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
@@ -463,6 +464,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="isMedicalTax" type="text-indicator"/>
         <field name="isMedicalTaxable" type="text-indicator"><description>For medical (in USA: Medicare program) taxable
             positive adjustments and deductible negative adjustments.</description></field>
+
         <field name="rateBasisEnumId" type="id"/>
         <field name="riskClassCode" type="text-short"/>
         <field name="taxAuthorityId" type="id"/>
@@ -487,6 +489,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
             <key-map field-name="itemTypeEnumId"/></relationship>
+        <relationship type="one" title="PayrollPhase" related="moqui.basic.Enumeration" short-alias="payrollPhaseEnum">
+            <key-map field-name="payrollPhaseEnumId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType" short-alias="timePeriodType"/>
         <relationship type="one" title="PayrollRateBasis" related="moqui.basic.Enumeration">
             <key-map field-name="rateBasisEnumId"/></relationship>
@@ -504,6 +508,15 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="payrollAdjustmentId"/></relationship>
 
         <seed-data>
+            <!-- Payroll Rate Basis -->
+            <moqui.basic.EnumerationType description="Payroll Calculation Phase" enumTypeId="PayrollPhase"/>
+            <moqui.basic.Enumeration sequenceNum="1" description="Incentive Bonus" enumId="PrphBonus" enumTypeId="PayrollPhase"/>
+            <moqui.basic.Enumeration sequenceNum="2" description="Overtime" enumId="PrphOvertime" enumTypeId="PayrollPhase"/>
+            <moqui.basic.Enumeration sequenceNum="3" description="Break Adjust (piece, etc)" enumId="PrphBreak" enumTypeId="PayrollPhase"/>
+            <moqui.basic.Enumeration sequenceNum="4" description="Taxable and Deductible" enumId="PrphTaxable" enumTypeId="PayrollPhase"/>
+            <moqui.basic.Enumeration sequenceNum="5" description="Taxes, WC, etc" enumId="PrphTax" enumTypeId="PayrollPhase"/>
+            <moqui.basic.Enumeration sequenceNum="6" description="Garnish" enumId="PrphGarnish" enumTypeId="PayrollPhase"/>
+
             <!-- Payroll Rate Basis -->
             <moqui.basic.EnumerationType description="Payroll Rate Basis" enumTypeId="PayrollRateBasis"/>
             <moqui.basic.Enumeration description="Income Taxable" enumId="PrbsIncome" enumTypeId="PayrollRateBasis"/>
