@@ -145,6 +145,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusItem description="Auto Reorder" sequenceNum="103" statusId="OrderAutoReorder" statusTypeId="OrderHeader"/>
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderBeingChanged" toStatusId="OrderOpen" transitionName="Make Open/Tentative"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderBeingChanged" toStatusId="OrderPlaced" transitionName="Place##Order"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderBeingChanged" transitionName="Begin Changes"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderPlaced" transitionName="Place##Order"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderRejected" transitionName="Reject"/>
