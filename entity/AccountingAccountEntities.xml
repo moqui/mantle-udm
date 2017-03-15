@@ -370,6 +370,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusItem description="Approved" sequenceNum="12" statusId="InvoiceApproved" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Payment Sent" sequenceNum="13" statusId="InvoicePmtSent" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Billed Through" sequenceNum="15" statusId="InvoiceBilledThrough" statusTypeId="Invoice"/>
+            <!-- For Outgoing and Incoming -->
             <moqui.basic.StatusItem description="Cancelled" sequenceNum="99" statusId="InvoiceCancelled" statusTypeId="Invoice"/>
 
             <!-- The basic process is: In Process, Finalized/Approved, Sent (optional), Payment Received or Write Off -->
@@ -1204,7 +1205,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Debit Card" enumId="PiDebitCard" enumTypeId="PaymentInstrument" relatedEnumId="PmtCreditCard"/>
             <moqui.basic.Enumeration description="PayPal Account" enumId="PiPayPalAccount" enumTypeId="PaymentInstrument" relatedEnumId="PmtPayPalAccount"/>
             <moqui.basic.Enumeration description="Gift Card" enumId="PiGiftCard" enumTypeId="PaymentInstrument" relatedEnumId="PmtGiftCard"/>
-            <moqui.basic.Enumeration description="Gift Certificate" enumId="PiGiftCerificate" enumTypeId="PaymentInstrument"/>
+            <moqui.basic.Enumeration description="Gift Certificate" enumId="PiGiftCertificate" enumTypeId="PaymentInstrument"/>
             <moqui.basic.Enumeration description="Cash" enumId="PiCash" enumTypeId="PaymentInstrument"/>
             <moqui.basic.Enumeration description="Financial Account" enumId="PiFinancialAccount" enumTypeId="PaymentInstrument" relatedEnumId="PmtFinancialAccount"/>
             <moqui.basic.Enumeration description="Personal Check" enumId="PiPersonalCheck" enumTypeId="PaymentInstrument" relatedEnumId="PmtBankAccount"/>
