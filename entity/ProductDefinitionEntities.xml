@@ -483,7 +483,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Competitive Price" enumId="PptCompetitive" enumTypeId="ProductPriceType"/>
             <moqui.basic.Enumeration description="Wholesale Price" enumId="PptWholesale" enumTypeId="ProductPriceType"/>
             <moqui.basic.Enumeration description="Special Promo Price" enumId="PptSpecialPromo" enumTypeId="ProductPriceType"/>
-            <moqui.basic.Enumeration description="Minimum Order Price" enumId="PptMinimumOrder" enumTypeId="ProductPriceType"/>
+            <!-- use PptMinimum instead: <moqui.basic.Enumeration description="Minimum Order Price" enumId="PptMinimumOrder" enumTypeId="ProductPriceType"/> -->
 
             <!-- Product Price Purpose -->
             <moqui.basic.EnumerationType description="Product Price Purpose" enumTypeId="ProductPricePurpose"/>
