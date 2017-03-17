@@ -52,64 +52,8 @@ along with this software (see the LICENSE.md file). If not, see
         <index name="GLACCT_UNQCD" unique="true"><index-field name="accountCode"/></index>
 
         <seed-data>
-            <!-- GL Account Classes - account classification for add/subtract to balance, reporting, etc:
-            DEBIT
-             |===> NON_POSTING (?)
-             |===> ASSET (Balance Sheet)
-             |     |===> CURRENT_ASSET
-             |           |===> CASH_EQUIVALENT
-             |           |===> INVENTORY_ASSET
-             |           |===> ACCOUNTS_RECEIVABLE
-             |           |===> LOANS_RECEIVABLE
-             |           |===> PREPAID_EXPENSE (expenses paid, not yet incurred)
-             |           |===> ACCRUED_REVENUE (revenue earned, not yet received)
-             |     |===> LONG_TERM_ASSET
-             |           |===> LAND_BUILDING
-             |           |===> EQUIPMENT
-             |     |===> OTHER_ASSET
-             |===> COST_OF_SALES (Income Statement)
-             |     |===> COST_GOODS_SOLD
-             |     |===> INVENTORY_SHRINKAGE
-             |     |===> COST_SERVICES_SOLD
-             |===> EXPENSE (Income Statement)
-             |     |===> CASH_EXPENSE
-             |     |===> INTEREST_EXPENSE
-             |     |===> COMPENSATION
-             |     |===> SGA_EXPENSE
-             |     |===> TAX_EXPENSE
-             |     |===> NON_CASH_EXPENSE
-             |           |===> DEPRECIATION
-             |           |===> AMORTIZATION
-             |===> CONTRA_REVENUE (Income Statement)
-             |     |===> COST_OF_DISCOUNTS
-             |===> DISTRIBUTION (?)
-             |     |===> RETURN_OF_CAPITAL
-             |     |===> DIVIDEND
-            CREDIT
-             |===> LIABILITY (Balance Sheet)
-             |     |===> CURRENT_LIABILITY
-             |           |===> ACCOUNTS_PAYABLE
-             |           |===> ACCRUED_EXPENSES (expenses incurred, not yet paid)
-             |           |===> UNEARNED_REVENUE (revenue not earned, already received)
-             |           |===> THIRD_PARTY_HOLDINGS
-             |     |===> LONG_TERM_LIABILITY
-             |===> CONTRA_ASSET (Balance Sheet)
-             |     |===> ACCUM_DEPRECIATION
-             |     |===> ACCUM_AMORTIZATION
-             |     |===> ALLOWANCE_BAD_DEBT
-             |===> EQUITY (Balance Sheet)
-             |     |===> OWNERS_EQUITY
-             |     |===> RETAINED_EARNINGS
-             |===> REVENUE (Income Statement)
-             |     |===> GOODS_REVENUE
-             |     |===> SERVICES_REVENUE
-             |===> INCOME (Income Statement)
-                   |===> CASH_INCOME
-                   |===> INTEREST_INCOME
-                   |===> NON_CASH_INCOME
-            RESOURCE
-            -->
-            <!-- GL Account Class -->
+            <!-- GL Account Class - account classification for add/subtract to balance, reporting, etc -->
+            <!-- for reference see the "GL Account Class Reference.md" file in SimpleScreens -->
             <moqui.basic.EnumerationType description="GL Account Class" enumTypeId="GlAccountClass"/>
 
             <moqui.basic.Enumeration description="Resource" enumId="RESOURCE" enumTypeId="GlAccountClass"/>
@@ -120,6 +64,7 @@ along with this software (see the LICENSE.md file). If not, see
 
             <moqui.basic.Enumeration description="Contra Revenue" enumId="CONTRA_REVENUE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Discounts and Write-downs" enumId="COST_OF_DISCOUNTS" parentEnumId="CONTRA_REVENUE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Customer Returns" enumId="CUSTOMER_RETURNS" parentEnumId="CONTRA_REVENUE" enumTypeId="GlAccountClass"/>
 
             <moqui.basic.Enumeration description="Asset" enumId="ASSET" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Current Asset" enumId="CURRENT_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
@@ -139,9 +84,12 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Dividends" enumId="DIVIDEND" parentEnumId="DISTRIBUTION" enumTypeId="GlAccountClass"/>
 
             <moqui.basic.Enumeration description="Cost of Sales" enumId="COST_OF_SALES" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
-            <moqui.basic.Enumeration description="Cost of Goods Sold" enumId="COST_GOODS_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
-            <moqui.basic.Enumeration description="Inventory Shrinkage" enumId="INVENTORY_SHRINKAGE" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Cost of Services Sold" enumId="COST_SERVICES_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Cost of Goods Sold" enumId="COST_GOODS_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Good and Material Cost" enumId="GOOD_MATERIAL_COST" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Good Freight Cost" enumId="GOOD_FREIGHT_COST" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Good Royalties Cost" enumId="GOOD_ROYALTIES_COST" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Inventory Shrinkage" enumId="INVENTORY_SHRINKAGE" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
 
             <moqui.basic.Enumeration description="Expense" enumId="EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Cash Expense" enumId="CASH_EXPENSE" parentEnumId="EXPENSE" enumTypeId="GlAccountClass"/>
@@ -201,8 +149,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Payable from Inventory Transferred In" enumId="GatPayInventoryTranIn" parentEnumId="GatAccountsPayable" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Accounts Payable - Unapplied Payments" enumId="GatAccPayableUnapplied" parentEnumId="GatAccountsPayable" enumTypeId="GlAccountType"/>
 
-            <!-- unused <moqui.basic.Enumeration description="Balance" enumId="GatBalance" enumTypeId="GlAccountType"/> -->
-            <!-- unused <moqui.basic.Enumeration description="Bank Settlement" enumId="GatBankSettlement" enumTypeId="GlAccountType"/> -->
             <moqui.basic.Enumeration description="Undeposited Receipts" enumId="GatUndepositedReceipts" enumTypeId="GlAccountType"/>
 
             <moqui.basic.Enumeration description="Fixed Asset" enumId="GatFixedAsset" enumTypeId="GlAccountType"/>
@@ -213,16 +159,11 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Fixed Asset Maintenance" enumId="GatFaMaintenance" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Fixed Asset Shrinkage" enumId="GatFaShrinkage" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Fixed Asset Found" enumId="GatFaFound" enumTypeId="GlAccountType"/>
-            <!-- unused <moqui.basic.Enumeration description="Other Asset" enumId="GatOtherAsset" enumTypeId="GlAccountType"/> -->
 
-            <!-- unused <moqui.basic.Enumeration description="Credit Card" enumId="GatCreditCard" enumTypeId="GlAccountType"/> -->
             <moqui.basic.Enumeration description="Current Liability" enumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Unearned Revenue" enumId="GatUnearnedRevenue" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Accrued Expenses" enumId="GatAccruedExpenses" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Long Term Liability" enumId="GatLongTermLiability" enumTypeId="GlAccountType"/>
-            <!-- unused <moqui.basic.Enumeration description="Customer" enumId="GatCustomer" enumTypeId="GlAccountType"/> -->
-            <!-- unused <moqui.basic.Enumeration description="Supplier" enumId="GatSupplier" enumTypeId="GlAccountType"/> -->
-            <!-- unused <moqui.basic.Enumeration description="Product" enumId="GatProduct" enumTypeId="GlAccountType"/> -->
 
             <moqui.basic.Enumeration description="Inventory" enumId="GatInventory" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="WIP Inventory" enumId="GatWipInventory" parentEnumId="GatInventory" enumTypeId="GlAccountType"/>
@@ -239,8 +180,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Discounts" enumId="GatDiscounts" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Cost of Goods Sold" enumId="GatCogs" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="COGS - Average Cost Adjustment" enumId="GatCogsAvgCostAdj" parentEnumId="GatCogs" enumTypeId="GlAccountType"/>
-            <!-- unused <moqui.basic.Enumeration description="Purchase" enumId="GatPurchase" enumTypeId="GlAccountType"/> -->
-            <!-- unused <moqui.basic.Enumeration description="Inventory Change" enumId="GatInventoryChange" enumTypeId="GlAccountType"/> -->
 
             <moqui.basic.Enumeration description="Expense" enumId="GatExpense" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Operating Expense" enumId="GatOperatingExpense" parentEnumId="GatExpense" enumTypeId="GlAccountType"/>
@@ -251,9 +190,7 @@ along with this software (see the LICENSE.md file). If not, see
 
             <moqui.basic.Enumeration description="Customer Deposits" enumId="GatCustomerDeposits" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Customer Credits" enumId="GatCustomerCredits" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
-            <!-- unused <moqui.basic.Enumeration description="Customer Gift Certificate Balances" enumId="GatCustomerGcBalance" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/> -->
             <moqui.basic.Enumeration description="Uninvoiced Shipment Receipts" enumId="GatUninvoicedShpmntRcpts" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
-            <!-- unused <moqui.basic.Enumeration description="Purchase Price Variance" enumId="GatPurchasePriceVar" parentEnumId="GatOtherExpense" enumTypeId="GlAccountType"/> -->
             <moqui.basic.Enumeration description="Supplier Deposits" enumId="GatSupplierDeposits" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Commissions Accrued" enumId="GatCommissionsAccrued" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
 
