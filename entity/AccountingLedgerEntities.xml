@@ -69,9 +69,8 @@ along with this software (see the LICENSE.md file). If not, see
              |     |===> OTHER_ASSET
              |===> COST_OF_SALES (Income Statement)
              |     |===> COST_GOODS_SOLD
-             |           |===> INVENTORY_SHRINKAGE
+             |     |===> INVENTORY_SHRINKAGE
              |     |===> COST_SERVICES_SOLD
-             |     |===> COST_OF_DISCOUNTS
              |===> EXPENSE (Income Statement)
              |     |===> CASH_EXPENSE
              |     |===> INTEREST_EXPENSE
@@ -82,6 +81,7 @@ along with this software (see the LICENSE.md file). If not, see
              |           |===> DEPRECIATION
              |           |===> AMORTIZATION
              |===> CONTRA_REVENUE (Income Statement)
+             |     |===> COST_OF_DISCOUNTS
              |===> DISTRIBUTION (?)
              |     |===> RETURN_OF_CAPITAL
              |     |===> DIVIDEND
@@ -119,6 +119,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Debit" enumId="DEBIT" enumTypeId="GlAccountClass"/>
 
             <moqui.basic.Enumeration description="Contra Revenue" enumId="CONTRA_REVENUE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Discounts and Write-downs" enumId="COST_OF_DISCOUNTS" parentEnumId="CONTRA_REVENUE" enumTypeId="GlAccountClass"/>
 
             <moqui.basic.Enumeration description="Asset" enumId="ASSET" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Current Asset" enumId="CURRENT_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
@@ -139,9 +140,8 @@ along with this software (see the LICENSE.md file). If not, see
 
             <moqui.basic.Enumeration description="Cost of Sales" enumId="COST_OF_SALES" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Cost of Goods Sold" enumId="COST_GOODS_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
-            <moqui.basic.Enumeration description="Inventory Shrinkage" enumId="INVENTORY_SHRINKAGE" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Inventory Shrinkage" enumId="INVENTORY_SHRINKAGE" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Cost of Services Sold" enumId="COST_SERVICES_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
-            <moqui.basic.Enumeration description="Discounts and Write-downs" enumId="COST_OF_DISCOUNTS" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
 
             <moqui.basic.Enumeration description="Expense" enumId="EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Cash Expense" enumId="CASH_EXPENSE" parentEnumId="EXPENSE" enumTypeId="GlAccountClass"/>
