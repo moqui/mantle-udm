@@ -91,15 +91,40 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Good Royalties Cost" enumId="GOOD_ROYALTIES_COST" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Inventory Shrinkage" enumId="INVENTORY_SHRINKAGE" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
 
-            <moqui.basic.Enumeration description="Expense" enumId="EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
-            <moqui.basic.Enumeration description="Cash Expense" enumId="CASH_EXPENSE" parentEnumId="EXPENSE" enumTypeId="GlAccountClass"/>
-            <moqui.basic.Enumeration description="Interest Expense" enumId="INTEREST_EXPENSE" parentEnumId="CASH_EXPENSE" enumTypeId="GlAccountClass"/> <!-- useful for EBITDA, coverage ratios, etc. -->
-            <moqui.basic.Enumeration description="Compensation" enumId="COMPENSATION" parentEnumId="CASH_EXPENSE" enumTypeId="GlAccountClass"/>
-            <moqui.basic.Enumeration description="Sales, General, and Administrative Expense" enumId="SGA_EXPENSE" parentEnumId="CASH_EXPENSE" enumTypeId="GlAccountClass"/>
-            <moqui.basic.Enumeration description="Tax Expense" enumId="TAX_EXPENSE" parentEnumId="CASH_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Operating Expense" enumId="EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+
+            <moqui.basic.Enumeration description="Sales and Marketing Expense" enumId="SALES_EXPENSE" parentEnumId="EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Sales Compensation" enumId="SALES_COMPENSATION" parentEnumId="SALES_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Advertising" enumId="ADVERTISING" parentEnumId="SALES_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Promotional Materials" enumId="PROMOTIONAL_MATERIALS" parentEnumId="SALES_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Sales Travel" enumId="SALES_TRAVEL" parentEnumId="SALES_EXPENSE" enumTypeId="GlAccountClass"/>
+
+            <moqui.basic.Enumeration description="General and Administrative Expense" enumId="GEN_ADMIN_EXPENSE" parentEnumId="EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Banking Service Charges" enumId="BANKING_CHARGES" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Compensation" enumId="COMPENSATION" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Data Processing" enumId="DATA_PROCESSING" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Dues and Subscriptions" enumId="DUES_SUBSCRIPTIONS" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Education Expense" enumId="EDUCATION_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Facility Expense" enumId="FACILITY_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Insurance Expense" enumId="INSURANCE_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Miscellaneous Expense" enumId="MISC_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Office and Supplies" enumId="OFFICE_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Professional Services" enumId="PROF_SERVICES" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Tax Expense - Income" enumId="INCOME_TAX_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Tax Expense - Other" enumId="OTHER_TAX_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Travel and Entertainment" enumId="TRAVEL_ENT" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Utilities Expense" enumId="UTILITIES_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Vehicle Expense" enumId="VEHICLE_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+
             <moqui.basic.Enumeration description="Non-Cash Expense" enumId="NON_CASH_EXPENSE" parentEnumId="EXPENSE" enumTypeId="GlAccountClass"/>
-            <moqui.basic.Enumeration description="Depreciation" enumId="DEPRECIATION" parentEnumId="NON_CASH_EXPENSE" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Amortization" enumId="AMORTIZATION" parentEnumId="NON_CASH_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Bad Debt Expense" enumId="BAD_DEBT_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Depreciation" enumId="DEPRECIATION" parentEnumId="NON_CASH_EXPENSE" enumTypeId="GlAccountClass"/>
+
+            <moqui.basic.Enumeration description="Non-operating Expense" enumId="NON_OP_EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Interest Expense" enumId="INTEREST_EXPENSE" parentEnumId="NON_OP_EXPENSE" enumTypeId="GlAccountClass"/><!-- useful for EBITDA, coverage ratios, etc. -->
+            <moqui.basic.Enumeration description="Company Owned Life Insurance" enumId="CO_LIFE_INSURANCE" parentEnumId="NON_OP_EXPENSE" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Royalties Expense - Non-COGS" enumId="NON_COGS_ROYALTIES" parentEnumId="NON_OP_EXPENSE" enumTypeId="GlAccountClass"/>
 
             <!-- CREDIT classes -->
             <moqui.basic.Enumeration description="Credit" enumId="CREDIT" enumTypeId="GlAccountClass"/>
