@@ -165,6 +165,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Investment Real Estate" enumId="AstTpInvRealEstate" parentEnumId="AstTpFixed" enumTypeId="AssetType"/><!-- IAS 40 -->
             <moqui.basic.Enumeration description="Bearer Biological" enumId="AstTpBearerBiological" parentEnumId="AstTpFixed" enumTypeId="AssetType"/><!-- IAS 16 -->
             <moqui.basic.Enumeration description="Biological" enumId="AstTpBiological" enumTypeId="AssetType"/><!-- IAS 41 -->
+            <moqui.basic.Enumeration description="Intangible" enumId="AstTpIntangible" enumTypeId="AssetType"/><!-- IAS 38 -->
 
             <!-- Asset Class -->
             <moqui.basic.EnumerationType description="Asset Class" enumTypeId="AssetClass"/>
