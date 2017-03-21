@@ -429,6 +429,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="sequenceNum" type="number-integer"/>
         <field name="carrierServiceCode" type="text-short"/>
         <field name="scaCode" type="text-short"><description>Standard Carrier Alpha Code</description></field>
+        <field name="gatewayServiceCode" type="text-short"/>
         <relationship type="one" title="Carrier" related="mantle.party.Party">
             <key-map field-name="carrierPartyId"/></relationship>
         <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration">
@@ -446,10 +447,6 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="_NA_" shipmentMethodEnumId="ShMthPickUp" sequenceNum="0"/>
             <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="_NA_" shipmentMethodEnumId="ShMthGround" sequenceNum="1"/>
             <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="_NA_" shipmentMethodEnumId="ShMthNextDay" sequenceNum="2"/>
-            <!-- Standard Carrier Alpha Codes (1-day, 2-day, 3-day, Ground) -->
-            <!-- UPS: UPS1, UPS2, UPS3, UPSG -->
-            <!-- FedEx: FDXSO, FDX2D, FDXES, FDXG -->
-            <!-- DHL: DZNA, DDAG, AAJL (international air) -->
         </seed-data>
     </entity>
     <entity entity-name="CarrierShipmentBoxType" package="mantle.shipment.carrier">

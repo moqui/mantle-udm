@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This software is in the public domain under CC0 1.0 Universal plus a
+Grant of Patent License.
+
+To the extent possible under law, the author(s) have dedicated all
+copyright and related and neighboring rights to this software to the
+public domain worldwide. This software is distributed without any
+warranty.
+
+You should have received a copy of the CC0 Public Domain Dedication
+along with this software (see the LICENSE.md file). If not, see
+<http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<entity-facade-xml type="seed">
+    <!-- NOTE: the externalId values are for Shippo, see https://goshippo.com/docs/reference#carriers -->
+    <!-- NOTE: the gatewayServiceCode values are for Shippo, see https://goshippo.com/docs/reference#servicelevels -->
+
+    <!-- Standard Carrier Alpha Codes (1-day, 2-day, 3-day, Ground) -->
+    <!-- UPS: UPS1, UPS2, UPS3, UPSG -->
+    <!-- FedEx: FDXSO, FDX2D, FDXES, FDXG -->
+    <!-- DHL: DZNA, DDAG, AAJL (international air) -->
+
+    <!-- UPS -->
+    <mantle.party.Party partyId="UPS" partyTypeEnumId="PtyOrganization" externalId="ups">
+        <organization organizationName="United Parcel Service"/>
+        <roles roleTypeId="Carrier"/>
+    </mantle.party.Party>
+    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="UPS" shipmentMethodEnumId="ShMthGround" sequenceNum="1"
+            scaCode="UPSG" gatewayServiceCode="ups_ground"/>
+    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="UPS" shipmentMethodEnumId="ShMthNextDay" sequenceNum="2"
+            scaCode="UPS1" gatewayServiceCode="ups_next_day_air"/>
+    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="UPS" shipmentMethodEnumId="ShMthSecondDay" sequenceNum="3"
+            scaCode="UPS2" gatewayServiceCode="ups_second_day_air"/>
+    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="UPS" shipmentMethodEnumId="ShMthThirdDay" sequenceNum="4"
+            scaCode="UPS3" gatewayServiceCode="ups_3_day_select"/>
+
+    <!-- FedEx -->
+    <mantle.party.Party partyId="FedEx" partyTypeEnumId="PtyOrganization" externalId="fedex">
+        <organization organizationName="FedEx Corporation"/>
+        <roles roleTypeId="Carrier"/>
+    </mantle.party.Party>
+    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="FedEx" shipmentMethodEnumId="ShMthGround" sequenceNum="1"
+            scaCode="FDXG" gatewayServiceCode="fedex_ground"/>
+    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="FedEx" shipmentMethodEnumId="ShMthNextDay" sequenceNum="2"
+            scaCode="FDXSO" gatewayServiceCode="fedex_standard_overnight"/>
+    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="FedEx" shipmentMethodEnumId="ShMthSecondDay" sequenceNum="3"
+            scaCode="FDX2D" gatewayServiceCode="fedex_2_day"/>
+    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="FedEx" shipmentMethodEnumId="ShMthThirdDay" sequenceNum="4"
+            scaCode="FDXES" gatewayServiceCode="fedex_express_saver"/>
+
+    <!-- USPS -->
+    <mantle.party.Party partyId="USPS" partyTypeEnumId="PtyOrganization" externalId="usps">
+        <organization organizationName="United States Postal Service"/>
+        <roles roleTypeId="Carrier"/>
+    </mantle.party.Party>
+    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="USPS" shipmentMethodEnumId="ShMthGround" sequenceNum="1"
+            scaCode="USPS" gatewayServiceCode="usps_first"/>
+    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="USPS" shipmentMethodEnumId="ShMthNextDay" sequenceNum="2"
+            scaCode="USPS" gatewayServiceCode="usps_priority_express"/>
+    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="USPS" shipmentMethodEnumId="ShMthThirdDay" sequenceNum="4"
+            scaCode="USPS" gatewayServiceCode="usps_priority"/>
+</entity-facade-xml>
