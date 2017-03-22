@@ -280,6 +280,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="shipmentBoxTypeId" type="id"/>
         <field name="weight" type="number-decimal"/>
         <field name="weightUomId" type="id"/>
+        <field name="gatewayPackageId" type="text-medium"/>
         <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
         <relationship type="one" related="mantle.shipment.ShipmentBoxType" short-alias="boxType"/>
         <relationship type="one" title="Weight" related="moqui.basic.Uom" short-alias="weightUom">
@@ -306,8 +307,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="shipmentPackageSeqId" type="id" is-pk="true"/>
         <field name="shipmentRouteSegmentSeqId" type="id" is-pk="true"/>
         <field name="trackingCode" type="text-short"/>
+        <field name="trackingUrl" type="text-long"/>
         <field name="boxNumber" type="text-short"/>
+        <field name="gatewayShipmentId" type="text-medium"/>
+        <field name="gatewayRateId" type="text-medium"/>
 
+        <field name="labelUrl" type="text-long"/>
         <field name="labelImage" type="binary-very-long"/>
         <field name="labelIntlSignImage" type="binary-very-long"/>
         <field name="labelHtml" type="text-very-long"/>
@@ -320,19 +325,18 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="packageOtherAmount" type="currency-amount"/>
         <field name="codAmount" type="currency-amount"/>
         <field name="insuredAmount" type="currency-amount"/>
-        <field name="amountUomId" type="id"/>
+        <!-- should use costUomId on ShipmentRouteSegment or Shipment: <field name="amountUomId" type="id"/> -->
         <relationship type="one-nofk" related="mantle.shipment.Shipment"/>
         <relationship type="one" related="mantle.shipment.ShipmentPackage">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>
         <relationship type="one" related="mantle.shipment.ShipmentRouteSegment">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentRouteSegmentSeqId"/></relationship>
-        <relationship type="one" title="Amount" related="moqui.basic.Uom">
-            <key-map field-name="amountUomId"/></relationship>
     </entity>
     <entity entity-name="ShipmentRouteSegment" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentRouteSegmentSeqId" type="id" is-pk="true"/>
         <field name="deliveryId" type="id"/>
+        <field name="shippingGatewayConfigId" type="id"/>
 
         <field name="originFacilityId" type="id"/>
         <field name="originPostalContactMechId" type="id"/>
@@ -376,6 +380,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <relationship type="one" related="mantle.shipment.Shipment"/>
         <relationship type="one" related="mantle.shipment.carrier.Delivery"/>
+        <relationship type="one" related="mantle.shipment.carrier.ShippingGatewayConfig"/>
         <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrierParty">
             <key-map field-name="carrierPartyId"/></relationship>
         <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration" short-alias="shipmentMethod">
@@ -514,6 +519,18 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.shipment.carrier.ShippingGatewayConfig shippingGatewayConfigId="NA_LOCAL"
                     shippingGatewayTypeEnumId="ShGtwyLocal" description="Local gateway for order shipping rate"
                     getOrderRateServiceName="mantle.shipment.CarrierServices.get#OrderShippingRateLocal"/>
+        </seed-data>
+    </entity>
+    <entity entity-name="ShippingGatewayOption" package="mantle.shipment.carrier">
+        <field name="shippingGatewayConfigId" type="id" is-pk="true"/>
+        <field name="optionEnumId" type="id" is-pk="true"/>
+        <field name="optionValue" type="text-medium"/>
+        <relationship type="one" related="mantle.shipment.carrier.ShippingGatewayConfig"/>
+        <relationship type="one" title="ShippingGatewayOption" related="moqui.basic.Enumeration">
+            <key-map field-name="optionEnumId"/></relationship>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Shipping Gateway Option" enumTypeId="ShippingGatewayOption"/>
+            <moqui.basic.Enumeration description="API Token" enumId="SgoApiToken" enumTypeId="ShippingGatewayOption"/>
         </seed-data>
     </entity>
 </entities>
