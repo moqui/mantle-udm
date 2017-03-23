@@ -49,6 +49,16 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="FedEx" shipmentMethodEnumId="ShMthThirdDay" sequenceNum="4"
             scaCode="FDXES" gatewayServiceCode="fedex_express_saver"/>
 
+    <!-- DHL Express -->
+    <mantle.party.Party partyId="DHLX" partyTypeEnumId="PtyOrganization" externalId="dhl_express">
+        <organization organizationName="DHL Express"/>
+        <roles roleTypeId="Carrier"/>
+    </mantle.party.Party>
+    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="DHLX" shipmentMethodEnumId="ShMthGround" sequenceNum="1"
+            scaCode="DDAG" gatewayServiceCode="dhl_express_economy_select_nondoc"/>
+    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="DHLX" shipmentMethodEnumId="ShMthNextDay" sequenceNum="2"
+            scaCode="DZNA" gatewayServiceCode="dhl_express_express_12_00_nondoc"/>
+
     <!-- USPS -->
     <mantle.party.Party partyId="USPS" partyTypeEnumId="PtyOrganization" externalId="usps">
         <organization organizationName="United States Postal Service"/>
