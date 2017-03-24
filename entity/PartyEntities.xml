@@ -1144,14 +1144,16 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.party.contact -->
     <!-- ========================================================= -->
 
-    <entity entity-name="ContactMech" package="mantle.party.contact" short-alias="contactMechs">
+    <entity entity-name="ContactMech" package="mantle.party.contact" short-alias="contactMechs" cache="never">
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="contactMechTypeEnumId" type="id"/>
         <field name="dataSourceId" type="id"/>
         <field name="infoString" type="text-medium"/>
         <field name="gatewayCimId" type="text-short" enable-audit-log="update"/>
         <field name="trustLevelEnumId" type="id"/>
-        <field name="paymentFraudEvidenceId" type="id"><description>Refer to evidence here if trustLevelEnumId is gray listed or black listed.</description></field>
+        <field name="validateMessage" type="text-medium"/>
+        <field name="paymentFraudEvidenceId" type="id"><description>Refer to evidence here if trustLevelEnumId is gray listed or black listed</description></field>
+        <field name="replacesContactMechId" type="id"><description>For update by copy-on-write this is the ID of the ContactMech it replaces</description></field>
 
         <relationship type="one" title="ContactMechType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="contactMechTypeEnumId"/></relationship>
@@ -1171,11 +1173,13 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- Contact/Payment Trust Level -->
             <moqui.basic.EnumerationType description="Contact/Payment Trust Level" enumTypeId="ContactPaymentTrustLevel"/>
-            <moqui.basic.Enumeration enumId="CMTL_NEW" description="New Data" sequenceNum="1" enumTypeId="ContactPaymentTrustLevel"/>
-            <moqui.basic.Enumeration enumId="CMTL_VALID" description="Valid/Clean (through 3rd party service)" sequenceNum="2" enumTypeId="ContactPaymentTrustLevel"/>
-            <moqui.basic.Enumeration enumId="CMTL_VERIFIED" description="Verified (with outbound contact or authorization)" sequenceNum="3" enumTypeId="ContactPaymentTrustLevel"/>
-            <moqui.basic.Enumeration enumId="CMTL_GREYLISTED" description="Greylisted" sequenceNum="8" enumTypeId="ContactPaymentTrustLevel"/>
-            <moqui.basic.Enumeration enumId="CMTL_BLACKLISTED" description="Blacklisted" sequenceNum="9" enumTypeId="ContactPaymentTrustLevel"/>
+            <moqui.basic.Enumeration enumId="CmtlNew" description="New Data" sequenceNum="1" enumTypeId="ContactPaymentTrustLevel"/>
+            <moqui.basic.Enumeration enumId="CmtlValid" description="Valid/Clean" sequenceNum="2" enumTypeId="ContactPaymentTrustLevel"/>
+            <moqui.basic.Enumeration enumId="CmtlVerified" description="Verified" sequenceNum="3" enumTypeId="ContactPaymentTrustLevel"/><!-- (with outbound contact or authorization) -->
+            <moqui.basic.Enumeration enumId="CmtlInvalid" description="Invalid" sequenceNum="6" enumTypeId="ContactPaymentTrustLevel"/>
+            <moqui.basic.Enumeration enumId="CmtlIncomplete" description="Incomplete" sequenceNum="7" enumTypeId="ContactPaymentTrustLevel"/>
+            <moqui.basic.Enumeration enumId="CmtlGreylisted" description="Greylisted" sequenceNum="8" enumTypeId="ContactPaymentTrustLevel"/>
+            <moqui.basic.Enumeration enumId="CmtlBlacklisted" description="Blacklisted" sequenceNum="9" enumTypeId="ContactPaymentTrustLevel"/>
         </seed-data>
         
         <master>
@@ -1287,7 +1291,7 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Website URL - Twitter"/>
         </seed-data>
     </entity>
-    <entity entity-name="PartyContactMech" package="mantle.party.contact">
+    <entity entity-name="PartyContactMech" package="mantle.party.contact" cache="never">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="contactMechPurposeId" type="id" is-pk="true"/>
@@ -1304,7 +1308,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one-nofk" related="mantle.party.contact.PostalAddress" short-alias="postalAddress" mutable="true"/>
         <relationship type="one-nofk" related="mantle.party.contact.TelecomNumber" short-alias="telecomNumber" mutable="true"/>
     </entity>
-    <entity entity-name="PostalAddress" package="mantle.party.contact">
+    <entity entity-name="PostalAddress" package="mantle.party.contact" cache="never">
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="toName" type="text-medium"/>
         <field name="attnName" type="text-medium"/>
@@ -1326,7 +1330,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="accessCode" type="text-short"/>
         <field name="telecomContactMechId" type="id"/>
         <field name="emailContactMechId" type="id"/>
-        <field name="shipGatewayId" type="text-medium"/>
+        <field name="shipGatewayAddressId" type="text-medium"/>
         <relationship type="one" related="mantle.party.contact.ContactMech"/>
         <relationship type="one" title="City" related="moqui.basic.Geo" short-alias="cityGeo">
             <key-map field-name="cityGeoId"/></relationship>
@@ -1340,7 +1344,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="countryGeoId"/></relationship>
         <relationship type="one" title="PostalCode" related="moqui.basic.Geo" short-alias="postalCodeGeo">
             <key-map field-name="postalCodeGeoId"/></relationship>
-        <relationship type="one" related="GeoPoint"/>
+        <relationship type="one" related="GeoPoint" short-alias="geoPoint"/>
         <relationship type="one-nofk" title="Telecom" related="mantle.party.contact.ContactMech" short-alias="telecomContactMech" mutable="true">
             <key-map field-name="telecomContactMechId"/></relationship>
         <relationship type="one" title="Telecom" related="mantle.party.contact.TelecomNumber" mutable="true">
@@ -1350,7 +1354,7 @@ along with this software (see the LICENSE.md file). If not, see
         <index name="CITY_IDX"><index-field name="city"/></index>
         <index name="POSTAL_CODE_IDX"><index-field name="postalCode"/></index>
     </entity>
-    <entity entity-name="TelecomNumber" package="mantle.party.contact">
+    <entity entity-name="TelecomNumber" package="mantle.party.contact" cache="never">
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="countryCode" type="text-short"/>
         <field name="areaCode" type="text-short"/>
