@@ -160,7 +160,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.shipment.Shipment"/>
     </extend-entity>
 
-    <entity entity-name="ShipmentBoxType" package="mantle.shipment">
+    <entity entity-name="ShipmentBoxType" package="mantle.shipment" cache="true">
         <field name="shipmentBoxTypeId" type="id" is-pk="true"/>
         <field name="pseudoId" type="id" default="shipmentBoxTypeId"/>
         <field name="description" type="text-medium"/>
@@ -175,15 +175,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="capacityUomId" type="id"/>
         <field name="boxCapacity" type="number-decimal"/>
         <field name="gatewayBoxId" type="text-medium"/>
-        <relationship type="one" title="Dimension" related="moqui.basic.Uom">
+        <relationship type="one" title="Dimension" related="moqui.basic.Uom" short-alias="dimensionUom">
             <key-map field-name="dimensionUomId"/></relationship>
-        <relationship type="one" title="Weight" related="moqui.basic.Uom">
+        <relationship type="one" title="Weight" related="moqui.basic.Uom" short-alias="weightUom">
             <key-map field-name="weightUomId"/></relationship>
-        <relationship type="one" title="Capacity" related="moqui.basic.Uom">
+        <relationship type="one" title="Capacity" related="moqui.basic.Uom" short-alias="capacityUom">
             <key-map field-name="capacityUomId"/></relationship>
-
-        <index name="SHIPMENT_BOX_TYPE_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
-
+        <index name="SH_BOX_TYPE_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
     </entity>
     <entity entity-name="ShipmentContactMech" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
@@ -432,7 +430,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.shipment.carrier -->
     <!-- ========================================================= -->
 
-    <entity entity-name="CarrierShipmentMethod" package="mantle.shipment.carrier">
+    <entity entity-name="CarrierShipmentMethod" package="mantle.shipment.carrier" cache="true">
         <field name="carrierPartyId" type="id" is-pk="true"/>
         <field name="shipmentMethodEnumId" type="id" is-pk="true"/>
         <field name="sequenceNum" type="number-integer"/>
@@ -458,7 +456,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="_NA_" shipmentMethodEnumId="ShMthNextDay" sequenceNum="2"/>
         </seed-data>
     </entity>
-    <entity entity-name="CarrierShipmentBoxType" package="mantle.shipment.carrier">
+    <entity entity-name="CarrierShipmentBoxType" package="mantle.shipment.carrier" cache="true">
         <field name="carrierPartyId" type="id" is-pk="true"/>
         <field name="shipmentBoxTypeId" type="id" is-pk="true"/>
         <field name="packagingTypeCode" type="id"/>
