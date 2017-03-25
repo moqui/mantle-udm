@@ -170,8 +170,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="boxHeight" type="number-decimal"/>
         <field name="weightUomId" type="id"/>
         <field name="boxWeight" type="number-decimal"/>
+        <field name="defaultGrossWeight" type="number-decimal">
+            <description>For flat rate boxes up to a certain weight, used if there is no ShipmentPackage.weight</description></field>
         <field name="capacityUomId" type="id"/>
         <field name="boxCapacity" type="number-decimal"/>
+        <field name="gatewayBoxId" type="text-medium"/>
         <relationship type="one" title="Dimension" related="moqui.basic.Uom">
             <key-map field-name="dimensionUomId"/></relationship>
         <relationship type="one" title="Weight" related="moqui.basic.Uom">
@@ -312,6 +315,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="gatewayShipmentId" type="text-medium"/>
         <field name="gatewayRateId" type="text-medium"/>
 
+        <field name="labelDate" type="date-time"/>
         <field name="labelUrl" type="text-long"/>
         <field name="labelImage" type="binary-very-long"/>
         <field name="labelIntlSignImage" type="binary-very-long"/>
@@ -481,7 +485,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Dest" related="mantle.facility.Facility">
             <key-map field-name="destFacilityId"/></relationship>
     </entity>
-    <entity entity-name="PartyCarrierAccount" package="mantle.shipment.carrier">
+    <entity entity-name="PartyCarrierAccount" package="mantle.shipment.carrier" cache="never">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="carrierPartyId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
@@ -492,7 +496,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Carrier" related="mantle.party.Party">
             <key-map field-name="carrierPartyId"/></relationship>
     </entity>
-    <entity entity-name="ShippingGatewayConfig" package="mantle.shipment.carrier">
+    <entity entity-name="ShippingGatewayConfig" package="mantle.shipment.carrier" cache="true">
         <field name="shippingGatewayConfigId" type="id" is-pk="true"/>
         <field name="shippingGatewayTypeEnumId" type="id"><description>Each shipping gateway integration should define a
             ShippingGatewayType Enumeration record plus an entity with a shared PK (ie PK is shippingGatewayConfigId).</description></field>
@@ -525,7 +529,7 @@ along with this software (see the LICENSE.md file). If not, see
                     getOrderRateServiceName="mantle.shipment.CarrierServices.get#OrderShippingRateLocal"/>
         </seed-data>
     </entity>
-    <entity entity-name="ShippingGatewayCarrier" package="mantle.shipment.carrier">
+    <entity entity-name="ShippingGatewayCarrier" package="mantle.shipment.carrier" cache="true">
         <field name="shippingGatewayConfigId" type="id" is-pk="true"/>
         <field name="carrierPartyId" type="id" is-pk="true"/>
         <field name="gatewayAccountId" type="text-medium"/>
@@ -533,7 +537,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Carrier" related="mantle.party.Party">
             <key-map field-name="carrierPartyId"/></relationship>
     </entity>
-    <entity entity-name="ShippingGatewayOption" package="mantle.shipment.carrier">
+    <entity entity-name="ShippingGatewayOption" package="mantle.shipment.carrier" cache="true">
         <field name="shippingGatewayConfigId" type="id" is-pk="true"/>
         <field name="optionEnumId" type="id" is-pk="true"/>
         <field name="optionValue" type="text-medium"/>
@@ -543,6 +547,7 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <moqui.basic.EnumerationType description="Shipping Gateway Option" enumTypeId="ShippingGatewayOption"/>
             <moqui.basic.Enumeration description="API Token" enumId="SgoApiToken" enumTypeId="ShippingGatewayOption"/>
+            <moqui.basic.Enumeration description="Label Type" enumId="SgoLabelType" enumTypeId="ShippingGatewayOption"/>
         </seed-data>
     </entity>
 </entities>
