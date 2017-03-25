@@ -307,11 +307,15 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentPackageSeqId" type="id" is-pk="true"/>
         <field name="shipmentRouteSegmentSeqId" type="id" is-pk="true"/>
-        <field name="trackingCode" type="text-short"/>
+        <field name="trackingCode" type="text-medium" enable-audit-log="update"/>
         <field name="trackingUrl" type="text-long"/>
+        <field name="trackingStatusEnumId" type="id" enable-audit-log="true"/>
         <field name="boxNumber" type="text-short"/>
-        <field name="gatewayShipmentId" type="text-medium"/>
-        <field name="gatewayRateId" type="text-medium"/>
+
+        <field name="gatewayStatus" type="text-short" enable-audit-log="update"/>
+        <field name="gatewayLabelId" type="text-medium" enable-audit-log="update"/>
+        <field name="gatewayRateId" type="text-medium" enable-audit-log="update"/>
+        <field name="gatewayMessage" type="text-medium"/>
 
         <field name="labelDate" type="date-time"/>
         <field name="labelUrl" type="text-long"/>
@@ -333,6 +337,16 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>
         <relationship type="one" related="mantle.shipment.ShipmentRouteSegment">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentRouteSegmentSeqId"/></relationship>
+        <relationship type="one" title="ShipmentTrackingStatus" related="moqui.basic.Enumeration" short-alias="trackingStatusEnum">
+            <key-map field-name="trackingStatusEnumId"/></relationship>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Shipping Tracking Status" enumTypeId="ShipmentTrackingStatus"/>
+            <moqui.basic.Enumeration description="Unknown" enumId="ShTsUnknown" enumTypeId="ShipmentTrackingStatus"/>
+            <moqui.basic.Enumeration description="In Transit" enumId="ShTsTransit" enumTypeId="ShipmentTrackingStatus"/>
+            <moqui.basic.Enumeration description="Delivered" enumId="ShTsDelivered" enumTypeId="ShipmentTrackingStatus"/>
+            <moqui.basic.Enumeration description="Returned" enumId="ShTsReturned" enumTypeId="ShipmentTrackingStatus"/>
+            <moqui.basic.Enumeration description="Failure" enumId="ShTsFailure" enumTypeId="ShipmentTrackingStatus"/>
+        </seed-data>
     </entity>
     <entity entity-name="ShipmentRouteSegment" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
