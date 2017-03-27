@@ -310,12 +310,15 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="trackingCode" type="text-medium" enable-audit-log="update"/>
         <field name="trackingUrl" type="text-long"/>
         <field name="trackingStatusEnumId" type="id" enable-audit-log="true"/>
+        <field name="trackingStatusDate" type="date-time"/>
         <field name="boxNumber" type="text-short"/>
 
         <field name="gatewayStatus" type="text-short" enable-audit-log="update"/>
+        <field name="gatewayMessage" type="text-medium"/>
         <field name="gatewayLabelId" type="text-medium" enable-audit-log="update"/>
         <field name="gatewayRateId" type="text-medium" enable-audit-log="update"/>
-        <field name="gatewayMessage" type="text-medium"/>
+        <field name="gatewayRefundId" type="text-medium" enable-audit-log="update"/>
+        <field name="gatewayRefundStatus" type="text-short" enable-audit-log="update"/>
 
         <field name="labelDate" type="date-time"/>
         <field name="labelUrl" type="text-long"/>
@@ -519,8 +522,8 @@ along with this software (see the LICENSE.md file). If not, see
             mantle.shipment.CarrierServices.get#ShippingRate interface.</description></field>
         <field name="requestLabelsServiceName" type="text-medium"><description>Service implementing
             mantle.shipment.CarrierServices.request#ShippingLabels interface.</description></field>
-        <field name="voidLabelsServiceName" type="text-medium"><description>Service implementing
-            mantle.shipment.CarrierServices.void#ShippingLabels interface.</description></field>
+        <field name="refundLabelsServiceName" type="text-medium"><description>Service implementing
+            mantle.shipment.CarrierServices.refund#ShippingLabels interface.</description></field>
         <field name="trackLabelsServiceName" type="text-medium"><description>Service implementing
             mantle.shipment.CarrierServices.track#ShippingLabels interface.</description></field>
         <field name="validateAddressServiceName" type="text-medium"><description>Service implementing
