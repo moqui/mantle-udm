@@ -210,6 +210,8 @@ along with this software (see the LICENSE.md file). If not, see
             should run this through ResourceFacade.expand() with parameters depending on the promo service</description></field>
         <field name="serviceRegisterId" type="id" not-null="true"><description>Registered Service of type ProductStorePromotion that implements the
             mantle.product.StoreServices.apply#Promotion interface</description></field>
+        <field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
         <field name="sequenceNum" type="number-integer"/>
         <relationship type="one" related="moqui.service.ServiceRegister" short-alias="serviceRegister"/>
         <relationship type="many" related="mantle.product.store.ProductStorePromoParameter" short-alias="parameters">
