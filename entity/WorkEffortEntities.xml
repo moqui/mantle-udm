@@ -673,6 +673,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="teamPartyId" type="id"/>
         <field name="clientPartyId" type="id"><description>Should always be set, may get through timesheetId or workEffortId</description></field>
         <field name="rateTypeEnumId" type="id"/>
+        <field name="rateModifierEnumId" type="id"/>
         <field name="workTypeEnumId" type="id"/>
         <field name="emplPositionClassId" type="id"/>
         <field name="hasModifiedRates" type="text-indicator"><description>Set to Y when *Rate fields are manually set and not from RateAmount lookups</description></field>
@@ -705,6 +706,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="clientPartyId"/></relationship>
         <relationship type="one" title="RateType" related="moqui.basic.Enumeration" short-alias="rateType">
             <key-map field-name="rateTypeEnumId"/></relationship>
+        <relationship type="one" title="RateModifier" related="moqui.basic.Enumeration" short-alias="rateModifier">
+            <key-map field-name="rateModifierEnumId"/></relationship>
         <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workType">
             <key-map field-name="workTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.humanres.position.EmplPositionClass" short-alias="emplPositionClass"/>
