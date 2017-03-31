@@ -385,8 +385,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="estimatedStartDate" type="date-time"/>
         <field name="estimatedArrivalDate" type="date-time"/>
 
-        <field name="trackingIdNumber" type="text-short" enable-audit-log="true"/>
-        <field name="trackingDigest" type="text-very-long"/>
+        <field name="masterTrackingCode" type="text-medium" enable-audit-log="update"/>
+        <field name="masterTrackingUrl" type="text-long"/>
 
         <field name="homeDeliveryType" type="id"/>
         <field name="homeDeliveryDate" type="date-time"/>
