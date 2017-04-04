@@ -385,8 +385,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="estimatedStartDate" type="date-time"/>
         <field name="estimatedArrivalDate" type="date-time"/>
 
-        <field name="trackingIdNumber" type="text-short" enable-audit-log="true"/>
-        <field name="trackingDigest" type="text-very-long"/>
+        <field name="masterTrackingCode" type="text-medium" enable-audit-log="update"/>
+        <field name="masterTrackingUrl" type="text-long"/>
 
         <field name="homeDeliveryType" type="id"/>
         <field name="homeDeliveryDate" type="date-time"/>
@@ -518,6 +518,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="description" type="text-medium"/>
         <field name="getOrderRateServiceName" type="text-medium"><description>Service implementing
             mantle.shipment.CarrierServices.get#OrderShippingRate interface.</description></field>
+        <field name="getShippingRatesBulkName" type="text-medium"><description>Service implementing
+            mantle.shipment.CarrierServices.get#ShippingRatesBulk interface.</description></field>
+        <field name="getAutoPackageInfoName" type="text-medium"><description>Service implementing
+            mantle.shipment.CarrierServices.get#AutoPackageInfo interface.</description></field>
         <field name="getRateServiceName" type="text-medium"><description>Service implementing
             mantle.shipment.CarrierServices.get#ShippingRate interface.</description></field>
         <field name="requestLabelsServiceName" type="text-medium"><description>Service implementing
