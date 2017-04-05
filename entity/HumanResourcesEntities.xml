@@ -44,27 +44,27 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Qualification Type -->
             <moqui.basic.EnumerationType description="Qualification Type" enumTypeId="QualificationType"/>
-            <moqui.basic.Enumeration enumId="DEGREE" description="Degree" enumTypeId="QualificationType"/>
-            <moqui.basic.Enumeration enumId="CERTIFICATION" description="Certification" enumTypeId="QualificationType"/>
-            <moqui.basic.Enumeration enumId="EXPERIENCE" description="Work experience" enumTypeId="QualificationType"/>
-            <moqui.basic.Enumeration enumId="BTech" parentEnumId="DEGREE" description="Bachelor of Technology" enumTypeId="QualificationType"/>
-            <moqui.basic.Enumeration enumId="MBA" parentEnumId="DEGREE" description="Master of Business Administration" enumTypeId="QualificationType"/>
-            <moqui.basic.Enumeration enumId="MSC" parentEnumId="DEGREE" description="Master of Science" enumTypeId="QualificationType"/>
-            <moqui.basic.Enumeration enumId="BSC" parentEnumId="DEGREE" description="Bachelor of Science" enumTypeId="QualificationType"/>
+            <moqui.basic.Enumeration enumId="QualDegree" description="Degree" enumTypeId="QualificationType"/>
+            <moqui.basic.Enumeration enumId="QualCertification" description="Certification" enumTypeId="QualificationType"/>
+            <moqui.basic.Enumeration enumId="QualExperience" description="Work experience" enumTypeId="QualificationType"/>
+            <moqui.basic.Enumeration enumId="QualBTech" parentEnumId="DEGREE" description="Bachelor of Technology" enumTypeId="QualificationType"/>
+            <moqui.basic.Enumeration enumId="QualMBA" parentEnumId="DEGREE" description="Master of Business Administration" enumTypeId="QualificationType"/>
+            <moqui.basic.Enumeration enumId="QualMSC" parentEnumId="DEGREE" description="Master of Science" enumTypeId="QualificationType"/>
+            <moqui.basic.Enumeration enumId="QualBSC" parentEnumId="DEGREE" description="Bachelor of Science" enumTypeId="QualificationType"/>
 
             <!-- Party Qualification Status -->
             <moqui.basic.StatusType description="Party Qualification Status" statusTypeId="PartyQualification"/>
-            <moqui.basic.StatusItem description="Completed" sequenceNum="11" statusId="HR_DS_COMPLETE" statusTypeId="PartyQualification"/>
-            <moqui.basic.StatusItem description="Incomplete" sequenceNum="12" statusId="HR_DS_INCOMPLETE" statusTypeId="PartyQualification"/>
-            <moqui.basic.StatusItem description="Deferred" sequenceNum="13" statusId="HR_DS_DEFERRED" statusTypeId="PartyQualification"/>
-            <moqui.basic.StatusItem description="Full-time" sequenceNum="21" statusId="HR_JS_FULLTIME" statusTypeId="PartyQualification"/>
-            <moqui.basic.StatusItem description="Part-time" sequenceNum="22" statusId="HR_JS_PARTTIME" statusTypeId="PartyQualification"/>
-            <moqui.basic.StatusItem description="Contractor" sequenceNum="23" statusId="HR_JS_CONTRACTOR" statusTypeId="PartyQualification"/>
+            <moqui.basic.StatusItem description="Completed" sequenceNum="11" statusId="QualCompleted" statusTypeId="PartyQualification"/>
+            <moqui.basic.StatusItem description="Incomplete" sequenceNum="12" statusId="QualIncomplete" statusTypeId="PartyQualification"/>
+            <moqui.basic.StatusItem description="Deferred" sequenceNum="13" statusId="QualDeferred" statusTypeId="PartyQualification"/>
+            <moqui.basic.StatusItem description="Full-time" sequenceNum="21" statusId="QualFulltime" statusTypeId="PartyQualification"/>
+            <moqui.basic.StatusItem description="Part-time" sequenceNum="22" statusId="QualParttime" statusTypeId="PartyQualification"/>
+            <moqui.basic.StatusItem description="Contractor" sequenceNum="23" statusId="QualContractor" statusTypeId="PartyQualification"/>
 
             <!-- Party Qualification Verification Status -->
             <moqui.basic.StatusType description="Party Qualification Verification Status" statusTypeId="PartyQualificationVerification"/>
-            <moqui.basic.StatusItem description="Not verified" sequenceNum="1" statusId="PQV_NOT_VERIFIED" statusTypeId="PartyQualificationVerification"/>
-            <moqui.basic.StatusItem description="Verified" sequenceNum="2" statusId="PQV_VERIFIED" statusTypeId="PartyQualificationVerification"/>
+            <moqui.basic.StatusItem description="Not verified" sequenceNum="1" statusId="QlVerNotVerified" statusTypeId="PartyQualificationVerification"/>
+            <moqui.basic.StatusItem description="Verified" sequenceNum="2" statusId="QlVerVerified" statusTypeId="PartyQualificationVerification"/>
         </seed-data>
     </entity>
     <entity entity-name="PartyResume" package="mantle.humanres.ability" use="nontransactional">
@@ -116,19 +116,19 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Performance Review Item Type -->
             <moqui.basic.EnumerationType description="Performance Review Item Type" enumTypeId="PerformanceReviewItemType"/>
-            <moqui.basic.Enumeration enumId="PRIT_TECH" description="Technical skills" enumTypeId="PerformanceReviewItemType"/>
-            <moqui.basic.Enumeration enumId="PRIT_RESP" description="Responsibility" enumTypeId="PerformanceReviewItemType"/>
-            <moqui.basic.Enumeration enumId="PRIT_ATT" description="Attitude" enumTypeId="PerformanceReviewItemType"/>
-            <moqui.basic.Enumeration enumId="PRIT_COMM" description="Communication skills" enumTypeId="PerformanceReviewItemType"/>
-            <moqui.basic.Enumeration enumId="PRIT_JOBSAT" description="Job Satisfaction" enumTypeId="PerformanceReviewItemType"/>
+            <moqui.basic.Enumeration enumId="PritTechnical" description="Technical skills" enumTypeId="PerformanceReviewItemType"/>
+            <moqui.basic.Enumeration enumId="PritResponsibility" description="Responsibility" enumTypeId="PerformanceReviewItemType"/>
+            <moqui.basic.Enumeration enumId="PritAttitude" description="Attitude" enumTypeId="PerformanceReviewItemType"/>
+            <moqui.basic.Enumeration enumId="PritComm" description="Communication skills" enumTypeId="PerformanceReviewItemType"/>
+            <moqui.basic.Enumeration enumId="PritJobSat" description="Job Satisfaction" enumTypeId="PerformanceReviewItemType"/>
 
             <!-- Performance Review Rating -->
             <moqui.basic.EnumerationType description="Performance Review Rating" enumTypeId="PerformanceReviewRating"/>
-            <moqui.basic.Enumeration enumId="PRR_1" sequenceNum="1" description="Fails to Meet Expectations" enumTypeId="PerformanceReviewRating"/>
-            <moqui.basic.Enumeration enumId="PRR_2" sequenceNum="2" description="Inconsistently Fulfills" enumTypeId="PerformanceReviewRating"/>
-            <moqui.basic.Enumeration enumId="PRR_3" sequenceNum="3" description="Fulfilled Expectations" enumTypeId="PerformanceReviewRating"/>
-            <moqui.basic.Enumeration enumId="PRR_4" sequenceNum="4" description="Frequently Exceeds" enumTypeId="PerformanceReviewRating"/>
-            <moqui.basic.Enumeration enumId="PRR_5" sequenceNum="5" description="Consistently Exceeds" enumTypeId="PerformanceReviewRating"/>
+            <moqui.basic.Enumeration enumId="PrfRtFail" sequenceNum="1" description="Fails to Meet Expectations" enumTypeId="PerformanceReviewRating"/>
+            <moqui.basic.Enumeration enumId="PrfRtInconsistent" sequenceNum="2" description="Inconsistently Fulfills" enumTypeId="PerformanceReviewRating"/>
+            <moqui.basic.Enumeration enumId="PrfRtFulfill" sequenceNum="3" description="Fulfilled Expectations" enumTypeId="PerformanceReviewRating"/>
+            <moqui.basic.Enumeration enumId="PrfRtFreqExceed" sequenceNum="4" description="Frequently Exceeds" enumTypeId="PerformanceReviewRating"/>
+            <moqui.basic.Enumeration enumId="PrfRtConsExceed" sequenceNum="5" description="Consistently Exceeds" enumTypeId="PerformanceReviewRating"/>
         </seed-data>
     </entity>
     <entity entity-name="PerformanceNote" package="mantle.humanres.ability" use="nontransactional">
@@ -162,10 +162,10 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Training Class Type -->
             <moqui.basic.EnumerationType description="Training Class Type" enumTypeId="TrainingClassType"/>
-            <moqui.basic.Enumeration enumId="BASIC_TRAINING" description="Basic Training" enumTypeId="TrainingClassType"/>
-            <moqui.basic.Enumeration enumId="ONJOB_TRAINING" description="On Job Training" enumTypeId="TrainingClassType"/>
-            <moqui.basic.Enumeration enumId="ADVAN_TRAINING" description="Advanced Training" enumTypeId="TrainingClassType"/>
-            <moqui.basic.Enumeration enumId="IMPRO_TRAINING" description="Improvement Training" enumTypeId="TrainingClassType"/>
+            <moqui.basic.Enumeration enumId="TrctBasic" description="Basic Training" enumTypeId="TrainingClassType"/>
+            <moqui.basic.Enumeration enumId="TrctOnJob" description="On Job Training" enumTypeId="TrainingClassType"/>
+            <moqui.basic.Enumeration enumId="TrctAdvanced" description="Advanced Training" enumTypeId="TrainingClassType"/>
+            <moqui.basic.Enumeration enumId="TrctImprovement" description="Improvement Training" enumTypeId="TrainingClassType"/>
         </seed-data>
     </entity>
 
@@ -182,9 +182,9 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="parentTypeId" related="benefitTypeId"/></relationship>
         <seed-data>
             <!-- Employment Benefit Types -->
-            <mantle.humanres.employment.BenefitType description="Health" benefitTypeId="HEALTH"/>
-            <mantle.humanres.employment.BenefitType description="Vacation" benefitTypeId="VACATION"/>
-            <mantle.humanres.employment.BenefitType description="Sick Leave" benefitTypeId="SICK_LEAVE"/>
+            <mantle.humanres.employment.BenefitType description="Health Insurance" benefitTypeId="Health"/>
+            <mantle.humanres.employment.BenefitType description="Vacation Paid" benefitTypeId="Vacation"/>
+            <mantle.humanres.employment.BenefitType description="Sick Leave Paid" benefitTypeId="Sick"/>
         </seed-data>
     </entity>
     <entity entity-name="Employment" package="mantle.humanres.employment" use="nontransactional">
@@ -340,10 +340,10 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- Employment Application Referred By -->
             <moqui.basic.EnumerationType description="Employment Application Referred By" enumTypeId="EmploymentApplicationReferredBy"/>
-            <moqui.basic.Enumeration description="Newspaper" enumId="EARB_NEWSPAPER" enumTypeId="EmploymentApplicationReferredBy"/>
-            <moqui.basic.Enumeration description="Personal Referral" enumId="EARB_PERSONAL" enumTypeId="EmploymentApplicationReferredBy"/>
-            <moqui.basic.Enumeration description="Internet" enumId="EARB_INTERNET" enumTypeId="EmploymentApplicationReferredBy"/>
-            <moqui.basic.Enumeration description="Advertisement" enumId="EARB_ADV" enumTypeId="EmploymentApplicationReferredBy"/>
+            <moqui.basic.Enumeration description="Newspaper" enumId="EarbNewspaper" enumTypeId="EmploymentApplicationReferredBy"/>
+            <moqui.basic.Enumeration description="Personal Referral" enumId="EarbPersonal" enumTypeId="EmploymentApplicationReferredBy"/>
+            <moqui.basic.Enumeration description="Internet" enumId="EarbInternet" enumTypeId="EmploymentApplicationReferredBy"/>
+            <moqui.basic.Enumeration description="Advertisement" enumId="EarbAdvertisement" enumTypeId="EmploymentApplicationReferredBy"/>
         </seed-data>
     </entity>
     <entity entity-name="EmploymentBenefit" package="mantle.humanres.employment" use="nontransactional">
@@ -793,12 +793,12 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Employment Responsibility -->
             <moqui.basic.EnumerationType description="Employment Responsibility" enumTypeId="EmploymentResponsibility"/>
-            <moqui.basic.Enumeration description="Finance Management" enumId="FIN_MGMT" enumTypeId="EmploymentResponsibility"/>
-            <moqui.basic.Enumeration description="Inventory Management" enumId="INV_MGMT" enumTypeId="EmploymentResponsibility"/>
-            <moqui.basic.Enumeration description="Purchase Management" enumId="PUR_MGMT" enumTypeId="EmploymentResponsibility"/>
-            <moqui.basic.Enumeration description="Resource Management" enumId="RES_MGMT" enumTypeId="EmploymentResponsibility"/>
-            <moqui.basic.Enumeration description="Production Management" enumId="PROD_MGMT" enumTypeId="EmploymentResponsibility"/>
-            <moqui.basic.Enumeration description="Sales Management" enumId="SALES_MGMT" enumTypeId="EmploymentResponsibility"/>
+            <moqui.basic.Enumeration description="Finance Management" enumId="EmRspFinanceMgmt" enumTypeId="EmploymentResponsibility"/>
+            <moqui.basic.Enumeration description="Inventory Management" enumId="EmRspInventoryMgmt" enumTypeId="EmploymentResponsibility"/>
+            <moqui.basic.Enumeration description="Purchase Management" enumId="EmRspPurchaseMgmt" enumTypeId="EmploymentResponsibility"/>
+            <moqui.basic.Enumeration description="Resource Management" enumId="EmRspResourceMgmt" enumTypeId="EmploymentResponsibility"/>
+            <moqui.basic.Enumeration description="Production Management" enumId="EmRspProductionMgmt" enumTypeId="EmploymentResponsibility"/>
+            <moqui.basic.Enumeration description="Sales Management" enumId="EmRspSalesMgmt" enumTypeId="EmploymentResponsibility"/>
         </seed-data>
     </entity>
     <entity entity-name="EmplClassResponsibility" package="mantle.humanres.position" use="configuration">
@@ -974,14 +974,14 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Exam Type -->
             <moqui.basic.EnumerationType description="Exam Type" enumTypeId="ExamType"/>
-            <moqui.basic.Enumeration description="Written Aptitude Exam" enumId="EXAM_WRITTEN_APT" enumTypeId="ExamType"/>
-            <moqui.basic.Enumeration description="Technical Exam" enumId="EXAM_TECHNICAL" enumTypeId="ExamType"/>
-            <moqui.basic.Enumeration description="Group Discussion" enumId="EXAM_GROUP_DISCN" enumTypeId="ExamType"/>
+            <moqui.basic.Enumeration description="Written Aptitude Exam" enumId="ExamWrittenApt" enumTypeId="ExamType"/>
+            <moqui.basic.Enumeration description="Technical Exam" enumId="ExamTechnical" enumTypeId="ExamType"/>
+            <moqui.basic.Enumeration description="Group Discussion" enumId="ExamGroupDisc" enumTypeId="ExamType"/>
 
             <!-- Job Posting Type -->
             <moqui.basic.EnumerationType description="Job Posting Type" enumTypeId="JobPostingType"/>
-            <moqui.basic.Enumeration description="Internal Job Posting" enumId="JobPostingType_INTR" enumTypeId="JobPostingType"/>
-            <moqui.basic.Enumeration description="External Job Posting" enumId="JobPostingType_EXTR" enumTypeId="JobPostingType"/>
+            <moqui.basic.Enumeration description="Internal Job Posting" enumId="JptInternal" enumTypeId="JobPostingType"/>
+            <moqui.basic.Enumeration description="External Job Posting" enumId="JptExternal" enumTypeId="JobPostingType"/>
         </seed-data>
     </entity>
     <entity entity-name="JobInterview" package="mantle.humanres.recruitment" use="nontransactional">
@@ -1007,17 +1007,17 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Job Interview Type -->
             <moqui.basic.EnumerationType description="Job Interview Type" enumTypeId="JobInterviewType"/>
-            <moqui.basic.Enumeration enumId="JOB_INTERVW" description="Hire - It is a process in which an employee is evaluated by an employer for prospective employment in their company" enumTypeId="JobInterviewType"/>
-            <moqui.basic.Enumeration enumId="EXIT_INTERVW" description="Exit - It is conducted by an employer of a departing employee" enumTypeId="JobInterviewType"/>
-            <moqui.basic.Enumeration enumId="INFORMAL_INTERVW" description="Informal - It is a meeting in which a job seeker asks for advice rather than employment" enumTypeId="JobInterviewType"/>
-            <moqui.basic.Enumeration enumId="CASE_INTERVW" description="Case - It is an interview in which the applicant is given a question/situation and asked to resolve it" enumTypeId="JobInterviewType"/>
+            <moqui.basic.Enumeration enumId="JitHire" description="Hire" sequenceNum="1" enumTypeId="JobInterviewType"/>
+            <moqui.basic.Enumeration enumId="JitExit" description="Exit" sequenceNum="2" enumTypeId="JobInterviewType"/>
+            <moqui.basic.Enumeration enumId="JitInformal" description="Informal - Advice" sequenceNum="11" enumTypeId="JobInterviewType"/>
+            <moqui.basic.Enumeration enumId="JitCase" description="Case - Issue Resolution" sequenceNum="12" enumTypeId="JobInterviewType"/>
 
             <!-- Interview Grade -->
             <moqui.basic.EnumerationType description="Interview Grade" enumTypeId="InterviewGrade"/>
             <moqui.basic.Enumeration description="A (above 75%)" enumId="InterviewGrade_A" sequenceNum="1" enumTypeId="InterviewGrade"/>
             <moqui.basic.Enumeration description="B (60-75%)" enumId="InterviewGrade_B" sequenceNum="2" enumTypeId="InterviewGrade"/>
             <moqui.basic.Enumeration description="C (45-60%)" enumId="InterviewGrade_C" sequenceNum="3" enumTypeId="InterviewGrade"/>
-            <moqui.basic.Enumeration description="D (below 40%)" enumId="InterviewGrade_D" sequenceNum="4" enumTypeId="InterviewGrade"/>
+            <moqui.basic.Enumeration description="D (below 45%)" enumId="InterviewGrade_D" sequenceNum="4" enumTypeId="InterviewGrade"/>
         </seed-data>
     </entity>
 </entities>
