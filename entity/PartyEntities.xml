@@ -1202,6 +1202,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="ContactMechType" related="moqui.basic.Enumeration">
             <key-map field-name="contactMechTypeEnumId"/></relationship>
         <seed-data>
+            <ContactMechPurpose contactMechPurposeId="PostalPrimary" contactMechTypeEnumId="CmtPostalAddress"
+                    description="Postal - Primary"/>
             <ContactMechPurpose contactMechPurposeId="PostalShippingDest" contactMechTypeEnumId="CmtPostalAddress"
                     description="Postal - Shipping Destination"/>
             <ContactMechPurpose contactMechPurposeId="PostalShippingOrigin" contactMechTypeEnumId="CmtPostalAddress"
@@ -1216,8 +1218,6 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Postal - General Correspondence"/>
             <ContactMechPurpose contactMechPurposeId="PostalPurchReturn" contactMechTypeEnumId="CmtPostalAddress"
                     description="Postal - Purchase Return"/>
-            <ContactMechPurpose contactMechPurposeId="PostalPrimary" contactMechTypeEnumId="CmtPostalAddress"
-                    description="Postal - Primary"/>
             <ContactMechPurpose contactMechPurposeId="PostalPrevious" contactMechTypeEnumId="CmtPostalAddress"
                     description="Postal - Previous"/>
             <ContactMechPurpose contactMechPurposeId="PostalHome" contactMechTypeEnumId="CmtPostalAddress"
@@ -1225,6 +1225,8 @@ along with this software (see the LICENSE.md file). If not, see
             <ContactMechPurpose contactMechPurposeId="PostalWork" contactMechTypeEnumId="CmtPostalAddress"
                     description="Postal - Work"/>
 
+            <ContactMechPurpose contactMechPurposeId="PhonePrimary" contactMechTypeEnumId="CmtTelecomNumber"
+                    description="Phone - Primary"/>
             <ContactMechPurpose contactMechPurposeId="PhoneShippingDest" contactMechTypeEnumId="CmtTelecomNumber"
                     description="Phone - Shipping Destination"/>
             <ContactMechPurpose contactMechPurposeId="PhoneShippingOrigin" contactMechTypeEnumId="CmtTelecomNumber"
@@ -1253,17 +1255,15 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Phone - Mobile"/>
             <ContactMechPurpose contactMechPurposeId="PhoneAssistant" contactMechTypeEnumId="CmtTelecomNumber"
                     description="Phone - Assistant"/>
-            <ContactMechPurpose contactMechPurposeId="PhonePrimary" contactMechTypeEnumId="CmtTelecomNumber"
-                    description="Phone - Primary"/>
             <ContactMechPurpose contactMechPurposeId="PhoneQuick" contactMechTypeEnumId="CmtTelecomNumber"
                     description="Phone - Quick Calls"/>
 
+            <ContactMechPurpose contactMechPurposeId="EmailPrimary" contactMechTypeEnumId="CmtEmailAddress"
+                    description="Email - Primary Address"/>
             <ContactMechPurpose contactMechPurposeId="EmailShippingDest" contactMechTypeEnumId="CmtEmailAddress"
                     description="Email - Shipping Destination"/>
             <ContactMechPurpose contactMechPurposeId="EmailShippingOrigin" contactMechTypeEnumId="CmtEmailAddress"
                     description="Email - Shipping Origin"/>
-            <ContactMechPurpose contactMechPurposeId="EmailPrimary" contactMechTypeEnumId="CmtEmailAddress"
-                    description="Email - Primary Address"/>
             <ContactMechPurpose contactMechPurposeId="EmailBilling" contactMechTypeEnumId="CmtEmailAddress"
                     description="Email - Billing (AP)"/>
             <ContactMechPurpose contactMechPurposeId="EmailPayment" contactMechTypeEnumId="CmtEmailAddress"
