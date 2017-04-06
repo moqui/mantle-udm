@@ -687,6 +687,20 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="ClientBilling"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="OrderClerk"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="SalesRepresentative"/>
+
+            <moqui.basic.Enumeration description="Account Contact Roles" enumId="RgpAccountContact" enumTypeId="RoleGroup"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="Accountant"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="Buyer"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="ClientBilling"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="ClientManager"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="InventoryManager"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="Manager"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="OrderClerk"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="Receiver"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="ProductionManager"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="SalesRepresentative"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="ShipmentClerk"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="SupplierAgent"/>
         </seed-data>
     </entity>
 
