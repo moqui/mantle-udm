@@ -872,9 +872,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="AttDisbursement" description="Disbursement" parentEnumId="AttPayment" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttReceipt" description="Receipt" parentEnumId="AttPayment" enumTypeId="AcctgTransType"/>
 
-            <moqui.basic.Enumeration enumId="AttSalesInvoice" description="Sales Invoice (from Org to Customer)" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttSalesInvoice" description="Sales Invoice (to Customer)" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttCustRtnInvoice" description="Customer Return Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
-            <moqui.basic.Enumeration enumId="AttPurchaseInvoice" description="Purchase Invoice (from Vendor to Org)" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttPurchaseInvoice" description="Purchase Invoice (from Vendor)" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttVendRtnInvoice" description="Vendor Return Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
 
             <moqui.basic.Enumeration enumId="AttPayrollInvoice" description="Payroll Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>

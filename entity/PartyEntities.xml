@@ -490,8 +490,6 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Not Applicable" roleTypeId="_NA_"/>
 
             <!-- General Roles -->
-            <mantle.party.RoleType description="Account" roleTypeId="Account"/>
-            <mantle.party.RoleType description="Account Lead" roleTypeId="AccountLead"/>
             <mantle.party.RoleType description="Agent" roleTypeId="Agent"/>
             <mantle.party.RoleType description="Affiliate" roleTypeId="Affiliate"/>
             <mantle.party.RoleType description="Carrier" roleTypeId="Carrier"/>
@@ -507,6 +505,8 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Partner" roleTypeId="Partner"/>
             <mantle.party.RoleType description="Prospect" roleTypeId="Prospect"/>
             <mantle.party.RoleType description="Referrer" roleTypeId="Referrer"/>
+            <mantle.party.RoleType description="Sales Account" roleTypeId="Account"/>
+            <mantle.party.RoleType description="Sales Account Lead" roleTypeId="AccountLead"/>
             <mantle.party.RoleType description="Shareholder" roleTypeId="Shareholder"/>
             <mantle.party.RoleType description="Subscriber" roleTypeId="Subscriber"/>
             <mantle.party.RoleType description="Supplier" roleTypeId="Supplier"/>
@@ -521,7 +521,6 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Cashier" roleTypeId="Cashier"/>
             <mantle.party.RoleType description="Client Billing Rep" roleTypeId="ClientBilling"/>
             <mantle.party.RoleType description="Client Manager" roleTypeId="ClientManager"/>
-            <mantle.party.RoleType description="Contact" roleTypeId="Contact"/>
             <mantle.party.RoleType description="Email Administrator" roleTypeId="EmailAdmin"/>
             <mantle.party.RoleType description="Employee" roleTypeId="Employee"/>
             <mantle.party.RoleType description="Executive" roleTypeId="Executive"/>
@@ -538,6 +537,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Production Worker" roleTypeId="ProductionWorker"/>
             <mantle.party.RoleType description="Receiver" roleTypeId="Receiver"/>
             <mantle.party.RoleType description="Reporter" roleTypeId="Reporter"/>
+            <mantle.party.RoleType description="Sales Contact" roleTypeId="Contact"/>
             <mantle.party.RoleType description="Sales Representative" roleTypeId="SalesRepresentative"/>
             <mantle.party.RoleType description="Shipment Clerk" roleTypeId="ShipmentClerk"/>
             <mantle.party.RoleType description="Sponsor" roleTypeId="Sponsor"/>
@@ -687,6 +687,20 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="ClientBilling"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="OrderClerk"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="SalesRepresentative"/>
+
+            <moqui.basic.Enumeration description="Account Contact Roles" enumId="RgpAccountContact" enumTypeId="RoleGroup"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="Accountant"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="Buyer"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="ClientBilling"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="ClientManager"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="InventoryManager"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="Manager"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="OrderClerk"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="Receiver"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="ProductionManager"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="SalesRepresentative"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="ShipmentClerk"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="SupplierAgent"/>
         </seed-data>
     </entity>
 
@@ -1174,7 +1188,7 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Contact/Payment Trust Level -->
             <moqui.basic.EnumerationType description="Contact/Payment Trust Level" enumTypeId="ContactPaymentTrustLevel"/>
             <moqui.basic.Enumeration enumId="CmtlNew" description="New Data" sequenceNum="1" enumTypeId="ContactPaymentTrustLevel"/>
-            <moqui.basic.Enumeration enumId="CmtlValid" description="Valid/Clean" sequenceNum="2" enumTypeId="ContactPaymentTrustLevel"/>
+            <moqui.basic.Enumeration enumId="CmtlValid" description="Valid/Complete" sequenceNum="2" enumTypeId="ContactPaymentTrustLevel"/>
             <moqui.basic.Enumeration enumId="CmtlVerified" description="Verified" sequenceNum="3" enumTypeId="ContactPaymentTrustLevel"/><!-- (with outbound contact or authorization) -->
             <moqui.basic.Enumeration enumId="CmtlInvalid" description="Invalid" sequenceNum="6" enumTypeId="ContactPaymentTrustLevel"/>
             <moqui.basic.Enumeration enumId="CmtlIncomplete" description="Incomplete" sequenceNum="7" enumTypeId="ContactPaymentTrustLevel"/>
@@ -1202,6 +1216,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="ContactMechType" related="moqui.basic.Enumeration">
             <key-map field-name="contactMechTypeEnumId"/></relationship>
         <seed-data>
+            <ContactMechPurpose contactMechPurposeId="PostalPrimary" contactMechTypeEnumId="CmtPostalAddress"
+                    description="Postal - Primary"/>
             <ContactMechPurpose contactMechPurposeId="PostalShippingDest" contactMechTypeEnumId="CmtPostalAddress"
                     description="Postal - Shipping Destination"/>
             <ContactMechPurpose contactMechPurposeId="PostalShippingOrigin" contactMechTypeEnumId="CmtPostalAddress"
@@ -1216,8 +1232,6 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Postal - General Correspondence"/>
             <ContactMechPurpose contactMechPurposeId="PostalPurchReturn" contactMechTypeEnumId="CmtPostalAddress"
                     description="Postal - Purchase Return"/>
-            <ContactMechPurpose contactMechPurposeId="PostalPrimary" contactMechTypeEnumId="CmtPostalAddress"
-                    description="Postal - Primary"/>
             <ContactMechPurpose contactMechPurposeId="PostalPrevious" contactMechTypeEnumId="CmtPostalAddress"
                     description="Postal - Previous"/>
             <ContactMechPurpose contactMechPurposeId="PostalHome" contactMechTypeEnumId="CmtPostalAddress"
@@ -1225,6 +1239,8 @@ along with this software (see the LICENSE.md file). If not, see
             <ContactMechPurpose contactMechPurposeId="PostalWork" contactMechTypeEnumId="CmtPostalAddress"
                     description="Postal - Work"/>
 
+            <ContactMechPurpose contactMechPurposeId="PhonePrimary" contactMechTypeEnumId="CmtTelecomNumber"
+                    description="Phone - Primary"/>
             <ContactMechPurpose contactMechPurposeId="PhoneShippingDest" contactMechTypeEnumId="CmtTelecomNumber"
                     description="Phone - Shipping Destination"/>
             <ContactMechPurpose contactMechPurposeId="PhoneShippingOrigin" contactMechTypeEnumId="CmtTelecomNumber"
@@ -1253,17 +1269,15 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Phone - Mobile"/>
             <ContactMechPurpose contactMechPurposeId="PhoneAssistant" contactMechTypeEnumId="CmtTelecomNumber"
                     description="Phone - Assistant"/>
-            <ContactMechPurpose contactMechPurposeId="PhonePrimary" contactMechTypeEnumId="CmtTelecomNumber"
-                    description="Phone - Primary"/>
             <ContactMechPurpose contactMechPurposeId="PhoneQuick" contactMechTypeEnumId="CmtTelecomNumber"
                     description="Phone - Quick Calls"/>
 
+            <ContactMechPurpose contactMechPurposeId="EmailPrimary" contactMechTypeEnumId="CmtEmailAddress"
+                    description="Email - Primary Address"/>
             <ContactMechPurpose contactMechPurposeId="EmailShippingDest" contactMechTypeEnumId="CmtEmailAddress"
                     description="Email - Shipping Destination"/>
             <ContactMechPurpose contactMechPurposeId="EmailShippingOrigin" contactMechTypeEnumId="CmtEmailAddress"
                     description="Email - Shipping Origin"/>
-            <ContactMechPurpose contactMechPurposeId="EmailPrimary" contactMechTypeEnumId="CmtEmailAddress"
-                    description="Email - Primary Address"/>
             <ContactMechPurpose contactMechPurposeId="EmailBilling" contactMechTypeEnumId="CmtEmailAddress"
                     description="Email - Billing (AP)"/>
             <ContactMechPurpose contactMechPurposeId="EmailPayment" contactMechTypeEnumId="CmtEmailAddress"
