@@ -693,9 +693,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="payGradeId" type="id" enable-audit-log="true"/>
         <field name="budgetId" type="id"/>
         <field name="budgetItemSeqId" type="id"/>
-        <field name="salaryFlag" type="text-indicator"/>
+        <field name="salaryFlag" type="text-indicator"><description>If Y employees are salaried, otherwise paid hourly from time entries</description></field>
         <field name="fullTimeFlag" type="text-indicator"/>
         <field name="temporaryFlag" type="text-indicator"/>
+        <field name="overtimeFlag" type="text-indicator"><description>If Y employees are paid overtime/doubletime</description></field>
+        <field name="minimumHourlyWage" type="number-decimal" enable-audit-log="true"/>
         <field name="taxExemptEnumId" type="id"/>
         <field name="taxFormId" type="id"/>
         <field name="fromDate" type="date-time"/>
