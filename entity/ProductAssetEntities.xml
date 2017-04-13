@@ -472,11 +472,11 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
     <entity entity-name="Lot" package="mantle.product.asset" cache="never">
         <field name="lotId" type="id" is-pk="true"/>
-        <field name="mfgPartyId" type="id"/>
-        <field name="lotNumber" type="text-short"/>
+        <field name="mfgPartyId" type="id" enable-audit-log="update"/>
+        <field name="lotNumber" type="text-short" enable-audit-log="update"/>
         <field name="quantity" type="number-decimal"/>
         <field name="manufacturedDate" type="date-time"/>
-        <field name="expirationDate" type="date"/>
+        <field name="expirationDate" type="date" enable-audit-log="update"/>
         <relationship type="one" title="Mfg" related="mantle.party.Party" short-alias="mfgParty">
             <key-map field-name="mfgPartyId"/></relationship>
         <index name="LOT_MFG_ID_LOT" unique="true"><index-field name="mfgPartyId"/><index-field name="lotNumber"/></index>
