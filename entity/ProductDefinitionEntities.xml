@@ -60,7 +60,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="amountRequire" type="text-indicator"><description>Require an amount in addition to quantity on orders/etc.</description></field>
 
         <field name="originGeoId" type="id"/>
-        <field name="billOfMaterialLevel" type="number-integer"/>
+        <!-- not used, not likely to be used 20170413: <field name="billOfMaterialLevel" type="number-integer"/> -->
 
         <relationship type="one" title="ProductType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="productTypeEnumId"/></relationship>
