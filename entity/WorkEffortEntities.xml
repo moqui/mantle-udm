@@ -668,6 +668,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <entity entity-name="TimeEntry" package="mantle.work.time" short-alias="timeEntries" cache="never">
         <field name="timeEntryId" type="id" is-pk="true"/>
+        <field name="parentEntryId" type="id"/>
         <field name="timesheetId" type="id"/>
         <field name="partyId" type="id"><description>The party performing work (worker, may be the vendor or work for the vendor)</description></field>
         <field name="teamPartyId" type="id"/>
@@ -698,6 +699,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="vendorInvoiceId" type="id"/>
         <field name="vendorInvoiceItemSeqId" type="id"/>
         <relationship type="one" related="mantle.work.time.Timesheet" short-alias="timesheet"/>
+        <relationship type="one" title="Parent" related="mantle.work.time.TimeEntry" short-alias="parentEntry">
+            <key-map field-name="parentEntryId"/></relationship>
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one-nofk" related="mantle.party.Person" short-alias="person"/>
         <relationship type="one" title="Team" related="mantle.party.Party" short-alias="teamParty">
