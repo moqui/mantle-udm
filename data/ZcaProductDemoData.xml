@@ -60,7 +60,7 @@ along with this software (see the LICENSE.md file). If not, see
     </moqui.resource.wiki.WikiPage>
 
     <!-- Ziziwork Retail Warehouse Facility -->
-    <mantle.facility.Facility facilityId="ORG_ZIZI_RETAIL_WH" facilityTypeEnumId="FcTpWarehouse"
+    <mantle.facility.Facility facilityId="ZIRET_WH" facilityTypeEnumId="FcTpWarehouse"
             ownerPartyId="ORG_ZIZI_RETAIL" facilityName="Ziziwork Retail Warehouse">
         <contactMechs contactMechId="ORG_ZIZI_RTL_SA" contactMechPurposeId="PostalPrimary"/>
         <contactMechs contactMechId="ORG_ZIZI_RTL_PT" contactMechPurposeId="PhonePrimary"/>
@@ -90,7 +90,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- Ziziwork Retail ProductStore -->
     <mantle.product.store.ProductStore productStoreId="POPC_DEFAULT" storeName="Ziziwork Retail Store"
-            organizationPartyId="ORG_ZIZI_RETAIL" inventoryFacilityId="ORG_ZIZI_RETAIL_WH"
+            organizationPartyId="ORG_ZIZI_RETAIL" inventoryFacilityId="ZIRET_WH"
             reservationOrderEnumId="AsResOrdFifoRec" requirementMethodEnumId=""
             wikiSpaceId="ZZW_RETAIL" defaultLocale="en_US" defaultCurrencyUomId="USD" taxGatewayConfigId="LOCAL">
         <!-- use these to limit options for store, defaults to all CarrierShipmentMethod options for each carrier there is a shipping gateway for:
@@ -151,7 +151,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.product.category.ProductCategoryMember productCategoryId="DEMO_ONE" productId="DEMO_UNIT" fromDate="1265184000000" sequenceNum="10"/>
     <mantle.product.category.ProductCategoryMember productCategoryId="PopcHome" productId="DEMO_UNIT" fromDate="1265184000000" sequenceNum="3"/>
     <mantle.product.asset.Asset assetId="DEMO_UNITA" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventoryFin"
-            statusId="AstAvailable" productId="DEMO_UNIT" facilityId="ORG_ZIZI_RETAIL_WH" ownerPartyId="ORG_ZIZI_RETAIL"
+            statusId="AstAvailable" productId="DEMO_UNIT" facilityId="ZIRET_WH" ownerPartyId="ORG_ZIZI_RETAIL"
             hasQuantity="Y" quantityOnHandTotal="0" availableToPromiseTotal="0"
             acquireCost="1" acquireCostUomId="USD" receivedDate="1265184000000"/>
     <mantle.product.asset.AssetDetail assetDetailId="DEMO_UNITA" assetId="DEMO_UNITA" effectiveDate="1265184000000"
@@ -179,7 +179,7 @@ along with this software (see the LICENSE.md file). If not, see
         <categories productCategoryId="PopcAllProducts" fromDate="1265184000000"/>
         <categories productCategoryId="DEMO_ONE" fromDate="1265184000000" sequenceNum="1"/>
         <mantle.product.asset.Asset assetId="DEMO_1_1A" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventoryFin"
-                statusId="AstAvailable" facilityId="ORG_ZIZI_RETAIL_WH" ownerPartyId="ORG_ZIZI_RETAIL"
+                statusId="AstAvailable" facilityId="ZIRET_WH" ownerPartyId="ORG_ZIZI_RETAIL"
                 hasQuantity="Y" quantityOnHandTotal="0" availableToPromiseTotal="0"
                 acquireCost="7.50" acquireCostUomId="USD" receivedDate="1265184000000">
             <mantle.product.asset.AssetDetail assetDetailId="DEMO_1_1A" effectiveDate="1265184000000"
@@ -253,7 +253,7 @@ along with this software (see the LICENSE.md file). If not, see
             fromDate="1265184000000" sequenceNum="1"/>
     <mantle.product.ProductDimension productId="DEMO_3_1" dimensionTypeId="ShippingWeight" value="0.5" valueUomId="WT_lb"/>
     <mantle.product.asset.Asset assetId="DEMO_3_1A" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventoryFin"
-            statusId="AstAvailable" productId="DEMO_3_1" facilityId="ORG_ZIZI_RETAIL_WH" ownerPartyId="ORG_ZIZI_RETAIL"
+            statusId="AstAvailable" productId="DEMO_3_1" facilityId="ZIRET_WH" ownerPartyId="ORG_ZIZI_RETAIL"
             hasQuantity="Y" quantityOnHandTotal="0" availableToPromiseTotal="0"
             acquireCost="4.00" acquireCostUomId="USD" receivedDate="1265184000000"/>
     <mantle.product.asset.AssetDetail assetDetailId="DEMO_3_1A" assetId="DEMO_3_1A" effectiveDate="1265184000000"

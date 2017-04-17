@@ -133,8 +133,6 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="assetId"/></relationship>
         <relationship type="many" related="mantle.product.asset.AssetPartyAssignment" short-alias="partyAssignments">
             <key-map field-name="assetId"/></relationship>
-        <relationship type="many" related="mantle.product.asset.AssetProduct" short-alias="products">
-            <key-map field-name="assetId"/></relationship>
 
         <relationship type="many" related="mantle.product.issuance.AssetIssuance" short-alias="issuances">
             <key-map field-name="assetId"/></relationship>
@@ -288,7 +286,7 @@ along with this software (see the LICENSE.md file). If not, see
 
             <detail relationship="details"/>
             <detail relationship="depreciations"/><detail relationship="identifications"/>
-            <detail relationship="partyAssignments"/><detail relationship="products"/>
+            <detail relationship="partyAssignments"/>
 
             <detail relationship="issuances"/>
             <detail relationship="reservations"/>
@@ -336,6 +334,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="varianceReasonEnumId"/></relationship>
         <relationship type="one" title="AcctgTransResult" related="moqui.basic.Enumeration" short-alias="acctgTransResultEnum">
             <key-map field-name="acctgTransResultEnumId"/></relationship>
+
+        <index name="AST_DET_EFF_DATE"><index-field name="effectiveDate"/></index>
         <seed-data>
             <!-- Inventory Variance Reason -->
             <moqui.basic.EnumerationType description="Inventory Variance Reason" enumTypeId="InventoryVarianceReason"/>
@@ -403,6 +403,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.asset.Asset"/>
         <relationship type="one" related="moqui.basic.StatusItem"/>
     </entity>
+    <!-- unused and probably not useful 20170417:
     <entity entity-name="AssetProduct" package="mantle.product.asset" cache="never">
         <field name="assetId" type="id" is-pk="true"/>
         <field name="productId" type="id" is-pk="true"/>
@@ -419,12 +420,12 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="assetProductTypeEnumId"/></relationship>
         <relationship type="one" title="Quantity" related="moqui.basic.Uom"><key-map field-name="quantityUomId"/></relationship>
         <seed-data>
-            <!-- Asset Product Type -->
             <moqui.basic.EnumerationType description="Asset Product Type" enumTypeId="AssetProductType"/>
             <moqui.basic.Enumeration description="Use of Asset" enumId="AspTpUse" enumTypeId="AssetProductType"/>
             <moqui.basic.Enumeration description="Sale of Asset" enumId="AspTpSale" enumTypeId="AssetProductType"/>
         </seed-data>
     </entity>
+    -->
     <entity entity-name="AssetStandardCost" package="mantle.product.asset" cache="never">
         <field name="assetId" type="id" is-pk="true"/>
         <field name="assetStandardCostTypeEnumId" type="id" is-pk="true"/>
