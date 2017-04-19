@@ -13,7 +13,7 @@ along with this software (see the LICENSE.md file). If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.
 -->
 <entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-2.0.xsd">
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-2.1.xsd">
     <!-- ========================================================= -->
     <!--  - mantle.product -->
     <!--  - mantle.product.category -->
@@ -60,7 +60,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="amountRequire" type="text-indicator"><description>Require an amount in addition to quantity on orders/etc.</description></field>
 
         <field name="originGeoId" type="id"/>
-        <field name="billOfMaterialLevel" type="number-integer"/>
+        <!-- not used, not likely to be used 20170413: <field name="billOfMaterialLevel" type="number-integer"/> -->
 
         <relationship type="one" title="ProductType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="productTypeEnumId"/></relationship>
