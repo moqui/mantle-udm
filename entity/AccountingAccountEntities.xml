@@ -321,6 +321,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="acctgTransResultEnumId" type="id"/>
         <field name="systemMessageRemoteId" type="id"/>
 
+        <field name="invoiceTotal" type="number-decimal"/>
+        <field name="appliedPaymentsTotal" type="number-decimal"/>
+        <field name="unpaidTotal" type="number-decimal"/>
+
         <relationship type="one" title="InvoiceType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="invoiceTypeEnumId"/></relationship>
         <relationship type="one" title="From" related="mantle.party.Party" short-alias="fromParty">
@@ -1314,7 +1318,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="paymentApplicationId" type="id" is-pk="true"/>
         <field name="paymentId" type="id"/>
         <field name="invoiceId" type="id"/>
-        <field name="invoiceItemSeqId" type="id"/>
+        <!-- this is not used, payments applied to entire invoice: <field name="invoiceItemSeqId" type="id"/> -->
         <field name="billingAccountId" type="id"/>
         <field name="overrideGlAccountId" type="id"><description>If filled in, payment is applied directly against this
             GL account</description></field>
