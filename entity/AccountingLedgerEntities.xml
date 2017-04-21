@@ -902,6 +902,17 @@ along with this software (see the LICENSE.md file). If not, see
 
             <moqui.basic.Enumeration enumId="AttPaymentApplied" description="Payment Applied" enumTypeId="AcctgTransType"/>
 
+            <moqui.basic.Enumeration description="Accounting TX Types Invoice" enumId="EngAccTxTypesInvoice" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="AttSalesInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttCustRtnInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttPurchaseInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttVendRtnInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttPayrollInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttTaxInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttGarnishmentInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttCommissionInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttInvoiceAdjust" enumGroupEnumId="EngAccTxTypesInvoice"/>
+
             <!-- GL Fiscal Type -->
             <moqui.basic.EnumerationType description="GL Fiscal Type" enumTypeId="GlFiscalType"/>
             <moqui.basic.Enumeration description="Actual" enumId="GLFT_ACTUAL" enumTypeId="GlFiscalType"/>
