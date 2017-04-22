@@ -25,11 +25,13 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.Party partyId="ORG_ZIZI_CORP" pseudoId="ZICORP" partyTypeEnumId="PtyOrganization"/>
     <mantle.party.Organization partyId="ORG_ZIZI_CORP" organizationName="Ziziwork Industries"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_CORP" roleTypeId="OrgInternal"/>
+    <mantle.party.PartyContent partyContentId="ZICORP_LOGO" partyContentTypeEnumId="PcntLogoImage"
+            contentLocation="component://SimpleScreens/screen/ssstatic/images/Return.png"/>
 
     <mantle.party.Party partyId="ORG_ZIZI_SALES" pseudoId="ZISAL" partyTypeEnumId="PtyOrganization"/>
     <mantle.party.Organization partyId="ORG_ZIZI_SALES" organizationName="Ziziwork Sales"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_SALES" roleTypeId="OrgInternal"/>
-    <mantle.party.PartyRole partyId="ORG_ZIZI_SALES" roleTypeId="CustomerBillTo"/>
+    <mantle.party.PartyRole partyId="ORG_ZIZI_SALES" roleTypeId="Vendor"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ZIZI_SALES" relationshipTypeEnumId="PrtOrgRollup"
             fromPartyId="ORG_ZIZI_SALES" fromRoleTypeId="OrgInternal" toPartyId="ORG_ZIZI_CORP" toRoleTypeId="OrgInternal"
             fromDate="1265184000000"/>
@@ -37,7 +39,6 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.Party partyId="ORG_ZIZI_HR" pseudoId="ZIHR" partyTypeEnumId="PtyOrganization"/>
     <mantle.party.Organization partyId="ORG_ZIZI_HR" organizationName="Ziziwork Human Resources"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_HR" roleTypeId="OrgInternal"/>
-    <mantle.party.PartyRole partyId="ORG_ZIZI_HR" roleTypeId="CustomerBillTo"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ZIZI_HR" relationshipTypeEnumId="PrtOrgRollup"
             fromPartyId="ORG_ZIZI_HR" fromRoleTypeId="OrgInternal" toPartyId="ORG_ZIZI_CORP" toRoleTypeId="OrgInternal"
             fromDate="1265184000000"/>
@@ -45,8 +46,11 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.Party partyId="ORG_ZIZI_SERVICES" pseudoId="ZISER" partyTypeEnumId="PtyOrganization"/>
     <mantle.party.Organization partyId="ORG_ZIZI_SERVICES" organizationName="Ziziwork Services"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_SERVICES" roleTypeId="OrgInternal"/>
+    <mantle.party.PartyRole partyId="ORG_ZIZI_SERVICES" roleTypeId="Vendor"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_SERVICES" roleTypeId="VendorBillFrom"/>
-    <mantle.party.PartyRole partyId="ORG_ZIZI_SERVICES" roleTypeId="CustomerBillTo"/>
+    <mantle.party.PartyContent partyContentId="ZISER_LOGO" partyContentTypeEnumId="PcntLogoImage"
+            contentLocation="component://SimpleScreens/screen/ssstatic/images/Vendor.png"/>
+
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ZIZI_SERVICES" relationshipTypeEnumId="PrtOrgRollup"
             fromPartyId="ORG_ZIZI_SERVICES" fromRoleTypeId="OrgInternal" toPartyId="ORG_ZIZI_CORP" toRoleTypeId="OrgInternal"
             fromDate="1265184000000"/>
