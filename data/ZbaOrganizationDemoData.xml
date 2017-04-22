@@ -228,10 +228,11 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- ========== DEMO RETAILER DATA ========== -->
     <mantle.party.Party partyId="ORG_ZIZI_RETAIL" pseudoId="ZIRET" partyTypeEnumId="PtyOrganization">
-        <mantle.party.Organization organizationName="Ziziwork Retail"/>
-        <mantle.party.PartyRole roleTypeId="OrgInternal"/>
-        <mantle.party.PartyRole roleTypeId="VendorBillFrom"/>
-        <mantle.party.PartyRole roleTypeId="CustomerBillTo"/>
+        <organization organizationName="Ziziwork Retail"/>
+        <roles roleTypeId="OrgInternal"/><roles roleTypeId="Vendor"/><roles roleTypeId="VendorBillFrom"/>
+
+        <contents partyContentId="ZIRET_LOGO" partyContentTypeEnumId="PcntLogoImage"
+                contentLocation="component://SimpleScreens/screen/ssstatic/images/Customer.png"/>
 
         <mantle.party.contact.ContactMech contactMechId="ORG_ZIZI_RTL_PA" contactMechTypeEnumId="CmtPostalAddress">
             <mantle.party.contact.PostalAddress toName="Ziziwork Retail"
