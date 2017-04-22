@@ -494,14 +494,14 @@ along with this software (see the LICENSE.md file). If not, see
 
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="itemTypeEnumId"/></relationship>
-        <relationship type="one" related="mantle.account.invoice.Invoice"/>
-        <relationship type="one" related="mantle.product.asset.Asset"/>
+        <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
+        <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
-        <relationship type="one" title="Parent" related="mantle.account.invoice.InvoiceItem">
+        <relationship type="one" title="Parent" related="mantle.account.invoice.InvoiceItem" short-alias="parentItem">
             <key-map field-name="parentInvoiceId" related="invoiceId"/>
             <key-map field-name="parentInvoiceItemSeqId" related="invoiceItemSeqId"/>
         </relationship>
-        <relationship type="one" title="Override" related="mantle.ledger.account.GlAccount">
+        <relationship type="one" title="Override" related="mantle.ledger.account.GlAccount" short-alias="overrideGlAccount">
             <key-map field-name="overrideGlAccountId"/></relationship>
         <relationship type="one" title="Quantity" related="moqui.basic.Uom" short-alias="quantityUom">
             <key-map field-name="quantityUomId"/></relationship>
