@@ -651,6 +651,8 @@ along with this software (see the LICENSE.md file). If not, see
             placed into the error journal.
         </description></field>
         <field name="glAccountCodeMask" type="text-short"/>
+        <field name="settlementTermId" type="id">
+            <description>The default SettlementTerm to use on receivable (outgoing) invoices if there is none from agreement, order, etc</description></field>
 
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
@@ -678,6 +680,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="invoiceSequenceEnumId"/></relationship>
         <relationship type="one" title="OrderSequence" related="moqui.basic.Enumeration">
             <key-map field-name="orderSequenceEnumId"/></relationship>
+        <relationship type="one" related="mantle.account.invoice.SettlementTerm"/>
 
         <seed-data>
             <!-- Tax Forms -->
