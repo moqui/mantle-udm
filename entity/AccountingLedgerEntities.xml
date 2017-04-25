@@ -82,6 +82,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Equity Distribution" enumId="DISTRIBUTION" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Return of Capital" enumId="RETURN_OF_CAPITAL" parentEnumId="DISTRIBUTION" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Dividends" enumId="DIVIDEND" parentEnumId="DISTRIBUTION" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Contra Equity" enumId="CONTRA_EQUITY" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
 
             <moqui.basic.Enumeration description="Cost of Sales" enumId="COST_OF_SALES" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Cost of Services Sold" enumId="COST_SERVICES_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
