@@ -67,11 +67,6 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.party.contact.PartyContactMech" short-alias="contactMechs">
             <key-map field-name="partyId"/></relationship>
 
-        <relationship type="many" related="mantle.account.financial.FinancialAccount" short-alias="financialAccounts">
-            <key-map field-name="partyId" related="ownerPartyId"/></relationship>
-        <relationship type="many" related="mantle.account.method.PaymentMethod" short-alias="paymentMethods">
-            <key-map field-name="partyId" related="ownerPartyId"/></relationship>
-
         <relationship type="many" related="moqui.security.UserAccount" short-alias="userAccounts">
             <key-map field-name="partyId"/></relationship>
 
