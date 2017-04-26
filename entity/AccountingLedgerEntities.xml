@@ -82,6 +82,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Equity Distribution" enumId="DISTRIBUTION" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Return of Capital" enumId="RETURN_OF_CAPITAL" parentEnumId="DISTRIBUTION" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Dividends" enumId="DIVIDEND" parentEnumId="DISTRIBUTION" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Contra Equity" enumId="CONTRA_EQUITY" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
 
             <moqui.basic.Enumeration description="Cost of Sales" enumId="COST_OF_SALES" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Cost of Services Sold" enumId="COST_SERVICES_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
@@ -651,6 +652,8 @@ along with this software (see the LICENSE.md file). If not, see
             placed into the error journal.
         </description></field>
         <field name="glAccountCodeMask" type="text-short"/>
+        <field name="settlementTermId" type="id">
+            <description>The default SettlementTerm to use on receivable (outgoing) invoices if there is none from agreement, order, etc</description></field>
 
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
@@ -678,6 +681,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="invoiceSequenceEnumId"/></relationship>
         <relationship type="one" title="OrderSequence" related="moqui.basic.Enumeration">
             <key-map field-name="orderSequenceEnumId"/></relationship>
+        <relationship type="one" related="mantle.account.invoice.SettlementTerm"/>
 
         <seed-data>
             <!-- Tax Forms -->
@@ -901,6 +905,17 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="AttOutgoingPaymentAp" description="Outgoing Payment (Disbursement) Application" enumTypeId="AcctgTransType"/>
 
             <moqui.basic.Enumeration enumId="AttPaymentApplied" description="Payment Applied" enumTypeId="AcctgTransType"/>
+
+            <moqui.basic.Enumeration description="Accounting TX Types Invoice" enumId="EngAccTxTypesInvoice" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="AttSalesInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttCustRtnInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttPurchaseInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttVendRtnInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttPayrollInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttTaxInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttGarnishmentInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttCommissionInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttInvoiceAdjust" enumGroupEnumId="EngAccTxTypesInvoice"/>
 
             <!-- GL Fiscal Type -->
             <moqui.basic.EnumerationType description="GL Fiscal Type" enumTypeId="GlFiscalType"/>
