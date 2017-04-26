@@ -1118,7 +1118,10 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="amount" type="currency-amount"/>
         <field name="amountUomId" type="id"/>
+        <field name="appliedTotal" type="currency-amount"/>
+        <field name="unappliedTotal" type="currency-amount"/>
 
+        <field name="forInvoiceId" type="id"/>
         <field name="finAccountId" type="id"/>
         <field name="finAccountAuthId" type="id"/>
         <field name="finAccountTransId" type="id"/>
@@ -1167,6 +1170,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="toPartyId"/></relationship>
         <relationship type="one" title="Payment" related="moqui.basic.StatusItem" short-alias="status"/>
 
+        <relationship type="one" title="For" related="mantle.account.invoice.Invoice">
+            <key-map field-name="forInvoiceId"/></relationship>
         <relationship type="one" related="mantle.account.financial.FinancialAccount"/>
         <relationship type="one" related="mantle.account.financial.FinancialAccountAuth"/>
         <relationship type="one" related="mantle.account.financial.FinancialAccountTrans"/>
