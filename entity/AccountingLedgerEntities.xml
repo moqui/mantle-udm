@@ -849,6 +849,8 @@ along with this software (see the LICENSE.md file). If not, see
 
         <relationship type="many" related="mantle.ledger.transaction.AcctgTransEntry" short-alias="entries">
             <key-map field-name="acctgTransId"/></relationship>
+
+        <index name="ACCTG_TRANS_TX_DATE"><index-field name="transactionDate"/></index>
         
         <seed-data>
             <!-- Accounting Transaction Type -->
