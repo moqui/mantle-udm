@@ -582,6 +582,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="519100000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="519000000"/>
     <mantle.ledger.account.GlAccount accountName="COGS Freight Out" description="" glAccountClassEnumId="GOOD_FREIGHT_COST"
         glAccountId="519200000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="519000000"/>
+    <mantle.ledger.account.GlAccount accountName="COGS Shipping Supplies" description="" glAccountClassEnumId="GOOD_FREIGHT_COST"
+        glAccountId="519300000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="519000000"/>
 
     <mantle.ledger.account.GlAccount accountName="Discounts and Write Downs" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="520000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="500000000"/>
@@ -738,11 +740,9 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="627100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="627000000"/>
     <mantle.ledger.account.GlAccount accountName="Promotional Displays" description="" glAccountClassEnumId="PROMOTIONAL_MATERIALS"
         glAccountId="627200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="627000000"/>
-    <mantle.ledger.account.GlAccount accountName="Catalog / Newsletter" description="" glAccountClassEnumId="PROMOTIONAL_MATERIALS"
-        glAccountId="627300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="627000000"/>
 
     <!-- 630000 EXPENSE - COMPENSATION AND BENEFITS -->
-    <mantle.ledger.account.GlAccount accountName="Compensation" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="Compensation Expense" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="630000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="600000000"/>
 
     <mantle.ledger.account.GlAccount accountName="Wages and Commissions" description="" glAccountClassEnumId="COMPENSATION"
@@ -751,8 +751,6 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="631100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
     <mantle.ledger.account.GlAccount accountName="Wages - Owners" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="631200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
-    <mantle.ledger.account.GlAccount accountName="Wages - Non-Employee" description="" glAccountClassEnumId="COMPENSATION"
-        glAccountId="631300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
     <mantle.ledger.account.GlAccount accountName="Wages - Officers" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="631400000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
     <mantle.ledger.account.GlAccount accountName="Sales Commissions - Employee" description="" glAccountClassEnumId="SALES_COMPENSATION"
@@ -891,12 +889,17 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="653100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="653000000"/>
     <mantle.ledger.account.GlAccount accountName="Other Postage Expense" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="653200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="653000000"/>
-    <mantle.ledger.account.GlAccount accountName="Customer Package Charges" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="Shipping Supplies Expense" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="653300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="653000000"/>
     <!-- 655000 Expense - Recruiting -->
     <mantle.ledger.account.GlAccount accountName="Recruiting and Help Wanted" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="655000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="650000000"/>
 
+    <!-- 660000 Non-Employee Compensation -->
+    <mantle.ledger.account.GlAccount accountName="Non-Employee Compensation" description="" glAccountClassEnumId="NON_EMP_COMPENSATION"
+        glAccountId="660000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="600000000"/>
+    <mantle.ledger.account.GlAccount accountName="Outside Labor and Services" description="" glAccountClassEnumId="NON_EMP_COMPENSATION"
+        glAccountId="661000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="660000000"/>
 
     <!-- 670000 Expense - Depreciation -->
     <mantle.ledger.account.GlAccount accountName="Depreciation" description="" glAccountClassEnumId="DEPRECIATION"
@@ -945,16 +948,10 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="681100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="681000000"/>
     <mantle.ledger.account.GlAccount accountName="Sales Travel Expense" description="" glAccountClassEnumId="SALES_TRAVEL"
         glAccountId="681110000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="681100000"/>
-    <mantle.ledger.account.GlAccount accountName="Sales Management Travel Expense" description="" glAccountClassEnumId="SALES_TRAVEL"
-        glAccountId="681120000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="681100000"/>
     <mantle.ledger.account.GlAccount accountName="Business Meals and Entertainment (50% Deductible)" description="" glAccountClassEnumId="TRAVEL_ENT"
         glAccountId="681200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="681000000"/>
     <mantle.ledger.account.GlAccount accountName="Sales Meals and Entertainment" description="" glAccountClassEnumId="SALES_TRAVEL"
         glAccountId="681210000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="681200000"/>
-    <mantle.ledger.account.GlAccount accountName="Sales Management Meals and Entertainment" description="" glAccountClassEnumId="SALES_TRAVEL"
-        glAccountId="681220000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="681200000"/>
-    <mantle.ledger.account.GlAccount accountName="Trade Show Meals and Entertainment" description="" glAccountClassEnumId="SALES_TRAVEL"
-        glAccountId="681230000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="681200000"/>
     <mantle.ledger.account.GlAccount accountName="Food - Staff Meetings, etc.  (100% Deductible - de minimis)" description="" glAccountClassEnumId="TRAVEL_ENT"
         glAccountId="681300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="681000000"/>
     <!-- 682000 Expense - Education -->
@@ -983,9 +980,6 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="683220000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="683200000"/>
     <mantle.ledger.account.GlAccount accountName="Subscription Fees - Electronic Refer Tools" description="" glAccountClassEnumId="DUES_SUBSCRIPTIONS"
         glAccountId="683230000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="683200000"/>
-    <!-- 684000 Expense - Trade Show -->
-    <mantle.ledger.account.GlAccount accountName="Trade Show Travel and General" description="" glAccountClassEnumId="SALES_TRAVEL"
-        glAccountId="684000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="680000000"/>
 
     <!-- 690000 Expense - Insurance -->
     <mantle.ledger.account.GlAccount accountName="Insurance" description="" glAccountClassEnumId="INSURANCE_EXPENSE"
@@ -1061,14 +1055,12 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="782100000" glAccountTypeEnumId="GatAccRecWriteOff" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="782000000"/>
     <mantle.ledger.account.GlAccount accountName="Interest Income Write Off" description="" glAccountClassEnumId="BAD_DEBT_EXPENSE"
         glAccountId="782400000" glAccountTypeEnumId="GatInterestIncWriteOff" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="782000000"/>
-    <mantle.ledger.account.GlAccount accountName="Sales Samples Expense" description="" glAccountClassEnumId="NON_CASH_EXPENSE"
-        glAccountId="782700000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="782000000"/>
 
     <mantle.ledger.account.GlAccount accountName="Cash Over / Short" description="" glAccountClassEnumId="MISC_EXPENSE"
         glAccountId="783000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="780000000"/>
     <mantle.ledger.account.GlAccount accountName="Financial Account Errors" description="" glAccountClassEnumId="MISC_EXPENSE"
         glAccountId="784000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="780000000"/>
-    <mantle.ledger.account.GlAccount accountName="Contributions" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="Contributions" description="" glAccountClassEnumId="CONTRIBUTIONS"
         glAccountId="785000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="780000000"/>
 
     <mantle.ledger.account.GlAccount accountName="Non-COGS Inventory Expense" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
@@ -1329,7 +1321,6 @@ along with this software (see the LICENSE.md file). If not, see
 
     <mantle.ledger.account.GlAccountOrganization glAccountId="630000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="631100000" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.account.GlAccountOrganization glAccountId="631300000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="631600000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="631700000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="631800000" organizationPartyId="DefaultSettings"/>
@@ -1358,6 +1349,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccountOrganization glAccountId="652100000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="652900000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="653100000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="661000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="670000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="671100000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="671300000" organizationPartyId="DefaultSettings"/>
