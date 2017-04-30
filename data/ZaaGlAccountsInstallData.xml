@@ -509,6 +509,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <mantle.ledger.account.GlAccount accountName="Drawings - S Corporation" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
         glAccountId="334000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="330000000"/>
+
     <mantle.ledger.account.GlAccount accountName="Retained Earnings" description="" glAccountClassEnumId="RETAINED_EARNINGS"
         glAccountId="335000000" glAccountTypeEnumId="GatRetainedEarnings" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="330000000"/>
 
@@ -1153,7 +1154,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccount accountName="Other Interest Income" description="" glAccountClassEnumId="INTEREST_INCOME"
         glAccountId="842000000" glAccountTypeEnumId="GatInterestIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="840000000"/>
     <!-- 850000 NET INCOME -->
-    <mantle.ledger.account.GlAccount accountName="Net Income" description="" glAccountClassEnumId="INCOME"
+    <mantle.ledger.account.GlAccount accountName="Net Income (Period Profit/Loss)" description="" glAccountClassEnumId="INCOME"
         glAccountId="850000000" glAccountTypeEnumId="GatProfitLoss" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="800000000"/>
     <!-- 860000 WRITE OFF INCOME -->
     <mantle.ledger.account.GlAccount accountName="Write Off Income" description="" glAccountClassEnumId="NON_CASH_INCOME"

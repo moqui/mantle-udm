@@ -95,7 +95,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Operating Expense" enumId="EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
 
             <moqui.basic.Enumeration description="General and Administrative Expense" enumId="GEN_ADMIN_EXPENSE" parentEnumId="EXPENSE" sequenceNum="1" enumTypeId="GlAccountClass"/>
-            <moqui.basic.Enumeration description="Compensation" enumId="COMPENSATION" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="1" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Employee Compensation" enumId="COMPENSATION" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="1" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Non-Employee Compensation" enumId="NON_EMP_COMPENSATION" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="2" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Professional Services" enumId="PROF_SERVICES" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="3" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Banking Service Charges" enumId="BANKING_CHARGES" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="10" enumTypeId="GlAccountClass"/>
