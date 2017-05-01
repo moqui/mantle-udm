@@ -881,9 +881,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="AttDisbursement" description="Disbursement" parentEnumId="AttPayment" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttReceipt" description="Receipt" parentEnumId="AttPayment" enumTypeId="AcctgTransType"/>
 
-            <moqui.basic.Enumeration enumId="AttSalesInvoice" description="Sales Invoice (to Customer)" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttSalesInvoice" description="Sales Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/><!-- (to Customer) -->
             <moqui.basic.Enumeration enumId="AttCustRtnInvoice" description="Customer Return Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
-            <moqui.basic.Enumeration enumId="AttPurchaseInvoice" description="Purchase Invoice (from Vendor)" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttPurchaseInvoice" description="Purchase Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/><!-- (from Vendor) -->
             <moqui.basic.Enumeration enumId="AttVendRtnInvoice" description="Vendor Return Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
 
             <moqui.basic.Enumeration enumId="AttPayrollInvoice" description="Payroll Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
@@ -893,21 +893,21 @@ along with this software (see the LICENSE.md file). If not, see
 
             <moqui.basic.Enumeration enumId="AttInvoiceAdjust" description="Invoice Adjustment" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
 
-            <moqui.basic.Enumeration enumId="AttAssetReceipt" description="Fixed Asset Receipt" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
-            <moqui.basic.Enumeration enumId="AttAssetIssuance" description="Fixed Asset Issuance" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
-            <moqui.basic.Enumeration enumId="AttAssetVariance" description="Fixed Asset Variance" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttAssetReceipt" description="Asset Receipt" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttAssetIssuance" description="Asset Issuance" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttAssetVariance" description="Asset Variance" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttSalesInventory" description="Sales Inventory" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttReturnInventory" description="Return Inventory" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttManufacturing" description="Manufacturing" enumTypeId="AcctgTransType"/>
 
-            <moqui.basic.Enumeration enumId="AttFinancialDeposit" description="Financial Account Deposit" enumTypeId="AcctgTransType"/>
-            <moqui.basic.Enumeration enumId="AttFinancialWithdrawal" description="Financial Account Withdrawal" enumTypeId="AcctgTransType"/>
-            <moqui.basic.Enumeration enumId="AttFinancialAdjustment" description="Financial Account Adjustment" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttFinancialDeposit" description="Fin. Account Deposit" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttFinancialWithdrawal" description="Fin. Account Withdrawal" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttFinancialAdjustment" description="Fin. Account Adjustment" enumTypeId="AcctgTransType"/>
 
-            <moqui.basic.Enumeration enumId="AttIncomingPayment" description="Incoming Payment (Receipt)" enumTypeId="AcctgTransType"/>
-            <moqui.basic.Enumeration enumId="AttOutgoingPayment" description="Outgoing Payment (Disbursement)" enumTypeId="AcctgTransType"/>
-            <moqui.basic.Enumeration enumId="AttIncomingPaymentAp" description="Incoming Payment (Receipt) Application" enumTypeId="AcctgTransType"/>
-            <moqui.basic.Enumeration enumId="AttOutgoingPaymentAp" description="Outgoing Payment (Disbursement) Application" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttIncomingPayment" description="Incoming Payment" enumTypeId="AcctgTransType"/><!-- (Receipt) -->
+            <moqui.basic.Enumeration enumId="AttOutgoingPayment" description="Outgoing Payment" enumTypeId="AcctgTransType"/><!-- (Disbursement) -->
+            <moqui.basic.Enumeration enumId="AttIncomingPaymentAp" description="Incoming Payment Application" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttOutgoingPaymentAp" description="Outgoing Payment Application" enumTypeId="AcctgTransType"/>
 
             <moqui.basic.Enumeration enumId="AttPaymentApplied" description="Payment Applied" enumTypeId="AcctgTransType"/>
 
