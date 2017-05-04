@@ -25,11 +25,15 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.ledger.account -->
     <!-- ========================================================= -->
 
-    <entity entity-name="GlAccount" package="mantle.ledger.account">
+    <entity entity-name="GlAccount" package="mantle.ledger.account" use="configuration" cache="true">
         <field name="glAccountId" type="id" is-pk="true"/>
         <field name="parentGlAccountId" type="id"/>
         <field name="glAccountTypeEnumId" type="id"/>
         <field name="glAccountClassEnumId" type="id"/>
+        <field name="isDebit" type="text-indicator"><description>Y if account class is a Debit class, otherwise a Credit;
+            determined automatically by class and saved here</description></field>
+        <field name="isTemporary" type="text-indicator"><description>Y if account is a temporary (income statement) account,
+            determined automatically by class and saved here</description></field>
         <field name="glResourceTypeEnumId" type="id"/>
         <field name="glXbrlClassEnumId" type="id"/>
         <field name="accountCode" type="text-medium" default="glAccountId"/>
@@ -149,6 +153,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Equity" enumId="EQUITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Owners Equity" enumId="OWNERS_EQUITY" parentEnumId="EQUITY" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Retained Earnings" enumId="RETAINED_EARNINGS" parentEnumId="EQUITY" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Net Income" enumId="NET_INCOME" parentEnumId="EQUITY" enumTypeId="GlAccountClass"/>
 
             <moqui.basic.Enumeration description="Revenue" enumId="REVENUE" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Goods Revenue" enumId="GOODS_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass"/>
@@ -309,6 +314,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="timePeriodId" type="id" is-pk="true"/>
         <field name="postedDebits" type="currency-amount"/>
         <field name="postedCredits" type="currency-amount"/>
+        <field name="postedDebitsNoClosing" type="currency-amount"/>
+        <field name="postedCreditsNoClosing" type="currency-amount"/>
         <field name="beginningBalance" type="currency-amount"/>
         <field name="endingBalance" type="currency-amount"/>
         <field name="balanceLastUpdated" type="date-time"/>
