@@ -74,7 +74,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="visitId" type="id"/>
         <field name="enteredByPartyId" type="id"/>
         <field name="parentOrderId" type="id"/>
-        <!-- <field name="recurrenceInfoId" type="id"/> TODO: replace this with something else to configure the recurrence pattern for auto reorder -->
+        <!-- <field name="recurrenceInfoId" type="id"/> TODO: replace this with something else to configure the recurrence pattern for auto reorder, might be best on the item or part level instead -->
         <field name="lastOrderedDate" type="date-time"/>
 
         <field name="remainingSubTotal" type="currency-amount"/>
@@ -259,7 +259,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="itemTypeEnumId" type="id"/>
         <field name="productId" type="id"/>
-        <field name="productConfigSavedId" type="id"/>
+        <!-- for future reference when configurable products are supported: <field name="productConfigSavedId" type="id"/> -->
         <field name="productFeatureId" type="id"/>
         <field name="otherPartyProductId" type="text-short"/>
 
@@ -316,7 +316,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="orderItemSeqId" related="parentItemSeqId"/>
         </relationship>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
-        <relationship type="one" related="mantle.product.config.ProductConfigSaved"/>
+        <!-- <relationship type="one" related="mantle.product.config.ProductConfigSaved"/> -->
         <relationship type="one" related="mantle.product.feature.ProductFeature" short-alias="feature"/>
         <relationship type="one" title="Quantity" related="moqui.basic.Uom" short-alias="quantityUom">
             <key-map field-name="quantityUomId"/></relationship>
@@ -388,11 +388,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="vendorPartyId" type="id"><description>The vendor (seller) of the items in the order part.</description></field>
         <field name="customerPartyId" type="id"><description>The customer (buyer) of the items in the order part.</description></field>
         <field name="otherPartyOrderId" type="text-short"/>
-        <!-- Planning to remove these, use OrderPartParty for all parties other than vendor and customer:
-        <field name="vendorAgentPartyId" type="id"><description>The agent (sales representative) of the vendor of the items in the group.</description></field>
-        <field name="customerAgentPartyId" type="id"><description>The customer agent who placed the order.</description></field>
-        <field name="shipToPartyId" type="id"><description>The customer to ship the order to.</description></field>
-        -->
 
         <field name="facilityId" type="id"><description>The Facility to fulfill the order from (if null look up from
             ProductStore), or for purchase orders the Facility the order will be shipped to.</description></field>

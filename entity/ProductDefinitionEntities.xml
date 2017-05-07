@@ -658,7 +658,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========================================================= -->
     <!-- mantle.product.config -->
     <!-- ========================================================= -->
-
+    <!-- For future reference when configurable product support is implemented:
     <entity entity-name="ProductConfigItemAppl" package="mantle.product.config">
         <field name="productId" type="id" is-pk="true"/>
         <field name="configItemId" type="id" is-pk="true"/>
@@ -691,7 +691,6 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="ProductConfigItemContentType" related="moqui.basic.Enumeration">
             <key-map field-name="itemContentTypeEnumId"/></relationship>
         <seed-data>
-            <!-- Product Config Item Content Type -->
             <moqui.basic.EnumerationType description="Product Config Item Content Type" enumTypeId="ProductConfigItemContentType"/>
             <moqui.basic.Enumeration description="Image" enumId="PcictImage" enumTypeId="ProductConfigItemContentType"/>
             <moqui.basic.Enumeration description="Description" enumId="PcictDescription" enumTypeId="ProductConfigItemContentType"/>
@@ -754,11 +753,12 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="configOptionSeqId"/>
         </relationship>
     </entity>
+    -->
 
     <!-- ========================================================= -->
     <!-- mantle.product.cost -->
     <!-- ========================================================= -->
-
+    <!-- For reference in future support, these are messy as they are now and best refined based on requirements before used:
     <entity entity-name="CostComponent" package="mantle.product.cost">
         <field name="costComponentId" type="id" is-pk="true"/>
         <field name="costComponentTypeEnumId" type="id"/>
@@ -783,7 +783,6 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Cost" related="moqui.basic.Uom">
             <key-map field-name="costUomId"/></relationship>
         <seed-data>
-            <!-- Cost Component Type -->
             <moqui.basic.EnumerationType description="Cost Component Type" enumTypeId="CostComponentType"/>
             <moqui.basic.Enumeration enumId="CctMaterial" description="Material Cost" enumTypeId="CostComponentType"/>
             <moqui.basic.Enumeration enumId="CctRoute" description="Route (fixed asset usage) Cost" enumTypeId="CostComponentType"/>
@@ -853,6 +852,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.Product"/>
         <relationship type="one" related="Facility"/>
     </entity>
+    -->
 
     <!-- ========================================================= -->
     <!-- mantle.product.feature -->
