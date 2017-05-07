@@ -25,7 +25,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========================================================= -->
     <!-- mantle.humanres.ability -->
     <!-- ========================================================= -->
-
+    <!-- not yet used so commented for now:
     <entity entity-name="PartyQualification" package="mantle.humanres.ability" use="nontransactional">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="qualificationTypeEnumId" type="id" is-pk="true"/>
@@ -42,7 +42,6 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="PartyQualificationVerification" related="moqui.basic.StatusItem">
             <key-map field-name="verificationStatusId"/></relationship>
         <seed-data>
-            <!-- Qualification Type -->
             <moqui.basic.EnumerationType description="Qualification Type" enumTypeId="QualificationType"/>
             <moqui.basic.Enumeration enumId="QualDegree" description="Degree" enumTypeId="QualificationType"/>
             <moqui.basic.Enumeration enumId="QualCertification" description="Certification" enumTypeId="QualificationType"/>
@@ -52,7 +51,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="QualMSC" parentEnumId="DEGREE" description="Master of Science" enumTypeId="QualificationType"/>
             <moqui.basic.Enumeration enumId="QualBSC" parentEnumId="DEGREE" description="Bachelor of Science" enumTypeId="QualificationType"/>
 
-            <!-- Party Qualification Status -->
             <moqui.basic.StatusType description="Party Qualification Status" statusTypeId="PartyQualification"/>
             <moqui.basic.StatusItem description="Completed" sequenceNum="11" statusId="QualCompleted" statusTypeId="PartyQualification"/>
             <moqui.basic.StatusItem description="Incomplete" sequenceNum="12" statusId="QualIncomplete" statusTypeId="PartyQualification"/>
@@ -61,7 +59,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusItem description="Part-time" sequenceNum="22" statusId="QualParttime" statusTypeId="PartyQualification"/>
             <moqui.basic.StatusItem description="Contractor" sequenceNum="23" statusId="QualContractor" statusTypeId="PartyQualification"/>
 
-            <!-- Party Qualification Verification Status -->
             <moqui.basic.StatusType description="Party Qualification Verification Status" statusTypeId="PartyQualificationVerification"/>
             <moqui.basic.StatusItem description="Not verified" sequenceNum="1" statusId="QlVerNotVerified" statusTypeId="PartyQualificationVerification"/>
             <moqui.basic.StatusItem description="Verified" sequenceNum="2" statusId="QlVerVerified" statusTypeId="PartyQualificationVerification"/>
@@ -114,7 +111,6 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="PerformanceReviewRating" related="moqui.basic.Enumeration">
             <key-map field-name="reviewRatingEnumId"/></relationship>
         <seed-data>
-            <!-- Performance Review Item Type -->
             <moqui.basic.EnumerationType description="Performance Review Item Type" enumTypeId="PerformanceReviewItemType"/>
             <moqui.basic.Enumeration enumId="PritTechnical" description="Technical skills" enumTypeId="PerformanceReviewItemType"/>
             <moqui.basic.Enumeration enumId="PritResponsibility" description="Responsibility" enumTypeId="PerformanceReviewItemType"/>
@@ -122,7 +118,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="PritComm" description="Communication skills" enumTypeId="PerformanceReviewItemType"/>
             <moqui.basic.Enumeration enumId="PritJobSat" description="Job Satisfaction" enumTypeId="PerformanceReviewItemType"/>
 
-            <!-- Performance Review Rating -->
             <moqui.basic.EnumerationType description="Performance Review Rating" enumTypeId="PerformanceReviewRating"/>
             <moqui.basic.Enumeration enumId="PrfRtFail" sequenceNum="1" description="Fails to Meet Expectations" enumTypeId="PerformanceReviewRating"/>
             <moqui.basic.Enumeration enumId="PrfRtInconsistent" sequenceNum="2" description="Inconsistently Fulfills" enumTypeId="PerformanceReviewRating"/>
@@ -160,7 +155,6 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="TrainingClassType" related="moqui.basic.Enumeration">
             <key-map field-name="trainingClassTypeEnumId"/></relationship>
         <seed-data>
-            <!-- Training Class Type -->
             <moqui.basic.EnumerationType description="Training Class Type" enumTypeId="TrainingClassType"/>
             <moqui.basic.Enumeration enumId="TrctBasic" description="Basic Training" enumTypeId="TrainingClassType"/>
             <moqui.basic.Enumeration enumId="TrctOnJob" description="On Job Training" enumTypeId="TrainingClassType"/>
@@ -168,6 +162,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="TrctImprovement" description="Improvement Training" enumTypeId="TrainingClassType"/>
         </seed-data>
     </entity>
+    -->
 
     <!-- ========================================================= -->
     <!-- mantle.humanres.employment -->
@@ -194,7 +189,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="emplPositionId" type="id"/>
         <field name="terminationReasonEnumId" type="id"/>
         <field name="terminationTypeEnumId" type="id"/>
-        <field name="jobRequisitionId" type="id"/>
+        <!-- not yet used: <field name="jobRequisitionId" type="id"/> -->
 
         <field name="identityTypeEnumId" type="id"/>
         <field name="emplAuthzTypeEnumId" type="id"/>
@@ -229,7 +224,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="terminationReasonEnumId"/></relationship>
         <relationship type="one" title="TerminationType" related="moqui.basic.Enumeration">
             <key-map field-name="terminationTypeEnumId"/></relationship>
-        <relationship type="one" related="mantle.humanres.recruitment.JobRequisition"/>
+        <!-- <relationship type="one" related="mantle.humanres.recruitment.JobRequisition"/> -->
 
         <relationship type="one" title="IdentityType" related="moqui.basic.Enumeration">
             <key-map field-name="identityTypeEnumId"/></relationship>
@@ -322,7 +317,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="applyingPartyId" type="id"/>
         <field name="referredByPartyId" type="id"/>
         <field name="approverPartyId" type="id"/>
-        <field name="jobRequisitionId" type="id"/>
+        <!-- not yet used: <field name="jobRequisitionId" type="id"/> -->
         <relationship type="one" related="mantle.humanres.position.EmplPosition"/>
         <relationship type="one" title="EmploymentApplication" related="moqui.basic.StatusItem"/>
         <relationship type="one" title="EmploymentApplicationReferredBy" related="moqui.basic.Enumeration">
@@ -333,7 +328,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="referredByPartyId"/></relationship>
         <relationship type="one" title="Approver" related="mantle.party.Party">
             <key-map field-name="approverPartyId"/></relationship>
-        <relationship type="one" related="mantle.humanres.recruitment.JobRequisition"/>
+        <!-- <relationship type="one" related="mantle.humanres.recruitment.JobRequisition"/> -->
         <seed-data>
             <!-- Employment Application Status -->
             <moqui.basic.StatusType description="Employment Application Status" statusTypeId="EmploymentApplication"/>
@@ -955,7 +950,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========================================================= -->
     <!-- mantle.humanres.recruitment -->
     <!-- ========================================================= -->
-
+    <!-- not yet used so commented for now:
     <entity entity-name="JobRequisition" package="mantle.humanres.recruitment" use="nontransactional">
         <field name="jobRequisitionId" type="id" is-pk="true"/>
         <field name="durationMonths" type="number-integer"/>
@@ -978,13 +973,11 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="JobPostingType" related="moqui.basic.Enumeration">
             <key-map field-name="jobPostingTypeEnumId"/></relationship>
         <seed-data>
-            <!-- Exam Type -->
             <moqui.basic.EnumerationType description="Exam Type" enumTypeId="ExamType"/>
             <moqui.basic.Enumeration description="Written Aptitude Exam" enumId="ExamWrittenApt" enumTypeId="ExamType"/>
             <moqui.basic.Enumeration description="Technical Exam" enumId="ExamTechnical" enumTypeId="ExamType"/>
             <moqui.basic.Enumeration description="Group Discussion" enumId="ExamGroupDisc" enumTypeId="ExamType"/>
 
-            <!-- Job Posting Type -->
             <moqui.basic.EnumerationType description="Job Posting Type" enumTypeId="JobPostingType"/>
             <moqui.basic.Enumeration description="Internal Job Posting" enumId="JptInternal" enumTypeId="JobPostingType"/>
             <moqui.basic.Enumeration description="External Job Posting" enumId="JptExternal" enumTypeId="JobPostingType"/>
@@ -1011,14 +1004,12 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="InterviewGrade" related="moqui.basic.Enumeration">
             <key-map field-name="interviewGradeEnumId"/></relationship>
         <seed-data>
-            <!-- Job Interview Type -->
             <moqui.basic.EnumerationType description="Job Interview Type" enumTypeId="JobInterviewType"/>
             <moqui.basic.Enumeration enumId="JitHire" description="Hire" sequenceNum="1" enumTypeId="JobInterviewType"/>
             <moqui.basic.Enumeration enumId="JitExit" description="Exit" sequenceNum="2" enumTypeId="JobInterviewType"/>
             <moqui.basic.Enumeration enumId="JitInformal" description="Informal - Advice" sequenceNum="11" enumTypeId="JobInterviewType"/>
             <moqui.basic.Enumeration enumId="JitCase" description="Case - Issue Resolution" sequenceNum="12" enumTypeId="JobInterviewType"/>
 
-            <!-- Interview Grade -->
             <moqui.basic.EnumerationType description="Interview Grade" enumTypeId="InterviewGrade"/>
             <moqui.basic.Enumeration description="A (above 75%)" enumId="InterviewGrade_A" sequenceNum="1" enumTypeId="InterviewGrade"/>
             <moqui.basic.Enumeration description="B (60-75%)" enumId="InterviewGrade_B" sequenceNum="2" enumTypeId="InterviewGrade"/>
@@ -1026,4 +1017,5 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="D (below 45%)" enumId="InterviewGrade_D" sequenceNum="4" enumTypeId="InterviewGrade"/>
         </seed-data>
     </entity>
+    -->
 </entities>
