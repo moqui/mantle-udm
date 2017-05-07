@@ -299,7 +299,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.ledger.account.GlAccountGroup"/>
     </entity>
 
-    <entity entity-name="GlAccountOrganization" package="mantle.ledger.account" cache="never">
+    <entity entity-name="GlAccountOrganization" package="mantle.ledger.account" use="transactional" cache="never">
         <field name="glAccountId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="postedBalance" type="currency-amount"/>
@@ -308,7 +308,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
     </entity>
-    <entity entity-name="GlAccountOrgTimePeriod" package="mantle.ledger.account" cache="never">
+    <entity entity-name="GlAccountOrgTimePeriod" package="mantle.ledger.account" use="transactional" cache="never">
         <field name="glAccountId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="timePeriodId" type="id" is-pk="true"/>
@@ -359,7 +359,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.ledger.config -->
     <!-- ========================================================= -->
 
-    <entity entity-name="AssetTypeGlAccount" package="mantle.ledger.config">
+    <entity entity-name="AssetTypeGlAccount" package="mantle.ledger.config" use="configuration">
         <description>Found by assetId, then by assetTypeEnumId and classEnumId, then by just assetTypeEnumId</description>
         <!--
         - Inventory Purchase: credit Accounts Payable, debit Unreceived Inventory
@@ -481,7 +481,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Found" related="mantle.ledger.account.GlAccount">
             <key-map field-name="foundGlAccountId"/></relationship>
     </entity>
-    <entity entity-name="CreditCardTypeGlAccount" package="mantle.ledger.config">
+    <entity entity-name="CreditCardTypeGlAccount" package="mantle.ledger.config" use="configuration">
         <field name="creditCardTypeEnumId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountId" type="id"/>
@@ -491,7 +491,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
     </entity>
-    <entity entity-name="FinancialAccountTypeGlAccount" package="mantle.ledger.config">
+    <entity entity-name="FinancialAccountTypeGlAccount" package="mantle.ledger.config" use="configuration">
         <field name="finAccountTypeId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountId" type="id"/>
@@ -500,7 +500,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
     </entity>
-    <entity entity-name="FinancialAccountReasonGlAccount" package="mantle.ledger.config">
+    <entity entity-name="FinancialAccountReasonGlAccount" package="mantle.ledger.config" use="configuration">
         <field name="reasonEnumId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountId" type="id"/>
@@ -510,7 +510,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
     </entity>
-    <entity entity-name="GlAccountTypePartyDefault" package="mantle.ledger.config">
+    <entity entity-name="GlAccountTypePartyDefault" package="mantle.ledger.config" use="configuration">
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
@@ -524,7 +524,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="glAccountTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
     </entity>
-    <entity entity-name="GlAccountTypeDefault" package="mantle.ledger.config">
+    <entity entity-name="GlAccountTypeDefault" package="mantle.ledger.config" use="configuration">
         <field name="glAccountTypeEnumId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountId" type="id"/>
@@ -534,7 +534,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
     </entity>
-    <entity entity-name="InvoiceTypeTransType" package="mantle.ledger.config">
+    <entity entity-name="InvoiceTypeTransType" package="mantle.ledger.config" use="configuration">
         <field name="invoiceTypeEnumId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="isPayable" type="text-indicator" is-pk="true"><description>If Y is Payable, N is Receivable.</description></field>
@@ -549,7 +549,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="acctgTransTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
     </entity>
-    <entity entity-name="ItemTypeGlAccount" package="mantle.ledger.config">
+    <entity entity-name="ItemTypeGlAccount" package="mantle.ledger.config" use="configuration">
         <field name="itemTypeEnumId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="direction" type="text-indicator" is-pk="true"><description>If I for Incoming (Purchase) Invoices
@@ -561,7 +561,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
     </entity>
-    <entity entity-name="PaymentInstrumentGlAccount" package="mantle.ledger.config">
+    <entity entity-name="PaymentInstrumentGlAccount" package="mantle.ledger.config" use="configuration">
         <field name="paymentInstrumentEnumId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="isPayable" type="text-indicator" is-pk="true"><description>If Y is Payable, N is Receivable, E for either.</description></field>
@@ -572,7 +572,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
     </entity>
-    <entity entity-name="PaymentTypeGlAccount" package="mantle.ledger.config">
+    <entity entity-name="PaymentTypeGlAccount" package="mantle.ledger.config" use="configuration">
         <field name="paymentTypeEnumId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="isPayable" type="text-indicator" is-pk="true"><description>If Y is Payable, N is Receivable.</description></field>
@@ -585,7 +585,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
     </entity>
-    <entity entity-name="ProductCategoryGlAccount" package="mantle.ledger.config">
+    <entity entity-name="ProductCategoryGlAccount" package="mantle.ledger.config" use="configuration">
         <field name="productCategoryId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountTypeEnumId" type="id" is-pk="true"/>
@@ -597,7 +597,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="glAccountTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
     </entity>
-    <entity entity-name="ProductGlAccount" package="mantle.ledger.config">
+    <entity entity-name="ProductGlAccount" package="mantle.ledger.config" use="configuration">
         <field name="productId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountTypeEnumId" type="id" is-pk="true"/>
@@ -609,7 +609,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="glAccountTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
     </entity>
-    <entity entity-name="TaxAuthorityGlAccount" package="mantle.ledger.config">
+    <entity entity-name="TaxAuthorityGlAccount" package="mantle.ledger.config" use="configuration">
         <field name="taxAuthorityId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountId" type="id"/>
@@ -618,7 +618,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
     </entity>
-    <entity entity-name="VarianceReasonGlAccount" package="mantle.ledger.config">
+    <entity entity-name="VarianceReasonGlAccount" package="mantle.ledger.config" use="configuration">
         <field name="varianceReasonEnumId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountId" type="id"/>
@@ -629,7 +629,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
     </entity>
 
-    <entity entity-name="PartyAcctgPreference" package="mantle.ledger.config">
+    <entity entity-name="PartyAcctgPreference" package="mantle.ledger.config" use="configuration">
         <!-- TODO: consider refactoring to split out frequently updated fields like invoiceLastNumber, orderLastNumber;
             caching dilemma for entity as it contains fields that are used frequently, and others that are
             updated frequently -->
@@ -648,12 +648,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="baseCurrencyUomId" type="id"/>
         <field name="invoiceSequenceEnumId" type="id"/>
         <field name="invoiceIdPrefix" type="text-short"/>
-        <field name="invoiceLastNumber" type="number-integer"/>
-        <field name="invoiceLastRestartDate" type="date-time"/>
         <field name="useInvoiceIdForReturns" type="text-indicator"/>
         <field name="orderSequenceEnumId" type="id"/>
         <field name="orderIdPrefix" type="text-short"/>
-        <field name="orderLastNumber" type="number-integer"/>
         <field name="refundPaymentMethodId" type="id"/>
         <field name="errorGlJournalId" type="id"><description>
             Journal to which all the failed automatic transaction are assigned.
@@ -664,6 +661,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="glAccountCodeMask" type="text-short"/>
         <field name="settlementTermId" type="id">
             <description>The default SettlementTerm to use on receivable (outgoing) invoices if there is none from agreement, order, etc</description></field>
+        <!-- these should be on a separate entity when used, transactional where the rest is configuration:
+        <field name="invoiceLastNumber" type="number-integer"/>
+        <field name="invoiceLastRestartDate" type="date-time"/>
+        <field name="orderLastNumber" type="number-integer"/>
+        -->
 
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
@@ -794,7 +796,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.ledger.transaction -->
     <!-- ========================================================= -->
 
-    <entity entity-name="AcctgTrans" package="mantle.ledger.transaction" short-alias="acctgTrans" cache="never">
+    <entity entity-name="AcctgTrans" package="mantle.ledger.transaction" short-alias="acctgTrans" use="transactional" cache="never">
         <field name="acctgTransId" type="id" is-pk="true"/>
         <field name="acctgTransTypeEnumId" type="id"/>
         <field name="organizationPartyId" type="id"/>
@@ -962,7 +964,7 @@ along with this software (see the LICENSE.md file). If not, see
             </detail>
         </master>
     </entity>
-    <entity entity-name="AcctgTransEntry" package="mantle.ledger.transaction" cache="never">
+    <entity entity-name="AcctgTransEntry" package="mantle.ledger.transaction" use="transactional" cache="never">
         <field name="acctgTransId" type="id" is-pk="true"/>
         <field name="acctgTransEntrySeqId" type="id" is-pk="true"/>
         <field name="debitCreditFlag" type="text-indicator"><description>If D is a debit, if C is a credit.</description></field>
@@ -1005,7 +1007,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AterRec" toStatusId="AterNot" transitionName="Unreconcile"/>
         </seed-data>
     </entity>
-    <entity entity-name="GlJournal" package="mantle.ledger.transaction" cache="never">
+    <entity entity-name="GlJournal" package="mantle.ledger.transaction" use="transactional" cache="never">
         <field name="glJournalId" type="id" is-pk="true"/>
         <field name="glJournalTypeEnumId" type="id"/>
         <field name="glJournalName" type="text-medium"/>

@@ -1166,7 +1166,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.party.contact -->
     <!-- ========================================================= -->
 
-    <entity entity-name="ContactMech" package="mantle.party.contact" short-alias="contactMechs" cache="never">
+    <entity entity-name="ContactMech" package="mantle.party.contact" short-alias="contactMechs" use="nontransactional" cache="never">
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="contactMechTypeEnumId" type="id"/>
         <field name="dataSourceId" type="id"/>
@@ -1217,7 +1217,7 @@ along with this software (see the LICENSE.md file). If not, see
             </detail>
         </master>
     </entity>
-    <entity entity-name="ContactMechPurpose" package="mantle.party.contact" cache="true">
+    <entity entity-name="ContactMechPurpose" package="mantle.party.contact" use="configuration" cache="true">
         <field name="contactMechPurposeId" type="id" is-pk="true"/>
         <field name="contactMechTypeEnumId" type="id"/>
         <field name="description" type="text-medium"/>
@@ -1313,7 +1313,7 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Website URL - Twitter"/>
         </seed-data>
     </entity>
-    <entity entity-name="PartyContactMech" package="mantle.party.contact" cache="never">
+    <entity entity-name="PartyContactMech" package="mantle.party.contact" use="nontransactional" cache="never">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="contactMechPurposeId" type="id" is-pk="true"/>
@@ -1330,7 +1330,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one-nofk" related="mantle.party.contact.PostalAddress" short-alias="postalAddress" mutable="true"/>
         <relationship type="one-nofk" related="mantle.party.contact.TelecomNumber" short-alias="telecomNumber" mutable="true"/>
     </entity>
-    <entity entity-name="PostalAddress" package="mantle.party.contact" cache="never">
+    <entity entity-name="PostalAddress" package="mantle.party.contact" use="nontransactional" cache="never">
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="toName" type="text-medium"/>
         <field name="attnName" type="text-medium"/>
@@ -1376,7 +1376,7 @@ along with this software (see the LICENSE.md file). If not, see
         <index name="CITY_IDX"><index-field name="city"/></index>
         <index name="POSTAL_CODE_IDX"><index-field name="postalCode"/></index>
     </entity>
-    <entity entity-name="TelecomNumber" package="mantle.party.contact" cache="never">
+    <entity entity-name="TelecomNumber" package="mantle.party.contact" use="nontransactional" cache="never">
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="countryCode" type="text-short"/>
         <field name="areaCode" type="text-short"/>
@@ -1390,7 +1390,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.party.time -->
     <!-- ========================================================= -->
 
-    <entity entity-name="TimePeriod" package="mantle.party.time" cache="never">
+    <entity entity-name="TimePeriod" package="mantle.party.time" use="transactional" cache="never">
         <description>For configurable time periods used in accounting, sales quotas, etc.</description>
         <field name="timePeriodId" type="id" is-pk="true"/>
         <field name="parentPeriodId" type="id"/>
@@ -1410,7 +1410,7 @@ along with this software (see the LICENSE.md file). If not, see
         <index name="TIMEPER_TP_PTY_FR" unique="true"><index-field name="timePeriodTypeId"/><index-field name="partyId"/>
             <index-field name="fromDate"/></index>
     </entity>
-    <entity entity-name="TimePeriodType" package="mantle.party.time">
+    <entity entity-name="TimePeriodType" package="mantle.party.time" use="configuration" cache="true">
         <field name="timePeriodTypeId" type="id" is-pk="true"/>
         <field name="periodPurposeEnumId" type="id"/>
         <field name="parentPeriodTypeId" type="id"/>
