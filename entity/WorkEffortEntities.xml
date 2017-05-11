@@ -535,7 +535,9 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- Some WorkEffort-specific role groups -->
             <moqui.basic.Enumeration description="Project" enumId="RgpProject" enumTypeId="RoleGroup"/>
+            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="Customer"/>
             <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="CustomerBillTo"/>
+            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="Vendor"/>
             <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="VendorBillFrom"/>
             <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="ClientManager"/>
             <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="ClientBilling"/>

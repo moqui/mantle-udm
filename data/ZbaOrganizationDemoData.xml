@@ -92,7 +92,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.Person partyId="EX_JOHN_DOE" firstName="John" middleName="" lastName="Doe"/>
     <mantle.party.PartyRole partyId="EX_JOHN_DOE" roleTypeId="Manager"/>
     <mantle.party.PartyRelationship partyRelationshipId="EX_JOHN_DOE_OBS" relationshipTypeEnumId="PrtRepresentative"
-            fromPartyId="EX_JOHN_DOE" fromRoleTypeId="Manager" toPartyId="ORG_ZIZI_SERVICES" toRoleTypeId="VendorBillFrom"
+            fromPartyId="EX_JOHN_DOE" fromRoleTypeId="Manager" toPartyId="ORG_ZIZI_SERVICES" toRoleTypeId="Vendor"
             fromDate="1265184000000"/>
     <mantle.party.PartyRelationship relationshipTypeEnumId="PrtAgent" fromPartyId="EX_JOHN_DOE"
             toPartyId="ORG_ZIZI_SERVICES" toRoleTypeId="OrgInternal"/>
@@ -183,7 +183,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.PartyRole partyId="ORG_ACME_BA" roleTypeId="ClientBilling"/>
     <mantle.party.PartyRole partyId="ORG_ACME_BA" roleTypeId="Assignee"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ACME_BA_CB" relationshipTypeEnumId="PrtRepresentative"
-            fromPartyId="ORG_ACME_BA" fromRoleTypeId="ClientBilling" toPartyId="ORG_ACME" toRoleTypeId="CustomerBillTo"
+            fromPartyId="ORG_ACME_BA" fromRoleTypeId="ClientBilling" toPartyId="ORG_ACME" toRoleTypeId="Customer"
             fromDate="1265184000000"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ACME_BA_TM" relationshipTypeEnumId="PrtMember"
             fromPartyId="ORG_ACME_BA" fromRoleTypeId="Assignee" toPartyId="ORG_ACME_TM" toRoleTypeId="OrgTeam"
@@ -196,7 +196,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.Person partyId="ORG_ACME_SA" firstName="Sheldon" middleName="" lastName="Acme"/>
     <mantle.party.PartyRole partyId="ORG_ACME_SA" roleTypeId="ClientManager"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ACME_SA_CM" relationshipTypeEnumId="PrtRepresentative"
-            fromPartyId="ORG_ACME_SA" fromRoleTypeId="ClientManager" toPartyId="ORG_ACME" toRoleTypeId="CustomerBillTo"
+            fromPartyId="ORG_ACME_SA" fromRoleTypeId="ClientManager" toPartyId="ORG_ACME" toRoleTypeId="Customer"
             fromDate="1265184000000"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ACME_SA_TM" relationshipTypeEnumId="PrtMember"
             fromPartyId="ORG_ACME_SA" fromRoleTypeId="Assignee" toPartyId="ORG_ACME_TM" toRoleTypeId="OrgTeam"
@@ -220,10 +220,10 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.PartyRole partyId="ORG_BLUTH_GOB" roleTypeId="ClientBilling"/>
     <mantle.party.PartyRole partyId="ORG_BLUTH_GOB" roleTypeId="ClientManager"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_BLUTH_GOB_BL" relationshipTypeEnumId="PrtRepresentative"
-            fromPartyId="ORG_BLUTH_GOB" fromRoleTypeId="ClientBilling" toPartyId="ORG_BLUTH" toRoleTypeId="CustomerBillTo"
+            fromPartyId="ORG_BLUTH_GOB" fromRoleTypeId="ClientBilling" toPartyId="ORG_BLUTH" toRoleTypeId="Customer"
             fromDate="1265184000000"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_BLUTH_GOB_MGR" relationshipTypeEnumId="PrtRepresentative"
-            fromPartyId="ORG_BLUTH_GOB" fromRoleTypeId="ClientManager" toPartyId="ORG_BLUTH" toRoleTypeId="CustomerBillTo"
+            fromPartyId="ORG_BLUTH_GOB" fromRoleTypeId="ClientManager" toPartyId="ORG_BLUTH" toRoleTypeId="Customer"
             fromDate="1265184000000"/>
     <moqui.security.UserAccount userId="ORG_BLUTH_GOB" username="gob.bluth" userFullName="Gob Bluth"
             currentPassword="16ac58bbfa332c1c55bd98b53e60720bfa90d394" passwordHashType="SHA"
@@ -360,7 +360,6 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========== DEMO SUPPLIER DATA ========== -->
     <mantle.party.Party partyId="ZiddlemanInc" partyTypeEnumId="PtyOrganization"/>
     <mantle.party.Organization partyId="ZiddlemanInc" organizationName="Ziddleman Suppliers Inc."/>
-    <mantle.party.PartyRole partyId="ZiddlemanInc" roleTypeId="VendorBillFrom"/>
     <mantle.party.PartyRole partyId="ZiddlemanInc" roleTypeId="Supplier"/>
 
     <mantle.party.contact.ContactMech contactMechId="ZiddlemanIncAddr" contactMechTypeEnumId="CmtPostalAddress"/>
