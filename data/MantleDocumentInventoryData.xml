@@ -134,6 +134,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <dataDocuments dataDocumentId="MantleInventoryProdEstimate" indexName="mantle_inventory" documentName="ProductionEstimate"
             primaryEntityName="mantle.work.estimate.ProductionEstimate" documentTitle="${productId}:${facilityId}:${readyDate}">
+        <fields fieldPath="productionEstimateId"/>
         <fields fieldPath="productId"/>
         <!-- use facilityId for the destination to match the field name used in other inventory documents, for filtering/etc -->
         <fields fieldPath="destinationFacilityId" fieldNameAlias="facilityId"/>
