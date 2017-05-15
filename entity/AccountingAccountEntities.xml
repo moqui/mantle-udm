@@ -321,9 +321,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="acctgTransResultEnumId" type="id"/>
         <field name="systemMessageRemoteId" type="id"/>
 
-        <field name="invoiceTotal" type="number-decimal"/>
-        <field name="appliedPaymentsTotal" type="number-decimal"/>
-        <field name="unpaidTotal" type="number-decimal"/>
+        <field name="invoiceTotal" type="currency-amount"/>
+        <field name="appliedPaymentsTotal" type="currency-amount"/>
+        <field name="unpaidTotal" type="currency-amount"/>
 
         <relationship type="one" title="InvoiceType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="invoiceTypeEnumId"/></relationship>
