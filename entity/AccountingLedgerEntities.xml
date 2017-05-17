@@ -990,7 +990,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.ledger.account.GlAccount" short-alias="glAccount"/>
         <relationship type="one" title="AcctgTransEntryReconcile" related="moqui.basic.StatusItem" short-alias="reconcileStatus">
             <key-map field-name="reconcileStatusId"/></relationship>
-        <relationship type="one" related="SettlementTerm"/>
+        <relationship type="one" related="SettlementTerm" short-alias="settlementTerm"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
 
@@ -1014,9 +1014,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="organizationPartyId" type="id"/>
         <field name="isPosted" type="text-indicator"/>
         <field name="postedDate" type="date-time"/>
-        <relationship type="one" title="GlJournalType" related="moqui.basic.Enumeration">
+        <relationship type="one" title="GlJournalType" related="moqui.basic.Enumeration" short-alias="glJournalTypeEnum">
             <key-map field-name="glJournalTypeEnumId"/></relationship>
-        <relationship type="one" title="Organization" related="mantle.party.Party">
+        <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organizationParty">
             <key-map field-name="organizationPartyId"/></relationship>
         <seed-data>
             <!-- GL Journal Type -->
