@@ -19,160 +19,160 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========== Party ========== -->
     <dataDocuments dataDocumentId="MantleParty" indexName="mantle" documentName="Party"
             primaryEntityName="mantle.party.Party" documentTitle="PartyNameTemplate">
-        <fields fieldPath="partyId"/>
-        <fields fieldPath="pseudoId"/>
-        <fields fieldPath="disabled"/>
-        <fields fieldPath="externalId"/>
-        <fields fieldPath="comments"/>
-        <fields fieldPath="hasDuplicates"/>
+        <fields fieldSeqId="01" fieldPath="partyId"/>
+        <fields fieldSeqId="02" fieldPath="pseudoId"/>
+        <fields fieldSeqId="03" fieldPath="disabled"/>
+        <fields fieldSeqId="04" fieldPath="externalId"/>
+        <fields fieldSeqId="05" fieldPath="comments"/>
+        <fields fieldSeqId="06" fieldPath="hasDuplicates"/>
 
-        <fields fieldPath="partyTypeEnumId"/>
-        <fields fieldPath="type:description" fieldNameAlias="type"/>
+        <fields fieldSeqId="07" fieldPath="partyTypeEnumId"/>
+        <fields fieldSeqId="08" fieldPath="type:description" fieldNameAlias="type"/>
     
-        <fields fieldPath="organization:organizationName"/>
-        <fields fieldPath="person:firstName"/>
-        <fields fieldPath="person:lastName"/>
+        <fields fieldSeqId="10" fieldPath="organization:organizationName"/>
+        <fields fieldSeqId="11" fieldPath="person:firstName"/>
+        <fields fieldSeqId="12" fieldPath="person:lastName"/>
     
-        <fields fieldPath="roles:roleTypeId"/>
-        <fields fieldPath="roles:role:description" fieldNameAlias="role"/>
+        <fields fieldSeqId="15" fieldPath="roles:roleTypeId"/>
+        <fields fieldSeqId="16" fieldPath="roles:role:description" fieldNameAlias="role"/>
     
-        <fields fieldPath="identifications:idValue"/>
+        <fields fieldSeqId="18" fieldPath="identifications:idValue"/>
 
-        <fields fieldPath="contactMechs:contactMechId"/>
-        <fields fieldPath="contactMechs:contactMechPurposeId"/>
-        <fields fieldPath="contactMechs:contactMech:contactMechTypeEnumId"/>
-        <fields fieldPath="contactMechs:contactMech:infoString"/>
-        <fields fieldPath="contactMechs:contactMech:postalAddress:address1"/>
-        <fields fieldPath="contactMechs:contactMech:postalAddress:city"/>
-        <fields fieldPath="contactMechs:contactMech:postalAddress:postalCode"/>
-        <fields fieldPath="contactMechs:contactMech:postalAddress:stateProvinceGeo:geoName" fieldNameAlias="state"/>
-        <fields fieldPath="contactMechs:contactMech:telecomNumber:countryCode"/>
-        <fields fieldPath="contactMechs:contactMech:telecomNumber:areaCode"/>
-        <fields fieldPath="contactMechs:contactMech:telecomNumber:contactNumber"/>
+        <fields fieldSeqId="20" fieldPath="contactMechs:contactMechId"/>
+        <fields fieldSeqId="21" fieldPath="contactMechs:contactMechPurposeId"/>
+        <fields fieldSeqId="22" fieldPath="contactMechs:contactMech:contactMechTypeEnumId"/>
+        <fields fieldSeqId="23" fieldPath="contactMechs:contactMech:infoString"/>
+        <fields fieldSeqId="24" fieldPath="contactMechs:contactMech:postalAddress:address1"/>
+        <fields fieldSeqId="25" fieldPath="contactMechs:contactMech:postalAddress:city"/>
+        <fields fieldSeqId="26" fieldPath="contactMechs:contactMech:postalAddress:postalCode"/>
+        <fields fieldSeqId="27" fieldPath="contactMechs:contactMech:postalAddress:stateProvinceGeo:geoName" fieldNameAlias="state"/>
+        <fields fieldSeqId="30" fieldPath="contactMechs:contactMech:telecomNumber:countryCode"/>
+        <fields fieldSeqId="31" fieldPath="contactMechs:contactMech:telecomNumber:areaCode"/>
+        <fields fieldSeqId="32" fieldPath="contactMechs:contactMech:telecomNumber:contactNumber"/>
 
-        <fields fieldPath="userAccounts:userId"/>
-        <fields fieldPath="userAccounts:username"/>
-        <fields fieldPath="userAccounts:userFullName"/>
-        <fields fieldPath="userAccounts:emailAddress"/>
+        <fields fieldSeqId="40" fieldPath="userAccounts:userId"/>
+        <fields fieldSeqId="41" fieldPath="userAccounts:username"/>
+        <fields fieldSeqId="42" fieldPath="userAccounts:userFullName"/>
+        <fields fieldSeqId="43" fieldPath="userAccounts:emailAddress"/>
     </dataDocuments>
     <dataDocuments dataDocumentId="MantleCommunicationEvent" indexName="mantle" documentName="Communication Event"
             primaryEntityName="mantle.party.communication.CommunicationEvent" documentTitle="${subject}">
-        <fields fieldPath="communicationEventId"/>
-        <fields fieldPath="communicationEventTypeId"/>
-        <fields fieldPath="type:description" fieldNameAlias="type"/>
-        <fields fieldPath="statusId"/>
-        <fields fieldPath="status:description" fieldNameAlias="status"/>
-        <fields fieldPath="parentCommEventId"/>
-        <fields fieldPath="rootCommEventId"/>
-        <fields fieldPath="fromPartyId"/>
-        <fields fieldPath="fromUserAccounts:userId" fieldNameAlias="fromUserId"/>
-        <fields fieldPath="toPartyId"/>
-        <fields fieldPath="toUserAccounts:userId" fieldNameAlias="toUserId"/>
+        <fields fieldSeqId="01" fieldPath="communicationEventId"/>
+        <fields fieldSeqId="02" fieldPath="communicationEventTypeId"/>
+        <fields fieldSeqId="03" fieldPath="type:description" fieldNameAlias="type"/>
+        <fields fieldSeqId="04" fieldPath="statusId"/>
+        <fields fieldSeqId="05" fieldPath="status:description" fieldNameAlias="status"/>
+        <fields fieldSeqId="06" fieldPath="parentCommEventId"/>
+        <fields fieldSeqId="07" fieldPath="rootCommEventId"/>
+        <fields fieldSeqId="10" fieldPath="fromPartyId"/>
+        <fields fieldSeqId="11" fieldPath="fromUserAccounts:userId" fieldNameAlias="fromUserId"/>
+        <fields fieldSeqId="12" fieldPath="toPartyId"/>
+        <fields fieldSeqId="13" fieldPath="toUserAccounts:userId" fieldNameAlias="toUserId"/>
 
-        <fields fieldPath="entryDate"/>
-        <fields fieldPath="datetimeStarted"/>
-        <fields fieldPath="datetimeEnded"/>
-        <fields fieldPath="subject"/>
-        <fields fieldPath="contentType"/>
-        <fields fieldPath="body"/>
-        <fields fieldPath="note"/>
-        <fields fieldPath="reasonEnumId"/>
-        <fields fieldPath="contactListId"/>
-        <fields fieldPath="emailMessageId"/>
+        <fields fieldSeqId="20" fieldPath="entryDate"/>
+        <fields fieldSeqId="21" fieldPath="datetimeStarted"/>
+        <fields fieldSeqId="22" fieldPath="datetimeEnded"/>
+        <fields fieldSeqId="23" fieldPath="subject"/>
+        <fields fieldSeqId="24" fieldPath="contentType"/>
+        <fields fieldSeqId="25" fieldPath="body"/>
+        <fields fieldSeqId="26" fieldPath="note"/>
+        <fields fieldSeqId="27" fieldPath="reasonEnumId"/>
+        <fields fieldSeqId="28" fieldPath="contactListId"/>
+        <fields fieldSeqId="29" fieldPath="emailMessageId"/>
 
-        <fields fieldPath="parties:partyId"/>
-        <fields fieldPath="parties:roleTypeId"/>
-        <fields fieldPath="parties:role:description" fieldNameAlias="role"/>
-        <fields fieldPath="parties:person:firstName"/>
-        <fields fieldPath="parties:person:lastName"/>
-        <fields fieldPath="parties:userAccounts:userId"/>
+        <fields fieldSeqId="30" fieldPath="parties:partyId"/>
+        <fields fieldSeqId="31" fieldPath="parties:roleTypeId"/>
+        <fields fieldSeqId="32" fieldPath="parties:role:description" fieldNameAlias="role"/>
+        <fields fieldSeqId="33" fieldPath="parties:person:firstName"/>
+        <fields fieldSeqId="34" fieldPath="parties:person:lastName"/>
+        <fields fieldSeqId="35" fieldPath="parties:userAccounts:userId"/>
 
-        <fields fieldPath="purposes:purposeEnumId"/>
-        <fields fieldPath="purposes:description" fieldNameAlias="purpose"/>
+        <fields fieldSeqId="40" fieldPath="purposes:purposeEnumId"/>
+        <fields fieldSeqId="41" fieldPath="purposes:description" fieldNameAlias="purpose"/>
     </dataDocuments>
 
     <!-- ========== Product ========== -->
     <dataDocuments dataDocumentId="MantleProduct" indexName="mantle" documentName="Product"
             primaryEntityName="mantle.product.Product" documentTitle="ProductNameTemplate"
             manualDataServiceName="mantle.product.ProductServices.get#ProductManualDocumentData">
-        <fields fieldPath="productId"/>
-        <fields fieldPath="pseudoId"/>
-        <fields fieldPath="productName" fieldNameAlias="name"/>
-        <fields fieldPath="description"/>
-        <fields fieldPath="salesIntroductionDate"/>
-        <fields fieldPath="salesDiscontinuationDate"/>
-        <fields fieldPath="supportDiscontinuationDate"/>
+        <fields fieldSeqId="01" fieldPath="productId"/>
+        <fields fieldSeqId="02" fieldPath="pseudoId"/>
+        <fields fieldSeqId="03" fieldPath="productName" fieldNameAlias="name"/>
+        <fields fieldSeqId="04" fieldPath="description"/>
+        <fields fieldSeqId="05" fieldPath="salesIntroductionDate"/>
+        <fields fieldSeqId="06" fieldPath="salesDiscontinuationDate"/>
+        <fields fieldSeqId="07" fieldPath="supportDiscontinuationDate"/>
     
-        <fields fieldPath="productTypeEnumId"/>
-        <fields fieldPath="type:description" fieldNameAlias="type"/>
-        <fields fieldPath="productClassEnumId"/>
-        <fields fieldPath="class:description" fieldNameAlias="class"/>
-        <fields fieldPath="assetTypeEnumId"/>
-        <fields fieldPath="assetType:description" fieldNameAlias="assetType"/>
-        <fields fieldPath="assetClassEnumId"/>
-        <fields fieldPath="assetClass:description" fieldNameAlias="assetClass"/>
+        <fields fieldSeqId="10" fieldPath="productTypeEnumId"/>
+        <fields fieldSeqId="11" fieldPath="type:description" fieldNameAlias="type"/>
+        <fields fieldSeqId="12" fieldPath="productClassEnumId"/>
+        <fields fieldSeqId="13" fieldPath="class:description" fieldNameAlias="class"/>
+        <fields fieldSeqId="14" fieldPath="assetTypeEnumId"/>
+        <fields fieldSeqId="15" fieldPath="assetType:description" fieldNameAlias="assetType"/>
+        <fields fieldSeqId="16" fieldPath="assetClassEnumId"/>
+        <fields fieldSeqId="17" fieldPath="assetClass:description" fieldNameAlias="assetClass"/>
     
-        <fields fieldPath="amountFixed"/>
-        <fields fieldPath="amountUomId"/>
-        <fields fieldPath="amountUom:description" fieldNameAlias="amountUom"/>
+        <fields fieldSeqId="20" fieldPath="amountFixed"/>
+        <fields fieldSeqId="21" fieldPath="amountUomId"/>
+        <fields fieldSeqId="22" fieldPath="amountUom:description" fieldNameAlias="amountUom"/>
     
-        <fields fieldPath="categories:productCategoryId"/>
+        <fields fieldSeqId="30" fieldPath="categories:productCategoryId"/>
         <!-- TODO: way to automatically filter by from/thru dates without requiring them (make sure condition generated allows nulls...)? -->
-        <fields fieldPath="categories:fromDate" fieldNameAlias="categoryFromDate"/>
-        <fields fieldPath="categories:thruDate" fieldNameAlias="categoryThruDate"/>
-        <fields fieldPath="categories:category:categoryName" fieldNameAlias="category"/>
-        <fields fieldPath="categories:category:pseudoId" fieldNameAlias="categoryPseudoId"/>
-        <fields fieldPath="categories:category:productCategoryTypeEnumId"/>
-        <fields fieldPath="categories:stores:productStoreId"/>
+        <fields fieldSeqId="31" fieldPath="categories:fromDate" fieldNameAlias="categoryFromDate"/>
+        <fields fieldSeqId="32" fieldPath="categories:thruDate" fieldNameAlias="categoryThruDate"/>
+        <fields fieldSeqId="33" fieldPath="categories:category:categoryName" fieldNameAlias="category"/>
+        <fields fieldSeqId="34" fieldPath="categories:category:pseudoId" fieldNameAlias="categoryPseudoId"/>
+        <fields fieldSeqId="35" fieldPath="categories:category:productCategoryTypeEnumId"/>
+        <fields fieldSeqId="36" fieldPath="categories:stores:productStoreId"/>
     
-        <fields fieldPath="features:productFeatureId"/>
-        <fields fieldPath="features:fromDate" fieldNameAlias="featureFromDate"/>
-        <fields fieldPath="features:thruDate" fieldNameAlias="featureThruDate"/>
-        <fields fieldPath="features:applTypeEnumId"/>
-        <fields fieldPath="features:feature:description" fieldNameAlias="feature"/>
+        <fields fieldSeqId="40" fieldPath="features:productFeatureId"/>
+        <fields fieldSeqId="41" fieldPath="features:fromDate" fieldNameAlias="featureFromDate"/>
+        <fields fieldSeqId="42" fieldPath="features:thruDate" fieldNameAlias="featureThruDate"/>
+        <fields fieldSeqId="43" fieldPath="features:applTypeEnumId"/>
+        <fields fieldSeqId="44" fieldPath="features:feature:description" fieldNameAlias="feature"/>
     
-        <fields fieldPath="dimensions:dimensionTypeId"/>
-        <fields fieldPath="dimensions:type:description" fieldNameAlias="dimensionTypeDescription"/>
-        <fields fieldPath="dimensions:value" fieldNameAlias="dimensionValue"/>
-        <fields fieldPath="dimensions:valueUomId" fieldNameAlias="dimensionUomId"/>
-        <fields fieldPath="dimensions:valueUom:description" fieldNameAlias="dimensionUomDescription"/>
+        <fields fieldSeqId="50" fieldPath="dimensions:dimensionTypeId"/>
+        <fields fieldSeqId="51" fieldPath="dimensions:type:description" fieldNameAlias="dimensionTypeDescription"/>
+        <fields fieldSeqId="52" fieldPath="dimensions:value" fieldNameAlias="dimensionValue"/>
+        <fields fieldSeqId="53" fieldPath="dimensions:valueUomId" fieldNameAlias="dimensionUomId"/>
+        <fields fieldSeqId="54" fieldPath="dimensions:valueUom:description" fieldNameAlias="dimensionUomDescription"/>
     
-        <fields fieldPath="identifications:idValue"/>
-        <fields fieldPath="identifications:productIdTypeEnumId"/>
+        <fields fieldSeqId="60" fieldPath="identifications:idValue"/>
+        <fields fieldSeqId="61" fieldPath="identifications:productIdTypeEnumId"/>
     
-        <fields fieldPath="prices:price"/>
-        <fields fieldPath="prices:productStoreId" fieldNameAlias="priceProductStoreId"/>
-        <fields fieldPath="prices:priceTypeEnumId"/>
-        <fields fieldPath="prices:pricePurposeEnumId"/>
-        <fields fieldPath="prices:fromDate" fieldNameAlias="priceFromDate"/>
-        <fields fieldPath="prices:thruDate" fieldNameAlias="priceThruDate"/>
-        <fields fieldPath="prices:priceUomId"/>
+        <fields fieldSeqId="70" fieldPath="prices:price"/>
+        <fields fieldSeqId="71" fieldPath="prices:productStoreId" fieldNameAlias="priceProductStoreId"/>
+        <fields fieldSeqId="72" fieldPath="prices:priceTypeEnumId"/>
+        <fields fieldSeqId="73" fieldPath="prices:pricePurposeEnumId"/>
+        <fields fieldSeqId="74" fieldPath="prices:fromDate" fieldNameAlias="priceFromDate"/>
+        <fields fieldSeqId="75" fieldPath="prices:thruDate" fieldNameAlias="priceThruDate"/>
+        <fields fieldSeqId="76" fieldPath="prices:priceUomId"/>
     
-        <fields fieldPath="assocs:toProductId" fieldNameAlias="assocToId"/>
-        <fields fieldPath="assocs:productAssocTypeEnumId"/>
-        <fields fieldPath="assocs:type:description" fieldNameAlias="assocType"/>
-        <fields fieldPath="toAssocs:productId" fieldNameAlias="assocFromId"/>
-        <fields fieldPath="toAssocs:productAssocTypeEnumId" fieldNameAlias="toProductAssocTypeEnumId"/>
-        <fields fieldPath="toAssocs:type:description" fieldNameAlias="assocTypeTo"/>
+        <fields fieldSeqId="80" fieldPath="assocs:toProductId" fieldNameAlias="assocToId"/>
+        <fields fieldSeqId="81" fieldPath="assocs:productAssocTypeEnumId"/>
+        <fields fieldSeqId="82" fieldPath="assocs:type:description" fieldNameAlias="assocType"/>
+        <fields fieldSeqId="83" fieldPath="toAssocs:productId" fieldNameAlias="assocFromId"/>
+        <fields fieldSeqId="84" fieldPath="toAssocs:productAssocTypeEnumId" fieldNameAlias="toProductAssocTypeEnumId"/>
+        <fields fieldSeqId="85" fieldPath="toAssocs:type:description" fieldNameAlias="assocTypeTo"/>
     </dataDocuments>
 
     <!-- ========== Facility ========== -->
     <dataDocuments dataDocumentId="MantleFacility" indexName="mantle" documentName="Facility"
             primaryEntityName="mantle.facility.Facility" documentTitle="FacilityNameTemplate">
-        <fields fieldPath="facilityId"/>
-        <fields fieldPath="pseudoId"/>
-        <fields fieldPath="facilityName" fieldNameAlias="name"/>
-        <fields fieldPath="description"/>
+        <fields fieldSeqId="01" fieldPath="facilityId"/>
+        <fields fieldSeqId="02" fieldPath="pseudoId"/>
+        <fields fieldSeqId="03" fieldPath="facilityName" fieldNameAlias="name"/>
+        <fields fieldSeqId="04" fieldPath="description"/>
     
-        <fields fieldPath="facilityTypeEnumId"/>
-        <fields fieldPath="type:description" fieldNameAlias="type"/>
-        <fields fieldPath="status:description" fieldNameAlias="status"/>
-        <fields fieldPath="ownerOrganization:organizationName" fieldNameAlias="ownerName"/>
+        <fields fieldSeqId="05" fieldPath="facilityTypeEnumId"/>
+        <fields fieldSeqId="06" fieldPath="type:description" fieldNameAlias="type"/>
+        <fields fieldSeqId="07" fieldPath="status:description" fieldNameAlias="status"/>
+        <fields fieldSeqId="08" fieldPath="ownerOrganization:organizationName" fieldNameAlias="ownerName"/>
     
-        <fields fieldPath="contactMechs:postalAddress:contactMechId"/>
-        <fields fieldPath="contactMechs:postalAddress:address1"/>
-        <fields fieldPath="contactMechs:postalAddress:city"/>
-        <fields fieldPath="contactMechs:postalAddress:postalCode"/>
-        <fields fieldPath="contactMechs:postalAddress:stateProvinceGeo:geoName" fieldNameAlias="state"/>
+        <fields fieldSeqId="20" fieldPath="contactMechs:postalAddress:contactMechId"/>
+        <fields fieldSeqId="21" fieldPath="contactMechs:postalAddress:address1"/>
+        <fields fieldSeqId="22" fieldPath="contactMechs:postalAddress:city"/>
+        <fields fieldSeqId="23" fieldPath="contactMechs:postalAddress:postalCode"/>
+        <fields fieldSeqId="24" fieldPath="contactMechs:postalAddress:stateProvinceGeo:geoName" fieldNameAlias="state"/>
     </dataDocuments>
 </entity-facade-xml>

@@ -53,9 +53,9 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="facilitySizeUomId"/></relationship>
         <relationship type="one" related="moqui.basic.Geo" short-alias="geo"/>
         <relationship type="one" related="moqui.basic.GeoPoint" short-alias="geoPoint"/>
-        <relationship type="one" title="County" related="moqui.basic.Geo">
+        <relationship type="one" title="County" related="moqui.basic.Geo" short-alias="countyGeo">
             <key-map field-name="countyGeoId"/></relationship>
-        <relationship type="one" title="State" related="moqui.basic.Geo">
+        <relationship type="one" title="State" related="moqui.basic.Geo" short-alias="stateGeo">
             <key-map field-name="stateGeoId"/></relationship>
 
         <relationship type="many" related="mantle.facility.FacilityCertification" short-alias="certifications">

@@ -38,107 +38,108 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- TODO: somehow handle old Asset records (with QOH=0)? If we set a condition we'll just end up with stale documents with a false positive QOH -->
     <dataDocuments dataDocumentId="MantleInventoryAsset" indexName="mantle_inventory" documentName="InventoryAsset"
             primaryEntityName="mantle.product.asset.Asset" documentTitle="${assetId}:${productId}:${facilityId}">
-        <fields fieldPath="assetId"/>
-        <fields fieldPath="assetTypeEnumId"/>
-        <fields fieldPath="statusId"/>
-        <fields fieldPath="ownerPartyId"/>
-        <fields fieldPath="productId"/>
-        <fields fieldPath="facilityId"/>
-        <fields fieldPath="locationSeqId"/>
-        <fields fieldPath="availableToPromiseTotal"/>
-        <fields fieldPath="quantityOnHandTotal"/>
-        <fields fieldPath="receivedDate"/>
-        <fields fieldPath="expectedEndOfLife"/>
-        <conditions fieldNameAlias="assetTypeEnumId" fieldValue="AstTpInventory"/>
+        <fields fieldSeqId="01" fieldPath="assetId"/>
+        <fields fieldSeqId="02" fieldPath="assetTypeEnumId"/>
+        <fields fieldSeqId="03" fieldPath="statusId"/>
+        <fields fieldSeqId="04" fieldPath="ownerPartyId"/>
+        <fields fieldSeqId="05" fieldPath="productId"/>
+        <fields fieldSeqId="06" fieldPath="facilityId"/>
+        <fields fieldSeqId="07" fieldPath="locationSeqId"/>
+        <fields fieldSeqId="08" fieldPath="availableToPromiseTotal"/>
+        <fields fieldSeqId="09" fieldPath="quantityOnHandTotal"/>
+        <fields fieldSeqId="10" fieldPath="receivedDate"/>
+        <fields fieldSeqId="11" fieldPath="expectedEndOfLife"/>
+        <conditions conditionSeqId="01" fieldNameAlias="assetTypeEnumId" fieldValue="AstTpInventory"/>
     </dataDocuments>
 
     <!-- Sales OrderItem -->
 
     <dataDocuments dataDocumentId="MantleInventoryOrderItem" indexName="mantle_inventory" documentName="OrderItem"
             primaryEntityName="mantle.order.OrderItem" documentTitle="${orderId}:${orderItemSeqId}">
-        <fields fieldPath="orderId"/>
-        <fields fieldPath="orderItemSeqId"/>
-        <fields fieldPath="orderPartSeqId"/>
-        <fields fieldPath="productId"/>
-        <fields fieldPath="quantity" fieldNameAlias="orderQuantity"/>
-        <fields fieldPath="selectedAmount"/>
-        <fields fieldPath="unitAmount"/>
-        <fields fieldPath="requiredByDate"/>
+        <fields fieldSeqId="01" fieldPath="orderId"/>
+        <fields fieldSeqId="02" fieldPath="orderItemSeqId"/>
+        <fields fieldSeqId="03" fieldPath="orderPartSeqId"/>
+        <fields fieldSeqId="04" fieldPath="productId"/>
+        <fields fieldSeqId="05" fieldPath="quantity" fieldNameAlias="orderQuantity"/>
+        <fields fieldSeqId="06" fieldPath="selectedAmount"/>
+        <fields fieldSeqId="07" fieldPath="unitAmount"/>
+        <fields fieldSeqId="08" fieldPath="requiredByDate"/>
     
-        <fields fieldPath="part:statusId" fieldNameAlias="partStatusId"/>
-        <fields fieldPath="part:facilityId" fieldNameAlias="facilityId"/>
-        <fields fieldPath="part:vendorPartyId" fieldNameAlias="vendorPartyId"/>
-        <fields fieldPath="part:vendorRoles:roleTypeId" fieldNameAlias="vendorRoleTypeId"/>
+        <fields fieldSeqId="10" fieldPath="part:statusId" fieldNameAlias="partStatusId"/>
+        <fields fieldSeqId="11" fieldPath="part:facilityId" fieldNameAlias="facilityId"/>
+        <fields fieldSeqId="12" fieldPath="part:vendorPartyId" fieldNameAlias="vendorPartyId"/>
+        <fields fieldSeqId="13" fieldPath="part:vendorRoles:roleTypeId" fieldNameAlias="vendorRoleTypeId"/>
     
-        <fields fieldPath="reservations:assetId" fieldNameAlias="assetId"/>
-        <fields fieldPath="reservations:quantity" fieldNameAlias="quantityReserved"/>
-        <fields fieldPath="reservations:quantityNotAvailable" fieldNameAlias="quantityNotAvailable"/>
-        <fields fieldPath="reservations:quantityNotIssued" fieldNameAlias="quantityNotIssued"/>
-        <fields fieldPath="reservations:reservedDate" fieldNameAlias="reservedDate"/>
-        <fields fieldPath="reservations:currentPromisedDate" fieldNameAlias="currentPromisedDate"/>
+        <fields fieldSeqId="20" fieldPath="reservations:assetId" fieldNameAlias="assetId"/>
+        <fields fieldSeqId="21" fieldPath="reservations:quantity" fieldNameAlias="quantityReserved"/>
+        <fields fieldSeqId="22" fieldPath="reservations:quantityNotAvailable" fieldNameAlias="quantityNotAvailable"/>
+        <fields fieldSeqId="23" fieldPath="reservations:quantityNotIssued" fieldNameAlias="quantityNotIssued"/>
+        <fields fieldSeqId="24" fieldPath="reservations:reservedDate" fieldNameAlias="reservedDate"/>
+        <fields fieldSeqId="25" fieldPath="reservations:currentPromisedDate" fieldNameAlias="currentPromisedDate"/>
     
-        <fields fieldPath="header:placedDate"/>
+        <fields fieldSeqId="30" fieldPath="header:placedDate"/>
     
-        <conditions fieldNameAlias="productId" operator="is-not-null" fieldValue=""/>
+        <conditions conditionSeqId="01" fieldNameAlias="productId" operator="is-not-null" fieldValue=""/>
     </dataDocuments>
 
     <!-- Production Run Estimate - Consume -->
 
     <dataDocuments dataDocumentId="MantleInventoryRunConsume" indexName="mantle_inventory" documentName="RunConsume"
             primaryEntityName="mantle.work.effort.WorkEffortProduct" documentTitle="${workEffortId}:${productId}">
-        <fields fieldPath="workEffortId"/>
-        <fields fieldPath="productId"/>
-        <fields fieldPath="estimatedQuantity" fieldNameAlias="estimatedConsumeQuantity"/>
-        <fields fieldPath="fromDate"/>
-        <fields fieldPath="thruDate"/>
-        <fields fieldPath="typeEnumId"/>
+        <fields fieldSeqId="01" fieldPath="workEffortId"/>
+        <fields fieldSeqId="02" fieldPath="productId"/>
+        <fields fieldSeqId="03" fieldPath="estimatedQuantity" fieldNameAlias="estimatedConsumeQuantity"/>
+        <fields fieldSeqId="04" fieldPath="fromDate"/>
+        <fields fieldSeqId="05" fieldPath="thruDate"/>
+        <fields fieldSeqId="06" fieldPath="typeEnumId"/>
     
-        <fields fieldPath="issuances:assetId" fieldNameAlias="assetId"/>
-        <fields fieldPath="issuances:issuedDate" fieldNameAlias="consumeDate"/>
-        <fields fieldPath="issuances:quantity" fieldNameAlias="consumeQuantity"/>
+        <fields fieldSeqId="10" fieldPath="issuances:assetId" fieldNameAlias="assetId"/>
+        <fields fieldSeqId="11" fieldPath="issuances:issuedDate" fieldNameAlias="consumeDate"/>
+        <fields fieldSeqId="12" fieldPath="issuances:quantity" fieldNameAlias="consumeQuantity"/>
     
-        <fields fieldPath="workEffort:statusId"/>
-        <fields fieldPath="workEffort:estimatedStartDate"/>
-        <fields fieldPath="workEffort:facilityId" fieldNameAlias="lineFacilityId"/>
+        <fields fieldSeqId="20" fieldPath="workEffort:statusId"/>
+        <fields fieldSeqId="21" fieldPath="workEffort:estimatedStartDate"/>
+        <fields fieldSeqId="22" fieldPath="workEffort:facilityId" fieldNameAlias="lineFacilityId"/>
         <!-- the line's parent facility, the warehouse, is the main Facility we would filter/etc by -->
-        <fields fieldPath="workEffort:facility:parentFacilityId" fieldNameAlias="facilityId"/>
+        <fields fieldSeqId="23" fieldPath="workEffort:facility:parentFacilityId" fieldNameAlias="facilityId"/>
     
-        <conditions fieldNameAlias="typeEnumId" fieldValue="WeptConsume"/>
+        <conditions conditionSeqId="01" fieldNameAlias="typeEnumId" fieldValue="WeptConsume"/>
     </dataDocuments>
 
     <!-- Production Run Estimate - Produce -->
 
     <dataDocuments dataDocumentId="MantleInventoryRunProduce" indexName="mantle_inventory" documentName="RunProduce"
             primaryEntityName="mantle.work.effort.WorkEffortProduct" documentTitle="${workEffortId}:${productId}">
-        <fields fieldPath="workEffortId"/>
-        <fields fieldPath="productId"/>
-        <fields fieldPath="estimatedQuantity" fieldNameAlias="estimatedProduceQuantity"/>
-        <fields fieldPath="fromDate"/>
-        <fields fieldPath="thruDate"/>
-        <fields fieldPath="typeEnumId"/>
+        <fields fieldSeqId="01" fieldPath="workEffortId"/>
+        <fields fieldSeqId="02" fieldPath="productId"/>
+        <fields fieldSeqId="03" fieldPath="estimatedQuantity" fieldNameAlias="estimatedProduceQuantity"/>
+        <fields fieldSeqId="04" fieldPath="fromDate"/>
+        <fields fieldSeqId="05" fieldPath="thruDate"/>
+        <fields fieldSeqId="06" fieldPath="typeEnumId"/>
     
-        <fields fieldPath="receipts:assetId" fieldNameAlias="assetId"/>
-        <fields fieldPath="receipts:receivedDate" fieldNameAlias="produceDate"/>
-        <fields fieldPath="receipts:quantityAccepted" fieldNameAlias="produceQuantity"/>
+        <fields fieldSeqId="10" fieldPath="receipts:assetId" fieldNameAlias="assetId"/>
+        <fields fieldSeqId="11" fieldPath="receipts:receivedDate" fieldNameAlias="produceDate"/>
+        <fields fieldSeqId="12" fieldPath="receipts:quantityAccepted" fieldNameAlias="produceQuantity"/>
     
-        <fields fieldPath="workEffort:statusId"/>
-        <fields fieldPath="workEffort:estimatedStartDate"/>
-        <fields fieldPath="workEffort:facilityId" fieldNameAlias="lineFacilityId"/>
+        <fields fieldSeqId="20" fieldPath="workEffort:statusId"/>
+        <fields fieldSeqId="21" fieldPath="workEffort:estimatedStartDate"/>
+        <fields fieldSeqId="22" fieldPath="workEffort:facilityId" fieldNameAlias="lineFacilityId"/>
         <!-- the line's parent facility, the warehouse, is the main Facility we would filter/etc by -->
-        <fields fieldPath="workEffort:facility:parentFacilityId" fieldNameAlias="facilityId"/>
+        <fields fieldSeqId="23" fieldPath="workEffort:facility:parentFacilityId" fieldNameAlias="facilityId"/>
     
-        <conditions fieldNameAlias="typeEnumId" fieldValue="WeptProduce"/>
+        <conditions conditionSeqId="01" fieldNameAlias="typeEnumId" fieldValue="WeptProduce"/>
     </dataDocuments>
 
     <!-- Production Estimate -->
 
     <dataDocuments dataDocumentId="MantleInventoryProdEstimate" indexName="mantle_inventory" documentName="ProductionEstimate"
             primaryEntityName="mantle.work.estimate.ProductionEstimate" documentTitle="${productId}:${facilityId}:${readyDate}">
-        <fields fieldPath="productId"/>
+        <fields fieldSeqId="01" fieldPath="productionEstimateId"/>
+        <fields fieldSeqId="02" fieldPath="productId"/>
         <!-- use facilityId for the destination to match the field name used in other inventory documents, for filtering/etc -->
-        <fields fieldPath="destinationFacilityId" fieldNameAlias="facilityId"/>
-        <fields fieldPath="quantity" fieldNameAlias="prodEstQuantity"/>
-        <fields fieldPath="readyDate"/>
+        <fields fieldSeqId="03" fieldPath="destinationFacilityId" fieldNameAlias="facilityId"/>
+        <fields fieldSeqId="04" fieldPath="quantity" fieldNameAlias="prodEstQuantity"/>
+        <fields fieldSeqId="05" fieldPath="readyDate"/>
     </dataDocuments>
 
     <!-- DataFeed -->
