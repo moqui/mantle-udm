@@ -329,7 +329,15 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="invoiceTypeEnumId"/></relationship>
         <relationship type="one" title="From" related="mantle.party.Party" short-alias="fromParty">
             <key-map field-name="fromPartyId"/></relationship>
+        <relationship type="one-nofk" title="From" related="mantle.party.Organization" short-alias="fromOrganization">
+            <key-map field-name="fromPartyId"/></relationship>
+        <relationship type="one-nofk" title="From" related="mantle.party.Person" short-alias="fromPerson">
+            <key-map field-name="fromPartyId"/></relationship>
         <relationship type="one" title="To" related="mantle.party.Party" short-alias="toParty">
+            <key-map field-name="toPartyId"/></relationship>
+        <relationship type="one-nofk" title="To" related="mantle.party.Organization" short-alias="toOrganization">
+            <key-map field-name="toPartyId"/></relationship>
+        <relationship type="one-nofk" title="To" related="mantle.party.Person" short-alias="toPerson">
             <key-map field-name="toPartyId"/></relationship>
         <relationship type="one" title="Invoice" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" related="mantle.account.billing.BillingAccount" short-alias="billingAccount"/>
