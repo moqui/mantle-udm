@@ -108,6 +108,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="productId"/></relationship>
         <relationship type="many" related="mantle.product.maintenance.ProductMeter" short-alias="meters">
             <key-map field-name="productId"/></relationship>
+        <relationship type="many" related="mantle.product.subscription.ProductSubscriptionResource" short-alias="subscriptionResources">
+            <key-map field-name="productId"/></relationship>
 
         <index name="PRODUCT_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
 
@@ -204,6 +206,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Product Variant" enumId="PatVariant" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Unique Item" enumId="PatUniqueItem" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Accessory" enumId="PatAccessory" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Add On For" enumId="PatAddOn" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Refurbished Equivalent" enumId="PatRefurbished" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Repair Service" enumId="PatRepairService" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Auto Reorder (needs recurrenceInfoId)" enumId="PatAutoReorder" enumTypeId="ProductAssocType"/>
@@ -315,7 +318,6 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
     <entity entity-name="ProductDimension" package="mantle.product">
         <field name="productId" type="id" is-pk="true"/>
-        <!-- old field: <field name="dimensionTypeEnumId" type="id" is-pk="true"/> -->
         <field name="dimensionTypeId" type="id" is-pk="true"/>
         <field name="value" type="number-decimal"/>
         <field name="valueUomId" type="id"/>
