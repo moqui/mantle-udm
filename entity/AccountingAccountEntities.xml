@@ -1245,6 +1245,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Company Account" enumId="PiCompanyAccount" enumTypeId="PaymentInstrument" relatedEnumId="PmtFinancialAccount"/>
             <moqui.basic.Enumeration description="Billing Account" enumId="PiBillingAccount" enumTypeId="PaymentInstrument"/>
             <moqui.basic.Enumeration description="Cash On Delivery" enumId="PiCod" enumTypeId="PaymentInstrument"/>
+            <moqui.basic.Enumeration description="Wire Transfer" enumId="PiWireTransfer" enumTypeId="PaymentInstrument"/>
             <moqui.basic.Enumeration description="Other" enumId="PiOther" enumTypeId="PaymentInstrument"/>
             <!-- Using Payment for these is messy, use adjust#Invoice with appropriate item type instead:
             <moqui.basic.Enumeration description="Write-off" enumId="PiWriteOff" enumTypeId="PaymentInstrument"/>
