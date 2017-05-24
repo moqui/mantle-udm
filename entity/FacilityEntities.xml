@@ -83,6 +83,7 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Facility Type -->
             <moqui.basic.EnumerationType description="Facility Type" enumTypeId="FacilityType"/>
             <moqui.basic.Enumeration description="Block" enumId="FcTpBlock" enumTypeId="FacilityType"/>
+            <moqui.basic.Enumeration description="Block Group" enumId="FcTpBlockGroup" enumTypeId="FacilityType"/>
             <moqui.basic.Enumeration description="Building" enumId="FcTpBuilding" enumTypeId="FacilityType"/>
             <moqui.basic.Enumeration description="Land" enumId="FcTpLand" enumTypeId="FacilityType"/>
             <moqui.basic.Enumeration description="Floor" enumId="FcTpFloor" enumTypeId="FacilityType"/>
