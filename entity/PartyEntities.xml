@@ -616,6 +616,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Corporation" roleTypeId="OrgCorporation"/>
             <mantle.party.RoleType description="Department" roleTypeId="OrgDepartment"/>
             <mantle.party.RoleType description="Division" roleTypeId="OrgDivision"/>
+            <mantle.party.RoleType description="Employer" roleTypeId="OrgEmployer"/>
             <mantle.party.RoleType description="Family" roleTypeId="OrgFamily"/>
             <mantle.party.RoleType description="Government" roleTypeId="OrgGovernment"/>
             <mantle.party.RoleType description="Government Agency" roleTypeId="OrgGovernmentAgency"/>
@@ -717,23 +718,52 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="partySettingTypeId" type="id" is-pk="true"/>
         <field name="settingValue" type="text-medium" is-pk="true"/>
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
-        <relationship type="one" related="mantle.party.PartySettingType" short-alias="role"/>
+        <relationship type="one" related="mantle.party.PartySettingType" short-alias="settingType"/>
         <relationship type="one-nofk" related="moqui.basic.Enumeration">
             <description>This is one-nofk because settingValue may by an enumId or may be plain text depending on PartySettingType</description>
             <key-map field-name="settingValue"/></relationship>
     </entity>
-    <entity entity-name="PartySettingType" package="mantle.party">
+    <entity entity-name="PartyRelationshipSetting" package="mantle.party">
+        <field name="partyRelationshipId" type="id" is-pk="true"/>
         <field name="partySettingTypeId" type="id" is-pk="true"/>
-        <field name="enumTypeId" type="id"/>
+        <field name="settingValue" type="text-medium" is-pk="true"/>
+        <relationship type="one" related="mantle.party.PartyRelationship" short-alias="partyRelationship"/>
+        <relationship type="one" related="mantle.party.PartySettingType" short-alias="settingType"/>
+        <relationship type="one-nofk" related="moqui.basic.Enumeration">
+            <description>This is one-nofk because settingValue may by an enumId or may be plain text depending on PartySettingType</description>
+            <key-map field-name="settingValue"/></relationship>
+    </entity>
+    <entity entity-name="PartySettingType" package="mantle.party" use="configuration" cache="true">
+        <field name="partySettingTypeId" type="id" is-pk="true"/>
         <field name="description" type="text-medium"/>
+        <field name="validRegexp" type="text-medium"><description>For non-enum settings, regexp to validate</description></field>
+        <field name="enumTypeId" type="id"/>
+        <field name="singleValue" type="text-indicator"><description>If Y only allow a single value for the setting (single PartySetting record)</description></field>
+        <field name="defaultValue" type="text-medium"/>
         <relationship type="one" related="moqui.basic.EnumerationType" short-alias="type"/>
+        <relationship type="many" related="mantle.party.PartySettingTypeRole" short-alias="roles">
+            <key-map field-name="partySettingTypeId"/></relationship>
         <seed-data>
             <moqui.basic.EnumerationType description="Customer Setting" enumTypeId="CustomerSetting"/>
             <moqui.basic.Enumeration description="Single Lot per Order" enumId="CsstSingleLot" enumTypeId="CustomerSetting"/>
             <moqui.basic.Enumeration description="Newer Inventory each Order" enumId="CsstNewerInventory" enumTypeId="CustomerSetting"/>
-            <mantle.party.PartySettingType description="Customer Setting" partySettingTypeId="CustomerSetting" enumTypeId="CustomerSetting"/>
+            <mantle.party.PartySettingType description="Customer Setting" partySettingTypeId="CustomerSetting"
+                    enumTypeId="CustomerSetting" singleValue="N"/>
+            <mantle.party.PartySettingTypeRole partySettingTypeId="CustomerSetting" roleTypeId="Customer"/>
         </seed-data>
     </entity>
+    <entity entity-name="PartySettingTypeRole" package="mantle.party" use="configuration">
+        <field name="partySettingTypeId" type="id" is-pk="true"/>
+        <field name="roleTypeId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.party.PartySettingType" short-alias="settingType"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
+    </entity>
+    <view-entity entity-name="PartySettingTypeAndRole" package="mantle.party">
+        <member-entity entity-alias="PSET" entity-name="mantle.party.PartySettingType"/>
+        <member-relationship entity-alias="PSTR" join-from-alias="PSET" relationship="roles" join-optional="true"/>
+        <alias-all entity-alias="PSET"/>
+        <alias-all entity-alias="PSTR"/>
+    </view-entity>
 
     <!-- ========================================================= -->
     <!-- mantle.party.agreement -->
