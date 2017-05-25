@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This software is in the public domain under CC0 1.0 Universal plus a 
+Grant of Patent License.
+
+To the extent possible under law, the author(s) have dedicated all
+copyright and related and neighboring rights to this software to the
+public domain worldwide. This software is distributed without any
+warranty.
+
+You should have received a copy of the CC0 Public Domain Dedication
+along with this software (see the LICENSE.md file). If not, see
+<http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<entity-facade-xml type="seed">
+
+    <moqui.basic.EnumerationType description="Payroll Calc Period" enumTypeId="PayrollCalcPer"/>
+    <moqui.basic.Enumeration description="Pay Period" enumId="PcfPayPeriod" enumTypeId="PayrollCalcPer"/>
+    <moqui.basic.Enumeration description="Work Week" enumId="PcfWorkWeek" enumTypeId="PayrollCalcPer"/>
+
+    <moqui.basic.EnumerationType description="Payroll Wage Grouping" enumTypeId="PayrollWageGrp"/>
+    <moqui.basic.Enumeration description="None" enumId="PwgNone" enumTypeId="PayrollWageGrp"/>
+    <moqui.basic.Enumeration description="Client" enumId="PwgClient" enumTypeId="PayrollWageGrp"/>
+    <moqui.basic.Enumeration description="Block" enumId="PwgBlock" enumTypeId="PayrollWageGrp"/>
+    <moqui.basic.Enumeration description="Block Group" enumId="PwgBlockGroup" enumTypeId="PayrollWageGrp"/>
+
+    <!-- RRP:
+    Should time and associated pay for HOURLY Rest Breaks and NPT be extracted from time entries before calculating RRP?
+        If Y and Rest Breaks or NPT are not recorded for HOURLY time entries, this will have no effect.
+    Should HOURLY time entries be included in RRP calculation?
+        If N, RRP calculation is performed against PIECE, HYBRID, and ND pay only.
+    Should HOURLY Rest Breaks and NPT be paid RRP?
+        If N, HOURLY Rest Breaks and NPT are paid HOURLY rate (If breaks are not extracted for RRP, they should not be paid RRP).
+    Should Shift Differentials be included in RRP calculation?
+        This is required in the USA by the FLSA
+    How frequently should RRP be calculated?
+    -->
+    <mantle.party.PartySettingType description="Payroll RRP - Exclude Breaks/NPT" partySettingTypeId="PayrollRrpExclBreak" enumTypeId="BooleanYN" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll RRP - Include Hourly Pay" partySettingTypeId="PayrollRrpInclHourly" enumTypeId="BooleanYN" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll RRP - Pay RRP on Break/NPT" partySettingTypeId="PayrollRrpPayOnBreak" enumTypeId="BooleanYN" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll RRP - Include Shift Differentials" partySettingTypeId="PayrollRrpInclShDiff" enumTypeId="BooleanYN" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll RRP - Calc Period" partySettingTypeId="PayrollRrpCalcPer" enumTypeId="PayrollCalcPer" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+    <!-- Overtime:
+    Overtime Premium Factor
+    Double time Premium Factor
+    Should HOURLY OT/DT premiums be based on HOURLY rate if RRP calculation is $0?
+        If N, OT/DT Premiums will be $0 (this only occurs if no minimum wage check is performed).
+    Should HOURLY OT/DT premiums for different HOURLY jobs be based on HOURLY rate at time of OT/DT instead of RRP?
+        If N, RRP calculation rate will be used. FLSA allows either, but employee/employer must agree not to use RRP.
+    -->
+    <mantle.party.PartySettingType description="Payroll OT - Overtime Premium (0.5)" partySettingTypeId="PayrollOtOtPrem"
+            validRegexp="\d\.\d" defaultValue="0.5" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll OT - Double Time Premium (1.0)" partySettingTypeId="PayrollOtDtPrem"
+            validRegexp="\d\.\d" defaultValue="1.0" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll OT - Hourly if no RRP" partySettingTypeId="PayrollOtHrNoRrp" enumTypeId="BooleanYN" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll OT - Hourly by Work Type" partySettingTypeId="PayrollOtHrWorkType" enumTypeId="BooleanYN" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+
+    <!-- Minimum Wage:
+    Is Employee Subject to minimum wage?
+        If N, no minimum wage check will be performed.
+    What is the Employee's minimum wage?
+    Should HOURLY time entries be included in minimum wage makeup calculation?
+        If N, Minimum wage test is performed against PIECE, HYBRID, and ND hours and pay only.
+    How frequently should minimum wage be tested?
+    What is the minimum wage grouping level?
+        If a grouping level is defined, makeup pay will be assigned at this level.
+    -->
+    <mantle.party.PartySettingType description="Payroll MWG - Check Minimum Wage" partySettingTypeId="PayrollMwCheck" enumTypeId="BooleanYN" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll MWG - Default Minimum Wage" partySettingTypeId="PayrollMwDefault" validRegexp="\d+\.\d*" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll MWG - Check Hourly Entries" partySettingTypeId="PayrollMwCheckHourly" enumTypeId="BooleanYN" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll MWG - Calc Period" partySettingTypeId="PayrollMwCalcPer" enumTypeId="PayrollCalcPer" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll MWG - Calc Grouping" partySettingTypeId="PayrollMwCalcGrp" enumTypeId="PayrollWageGrp" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+    <!-- Pay Stub:
+    Should HOURLY Rest Breaks that are paid HOURLY rate be combined with the associated HOURLY time entry on pay stub?
+    -->
+    <mantle.party.PartySettingType description="Payroll Stub - Combine Break/Hourly" partySettingTypeId="PayrollStubCombineBrHr"
+            enumTypeId="BooleanYN" defaultValue="N" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+</entity-facade-xml>
