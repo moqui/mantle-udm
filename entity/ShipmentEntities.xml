@@ -73,9 +73,13 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="shipmentId"/></relationship>
         <relationship type="many" related="mantle.shipment.ShipmentItem" short-alias="items">
             <key-map field-name="shipmentId"/></relationship>
+        <relationship type="many" related="mantle.shipment.ShipmentItemSource" short-alias="itemSources">
+            <key-map field-name="shipmentId"/></relationship>
         <relationship type="many" related="mantle.shipment.ShipmentPackage" short-alias="packages">
             <key-map field-name="shipmentId"/></relationship>
         <relationship type="many" related="mantle.shipment.ShipmentRouteSegment" short-alias="routeSegments">
+            <key-map field-name="shipmentId"/></relationship>
+        <relationship type="many" related="mantle.shipment.ShipmentPackageRouteSeg" short-alias="packageRouteSegments">
             <key-map field-name="shipmentId"/></relationship>
 
         <seed-data>
@@ -250,6 +254,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="quantityNotHandled" type="number-decimal"/>
         <field name="invoiceId" type="id"/>
         <field name="invoiceItemSeqId" type="id"/>
+        <relationship type="one-nofk" related="mantle.shipment.Shipment" short-alias="shipment"/>
         <relationship type="one" related="mantle.shipment.ShipmentItem" short-alias="item"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one-nofk" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
@@ -258,6 +263,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="ShipmentItemSource" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem">
             <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
+        <index name="SHIP_ITSRC_SHIPID"><index-field name="shipmentId"/></index>
         <seed-data>
             <!-- Shipment Item Pick Status -->
             <moqui.basic.StatusType description="Shipment Item Pick Status" statusTypeId="ShipmentItemSource"/>
@@ -342,6 +348,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="shipmentId"/><key-map field-name="shipmentRouteSegmentSeqId"/></relationship>
         <relationship type="one" title="ShipmentTrackingStatus" related="moqui.basic.Enumeration" short-alias="trackingStatusEnum">
             <key-map field-name="trackingStatusEnumId"/></relationship>
+        <index name="SHIP_PKRTSG_SHIPID"><index-field name="shipmentId"/></index>
         <seed-data>
             <moqui.basic.EnumerationType description="Shipping Tracking Status" enumTypeId="ShipmentTrackingStatus"/>
             <moqui.basic.Enumeration description="Unknown" enumId="ShTsUnknown" enumTypeId="ShipmentTrackingStatus"/>
