@@ -1213,13 +1213,16 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="ContactPaymentTrustLevel" related="moqui.basic.Enumeration" short-alias="trustLevel">
             <key-map field-name="trustLevelEnumId"/></relationship>
         <relationship type="one" related="mantle.account.payment.PaymentFraudEvidence" short-alias="fraudEvidence" mutable="true"/>
-        
+
+        <relationship type="one-nofk" title="Replaces" related="mantle.party.contact.ContactMech" short-alias="replacesContactMech">
+            <key-map field-name="replacesContactMechId"/></relationship>
         <relationship type="one-nofk" related="mantle.party.contact.TelecomNumber" short-alias="telecomNumber" mutable="true"/>
         <relationship type="one-nofk" related="mantle.party.contact.PostalAddress" short-alias="postalAddress" mutable="true"/>
         <relationship type="many" related="mantle.party.contact.PartyContactMech" short-alias="parties">
             <key-map field-name="contactMechId"/></relationship>
 
-        <index name="INFO_STRING_IDX"><index-field name="infoString"/></index>
+        <index name="CMECH_INFO_STRING"><index-field name="infoString"/></index>
+        <index name="CMECH_REPL_CMECH"><index-field name="replacesContactMechId"/></index>
         <seed-data>
             <!-- NOTE: ContactMechType Enumerations defined above in CommunicationEventType entity -->
 
