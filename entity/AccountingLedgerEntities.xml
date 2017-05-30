@@ -889,6 +889,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="AttPayment" description="Payment" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttDisbursement" description="Disbursement" parentEnumId="AttPayment" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttReceipt" description="Receipt" parentEnumId="AttPayment" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttPaymentAdjust" description="Payment Adjustment" parentEnumId="AttPayment" enumTypeId="AcctgTransType"/>
 
             <moqui.basic.Enumeration enumId="AttSalesInvoice" description="Sales Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/><!-- (to Customer) -->
             <moqui.basic.Enumeration enumId="AttCustRtnInvoice" description="Customer Return Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
