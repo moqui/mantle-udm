@@ -39,7 +39,7 @@ along with this software (see the LICENSE.md file). If not, see
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll RRP - Include Hourly Pay" partySettingTypeId="PayrollRrpInclHourly" enumTypeId="BooleanYN" singleValue="Y">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
-    <mantle.party.PartySettingType description="Payroll RRP - Pay RRP on Break/NPT" partySettingTypeId="PayrollRrpPayOnBreak" enumTypeId="BooleanYN" singleValue="Y">
+    <mantle.party.PartySettingType description="Payroll RRP - Pay RRP on Hourly Break/NPT" partySettingTypeId="PayrollRrpPayOnHourlyBreak" enumTypeId="BooleanYN" singleValue="Y">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll RRP - Include Shift Differentials" partySettingTypeId="PayrollRrpInclShDiff" enumTypeId="BooleanYN" singleValue="Y">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
