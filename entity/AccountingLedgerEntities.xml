@@ -921,7 +921,7 @@ along with this software (see the LICENSE.md file). If not, see
 
             <moqui.basic.Enumeration enumId="AttPaymentApplied" description="Payment Applied" enumTypeId="AcctgTransType"/>
 
-            <moqui.basic.Enumeration description="Accounting TX Types Invoice" enumId="EngAccTxTypesInvoice" enumTypeId="EnumGroup"/>
+            <moqui.basic.Enumeration description="Acc TX Types Invoice" enumId="EngAccTxTypesInvoice" enumTypeId="EnumGroup"/>
             <moqui.basic.EnumGroupMember enumId="AttSalesInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
             <moqui.basic.EnumGroupMember enumId="AttCustRtnInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
             <moqui.basic.EnumGroupMember enumId="AttPurchaseInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
@@ -931,6 +931,21 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumGroupMember enumId="AttGarnishmentInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
             <moqui.basic.EnumGroupMember enumId="AttCommissionInvoice" enumGroupEnumId="EngAccTxTypesInvoice"/>
             <moqui.basic.EnumGroupMember enumId="AttInvoiceAdjust" enumGroupEnumId="EngAccTxTypesInvoice"/>
+            <moqui.basic.EnumGroupMember enumId="AttPaymentApplied" enumGroupEnumId="EngAccTxTypesInvoice"/>
+
+            <moqui.basic.Enumeration description="Acc TX Types Payable" enumId="EngAccTxTypesPayable" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="AttCustRtnInvoice" enumGroupEnumId="EngAccTxTypesPayable"/>
+            <moqui.basic.EnumGroupMember enumId="AttPurchaseInvoice" enumGroupEnumId="EngAccTxTypesPayable"/>
+            <moqui.basic.EnumGroupMember enumId="AttPayrollInvoice" enumGroupEnumId="EngAccTxTypesPayable"/>
+            <moqui.basic.EnumGroupMember enumId="AttTaxInvoice" enumGroupEnumId="EngAccTxTypesPayable"/>
+            <moqui.basic.EnumGroupMember enumId="AttGarnishmentInvoice" enumGroupEnumId="EngAccTxTypesPayable"/>
+            <moqui.basic.EnumGroupMember enumId="AttCommissionInvoice" enumGroupEnumId="EngAccTxTypesPayable"/>
+            <moqui.basic.EnumGroupMember enumId="AttInvoiceAdjust" enumGroupEnumId="EngAccTxTypesPayable"/>
+
+            <moqui.basic.Enumeration description="Acc TX Types Receivable" enumId="EngAccTxTypesReceivable" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="AttSalesInvoice" enumGroupEnumId="EngAccTxTypesReceivable"/>
+            <moqui.basic.EnumGroupMember enumId="AttVendRtnInvoice" enumGroupEnumId="EngAccTxTypesReceivable"/>
+            <moqui.basic.EnumGroupMember enumId="AttInvoiceAdjust" enumGroupEnumId="EngAccTxTypesReceivable"/>
 
             <!-- GL Fiscal Type -->
             <moqui.basic.EnumerationType description="GL Fiscal Type" enumTypeId="GlFiscalType"/>
