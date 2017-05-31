@@ -781,6 +781,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
         <field name="description" type="text-medium"/>
+        <field name="currencyUomId" type="id"/>
         <field name="textData" type="text-very-long"/>
         <relationship type="one" title="AgreementType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="agreementTypeEnumId"/></relationship>
@@ -793,6 +794,9 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="otherPartyId"/></relationship>
         <relationship type="one" title="Other" related="mantle.party.RoleType" short-alias="otherRole">
             <key-map field-name="otherRoleTypeId"/></relationship>
+        <relationship type="one" title="Currency" related="moqui.basic.Uom" short-alias="currencyUom">
+            <key-map field-name="currencyUomId"/></relationship>
+
         <relationship type="many" related="mantle.party.agreement.AgreementTerm" short-alias="terms">
             <key-map field-name="agreementId"/></relationship>
         <relationship type="many" related="mantle.party.agreement.AgreementItem" short-alias="items">
@@ -850,9 +854,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="termNumber" type="number-decimal"/>
         <relationship type="one" related="mantle.party.agreement.Agreement"/>
         <relationship type="one-nofk" related="mantle.party.agreement.AgreementItem">
-            <key-map field-name="agreementId"/>
-            <key-map field-name="agreementItemSeqId"/>
-        </relationship>
+            <key-map field-name="agreementId"/><key-map field-name="agreementItemSeqId"/></relationship>
         <relationship type="one" related="mantle.account.invoice.SettlementTerm"/>
         <relationship type="one" title="TermType" related="moqui.basic.Enumeration">
             <key-map field-name="termTypeEnumId"/></relationship>
@@ -864,13 +866,18 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="agreementId" type="id" is-pk="true"/>
         <field name="agreementItemSeqId" type="id" is-pk="true"/>
         <field name="agreementItemTypeEnumId" type="id"/>
-        <field name="currencyUomId" type="id"/>
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
+        <field name="productId" type="id"/>
+        <field name="quantity" type="number-decimal" enable-audit-log="true"/>
+        <field name="quantityUomId" type="id"/>
         <field name="itemText" type="text-very-long"/>
         <relationship type="one" related="mantle.party.agreement.Agreement"/>
         <relationship type="one" title="AgreementItemType" related="moqui.basic.Enumeration">
             <key-map field-name="agreementItemTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" title="Quantity" related="moqui.basic.Uom" short-alias="quantityUom">
+            <key-map field-name="quantityUomId"/></relationship>
         <relationship type="many" related="mantle.party.agreement.AgreementTerm" short-alias="terms">
             <key-map field-name="agreementId"/><key-map field-name="agreementItemSeqId"/></relationship>
         <seed-data>
@@ -879,6 +886,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="AitSubAgreement" description="Sub-Agreement" enumTypeId="AgreementItemType"/>
             <moqui.basic.Enumeration enumId="AitExhibit" description="Exhibit" enumTypeId="AgreementItemType"/>
             <moqui.basic.Enumeration enumId="AitPricing" description="Pricing" enumTypeId="AgreementItemType"/>
+            <moqui.basic.Enumeration enumId="AitPurchase" description="Purchase" enumTypeId="AgreementItemType"/>
             <moqui.basic.Enumeration enumId="AitSection" description="Section" enumTypeId="AgreementItemType"/>
             <moqui.basic.Enumeration enumId="AitCommissionRate" description="Commission Rate" enumTypeId="AgreementItemType"/>
         </seed-data>
