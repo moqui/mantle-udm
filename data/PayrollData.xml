@@ -16,13 +16,18 @@ along with this software (see the LICENSE.md file). If not, see
 
     <moqui.basic.EnumerationType description="Payroll Calc Period" enumTypeId="PayrollCalcPer"/>
     <moqui.basic.Enumeration description="Pay Period" enumId="PcfPayPeriod" enumTypeId="PayrollCalcPer"/>
-    <moqui.basic.Enumeration description="Work Week" enumId="PcfWorkWeek" enumTypeId="PayrollCalcPer"/>
+    <moqui.basic.Enumeration description="Workweek" enumId="PcfWorkweek" enumTypeId="PayrollCalcPer"/>
 
     <moqui.basic.EnumerationType description="Payroll Wage Grouping" enumTypeId="PayrollWageGrp"/>
     <moqui.basic.Enumeration description="None" enumId="PwgNone" enumTypeId="PayrollWageGrp"/>
     <moqui.basic.Enumeration description="Client" enumId="PwgClient" enumTypeId="PayrollWageGrp"/>
     <moqui.basic.Enumeration description="Block" enumId="PwgBlock" enumTypeId="PayrollWageGrp"/>
     <moqui.basic.Enumeration description="Block Group" enumId="PwgBlockGroup" enumTypeId="PayrollWageGrp"/>
+
+    <!-- An FLSA workweek is a fixed, regularly-recurring period of 168 hours – that is, seven, consecutive, 24-hour periods –
+         that the employer expressly adopts in order to maintain FLSA compliance. -->
+    <mantle.party.PartySettingType description="Payroll FLSA - Workweek Begins On" partySettingTypeId="PayrollFlsaWrkWkBegOn" enumTypeId="DayOfWeek" singleValue="Y">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- RRP:
     Should time and associated pay for HOURLY Rest Breaks and NPT be extracted from time entries before calculating RRP?
