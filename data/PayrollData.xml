@@ -32,7 +32,7 @@ along with this software (see the LICENSE.md file). If not, see
                                    enumTypeId="DayOfWeek" defaultValue="DowSunday" singleValue="Y">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll FLSA - Workday Begins At" partySettingTypeId="PayrollFlsaWrkDayBegAt"
-                                   validRegexp="\d?\d\:\d\d" defaultValue="0:00" singleValue="Y">
+                                   validRegexp="\d\d\:\d\d" defaultValue="00:00" singleValue="Y">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- RRP:
