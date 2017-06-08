@@ -29,10 +29,10 @@ along with this software (see the LICENSE.md file). If not, see
          time has on the 168 hours, but it appears that the weeks that are short or long one hour are treated as 167 or 169
          hour weeks so that the following week would start at the same time. -->
     <mantle.party.PartySettingType description="Payroll FLSA - Workweek Begins On" partySettingTypeId="PayrollFlsaWrkWkBegOn"
-                                   enumTypeId="DayOfWeek" defaultValue="DowSunday" singleValue="Y">
+                                   enumTypeId="DayOfWeek" defaultValue="DowMonday" singleValue="Y">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll FLSA - Workday Begins At" partySettingTypeId="PayrollFlsaWrkDayBegAt"
-                                   validRegexp="\d?\d\:\d\d" defaultValue="0:00" singleValue="Y">
+                                   validRegexp="\d\d\:\d\d" defaultValue="00:00" singleValue="Y">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- RRP:

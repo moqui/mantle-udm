@@ -167,27 +167,29 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- ========== GL Account Class Groups ========== -->
 
             <moqui.basic.Enumeration description="GL Account Class Groups" enumId="EngGlClassGroups" enumTypeId="EnumGroup"/>
-            <moqui.basic.Enumeration description="Income: Net" enumId="EngNetIncome" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+            <moqui.basic.Enumeration description="Net Income" enumId="EngGlcNetIncome" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
                 <groupMembers enumId="REVENUE"/><groupMembers enumId="CONTRA_REVENUE" memberInfo="negate"/>
                 <groupMembers enumId="COST_OF_SALES" memberInfo="negate"/>
                 <groupMembers enumId="INCOME"/>
                 <groupMembers enumId="EXPENSE" memberInfo="negate"/><groupMembers enumId="NON_OP_EXPENSE" memberInfo="negate"/>
             </moqui.basic.Enumeration>
-            <moqui.basic.Enumeration description="Income: Gross Profit" enumId="EngGrossProfit" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+            <moqui.basic.Enumeration description="Gross Profit" enumId="EngGlcGrossProfit" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
                 <groupMembers enumId="REVENUE"/><groupMembers enumId="CONTRA_REVENUE" memberInfo="negate"/>
                 <groupMembers enumId="COST_OF_SALES" memberInfo="negate"/>
             </moqui.basic.Enumeration>
-            <moqui.basic.Enumeration description="Income: Net Operating" enumId="EngNetOpIncome" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+            <moqui.basic.Enumeration description="Net Revenue" enumId="EngGlcNetRevenue" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+                <groupMembers enumId="REVENUE"/><groupMembers enumId="CONTRA_REVENUE" memberInfo="negate"/></moqui.basic.Enumeration>
+            <moqui.basic.Enumeration description="Net Operating Income" enumId="EngGlcNetOpIncome" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
                 <groupMembers enumId="REVENUE"/><groupMembers enumId="CONTRA_REVENUE" memberInfo="negate"/>
                 <groupMembers enumId="COST_OF_SALES" memberInfo="negate"/>
                 <!-- exclude? non-operating income, ie not revenue: <groupMembers enumId="INCOME"/> -->
                 <groupMembers enumId="EXPENSE" memberInfo="negate"/>
             </moqui.basic.Enumeration>
-            <moqui.basic.Enumeration description="Balance: Net Asset" enumId="EngNetAsset" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+            <moqui.basic.Enumeration description="Net Asset" enumId="EngGlcNetAsset" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
                 <groupMembers enumId="ASSET"/><groupMembers enumId="CONTRA_ASSET" memberInfo="negate"/></moqui.basic.Enumeration>
-            <moqui.basic.Enumeration description="Balance: Net Equity" enumId="EngNetEquity" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+            <moqui.basic.Enumeration description="Net Equity" enumId="EngGlcNetEquity" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
                 <groupMembers enumId="EQUITY"/><groupMembers enumId="CONTRA_EQUITY" memberInfo="negate"/></moqui.basic.Enumeration>
-            <moqui.basic.Enumeration description="Balance: Liability" enumId="EngNetEquity" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+            <moqui.basic.Enumeration description="Liability" enumId="EngGlcLiability" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
                 <groupMembers enumId="LIABILITY"/></moqui.basic.Enumeration>
 
             <!-- ========== GL Account Type, used for automated posting mappings ========== -->

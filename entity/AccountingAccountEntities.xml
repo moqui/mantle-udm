@@ -426,6 +426,22 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceApproved" toStatusId="InvoiceCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoicePmtSent" toStatusId="InvoiceCancelled" transitionName="Cancel"/>
 
+            <moqui.basic.StatusFlow statusFlowId="InvoiceReceivable" statusTypeId="Invoice" description="Invoice Receivable"/>
+            <moqui.basic.StatusFlowItem statusFlowId="InvoiceReceivable" statusId="InvoiceInProcess"/>
+            <moqui.basic.StatusFlowItem statusFlowId="InvoiceReceivable" statusId="InvoiceFinalized"/>
+            <moqui.basic.StatusFlowItem statusFlowId="InvoiceReceivable" statusId="InvoiceSent"/>
+            <moqui.basic.StatusFlowItem statusFlowId="InvoiceReceivable" statusId="InvoicePmtRecvd"/>
+            <moqui.basic.StatusFlowItem statusFlowId="InvoiceReceivable" statusId="InvoiceWriteOff"/>
+            <moqui.basic.StatusFlowItem statusFlowId="InvoiceReceivable" statusId="InvoiceCancelled"/>
+
+            <moqui.basic.StatusFlow statusFlowId="InvoicePayable" statusTypeId="Invoice" description="Invoice Payable"/>
+            <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoiceIncoming"/>
+            <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoiceReceived"/>
+            <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoiceApproved"/>
+            <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoicePmtSent"/>
+            <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoiceBilledThrough"/>
+            <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoiceCancelled"/>
+
             <!--
             - X GL Posting on any transition to Finalized or Approved statuses.
             - X Reverse GL Posting on Finalized/Approved/Sent/Payment* to Cancelled
