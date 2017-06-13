@@ -508,6 +508,7 @@ along with this software (see the LICENSE.md file). If not, see
             or custom code.</description></field>
         <field name="assetId" type="id"><description>For sale of a particular asset, required for fixed assets</description></field>
         <field name="productId" type="id"/>
+        <field name="otherPartyProductId" type="text-short"/>
         <field name="parentInvoiceId" type="id"/>
         <field name="parentInvoiceItemSeqId" type="id"/>
         <field name="taxableFlag" type="text-indicator"/>
