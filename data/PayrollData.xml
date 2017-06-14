@@ -29,10 +29,10 @@ along with this software (see the LICENSE.md file). If not, see
          time has on the 168 hours, but it appears that the weeks that are short or long one hour are treated as 167 or 169
          hour weeks so that the following week would start at the same time. -->
     <mantle.party.PartySettingType description="Payroll FLSA - Workweek Begins On" partySettingTypeId="PayrollFlsaWrkWkBegOn"
-                                   enumTypeId="DayOfWeek" defaultValue="DowMonday" singleValue="Y">
+                                   enumTypeId="DayOfWeek" defaultValue="DowMonday">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll FLSA - Workday Begins At" partySettingTypeId="PayrollFlsaWrkDayBegAt"
-                                   validRegexp="\d\d\:\d\d" defaultValue="00:00" singleValue="Y">
+                                   validRegexp="\d\d\:\d\d" defaultValue="00:00">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- RRP:
@@ -47,19 +47,19 @@ along with this software (see the LICENSE.md file). If not, see
     How frequently should RRP be calculated?
     -->
     <mantle.party.PartySettingType description="Payroll RRP - Exclude Breaks/NPT" partySettingTypeId="PayrollRrpExclBreak"
-                                   enumTypeId="BooleanYN" defaultValue="Y" singleValue="Y">
+                                   enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll RRP - Include Hourly Pay" partySettingTypeId="PayrollRrpInclHourly"
-                                   enumTypeId="BooleanYN" defaultValue="Y" singleValue="Y">
+                                   enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll RRP - Pay RRP on Hourly Break/NPT" partySettingTypeId="PayrollRrpPayOnHourlyBreak"
-                                   enumTypeId="BooleanYN" defaultValue="Y" singleValue="Y">
+                                   enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll RRP - Include Shift Differentials" partySettingTypeId="PayrollRrpInclShDiff"
-                                   enumTypeId="BooleanYN" defaultValue="Y" singleValue="Y">
+                                   enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll RRP - Calc Period" partySettingTypeId="PayrollRrpCalcPer"
-                                   enumTypeId="PayrollCalcPer" defaultValue="PcfWorkweek" singleValue="Y">
+                                   enumTypeId="PayrollCalcPer" defaultValue="PcfWorkweek">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- Overtime:
@@ -71,16 +71,16 @@ along with this software (see the LICENSE.md file). If not, see
         If Y, use RRP calculated rate.  FLSA allows using HOURLY wage at time of OT/DT, but employee/employer must agree.
     -->
     <mantle.party.PartySettingType description="Payroll OT - Overtime Premium" partySettingTypeId="PayrollOtOtPrem"
-            validRegexp="\d\.\d" defaultValue="0.5" singleValue="Y">
+            validRegexp="\d\.\d" defaultValue="0.5">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll OT - Double Time Premium" partySettingTypeId="PayrollOtDtPrem"
-            validRegexp="\d\.\d" defaultValue="1.0" singleValue="Y">
+            validRegexp="\d\.\d" defaultValue="1.0">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll OT - Hourly if no RRP" partySettingTypeId="PayrollOtHrNoRrp"
-                                   enumTypeId="BooleanYN" defaultValue="Y" singleValue="Y">
+                                   enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll OT - Hourly use RRP" partySettingTypeId="PayrollOtHrUseRrp"
-                                   enumTypeId="BooleanYN" defaultValue="Y" singleValue="Y">
+                                   enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
 
@@ -95,25 +95,25 @@ along with this software (see the LICENSE.md file). If not, see
         If a grouping level is defined, makeup pay will be assigned at this level.
     -->
     <mantle.party.PartySettingType description="Payroll MWG - Check Minimum Wage" partySettingTypeId="PayrollMwCheck"
-                                   enumTypeId="BooleanYN" defaultValue="Y" singleValue="Y">
+                                   enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll MWG - Default Minimum Wage" partySettingTypeId="PayrollMwDefault"
-                                   validRegexp="\d+\.\d*" defaultValue="0" singleValue="Y">
+                                   validRegexp="\d+\.\d*" defaultValue="0">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll MWG - Check Hourly Entries" partySettingTypeId="PayrollMwCheckHourly"
-                                   enumTypeId="BooleanYN" defaultValue="Y" singleValue="Y">
+                                   enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll MWG - Calc Period" partySettingTypeId="PayrollMwCalcPer"
-                                   enumTypeId="PayrollCalcPer" defaultValue="PcfWorkweek" singleValue="Y">
+                                   enumTypeId="PayrollCalcPer" defaultValue="PcfWorkweek">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll MWG - Calc Grouping" partySettingTypeId="PayrollMwCalcGrp"
-                                   enumTypeId="PayrollWageGrp" defaultValue="PwgNone" singleValue="Y">
+                                   enumTypeId="PayrollWageGrp" defaultValue="PwgNone">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- Pay Stub:
     Should HOURLY Rest Breaks that are paid HOURLY rate be combined with the associated HOURLY time entry on pay stub?
     -->
     <mantle.party.PartySettingType description="Payroll Stub - Combine Break/Hourly" partySettingTypeId="PayrollStubCombineBrHr"
-            enumTypeId="BooleanYN" defaultValue="N" singleValue="Y">
+            enumTypeId="BooleanYN" defaultValue="BlN">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 </entity-facade-xml>
