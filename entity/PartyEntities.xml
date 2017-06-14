@@ -374,7 +374,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="moqui.basic.GeoPoint"/>
     </entity>
     <entity entity-name="PartyIdentification" package="mantle.party">
-        <!-- TODO support multiple/history of IDs; single sequenced PK; update lookup/etc services -->
+        <!-- FUTURE? support multiple/history of IDs; single sequenced PK; update lookup/etc services -->
         <field name="partyId" type="id" is-pk="true"/>
         <field name="partyIdTypeEnumId" type="id" is-pk="true"/>
         <field name="idValue" type="text-medium" encrypt="true"/>
@@ -716,7 +716,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="PartySetting" package="mantle.party">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="partySettingTypeId" type="id" is-pk="true"/>
-        <field name="settingValue" type="text-medium" is-pk="true"/>
+        <field name="settingValue" type="text-medium"/>
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one" related="mantle.party.PartySettingType" short-alias="settingType"/>
         <relationship type="one-nofk" related="moqui.basic.Enumeration">
@@ -726,7 +726,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="PartyRelationshipSetting" package="mantle.party">
         <field name="partyRelationshipId" type="id" is-pk="true"/>
         <field name="partySettingTypeId" type="id" is-pk="true"/>
-        <field name="settingValue" type="text-medium" is-pk="true"/>
+        <field name="settingValue" type="text-medium"/>
         <relationship type="one" related="mantle.party.PartyRelationship" short-alias="partyRelationship"/>
         <relationship type="one" related="mantle.party.PartySettingType" short-alias="settingType"/>
         <relationship type="one-nofk" related="moqui.basic.Enumeration">
@@ -738,18 +738,15 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="description" type="text-medium"/>
         <field name="validRegexp" type="text-medium"><description>For non-enum settings, regexp to validate</description></field>
         <field name="enumTypeId" type="id"/>
-        <field name="singleValue" type="text-indicator"><description>If Y only allow a single value for the setting (single PartySetting record)</description></field>
         <field name="defaultValue" type="text-medium"/>
         <relationship type="one" related="moqui.basic.EnumerationType" short-alias="type"/>
         <relationship type="many" related="mantle.party.PartySettingTypeRole" short-alias="roles">
             <key-map field-name="partySettingTypeId"/></relationship>
         <seed-data>
-            <moqui.basic.EnumerationType description="Customer Setting" enumTypeId="CustomerSetting"/>
-            <moqui.basic.Enumeration description="Single Lot per Order" enumId="CsstSingleLot" enumTypeId="CustomerSetting"/>
-            <moqui.basic.Enumeration description="Newer Inventory each Order" enumId="CsstNewerInventory" enumTypeId="CustomerSetting"/>
-            <mantle.party.PartySettingType description="Customer Setting" partySettingTypeId="CustomerSetting"
-                    enumTypeId="CustomerSetting" singleValue="N"/>
-            <mantle.party.PartySettingTypeRole partySettingTypeId="CustomerSetting" roleTypeId="Customer"/>
+            <mantle.party.PartySettingType partySettingTypeId="CustomerSingleLot" description="Single Lot per Order"
+                    enumTypeId="BooleanYN" defaultValue="BlN"><roles roleTypeId="Customer"/></mantle.party.PartySettingType>
+            <mantle.party.PartySettingType partySettingTypeId="CustomerNewerInventory" description="Newer Inventory each Order"
+                    enumTypeId="BooleanYN" defaultValue="BlN"><roles roleTypeId="Customer"/></mantle.party.PartySettingType>
         </seed-data>
     </entity>
     <entity entity-name="PartySettingTypeRole" package="mantle.party" use="configuration">
@@ -758,12 +755,6 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.party.PartySettingType" short-alias="settingType"/>
         <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
     </entity>
-    <view-entity entity-name="PartySettingTypeAndRole" package="mantle.party">
-        <member-entity entity-alias="PSET" entity-name="mantle.party.PartySettingType"/>
-        <member-relationship entity-alias="PSTR" join-from-alias="PSET" relationship="roles" join-optional="true"/>
-        <alias-all entity-alias="PSET"/>
-        <alias-all entity-alias="PSTR"/>
-    </view-entity>
 
     <!-- ========================================================= -->
     <!-- mantle.party.agreement -->

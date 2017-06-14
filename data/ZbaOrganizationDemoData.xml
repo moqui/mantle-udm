@@ -329,8 +329,8 @@ along with this software (see the LICENSE.md file). If not, see
         <organization organizationName="Joe's Distributing"/>
         <roles roleTypeId="Customer"/>
         <classifications partyClassificationId="CustDistributor" fromDate="1265184000000"/>
-        <settings partySettingTypeId="CustomerSetting" settingValue="CsstSingleLot"/>
-        <settings partySettingTypeId="CustomerSetting" settingValue="CsstNewerInventory"/>
+        <settings partySettingTypeId="CustomerSingleLot" settingValue="BlY"/>
+        <settings partySettingTypeId="CustomerNewerInventory" settingValue="BlY"/>
 
         <mantle.party.contact.ContactMech contactMechId="JoeDistPem" contactMechTypeEnumId="CmtEmailAddress" infoString="joe@public.com">
             <parties contactMechPurposeId="EmailPrimary" fromDate="1265184000000"/></mantle.party.contact.ContactMech>
