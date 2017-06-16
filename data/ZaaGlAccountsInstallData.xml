@@ -285,7 +285,7 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="200000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="" disallowPosting="Y"/>
 
     <!-- 210000 LIABILITY - ACCOUNTS PAYABLE -->
-    <mantle.ledger.account.GlAccount accountName="Accounts Payable" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
+    <mantle.ledger.account.GlAccount accountName="Accounts Payable Root" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
         glAccountId="210000000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="200000000"/>
 
     <mantle.ledger.account.GlAccount accountName="Accrued Accounts Payable" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
@@ -458,9 +458,9 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- 258000 LIABILITY - FINANCIAL ACCOUNT IN TRANSIT -->
     <mantle.ledger.account.GlAccount accountName="Financial Account in Transit" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="258000000" glAccountTypeEnumId="GatCurrentLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="250000000"/>
-    <mantle.ledger.account.GlAccount accountName="In Transit Deposits" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="Financial Account In Transit Deposits" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="258100000" glAccountTypeEnumId="GatCurrentLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="258000000"/>
-    <mantle.ledger.account.GlAccount accountName="In Transit Withdrawals" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="Financial Account In Transit Withdrawals" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="258200000" glAccountTypeEnumId="GatCurrentLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="258000000"/>
 
     <!-- 260000 LIABILITY - UNEARNED REVENUE -->
@@ -1225,7 +1225,6 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccountOrganization glAccountId="160000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="180000000" organizationPartyId="DefaultSettings"/>
 
-    <mantle.ledger.account.GlAccountOrganization glAccountId="210000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="212000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="212100000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="212200000" organizationPartyId="DefaultSettings"/>
@@ -1397,7 +1396,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.GlAccountTypeDefault glAccountId="160000000" glAccountTypeEnumId="GatAccruedRevenue" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.GlAccountTypeDefault glAccountId="180000000" glAccountTypeEnumId="GatFaAccumDepreciation" organizationPartyId="DefaultSettings"/>
 
-    <mantle.ledger.config.GlAccountTypeDefault glAccountId="210000000" glAccountTypeEnumId="GatAccountsPayable" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.GlAccountTypeDefault glAccountId="212000000" glAccountTypeEnumId="GatAccountsPayable" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.GlAccountTypeDefault glAccountId="214000000" glAccountTypeEnumId="GatUninvoicedShpmntRcpts" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.GlAccountTypeDefault glAccountId="215000000" glAccountTypeEnumId="GatPayInventoryTranIn" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.GlAccountTypeDefault glAccountId="216000000" glAccountTypeEnumId="GatAccPayableUnapplied" organizationPartyId="DefaultSettings"/>
@@ -1425,13 +1424,13 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.GlAccountTypeDefault glAccountId="730000000" glAccountTypeEnumId="GatTax" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceSales" organizationPartyId="DefaultSettings"
-            isPayable="N" acctgTransTypeEnumId="AttSalesInvoice" glAccountId=""/>
+            isPayable="N" acctgTransTypeEnumId="AttSalesInvoice" glAccountId="121000000"/>
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceSales" organizationPartyId="DefaultSettings"
-            isPayable="Y" acctgTransTypeEnumId="AttPurchaseInvoice" glAccountId=""/>
+            isPayable="Y" acctgTransTypeEnumId="AttPurchaseInvoice" glAccountId="212000000"/>
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceReturn" organizationPartyId="DefaultSettings"
-            isPayable="N" acctgTransTypeEnumId="AttVendRtnInvoice" glAccountId=""/>
+            isPayable="N" acctgTransTypeEnumId="AttVendRtnInvoice" glAccountId="121000000"/>
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceReturn" organizationPartyId="DefaultSettings"
-            isPayable="Y" acctgTransTypeEnumId="AttCustRtnInvoice" glAccountId=""/>
+            isPayable="Y" acctgTransTypeEnumId="AttCustRtnInvoice" glAccountId="212000000"/>
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoicePayroll" organizationPartyId="DefaultSettings"
             isPayable="Y" acctgTransTypeEnumId="AttPayrollInvoice" glAccountId="212100000"/>
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceCommission" organizationPartyId="DefaultSettings"
@@ -1618,21 +1617,21 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="633290000" direction="E" itemTypeEnumId="ItemPrlExpTaxSurtaxEmpr" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.config.PaymentTypeGlAccount glAccountId="335000000" isApplied="E" isPayable="Y" organizationPartyId="DefaultSettings"
-        paymentTypeEnumId="PtDisbursement"/><!-- Retained Earnings -->
+            paymentTypeEnumId="PtDisbursement"/><!-- Retained Earnings -->
     <mantle.ledger.config.PaymentTypeGlAccount glAccountId="251000000" isApplied="E" isPayable="Y" organizationPartyId="DefaultSettings"
-        paymentTypeEnumId="PtRefund"/><!-- Refund Applied, Customer Credit -->
+            paymentTypeEnumId="PtRefund"/><!-- Refund Applied, Customer Credit -->
     <mantle.ledger.config.PaymentTypeGlAccount glAccountId="121000000" isApplied="Y" isPayable="N" organizationPartyId="DefaultSettings"
-        paymentTypeEnumId="PtInvoicePayment"/><!-- AR (applied) -->
+            paymentTypeEnumId="PtInvoicePayment"/><!-- AR (applied) -->
     <mantle.ledger.config.PaymentTypeGlAccount glAccountId="126000000" isApplied="N" isPayable="N" organizationPartyId="DefaultSettings"
-        paymentTypeEnumId="PtInvoicePayment"/><!-- AR Unapplied -->
-    <mantle.ledger.config.PaymentTypeGlAccount glAccountId="210000000" isApplied="Y" isPayable="Y" organizationPartyId="DefaultSettings"
-        paymentTypeEnumId="PtInvoicePayment"/><!-- AP (applied) -->
+            paymentTypeEnumId="PtInvoicePayment"/><!-- AR Unapplied -->
+    <mantle.ledger.config.PaymentTypeGlAccount glAccountId="212000000" isApplied="Y" isPayable="Y" organizationPartyId="DefaultSettings"
+            paymentTypeEnumId="PtInvoicePayment"/><!-- AP (applied) -->
     <mantle.ledger.config.PaymentTypeGlAccount glAccountId="216000000" isApplied="N" isPayable="Y" organizationPartyId="DefaultSettings"
-        paymentTypeEnumId="PtInvoicePayment"/><!-- AP Unapplied -->
+            paymentTypeEnumId="PtInvoicePayment"/><!-- AP Unapplied -->
     <mantle.ledger.config.PaymentTypeGlAccount glAccountId="258100000" isApplied="E" isPayable="N" organizationPartyId="DefaultSettings"
-            paymentTypeEnumId="PtFinancialAccount"/><!-- Financial Account Deposit Temporary -->
+            paymentTypeEnumId="PtFinancialAccount"/><!-- Financial Account In Transit Deposits -->
     <mantle.ledger.config.PaymentTypeGlAccount glAccountId="258200000" isApplied="E" isPayable="Y" organizationPartyId="DefaultSettings"
-            paymentTypeEnumId="PtFinancialAccount"/><!-- Financial Account Withdrawal Temporary -->
+            paymentTypeEnumId="PtFinancialAccount"/><!-- Financial Account In Transit Withdrawals -->
 
     <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="111100000" organizationPartyId="DefaultSettings"
             paymentInstrumentEnumId="PiAch" isPayable="E"/>
@@ -1677,12 +1676,13 @@ along with this software (see the LICENSE.md file). If not, see
 
     <mantle.ledger.config.CreditCardTypeGlAccount creditCardTypeEnumId="CctVisa" organizationPartyId="DefaultSettings" glAccountId="122000000"/>
 
-    <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251200000" finAccountTypeId="GiftCertificate" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251100000" finAccountTypeId="CustomerCredit" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251200000" finAccountTypeId="GiftCertificate" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251500000" finAccountTypeId="DepositAccount" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251500000" finAccountTypeId="BankAccount" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251500000" finAccountTypeId="Investment" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="252000000" finAccountTypeId="SupplierDeposit" organizationPartyId="DefaultSettings"/>
+    <!-- <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251500000" finAccountTypeId="BankAccount" organizationPartyId="DefaultSettings"/> -->
+    <!-- <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251500000" finAccountTypeId="Investment" organizationPartyId="DefaultSettings"/> -->
+    <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="151400000" finAccountTypeId="EmployeeAdvance" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="121000000" reasonEnumId="FatrPurchase" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="258100000" reasonEnumId="FatrInitDeposit" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="258100000" reasonEnumId="FatrReplenish" organizationPartyId="DefaultSettings"/>
