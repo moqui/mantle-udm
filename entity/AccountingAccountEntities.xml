@@ -273,22 +273,24 @@ along with this software (see the LICENSE.md file). If not, see
                     replenishTypeEnumId="FarpManual" isRefundable="N"/>
             <mantle.account.financial.FinancialAccountType description="Deposit" finAccountTypeId="DepositAccount"
                     replenishTypeEnumId="FarpManual" isRefundable="Y"/>
-            <mantle.account.financial.FinancialAccountType description="Bank" finAccountTypeId="BankAccount"
-                    replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="DepositAccount"/>
             <mantle.account.financial.FinancialAccountType description="Customer Credit" finAccountTypeId="CustomerCredit"
-                    replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="DepositAccount"/>
-            <mantle.account.financial.FinancialAccountType description="Investment" finAccountTypeId="Investment"
                     replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="DepositAccount"/>
             <mantle.account.financial.FinancialAccountType description="Deposit Replenish" finAccountTypeId="Replenish"
                     replenishTypeEnumId="FarpAutomatic" isRefundable="Y" parentTypeId="DepositAccount"/>
+            <!-- <mantle.account.financial.FinancialAccountType description="Investment" finAccountTypeId="Investment"
+                    replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="DepositAccount"/> -->
+            <!-- <mantle.account.financial.FinancialAccountType description="Bank" finAccountTypeId="BankAccount"
+                    replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="DepositAccount"/> -->
             <mantle.account.financial.FinancialAccountType description="Service Credit" finAccountTypeId="ServiceCredit"
                     replenishTypeEnumId="FarpManual" isRefundable="N"/>
             <mantle.account.financial.FinancialAccountType description="Loan" finAccountTypeId="LoanAccount"
                     replenishTypeEnumId="FarpManual" isRefundable="Y"/>
-            <mantle.account.financial.FinancialAccountType description="Credit Card" finAccountTypeId="CreditCard"
+            <mantle.account.financial.FinancialAccountType description="Employee Advance" finAccountTypeId="EmployeeAdvance"
                     replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="LoanAccount"/>
-            <mantle.account.financial.FinancialAccountType description="Equity Line" finAccountTypeId="EquityLine"
-                    replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="LoanAccount"/>
+            <!-- <mantle.account.financial.FinancialAccountType description="Credit Card" finAccountTypeId="CreditCard"
+                    replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="LoanAccount"/> -->
+            <!-- <mantle.account.financial.FinancialAccountType description="Equity Line" finAccountTypeId="EquityLine"
+                    replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="LoanAccount"/> -->
             <mantle.account.financial.FinancialAccountType description="Supplier Deposit" finAccountTypeId="SupplierDeposit"
                     replenishTypeEnumId="FarpManual" isRefundable="Y"/>
         </seed-data>
