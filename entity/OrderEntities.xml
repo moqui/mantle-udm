@@ -308,13 +308,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.order.OrderPart" short-alias="part">
             <key-map field-name="orderId"/><key-map field-name="orderPartSeqId"/></relationship>
         <relationship type="one-nofk" title="Parent" related="mantle.order.OrderItem" short-alias="parent">
-            <key-map field-name="orderId"/>
-            <key-map field-name="parentItemSeqId" related="orderItemSeqId"/>
-        </relationship>
+            <key-map field-name="orderId"/><key-map field-name="parentItemSeqId" related="orderItemSeqId"/></relationship>
         <relationship type="many" title="Child" related="mantle.order.OrderItem" short-alias="children">
-            <key-map field-name="orderId"/>
-            <key-map field-name="orderItemSeqId" related="parentItemSeqId"/>
-        </relationship>
+            <key-map field-name="orderId"/><key-map field-name="orderItemSeqId" related="parentItemSeqId"/></relationship>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <!-- <relationship type="one" related="mantle.product.config.ProductConfigSaved"/> -->
         <relationship type="one" related="mantle.product.feature.ProductFeature" short-alias="feature"/>

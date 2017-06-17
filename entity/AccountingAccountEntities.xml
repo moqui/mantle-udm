@@ -504,6 +504,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="InvoiceItem" package="mantle.account.invoice" cache="never">
         <field name="invoiceId" type="id" is-pk="true"/>
         <field name="invoiceItemSeqId" type="id" is-pk="true"/>
+        <field name="parentItemSeqId" type="id"/>
         <field name="itemTypeEnumId" type="id"/>
         <field name="overrideGlAccountId" type="id"><description>The override or actual glAccountId used for the
             AcctgTransEntry based on the InvoiceItem. If empty the glAccountId will be determined based on configuration
@@ -523,12 +524,16 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="taxAuthorityId" type="id"/>
         <field name="payrollAdjustmentId" type="id"/>
 
+        <relationship type="one-nofk" title="Parent" related="mantle.account.invoice.InvoiceItem" short-alias="parent">
+            <key-map field-name="invoiceId"/><key-map field-name="parentItemSeqId" related="invoiceItemSeqId"/></relationship>
+        <relationship type="many" title="Child" related="mantle.account.invoice.InvoiceItem" short-alias="children">
+            <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId" related="parentItemSeqId"/></relationship>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="itemTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
         <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
-        <relationship type="one" title="Parent" related="mantle.account.invoice.InvoiceItem" short-alias="parentItem">
+        <relationship type="one" title="OtherParent" related="mantle.account.invoice.InvoiceItem" short-alias="otherParent">
             <key-map field-name="parentInvoiceId" related="invoiceId"/>
             <key-map field-name="parentInvoiceItemSeqId" related="invoiceItemSeqId"/>
         </relationship>
