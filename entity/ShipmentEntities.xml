@@ -278,6 +278,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="SisPending" toStatusId="SisReceived" transitionName="Receive"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="SisPicked" toStatusId="SisReceived" transitionName="Receive"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="SisPacked" toStatusId="SisReceived" transitionName="Receive"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="SisPacked" toStatusId="SisPending" transitionName="Unpack"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="SisPending" toStatusId="SisCancelled" transitionName="Cancel"/>
         </seed-data>
     </entity>
