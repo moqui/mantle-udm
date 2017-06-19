@@ -900,9 +900,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="AttAmortization" description="Amortization" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttDepreciation" description="Depreciation" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttCapitalization" description="Capitalization" enumTypeId="AcctgTransType"/>
-            <moqui.basic.Enumeration enumId="AttInventoryReceipt" description="Inventory Receipt" enumTypeId="AcctgTransType"/>
-            <moqui.basic.Enumeration enumId="AttInventoryIssuance" description="Inventory Issuance" enumTypeId="AcctgTransType"/>
-            <moqui.basic.Enumeration enumId="AttInventoryVariance" description="Inventory Variance" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttPeriodClosing" description="Period Closing Adjustment" enumTypeId="AcctgTransType"/>
 
             <moqui.basic.Enumeration enumId="AttInternal" description="Internal" enumTypeId="AcctgTransType"/>
@@ -936,6 +933,10 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="AttAssetReceipt" description="Asset Receipt" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttAssetIssuance" description="Asset Issuance" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttAssetVariance" description="Asset Variance" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttInventoryReceipt" description="Inventory Receipt" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttInventoryIssuance" description="Inventory Issuance" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttInventoryVariance" description="Inventory Variance" enumTypeId="AcctgTransType"/>
+
             <moqui.basic.Enumeration enumId="AttSalesInventory" description="Sales Inventory" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttReturnInventory" description="Return Inventory" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttManufacturing" description="Manufacturing" enumTypeId="AcctgTransType"/>
