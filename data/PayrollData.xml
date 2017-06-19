@@ -43,7 +43,7 @@ along with this software (see the LICENSE.md file). If not, see
     Should HOURLY Rest Breaks and NPT be paid RRP?
         If N, HOURLY Rest Breaks and NPT are paid HOURLY rate (If breaks are not extracted for RRP, they should not be paid RRP).
     Should Shift Differentials be included in RRP calculation?
-        This is required in the USA by the FLSA
+        This is required in the USA by the FLSA: https://www.dol.gov/whd/regs/compliance/whdfs54.htm
     How frequently should RRP be calculated?
     -->
     <mantle.party.PartySettingType description="Payroll RRP - Exclude Breaks/NPT" partySettingTypeId="PayrollRrpExclBreak"
@@ -108,6 +108,18 @@ along with this software (see the LICENSE.md file). If not, see
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll MWG - Calc Grouping" partySettingTypeId="PayrollMwCalcGrp"
                                    enumTypeId="PayrollWageGrp" defaultValue="PwgNone">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+    <!-- Workers Compensation (Risk Class):
+        Should overtime premiums be included in Workers Compensation Insurance calculations?
+            Pennsylvania, Delaware, Utah, and Nevada are the only states that included it currently.
+        Should shift differential premiums be included in Workers Compensation Insurance calculations?
+    -->
+    <mantle.party.PartySettingType description="Payroll WC - Include OT Premiums" partySettingTypeId="PayrollWcOtPrem"
+                                   enumTypeId="BooleanYN" defaultValue="BlN">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll WC - Include Shift Diff Premiums" partySettingTypeId="PayrollWcShDiffPrem"
+                                   enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- Pay Stub:
