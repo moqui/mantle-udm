@@ -528,6 +528,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="salesOpportunityId" type="id"/>
         <field name="taxAuthorityId" type="id"/>
         <field name="payrollAdjustmentId" type="id"/>
+        <field name="finAccountId" type="id"/>
+        <field name="finAccountTransId" type="id"/>
 
         <relationship type="one-nofk" title="Parent" related="mantle.account.invoice.InvoiceItem" short-alias="parent">
             <key-map field-name="invoiceId"/><key-map field-name="parentItemSeqId" related="invoiceItemSeqId"/></relationship>
@@ -544,11 +546,15 @@ along with this software (see the LICENSE.md file). If not, see
         </relationship>
         <relationship type="one" title="Override" related="mantle.ledger.account.GlAccount" short-alias="overrideGlAccount">
             <key-map field-name="overrideGlAccountId"/></relationship>
+
         <relationship type="one" title="Quantity" related="moqui.basic.Uom" short-alias="quantityUom">
             <key-map field-name="quantityUomId"/></relationship>
         <relationship type="one" related="SalesOpportunity" short-alias="salesOpportunity"/>
         <relationship type="one" related="mantle.other.tax.TaxAuthority" short-alias="taxAuthority"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment" short-alias="payrollAdjustment"/>
+        <relationship type="one" related="mantle.account.financial.FinancialAccount" short-alias="financialAccount"/>
+        <relationship type="one" related="mantle.account.financial.FinancialAccountTrans" short-alias="financialAccountTrans"/>
+
         <relationship type="many" related="mantle.account.invoice.InvoiceItemDetail" short-alias="details">
             <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
         <relationship type="many" related="mantle.order.OrderItemBilling" short-alias="orderItemBilling">
