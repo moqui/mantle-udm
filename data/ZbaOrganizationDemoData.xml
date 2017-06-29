@@ -47,7 +47,6 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.Organization partyId="ORG_ZIZI_SERVICES" organizationName="Ziziwork Services"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_SERVICES" roleTypeId="OrgInternal"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_SERVICES" roleTypeId="Vendor"/>
-    <mantle.party.PartyRole partyId="ORG_ZIZI_SERVICES" roleTypeId="VendorBillFrom"/>
     <mantle.party.PartyContent partyContentId="ZISER_LOGO" partyContentTypeEnumId="PcntLogoImage"
             contentLocation="component://SimpleScreens/screen/ssstatic/images/Vendor.png"/>
 
@@ -233,7 +232,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========== DEMO RETAILER DATA ========== -->
     <mantle.party.Party partyId="ORG_ZIZI_RETAIL" pseudoId="ZIRET" partyTypeEnumId="PtyOrganization">
         <organization organizationName="Ziziwork Retail"/>
-        <roles roleTypeId="OrgInternal"/><roles roleTypeId="Vendor"/><roles roleTypeId="VendorBillFrom"/>
+        <roles roleTypeId="OrgInternal"/>
 
         <contents partyContentId="ZIRET_LOGO" partyContentTypeEnumId="PcntLogoImage"
                 contentLocation="component://SimpleScreens/screen/ssstatic/images/Customer.png"/>
