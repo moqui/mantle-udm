@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This software is in the public domain under CC0 1.0 Universal plus a 
+Grant of Patent License.
+
+To the extent possible under law, the author(s) have dedicated all
+copyright and related and neighboring rights to this software to the
+public domain worldwide. This software is distributed without any
+warranty.
+
+You should have received a copy of the CC0 Public Domain Dedication
+along with this software (see the LICENSE.md file). If not, see
+<http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<entity-facade-xml type="seed">
+
+    <!-- Sales OrderItem -->
+    <dataDocuments dataDocumentId="MantleSalesOrderItem" indexName="mantle_sales" documentName="Sales Order Item"
+            primaryEntityName="mantle.order.OrderItem" documentTitle="${orderId}:${orderItemSeqId}">
+        <fields fieldSeqId="01" fieldPath="orderId"/>
+        <fields fieldSeqId="02" fieldPath="orderItemSeqId"/>
+        <fields fieldSeqId="03" fieldPath="parentItemSeqId"/>
+        <fields fieldSeqId="04" fieldPath="orderPartSeqId"/>
+        <fields fieldSeqId="05" fieldPath="itemTypeEnumId"/>
+        <fields fieldSeqId="06" fieldPath="productId"/>
+        <fields fieldSeqId="07" fieldPath="quantity" fieldNameAlias="orderQuantity"/>
+        <fields fieldSeqId="08" fieldPath="selectedAmount"/>
+        <fields fieldSeqId="09" fieldPath="unitAmount"/>
+        <fields fieldSeqId="10" fieldPath="unitListPrice"/>
+        <fields fieldSeqId="11" fieldPath="requiredByDate"/>
+        <fields fieldSeqId="12" fieldPath="isPromo"/>
+        <fields fieldSeqId="13" fieldPath="((orderQuantity ?: 1.0) * (unitAmount ?: 0.0))" fieldNameAlias="orderItemTotal" fieldType="double"/>
+
+        <fields fieldSeqId="21" fieldPath="part:statusId" fieldNameAlias="partStatusId"/>
+        <fields fieldSeqId="22" fieldPath="part:facilityId"/>
+        <fields fieldSeqId="23" fieldPath="part:vendorPartyId"/>
+        <fields fieldSeqId="24" fieldPath="part:vendorRoles:roleTypeId" fieldNameAlias="vendorRoleTypeId"/>
+        <fields fieldSeqId="25" fieldPath="part:customerPartyId"/>
+        <fields fieldSeqId="26" fieldPath="part:shipmentMethodEnumId"/>
+
+        <fields fieldSeqId="31" fieldPath="part:postalAddress:city"/>
+        <fields fieldSeqId="32" fieldPath="part:postalAddress:stateProvinceGeoId"/>
+        <fields fieldSeqId="33" fieldPath="part:postalAddress:countryGeoId"/>
+        <fields fieldSeqId="34" fieldPath="part:postalAddress:postalCode"/>
+        <fields fieldSeqId="35" fieldPath="part:postalAddress:postalCodeExt"/>
+
+        <fields fieldSeqId="41" fieldPath="header:entryDate"/>
+        <fields fieldSeqId="42" fieldPath="header:placedDate"/>
+        <fields fieldSeqId="43" fieldPath="header:statusId"/>
+        <fields fieldSeqId="44" fieldPath="header:productStoreId"/>
+        <fields fieldSeqId="45" fieldPath="header:salesChannelEnumId"/>
+        <fields fieldSeqId="46" fieldPath="header:currencyUomId"/>
+
+        <fields fieldSeqId="51" fieldPath="issuances:issuedDate"/>
+        <fields fieldSeqId="52" fieldPath="issuances:quantity" fieldNameAlias="issuedQuantity"/>
+        <fields fieldSeqId="53" fieldPath="issuances:(issuedQuantity * (unitAmount ?: 0.0))" fieldNameAlias="issuedSaleTotal" fieldType="double"/>
+        <fields fieldSeqId="54" fieldPath="issuances:asset:acquireCost"/>
+        <fields fieldSeqId="55" fieldPath="issuances:(issuedQuantity * (acquireCost ?: 0.0))" fieldNameAlias="issuedCostTotal" fieldType="double"/>
+        <fields fieldSeqId="56" fieldPath="issuances:((unitAmount ?: 0.0) - (acquireCost ?: 0.0))" fieldNameAlias="issuedMargin" fieldType="double"/>
+        <fields fieldSeqId="57" fieldPath="issuances:((issuedQuantity * (unitAmount ?: 0.0)) - (issuedQuantity * (acquireCost ?: 0.0)))" fieldNameAlias="issuedMarginTotal" fieldType="double"/>
+
+        <fields fieldSeqId="61" fieldPath="product:pseudoId"/>
+        <fields fieldSeqId="62" fieldPath="product:productTypeEnumId"/>
+        <fields fieldSeqId="63" fieldPath="product:productClassEnumId"/>
+        <fields fieldSeqId="64" fieldPath="product:assetTypeEnumId"/>
+        <fields fieldSeqId="65" fieldPath="product:assetClassEnumId"/>
+
+        <fields fieldSeqId="71" fieldPath="product:dimensions:dimensionTypeId"/>
+        <fields fieldSeqId="72" fieldPath="product:dimensions:value" fieldNameAlias="dimensionValue"/>
+
+        <fields fieldSeqId="81" fieldPath="product:features:productFeatureId"/>
+        <fields fieldSeqId="82" fieldPath="product:features:applTypeEnumId"/>
+        <fields fieldSeqId="83" fieldPath="product:features:fromDate" fieldNameAlias="applFromDate"/>
+        <fields fieldSeqId="84" fieldPath="product:features:thruDate" fieldNameAlias="applThruDate"/>
+        <fields fieldSeqId="85" fieldPath="product:features:feature:productFeatureTypeEnumId"/>
+
+        <conditions conditionSeqId="01" fieldNameAlias="vendorRoleTypeId" fieldValue="OrgInternal"/>
+    </dataDocuments>
+
+</entity-facade-xml>
