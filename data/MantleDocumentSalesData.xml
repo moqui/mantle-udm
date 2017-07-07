@@ -55,9 +55,12 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="52" fieldPath="issuances:quantity" fieldNameAlias="issuedQuantity"/>
         <fields fieldSeqId="53" fieldPath="issuances:(issuedQuantity * (unitAmount ?: 0.0))" fieldNameAlias="issuedSaleTotal" fieldType="double"/>
         <fields fieldSeqId="54" fieldPath="issuances:asset:acquireCost"/>
-        <fields fieldSeqId="55" fieldPath="issuances:(issuedQuantity * (acquireCost ?: 0.0))" fieldNameAlias="issuedCostTotal" fieldType="double"/>
-        <fields fieldSeqId="56" fieldPath="issuances:((unitAmount ?: 0.0) - (acquireCost ?: 0.0))" fieldNameAlias="issuedMargin" fieldType="double"/>
-        <fields fieldSeqId="57" fieldPath="issuances:((issuedQuantity * (unitAmount ?: 0.0)) - (issuedQuantity * (acquireCost ?: 0.0)))" fieldNameAlias="issuedMarginTotal" fieldType="double"/>
+        <fields fieldSeqId="55" fieldPath="issuances:(acquireCost ? issuedQuantity * acquireCost : null)" fieldNameAlias="issuedCostTotal" fieldType="double"/>
+        <fields fieldSeqId="56" fieldPath="issuances:(acquireCost ? (unitAmount ?: 0.0) - acquireCost : null)" fieldNameAlias="issuedMargin" fieldType="double"/>
+        <fields fieldSeqId="57" fieldPath="issuances:(acquireCost &amp;&amp; unitAmount ? (unitAmount - acquireCost) / unitAmount : null)"
+                fieldNameAlias="issuedMarginPercent" fieldType="float"/>
+        <fields fieldSeqId="58" fieldPath="issuances:(acquireCost ? (issuedQuantity * (unitAmount ?: 0.0)) - (issuedQuantity * acquireCost) : null)"
+                fieldNameAlias="issuedMarginTotal" fieldType="double"/>
 
         <fields fieldSeqId="61" fieldPath="product:pseudoId"/>
         <fields fieldSeqId="62" fieldPath="product:productTypeEnumId"/>
