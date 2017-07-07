@@ -144,14 +144,12 @@ along with this software (see the LICENSE.md file). If not, see
     </dataDocuments>
 
     <!-- DataFeed -->
-    <!-- uncomment this to enable the feed and index data for these documents:
-    <moqui.entity.feed.DataFeed dataFeedId="MantleInventorySearch" dataFeedTypeEnumId="DTFDTP_RT_PUSH"
-            feedName="Mantle Inventory Search" feedReceiveServiceName="org.moqui.search.SearchServices.index#DataDocuments">
+    <moqui.entity.feed.DataFeed dataFeedId="MantleInventoryData" dataFeedTypeEnumId="DTFDTP_RT_PUSH"
+            feedName="Mantle Inventory Data" feedReceiveServiceName="org.moqui.search.SearchServices.index#DataDocuments">
         <documents dataDocumentId="MantleInventoryAsset"/>
         <documents dataDocumentId="MantleInventoryOrderItem"/>
         <documents dataDocumentId="MantleInventoryRunConsume"/>
         <documents dataDocumentId="MantleInventoryRunProduce"/>
         <documents dataDocumentId="MantleInventoryProdEstimate"/>
     </moqui.entity.feed.DataFeed>
-    -->
 </entity-facade-xml>

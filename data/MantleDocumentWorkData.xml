@@ -82,4 +82,13 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="13" fieldPath="parties:person:lastName"/>
         <fields fieldSeqId="14" fieldPath="parties:organization:organizationName"/>
     </dataDocuments>
+
+    <!-- ================ -->
+    <!-- Search Data Feed -->
+    <moqui.entity.feed.DataFeed dataFeedId="MantleSearch">
+        <documents dataDocumentId="MantleProject"/>
+        <documents dataDocumentId="MantleTask"/>
+        <documents dataDocumentId="MantleEvent"/>
+        <documents dataDocumentId="MantleRequest"/>
+    </moqui.entity.feed.DataFeed>
 </entity-facade-xml>

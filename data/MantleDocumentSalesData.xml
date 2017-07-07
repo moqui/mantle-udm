@@ -87,4 +87,10 @@ along with this software (see the LICENSE.md file). If not, see
         <conditions conditionSeqId="01" fieldNameAlias="vendorRoleTypeId" fieldValue="OrgInternal"/>
     </dataDocuments>
 
+    <!-- =============== -->
+    <!-- Index Data Feed -->
+    <moqui.entity.feed.DataFeed dataFeedId="MantleSales" dataFeedTypeEnumId="DTFDTP_RT_PUSH"
+            feedName="Mantle Sales Data" feedReceiveServiceName="org.moqui.search.SearchServices.index#DataDocuments">
+        <documents dataDocumentId="MantleSalesOrderItem"/>
+    </moqui.entity.feed.DataFeed>
 </entity-facade-xml>

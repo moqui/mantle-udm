@@ -175,4 +175,31 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="23" fieldPath="contactMechs:postalAddress:postalCode"/>
         <fields fieldSeqId="24" fieldPath="contactMechs:postalAddress:stateProvinceGeo:geoName" fieldNameAlias="state"/>
     </dataDocuments>
+
+    <!-- ========== Wiki Page ========== -->
+    <dataDocuments dataDocumentId="MantleWikiPage" indexName="mantle" documentName="Wiki Page"
+            primaryEntityName="moqui.resource.wiki.WikiPage" documentTitle="${wikiSpaceId}/${pagePath?:''}"
+            manualDataServiceName="org.moqui.impl.WikiServices.get#WikiPageManualDocumentData">
+        <!-- NOTE: service purpose is to get wiki page contents from the file (resource) -->
+        <fields fieldSeqId="01" fieldPath="wikiPageId"/>
+        <fields fieldSeqId="02" fieldPath="wikiSpaceId"/>
+        <fields fieldSeqId="03" fieldPath="pagePath"/>
+        <fields fieldSeqId="04" fieldPath="space:description" fieldNameAlias="space"/>
+        <!-- the history fields are useful for update history and search by users who have updated a page, but also trigger indexing on page update -->
+        <fields fieldSeqId="10" fieldPath="histories:historySeqId"/>
+        <fields fieldSeqId="11" fieldPath="histories:changeDateTime"/>
+        <fields fieldSeqId="12" fieldPath="histories:userId"/>
+        <!-- causing issues with false update notice for other fields on UserAccount like during login: <fields fieldSeqId="01" fieldPath="histories:user:username"/> -->
+    </dataDocuments>
+
+    <!-- ================ -->
+    <!-- Search Data Feed -->
+    <moqui.entity.feed.DataFeed dataFeedId="MantleSearch" dataFeedTypeEnumId="DTFDTP_RT_PUSH"
+            feedName="Mantle General Search" feedReceiveServiceName="org.moqui.search.SearchServices.index#DataDocuments">
+        <documents dataDocumentId="MantleParty"/>
+        <documents dataDocumentId="MantleCommunicationEvent"/>
+        <documents dataDocumentId="MantleProduct"/>
+        <documents dataDocumentId="MantleFacility"/>
+        <documents dataDocumentId="MantleWikiPage"/>
+    </moqui.entity.feed.DataFeed>
 </entity-facade-xml>
