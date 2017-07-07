@@ -29,7 +29,13 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="10" fieldPath="unitListPrice"/>
         <fields fieldSeqId="11" fieldPath="requiredByDate"/>
         <fields fieldSeqId="12" fieldPath="isPromo"/>
-        <fields fieldSeqId="13" fieldPath="((orderQuantity ?: 1.0) * (unitAmount ?: 0.0))" fieldNameAlias="orderItemTotal" fieldType="double"/>
+        <fields fieldSeqId="13" fieldPath="((orderQuantity ?: 1.0) * (unitAmount ?: 0.0))" fieldNameAlias="itemSaleTotal" fieldType="double"/>
+        <fields fieldSeqId="14" fieldPath="(issuances ? issuances.sum({ (it.acquireCost ?: 0.0) * it.issuedQuantity }) : null)"
+                fieldNameAlias="itemCostTotal" fieldType="double"/>
+        <fields fieldSeqId="15" fieldPath="(issuances ? ((orderQuantity ?: 1.0) * (unitAmount ?: 0.0)) - issuances.sum({ (it.acquireCost ?: 0.0) * it.issuedQuantity }) : null)"
+                fieldNameAlias="itemMarginTotal" fieldType="double"/>
+        <fields fieldSeqId="16" fieldPath="(issuances &amp;&amp; unitAmount ? (((orderQuantity ?: 1.0) * unitAmount) - issuances.sum({ (it.acquireCost ?: 0.0) * it.issuedQuantity })) / ((orderQuantity ?: 1.0) * unitAmount) : null)"
+                fieldNameAlias="itemMarginPercent" fieldType="double"/>
 
         <fields fieldSeqId="21" fieldPath="part:statusId" fieldNameAlias="partStatusId"/>
         <fields fieldSeqId="22" fieldPath="part:facilityId"/>
@@ -53,13 +59,14 @@ along with this software (see the LICENSE.md file). If not, see
 
         <fields fieldSeqId="51" fieldPath="issuances:issuedDate"/>
         <fields fieldSeqId="52" fieldPath="issuances:quantity" fieldNameAlias="issuedQuantity"/>
-        <fields fieldSeqId="53" fieldPath="issuances:(issuedQuantity * (unitAmount ?: 0.0))" fieldNameAlias="issuedSaleTotal" fieldType="double"/>
-        <fields fieldSeqId="54" fieldPath="issuances:asset:acquireCost"/>
-        <fields fieldSeqId="55" fieldPath="issuances:(acquireCost ? issuedQuantity * acquireCost : null)" fieldNameAlias="issuedCostTotal" fieldType="double"/>
-        <fields fieldSeqId="56" fieldPath="issuances:(acquireCost ? (unitAmount ?: 0.0) - acquireCost : null)" fieldNameAlias="issuedMargin" fieldType="double"/>
-        <fields fieldSeqId="57" fieldPath="issuances:(acquireCost &amp;&amp; unitAmount ? (unitAmount - acquireCost) / unitAmount : null)"
+        <fields fieldSeqId="53" fieldPath="issuances:asset:acquireCost"/>
+        <fields fieldSeqId="54" fieldPath="issuances:asset:lotId"/>
+        <fields fieldSeqId="55" fieldPath="issuances:(issuedQuantity * (unitAmount ?: 0.0))" fieldNameAlias="issuedSaleTotal" fieldType="double"/>
+        <fields fieldSeqId="56" fieldPath="issuances:(acquireCost ? issuedQuantity * acquireCost : null)" fieldNameAlias="issuedCostTotal" fieldType="double"/>
+        <fields fieldSeqId="57" fieldPath="issuances:(acquireCost ? (unitAmount ?: 0.0) - acquireCost : null)" fieldNameAlias="issuedMargin" fieldType="double"/>
+        <fields fieldSeqId="58" fieldPath="issuances:(acquireCost &amp;&amp; unitAmount ? (unitAmount - acquireCost) / unitAmount : null)"
                 fieldNameAlias="issuedMarginPercent" fieldType="float"/>
-        <fields fieldSeqId="58" fieldPath="issuances:(acquireCost ? (issuedQuantity * (unitAmount ?: 0.0)) - (issuedQuantity * acquireCost) : null)"
+        <fields fieldSeqId="59" fieldPath="issuances:(acquireCost ? (issuedQuantity * (unitAmount ?: 0.0)) - (issuedQuantity * acquireCost) : null)"
                 fieldNameAlias="issuedMarginTotal" fieldType="double"/>
 
         <fields fieldSeqId="61" fieldPath="product:pseudoId"/>
