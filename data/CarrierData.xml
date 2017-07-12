@@ -27,13 +27,13 @@ along with this software (see the LICENSE.md file). If not, see
         <roles roleTypeId="Carrier"/>
     </mantle.party.Party>
     <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="UPS" shipmentMethodEnumId="ShMthGround" sequenceNum="1"
-            scaCode="UPSG" gatewayServiceCode="ups_ground"/>
+            description="UPS Ground" scaCode="UPSG" gatewayServiceCode="ups_ground"/>
     <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="UPS" shipmentMethodEnumId="ShMthNextDay" sequenceNum="2"
-            scaCode="UPS1" gatewayServiceCode="ups_next_day_air"/>
+            description="UPS Next Day Air" scaCode="UPS1" gatewayServiceCode="ups_next_day_air"/>
     <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="UPS" shipmentMethodEnumId="ShMthSecondDay" sequenceNum="3"
-            scaCode="UPS2" gatewayServiceCode="ups_second_day_air"/>
+            description="UPS 2nd Day Air" scaCode="UPS2" gatewayServiceCode="ups_second_day_air"/>
     <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="UPS" shipmentMethodEnumId="ShMthThirdDay" sequenceNum="4"
-            scaCode="UPS3" gatewayServiceCode="ups_3_day_select"/>
+            description="UPS 3 Day Select" scaCode="UPS3" gatewayServiceCode="ups_3_day_select"/>
 
     <!-- FedEx -->
     <mantle.party.Party partyId="FedEx" partyTypeEnumId="PtyOrganization" externalId="fedex">
@@ -41,13 +41,13 @@ along with this software (see the LICENSE.md file). If not, see
         <roles roleTypeId="Carrier"/>
     </mantle.party.Party>
     <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="FedEx" shipmentMethodEnumId="ShMthGround" sequenceNum="1"
-            scaCode="FDXG" gatewayServiceCode="fedex_ground"/>
+            description="FedEx Ground" scaCode="FDXG" gatewayServiceCode="fedex_ground"/>
     <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="FedEx" shipmentMethodEnumId="ShMthNextDay" sequenceNum="2"
-            scaCode="FDXSO" gatewayServiceCode="fedex_standard_overnight"/>
+            description="FedEx Std Overnight" scaCode="FDXSO" gatewayServiceCode="fedex_standard_overnight"/>
     <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="FedEx" shipmentMethodEnumId="ShMthSecondDay" sequenceNum="3"
-            scaCode="FDX2D" gatewayServiceCode="fedex_2_day"/>
+            description="FedEx 2 Day" scaCode="FDX2D" gatewayServiceCode="fedex_2_day"/>
     <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="FedEx" shipmentMethodEnumId="ShMthThirdDay" sequenceNum="4"
-            scaCode="FDXES" gatewayServiceCode="fedex_express_saver"/>
+            description="FedEx Express Saver" scaCode="FDXES" gatewayServiceCode="fedex_express_saver"/>
 
     <!-- DHL Express -->
     <mantle.party.Party partyId="DHLX" partyTypeEnumId="PtyOrganization" externalId="dhl_express">
@@ -55,9 +55,9 @@ along with this software (see the LICENSE.md file). If not, see
         <roles roleTypeId="Carrier"/>
     </mantle.party.Party>
     <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="DHLX" shipmentMethodEnumId="ShMthGround" sequenceNum="1"
-            scaCode="DDAG" gatewayServiceCode="dhl_express_economy_select_nondoc"/>
+            description="DHL Economy Select" scaCode="DDAG" gatewayServiceCode="dhl_express_economy_select_nondoc"/>
     <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="DHLX" shipmentMethodEnumId="ShMthNextDay" sequenceNum="2"
-            scaCode="DZNA" gatewayServiceCode="dhl_express_express_12_00_nondoc"/>
+            description="DHL Express Noon" scaCode="DZNA" gatewayServiceCode="dhl_express_express_12_00_nondoc"/>
 
     <!-- USPS -->
     <mantle.party.Party partyId="USPS" partyTypeEnumId="PtyOrganization" externalId="usps">
@@ -65,7 +65,9 @@ along with this software (see the LICENSE.md file). If not, see
         <roles roleTypeId="Carrier"/>
     </mantle.party.Party>
     <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="USPS" shipmentMethodEnumId="ShMthGround" sequenceNum="1"
-            scaCode="USPS" gatewayServiceCode="usps_priority"/>
-    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="USPS" shipmentMethodEnumId="ShMthNextDay" sequenceNum="2"
-            scaCode="USPS" gatewayServiceCode="usps_priority_express"/>
+            description="USPS First Class Mail" scaCode="USPS" gatewayServiceCode="usps_first"/>
+    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="USPS" shipmentMethodEnumId="ShMthThirdDay" sequenceNum="2"
+            description="USPS Priority Mail" scaCode="USPS" gatewayServiceCode="usps_priority"/>
+    <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="USPS" shipmentMethodEnumId="ShMthNextDay" sequenceNum="3"
+            description="USPS Priority Express" scaCode="USPS" gatewayServiceCode="usps_priority_express"/>
 </entity-facade-xml>

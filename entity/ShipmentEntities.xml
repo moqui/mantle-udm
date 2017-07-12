@@ -458,6 +458,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="CarrierShipmentMethod" package="mantle.shipment.carrier" cache="true">
         <field name="carrierPartyId" type="id" is-pk="true"/>
         <field name="shipmentMethodEnumId" type="id" is-pk="true"/>
+        <field name="description" type="text-medium"/>
         <field name="sequenceNum" type="number-integer"/>
         <field name="carrierServiceCode" type="text-short"/>
         <field name="scaCode" type="text-short"><description>Standard Carrier Alpha Code</description></field>
