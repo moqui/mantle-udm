@@ -179,6 +179,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderApproved" toStatusId="OrderHold" transitionName="Hold##Order"/>
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderHold" toStatusId="OrderProcessing" transitionName="Process"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderHold" toStatusId="OrderPlaced" transitionName="Place"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderHold" toStatusId="OrderApproved" transitionName="Approve"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderHold" toStatusId="OrderCancelled" transitionName="Cancel"/>
 
