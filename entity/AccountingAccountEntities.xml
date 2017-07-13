@@ -312,7 +312,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="settlementTermId" type="id"/>
         <field name="paidDate" type="date-time"/>
         <field name="invoiceMessage" type="text-long"/>
-        <field name="referenceNumber" type="text-medium"><description>Vendor or other invoice number.</description></field>
+        <field name="referenceNumber" type="text-medium" enable-audit-log="update">
+            <description>Vendor or other invoice number.</description></field>
         <field name="description" type="text-medium"/>
         <field name="currencyUomId" type="id"/>
         <field name="overrideOrgPartyId" type="id"><description>Used to specify the organization override rather than
@@ -1164,7 +1165,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="effectiveDate" type="date-time"/>
         <field name="paymentAuthCode" type="text-short"/>
-        <field name="paymentRefNum" type="text-short"/>
+        <field name="paymentRefNum" type="text-short" enable-audit-log="update"/>
         <field name="comments" type="text-medium"/>
         <field name="memo" type="text-medium"/>
         <field name="distGroupEnumId" type="id"/>
