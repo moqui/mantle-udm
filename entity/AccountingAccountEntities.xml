@@ -450,6 +450,10 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoiceBilledThrough"/>
             <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoiceCancelled"/>
 
+            <moqui.basic.StatusFlow statusFlowId="InvoiceSpecial" statusTypeId="Invoice" description="Invoice Special"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceCancelled" toStatusId="InvoiceInProcess" transitionName="Uncancel Receivable"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceCancelled" toStatusId="InvoiceReceived" transitionName="Uncancel Payable"/>
+
             <!--
             - X GL Posting on any transition to Finalized or Approved statuses.
             - X Reverse GL Posting on Finalized/Approved/Sent/Payment* to Cancelled
