@@ -117,15 +117,21 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Commission Line Item" enumId="ItemCommission" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Commission Adjustment" enumId="ItemCommissionAdj" enumTypeId="ItemType"/>
 
-    <!-- Write-off, Early Payment Discount, Late Payment Charge, Return -->
+    <!-- Adjustments: Write-off, Early Payment Discount, Late Payment Charge, Return -->
     <moqui.basic.Enumeration description="Invoice Adjustment" enumId="ItemInvAdjust" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Ivc. Adjust - Write-off" enumId="ItemWriteOff" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Ivc. Adjust - Prompt Payment Discount" enumId="ItemPromptDiscount" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Ivc. Adjust - Late Payment Charge" enumId="ItemLateCharge" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Ivc. Adjust - Return" enumId="ItemReturnAdjust" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Ivc. Adjust - Chargeback" enumId="ItemChargebackAdjust" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Ivc. Adjust - Compliance Fee" enumId="ItemComplianceFee" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Ivc. Adjust - Shrinkage" enumId="ItemShrinkage" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Adjust - Write-off" enumId="ItemWriteOff" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Adjust - Prompt Payment Discount" enumId="ItemPromptDiscount" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Adjust - Late Payment Charge" enumId="ItemLateCharge" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Adjust - Return" enumId="ItemReturnAdjust" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Adjust - Chargeback" enumId="ItemChargebackAdjust" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Adjust - Compliance Fee" enumId="ItemComplianceFee" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Adjust - Shrinkage" enumId="ItemShrinkage" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Adjust - Coupons and Credits" enumId="ItemCouponCredit" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Adjust - Promotional Discounts" enumId="ItemPromoDiscount" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Adjust - Free Fills" enumId="ItemFreeFills" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Adjust - Slotting Fees" enumId="ItemSlottingFees" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Adjust - Advertising" enumId="ItemAdjAdvertising" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Adjust - Joint Advertising" enumId="ItemAdjJointAdv" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Payroll Income" enumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Hourly Earnings" enumId="ItemHourlyEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
@@ -200,7 +206,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Payroll Expense Tax - School District Employer" enumId="ItemPrlExpTaxSchoolDistEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Expense Tax - Surtax Employer" enumId="ItemPrlExpTaxSurtaxEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
 
-    <!-- Outgoing/Receivable/Sales Items -->
+    <!-- Outgoing/Receivable/Sales Item Types -->
 
     <moqui.basic.Enumeration description="Outgoing/Receivable/Sales Items" enumId="EngItemsSales" enumTypeId="EnumGroup"/>
 
@@ -224,7 +230,16 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemMkgtPkgAdj" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemSalesThirdParty" enumGroupEnumId="EngItemsSales"/>
 
-    <!-- Incoming/Payable/Purchase Items -->
+    <moqui.basic.EnumGroupMember enumId="ItemPromptDiscount" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemLateCharge" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemCouponCredit" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemPromoDiscount" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemFreeFills" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemSlottingFees" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemAdjAdvertising" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemAdjJointAdv" enumGroupEnumId="EngItemsSales"/>
+
+    <!-- Incoming/Payable/Purchase Item Types -->
 
     <moqui.basic.Enumeration description="Incoming/Payable/Purchase Items" enumId="EngItemsPurchase" enumTypeId="EnumGroup"/>
 
@@ -295,4 +310,27 @@ along with this software (see the LICENSE.md file). If not, see
 
     <moqui.basic.EnumGroupMember enumId="ItemCommission" enumGroupEnumId="EngItemsPurchase"/>
     <moqui.basic.EnumGroupMember enumId="ItemCommissionAdj" enumGroupEnumId="EngItemsPurchase"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemSlottingFees" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemAdjAdvertising" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemAdjJointAdv" enumGroupEnumId="EngItemsPurchase"/>
+
+    <!-- Invoice Adjust Item Types -->
+
+    <moqui.basic.Enumeration description="Invoice Adjust Items" enumId="EngItemsAdjust" enumTypeId="EnumGroup"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemWriteOff" enumGroupEnumId="EngItemsAdjust"/>
+    <moqui.basic.EnumGroupMember enumId="ItemPromptDiscount" enumGroupEnumId="EngItemsAdjust"/>
+    <moqui.basic.EnumGroupMember enumId="ItemLateCharge" enumGroupEnumId="EngItemsAdjust"/>
+    <moqui.basic.EnumGroupMember enumId="ItemReturnAdjust" enumGroupEnumId="EngItemsAdjust"/>
+    <moqui.basic.EnumGroupMember enumId="ItemChargebackAdjust" enumGroupEnumId="EngItemsAdjust"/>
+    <moqui.basic.EnumGroupMember enumId="ItemComplianceFee" enumGroupEnumId="EngItemsAdjust"/>
+    <moqui.basic.EnumGroupMember enumId="ItemShrinkage" enumGroupEnumId="EngItemsAdjust"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemCouponCredit" enumGroupEnumId="EngItemsAdjust"/>
+    <moqui.basic.EnumGroupMember enumId="ItemPromoDiscount" enumGroupEnumId="EngItemsAdjust"/>
+    <moqui.basic.EnumGroupMember enumId="ItemFreeFills" enumGroupEnumId="EngItemsAdjust"/>
+    <moqui.basic.EnumGroupMember enumId="ItemSlottingFees" enumGroupEnumId="EngItemsAdjust"/>
+    <moqui.basic.EnumGroupMember enumId="ItemAdjAdvertising" enumGroupEnumId="EngItemsAdjust"/>
+    <moqui.basic.EnumGroupMember enumId="ItemAdjJointAdv" enumGroupEnumId="EngItemsAdjust"/>
 </entity-facade-xml>
