@@ -231,21 +231,21 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- ========== DEMO RETAILER DATA ========== -->
     <mantle.party.Party partyId="ORG_ZIZI_RETAIL" pseudoId="ZIRET" partyTypeEnumId="PtyOrganization">
-        <organization organizationName="Ziziwork Retail"/>
+        <organization organizationName="Ziziwork Retail &amp; Wholesale"/>
         <roles roleTypeId="OrgInternal"/>
 
         <contents partyContentId="ZIRET_LOGO" partyContentTypeEnumId="PcntLogoImage"
                 contentLocation="component://SimpleScreens/screen/ssstatic/images/Customer.png"/>
 
         <mantle.party.contact.ContactMech contactMechId="ORG_ZIZI_RTL_PA" contactMechTypeEnumId="CmtPostalAddress">
-            <mantle.party.contact.PostalAddress toName="Ziziwork Retail"
+            <mantle.party.contact.PostalAddress toName="Ziziwork Retail &amp; Wholesale"
                     address1="51 W. Center St." address2="" unitNumber="2345"
                     city="Orem" stateProvinceGeoId="USA_UT" countryGeoId="USA" postalCode="84057" postalCodeExt="4605"/>
             <mantle.party.contact.PartyContactMech contactMechPurposeId="PostalPayment" fromDate="1265184000000"/>
             <mantle.party.contact.PartyContactMech contactMechPurposeId="PostalBilling" fromDate="1265184000000"/>
         </mantle.party.contact.ContactMech>
         <mantle.party.contact.ContactMech contactMechId="ORG_ZIZI_RTL_SA" contactMechTypeEnumId="CmtPostalAddress">
-            <mantle.party.contact.PostalAddress toName="Ziziwork Retail"
+            <mantle.party.contact.PostalAddress toName="Ziziwork Retail &amp; Wholesale"
                     address1="51 W. Center St." address2="" unitNumber="5432"
                     city="Orem" stateProvinceGeoId="USA_UT" countryGeoId="USA" postalCode="84057" postalCodeExt="4605"/>
             <mantle.party.contact.PartyContactMech contactMechPurposeId="PostalShippingDest" fromDate="1265184000000"/>
@@ -358,11 +358,11 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- ========== DEMO SUPPLIER DATA ========== -->
     <mantle.party.Party partyId="ZiddlemanInc" partyTypeEnumId="PtyOrganization"/>
-    <mantle.party.Organization partyId="ZiddlemanInc" organizationName="Ziddleman Suppliers Inc."/>
+    <mantle.party.Organization partyId="ZiddlemanInc" organizationName="Ziddleman &amp; Sons Suppliers Inc."/>
     <mantle.party.PartyRole partyId="ZiddlemanInc" roleTypeId="Supplier"/>
 
     <mantle.party.contact.ContactMech contactMechId="ZiddlemanIncAddr" contactMechTypeEnumId="CmtPostalAddress"/>
-    <mantle.party.contact.PostalAddress contactMechId="ZiddlemanIncAddr" toName="Ziddleman Incorporated"
+    <mantle.party.contact.PostalAddress contactMechId="ZiddlemanIncAddr" toName="Ziddleman &amp; Sons Suppliers"
             attnName="" address1="1350 E. Flamingo Rd." address2="" unitNumber="9876"
             city="Las Vegas" stateProvinceGeoId="USA_NV" countryGeoId="USA" postalCode="89119" postalCodeExt="5263"/>
     <mantle.party.contact.PartyContactMech partyId="ZiddlemanInc" contactMechId="ZiddlemanIncAddr"
