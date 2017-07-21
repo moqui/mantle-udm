@@ -325,7 +325,7 @@ along with this software (see the LICENSE.md file). If not, see
     </mantle.party.Party>
     <!-- Demo Company Customer: Joe's Distributing -->
     <mantle.party.Party partyId="JoeDist" partyTypeEnumId="PtyOrganization">
-        <organization organizationName="Joe's Distributing"/>
+        <organization organizationName="Joe &amp; Joe's Distributing"/>
         <roles roleTypeId="Customer"/>
         <classifications partyClassificationId="CustDistributor" fromDate="1265184000000"/>
         <settings partySettingTypeId="CustomerSingleLot" settingValue="BlY"/>
@@ -341,7 +341,7 @@ along with this software (see the LICENSE.md file). If not, see
         </mantle.party.contact.ContactMech>
 
         <mantle.party.contact.ContactMech contactMechId="JoeDistAddr" contactMechTypeEnumId="CmtPostalAddress">
-            <postalAddress toName="Joe's Distributing" attnName="" address1="1350 E. Flamingo Rd." address2="" unitNumber="3456"
+            <postalAddress toName="Joe &amp; Joe's Distributing" attnName="" address1="1350 E. Flamingo Rd." address2="" unitNumber="3456"
                     city="Las Vegas" stateProvinceGeoId="USA_NV" countryGeoId="USA" postalCode="89119" postalCodeExt="5263"
                     telecomContactMechId="JoeDistTeln"/>
             <parties contactMechPurposeId="PostalPrimary" fromDate="1265184000000"/>
