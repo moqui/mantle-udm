@@ -1547,7 +1547,14 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="517000000" direction="I" itemTypeEnumId="ItemLateCharge" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="421000000" direction="O" itemTypeEnumId="ItemReturnAdjust" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="532000000" direction="I" itemTypeEnumId="ItemReturnAdjust" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="522100000" direction="E" itemTypeEnumId="ItemCouponCredit" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="522200000" direction="E" itemTypeEnumId="ItemPromoDiscount" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="523100000" direction="E" itemTypeEnumId="ItemSlottingFees" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="525100000" direction="E" itemTypeEnumId="ItemFreeFills" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="621000000" direction="E" itemTypeEnumId="ItemAdjAdvertising" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="624000000" direction="E" itemTypeEnumId="ItemAdjJointAdv" organizationPartyId="DefaultSettings"/>
 
+    <!-- Payroll Item Types -->
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPayrollIncome" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemHourlyEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632300000" direction="I" itemTypeEnumId="ItemSickHourly" organizationPartyId="DefaultSettings"/>
@@ -1641,9 +1648,9 @@ along with this software (see the LICENSE.md file). If not, see
             paymentInstrumentEnumId="PiCreditCard" isPayable="E"/>
     <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="122000000" organizationPartyId="DefaultSettings"
             paymentInstrumentEnumId="PiDebitCard" isPayable="E"/>
-    <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="122000000" organizationPartyId="DefaultSettings"
+    <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="251000000" organizationPartyId="DefaultSettings"
             paymentInstrumentEnumId="PiGiftCard" isPayable="E"/>
-    <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="122000000" organizationPartyId="DefaultSettings"
+    <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="251000000" organizationPartyId="DefaultSettings"
             paymentInstrumentEnumId="PiGiftCertificate" isPayable="E"/>
     <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="111100000" organizationPartyId="DefaultSettings"
             paymentInstrumentEnumId="PiCash" isPayable="E"/>
