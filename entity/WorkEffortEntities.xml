@@ -56,7 +56,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="percentComplete" type="number-integer"/>
         <field name="revisionNumber" type="number-integer"/>
 
-        <field name="workEffortName" type="text-medium" default="workEffortId"/>
+        <field name="workEffortName" type="text-medium"/>
         <field name="description" type="text-long"/>
         <field name="location" type="text-medium"/>
         <field name="facilityId" type="id"><description>Where the WorkEffort takes place</description></field>
