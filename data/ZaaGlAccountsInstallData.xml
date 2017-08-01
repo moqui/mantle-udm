@@ -1642,11 +1642,13 @@ along with this software (see the LICENSE.md file). If not, see
 
     <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="111100000" organizationPartyId="DefaultSettings"
             paymentInstrumentEnumId="PiAch" isPayable="E"/>
+    <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="111100000" organizationPartyId="DefaultSettings"
+            paymentInstrumentEnumId="PiAmazonPay" isPayable="E"/>
     <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="110000000" organizationPartyId="DefaultSettings"
             paymentInstrumentEnumId="PiBitcoinWallet" isPayable="E"/><!-- currency issue, possible special account -->
-    <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="122000000" organizationPartyId="DefaultSettings"
-            paymentInstrumentEnumId="PiCreditCard" isPayable="E"/>
-    <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="122000000" organizationPartyId="DefaultSettings"
+    <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="111100000" organizationPartyId="DefaultSettings"
+            paymentInstrumentEnumId="PiCreditCard" isPayable="E"/><!-- NOTE: to use the CC In Transit account set to 122000000 -->
+    <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="111100000" organizationPartyId="DefaultSettings"
             paymentInstrumentEnumId="PiDebitCard" isPayable="E"/>
     <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="251000000" organizationPartyId="DefaultSettings"
             paymentInstrumentEnumId="PiGiftCard" isPayable="E"/>
