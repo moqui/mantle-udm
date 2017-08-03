@@ -831,7 +831,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccount accountName="Employee Life Insurance Co-Payments" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="636900000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="636000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Retirement (Pension / Profit Sharing / 401(k)" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="Retirement (Pension / Profit Sharing / 401k)" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="637000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="630000000"/>
 
     <mantle.ledger.account.GlAccount accountName="Other Benefit Expense" description="" glAccountClassEnumId="COMPENSATION"
