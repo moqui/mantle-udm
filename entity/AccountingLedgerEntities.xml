@@ -901,6 +901,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="AttDepreciation" description="Depreciation" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttCapitalization" description="Capitalization" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttPeriodClosing" description="Period Closing Adjustment" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttNetIncomeClosing" description="Net Income Period Closing" enumTypeId="AcctgTransType"/>
 
             <moqui.basic.Enumeration enumId="AttInternal" description="Internal" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttExternal" description="External" enumTypeId="AcctgTransType"/>
