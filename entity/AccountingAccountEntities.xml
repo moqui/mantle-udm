@@ -386,7 +386,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusItem description="In-Process" sequenceNum="1" statusId="InvoiceInProcess" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Finalized" sequenceNum="2" statusId="InvoiceFinalized" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Sent" sequenceNum="3" statusId="InvoiceSent" statusTypeId="Invoice"/>
-            <moqui.basic.StatusItem description="Payment Received" sequenceNum="4" statusId="InvoicePmtRecvd" statusTypeId="Invoice"/>
+            <moqui.basic.StatusItem description="Acknowledged" sequenceNum="4" statusId="InvoiceAcked" statusTypeId="Invoice"/>
+            <moqui.basic.StatusItem description="Payment Received" sequenceNum="5" statusId="InvoicePmtRecvd" statusTypeId="Invoice"/>
             <moqui.basic.StatusItem description="Write Off" sequenceNum="9" statusId="InvoiceWriteOff" statusTypeId="Invoice"/>
             <!-- Incoming Invoices (Payable) -->
             <moqui.basic.StatusItem description="Incoming" sequenceNum="10" statusId="InvoiceIncoming" statusTypeId="Invoice"/>
@@ -403,6 +404,9 @@ along with this software (see the LICENSE.md file). If not, see
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceFinalized" toStatusId="InvoicePmtRecvd" transitionName="Receive Payment"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceSent" toStatusId="InvoicePmtRecvd" transitionName="Receive Payment"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceSent" toStatusId="InvoiceAcked" transitionName="Acknowledge"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceAcked" toStatusId="InvoicePmtRecvd" transitionName="Receive Payment"/>
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceFinalized" toStatusId="InvoiceWriteOff" transitionName="Write Off"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceSent" toStatusId="InvoiceWriteOff" transitionName="Write Off"/>
