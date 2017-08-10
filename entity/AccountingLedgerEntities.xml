@@ -950,14 +950,13 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="AttOutgoingPayment" description="Outgoing Payment" enumTypeId="AcctgTransType"/><!-- (Disbursement) -->
             <moqui.basic.Enumeration enumId="AttIncomingPaymentAp" description="Incoming Payment Application" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttOutgoingPaymentAp" description="Outgoing Payment Application" enumTypeId="AcctgTransType"/>
-
-            <moqui.basic.Enumeration enumId="AttPaymentApplied" description="Payment Applied" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttPaymentApplied" description="Payment Application" enumTypeId="AcctgTransType"/>
 
             <moqui.basic.Enumeration description="Acc TX Types Invoice" enumId="EngAccTxTypesInvoice" enumTypeId="EnumGroup">
                 <groupMembers enumId="AttSalesInvoice"/><groupMembers enumId="AttCustRtnInvoice"/><groupMembers enumId="AttPurchaseInvoice"/>
                 <groupMembers enumId="AttVendRtnInvoice"/><groupMembers enumId="AttPayrollInvoice"/><groupMembers enumId="AttTaxInvoice"/>
                 <groupMembers enumId="AttGarnishmentInvoice"/><groupMembers enumId="AttCommissionInvoice"/>
-                <groupMembers enumId="AttInvoiceAdjust"/><groupMembers enumId="AttPaymentApplied"/>
+                <groupMembers enumId="AttInvoiceAdjust"/>
             </moqui.basic.Enumeration>
             <moqui.basic.Enumeration description="Acc TX Types Payable" enumId="EngAccTxTypesPayable" enumTypeId="EnumGroup">
                 <groupMembers enumId="AttCustRtnInvoice"/><groupMembers enumId="AttPurchaseInvoice"/>
