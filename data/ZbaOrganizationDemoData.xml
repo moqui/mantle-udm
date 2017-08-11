@@ -147,7 +147,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- Ziziwork Accounting Configuration -->
     <mantle.ledger.LedgerServices.initPartyAccountingConfiguration sourcePartyId="DefaultSettings"
-            organizationPartyId="ORG_ZIZI_CORP"/>
+            organizationPartyId="ORG_ZIZI_CORP" startYear="2017" realTimeGlSummary="Y"/>
 
 
     <!-- ========== DEMO CLIENT DATA ========== -->
