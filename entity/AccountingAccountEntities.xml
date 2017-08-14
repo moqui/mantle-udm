@@ -314,6 +314,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="invoiceMessage" type="text-long"/>
         <field name="referenceNumber" type="text-medium" enable-audit-log="update">
             <description>Vendor or other invoice number.</description></field>
+        <field name="otherPartyOrderId" type="text-short"/>
         <field name="description" type="text-medium"/>
         <field name="currencyUomId" type="id"/>
         <field name="overrideOrgPartyId" type="id"><description>Used to specify the organization override rather than
