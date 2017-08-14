@@ -45,15 +45,21 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="21" fieldPath="contactMechs:contactMechPurposeId"/>
         <fields fieldSeqId="22" fieldPath="contactMechs:contactMech:contactMechTypeEnumId"/>
         <fields fieldSeqId="23" fieldPath="contactMechs:contactMech:infoString"/>
+
         <fields fieldSeqId="24" fieldPath="contactMechs:contactMech:postalAddress:address1"/>
         <fields fieldSeqId="25" fieldPath="contactMechs:contactMech:postalAddress:address2"/>
-        <fields fieldSeqId="26" fieldPath="contactMechs:contactMech:postalAddress:city"/>
-        <fields fieldSeqId="27" fieldPath="contactMechs:contactMech:postalAddress:postalCode"/>
-        <fields fieldSeqId="28" fieldPath="contactMechs:contactMech:postalAddress:stateProvinceGeo:geoName" fieldNameAlias="state"/>
-        <fields fieldSeqId="29" fieldPath="contactMechs:contactMech:postalAddress:stateProvinceGeo:geoCodeAlpha2" fieldNameAlias="stateCode"/>
-        <fields fieldSeqId="30" fieldPath="contactMechs:contactMech:telecomNumber:countryCode"/>
-        <fields fieldSeqId="31" fieldPath="contactMechs:contactMech:telecomNumber:areaCode"/>
-        <fields fieldSeqId="32" fieldPath="contactMechs:contactMech:telecomNumber:contactNumber"/>
+        <fields fieldSeqId="26" fieldPath="contactMechs:contactMech:postalAddress:unitNumber"/>
+        <fields fieldSeqId="27" fieldPath="contactMechs:contactMech:postalAddress:city"/>
+        <fields fieldSeqId="28" fieldPath="contactMechs:contactMech:postalAddress:postalCode"/>
+        <fields fieldSeqId="29" fieldPath="contactMechs:contactMech:postalAddress:postalCodeExt"/>
+        <fields fieldSeqId="30" fieldPath="contactMechs:contactMech:postalAddress:stateProvinceGeo:geoName" fieldNameAlias="state"/>
+        <fields fieldSeqId="31" fieldPath="contactMechs:contactMech:postalAddress:stateProvinceGeo:geoCodeAlpha2" fieldNameAlias="stateCode"/>
+        <fields fieldSeqId="32" fieldPath="contactMechs:contactMech:postalAddress:stateProvinceGeoId"/>
+        <fields fieldSeqId="33" fieldPath="contactMechs:contactMech:postalAddress:countryGeoId"/>
+
+        <fields fieldSeqId="36" fieldPath="contactMechs:contactMech:telecomNumber:countryCode"/>
+        <fields fieldSeqId="37" fieldPath="contactMechs:contactMech:telecomNumber:areaCode"/>
+        <fields fieldSeqId="38" fieldPath="contactMechs:contactMech:telecomNumber:contactNumber"/>
 
         <fields fieldSeqId="40" fieldPath="userAccounts:userId"/>
         <fields fieldSeqId="41" fieldPath="userAccounts:username"/>
