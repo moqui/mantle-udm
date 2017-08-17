@@ -24,6 +24,9 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Block" enumId="PwgBlock" enumTypeId="PayrollWageGrp"/>
     <moqui.basic.Enumeration description="Block Group" enumId="PwgBlockGroup" enumTypeId="PayrollWageGrp"/>
 
+    <moqui.basic.LocalizedMessage locale="default" original="PayrollInvoiceItemTemplate"
+                                  localized="${facilityName?:name?:''}: ${description?:enumId}"/>
+
     <!-- An FLSA workweek is a fixed, regularly-recurring period of 168 hours – that is, seven, consecutive, 24-hour periods –
          that the employer expressly adopts in order to maintain FLSA compliance.  It is unclear what effect daylight savings
          time has on the 168 hours, but it appears that the weeks that are short or long one hour are treated as 167 or 169
@@ -52,7 +55,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.PartySettingType description="Payroll RRP - Include Hourly Pay" partySettingTypeId="PayrollRrpInclHourly"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
-    <mantle.party.PartySettingType description="Payroll RRP - Pay RRP on Hourly Break/NPT" partySettingTypeId="PayrollRrpPayOnHourlyBreak"
+    <mantle.party.PartySettingType description="Payroll RRP - Pay RRP on Hourly Break/NPT" partySettingTypeId="PayrollRrpPayOnHourlyBreakNpt"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll RRP - Include Shift Differentials" partySettingTypeId="PayrollRrpInclShDiff"
@@ -89,7 +92,7 @@ along with this software (see the LICENSE.md file). If not, see
         If N, no minimum wage check will be performed.
     What is the Employee's minimum wage?
     Should HOURLY time entries be included in minimum wage makeup calculation?
-        If N, Minimum wage test is performed against PIECE, HYBRID, and ND hours and pay only.
+        If N, Minimum wage test is performed against PIECEand ND hours and pay only.
     How frequently should minimum wage be tested?
     What is the minimum wage grouping level?
         If a grouping level is defined, makeup pay will be assigned at this level.
