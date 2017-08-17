@@ -874,6 +874,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Piece Rate Type" enumTypeId="PieceRateType"/>
             <!-- these are the primary types for manual time entry -->
             <moqui.basic.Enumeration enumId="RatpStandard" description="Standard" enumTypeId="RateType"/>
+            <moqui.basic.Enumeration enumId="RatpPieceMinWageAdj" description="Piece Min Wage Adjustment" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpPaidBreakStd" description="Paid Break STD (hourly)" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpPaidBreakRrp" description="Paid Break RRP (piece)" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpPaidNptStd" description="Paid Non-productive STD (hourly)" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
