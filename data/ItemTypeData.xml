@@ -136,15 +136,15 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Payroll Income" enumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Hourly Earnings" enumId="ItemHourlyEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Piecework Earnings" enumId="ItemPieceworkEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Payroll Income - Piece/Hourly Earnings" enumId="ItemPieceOrHourlyEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Payroll Income - Piece+Hourly Earnings" enumId="ItemPiecePlusHourlyEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Payroll Income - Piece Or Hourly Earnings" enumId="ItemPieceOrHourlyEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Payroll Income - Piece Plus Hourly Earnings" enumId="ItemPiecePlusHourlyEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Shift Premium Earnings" enumId="ItemShiftPremiumEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Piece Min Wage Adjustment" enumId="ItemPieceMinWageAdj" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Overtime Premium" enumId="ItemOvertimePremium" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Double Time Premium" enumId="ItemDoubleTimePremium" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Payroll Income - Hourly Break Earnings" enumId="ItemHourlyBreakEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Payroll Income - RRP Break Earnings" enumId="ItemRrpBreakEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Payroll Income - Non Productive Earnings" enumId="ItemNonProductiveEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Payroll Income - Break Hourly Earnings" enumId="ItemBreakHourlyEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Payroll Income - Break RRP Earnings" enumId="ItemBreakRrpEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Payroll Income - Nonproductive Earnings" enumId="ItemNonproductiveEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Sick Hourly" enumId="ItemSickHourly" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Salary" enumId="ItemSalary" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Vacation Salary" enumId="ItemVacationSalary" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
