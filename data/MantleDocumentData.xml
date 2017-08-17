@@ -34,6 +34,8 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="11" fieldPath="person:firstName"/>
         <fields fieldSeqId="12" fieldPath="person:middleName"/>
         <fields fieldSeqId="13" fieldPath="person:lastName"/>
+        <fields fieldSeqId="14" fieldPath="(&quot;${organizationName?:''}${firstName?:''}${middleName ? ' ' + middleName : ''}${lastName ? ' ' + lastName : ''}&quot;)"
+                fieldNameAlias="combinedName" fieldType="text" sortable="Y"/>
 
         <fields fieldSeqId="15" fieldPath="roles:roleTypeId"/>
         <fields fieldSeqId="16" fieldPath="roles:role:description" fieldNameAlias="role"/>
