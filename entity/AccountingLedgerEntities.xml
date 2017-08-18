@@ -831,9 +831,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="acctgTransTypeEnumId" type="id"/>
         <field name="organizationPartyId" type="id"/>
         <field name="description" type="text-medium"/>
-        <field name="transactionDate" type="date-time"/>
+        <field name="transactionDate" type="date-time" enable-audit-log="update"/>
         <field name="isPosted" type="text-indicator" enable-audit-log="true"/>
-        <field name="postedDate" type="date-time"/>
+        <field name="postedDate" type="date-time" enable-audit-log="update"/>
         <field name="scheduledPostingDate" type="date-time"/>
         <field name="glJournalId" type="id"/>
         <field name="glFiscalTypeEnumId" type="id"/>
@@ -1006,12 +1006,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="acctgTransId" type="id" is-pk="true"/>
         <field name="acctgTransEntrySeqId" type="id" is-pk="true"/>
         <field name="debitCreditFlag" type="text-indicator"><description>If D is a debit, if C is a credit.</description></field>
-        <field name="amount" type="currency-amount"/>
+        <field name="amount" type="currency-amount" enable-audit-log="update"/>
         <field name="originalCurrencyAmount" type="currency-amount"/>
         <field name="description" type="text-medium"/>
         <field name="voucherRef" type="text-short"/>
         <field name="glAccountTypeEnumId" type="id"/>
-        <field name="glAccountId" type="id"/>
+        <field name="glAccountId" type="id" enable-audit-log="update"/>
         <field name="dueDate" type="date"/>
         <field name="reconcileStatusId" type="id" default="'AterNot'"/>
         <field name="settlementTermId" type="id"/>
