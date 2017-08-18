@@ -64,7 +64,7 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="38" fieldPath="contactMechs:contactMech:telecomNumber:contactNumber"/>
 
         <fields fieldSeqId="40" fieldPath="userAccounts:userId"/>
-        <fields fieldSeqId="41" fieldPath="userAccounts:username"/>
+        <fields fieldSeqId="41" fieldPath="userAccounts:username" sortable="Y"/>
         <fields fieldSeqId="42" fieldPath="userAccounts:userFullName"/>
         <fields fieldSeqId="43" fieldPath="userAccounts:emailAddress"/>
 
