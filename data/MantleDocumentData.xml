@@ -69,8 +69,10 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="43" fieldPath="userAccounts:emailAddress"/>
 
         <fields fieldSeqId="50" fieldPath="classifications:partyClassificationId"/>
-        <fields fieldSeqId="51" fieldPath="classifications:fromDate" fieldNameAlias="classificationFromDate"/>
-        <fields fieldSeqId="52" fieldPath="classifications:thruDate" fieldNameAlias="classificationThruDate"/>
+        <fields fieldSeqId="51" fieldPath="classifications:fromDate" fieldNameAlias="classFromDate"/>
+        <fields fieldSeqId="52" fieldPath="classifications:thruDate" fieldNameAlias="classThruDate"/>
+        <fields fieldSeqId="53" fieldPath="classifications:classification:description" fieldNameAlias="class"/>
+        <fields fieldSeqId="54" fieldPath="classifications:classification:classificationTypeEnumId"/>
 
         <fields fieldSeqId="55" fieldPath="settings:partySettingTypeId"/>
         <fields fieldSeqId="56" fieldPath="settings:settingValue"/>
