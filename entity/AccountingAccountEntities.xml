@@ -347,6 +347,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="toPartyId"/></relationship>
         <relationship type="many" title="To" related="mantle.party.PartyRole" short-alias="toRoles">
             <key-map field-name="toPartyId" related="partyId"/></relationship>
+        <relationship type="many" title="To" related="mantle.party.PartyClassificationAppl" short-alias="toClasses">
+            <key-map field-name="toPartyId" related="partyId"/></relationship>
 
         <relationship type="one" title="Invoice" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" related="mantle.account.billing.BillingAccount" short-alias="billingAccount"/>
@@ -568,6 +570,11 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.account.invoice.InvoiceItemDetail" short-alias="details">
             <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
         <relationship type="many" related="mantle.order.OrderItemBilling" short-alias="orderItemBilling">
+            <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
+
+        <relationship type="many" related="mantle.product.issuance.AssetIssuance" short-alias="issuances">
+            <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
+        <relationship type="many" related="mantle.product.receipt.AssetReceipt" short-alias="receipts">
             <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
     </entity>
     <entity entity-name="InvoiceItemDetail" package="mantle.account.invoice" cache="never">
