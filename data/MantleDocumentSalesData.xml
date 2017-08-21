@@ -84,6 +84,13 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="84" fieldPath="product:features:thruDate" fieldNameAlias="applThruDate"/>
         <fields fieldSeqId="85" fieldPath="product:features:feature:productFeatureTypeEnumId"/>
 
+        <fields fieldSeqId="90" fieldPath="part:customerClasses:partyClassificationId"/>
+        <fields fieldSeqId="91" fieldPath="part:customerClasses:fromDate" fieldNameAlias="classFromDate"/>
+        <fields fieldSeqId="92" fieldPath="part:customerClasses:thruDate" fieldNameAlias="classThruDate"/>
+        <fields fieldSeqId="93" fieldPath="part:customerClasses:classification:classificationTypeEnumId"/>
+        <fields fieldSeqId="94" fieldPath="((org.moqui.util.CollectionUtilities.filterMapListByDate(customerClasses?.findAll(),'classFromDate','classThruDate', null)?.find()?.partyClassificationId)?:'CustConsumer')"
+                fieldNameAlias="customerClassId" fieldType="keyword"/>
+
         <conditions conditionSeqId="01" fieldNameAlias="vendorRoleTypeId" fieldValue="OrgInternal"/>
     </dataDocuments>
 
