@@ -206,6 +206,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Phone Call" enumId="WepPhoneCall" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="Email" enumId="WepEmail" enumTypeId="WorkEffortPurpose"/>
 
+            <moqui.basic.Enumeration description="Timesheet" enumId="WepTimesheet" enumTypeId="WorkEffortPurpose"/>
+
             <!-- Work Effort Resolution -->
             <moqui.basic.EnumerationType description="Work Effort Resolution" enumTypeId="WorkEffortResolution"/>
             <moqui.basic.Enumeration description="Unresolved" enumId="WerUnresolved" enumTypeId="WorkEffortResolution"/>
