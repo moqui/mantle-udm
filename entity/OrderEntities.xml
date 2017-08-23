@@ -400,6 +400,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="maySplit" type="text-indicator"/>
         <field name="giftMessage" type="text-medium"/>
         <field name="isGift" type="text-indicator"/>
+        <field name="isNewCustomer" type="text-indicator"/>
 
         <field name="partTotal" type="currency-amount"/>
 

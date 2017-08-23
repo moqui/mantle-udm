@@ -13,6 +13,14 @@ along with this software (see the LICENSE.md file). If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.
 -->
 <entity-facade-xml type="seed">
+    <!-- NOTE: when updating these it's best to delete the indexes through ElasticSearch, then reindex the MantleSales feed:
+
+        curl http://localhost:9200/_cat/indices?v
+
+        curl -X DELETE http://localhost:9200/mantle_sales_order_item?pretty
+        curl -X DELETE http://localhost:9200/mantle_sales_invoice?pretty
+        curl -X DELETE http://localhost:9200/mantle_sales_invoice_item?pretty
+    -->
 
     <!-- Sales OrderItem -->
     <dataDocuments dataDocumentId="MantleSalesOrderItem" indexName="mantle_sales" documentName="Sales Order Item"
@@ -42,7 +50,8 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="23" fieldPath="part:vendorPartyId"/>
         <fields fieldSeqId="24" fieldPath="part:vendorRoles:roleTypeId" fieldNameAlias="vendorRoleTypeId"/>
         <fields fieldSeqId="25" fieldPath="part:customerPartyId"/>
-        <fields fieldSeqId="26" fieldPath="part:shipmentMethodEnumId"/>
+        <fields fieldSeqId="26" fieldPath="part:isNewCustomer"/>
+        <fields fieldSeqId="27" fieldPath="part:shipmentMethodEnumId"/>
 
         <fields fieldSeqId="31" fieldPath="part:postalAddress:city"/>
         <fields fieldSeqId="32" fieldPath="part:postalAddress:stateProvinceGeoId"/>
@@ -94,6 +103,36 @@ along with this software (see the LICENSE.md file). If not, see
         <conditions conditionSeqId="01" fieldNameAlias="vendorRoleTypeId" fieldValue="OrgInternal"/>
     </dataDocuments>
 
+    <!-- Sales Invoice -->
+    <dataDocuments dataDocumentId="MantleSalesInvoice" indexName="mantle_sales" documentName="Sales Invoice"
+            primaryEntityName="mantle.account.invoice.Invoice" documentTitle="${invoiceId}">
+        <fields fieldSeqId="01" fieldPath="invoiceId"/>
+        <fields fieldSeqId="02" fieldPath="invoiceTypeEnumId"/>
+        <fields fieldSeqId="03" fieldPath="invoiceTotal"/>
+        <fields fieldSeqId="04" fieldPath="appliedPaymentsTotal"/>
+        <fields fieldSeqId="05" fieldPath="unpaidTotal"/>
+        <fields fieldSeqId="06" fieldPath="currencyUomId"/>
+
+        <fields fieldSeqId="11" fieldPath="fromPartyId"/>
+        <fields fieldSeqId="12" fieldPath="fromRoles:roleTypeId" fieldNameAlias="fromRoleTypeId"/>
+        <fields fieldSeqId="13" fieldPath="toPartyId"/>
+        <fields fieldSeqId="14" fieldPath="invoiceDate"/>
+        <fields fieldSeqId="15" fieldPath="dueDate"/>
+        <fields fieldSeqId="16" fieldPath="statusId"/>
+
+        <fields fieldSeqId="21" fieldPath="paymentApplications:paymentId"/>
+        <fields fieldSeqId="22" fieldPath="paymentApplications:amountApplied"/>
+        <fields fieldSeqId="23" fieldPath="paymentApplications:appliedDate"/>
+
+        <fields fieldSeqId="31" fieldPath="toClasses:partyClassificationId"/>
+        <fields fieldSeqId="32" fieldPath="toClasses:fromDate" fieldNameAlias="classFromDate"/>
+        <fields fieldSeqId="33" fieldPath="toClasses:thruDate" fieldNameAlias="classThruDate"/>
+        <fields fieldSeqId="34" fieldPath="toClasses:classification:classificationTypeEnumId"/>
+        <fields fieldSeqId="35" fieldPath="((org.moqui.util.CollectionUtilities.filterMapListByDate(toClasses?.findAll(),'classFromDate','classThruDate', null)?.find()?.partyClassificationId)?:'CustConsumer')"
+                fieldNameAlias="customerClassId" fieldType="keyword"/>
+
+        <conditions conditionSeqId="01" fieldNameAlias="fromRoleTypeId" fieldValue="OrgInternal"/>
+    </dataDocuments>
     <!-- Sales InvoiceItem -->
     <dataDocuments dataDocumentId="MantleSalesInvoiceItem" indexName="mantle_sales" documentName="Sales Invoice Item"
             primaryEntityName="mantle.account.invoice.InvoiceItem" documentTitle="${invoiceId}:${invoiceItemSeqId}">
@@ -120,6 +159,7 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="24" fieldPath="invoice:invoiceDate"/>
         <fields fieldSeqId="25" fieldPath="invoice:dueDate"/>
         <fields fieldSeqId="26" fieldPath="invoice:statusId"/>
+        <fields fieldSeqId="27" fieldPath="invoice:currencyUomId"/>
 
         <fields fieldSeqId="51" fieldPath="issuances:issuedDate"/>
         <fields fieldSeqId="52" fieldPath="issuances:quantity" fieldNameAlias="issuedQuantity"/>
@@ -163,6 +203,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.entity.feed.DataFeed dataFeedId="MantleSales" dataFeedTypeEnumId="DTFDTP_RT_PUSH"
             feedName="Mantle Sales Data" feedReceiveServiceName="org.moqui.search.SearchServices.index#DataDocuments">
         <documents dataDocumentId="MantleSalesOrderItem"/>
+        <documents dataDocumentId="MantleSalesInvoice"/>
         <documents dataDocumentId="MantleSalesInvoiceItem"/>
     </moqui.entity.feed.DataFeed>
 </entity-facade-xml>
