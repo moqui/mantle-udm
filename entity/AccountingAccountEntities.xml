@@ -537,6 +537,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="amount" type="currency-precise"/>
         <field name="description" type="text-medium"/>
         <field name="itemDate" type="date-time"/>
+        <field name="isAdjustment" type="text-indicator"/>
         <field name="salesOpportunityId" type="id"/>
         <field name="taxAuthorityId" type="id"/>
         <field name="payrollAdjustmentId" type="id"/>
