@@ -114,7 +114,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.PartyRole partyId="ORG_ZIZI_JD" roleTypeId="Employee"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_JD" roleTypeId="Assignee"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ZIZI_JD_EMP" relationshipTypeEnumId="PrtEmployee"
-            fromPartyId="ORG_ZIZI_JD" fromRoleTypeId="Employee" toPartyId="ORG_ZIZI_SERVICES" toRoleTypeId="OrgInternal"
+            fromPartyId="ORG_ZIZI_JD" fromRoleTypeId="Employee" toPartyId="ORG_ZIZI_SERVICES" toRoleTypeId="OrgEmployer"
             fromDate="1265184000000"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ZIZI_JD_TM" relationshipTypeEnumId="PrtMember"
             fromPartyId="ORG_ZIZI_JD" fromRoleTypeId="Assignee" toPartyId="ORG_ZIZI_DEVA" toRoleTypeId="OrgTeam"
@@ -132,7 +132,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.PartyRole partyId="ORG_ZIZI_BD" roleTypeId="Employee"/>
     <mantle.party.PartyRole partyId="ORG_ZIZI_BD" roleTypeId="Assignee"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ZIZI_BD_EMP" relationshipTypeEnumId="PrtEmployee"
-            fromPartyId="ORG_ZIZI_BD" fromRoleTypeId="Employee" toPartyId="ORG_ZIZI_SERVICES" toRoleTypeId="OrgInternal"
+            fromPartyId="ORG_ZIZI_BD" fromRoleTypeId="Employee" toPartyId="ORG_ZIZI_SERVICES" toRoleTypeId="OrgEmployer"
             fromDate="1265184000000"/>
     <mantle.party.PartyRelationship partyRelationshipId="ORG_ZIZI_BD_TM" relationshipTypeEnumId="PrtMember"
             fromPartyId="ORG_ZIZI_BD" fromRoleTypeId="Assignee" toPartyId="ORG_ZIZI_DEVA" toRoleTypeId="OrgTeam"
