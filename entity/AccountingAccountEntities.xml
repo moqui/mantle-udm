@@ -307,14 +307,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="toPartyId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="billingAccountId" type="id"/>
-        <field name="invoiceDate" type="date-time"/>
-        <field name="dueDate" type="date-time"/>
+        <field name="invoiceDate" type="date-time" enable-audit-log="update"/>
+        <field name="dueDate" type="date-time" enable-audit-log="update"/>
         <field name="settlementTermId" type="id"/>
         <field name="paidDate" type="date-time"/>
         <field name="invoiceMessage" type="text-long"/>
         <field name="referenceNumber" type="text-medium" enable-audit-log="update">
             <description>Vendor or other invoice number.</description></field>
-        <field name="otherPartyOrderId" type="text-short"/>
+        <field name="otherPartyOrderId" type="text-short" enable-audit-log="update"/>
         <field name="description" type="text-medium"/>
         <field name="currencyUomId" type="id"/>
         <field name="overrideOrgPartyId" type="id"><description>Used to specify the organization override rather than
@@ -522,21 +522,21 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="invoiceId" type="id" is-pk="true"/>
         <field name="invoiceItemSeqId" type="id" is-pk="true"/>
         <field name="parentItemSeqId" type="id"/>
-        <field name="itemTypeEnumId" type="id"/>
-        <field name="overrideGlAccountId" type="id"><description>The override or actual glAccountId used for the
+        <field name="itemTypeEnumId" type="id" enable-audit-log="update"/>
+        <field name="overrideGlAccountId" type="id" enable-audit-log="update"><description>The override or actual glAccountId used for the
             AcctgTransEntry based on the InvoiceItem. If empty the glAccountId will be determined based on configuration
             or custom code.</description></field>
         <field name="assetId" type="id"><description>For sale of a particular asset, required for fixed assets</description></field>
-        <field name="productId" type="id"/>
+        <field name="productId" type="id" enable-audit-log="update"/>
         <field name="otherPartyProductId" type="text-short"/>
         <field name="parentInvoiceId" type="id"/>
         <field name="parentInvoiceItemSeqId" type="id"/>
         <field name="taxableFlag" type="text-indicator"/>
-        <field name="quantity" type="number-decimal"/>
+        <field name="quantity" type="number-decimal" enable-audit-log="update"/>
         <field name="quantityUomId" type="id"/>
-        <field name="amount" type="currency-precise"/>
+        <field name="amount" type="currency-precise" enable-audit-log="update"/>
         <field name="description" type="text-medium"/>
-        <field name="itemDate" type="date-time"/>
+        <field name="itemDate" type="date-time" enable-audit-log="update"/>
         <field name="isAdjustment" type="text-indicator"/>
         <field name="salesOpportunityId" type="id"/>
         <field name="taxAuthorityId" type="id"/>
@@ -1164,8 +1164,8 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="Payment" package="mantle.account.payment" short-alias="payments" cache="never">
         <field name="paymentId" type="id" is-pk="true"/>
         <field name="paymentTypeEnumId" type="id"/>
-        <field name="fromPartyId" type="id"/>
-        <field name="toPartyId" type="id"/>
+        <field name="fromPartyId" type="id" enable-audit-log="update"/>
+        <field name="toPartyId" type="id" enable-audit-log="update"/>
 
         <!-- Deprecated, use paymentInstrumentEnumId: <field name="paymentMethodTypeEnumId" type="id"/> -->
         <field name="paymentInstrumentEnumId" type="id"><description>The payment instrument used for the payment; for
@@ -1181,19 +1181,19 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderPartSeqId" type="id"><description>Set if the Payment represents the payment settings for an OrderPart.</description></field>
 
         <field name="statusId" type="id" enable-audit-log="true"/>
-        <field name="effectiveDate" type="date-time"/>
+        <field name="effectiveDate" type="date-time" enable-audit-log="update"/>
         <field name="paymentAuthCode" type="text-short"/>
         <field name="paymentRefNum" type="text-short" enable-audit-log="update"/>
         <field name="comments" type="text-medium"/>
         <field name="memo" type="text-medium"/>
         <field name="distGroupEnumId" type="id"/>
 
-        <field name="amount" type="currency-amount"/>
+        <field name="amount" type="currency-amount" enable-audit-log="update"/>
         <field name="amountUomId" type="id"/>
         <field name="appliedTotal" type="currency-amount"/>
         <field name="unappliedTotal" type="currency-amount"/>
 
-        <field name="forInvoiceId" type="id"/>
+        <field name="forInvoiceId" type="id" enable-audit-log="update"/>
         <field name="finAccountId" type="id"/>
         <field name="finAccountAuthId" type="id"/>
         <field name="finAccountTransId" type="id"/>
