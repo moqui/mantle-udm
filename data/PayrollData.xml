@@ -24,9 +24,6 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Block" enumId="PwgBlock" enumTypeId="PayrollWageGrp"/>
     <moqui.basic.Enumeration description="Block Group" enumId="PwgBlockGroup" enumTypeId="PayrollWageGrp"/>
 
-    <moqui.basic.LocalizedMessage locale="default" original="PayrollInvoiceItemTemplate"
-                                  localized="${facilityName?:name?:''}: ${description?:enumId}"/>
-
     <!-- An FLSA workweek is a fixed, regularly-recurring period of 168 hours – that is, seven, consecutive, 24-hour periods –
          that the employer expressly adopts in order to maintain FLSA compliance.  It is unclear what effect daylight savings
          time has on the 168 hours, but it appears that the weeks that are short or long one hour are treated as 167 or 169

@@ -206,6 +206,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Phone Call" enumId="WepPhoneCall" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="Email" enumId="WepEmail" enumTypeId="WorkEffortPurpose"/>
 
+            <moqui.basic.Enumeration description="Timesheet" enumId="WepTimesheet" enumTypeId="WorkEffortPurpose"/>
+
             <!-- Work Effort Resolution -->
             <moqui.basic.EnumerationType description="Work Effort Resolution" enumTypeId="WorkEffortResolution"/>
             <moqui.basic.Enumeration description="Unresolved" enumId="WerUnresolved" enumTypeId="WorkEffortResolution"/>
@@ -696,6 +698,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="vendorPieceRateAmountId" type="id"><description>Vendor/worker piece RateAmount reference</description></field>
         <field name="vendorPieceRate" type="number-decimal"/>
         <field name="comments" type="text-long"/>
+        <field name="facilityId" type="id"><description>Where the work was done; if null and workEffortId is set get from WorkEffort.facilityId</description></field>
         <field name="workEffortId" type="id"/>
         <field name="invoiceId" type="id"/>
         <field name="invoiceItemSeqId" type="id"/>
@@ -727,6 +730,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="VendorPiece" related="mantle.humanres.rate.RateAmount" short-alias="vendorPieceRateAmount">
             <key-map field-name="vendorPieceRateAmountId"/></relationship>
 
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
         <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem">
             <key-map field-name="invoiceId"/>
