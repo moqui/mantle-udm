@@ -92,6 +92,8 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="timeUomId" type="id"><description>Time unit for all time and duration fields; defaults to hours (TF_hr)</description></field>
 
+        <field name="timePeriodTypeId" type="id"><description>Time period for work scheduling</description></field>
+
         <!-- something to consider for future: <field name="estimatedCost" type="currency-amount"/> -->
         <field name="actualCost" type="currency-amount"/>
         <field name="actualClientCost" type="currency-amount"/>
@@ -121,6 +123,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one" title="Time" related="moqui.basic.Uom" short-alias="timeUom">
             <key-map field-name="timeUomId"/></relationship>
+        <relationship type="one" title="TimePeriodType" related="mantle.party.time.TimePeriodType" short-alias="timePeriod">
+            <key-map field-name="timePeriodTypeId"/></relationship>
         <relationship type="one" title="Cost" related="moqui.basic.Uom" short-alias="costUom">
             <key-map field-name="costUomId"/></relationship>
 
