@@ -246,6 +246,12 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemAdjAdvertising" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemAdjJointAdv" enumGroupEnumId="EngItemsSales"/>
 
+    <moqui.basic.EnumGroupMember enumId="ItemWriteOff" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemReturnAdjust" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemChargebackAdjust" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemComplianceFee" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemShrinkage" enumGroupEnumId="EngItemsSales"/>
+
     <!-- Incoming/Payable/Purchase Item Types -->
 
     <moqui.basic.Enumeration description="Incoming/Payable/Purchase Items" enumId="EngItemsPurchase" enumTypeId="EnumGroup"/>
