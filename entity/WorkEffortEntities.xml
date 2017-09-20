@@ -94,13 +94,6 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="timeUomId" type="id"><description>Time unit for all time and duration fields; defaults to hours (TF_hr)</description></field>
 
-        <field name="cronExpression" type="text-short"><description>
-            An extended cron expression like Unix crontab but with extended syntax options (L, W, etc) similar to Quartz Scheduler. See:
-
-            http://cron-parser.com
-            http://www.quartz-scheduler.org/documentation/quartz-2.2.x/tutorials/tutorial-lesson-06.html
-        </description></field>
-
         <!-- something to consider for future: <field name="estimatedCost" type="currency-amount"/> -->
         <field name="actualCost" type="currency-amount"/>
         <field name="actualClientCost" type="currency-amount"/>
