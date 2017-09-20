@@ -69,6 +69,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="estimatedCompletionDate" type="date-time"/>
         <field name="actualStartDate" type="date-time"/>
         <field name="actualCompletionDate" type="date-time"/>
+        <field name="recurStartCron" type="text-medium"/>
+        <field name="recurLimit" type="number-integer"/>
         <!-- for all day events, separate date fields to avoid issues with time zones, etc -->
         <field name="allDayStart" type="date"/>
         <field name="allDayEnd" type="date"><description>Can be null for single day events</description></field>
