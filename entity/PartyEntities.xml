@@ -1503,20 +1503,4 @@ along with this software (see the LICENSE.md file). If not, see
                     parentPeriodTypeId="TaxQuarter" periodPurposeEnumId="Tax" periodLength="1" lengthUomId="TF_mon"/>
         </seed-data>
     </entity>
-    <entity entity-name="TimePeriodTypeAssoc" package="mantle.party.time" use="configuration" cache="true">
-        <field name="timePeriodTypeId" type="id" is-pk="true"/>
-        <field name="toTimePeriodTypeId" type="id" is-pk="true"/>
-        <field name="timePeriodTypeAssocTypeEnumId" type="id" is-pk="true"/>
-        <relationship type="one" title="TimePeriodType" related="mantle.party.time.TimePeriodType" short-alias="timePeriodType">
-            <key-map field-name="timePeriodTypeId"/></relationship>
-        <relationship type="one" title="ToTimePeriodType" related="mantle.party.time.TimePeriodType" short-alias="toTimePeriodType">
-            <key-map field-name="toTimePeriodTypeId"/></relationship>
-        <relationship type="one" title="TimePeriodAssocType" related="moqui.basic.Enumeration" short-alias="timePeriodAssocType">
-            <key-map field-name="timePeriodTypeAssocTypeEnumId"/></relationship>
-        <seed-data>
-            <moqui.basic.EnumerationType description="Time Period Type Assoc Type" enumTypeId="TimePeriodTypeAssocType"/>
-            <moqui.basic.Enumeration enumId="TptatInclude" description="Include" enumTypeId="TimePeriodTypeAssocType"/>
-            <moqui.basic.Enumeration enumId="TptatExclude" description="Exclude" enumTypeId="TimePeriodTypeAssocType"/>
-        </seed-data>
-    </entity>
 </entities>
