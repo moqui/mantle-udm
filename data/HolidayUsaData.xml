@@ -17,6 +17,10 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.work.effort.WorkEffortCategory workEffortCategoryId="HolidayUsaFed" description="USA Federal Observed Holidays"/>
     <mantle.work.effort.WorkEffortCategory workEffortCategoryId="HolidayUsaBank" description="USA Bank (Federal Reserve) Observed Holidays"/>
 
+    <!-- recurrences -->
+    <workEfforts workEffortId="USA_COLD" workEffortName="Columbus Day" workEffortTypeEnumId="WetEvent" purposeEnumId="WepHoliday"
+            visibilityEnumId="WevAllUsers" allDayStart="1937-10-11" recurStartCron="0 15 10 ? 10 2#2"><categories workEffortCategoryId="HolidayUsaFed"/><categories workEffortCategoryId="HolidayUsaBank"/></workEfforts>
+
     <!-- 2017 -->
     <workEfforts workEffortId="USA_2017_NYD" workEffortName="New Years Day Observed" workEffortTypeEnumId="WetEvent" purposeEnumId="WepHoliday"
             visibilityEnumId="WevAllUsers" allDayStart="2017-01-02"><categories workEffortCategoryId="HolidayUsaFed"/><categories workEffortCategoryId="HolidayUsaBank"/></workEfforts>
