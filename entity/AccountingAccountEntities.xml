@@ -431,7 +431,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceIncoming" toStatusId="InvoiceReceived" transitionName="Receive"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceReceived" toStatusId="InvoiceApproved" transitionName="Approve"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceApproved" toStatusId="InvoiceReceived" transitionName="Resume Changes"/>
-            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceApproved" toStatusId="InvoicePmtSent" transitionName="Send Payment"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceApproved" toStatusId="InvoicePmtSent" transitionName="Payment Already Sent"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoicePmtSent" toStatusId="InvoiceBilledThrough" transitionName="Bill Through"/>
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoicePmtSent" toStatusId="InvoiceApproved" transitionName="Unpay"/>
