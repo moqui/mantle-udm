@@ -175,6 +175,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="transactionDate" type="date-time"/>
         <field name="entryDate" type="date-time"/>
         <field name="amount" type="currency-amount"/>
+        <!-- TODO: remove postBalance and all code that uses it, invalid if new transactions don't have transactionDate later than all existing -->
         <field name="postBalance" type="currency-amount"/>
         <field name="paymentId" type="id"/>
         <field name="invoiceId" type="id"/>
@@ -183,7 +184,10 @@ along with this software (see the LICENSE.md file). If not, see
             represents the purchase of a product to add money to the account.</description></field>
         <field name="performedByUserId" type="id"/>
         <field name="acctgTransResultEnumId" type="id" create-only="false"/>
+        <field name="reversedByTransId" type="id" create-only="false"/>
+        <field name="reverseOfTransId" type="id"/>
         <field name="comments" type="text-medium"/>
+
         <relationship type="one" title="FinancialAccountTransType" related="moqui.basic.Enumeration">
             <key-map field-name="finAccountTransTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.account.financial.FinancialAccount"/>
@@ -204,6 +208,11 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="performedByUserId"/></relationship>
         <relationship type="one" title="AcctgTransResult" related="moqui.basic.Enumeration">
             <key-map field-name="acctgTransResultEnumId"/></relationship>
+        <relationship type="one" title="ReversedBy" related="mantle.account.financial.FinancialAccountTrans" short-alias="reversedBy">
+            <key-map field-name="reversedByTransId" related="finAccountTransId"/></relationship>
+        <relationship type="one" title="ReverseOf" related="mantle.account.financial.FinancialAccountTrans" short-alias="reverseOf">
+            <key-map field-name="reverseOfTransId" related="finAccountTransId"/></relationship>
+
         <seed-data>
             <!-- Financial Account Trans Type -->
             <moqui.basic.EnumerationType description="Financial Account Trans Type" enumTypeId="FinancialAccountTransType"/>
