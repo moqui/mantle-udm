@@ -1419,9 +1419,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="toPaymentId" type="id"><description>To be used when a payment is based on or comes from another
             payment, like a payment that is a return of a mistaken or over-payment</description></field>
         <field name="taxAuthGeoId" type="id"/>
-        <field name="amountApplied" type="currency-amount"/>
+        <field name="amountApplied" type="currency-amount" enable-audit-log="update"/>
         <field name="amountOriginallyApplied" type="currency-amount"/>
-        <field name="appliedDate" type="date-time"/>
+        <field name="appliedDate" type="date-time" enable-audit-log="update"/>
         <field name="acctgTransResultEnumId" type="id"/>
         <relationship type="one" related="mantle.account.payment.Payment" short-alias="payment">
             <key-map field-name="paymentId"/></relationship>

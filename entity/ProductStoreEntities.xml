@@ -133,6 +133,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Browse Root (One)" enumId="PsctBrowseRoot" enumTypeId="ProductStoreCategoryType"/>
             <moqui.basic.Enumeration description="Default Search (One)" enumId="PsctSearch" enumTypeId="ProductStoreCategoryType"/>
             <moqui.basic.Enumeration description="Quick Add (Many)" enumId="PsctQuickAdd" enumTypeId="ProductStoreCategoryType"/>
+            <moqui.basic.Enumeration description="Quick Add Internal (Many)" enumId="PsctQuickInternal" enumTypeId="ProductStoreCategoryType"/>
             <moqui.basic.Enumeration description="Promotions (One)" enumId="PsctPromotions" enumTypeId="ProductStoreCategoryType"/>
             <moqui.basic.Enumeration description="View Allow (One)" enumId="PsctViewAllow" enumTypeId="ProductStoreCategoryType"/>
             <moqui.basic.Enumeration description="Purchase Allow (One)" enumId="PsctPurchaseAllow" enumTypeId="ProductStoreCategoryType"/>
