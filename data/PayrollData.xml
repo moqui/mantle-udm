@@ -83,7 +83,6 @@ along with this software (see the LICENSE.md file). If not, see
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
-
     <!-- Minimum Wage:
     Is Employee Subject to minimum wage?
         If N, no minimum wage check will be performed.

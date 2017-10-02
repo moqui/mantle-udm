@@ -145,8 +145,11 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Payroll Income - Break Hourly Earnings" enumId="ItemBreakHourlyEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Break RRP Earnings" enumId="ItemBreakRrpEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Nonproductive Earnings" enumId="ItemNonproductiveEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Payroll Income - PTO Hourly" enumId="ItemPtoHourly" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Payroll Income - Vacation Hourly" enumId="ItemVacationHourly" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Sick Hourly" enumId="ItemSickHourly" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Salary" enumId="ItemSalary" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Payroll Income - PTO Salary" enumId="ItemPtoSalary" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Vacation Salary" enumId="ItemVacationSalary" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Sick Salary" enumId="ItemSickSalary" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Income - Bonus" enumId="ItemBonus" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
