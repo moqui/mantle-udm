@@ -948,6 +948,21 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.humanres.rate.RateAmount rateAmountId="UnpaidVendor" rateTypeEnumId="RatpUnpaid" ratePurposeEnumId="RaprVendor"
                     timePeriodUomId="TF_hr" workEffortId="" partyId="" emplPositionClassId=""
                     fromDate="1265184000000" thruDate="" rateAmount="0.00" rateCurrencyUomId=""/>
+
+            <!-- Hour Rate Type -->
+            <moqui.basic.Enumeration description="Hourly Rate Type" enumId="HourlyConfigType" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="RatpStandard" sequenceNum="1" enumGroupEnumId="HourlyConfigType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpEvening" sequenceNum="21" enumGroupEnumId="HourlyConfigType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpNight" sequenceNum="22" enumGroupEnumId="HourlyConfigType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpWeekend" sequenceNum="23" enumGroupEnumId="HourlyConfigType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpShHoliday" sequenceNum="24" enumGroupEnumId="HourlyConfigType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpOnsite" sequenceNum="25" enumGroupEnumId="HourlyConfigType"/>
+
+            <!-- Piece Rate Type -->
+            <moqui.basic.Enumeration description="Piece Rate Type" enumId="PieceConfigType" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPieceOnly" sequenceNum="4" enumGroupEnumId="PieceConfigType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPieceOrHour" sequenceNum="5" enumGroupEnumId="PieceConfigType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPiecePlusHour" sequenceNum="6" enumGroupEnumId="PieceConfigType"/>
         </seed-data>
     </entity>
 
