@@ -403,6 +403,11 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Dun and Bradstreet DUNS+4" enumId="PtidDuns4" enumTypeId="PartyIdType" optionValue="99-999-9999-9999"/>
             <moqui.basic.Enumeration description="Customer Assigned" enumId="PtidCust" enumTypeId="PartyIdType"/>
             <moqui.basic.Enumeration description="Vendor Assigned" enumId="PtidVend" enumTypeId="PartyIdType"/>
+            <moqui.basic.Enumeration description="Permanent Resident" enumId="PtidPermReg" enumTypeId="PartyIdType"/>
+            <moqui.basic.Enumeration description="I-551" enumId="PtidI551" enumTypeId="PartyIdType"/>
+            <moqui.basic.Enumeration description="I-766" enumId="PtidI766" enumTypeId="PartyIdType"/>
+            <moqui.basic.Enumeration description="I-94" enumId="PtidI94" enumTypeId="PartyIdType"/>
+            <moqui.basic.Enumeration description="I-94A" enumId="Ptid94A" enumTypeId="PartyIdType"/>
         </seed-data>
     </entity>
     <entity entity-name="PartyNote" package="mantle.party">
