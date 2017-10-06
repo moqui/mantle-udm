@@ -83,13 +83,12 @@ along with this software (see the LICENSE.md file). If not, see
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
-
     <!-- Minimum Wage:
     Is Employee Subject to minimum wage?
         If N, no minimum wage check will be performed.
     What is the Employee's minimum wage?
     Should HOURLY time entries be included in minimum wage makeup calculation?
-        If N, Minimum wage test is performed against PIECEand ND hours and pay only.
+        If N, Minimum wage test is performed against PIECE and ND hours and pay only.
     How frequently should minimum wage be tested?
     What is the minimum wage grouping level?
         If a grouping level is defined, makeup pay will be assigned at this level.
