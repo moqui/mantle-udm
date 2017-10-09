@@ -54,7 +54,7 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="112000000" glAccountTypeEnumId="GatUndepositedReceipts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="110000000"/>
 
     <!-- 120000 ASSET - ACCOUNTS RECEIVABLE -->
-    <mantle.ledger.account.GlAccount accountName="Accounts Receivable Root" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="Current Receivable" description="" glAccountClassEnumId="CURRENT_ASSET"
         glAccountId="120000000" glAccountTypeEnumId="GatAccountsReceivable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="100000000" disallowPosting="Y"/>
 
     <mantle.ledger.account.GlAccount accountName="Accounts Receivable" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
@@ -71,7 +71,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccount accountName="Accounts Receivable - Allowance for Bad Debts" description="" glAccountClassEnumId="ALLOWANCE_BAD_DEBT"
         glAccountId="121900000" glAccountTypeEnumId="GatAccRecBadRec" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="121000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="In Transit from Credit Card Processors" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="In Transit from Credit Card Processors" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="122000000" glAccountTypeEnumId="GatMerchantSettlement" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="120000000"/>
     <mantle.ledger.account.GlAccount accountName="Accounts Receivable Credit Cards - Allowance for Bad Debts" description="" glAccountClassEnumId="ALLOWANCE_BAD_DEBT"
         glAccountId="122900000" glAccountTypeEnumId="GatAccRecBadRec" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="122000000"/>
@@ -285,10 +285,10 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="200000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="" disallowPosting="Y"/>
 
     <!-- 210000 LIABILITY - ACCOUNTS PAYABLE -->
-    <mantle.ledger.account.GlAccount accountName="Accounts Payable Root" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
-        glAccountId="210000000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="200000000"/>
+    <mantle.ledger.account.GlAccount accountName="Current Payable" description="" glAccountClassEnumId="CURRENT_LIABILITY"
+        glAccountId="210000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="200000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Accrued Accounts Payable" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
+    <mantle.ledger.account.GlAccount accountName="Accrued Accounts Payable" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="211000000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="210000000"/>
     <mantle.ledger.account.GlAccount accountName="Accounts Payable - Operating" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
         glAccountId="212000000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="210000000"/>
@@ -300,12 +300,12 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="212300000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="212000000"/>
     <mantle.ledger.account.GlAccount accountName="Accounts Payable - Garnishment" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
         glAccountId="212400000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="212000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounts Payable - Loan" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
+    <mantle.ledger.account.GlAccount accountName="Accounts Payable - Loan" description="" glAccountClassEnumId="LOANS_PAYABLE"
         glAccountId="212500000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="212000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Uninvoiced Item Receipt" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
+    <mantle.ledger.account.GlAccount accountName="Uninvoiced Item Receipt" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="214000000" glAccountTypeEnumId="GatUninvoicedShpmntRcpts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="210000000"/>
-    <mantle.ledger.account.GlAccount accountName="Payable for Inventory Transferred In" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
+    <mantle.ledger.account.GlAccount accountName="Payable for Inventory Transferred In" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="215000000" glAccountTypeEnumId="GatPayInventoryTranIn" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="210000000"/>
     <mantle.ledger.account.GlAccount accountName="Accounts Payable - Unapplied Payments" description="" glAccountClassEnumId="PREPAID_EXPENSE"
         glAccountId="216000000" glAccountTypeEnumId="GatAccPayableUnapplied" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="210000000"/>
@@ -1708,7 +1708,7 @@ along with this software (see the LICENSE.md file). If not, see
     -->
     <!-- TODO: handle prompt payment discount on payable through payment after invoice finalize (as opposed to ItemDiscount item type)? -->
 
-    <mantle.ledger.config.CreditCardTypeGlAccount creditCardTypeEnumId="CctVisa" organizationPartyId="DefaultSettings" glAccountId="122000000"/>
+    <!-- <mantle.ledger.config.CreditCardTypeGlAccount creditCardTypeEnumId="CctVisa" organizationPartyId="DefaultSettings" glAccountId="122000000"/> -->
 
     <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251100000" finAccountTypeId="CustomerCredit" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251200000" finAccountTypeId="GiftCertificate" organizationPartyId="DefaultSettings"/>
