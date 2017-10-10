@@ -146,6 +146,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Current Liability" enumId="CURRENT_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Accounts Payable" enumId="ACCOUNTS_PAYABLE" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Accrued Expenses" enumId="ACCRUED_EXPENSES" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Loans Payable" enumId="LOANS_PAYABLE" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Unearned Revenue" enumId="UNEARNED_REVENUE" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Third-Party Holdings" enumId="THIRD_PARTY_HOLDINGS" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Long Term Liability" enumId="LONG_TERM_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>

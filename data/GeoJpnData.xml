@@ -109,4 +109,68 @@ along with this software (see the LICENSE.md file). If not, see
     <GeoAssoc geoId="JPN" toGeoId="JPN_45" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="JPN" toGeoId="JPN_46" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="JPN" toGeoId="JPN_47" geoAssocTypeEnumId="GAT_REGIONS"/>
+
+    <!-- Japan Regions -->
+    <Geo geoId="JPN_HOKKAIDO" geoName="Hokkaido" geoTypeEnumId="GEOT_GROUP" geoCodeNumeric="1"/>
+    <GeoAssoc geoId="JPN_HOKKAIDO" toGeoId="JPN_01" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+
+    <Geo geoId="JPN_TOHUKU" geoName="Tohuku" geoTypeEnumId="GEOT_GROUP" geoCodeNumeric="2"/>
+    <GeoAssoc geoId="JPN_TOHUKU" toGeoId="JPN_02" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_TOHUKU" toGeoId="JPN_03" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_TOHUKU" toGeoId="JPN_04" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_TOHUKU" toGeoId="JPN_05" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_TOHUKU" toGeoId="JPN_06" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_TOHUKU" toGeoId="JPN_07" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+
+    <Geo geoId="JPN_KANTO" geoName="Kanto" geoTypeEnumId="GEOT_GROUP" geoCodeNumeric="3"/>
+    <GeoAssoc geoId="JPN_KANTO" toGeoId="JPN_08" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KANTO" toGeoId="JPN_09" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KANTO" toGeoId="JPN_10" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KANTO" toGeoId="JPN_11" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KANTO" toGeoId="JPN_12" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KANTO" toGeoId="JPN_13" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KANTO" toGeoId="JPN_14" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+
+    <Geo geoId="JPN_CHUBU" geoName="Chubu" geoTypeEnumId="GEOT_GROUP" geoCodeNumeric="4"/>
+    <GeoAssoc geoId="JPN_CHUBU" toGeoId="JPN_15" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_CHUBU" toGeoId="JPN_16" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_CHUBU" toGeoId="JPN_17" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_CHUBU" toGeoId="JPN_18" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_CHUBU" toGeoId="JPN_19" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_CHUBU" toGeoId="JPN_20" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_CHUBU" toGeoId="JPN_21" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_CHUBU" toGeoId="JPN_22" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_CHUBU" toGeoId="JPN_23" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+
+    <Geo geoId="JPN_KANSAI" geoName="Kansai" geoTypeEnumId="GEOT_GROUP" geoCodeNumeric="5"/>
+    <GeoAssoc geoId="JPN_KANSAI" toGeoId="JPN_24" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KANSAI" toGeoId="JPN_25" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KANSAI" toGeoId="JPN_26" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KANSAI" toGeoId="JPN_27" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KANSAI" toGeoId="JPN_28" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KANSAI" toGeoId="JPN_29" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KANSAI" toGeoId="JPN_30" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+
+    <Geo geoId="JPN_CHUGOKU" geoName="Chugoku" geoTypeEnumId="GEOT_GROUP" geoCodeNumeric="6"/>
+    <GeoAssoc geoId="JPN_CHUGOKU" toGeoId="JPN_31" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_CHUGOKU" toGeoId="JPN_32" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_CHUGOKU" toGeoId="JPN_33" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_CHUGOKU" toGeoId="JPN_34" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_CHUGOKU" toGeoId="JPN_35" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+
+    <Geo geoId="JPN_SHIKOKU" geoName="Shikoku" geoTypeEnumId="GEOT_GROUP" geoCodeNumeric="7"/>
+    <GeoAssoc geoId="JPN_SHIKOKU" toGeoId="JPN_36" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_SHIKOKU" toGeoId="JPN_37" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_SHIKOKU" toGeoId="JPN_38" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_SHIKOKU" toGeoId="JPN_39" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+
+    <Geo geoId="JPN_KYUSHU_OKINASA" geoName="Kyushu and Okinawa" geoTypeEnumId="GEOT_GROUP" geoCodeNumeric="8"/>
+    <GeoAssoc geoId="JPN_KYUSHU_OKINASA" toGeoId="JPN_40" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KYUSHU_OKINASA" toGeoId="JPN_41" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KYUSHU_OKINASA" toGeoId="JPN_42" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KYUSHU_OKINASA" toGeoId="JPN_43" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KYUSHU_OKINASA" toGeoId="JPN_44" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KYUSHU_OKINASA" toGeoId="JPN_45" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KYUSHU_OKINASA" toGeoId="JPN_46" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="JPN_KYUSHU_OKINASA" toGeoId="JPN_47" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
 </entity-facade-xml>
