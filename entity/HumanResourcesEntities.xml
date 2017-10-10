@@ -261,8 +261,10 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- Moved to Employee:
         <field name="taxYtdPriorIncome" type="currency-amount"><description>Added to YTD income for starting year only (for taxes limited by YTD income)</description></field>
         <field name="distGroupEnumId" type="id"/>
+        -->
         <field name="taxFormId" type="id"/>
         <field name="taxClassificationEnumId" type="id"/>
+        <!--
 
         <field name="taxName" type="text-medium"><description>Defaults to Person or Organization name fields</description></field>
         <field name="taxMiddleName" type="text-medium"><description>Defaults to Person.middleName if applicable</description></field>
