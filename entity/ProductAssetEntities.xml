@@ -544,6 +544,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
         <relationship type="one-nofk" related="mantle.shipment.ShipmentItem" short-alias="shipmentItem"/><!-- nofk as may have a productId but not be issued to a Shipment -->
         <relationship type="one" related="mantle.shipment.ShipmentItemSource" short-alias="shipmentItemSource"/>
+        <relationship type="one-nofk" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
         <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem"/>
         <relationship type="one" related="mantle.order.return.ReturnItem" short-alias="returnItem">
             <key-map field-name="returnId"/><key-map field-name="returnItemSeqId"/></relationship>
