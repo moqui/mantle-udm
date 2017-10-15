@@ -45,6 +45,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.resource.wiki.WikiPage wikiPageId="zzw_about" wikiSpaceId="ZZW_RETAIL" pagePath="about" publishedVersionName="01">
         <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
     </moqui.resource.wiki.WikiPage>
+    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="ZZW_RETAIL" aliasPath="about_alias" wikiPageId="zzw_about"/>
     <!-- Contact Us -->
     <moqui.resource.DbResource filename="contact.html" isFile="Y" resourceId="zzw_contact" parentResourceId="zzw_content_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
