@@ -41,6 +41,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="estimatedShipDate" type="date-time"/>
         <field name="estimatedArrivalDate" type="date-time"/>
         <field name="latestCancelDate" type="date-time"/>
+        <field name="packedDate" type="date-time"/>
 
         <field name="shipWorkEffortId" type="id"/>
         <field name="receiveWorkEffortId" type="id"/>
