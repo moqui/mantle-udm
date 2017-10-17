@@ -873,7 +873,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="rateTypeEnumId" type="id"/>
         <field name="ratePurposeEnumId" type="id"/>
         <field name="rateCurrencyUomId" type="id"/>
-        <field name="timePeriodUomId" type="id"/>
+        <field name="timePeriodUomId" type="id"/> <!-- The Uom of the rate; may or may not be time related. e.g. TF_hr or OTH_ea -->
         <!-- filter by if any records have these not null matching the current TimeEntry values -->
         <field name="workEffortId" type="id"/>
         <field name="partyId" type="id"/>
@@ -884,21 +884,21 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- what we're looking for -->
         <field name="rateAmount" type="number-decimal"/>
 
-        <relationship type="one" title="RateType" related="moqui.basic.Enumeration">
+        <relationship type="one" title="RateType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="rateTypeEnumId"/></relationship>
-        <relationship type="one" title="RatePurpose" related="moqui.basic.Enumeration">
+        <relationship type="one" title="RatePurpose" related="moqui.basic.Enumeration" short-alias="purpose">
             <key-map field-name="ratePurposeEnumId"/></relationship>
-        <relationship type="one" title="RateCurrency" related="moqui.basic.Uom">
+        <relationship type="one" title="RateCurrency" related="moqui.basic.Uom" short-alias="currencyUom">
             <key-map field-name="rateCurrencyUomId"/></relationship>
-        <relationship type="one" title="TimePeriod" related="moqui.basic.Uom">
+        <relationship type="one" title="TimePeriod" related="moqui.basic.Uom" short-alias="timePeriod">
             <key-map field-name="timePeriodUomId"/></relationship>
 
-        <relationship type="one" related="mantle.work.effort.WorkEffort"/>
-        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
 
-        <relationship type="one" related="mantle.humanres.rate.PayGrade"/>
-        <relationship type="one" related="mantle.humanres.position.EmplPositionClass"/>
-        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.humanres.rate.PayGrade" short-alias="payGrade"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPositionClass" short-alias="positionClass"/>
+        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workType">
             <key-map field-name="workTypeEnumId"/></relationship>
 
         <seed-data>
