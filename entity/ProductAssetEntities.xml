@@ -296,7 +296,8 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="AssetDetail" package="mantle.product.asset" create-only="true" cache="never">
         <field name="assetDetailId" type="id" is-pk="true"/>
         <field name="assetId" type="id"/>
-        <field name="effectiveDate" type="date-time"/>
+        <!-- would be nice if effectiveDate was immutable but we allow update of issuedDate through service and this needs to be updated to match -->
+        <field name="effectiveDate" type="date-time" create-only="false"/>
 
         <field name="quantityOnHandDiff" type="number-decimal"/>
         <field name="availableToPromiseDiff" type="number-decimal"/>
