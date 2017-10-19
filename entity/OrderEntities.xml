@@ -276,11 +276,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="requiredByDate" type="date-time"/>
 
         <field name="unitAmount" type="currency-precise" enable-audit-log="true">
-            <description>For barter/exchange orders this represents the market value of the item at the time of the
-                exchange in terms of the OrderHeader.currencyUomId.</description>
+            <description>The purchase or sales price. For barter/exchange orders this represents the market value of the item at
+                the time of the exchange in terms of the OrderHeader.currencyUomId.</description>
         </field>
         <field name="unitListPrice" type="currency-precise"/>
         <field name="isModifiedPrice" type="text-indicator"/>
+        <field name="standardCost" type="currency-precise" enable-audit-log="true">
+            <description>For purchase orders the cost for accounting purposes if different from unitAmount. Used to set Asset.acquireCost on receipt.</description></field>
 
         <field name="externalItemSeqId" type="id"/>
         <field name="fromAssetId" type="id"><description>Order for a particular Asset, not just any associated with the Product.</description></field>
