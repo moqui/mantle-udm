@@ -309,7 +309,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.account.invoice -->
     <!-- ========================================================= -->
 
-    <entity entity-name="Invoice" package="mantle.account.invoice" short-alias="invoices" cache="never">
+    <entity entity-name="Invoice" package="mantle.account.invoice" short-alias="invoices" cache="never" optimistic-lock="true">
         <field name="invoiceId" type="id" is-pk="true"/>
         <field name="invoiceTypeEnumId" type="id"/>
         <field name="fromPartyId" type="id"/>
@@ -1170,7 +1170,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="deductionTypeEnumId"/></relationship>
         <relationship type="one" related="Payment"/>
     </entity>
-    <entity entity-name="Payment" package="mantle.account.payment" short-alias="payments" cache="never">
+    <entity entity-name="Payment" package="mantle.account.payment" short-alias="payments" cache="never" optimistic-lock="true">
         <field name="paymentId" type="id" is-pk="true"/>
         <field name="paymentTypeEnumId" type="id"/>
         <field name="fromPartyId" type="id" enable-audit-log="update"/>
