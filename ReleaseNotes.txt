@@ -2,21 +2,22 @@
 Mantle Business Artifacts - Universal Data Model Release Notes
 
 ===========================================================================
-Release 1.2.0 - Not Yet Released
+Release 2.0.0 - 22 Oct 2017
 ===========================================================================
 
-Mantle Universal Data Model 1.2.0 is a minor feature and bug fix
+Mantle Universal Data Model 2.0.0 is a minor feature and bug fix
 release. This release is based on Moqui Framework 2.1.0.
-
-Non-Backward Compatible Changes
-
-- TODO
 
 New Features
 
 - Significant improvements to default chart of accounts and GL account
   classes for summary reports and a wider variety of operations
-- TODO
+- Lots of tuning and small additions to support new and improved
+  functionality in mantle-usl and SimpleScreens, mostly related to procure
+  to pay and order to cash processes plus significantly improved accounting
+- Much better audit log settings based on real world needs
+- Employee entity with various fields moved from Employment or represented
+  in both for a default and override pattern
 
 ===========================================================================
 Release 1.1.0 - 24 Nov 2016
