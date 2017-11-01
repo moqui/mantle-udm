@@ -771,6 +771,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="telecomContactMechId" type="id"/>
         <field name="emailContactMechId" type="id"/>
         <field name="gatewayCimId" type="text-short" enable-audit-log="update"/>
+        <field name="paymentGatewayConfigId" type="id"/>
 
         <field name="trustLevelEnumId" type="id"/>
         <field name="paymentFraudEvidenceId" type="id"><description>Refer to evidence here if trust level is gray listed or black listed</description></field>
@@ -798,6 +799,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="telecomContactMechId"/></relationship>
         <relationship type="one" title="Email" related="mantle.party.contact.ContactMech" short-alias="email" mutable="true">
             <key-map field-name="emailContactMechId"/></relationship>
+        <relationship type="one" related="mantle.account.method.PaymentGatewayConfig" short-alias="gatewayConfig"/>
         <relationship type="one" title="ContactPaymentTrustLevel" related="moqui.basic.Enumeration" short-alias="trustLevel">
             <key-map field-name="trustLevelEnumId"/></relationship>
         <relationship type="one" related="mantle.account.payment.PaymentFraudEvidence" short-alias="paymentFraudEvidence" mutable="true"/>
