@@ -772,6 +772,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="emailContactMechId" type="id"/>
         <field name="gatewayCimId" type="text-short" enable-audit-log="update"/>
         <field name="paymentGatewayConfigId" type="id"/>
+        <field name="imageUrl" type="text-medium"><description>Usually specific to a type or sub-type of PaymentMethod, for display to users</description></field>
 
         <field name="trustLevelEnumId" type="id"/>
         <field name="paymentFraudEvidenceId" type="id"><description>Refer to evidence here if trust level is gray listed or black listed</description></field>
@@ -1043,7 +1044,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Discover" enumId="CctDiscover" enumTypeId="CreditCardType"/>
             <!-- for reference, these are rare and some don't exist any more:
             <moqui.basic.Enumeration description="Diners Club" enumId="CctDinersClub" enumTypeId="CreditCardType"/>
-            <moqui.basic.Enumeration description="EnRoute" enumId="CctEnroue" enumTypeId="CreditCardType"/>
+            <moqui.basic.Enumeration description="EnRoute" enumId="CctEnRoute" enumTypeId="CreditCardType"/>
             <moqui.basic.Enumeration description="Carte Blanche" enumId="CctCarteBlanche" enumTypeId="CreditCardType"/>
             <moqui.basic.Enumeration description="JCB" enumId="CctJcb" enumTypeId="CreditCardType"/>
             <moqui.basic.Enumeration description="Solo" enumId="CctSolo" enumTypeId="CreditCardType"/>
