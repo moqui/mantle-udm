@@ -473,7 +473,8 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Shipment Method -->
             <moqui.basic.EnumerationType description="Shipment Method" enumTypeId="ShipmentMethod"/>
             <moqui.basic.Enumeration description="Customer Pick Up" enumId="ShMthPickUp" enumTypeId="ShipmentMethod"/>
-            <moqui.basic.Enumeration description="Next Day" enumId="ShMthNextDay" enumTypeId="ShipmentMethod"/>
+            <moqui.basic.Enumeration description="Next Day Standard" enumId="ShMthNextDay" enumTypeId="ShipmentMethod"/>
+            <moqui.basic.Enumeration description="Next Day Priority" enumId="ShMthNextDayPri" enumTypeId="ShipmentMethod"/>
             <moqui.basic.Enumeration description="Second Day" enumId="ShMthSecondDay" enumTypeId="ShipmentMethod"/>
             <moqui.basic.Enumeration description="Third Day" enumId="ShMthThirdDay" enumTypeId="ShipmentMethod"/>
             <moqui.basic.Enumeration description="Ground Parcel" enumId="ShMthGround" enumTypeId="ShipmentMethod"/>
