@@ -77,6 +77,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Accounts Receivable" enumId="ACCOUNTS_RECEIVABLE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Loans Receivable" enumId="LOANS_RECEIVABLE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Prepaid Expense" enumId="PREPAID_EXPENSE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+            <moqui.basic.Enumeration description="Prepaid Inventory" enumId="PREPAID_INVENTORY" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Accrued Revenue" enumId="ACCRUED_REVENUE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Long Term Asset" enumId="LONG_TERM_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
             <moqui.basic.Enumeration description="Land and Building" enumId="LAND_BUILDING" parentEnumId="LONG_TERM_ASSET" enumTypeId="GlAccountClass"/>
@@ -235,6 +236,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Inventory Adjustment from Average Cost" enumId="GatInvAdjAvgCost" parentEnumId="GatInventory" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Inventory Value Adjustment" enumId="GatInvValueAdj" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Unreceived Inventory" enumId="GatUnreceivedInventory" enumTypeId="GlAccountType"/>
+            <moqui.basic.Enumeration description="Prepaid Inventory" enumId="GatPrepaidInventory" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Inventory Shrinkage" enumId="GatInvShrinkage" enumTypeId="GlAccountType"/>
             <moqui.basic.Enumeration description="Inventory Found" enumId="GatInvFound" enumTypeId="GlAccountType"/>
 
