@@ -194,6 +194,8 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccount accountName="Packaging Components Inventory" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="141400000" glAccountTypeEnumId="GatInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="141000000"/>
 
+    <mantle.ledger.account.GlAccount accountName="Prepaid Inventory" description="" glAccountClassEnumId="PREPAID_INVENTORY"
+        glAccountId="147000000" glAccountTypeEnumId="GatPrepaidInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="140000000"/>
     <mantle.ledger.account.GlAccount accountName="Inventory - Average Cost Valuation Adjustment" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="148000000" glAccountTypeEnumId="GatInvAdjAvgCost" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="140000000"/>
 
@@ -1225,10 +1227,13 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccountOrganization glAccountId="141100000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="141200000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="141300000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="147000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="149000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="149100000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="149300000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="150000000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="151000000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="151300000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="151400000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="160000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="180000000" organizationPartyId="DefaultSettings"/>
@@ -1589,9 +1594,9 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemBonusNonDisc" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631600000" direction="I" itemTypeEnumId="ItemPrlCommission" organizationPartyId="DefaultSettings"/>
 
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151400000" direction="I" itemTypeEnumId="ItemAdvancePay" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151300000" direction="I" itemTypeEnumId="ItemAdvancePay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPayAdjOverpay" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151400000" direction="I" itemTypeEnumId="ItemPayAdjPay" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151300000" direction="I" itemTypeEnumId="ItemPayAdjPay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="260000000" direction="O" itemTypeEnumId="ItemAdvancePay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="260000000" direction="O" itemTypeEnumId="ItemPayAdjPay" organizationPartyId="DefaultSettings"/>
 
@@ -1602,7 +1607,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDed125Compy" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDed125Ppo" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDed125Hsa" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151400000" direction="E" itemTypeEnumId="ItemDedAdvRepay" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151300000" direction="E" itemTypeEnumId="ItemDedAdvRepay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="254000000" direction="E" itemTypeEnumId="ItemDedCharity" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222700000" direction="E" itemTypeEnumId="ItemDedChildGarnish" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="" direction="E" itemTypeEnumId="ItemDedMisc" organizationPartyId="DefaultSettings"/>
@@ -1665,6 +1670,23 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.PaymentTypeGlAccount glAccountId="258200000" isApplied="E" isPayable="Y" organizationPartyId="DefaultSettings"
             paymentTypeEnumId="PtFinancialAccount"/><!-- Financial Account In Transit Withdrawals -->
 
+    <mantle.ledger.config.PaymentTypeGlAccount glAccountId="121000000" isApplied="Y" isPayable="N" organizationPartyId="DefaultSettings"
+            paymentTypeEnumId="PtPrePayment"/><!-- AR (applied) -->
+    <mantle.ledger.config.PaymentTypeGlAccount glAccountId="126000000" isApplied="N" isPayable="N" organizationPartyId="DefaultSettings"
+            paymentTypeEnumId="PtPrePayment"/><!-- AR Unapplied -->
+    <mantle.ledger.config.PaymentTypeGlAccount glAccountId="212000000" isApplied="Y" isPayable="Y" organizationPartyId="DefaultSettings"
+            paymentTypeEnumId="PtPrePayment"/><!-- AP (applied) -->
+    <mantle.ledger.config.PaymentTypeGlAccount glAccountId="151000000" isApplied="N" isPayable="Y" organizationPartyId="DefaultSettings"
+            paymentTypeEnumId="PtPrePayment"/><!-- Prepaid Expense -->
+    <mantle.ledger.config.PaymentTypeGlAccount glAccountId="121000000" isApplied="Y" isPayable="N" organizationPartyId="DefaultSettings"
+            paymentTypeEnumId="PtPrePaymentInventory"/><!-- AR (applied) -->
+    <mantle.ledger.config.PaymentTypeGlAccount glAccountId="126000000" isApplied="N" isPayable="N" organizationPartyId="DefaultSettings"
+            paymentTypeEnumId="PtPrePaymentInventory"/><!-- AR Unapplied -->
+    <mantle.ledger.config.PaymentTypeGlAccount glAccountId="212000000" isApplied="Y" isPayable="Y" organizationPartyId="DefaultSettings"
+            paymentTypeEnumId="PtPrePaymentInventory"/><!-- AP (applied) -->
+    <mantle.ledger.config.PaymentTypeGlAccount glAccountId="147000000" isApplied="N" isPayable="Y" organizationPartyId="DefaultSettings"
+            paymentTypeEnumId="PtPrePaymentInventory"/><!-- Prepaid Inventory -->
+
     <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="111100000" organizationPartyId="DefaultSettings"
             paymentInstrumentEnumId="PiAch" isPayable="E"/>
     <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="111100000" organizationPartyId="DefaultSettings"
@@ -1716,7 +1738,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="252000000" finAccountTypeId="SupplierDeposit" organizationPartyId="DefaultSettings"/>
     <!-- <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251500000" finAccountTypeId="BankAccount" organizationPartyId="DefaultSettings"/> -->
     <!-- <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251500000" finAccountTypeId="Investment" organizationPartyId="DefaultSettings"/> -->
-    <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="151400000" finAccountTypeId="EmployeeAdvance" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="151300000" finAccountTypeId="EmployeeAdvance" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="121000000" reasonEnumId="FatrPurchase" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="258100000" reasonEnumId="FatrInitDeposit" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="258100000" reasonEnumId="FatrReplenish" organizationPartyId="DefaultSettings"/>
