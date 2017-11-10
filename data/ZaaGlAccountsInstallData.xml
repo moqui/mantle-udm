@@ -201,7 +201,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <mantle.ledger.account.GlAccount accountName="Unreceived/Unbilled Inventory" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="149000000" glAccountTypeEnumId="GatUnreceivedInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="140000000"/>
-    <mantle.ledger.account.GlAccount accountName="Raw Materials Unreceived/Unbilled" description="" glAccountClassEnumId="INVENTORY_ASSET"
+    <mantle.ledger.account.GlAccount accountName="Raw Material and Sub-Assembly Unreceived/Unbilled" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="149100000" glAccountTypeEnumId="GatUnreceivedInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="149000000"/>
     <!-- needed? WIP from external source or something? <mantle.ledger.account.GlAccount accountName="Work in Progress Unreceived/Unbilled" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="149200000" glAccountTypeEnumId="GatUnreceivedInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="149000000"/> -->
