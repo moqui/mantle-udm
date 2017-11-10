@@ -1288,7 +1288,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Refund" enumId="PtRefund" enumTypeId="PaymentType"/>
             <!-- Payment meant to be applied to an invoice -->
             <moqui.basic.Enumeration description="Invoice Payment" enumId="PtInvoicePayment" enumTypeId="PaymentType"/>
-            <moqui.basic.Enumeration description="Pre Payment" enumId="PtPrePayment" enumTypeId="PaymentType"/>
+            <moqui.basic.Enumeration description="Pre Payment - Expense" enumId="PtPrePayment" parentEnumId="PtInvoicePayment" enumTypeId="PaymentType"/>
+            <moqui.basic.Enumeration description="Pre Payment - Inventory" enumId="PtPrePaymentInventory" parentEnumId="PtInvoicePayment" enumTypeId="PaymentType"/>
             <!-- Payment for deposit to or withdrawal from a FinancialAccount, never applied to an invoice -->
             <moqui.basic.Enumeration description="Financial Account Transaction" enumId="PtFinancialAccount" enumTypeId="PaymentType"/>
             <moqui.basic.Enumeration description="Order Payment Preference" enumId="PtOrderPref" enumTypeId="PaymentType"/>
