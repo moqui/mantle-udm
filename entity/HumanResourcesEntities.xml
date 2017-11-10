@@ -985,6 +985,12 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumGroupMember enumId="RatpPieceOrHour" sequenceNum="5" enumGroupEnumId="EngPieceRateType"/>
             <moqui.basic.EnumGroupMember enumId="RatpPiecePlusHour" sequenceNum="6" enumGroupEnumId="EngPieceRateType"/>
 
+            <!-- Rate Modifier Type -->
+            <moqui.basic.Enumeration description="Pay Rate Modifier Type" enumId="EngPayRateModifierType" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="RatmRegular" sequenceNum="4" enumGroupEnumId="EngPayRateModifierType"/>
+            <moqui.basic.EnumGroupMember enumId="RatmOvertime" sequenceNum="5" enumGroupEnumId="EngPayRateModifierType"/>
+            <moqui.basic.EnumGroupMember enumId="RatmDouble" sequenceNum="6" enumGroupEnumId="EngPayRateModifierType"/>
+
             <!-- Rate Purpose -->
             <moqui.basic.EnumerationType description="Rate Purpose" enumTypeId="RatePurpose"/>
             <moqui.basic.Enumeration enumId="RaprClient" description="Client Billing" enumTypeId="RatePurpose"/>
