@@ -76,6 +76,12 @@ along with this software (see the LICENSE.md file). If not, see
 
         <fields fieldSeqId="55" fieldPath="settings:partySettingTypeId"/>
         <fields fieldSeqId="56" fieldPath="settings:settingValue"/>
+
+        <fields fieldSeqId="60" fieldPath="shippingInstructions"/>
+        <fields fieldSeqId="61" fieldPath="notes:noteDate"/>
+        <fields fieldSeqId="62" fieldPath="notes:noteText"/>
+        <fields fieldSeqId="63" fieldPath="notes:internalNote"/>
+        <fields fieldSeqId="64" fieldPath="notes:userId" fieldNameAlias="noteUserId"/>
     </dataDocuments>
     <dataDocuments dataDocumentId="MantleCommunicationEvent" indexName="mantle" documentName="Communication Event"
             primaryEntityName="mantle.party.communication.CommunicationEvent" documentTitle="${subject}">
