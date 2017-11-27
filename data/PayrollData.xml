@@ -96,9 +96,9 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.PartySettingType description="Payroll MWG - Check Minimum Wage" partySettingTypeId="PayrollMwCheck"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
-    <mantle.party.PartySettingType description="Payroll MWG - Default Minimum Wage" partySettingTypeId="PayrollMwDefault"
-                                   validRegexp="\d+\.\d*" defaultValue="0">
-        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <!--<mantle.party.PartySettingType description="Payroll MWG - Default Minimum Wage" partySettingTypeId="PayrollMwDefault"-->
+                                   <!--validRegexp="\d+\.\d*" defaultValue="0">-->
+        <!--<roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>-->
     <mantle.party.PartySettingType description="Payroll MWG - Check Hourly Entries" partySettingTypeId="PayrollMwCheckHourly"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
@@ -110,10 +110,19 @@ along with this software (see the LICENSE.md file). If not, see
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- Workers Compensation (Risk Class):
+        Default Risk Class defines the default risk class for an organization or an employee.
+        Default Overrides Work Type determines whether the Default Risk Class overrides the risk class (if present)
+            overrides the risk class determined by the type of work being performed. 
         Should overtime premiums be included in Workers Compensation Insurance calculations?
             Pennsylvania, Delaware, Utah, and Nevada are the only states that included it currently.
         Should shift differential premiums be included in Workers Compensation Insurance calculations?
     -->
+    <mantle.party.PartySettingType description="Payroll WC - Default Risk Class" partySettingTypeId="PayrollWcRiskClass"
+                                   validRegexp=".+" defaultValue="">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll WC - Default Overrides Work Type" partySettingTypeId="PayrollWcDftOvrWrkTp"
+                                   enumTypeId="BooleanYN" defaultValue="BlY">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll WC - Include OT Premiums" partySettingTypeId="PayrollWcOtPrem"
                                    enumTypeId="BooleanYN" defaultValue="BlN">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
