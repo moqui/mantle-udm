@@ -214,7 +214,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="taxFormId"/></relationship>
         <relationship type="one" title="TaxClassification" related="moqui.basic.Enumeration">
             <key-map field-name="taxClassificationEnumId"/></relationship>
-        <relationship type="one" title="TaxHome" related="mantle.party.contact.PostalAddress">
+        <relationship type="one" title="TaxHome" related="mantle.party.contact.PostalAddress" short-alias="taxHomeContactMech">
             <key-map field-name="taxHomeContactMechId"/></relationship>
         <relationship type="one" title="TaxFederalStatus" related="moqui.basic.Enumeration">
             <key-map field-name="taxFederalStatusEnumId"/></relationship>
@@ -292,7 +292,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="EmplAuthzType" related="moqui.basic.Enumeration">
             <key-map field-name="emplAuthzTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType"/>
-        <relationship type="one" title="TaxWork" related="mantle.party.contact.PostalAddress">
+        <relationship type="one" title="TaxWork" related="mantle.party.contact.PostalAddress" short-alias="taxWorkContactMech">
             <key-map field-name="taxWorkContactMechId"/></relationship>
 
         <seed-data>
@@ -771,6 +771,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="General Labor" enumId="WktpGeneralLabor" enumTypeId="WorkType"/>
             <moqui.basic.Enumeration description="General Office" enumId="WktpGeneralOffice" enumTypeId="WorkType"/>
             <moqui.basic.Enumeration description="Paid Break" enumId="WktpPaidBreak" enumTypeId="WorkType"/>
+            <moqui.basic.Enumeration description="Paid Non-productive Time" enumId="WktpPaidNpt" enumTypeId="WorkType"/>
 
             <!-- Empl Position Class -->
             <mantle.humanres.position.EmplPositionClass title="Project Manager" emplPositionClassId="ProjectManager"/>
