@@ -338,6 +338,18 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="labelPrinted" type="text-indicator"/>
         <field name="internationalInvoice" type="binary-very-long"/>
 
+        <field name="returnTrackingCode" type="text-medium" enable-audit-log="update"/>
+        <field name="returnTrackingUrl" type="text-long"/>
+        <field name="returnTrackingStatusEnumId" type="id" enable-audit-log="update"/>
+        <field name="returnLabelDate" type="date-time"/>
+        <field name="returnLabelUrl" type="text-long"/>
+        <field name="returnLabelImage" type="binary-very-long"/>
+        <field name="returnGatewayStatus" type="text-short" enable-audit-log="update"/>
+        <field name="returnGatewayMessage" type="text-medium"/>
+        <field name="returnGatewayLabelId" type="text-medium" enable-audit-log="update"/>
+        <field name="returnGatewayRateId" type="text-medium" enable-audit-log="update"/>
+        <field name="returnEstimatedAmount" type="currency-amount"/>
+
         <field name="estimatedAmount" type="currency-amount"/>
         <field name="packageTransportAmount" type="currency-amount"/>
         <field name="packageServiceAmount" type="currency-amount"/>
@@ -352,6 +364,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="shipmentId"/><key-map field-name="shipmentRouteSegmentSeqId"/></relationship>
         <relationship type="one" title="ShipmentTrackingStatus" related="moqui.basic.Enumeration" short-alias="trackingStatusEnum">
             <key-map field-name="trackingStatusEnumId"/></relationship>
+        <relationship type="one" title="ReturnTrackingStatus" related="moqui.basic.Enumeration" short-alias="returnTrackingStatusEnum">
+            <key-map field-name="returnTrackingStatusEnumId"/></relationship>
         <index name="SHIP_PKRTSG_SHIPID"><index-field name="shipmentId"/></index>
         <seed-data>
             <moqui.basic.EnumerationType description="Shipping Tracking Status" enumTypeId="ShipmentTrackingStatus"/>
