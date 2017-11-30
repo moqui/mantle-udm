@@ -191,6 +191,7 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Sales Channel -->
             <moqui.basic.EnumerationType description="Sales Channel" enumTypeId="SalesChannel"/>
             <moqui.basic.Enumeration description="Web" enumId="ScWeb" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="Web External" enumId="ScWebExternal" enumTypeId="SalesChannel"/>
             <moqui.basic.Enumeration description="POS" enumId="ScPos" enumTypeId="SalesChannel"/>
             <moqui.basic.Enumeration description="Fax" enumId="ScFax" enumTypeId="SalesChannel"/>
             <moqui.basic.Enumeration description="Phone" enumId="ScPhone" enumTypeId="SalesChannel"/>
@@ -198,6 +199,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Postal Mail" enumId="ScPostal" enumTypeId="SalesChannel"/>
             <moqui.basic.Enumeration description="Affiliate" enumId="ScAffiliate" enumTypeId="SalesChannel"/>
             <moqui.basic.Enumeration description="eBay" enumId="ScEbay" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="Amazon" enumId="ScAmazon" enumTypeId="SalesChannel"/>
             <moqui.basic.Enumeration description="EDI" enumId="ScEdi" enumTypeId="SalesChannel"/>
             <moqui.basic.Enumeration description="OAGIS" enumId="ScOagis" enumTypeId="SalesChannel"/>
             <moqui.basic.Enumeration description="Unknown" enumId="ScUnknown" enumTypeId="SalesChannel"/>
