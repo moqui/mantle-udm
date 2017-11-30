@@ -292,7 +292,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="EmplAuthzType" related="moqui.basic.Enumeration">
             <key-map field-name="emplAuthzTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType"/>
-        <relationship type="one" title="TaxWork" related="mantle.party.contact.PostalAddress" short-alias="taxWorkContactMech">
+        <relationship type="one" title="TaxWork" related="mantle.party.contact.PostalAddress"
+                      short-alias="taxWorkContactMech">
             <key-map field-name="taxWorkContactMechId"/></relationship>
 
         <seed-data>
@@ -919,7 +920,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="RatpPtoOther" description="PTO - Other" enumTypeId="RateType"/><!-- calculated, not configured -->
             <!-- see store#TimeEntry, relatedEnumId used to find piece rate type based on hourly rate type -->
             <moqui.basic.Enumeration enumId="RatpPieceOrHour" description="Piece or Hourly" enumTypeId="PieceRateType" relatedEnumId="RatpStandard"/>
-            <moqui.basic.Enumeration enumId="RatpPieceOnly" description="Piece Only" enumTypeId="PieceRateType" relatedEnumId="RatpStandard"/>
+            <moqui.basic.Enumeration enumId="RatpPieceOnly" description="Piece" enumTypeId="PieceRateType" relatedEnumId="RatpStandard"/>
             <moqui.basic.Enumeration enumId="RatpPiecePlusHour" description="Piece plus Hourly" enumTypeId="PieceRateType" relatedEnumId="RatpStandard"/>
             <!-- these are less commonly used (NOTE if not configured looks for relatedEnumId to fill in) -->
             <moqui.basic.Enumeration enumId="RatpUnpaid" description="Unpaid" enumTypeId="RateType" relatedEnumId="RatpStandard"/>
