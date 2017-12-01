@@ -438,6 +438,7 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- Incoming invoices should start in Received and then move to Approved, then Payment Sent -->
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceIncoming" toStatusId="InvoiceReceived" transitionName="Receive"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceIncoming" toStatusId="InvoiceApproved" transitionName="Approve"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceReceived" toStatusId="InvoiceApproved" transitionName="Approve"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceApproved" toStatusId="InvoiceReceived" transitionName="Resume Changes"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceApproved" toStatusId="InvoicePmtSent" transitionName="Payment Already Sent"/>
