@@ -201,6 +201,9 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Payroll Taxes - Surtax Employee" enumId="ItemTaxSurtaxEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Payroll Expense" enumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Payroll Expense - 125*Compy. Contr Other Premium" enumId="ItemPrlExp125Compy" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Payroll Expense - 125*PPO" enumId="ItemPrlExp125Ppo" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Payroll Expense - 125*HSA Contribution" enumId="ItemPrlExp125Hsa" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Expense - 401K Employer" enumId="ItemPrlExp401kEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Expense - Roth 401k Employer" enumId="ItemPrlExpRoth401kEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Payroll Expense - Roth IRA Employer" enumId="ItemPrlExpRothIraEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
@@ -352,4 +355,23 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemSlottingFees" enumGroupEnumId="EngItemsAdjust"/>
     <moqui.basic.EnumGroupMember enumId="ItemAdjAdvertising" enumGroupEnumId="EngItemsAdjust"/>
     <moqui.basic.EnumGroupMember enumId="ItemAdjJointAdv" enumGroupEnumId="EngItemsAdjust"/>
+
+    <!-- 401k and Section 125 Enum Groups -->
+
+    <moqui.basic.Enumeration description="Employee 401k Types" enumId="Empe401k" enumTypeId="EnumGroup"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemDed401kEmpe" enumGroupEnumId="Empe401k"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedRoth401kEmpe" enumGroupEnumId="Empe401k"/>
+
+    <moqui.basic.Enumeration description="Employee 125 Types" enumId="Empe125" enumTypeId="EnumGroup"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemDed125Compy" enumGroupEnumId="Empe125"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDed125Ppo" enumGroupEnumId="Empe125"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDed125Hsa" enumGroupEnumId="Empe125"/>
+
+    <moqui.basic.Enumeration description="Employer 125 Types" enumId="Empr125" enumTypeId="EnumGroup"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemPrlExp125Compy" enumGroupEnumId="Empr125"/>
+    <moqui.basic.EnumGroupMember enumId="ItemPrlExp125Ppo" enumGroupEnumId="Empr125"/>
+    <moqui.basic.EnumGroupMember enumId="ItemPrlExp125Hsa" enumGroupEnumId="Empr125"/>
 </entity-facade-xml>
