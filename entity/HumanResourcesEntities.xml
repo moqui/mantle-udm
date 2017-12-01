@@ -451,15 +451,15 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="amount" type="number-decimal"/>
         <field name="isEmployerPaid" type="text-indicator"/>
         <field name="taxAuthorityId" type="id"/>
-        <field name="garnishPartyId" type="id"/>
-        <field name="garnishCaseNumber" type="text-short"/>
+        <field name="payeePartyId" type="id"/>
+        <field name="payeeReference" type="text-short"/>
         <relationship type="one" related="mantle.humanres.employment.EmploymentPayHistory"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment"/>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
             <key-map field-name="itemTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.other.tax.TaxAuthority"/>
         <relationship type="one" title="Garnish" related="mantle.party.Party">
-            <key-map field-name="garnishPartyId"/></relationship>
+            <key-map field-name="payeePartyId"/></relationship>
     </entity>
     <entity entity-name="EmploymentSalary" package="mantle.humanres.employment" use="configuration">
         <description>The current and past actual salary amounts for Employment. Current salary found by standard date
@@ -515,12 +515,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="applyAllowanceDeduction" type="text-indicator"/>
         <field name="applyAllowanceExemption" type="text-indicator"/>
 
-        <field name="garnishPartyId" type="id"/>
+        <field name="payeePartyId" type="id"/><!-- replaces garnishPartyId -->
+        <field name="payeeReference" type="text-short"/><!-- replaces garnishCaseNumber -->
+        <field name="payeeDueDays" type="number-integer"/><!-- replaces garnishDueDays -->
+
         <field name="garnishDisposablePercent" type="number-decimal"/>
         <field name="garnishMinWageApplies" type="text-indicator"/>
         <field name="garnishPriority" type="number-integer"/>
-        <field name="garnishDueDays" type="number-integer"/>
-        <field name="garnishCaseNumber" type="text-short"/>
         <field name="deductFromDisposable" type="text-indicator"/>
 
         <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organizationParty">
@@ -536,8 +537,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="PayrollRateBasis" related="moqui.basic.Enumeration">
             <key-map field-name="rateBasisEnumId"/></relationship>
         <relationship type="one" related="mantle.other.tax.TaxAuthority" short-alias="taxAuthority"/>
-        <relationship type="one" title="Garnish" related="mantle.party.Party" short-alias="garnishParty">
-            <key-map field-name="garnishPartyId"/></relationship>
+        <relationship type="one" title="Payee" related="mantle.party.Party" short-alias="payeeParty">
+            <key-map field-name="payeePartyId"/></relationship>
 
         <relationship type="many" related="mantle.humanres.employment.PayrollAdjustmentDetail" short-alias="details">
             <key-map field-name="payrollAdjustmentId"/></relationship>
