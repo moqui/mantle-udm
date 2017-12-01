@@ -485,6 +485,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="organizationPartyId" type="id"><description>If null applies to all organizations</description></field>
         <field name="partyRelationshipId" type="id"><description>If null applies to all employees</description></field>
         <field name="itemTypeEnumId" type="id"/>
+        <field name="exclusiveByItemType" type="text-indicator">
+            <description>Overrides less specific payroll adjusmtents if employment or employer is set.
+                Employment > Employer > open if set to Y.</description></field>
         <field name="overrideGlAccountId" type="id"/>
         <field name="payrollPhaseEnumId" type="id"/>
         <field name="timePeriodTypeId" type="id"/>
