@@ -517,6 +517,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Manufacturer" roleTypeId="Manufacturer"/>
             <mantle.party.RoleType description="Owner"  roleTypeId="Owner"/>
             <mantle.party.RoleType description="Partner" roleTypeId="Partner"/>
+            <mantle.party.RoleType description="Payroll Other Payee" roleTypeId="PayrollOtherPayee"/>
             <mantle.party.RoleType description="Prospect" roleTypeId="Prospect"/>
             <mantle.party.RoleType description="Referrer" roleTypeId="Referrer"/>
             <mantle.party.RoleType description="Sales Account" roleTypeId="Account"/>
