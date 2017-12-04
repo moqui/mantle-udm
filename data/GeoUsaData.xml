@@ -12,7 +12,7 @@ You should have received a copy of the CC0 Public Domain Dedication
 along with this software (see the LICENSE.md file). If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.
 -->
-<entity-facade-xml type="seed">
+<entity-facade-xml type="install">
     <Geo geoCodeAlpha2="AA" geoId="USA_AA" geoName="Armed Forces Americas" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoCodeAlpha2="AE" geoId="USA_AE" geoName="Armed Forces Europe" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoCodeAlpha2="AP" geoId="USA_AP" geoName="Armed Forces Pacific" geoTypeEnumId="GEOT_STATE"/>
