@@ -17,7 +17,220 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- Only used if PartyAcctgPreference.glAccountCodeMask is empty or the context only supports this global or user setting -->
     <moqui.security.UserGroupPreference userGroupId="ALL_USERS" preferenceKey="GlAccountCodeMask" preferenceValue="###-###-###"/>
 
-    <!-- This demo chart of accounts is based (loosely) on the ABA Standard Chart of Accounts:
+    <!-- ========== GL Account Class - account classification for add/subtract to balance, reporting, etc ========== -->
+    <!-- for reference see the "GL Account Class Reference.md" file in SimpleScreens -->
+
+    <!-- DEBIT classes -->
+    <moqui.basic.Enumeration description="Contra Revenue" enumId="CONTRA_REVENUE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Discounts and Write-downs" enumId="COST_OF_DISCOUNTS" parentEnumId="CONTRA_REVENUE" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Customer Returns" enumId="CUSTOMER_RETURNS" parentEnumId="CONTRA_REVENUE" enumTypeId="GlAccountClass"/>
+
+    <moqui.basic.Enumeration description="Asset" enumId="ASSET" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Current Asset" enumId="CURRENT_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Cash and Equivalent" enumId="CASH_EQUIVALENT" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Inventory Asset" enumId="INVENTORY_ASSET" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Accounts Receivable" enumId="ACCOUNTS_RECEIVABLE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Loans Receivable" enumId="LOANS_RECEIVABLE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Prepaid Expense" enumId="PREPAID_EXPENSE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Prepaid Inventory" enumId="PREPAID_INVENTORY" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Accrued Revenue" enumId="ACCRUED_REVENUE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Long Term Asset" enumId="LONG_TERM_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Land and Building" enumId="LAND_BUILDING" parentEnumId="LONG_TERM_ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Equipment" enumId="EQUIPMENT" parentEnumId="LONG_TERM_ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Other Asset" enumId="OTHER_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
+
+    <moqui.basic.Enumeration description="Equity Distribution" enumId="DISTRIBUTION" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Return of Capital" enumId="RETURN_OF_CAPITAL" parentEnumId="DISTRIBUTION" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Dividends" enumId="DIVIDEND" parentEnumId="DISTRIBUTION" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Contra Equity" enumId="CONTRA_EQUITY" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+
+    <moqui.basic.Enumeration description="Cost of Sales" enumId="COST_OF_SALES" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Cost of Services Sold" enumId="COST_SERVICES_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Cost of Goods Sold" enumId="COST_GOODS_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Good and Material Cost" enumId="GOOD_MATERIAL_COST" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Good Freight Cost" enumId="GOOD_FREIGHT_COST" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Good Royalties Cost" enumId="GOOD_ROYALTIES_COST" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Inventory Shrinkage" enumId="INVENTORY_SHRINKAGE" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
+
+    <moqui.basic.Enumeration description="Operating Expense" enumId="EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+
+    <moqui.basic.Enumeration description="General and Administrative Expense" enumId="GEN_ADMIN_EXPENSE" parentEnumId="EXPENSE" sequenceNum="1" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Employee Compensation" enumId="COMPENSATION" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="1" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Non-Employee Compensation" enumId="NON_EMP_COMPENSATION" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="2" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Professional Services" enumId="PROF_SERVICES" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="3" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Banking Service Charges" enumId="BANKING_CHARGES" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="10" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Data Processing" enumId="DATA_PROCESSING" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="10" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Dues and Subscriptions" enumId="DUES_SUBSCRIPTIONS" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="10" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Education Expense" enumId="EDUCATION_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="10" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Facility Expense" enumId="FACILITY_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="10" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Insurance Expense" enumId="INSURANCE_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="10" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Miscellaneous Expense" enumId="MISC_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="10" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Office and Supplies" enumId="OFFICE_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="10" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Tax Expense - Income" enumId="INCOME_TAX_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="10" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Tax Expense - Other" enumId="OTHER_TAX_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="10" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Travel and Entertainment" enumId="TRAVEL_ENT" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="10" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Utilities Expense" enumId="UTILITIES_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="10" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Vehicle Expense" enumId="VEHICLE_EXPENSE" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="10" enumTypeId="GlAccountClass"/>
+
+    <moqui.basic.Enumeration description="Sales and Marketing Expense" enumId="SALES_EXPENSE" parentEnumId="EXPENSE" sequenceNum="2" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Sales Compensation" enumId="SALES_COMPENSATION" parentEnumId="SALES_EXPENSE" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Advertising" enumId="ADVERTISING" parentEnumId="SALES_EXPENSE" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Promotional Materials" enumId="PROMOTIONAL_MATERIALS" parentEnumId="SALES_EXPENSE" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Sales Travel" enumId="SALES_TRAVEL" parentEnumId="SALES_EXPENSE" enumTypeId="GlAccountClass"/>
+
+    <moqui.basic.Enumeration description="Contributions" enumId="CONTRIBUTIONS" parentEnumId="EXPENSE" sequenceNum="3" enumTypeId="GlAccountClass"/>
+
+    <moqui.basic.Enumeration description="Non-Cash Expense" enumId="NON_CASH_EXPENSE" parentEnumId="EXPENSE" sequenceNum="4" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Amortization" enumId="AMORTIZATION" parentEnumId="NON_CASH_EXPENSE" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Bad Debt Expense" enumId="BAD_DEBT_EXPENSE" parentEnumId="NON_CASH_EXPENSE" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Depreciation" enumId="DEPRECIATION" parentEnumId="NON_CASH_EXPENSE" enumTypeId="GlAccountClass"/>
+
+    <moqui.basic.Enumeration description="Non-operating Expense" enumId="NON_OP_EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Interest Expense" enumId="INTEREST_EXPENSE" parentEnumId="NON_OP_EXPENSE" enumTypeId="GlAccountClass"/><!-- useful for EBITDA, coverage ratios, etc. -->
+    <moqui.basic.Enumeration description="Company Owned Life Insurance" enumId="CO_LIFE_INSURANCE" parentEnumId="NON_OP_EXPENSE" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Royalties Expense - Non-COGS" enumId="NON_COGS_ROYALTIES" parentEnumId="NON_OP_EXPENSE" enumTypeId="GlAccountClass"/>
+
+    <!-- CREDIT classes -->
+    <moqui.basic.Enumeration description="Contra Asset" enumId="CONTRA_ASSET" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Accumulated Depreciation" enumId="ACCUM_DEPRECIATION" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Accumulated Amortization" enumId="ACCUM_AMORTIZATION" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Allowance For Bad Debts" enumId="ALLOWANCE_BAD_DEBT" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
+
+    <moqui.basic.Enumeration description="Liability" enumId="LIABILITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Current Liability" enumId="CURRENT_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Accounts Payable" enumId="ACCOUNTS_PAYABLE" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Accrued Expenses" enumId="ACCRUED_EXPENSES" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Loans Payable" enumId="LOANS_PAYABLE" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Unearned Revenue" enumId="UNEARNED_REVENUE" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Third-Party Holdings" enumId="THIRD_PARTY_HOLDINGS" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Long Term Liability" enumId="LONG_TERM_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>
+
+    <moqui.basic.Enumeration description="Equity" enumId="EQUITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Owners Equity" enumId="OWNERS_EQUITY" parentEnumId="EQUITY" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Retained Earnings" enumId="RETAINED_EARNINGS" parentEnumId="EQUITY" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Net Income" enumId="NET_INCOME" parentEnumId="EQUITY" enumTypeId="GlAccountClass"/>
+
+    <moqui.basic.Enumeration description="Revenue" enumId="REVENUE" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Goods Revenue" enumId="GOODS_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Services Revenue" enumId="SERVICES_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass"/>
+
+    <moqui.basic.Enumeration description="Income" enumId="INCOME" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Cash Income" enumId="CASH_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Interest Income" enumId="INTEREST_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Non-Cash Income" enumId="NON_CASH_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass"/>
+
+    <!-- ========== GL Account Class Groups ========== -->
+
+    <moqui.basic.Enumeration description="Net Income" enumId="EngGlcNetIncome" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+        <groupMembers enumId="REVENUE"/><groupMembers enumId="CONTRA_REVENUE" memberInfo="negate"/>
+        <groupMembers enumId="COST_OF_SALES" memberInfo="negate"/>
+        <groupMembers enumId="INCOME"/>
+        <groupMembers enumId="EXPENSE" memberInfo="negate"/><groupMembers enumId="NON_OP_EXPENSE" memberInfo="negate"/>
+    </moqui.basic.Enumeration>
+    <moqui.basic.Enumeration description="Gross Profit" enumId="EngGlcGrossProfit" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+        <groupMembers enumId="REVENUE"/><groupMembers enumId="CONTRA_REVENUE" memberInfo="negate"/>
+        <groupMembers enumId="COST_OF_SALES" memberInfo="negate"/>
+    </moqui.basic.Enumeration>
+    <moqui.basic.Enumeration description="Net Revenue" enumId="EngGlcNetRevenue" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+        <groupMembers enumId="REVENUE"/><groupMembers enumId="CONTRA_REVENUE" memberInfo="negate"/></moqui.basic.Enumeration>
+    <moqui.basic.Enumeration description="Net Operating Income" enumId="EngGlcNetOpIncome" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+        <groupMembers enumId="REVENUE"/><groupMembers enumId="CONTRA_REVENUE" memberInfo="negate"/>
+        <groupMembers enumId="COST_OF_SALES" memberInfo="negate"/>
+        <!-- exclude? non-operating income, ie not revenue: <groupMembers enumId="INCOME"/> -->
+        <groupMembers enumId="EXPENSE" memberInfo="negate"/>
+    </moqui.basic.Enumeration>
+    <moqui.basic.Enumeration description="Net Asset" enumId="EngGlcNetAsset" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+        <groupMembers enumId="ASSET"/><groupMembers enumId="CONTRA_ASSET" memberInfo="negate"/></moqui.basic.Enumeration>
+    <moqui.basic.Enumeration description="Net Equity" enumId="EngGlcNetEquity" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+        <groupMembers enumId="EQUITY"/><groupMembers enumId="CONTRA_EQUITY" memberInfo="negate"/>
+        <groupMembers enumId="DISTRIBUTION" memberInfo="negate"/>
+    </moqui.basic.Enumeration>
+    <moqui.basic.Enumeration description="Liability" enumId="EngGlcLiability" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+        <groupMembers enumId="LIABILITY"/></moqui.basic.Enumeration>
+
+    <!-- ========== GL Account Type, used for automated posting mappings ========== -->
+
+    <moqui.basic.Enumeration description="Current Asset" enumId="GatCurrentAsset" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Prepaid Expenses" enumId="GatPrepaidExpenses" parentEnumId="GatCurrentAsset" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Accrued Revenue" enumId="GatAccruedRevenue" parentEnumId="GatCurrentAsset" enumTypeId="GlAccountType"/>
+
+    <moqui.basic.Enumeration description="Accounts Receivable" enumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Receivable from Inventory Transferred Out" enumId="GatRecInventoryTranOut" parentEnumId="GatCurrentAsset" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Interest Income Receivables" enumId="GatInterestIncomeRec" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Accounts Receivable - Unapplied Payments" enumId="GatAccReceivableUnapplied" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Merchant Account Settlement" enumId="GatMerchantSettlement" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Allowance for Bad Receivables" enumId="GatAccRecBadRec" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
+
+    <moqui.basic.Enumeration description="Accounts Payable" enumId="GatAccountsPayable" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Payable from Inventory Transferred In" enumId="GatPayInventoryTranIn" parentEnumId="GatAccountsPayable" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Accounts Payable - Unapplied Payments" enumId="GatAccPayableUnapplied" parentEnumId="GatAccountsPayable" enumTypeId="GlAccountType"/>
+
+    <moqui.basic.Enumeration description="Undeposited Receipts" enumId="GatUndepositedReceipts" enumTypeId="GlAccountType"/>
+
+    <moqui.basic.Enumeration description="Fixed Asset" enumId="GatFixedAsset" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Unreceived Fixed Asset" enumId="GatUnreceivedFixedAsset" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Unissued Fixed Asset" enumId="GatUnissuedFixedAsset" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Fixed Asset Accumulated Depreciation" enumId="GatFaAccumDepreciation" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Fixed Asset Depreciation" enumId="GatFaDepreciation" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Fixed Asset Maintenance" enumId="GatFaMaintenance" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Fixed Asset Shrinkage" enumId="GatFaShrinkage" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Fixed Asset Found" enumId="GatFaFound" enumTypeId="GlAccountType"/>
+
+    <moqui.basic.Enumeration description="Current Liability" enumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Unearned Revenue" enumId="GatUnearnedRevenue" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Accrued Expenses" enumId="GatAccruedExpenses" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Long Term Liability" enumId="GatLongTermLiability" enumTypeId="GlAccountType"/>
+
+    <moqui.basic.Enumeration description="Inventory" enumId="GatInventory" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="WIP Inventory" enumId="GatWipInventory" parentEnumId="GatInventory" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Inventory Adjustment from Average Cost" enumId="GatInvAdjAvgCost" parentEnumId="GatInventory" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Inventory Value Adjustment" enumId="GatInvValueAdj" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Unreceived Inventory" enumId="GatUnreceivedInventory" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Prepaid Inventory" enumId="GatPrepaidInventory" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Inventory Shrinkage" enumId="GatInvShrinkage" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Inventory Found" enumId="GatInvFound" enumTypeId="GlAccountType"/>
+
+    <moqui.basic.Enumeration description="Tax" enumId="GatTax" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Profit Loss" enumId="GatProfitLoss" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Sales" enumId="GatSales" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Customer Returns" enumId="GatCustomerReturns" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Discounts" enumId="GatDiscounts" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Cost of Goods Sold" enumId="GatCogs" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="COGS - Average Cost Adjustment" enumId="GatCogsAvgCostAdj" parentEnumId="GatCogs" enumTypeId="GlAccountType"/>
+
+    <moqui.basic.Enumeration description="Expense" enumId="GatExpense" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Operating Expense" enumId="GatOperatingExpense" parentEnumId="GatExpense" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Other Expense" enumId="GatOtherExpense" parentEnumId="GatExpense" enumTypeId="GlAccountType"/>
+
+    <moqui.basic.Enumeration description="Owner's Equity" enumId="GatOwnersEquity" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Retained Earnings" enumId="GatRetainedEarnings" enumTypeId="GlAccountType"/>
+
+    <moqui.basic.Enumeration description="Customer Deposits" enumId="GatCustomerDeposits" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Customer Credits" enumId="GatCustomerCredits" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Uninvoiced Shipment Receipts" enumId="GatUninvoicedShpmntRcpts" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Supplier Deposits" enumId="GatSupplierDeposits" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Commissions Accrued" enumId="GatCommissionsAccrued" parentEnumId="GatCurrentLiability" enumTypeId="GlAccountType"/>
+
+    <moqui.basic.Enumeration description="Income" enumId="GatIncome" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Other Income" enumId="GatOtherIncome" parentEnumId="GatIncome" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Interest Income" enumId="GatInterestIncome" parentEnumId="GatIncome" enumTypeId="GlAccountType"/>
+
+    <moqui.basic.Enumeration description="Commission Expense" enumId="GatCommissionExpense" parentEnumId="GatOperatingExpense" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Write Off" enumId="GatWriteOff" parentEnumId="GatOtherExpense" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Accounts Receivables Write Off" enumId="GatAccRecWriteOff" parentEnumId="GatWriteOff" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Accounts Payables Write Off" enumId="GatAccPayWriteOff" parentEnumId="GatWriteOff" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Commissions Payables Write Off" enumId="GatCommissionsPayWriteOff" parentEnumId="GatWriteOff" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Interest Income Write Off" enumId="GatInterestIncWriteOff" parentEnumId="GatWriteOff" enumTypeId="GlAccountType"/>
+
+    <moqui.basic.Enumeration description="Foreign Exchange Gain/Loss" enumId="GatForExGainLoss" parentEnumId="GatOtherExpense" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Foreign Exchange Gain" enumId="GatForExGain" parentEnumId="GatForExGainLoss" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Foreign Exchange Loss" enumId="GatForExLoss" parentEnumId="GatForExGainLoss" enumTypeId="GlAccountType"/>
+
+    <!-- =============================================== -->
+    <!-- ========== Default Chart of Accounts ========== -->
+    <!-- =============================================== -->
+
+    <!-- This chart of accounts is based (loosely) on the ABA Standard Chart of Accounts:
         http://bestsellers.bookweb.org/membership/products/scoa.html -->
 
     <!-- NOTE: GlAccount.accountCode defaults to glAccountId, so not set on records in this file -->

@@ -31,10 +31,11 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Sales" enumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Product" enumId="ItemProduct" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Service Product" enumId="ItemServiceProduct" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Work Effort" enumId="ItemWorkEffort" parentEnumId="ItemSales" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Time Entry" enumId="ItemTimeEntry" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Rental" enumId="ItemRental" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Replacement" enumId="ItemReplacement" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+
+    <moqui.basic.Enumeration description="Work Effort" enumId="ItemWorkEffort" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Time Entry" enumId="ItemTimeEntry" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Donation" enumId="ItemDonation" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Surcharge" enumId="ItemSurcharge" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Additional Feature" enumId="ItemAddtlFeature" parentEnumId="ItemSales" enumTypeId="ItemType"/>
@@ -223,7 +224,6 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Payroll Expense Tax - Surtax Employer" enumId="ItemPrlExpTaxSurtaxEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
 
     <!-- Outgoing/Receivable/Sales Item Types -->
-
     <moqui.basic.Enumeration description="Outgoing/Receivable/Sales Items" enumId="EngItemsSales" enumTypeId="EnumGroup"/>
 
     <moqui.basic.EnumGroupMember enumId="ItemSalesTax" enumGroupEnumId="EngItemsSales"/>
@@ -235,9 +235,10 @@ along with this software (see the LICENSE.md file). If not, see
 
     <moqui.basic.EnumGroupMember enumId="ItemProduct" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemServiceProduct" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemRental" enumGroupEnumId="EngItemsSales"/>
+
     <moqui.basic.EnumGroupMember enumId="ItemWorkEffort" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemTimeEntry" enumGroupEnumId="EngItemsSales"/>
-    <moqui.basic.EnumGroupMember enumId="ItemRental" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemDonation" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemSurcharge" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemReplacement" enumGroupEnumId="EngItemsSales"/>
@@ -262,7 +263,6 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemShrinkage" enumGroupEnumId="EngItemsSales"/>
 
     <!-- Incoming/Payable/Purchase Item Types -->
-
     <moqui.basic.Enumeration description="Incoming/Payable/Purchase Items" enumId="EngItemsPurchase" enumTypeId="EnumGroup"/>
 
     <moqui.basic.EnumGroupMember enumId="ItemSalesTax" enumGroupEnumId="EngItemsPurchase"/>
@@ -338,7 +338,6 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemAdjJointAdv" enumGroupEnumId="EngItemsPurchase"/>
 
     <!-- Invoice Adjust Item Types -->
-
     <moqui.basic.Enumeration description="Invoice Adjust Items" enumId="EngItemsAdjust" enumTypeId="EnumGroup"/>
 
     <moqui.basic.EnumGroupMember enumId="ItemWriteOff" enumGroupEnumId="EngItemsAdjust"/>
@@ -357,21 +356,28 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemAdjJointAdv" enumGroupEnumId="EngItemsAdjust"/>
 
     <!-- 401k and Section 125 Enum Groups -->
-
     <moqui.basic.Enumeration description="Employee 401k Types" enumId="Empe401k" enumTypeId="EnumGroup"/>
-
     <moqui.basic.EnumGroupMember enumId="ItemDed401kEmpe" enumGroupEnumId="Empe401k"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedRoth401kEmpe" enumGroupEnumId="Empe401k"/>
 
     <moqui.basic.Enumeration description="Employee 125 Types" enumId="Empe125" enumTypeId="EnumGroup"/>
-
     <moqui.basic.EnumGroupMember enumId="ItemDed125Compy" enumGroupEnumId="Empe125"/>
     <moqui.basic.EnumGroupMember enumId="ItemDed125Ppo" enumGroupEnumId="Empe125"/>
     <moqui.basic.EnumGroupMember enumId="ItemDed125Hsa" enumGroupEnumId="Empe125"/>
 
     <moqui.basic.Enumeration description="Employer 125 Types" enumId="Empr125" enumTypeId="EnumGroup"/>
-
     <moqui.basic.EnumGroupMember enumId="ItemPrlExp125Compy" enumGroupEnumId="Empr125"/>
     <moqui.basic.EnumGroupMember enumId="ItemPrlExp125Ppo" enumGroupEnumId="Empr125"/>
     <moqui.basic.EnumGroupMember enumId="ItemPrlExp125Hsa" enumGroupEnumId="Empr125"/>
+
+    <!-- Product Item Types (used for GL mapping and other purposes for items that should always have a productId and may be treated differently) -->
+    <moqui.basic.Enumeration description="Product Items" enumId="EngItemsProduct" enumTypeId="EnumGroup"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemProduct" enumGroupEnumId="EngItemsProduct"/>
+    <moqui.basic.EnumGroupMember enumId="ItemServiceProduct" enumGroupEnumId="EngItemsProduct"/>
+    <moqui.basic.EnumGroupMember enumId="ItemRental" enumGroupEnumId="EngItemsProduct"/>
+    <moqui.basic.EnumGroupMember enumId="ItemReplacement" enumGroupEnumId="EngItemsProduct"/>
+    <moqui.basic.EnumGroupMember enumId="ItemInventory" enumGroupEnumId="EngItemsProduct"/>
+    <moqui.basic.EnumGroupMember enumId="ItemAsset" enumGroupEnumId="EngItemsProduct"/>
+    <moqui.basic.EnumGroupMember enumId="ItemExpSupplies" enumGroupEnumId="EngItemsProduct"/>
 </entity-facade-xml>

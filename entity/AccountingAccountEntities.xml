@@ -335,7 +335,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="systemMessageRemoteId" type="id"/>
 
         <field name="invoiceTotal" type="currency-amount"/>
-        <field name="appliedPaymentsTotal" type="currency-amount"/>
+        <field name="appliedPaymentsTotal" type="currency-amount">
+            <description>Total of all PaymentApplication records by invoiceId or toInvoiceId, ie includes payments and invoices applied to/from this invoice.</description></field>
         <field name="unpaidTotal" type="currency-amount"/>
 
         <relationship type="one" title="InvoiceType" related="moqui.basic.Enumeration" short-alias="type">
@@ -479,7 +480,6 @@ along with this software (see the LICENSE.md file). If not, see
             - TODO: GL Postings on transition to Write Off, and on Write Off to Payment
             - X On Payment* to Finalized/Approved/Cancelled, unapply Payment(s)
             -->
-
         </seed-data>
         <master>
             <detail relationship="type"/>
@@ -1415,15 +1415,27 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="moqui.server.Visit"/>
     </entity>
     <entity entity-name="PaymentApplication" package="mantle.account.payment" short-alias="paymentApplications" cache="never">
+        <description>
+            Payment application to settle payments and invoices. Can be used for multiple scenarios using different fields:
+
+            1. Apply a Payment (paymentId) to an Invoice (invoiceId)
+            2. Apply a Payment (paymentId) such as a refund to another Payment (toPaymentId) such as an invoice payment
+            3. Apply an Invoice (invoiceId) such as a Credit Memo payable to another Invoice (toInvoiceId) such as a Sales/Purchase receivable
+
+            In all cases the two opposing records should have reverse from/to party IDs.
+
+            To constrain to these three scenarios if toPaymentId is set paymentId should always be set, and if toInvoiceId is set invoiceId should always be set.
+        </description>
         <field name="paymentApplicationId" type="id" is-pk="true"/>
         <field name="paymentId" type="id"/>
         <field name="invoiceId" type="id"/>
-        <!-- this is not used, payments applied to entire invoice: <field name="invoiceItemSeqId" type="id"/> -->
         <field name="billingAccountId" type="id"/>
-        <field name="overrideGlAccountId" type="id"><description>If filled in, payment is applied directly against this
-            GL account</description></field>
-        <field name="toPaymentId" type="id"><description>To be used when a payment is based on or comes from another
-            payment, like a payment that is a return of a mistaken or over-payment</description></field>
+        <field name="overrideGlAccountId" type="id">
+            <description>If specified payment is applied directly against this GL account instead of the mapped AR/AP account</description></field>
+        <field name="toPaymentId" type="id">
+            <description>Use to apply a Payment to another Payment like a payment that is a return of a mistaken or over-payment</description></field>
+        <field name="toInvoiceId" type="id">
+            <description>Use to apply an Invoice to another Invoice like a Credit Memo payable to a Sales/Purchase receivable</description></field>
         <field name="taxAuthGeoId" type="id"/>
         <field name="amountApplied" type="currency-amount" enable-audit-log="update"/>
         <field name="amountOriginallyApplied" type="currency-amount"/>

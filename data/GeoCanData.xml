@@ -12,7 +12,7 @@ You should have received a copy of the CC0 Public Domain Dedication
 along with this software (see the LICENSE.md file). If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.
 -->
-<entity-facade-xml type="seed">
+<entity-facade-xml type="install">
     <!-- see http://en.wikipedia.org/wiki/ISO_3166-2:CA -->
     <Geo geoCodeAlpha2="AB" geoId="CAN_AB" geoName="Alberta" geoTypeEnumId="GEOT_PROVINCE"/>
     <Geo geoCodeAlpha2="BC" geoId="CAN_BC" geoName="British Columbia" geoTypeEnumId="GEOT_PROVINCE"/>
