@@ -335,7 +335,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="systemMessageRemoteId" type="id"/>
 
         <field name="invoiceTotal" type="currency-amount"/>
-        <field name="appliedPaymentsTotal" type="currency-amount"/>
+        <field name="appliedPaymentsTotal" type="currency-amount">
+            <description>Total of all PaymentApplication records by invoiceId or toInvoiceId, ie includes payments and invoices applied to/from this invoice.</description></field>
         <field name="unpaidTotal" type="currency-amount"/>
 
         <relationship type="one" title="InvoiceType" related="moqui.basic.Enumeration" short-alias="type">
@@ -478,7 +479,6 @@ along with this software (see the LICENSE.md file). If not, see
             - TODO: GL Postings on transition to Write Off, and on Write Off to Payment
             - X On Payment* to Finalized/Approved/Cancelled, unapply Payment(s)
             -->
-
         </seed-data>
         <master>
             <detail relationship="type"/>
@@ -1422,6 +1422,8 @@ along with this software (see the LICENSE.md file). If not, see
             3. Apply an Invoice (invoiceId) such as a Credit Memo payable to another Invoice (toInvoiceId) such as a Sales/Purchase receivable
 
             In all cases the two opposing records should have reverse from/to party IDs.
+
+            To constrain to these three scenarios if toPaymentId is set paymentId should always be set, and if toInvoiceId is set invoiceId should always be set.
         </description>
         <field name="paymentApplicationId" type="id" is-pk="true"/>
         <field name="paymentId" type="id"/>
