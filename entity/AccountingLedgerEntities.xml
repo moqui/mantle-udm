@@ -643,6 +643,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="invoiceId" type="id"/>
         <field name="paymentId" type="id"/>
         <field name="paymentApplicationId" type="id"/>
+        <field name="toInvoiceId" type="id"/>
+        <field name="toPaymentId" type="id"/>
         <field name="finAccountTransId" type="id"/>
         <field name="shipmentId" type="id"/>
         <field name="workEffortId" type="id"/>
@@ -673,6 +675,10 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
         <relationship type="one" related="mantle.account.payment.Payment" short-alias="payment"/>
         <relationship type="one" related="mantle.account.payment.PaymentApplication" short-alias="paymentApplication"/>
+        <relationship type="one" title="To" related="mantle.account.invoice.Invoice" short-alias="toInvoice">
+            <key-map field-name="toInvoiceId"/></relationship>
+        <relationship type="one" title="To" related="mantle.account.payment.Payment" short-alias="toPayment">
+            <key-map field-name="toPaymentId"/></relationship>
         <relationship type="one" related="mantle.account.financial.FinancialAccountTrans" short-alias="financialAccountTrans"/>
         <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
         <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
@@ -712,8 +718,11 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="AttPaymentAdjust" description="Payment Adjustment" parentEnumId="AttPayment" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttIncomingPayment" description="Incoming Payment" enumTypeId="AcctgTransType"/><!-- (Receipt) -->
             <moqui.basic.Enumeration enumId="AttOutgoingPayment" description="Outgoing Payment" enumTypeId="AcctgTransType"/><!-- (Disbursement) -->
+
             <moqui.basic.Enumeration enumId="AttIncomingPaymentAp" description="Incoming Payment Application" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttOutgoingPaymentAp" description="Outgoing Payment Application" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttPaymentInOutAppl" description="Payment In/Out Application" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttInvoiceInOutAppl" description="Invoice AR/AP Application" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttPaymentApplied" description="Payment Application" enumTypeId="AcctgTransType"/>
 
             <moqui.basic.Enumeration enumId="AttSalesInvoice" description="Sales Invoice" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/><!-- (to Customer) -->
