@@ -159,8 +159,8 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Bonus (Non-Discretionary)" enumId="ItemBonusNonDisc" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Commission" enumId="ItemPrlCommission" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Advance Pay" enumId="ItemAdvancePay" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Overpay" enumId="ItemPayAdjOverpay" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Pay" enumId="ItemPayAdjPay" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Pay Period Adjustment - Overpay" enumId="ItemPayAdjOverpay" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Pay Period Adjustment - Pay" enumId="ItemPayAdjPay" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Reimbursement" enumId="ItemReimbursement" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
 
@@ -187,19 +187,19 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Social Security Employee" enumId="ItemTaxSocialSecEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Medicare Employee" enumId="ItemTaxMedEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Additional Medicare Employee" enumId="ItemTaxAddtlMedEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Federal Pension Employee" enumId="ItemTaxFedPensionEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="State Income Withholding" enumId="ItemTaxStateWhold" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="State Pension Employee" enumId="ItemTaxStatePensionEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="State Unemployment Insurance Employee" enumId="ItemTaxStateUnInsEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="State Workers&apos; Comp Insurance Employee" enumId="ItemTaxStateWrkCmpInsEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="State Disability Insurance Employee" enumId="ItemTaxStateDisInsEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="State Miscellaneous Employee" enumId="ItemTaxStateMiscEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="County Income Withholding" enumId="ItemTaxCountyWhold" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="City, Borough, and Township Withholding" enumId="ItemTaxCbt" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Occupational Privilege Employee" enumId="ItemTaxOccPrivEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Head Employee" enumId="ItemTaxHeadEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="School District Employee" enumId="ItemTaxSchoolDistEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Surtax Employee" enumId="ItemTaxSurtaxEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - Federal Pension Employee" enumId="ItemTaxFedPensionEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - State Income Withholding" enumId="ItemTaxStateWhold" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - State Pension Employee" enumId="ItemTaxStatePensionEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - State Unemployment Insurance Employee" enumId="ItemTaxStateUnInsEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - State Workers&apos; Comp Insurance Employee" enumId="ItemTaxStateWrkCmpInsEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - State Disability Insurance Employee" enumId="ItemTaxStateDisInsEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - State Miscellaneous Employee" enumId="ItemTaxStateMiscEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - County Income Withholding" enumId="ItemTaxCountyWhold" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - City, Borough, and Township Withholding" enumId="ItemTaxCbt" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - Occupational Privilege Employee" enumId="ItemTaxOccPrivEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - Head Employee" enumId="ItemTaxHeadEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - School District Employee" enumId="ItemTaxSchoolDistEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - Surtax Employee" enumId="ItemTaxSurtaxEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Payroll Expense" enumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="125*Compy. Contr Other Premium" enumId="ItemPrlExp125Compy" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
