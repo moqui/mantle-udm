@@ -157,13 +157,13 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Accounts Receivable" enumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
     <moqui.basic.Enumeration description="Receivable from Inventory Transferred Out" enumId="GatRecInventoryTranOut" parentEnumId="GatCurrentAsset" enumTypeId="GlAccountType"/>
     <moqui.basic.Enumeration description="Interest Income Receivables" enumId="GatInterestIncomeRec" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
-    <moqui.basic.Enumeration description="Accounts Receivable - Unapplied Payments" enumId="GatAccReceivableUnapplied" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Unapplied Payments" enumId="GatAccReceivableUnapplied" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
     <moqui.basic.Enumeration description="Merchant Account Settlement" enumId="GatMerchantSettlement" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
     <moqui.basic.Enumeration description="Allowance for Bad Receivables" enumId="GatAccRecBadRec" parentEnumId="GatAccountsReceivable" enumTypeId="GlAccountType"/>
 
     <moqui.basic.Enumeration description="Accounts Payable" enumId="GatAccountsPayable" enumTypeId="GlAccountType"/>
     <moqui.basic.Enumeration description="Payable from Inventory Transferred In" enumId="GatPayInventoryTranIn" parentEnumId="GatAccountsPayable" enumTypeId="GlAccountType"/>
-    <moqui.basic.Enumeration description="Accounts Payable - Unapplied Payments" enumId="GatAccPayableUnapplied" parentEnumId="GatAccountsPayable" enumTypeId="GlAccountType"/>
+    <moqui.basic.Enumeration description="Unapplied Payments" enumId="GatAccPayableUnapplied" parentEnumId="GatAccountsPayable" enumTypeId="GlAccountType"/>
 
     <moqui.basic.Enumeration description="Undeposited Receipts" enumId="GatUndepositedReceipts" enumTypeId="GlAccountType"/>
 
