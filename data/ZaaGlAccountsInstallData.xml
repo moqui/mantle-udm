@@ -1654,6 +1654,10 @@ along with this software (see the LICENSE.md file). If not, see
             isPayable="N" acctgTransTypeEnumId="AttSalesInvoice" glAccountId="121000000"/>
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceSales" organizationPartyId="DefaultSettings"
             isPayable="Y" acctgTransTypeEnumId="AttPurchaseInvoice" glAccountId="212000000"/>
+    <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceCreditMemo" organizationPartyId="DefaultSettings"
+            isPayable="N" acctgTransTypeEnumId="AttVendCreditMemo" glAccountId="121000000"/>
+    <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceCreditMemo" organizationPartyId="DefaultSettings"
+            isPayable="Y" acctgTransTypeEnumId="AttCreditMemo" glAccountId="212000000"/>
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceReturn" organizationPartyId="DefaultSettings"
             isPayable="N" acctgTransTypeEnumId="AttVendRtnInvoice" glAccountId="121000000"/>
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceReturn" organizationPartyId="DefaultSettings"
@@ -1780,6 +1784,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="525100000" direction="E" itemTypeEnumId="ItemFreeFills" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="621000000" direction="E" itemTypeEnumId="ItemAdjAdvertising" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="624000000" direction="E" itemTypeEnumId="ItemAdjJointAdv" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="522100000" direction="E" itemTypeEnumId="ItemChargebackAdjust" organizationPartyId="DefaultSettings"/>
 
     <!-- Payroll Item Types -->
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPayrollIncome" organizationPartyId="DefaultSettings"/>
@@ -1868,8 +1873,11 @@ along with this software (see the LICENSE.md file). If not, see
 
     <mantle.ledger.config.PaymentTypeGlAccount glAccountId="335000000" isApplied="E" isPayable="Y" organizationPartyId="DefaultSettings"
             paymentTypeEnumId="PtDisbursement"/><!-- Retained Earnings -->
-    <mantle.ledger.config.PaymentTypeGlAccount glAccountId="251000000" isApplied="E" isPayable="Y" organizationPartyId="DefaultSettings"
-            paymentTypeEnumId="PtRefund"/><!-- Refund Applied, Customer Credit -->
+    <mantle.ledger.config.PaymentTypeGlAccount glAccountId="126000000" isApplied="N" isPayable="N" organizationPartyId="DefaultSettings"
+            paymentTypeEnumId="PtRefund"/><!-- AR Unapplied -->
+    <mantle.ledger.config.PaymentTypeGlAccount glAccountId="216000000" isApplied="N" isPayable="Y" organizationPartyId="DefaultSettings"
+            paymentTypeEnumId="PtRefund"/><!-- AP Unapplied -->
+
     <mantle.ledger.config.PaymentTypeGlAccount glAccountId="121000000" isApplied="Y" isPayable="N" organizationPartyId="DefaultSettings"
             paymentTypeEnumId="PtInvoicePayment"/><!-- AR (applied) -->
     <mantle.ledger.config.PaymentTypeGlAccount glAccountId="126000000" isApplied="N" isPayable="N" organizationPartyId="DefaultSettings"
