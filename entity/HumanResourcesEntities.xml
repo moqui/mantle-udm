@@ -913,11 +913,11 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Piece Rate Type" enumTypeId="PieceRateType"/>
             <!-- these are the primary types for manual time entry -->
             <moqui.basic.Enumeration enumId="RatpStandard" description="Standard" enumTypeId="RateType"/>
-            <moqui.basic.Enumeration enumId="RatpPieceMinWageAdj" description="Piece Min Wage Adjustment" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
-            <moqui.basic.Enumeration enumId="RatpPaidBreakStd" description="Paid Break STD (hourly)" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
-            <moqui.basic.Enumeration enumId="RatpPaidBreakRrp" description="Paid Break RRP (piece)" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
-            <moqui.basic.Enumeration enumId="RatpPaidNptStd" description="Paid Non-productive STD (hourly)" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
-            <moqui.basic.Enumeration enumId="RatpPaidNptRrp" description="Paid Non-productive RRP (piece)" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpPieceMinWageAdj" description="Min Wage Adj" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpPaidBreakStd" description="Paid Break STD" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpPaidBreakRrp" description="Paid Break RRP" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpPaidNptStd" description="NPT - STD" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpPaidNptRrp" description="NPT - RRP" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpVacation" description="PTO - Vacation" enumTypeId="RateType"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpHoliday" description="PTO - Holiday" enumTypeId="RateType"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpSick" description="PTO - Sick" enumTypeId="RateType"/><!-- calculated, not configured -->
@@ -979,23 +979,33 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Hour Rate Type -->
             <moqui.basic.Enumeration description="Hourly Rate Type" enumId="EngHourlyRateType" enumTypeId="EnumGroup"/>
             <moqui.basic.EnumGroupMember enumId="RatpStandard" sequenceNum="1" enumGroupEnumId="EngHourlyRateType"/>
-            <moqui.basic.EnumGroupMember enumId="RatpEvening" sequenceNum="21" enumGroupEnumId="EngHourlyRateType"/>
-            <moqui.basic.EnumGroupMember enumId="RatpNight" sequenceNum="22" enumGroupEnumId="EngHourlyRateType"/>
-            <moqui.basic.EnumGroupMember enumId="RatpWeekend" sequenceNum="23" enumGroupEnumId="EngHourlyRateType"/>
-            <moqui.basic.EnumGroupMember enumId="RatpShHoliday" sequenceNum="24" enumGroupEnumId="EngHourlyRateType"/>
-            <moqui.basic.EnumGroupMember enumId="RatpOnsite" sequenceNum="25" enumGroupEnumId="EngHourlyRateType"/>
+
+            <moqui.basic.EnumGroupMember enumId="RatpEvening" enumGroupEnumId="EngHourlyRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpNight" enumGroupEnumId="EngHourlyRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpWeekend" enumGroupEnumId="EngHourlyRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpShHoliday" enumGroupEnumId="EngHourlyRateType"/>
+
+            <moqui.basic.EnumGroupMember enumId="RatpPaidNptStd" enumGroupEnumId="EngHourlyRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPaidNptRrp" enumGroupEnumId="EngHourlyRateType"/>
+
+            <moqui.basic.EnumGroupMember enumId="RatpVacation" enumGroupEnumId="EngHourlyRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpHoliday" enumGroupEnumId="EngHourlyRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpSick" enumGroupEnumId="EngHourlyRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPtoOther" enumGroupEnumId="EngHourlyRateType"/>
 
             <!-- Piece Rate Type -->
             <moqui.basic.Enumeration description="Piece Rate Type" enumId="EngPieceRateType" enumTypeId="EnumGroup"/>
-            <moqui.basic.EnumGroupMember enumId="RatpPieceOnly" sequenceNum="4" enumGroupEnumId="EngPieceRateType"/>
-            <moqui.basic.EnumGroupMember enumId="RatpPieceOrHour" sequenceNum="5" enumGroupEnumId="EngPieceRateType"/>
-            <moqui.basic.EnumGroupMember enumId="RatpPiecePlusHour" sequenceNum="6" enumGroupEnumId="EngPieceRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPieceOnly" sequenceNum="1" enumGroupEnumId="EngPieceRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPieceOrHour" sequenceNum="2" enumGroupEnumId="EngPieceRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPiecePlusHour" sequenceNum="3" enumGroupEnumId="EngPieceRateType"/>
+            <!-- Include minimum wage adjustment, as the only reason for a minimum wage adjustment is the lack of piece income -->
+            <moqui.basic.EnumGroupMember enumId="RatpPieceMinWageAdj" sequenceNum="4" enumGroupEnumId="EngPieceRateType"/>
 
             <!-- Rate Modifier Type -->
             <moqui.basic.Enumeration description="Pay Rate Modifier Type" enumId="EngPayRateModifierType" enumTypeId="EnumGroup"/>
-            <moqui.basic.EnumGroupMember enumId="RatmRegular" sequenceNum="4" enumGroupEnumId="EngPayRateModifierType"/>
-            <moqui.basic.EnumGroupMember enumId="RatmOvertime" sequenceNum="5" enumGroupEnumId="EngPayRateModifierType"/>
-            <moqui.basic.EnumGroupMember enumId="RatmDouble" sequenceNum="6" enumGroupEnumId="EngPayRateModifierType"/>
+            <moqui.basic.EnumGroupMember enumId="RatmRegular" sequenceNum="1" enumGroupEnumId="EngPayRateModifierType"/>
+            <moqui.basic.EnumGroupMember enumId="RatmOvertime" sequenceNum="2" enumGroupEnumId="EngPayRateModifierType"/>
+            <moqui.basic.EnumGroupMember enumId="RatmDouble" sequenceNum="3" enumGroupEnumId="EngPayRateModifierType"/>
 
             <!-- Rate Purpose -->
             <moqui.basic.EnumerationType description="Rate Purpose" enumTypeId="RatePurpose"/>
