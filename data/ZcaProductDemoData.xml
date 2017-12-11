@@ -28,7 +28,8 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.resource.DbResource filename="content" isFile="N" resourceId="zzw_content_dir" parentResourceId="zzw_retail"/>
     <!-- WikiSpace and root page -->
     <moqui.resource.wiki.WikiSpace wikiSpaceId="ZZW_RETAIL" description="Content for Ziziwork Retail" restrictView="N" allowAnyHtml="Y"
-                                   rootPageLocation="dbresource://Ziziwork/retail/content.html" decoratorScreenLocation=""/>
+            rootPageLocation="dbresource://Ziziwork/retail/content.html" decoratorScreenLocation=""
+            publicPageUrl="/popc/content/${pagePath}?ver=${versionName}" publicAttachmentUrl="/popc/content/attachment/${wikiPageId}/${filename}"/>
     <moqui.resource.wiki.WikiPage wikiPageId="zzw_content" wikiSpaceId="ZZW_RETAIL" pagePath="">
         <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
     </moqui.resource.wiki.WikiPage>
