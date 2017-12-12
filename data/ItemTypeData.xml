@@ -172,7 +172,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Child Support Garnishment" enumId="ItemDedChildGarnish" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Health Insurance" enumId="ItemDedMHealthInsurance" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Miscellaneous Deduction" enumId="ItemDedMisc" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="401K Employee" enumId="ItemDed401kEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Traditional 401K Employee" enumId="ItemDed401kEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Roth 401k Employee" enumId="ItemDedRoth401kEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Roth IRA Employee" enumId="ItemDedRothIraEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Simple IRA Employee" enumId="ItemDedSimpleIraEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
