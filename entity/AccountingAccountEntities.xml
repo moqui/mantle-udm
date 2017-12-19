@@ -1450,6 +1450,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="billingAccountId"/></relationship>
         <relationship type="one" title="To" related="mantle.account.payment.Payment" short-alias="toPayment">
             <key-map field-name="toPaymentId"/></relationship>
+        <relationship type="one" title="To" related="mantle.account.invoice.Invoice" short-alias="toInvoice">
+            <key-map field-name="toInvoiceId"/></relationship>
         <relationship type="one" title="TaxAuth" related="moqui.basic.Geo" short-alias="taxAuthGeo">
             <key-map field-name="taxAuthGeoId"/></relationship>
         <relationship type="one" title="Override" related="mantle.ledger.account.GlAccount" short-alias="overrideGlAccount">
