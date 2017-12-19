@@ -32,6 +32,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Product" enumId="ItemProduct" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Service Product" enumId="ItemServiceProduct" parentEnumId="ItemSales" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Rental" enumId="ItemRental" parentEnumId="ItemSales" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Rental Deposit" enumId="ItemRentalDeposit" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Replacement" enumId="ItemReplacement" parentEnumId="ItemSales" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Work Effort" enumId="ItemWorkEffort" parentEnumId="ItemSales" enumTypeId="ItemType"/>
@@ -233,6 +234,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemProduct" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemServiceProduct" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemRental" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemRentalDeposit" enumGroupEnumId="EngItemsSales"/>
 
     <moqui.basic.EnumGroupMember enumId="ItemWorkEffort" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemTimeEntry" enumGroupEnumId="EngItemsSales"/>
@@ -269,6 +271,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemDiscount" enumGroupEnumId="EngItemsPurchase"/>
     <moqui.basic.EnumGroupMember enumId="ItemFee" enumGroupEnumId="EngItemsPurchase"/>
     <moqui.basic.EnumGroupMember enumId="ItemMiscCharge" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemRentalDeposit" enumGroupEnumId="EngItemsPurchase"/>
 
     <moqui.basic.EnumGroupMember enumId="ItemInventory" enumGroupEnumId="EngItemsPurchase"/>
     <moqui.basic.EnumGroupMember enumId="ItemAsset" enumGroupEnumId="EngItemsPurchase"/>
