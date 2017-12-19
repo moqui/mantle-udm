@@ -275,7 +275,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="quantityCancelled" type="number-decimal"/>
         <field name="selectedAmount" type="number-decimal"/>
         <field name="priority" type="number-integer"/>
-        <field name="requiredByDate" type="date-time"/>
+        <field name="requiredByDate" type="date-time" enable-audit-log="update"/>
 
         <field name="unitAmount" type="currency-precise" enable-audit-log="true">
             <description>The purchase or sales price. For barter/exchange orders this represents the market value of the item at
