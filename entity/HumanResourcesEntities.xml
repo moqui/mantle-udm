@@ -281,7 +281,7 @@ along with this software (see the LICENSE.md file). If not, see
         -->
 
         <relationship type="one" related="mantle.party.PartyRelationship"/>
-        <relationship type="one" related="mantle.humanres.position.EmplPosition"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPosition" short-alias="position"/>
         <relationship type="one" title="TerminationReason" related="moqui.basic.Enumeration">
             <key-map field-name="terminationReasonEnumId"/></relationship>
         <relationship type="one" title="TerminationType" related="moqui.basic.Enumeration">
