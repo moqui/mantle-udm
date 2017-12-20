@@ -505,7 +505,7 @@ along with this software (see the LICENSE.md file). If not, see
             positive adjustments and deductible negative adjustments.</description></field>
 
         <field name="rateBasisEnumId" type="id"/>
-        <field name="riskClassCode" type="text-short"/>
+        <field name="riskClassEnumId" type="text-short"/>
         <field name="taxAuthorityId" type="id"/>
         <field name="taxBox" type="text-short"><description>For tax forms, the alphanumeric box</description></field>
         <field name="taxBoxCode" type="text-short"><description>For tax forms, the code/type</description></field>
@@ -703,13 +703,18 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="overrideGlAccountId"/></relationship>
     </entity>
     <entity entity-name="WorkTypeRiskClass" package="mantle.humanres.employment" use="configuration">
-        <field name="stateGeoId" type="id" is-pk="true"/>
+        <field name="geoId" type="id" is-pk="true"/>
         <field name="workTypeEnumId" type="id" is-pk="true"/>
-        <field name="riskClassCode" type="text-short"/>
+        <field name="riskClassEnumId" type="id"/>
         <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workTypeEnum">
             <key-map field-name="workTypeEnumId"/></relationship>
-        <relationship type="one" title="State" related="moqui.basic.Geo">
-            <key-map field-name="stateGeoId"/></relationship>
+        <relationship type="one" title="RiskClass" related="moqui.basic.Enumeration" short-alias="riskClassEnum">
+            <key-map field-name="riskClassEnumId"/></relationship>
+        <relationship type="one" title="Geo" related="moqui.basic.Geo" short-alias="geo">
+            <key-map field-name="geoId"/></relationship>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Risk Class Type" enumTypeId="RiskClassType"/>
+        </seed-data>
     </entity>
 
     <!-- ========================================================= -->
