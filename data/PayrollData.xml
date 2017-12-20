@@ -118,7 +118,7 @@ along with this software (see the LICENSE.md file). If not, see
         Should shift differential premiums be included in Workers Compensation Insurance calculations?
     -->
     <mantle.party.PartySettingType description="Payroll WC - Default Risk Class" partySettingTypeId="PayrollWcRiskClass"
-                                   validRegexp=".+" defaultValue="">
+                                   enumTypeId="PayrollWcRiskClass">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll WC - Default Overrides Work Type" partySettingTypeId="PayrollWcDftOvrWrkTp"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
