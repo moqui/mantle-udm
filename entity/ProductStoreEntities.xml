@@ -173,6 +173,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Gift Card Reload" enumId="PsetGiftCardReload" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Shipment Shipped" enumId="PsetShipmentShipped" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Shipment Delivered" enumId="PsetShipmentDelivered" enumTypeId="ProductStoreEmailType"/>
+            <moqui.basic.Enumeration description="Invoice Finalized" enumId="PsetInvoiceFinalized" enumTypeId="ProductStoreEmailType"/>
         </seed-data>
     </entity>
     <entity entity-name="ProductStoreFacility" package="mantle.product.store">

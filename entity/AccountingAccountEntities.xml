@@ -528,6 +528,12 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="IctNote" description="Note" enumTypeId="InvoiceContentType"/>
         </seed-data>
     </entity>
+    <entity entity-name="InvoiceEmailMessage" package="mantle.account.invoice" cache="never">
+        <field name="invoiceId" type="id" is-pk="true"/>
+        <field name="emailMessageId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.account.invoice.Invoice"/>
+        <relationship type="one" related="moqui.basic.email.EmailMessage"/>
+    </entity>
     <entity entity-name="InvoiceItem" package="mantle.account.invoice" cache="never">
         <field name="invoiceId" type="id" is-pk="true"/>
         <field name="invoiceItemSeqId" type="id" is-pk="true"/>
