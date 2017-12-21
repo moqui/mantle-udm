@@ -1675,6 +1675,10 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="412000000" direction="O" itemTypeEnumId="ItemWorkEffort" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="412000000" direction="O" itemTypeEnumId="ItemTimeEntry" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="413000000" direction="O" itemTypeEnumId="ItemRental" organizationPartyId="DefaultSettings"/>
+    <!-- rental deposit to FinancialAccount, return of deposit as FA withdrawal -->
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="258100000" direction="O" itemTypeEnumId="ItemRentalDeposit" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="258200000" direction="I" itemTypeEnumId="ItemRentalDeposit" organizationPartyId="DefaultSettings"/>
+
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="522000000" direction="O" itemTypeEnumId="ItemReplacement" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="522000000" direction="O" itemTypeEnumId="ItemDiscount" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="865000000" direction="I" itemTypeEnumId="ItemDiscount" organizationPartyId="DefaultSettings"/>
