@@ -35,6 +35,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="requestDate" type="date-time"/>
         <field name="responseRequiredDate" type="date-time"/>
         <field name="requestResolutionEnumId" type="id"/>
+        <field name="rootWorkEffortId" type="id"/>
         <field name="facilityId" type="id"/>
         <field name="productStoreId" type="id"/>
         <field name="salesChannelEnumId" type="id"/>
@@ -50,8 +51,10 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Request" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" title="RequestResolution" related="moqui.basic.Enumeration" short-alias="resolution">
             <key-map field-name="requestResolutionEnumId"/></relationship>
-        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" title="Root" related="mantle.work.effort.WorkEffort" short-alias="rootWorkEffort">
+            <key-map field-name="rootWorkEffortId" related="workEffortId"/></relationship>
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" title="SalesChannel" related="moqui.basic.Enumeration" short-alias="salesChannel">
             <key-map field-name="salesChannelEnumId"/></relationship>
         <relationship type="one" title="Email" related="mantle.party.contact.ContactMech" short-alias="emailContactMech">
@@ -203,9 +206,10 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
     <entity entity-name="RequestNote" package="mantle.request" cache="never">
         <field name="requestId" type="id" is-pk="true"/>
-        <field name="noteDate" type="date-time" is-pk="true"/>
+        <field name="noteDate" type="date-time" is-pk="true" default="ec.user.nowTimestamp"/>
         <field name="requestItemSeqId" type="id"/>
         <field name="noteText" type="text-very-long"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related="mantle.request.Request" short-alias="request"/>
         <relationship type="one-nofk" related="mantle.request.RequestItem" short-alias="item">
             <key-map field-name="requestId"/>
