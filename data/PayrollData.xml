@@ -42,6 +42,8 @@ along with this software (see the LICENSE.md file). If not, see
         If N, RRP calculation is performed against PIECE, HYBRID, and ND pay only.
     Should HOURLY Rest Breaks and NPT be paid RRP?
         If N, HOURLY Rest Breaks and NPT are paid HOURLY rate (If breaks are not extracted for RRP, they should not be paid RRP).
+    Should PIECE/HYBRID Rest Breaks be paid the higher of RRP and the hourly rate they would have otherwise earned?
+        If N, PIECE/HYBRID Rest Breaks will be paid RRP.
     Should Shift Differentials be included in RRP calculation?
         This is required in the USA by the FLSA: https://www.dol.gov/whd/regs/compliance/whdfs54.htm
     How frequently should RRP be calculated?
@@ -54,6 +56,9 @@ along with this software (see the LICENSE.md file). If not, see
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll RRP - Pay RRP on Hourly Break/NPT" partySettingTypeId="PayrollRrpPayOnHourlyBreakNpt"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll RRP - Pay Max(Hourly/RRP) on Piece Break" partySettingTypeId="PayrollRrpPayMaxRateOnPieceBreak"
+                                   enumTypeId="BooleanYN" defaultValue="BlN">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll RRP - Include Shift Differentials" partySettingTypeId="PayrollRrpInclShDiff"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
