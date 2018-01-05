@@ -114,7 +114,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Goods Revenue" enumId="GOODS_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Services Revenue" enumId="SERVICES_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass"/>
 
-    <moqui.basic.Enumeration description="Income" enumId="INCOME" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Non-operating Income" enumId="INCOME" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Cash Income" enumId="CASH_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Interest Income" enumId="INTEREST_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Non-Cash Income" enumId="NON_CASH_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass"/>
