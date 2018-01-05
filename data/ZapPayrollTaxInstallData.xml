@@ -455,7 +455,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- this is an example, should be applied to a particular employment (partyRelationshipId)
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="FILL THIS IN"
             timePeriodTypeId="PayrollBiWeek" partyRelationshipId="FILL THIS IN" description="CA Child Support"
-            garnishPartyId="CaDocss" garnishDisposablePercent="50" garnishDueDays="3" garnishCaseNumber="CS12345" garnishPriority="1"
+            payeePartyId="CaDocss" garnishDisposablePercent="50" payeeDueDays="3" payeeReference="CS12345" garnishPriority="1"
             itemTypeEnumId="ItemDedChildGarnish" payrollPhaseEnumId="PrphGarnish" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <details flatAmount="-300"/>
     </mantle.humanres.employment.PayrollAdjustment>
