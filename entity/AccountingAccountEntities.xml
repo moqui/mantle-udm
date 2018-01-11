@@ -240,6 +240,12 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Disbursement" enumId="FatrDisbursement" enumTypeId="FinancialAccountTransReason"/>
             <moqui.basic.Enumeration description="Customer Service Credit" enumId="FatrCsCredit" enumTypeId="FinancialAccountTransReason"/>
             <moqui.basic.Enumeration description="Error Adjustment" enumId="FatrErrorAdjust" enumTypeId="FinancialAccountTransReason"/>
+            <!-- TODO:
+            <moqui.basic.Enumeration description="FA Transfer" enumId="FatrTransfer" enumTypeId="FinancialAccountTransReason"/>
+            - add other otherFinAccountTransId field
+            - add transfer#FinancialAccount service to create the 2 FA TX records and link together with otherFinAccountTransId
+            - add FinancialAccountReasonGlAccount record for GL mapping
+            -->
         </seed-data>
     </entity>
     <entity entity-name="FinancialAccountType" package="mantle.account.financial">
