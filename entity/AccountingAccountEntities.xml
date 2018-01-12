@@ -179,6 +179,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="postBalance" type="currency-amount"/>
         <field name="paymentId" type="id"/>
         <field name="invoiceId" type="id"/>
+        <field name="invoiceItemSeqId" type="id"><description>To be used along with invoiceId to point to an InvoiceItem that
+            this transaction is based on, such as a full or partial credit against a charge.</description></field>
         <field name="orderId" type="id"/>
         <field name="orderItemSeqId" type="id"><description>To be used along with orderId to point to an OrderItem that
             represents the purchase of a product to add money to the account.</description></field>
