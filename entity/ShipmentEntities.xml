@@ -321,6 +321,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="trackingUrl" type="text-long"/>
         <field name="trackingStatusEnumId" type="id" enable-audit-log="true"/>
         <field name="trackingStatusDate" type="date-time"/>
+        <field name="trackingEta" type="date-time"/>
         <field name="boxNumber" type="text-short"/>
 
         <field name="gatewayStatus" type="text-short" enable-audit-log="update"/>
@@ -341,6 +342,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="returnTrackingCode" type="text-medium" enable-audit-log="update"/>
         <field name="returnTrackingUrl" type="text-long"/>
         <field name="returnTrackingStatusEnumId" type="id" enable-audit-log="update"/>
+        <field name="returnTrackingStatusDate" type="date-time"/>
         <field name="returnLabelDate" type="date-time"/>
         <field name="returnLabelUrl" type="text-long"/>
         <field name="returnLabelImage" type="binary-very-long"/>
@@ -367,6 +369,10 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="ReturnTrackingStatus" related="moqui.basic.Enumeration" short-alias="returnTrackingStatusEnum">
             <key-map field-name="returnTrackingStatusEnumId"/></relationship>
         <index name="SHIP_PKRTSG_SHIPID"><index-field name="shipmentId"/></index>
+        <index name="SHIP_PKRTSG_TRKCODE"><index-field name="trackingCode"/></index>
+        <index name="SHIP_PKRTSG_GTLBL"><index-field name="gatewayLabelId"/></index>
+        <index name="SHIP_PKRTSG_RTTRKCD"><index-field name="returnTrackingCode"/></index>
+        <index name="SHIP_PKRTSG_RTGTLBL"><index-field name="returnGatewayLabelId"/></index>
         <seed-data>
             <moqui.basic.EnumerationType description="Shipping Tracking Status" enumTypeId="ShipmentTrackingStatus"/>
             <moqui.basic.Enumeration description="Unknown" enumId="ShTsUnknown" enumTypeId="ShipmentTrackingStatus"/>
