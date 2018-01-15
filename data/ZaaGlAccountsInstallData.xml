@@ -25,19 +25,19 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Discounts and Write-downs" enumId="COST_OF_DISCOUNTS" parentEnumId="CONTRA_REVENUE" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Customer Returns" enumId="CUSTOMER_RETURNS" parentEnumId="CONTRA_REVENUE" enumTypeId="GlAccountClass"/>
 
-    <moqui.basic.Enumeration description="Asset" enumId="ASSET" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Current Asset" enumId="CURRENT_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Assets" enumId="ASSET" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Current Assets" enumId="CURRENT_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Cash and Equivalent" enumId="CASH_EQUIVALENT" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Inventory Asset" enumId="INVENTORY_ASSET" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Inventory Assets" enumId="INVENTORY_ASSET" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Accounts Receivable" enumId="ACCOUNTS_RECEIVABLE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Loans Receivable" enumId="LOANS_RECEIVABLE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Prepaid Expense" enumId="PREPAID_EXPENSE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Prepaid Inventory" enumId="PREPAID_INVENTORY" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Accrued Revenue" enumId="ACCRUED_REVENUE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Long Term Asset" enumId="LONG_TERM_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Long Term Assets" enumId="LONG_TERM_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Land and Building" enumId="LAND_BUILDING" parentEnumId="LONG_TERM_ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Equipment" enumId="EQUIPMENT" parentEnumId="LONG_TERM_ASSET" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Other Asset" enumId="OTHER_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Other Assets" enumId="OTHER_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
 
     <moqui.basic.Enumeration description="Equity Distribution" enumId="DISTRIBUTION" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Return of Capital" enumId="RETURN_OF_CAPITAL" parentEnumId="DISTRIBUTION" enumTypeId="GlAccountClass"/>
@@ -91,19 +91,19 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Royalties Expense - Non-COGS" enumId="NON_COGS_ROYALTIES" parentEnumId="NON_OP_EXPENSE" enumTypeId="GlAccountClass"/>
 
     <!-- CREDIT classes -->
-    <moqui.basic.Enumeration description="Contra Asset" enumId="CONTRA_ASSET" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Contra Assets" enumId="CONTRA_ASSET" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Accumulated Depreciation" enumId="ACCUM_DEPRECIATION" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Accumulated Amortization" enumId="ACCUM_AMORTIZATION" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Allowance For Bad Debts" enumId="ALLOWANCE_BAD_DEBT" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
 
-    <moqui.basic.Enumeration description="Liability" enumId="LIABILITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Current Liability" enumId="CURRENT_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Liabilities" enumId="LIABILITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Current Liabilities" enumId="CURRENT_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Accounts Payable" enumId="ACCOUNTS_PAYABLE" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Accrued Expenses" enumId="ACCRUED_EXPENSES" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Loans Payable" enumId="LOANS_PAYABLE" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Unearned Revenue" enumId="UNEARNED_REVENUE" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Third-Party Holdings" enumId="THIRD_PARTY_HOLDINGS" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Long Term Liability" enumId="LONG_TERM_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Long Term Liabilities" enumId="LONG_TERM_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>
 
     <moqui.basic.Enumeration description="Equity" enumId="EQUITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Owners Equity" enumId="OWNERS_EQUITY" parentEnumId="EQUITY" enumTypeId="GlAccountClass"/>
@@ -139,13 +139,13 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- exclude? non-operating income, ie not revenue: <groupMembers enumId="INCOME"/> -->
         <groupMembers enumId="EXPENSE" memberInfo="negate"/>
     </moqui.basic.Enumeration>
-    <moqui.basic.Enumeration description="Net Asset" enumId="EngGlcNetAsset" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+    <moqui.basic.Enumeration description="Net Assets" enumId="EngGlcNetAsset" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
         <groupMembers enumId="ASSET"/><groupMembers enumId="CONTRA_ASSET" memberInfo="negate"/></moqui.basic.Enumeration>
     <moqui.basic.Enumeration description="Net Equity" enumId="EngGlcNetEquity" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
         <groupMembers enumId="EQUITY"/><groupMembers enumId="CONTRA_EQUITY" memberInfo="negate"/>
         <groupMembers enumId="DISTRIBUTION" memberInfo="negate"/>
     </moqui.basic.Enumeration>
-    <moqui.basic.Enumeration description="Liability" enumId="EngGlcLiability" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+    <moqui.basic.Enumeration description="Liabilities" enumId="EngGlcLiability" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
         <groupMembers enumId="LIABILITY"/></moqui.basic.Enumeration>
 
     <!-- ========== GL Account Type, used for automated posting mappings ========== -->
