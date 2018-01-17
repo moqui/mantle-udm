@@ -360,10 +360,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="codAmount" type="currency-amount"/>
         <field name="insuredAmount" type="currency-amount"/>
         <!-- should use costUomId on ShipmentRouteSegment or Shipment: <field name="amountUomId" type="id"/> -->
-        <relationship type="one-nofk" related="mantle.shipment.Shipment"/>
-        <relationship type="one" related="mantle.shipment.ShipmentPackage">
+        <relationship type="one-nofk" related="mantle.shipment.Shipment" short-alias="shipment"/>
+        <relationship type="one" related="mantle.shipment.ShipmentPackage" short-alias="package">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>
-        <relationship type="one" related="mantle.shipment.ShipmentRouteSegment">
+        <relationship type="one" related="mantle.shipment.ShipmentRouteSegment" short-alias="routeSegment">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentRouteSegmentSeqId"/></relationship>
         <relationship type="one" title="ShipmentTrackingStatus" related="moqui.basic.Enumeration" short-alias="trackingStatusEnum">
             <key-map field-name="trackingStatusEnumId"/></relationship>
