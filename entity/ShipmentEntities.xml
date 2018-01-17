@@ -322,6 +322,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="trackingStatusEnumId" type="id" enable-audit-log="true"/>
         <field name="trackingStatusDate" type="date-time"/>
         <field name="trackingEta" type="date-time"/>
+        <field name="trackingOrigEta" type="date-time"/>
         <field name="boxNumber" type="text-short"/>
 
         <field name="gatewayStatus" type="text-short" enable-audit-log="update"/>
