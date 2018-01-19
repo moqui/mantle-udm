@@ -105,6 +105,19 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- add the ProductPriceKS drools rules -->
     <mantle.product.ProductPriceModify priceModifyId="ProductPriceKS" serviceRegisterId="ProductPriceKS"/>
 
+    <mantle.product.store.ProductStorePromotion storePromotionId="PopcBuyGet" productStoreId="POPC_DEFAULT"
+            itemDescription="Buy 1 Get 1 Half Off" serviceRegisterId="BuyGetDiscount" sequenceNum="10" requireCode="Y">
+        <parameters parameterName="buyQuantity" parameterValue="1"/>
+        <parameters parameterName="getQuantity" parameterValue="1"/>
+        <parameters parameterName="discountPercent" parameterValue="50"/>
+        <codes promoCodeId="TEST1" promoCode="TEST1" requireParty="Y">
+            <parties partyId="CustJqp"/></codes>
+    </mantle.product.store.ProductStorePromotion>
+    <mantle.product.store.ProductStorePromotion storePromotionId="PopcNewCustomer" productStoreId="POPC_DEFAULT"
+            itemDescription="20% Discount for New Customers" serviceRegisterId="NewCustomerDiscount" sequenceNum="99">
+        <parameters parameterName="discountPercent" parameterValue="20"/>
+    </mantle.product.store.ProductStorePromotion>
+
     <!-- Default Home Page and Root Browse Categories -->
     <mantle.product.category.ProductCategory productCategoryId="PopcHome" productCategoryTypeEnumId="PctCatalog"
             categoryName="Home Page Category"/>

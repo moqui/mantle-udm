@@ -205,9 +205,10 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="paymentInstrumentEnumId"/></relationship>
         <relationship type="one" related="mantle.account.method.PaymentGatewayConfig" short-alias="config"/>
     </entity>
+
     <entity entity-name="ProductStorePromotion" package="mantle.product.store" use="configuration" cache="true">
         <field name="storePromotionId" type="id" is-pk="true"/>
-        <field name="productStoreId" type="id" not-null="true"/>
+        <field name="productStoreId" type="id"/>
         <field name="itemDescription" type="text-medium"><description>Description for the OrderItem (itemDescription), promo service
             should run this through ResourceFacade.expand() with parameters depending on the promo service</description></field>
         <field name="serviceRegisterId" type="id" not-null="true"><description>Registered Service of type ProductStorePromotion that implements the
@@ -215,8 +216,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
         <field name="sequenceNum" type="number-integer"/>
+        <field name="requireCode" type="text-indicator"/>
+        <field name="useLimitPerOrder" type="number-integer"/>
+        <field name="useLimitPerCustomer" type="number-integer"/>
+        <field name="useLimitPerPromotion" type="number-integer"/>
         <relationship type="one" related="moqui.service.ServiceRegister" short-alias="serviceRegister"/>
         <relationship type="many" related="mantle.product.store.ProductStorePromoParameter" short-alias="parameters">
+            <key-map field-name="storePromotionId"/></relationship>
+        <relationship type="many" related="mantle.product.store.ProductStorePromoCode" short-alias="codes">
             <key-map field-name="storePromotionId"/></relationship>
         <seed-data><moqui.basic.Enumeration description="Product Store Promotion" enumId="ProductStorePromotion" enumTypeId="ServiceRegisterType"/></seed-data>
     </entity>
@@ -226,6 +233,28 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="parameterValue" type="text-medium"/>
         <relationship type="one" related="mantle.product.store.ProductStorePromotion" short-alias="storePromotion"/>
     </entity>
+    <entity entity-name="ProductStorePromoCode" package="mantle.product.store">
+        <field name="promoCodeId" type="id" is-pk="true"/>
+        <field name="promoCode" type="text-short" default="promoCodeId"/>
+        <field name="storePromotionId" type="id"/>
+        <field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+        <field name="useLimitPerCode" type="number-integer"/>
+        <field name="useLimitPerCustomer" type="number-integer"/>
+        <field name="userEntered" type="text-indicator"/>
+        <field name="requireParty" type="text-indicator"/>
+        <relationship type="one" related="mantle.product.store.ProductStorePromotion" short-alias="storePromotion"/>
+        <relationship type="many" related="mantle.product.store.ProductStorePromoCodeParty" short-alias="parties">
+            <key-map field-name="storePromotionId"/></relationship>
+        <index name="PSTR_PROMO_CODE" unique="true"><index-field name="promoCode"/></index>
+    </entity>
+    <entity entity-name="ProductStorePromoCodeParty" package="mantle.product.store">
+        <field name="promoCodeId" type="id" is-pk="true"/>
+        <field name="partyId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.product.store.ProductStorePromoCode" short-alias="storePromoCode"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+    </entity>
+
     <entity entity-name="ProductStoreShippingGateway" package="mantle.product.store">
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="carrierPartyId" type="id" is-pk="true"/>

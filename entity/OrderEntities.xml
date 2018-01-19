@@ -292,6 +292,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productCategoryId" type="id"/>
         <field name="isPromo" type="text-indicator"/>
         <field name="promoQuantity" type="number-decimal"/>
+        <field name="storePromotionId" type="id"/>
+        <field name="promoCodeId" type="id"/>
 
         <field name="subscriptionId" type="id"/>
         <field name="overrideGlAccountId" type="id"><description>Used to specify the override or actual glAccountId
@@ -322,10 +324,14 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.feature.ProductFeature" short-alias="feature"/>
         <relationship type="one" title="Quantity" related="moqui.basic.Uom" short-alias="quantityUom">
             <key-map field-name="quantityUomId"/></relationship>
+
         <relationship type="one" title="From" related="mantle.product.asset.Asset" short-alias="fromAsset">
             <key-map field-name="fromAssetId"/></relationship>
         <relationship type="one" related="mantle.product.ProductPrice" short-alias="price"/>
         <relationship type="one" related="mantle.product.category.ProductCategory" short-alias="category"/>
+        <relationship type="one" related="mantle.product.store.ProductStorePromotion" short-alias="storePromotion"/>
+        <relationship type="one" related="mantle.product.store.ProductStorePromoCode" short-alias="storePromoCode"/>
+
         <relationship type="one" title="Override" related="mantle.ledger.account.GlAccount" short-alias="overrideGlAccount">
             <key-map field-name="overrideGlAccountId"/></relationship>
         <relationship type="one" related="SalesOpportunity" short-alias="opportunity"/>
@@ -425,8 +431,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="disableShippingCalc" type="text-indicator"/>
         <field name="disableTaxCalc" type="text-indicator"/>
 
-        <relationship type="one" related="mantle.order.OrderHeader"/>
-        <relationship type="one" title="Parent" related="mantle.order.OrderPart">
+        <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
+        <relationship type="one" title="Parent" related="mantle.order.OrderPart" short-alias="parentPart">
             <key-map field-name="orderId"/>
             <key-map field-name="parentPartSeqId" related="orderPartSeqId"/>
         </relationship>
@@ -499,6 +505,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="settlementTermId" type="id" is-pk="true"/>
         <relationship type="one" related="mantle.order.OrderPart" short-alias="orderPart"/>
         <relationship type="one" related="SettlementTerm" short-alias="term"/>
+    </entity>
+    <entity entity-name="OrderPromoCode" package="mantle.order">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="promoCodeId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
+        <relationship type="one" related="mantle.product.store.ProductStorePromoCode" short-alias="storePromoCode"/>
     </entity>
     <entity entity-name="OrderItemWorkEffort" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
