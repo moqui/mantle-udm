@@ -22,17 +22,17 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- Top-level classes, referred to in reports, etc; the minimum required GL account classes -->
     <moqui.basic.Enumeration description="Revenue" enumId="REVENUE" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
-    <!-- deprecated, use REVENUE with optionIndicator=Y to denote contra: <moqui.basic.Enumeration description="Contra Revenue" enumId="CONTRA_REVENUE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/> -->
+    <!-- deprecated, use REVENUE descendant with optionIndicator=Y to denote contra: <moqui.basic.Enumeration description="Contra Revenue" enumId="CONTRA_REVENUE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/> -->
     <moqui.basic.Enumeration description="Cost of Sales" enumId="COST_OF_SALES" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Operating Expense" enumId="EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Non-operating Income" enumId="INCOME" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Non-operating Expense" enumId="NON_OP_EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
 
     <moqui.basic.Enumeration description="Assets" enumId="ASSET" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
-    <!-- deprecated, use ASSET with optionIndicator=Y to denote contra: <moqui.basic.Enumeration description="Contra Assets" enumId="CONTRA_ASSET" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/> -->
+    <!-- deprecated, use ASSET descendant with optionIndicator=Y to denote contra: <moqui.basic.Enumeration description="Contra Assets" enumId="CONTRA_ASSET" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/> -->
     <moqui.basic.Enumeration description="Liabilities" enumId="LIABILITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Equity" enumId="EQUITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
-    <!-- deprecated, use EQUITY with optionIndicator=Y to denote contra: <moqui.basic.Enumeration description="Contra Equity" enumId="CONTRA_EQUITY" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/> -->
+    <!-- deprecated, use EQUITY descendant with optionIndicator=Y to denote contra: <moqui.basic.Enumeration description="Contra Equity" enumId="CONTRA_EQUITY" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/> -->
     <moqui.basic.Enumeration description="Equity Distribution" enumId="DISTRIBUTION" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
 
     <!-- DEBIT classes -->
@@ -47,12 +47,13 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Allowance For Bad Debts" enumId="ALLOWANCE_BAD_DEBT" parentEnumId="CURRENT_ASSET" optionIndicator="Y" enumTypeId="GlAccountClass"/><!-- contra: CREDIT -->
 
     <moqui.basic.Enumeration description="Long Term Assets" enumId="LONG_TERM_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Land and Building" enumId="LAND_BUILDING" parentEnumId="LONG_TERM_ASSET" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Equipment" enumId="EQUIPMENT" parentEnumId="LONG_TERM_ASSET" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Accumulated Depreciation" enumId="ACCUM_DEPRECIATION" parentEnumId="LONG_TERM_ASSET" optionIndicator="Y" enumTypeId="GlAccountClass"/><!-- contra: CREDIT -->
-    <moqui.basic.Enumeration description="Accumulated Amortization" enumId="ACCUM_AMORTIZATION" parentEnumId="LONG_TERM_ASSET" optionIndicator="Y" enumTypeId="GlAccountClass"/><!-- contra: CREDIT -->
+    <moqui.basic.Enumeration description="Land and Building" enumId="LAND_BUILDING" parentEnumId="LONG_TERM_ASSET" enumTypeId="GlAccountClass" sequenceNum="10"/>
+    <moqui.basic.Enumeration description="Equipment" enumId="EQUIPMENT" parentEnumId="LONG_TERM_ASSET" enumTypeId="GlAccountClass" sequenceNum="20"/>
+    <moqui.basic.Enumeration description="Accumulated Depreciation" enumId="ACCUM_DEPRECIATION" parentEnumId="LONG_TERM_ASSET" optionIndicator="Y" enumTypeId="GlAccountClass" sequenceNum="90"/><!-- contra: CREDIT -->
 
     <moqui.basic.Enumeration description="Other Assets" enumId="OTHER_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Intangible Assets" enumId="INTANGIBLE_ASSET" parentEnumId="OTHER_ASSET" enumTypeId="GlAccountClass" sequenceNum="10"/>
+    <moqui.basic.Enumeration description="Accumulated Amortization" enumId="ACCUM_AMORTIZATION" parentEnumId="OTHER_ASSET" optionIndicator="Y" enumTypeId="GlAccountClass" sequenceNum="90"/><!-- contra: CREDIT -->
 
     <moqui.basic.Enumeration description="Return of Capital" enumId="RETURN_OF_CAPITAL" parentEnumId="DISTRIBUTION" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Dividends" enumId="DIVIDEND" parentEnumId="DISTRIBUTION" enumTypeId="GlAccountClass"/>
@@ -349,17 +350,17 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- 133000 ASSET - INTANGIBLE -->
     <!-- previous version change note (after 1.0.1): 191* to 133* -->
-    <mantle.ledger.account.GlAccount accountName="Intangible Assets" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="Intangible Assets" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133000000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="130000000"/>
-    <mantle.ledger.account.GlAccount accountName="Covenant Not To Compete-Previous Owner" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="Covenant Not To Compete-Previous Owner" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133100000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
-    <mantle.ledger.account.GlAccount accountName="Goodwill" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="Goodwill" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133200000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
-    <mantle.ledger.account.GlAccount accountName="Customer Lists" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="Customer Lists" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133300000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
-    <mantle.ledger.account.GlAccount accountName="Intellectual Property Assets" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="Intellectual Property Assets" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133400000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Intangible Assets" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="Other Intangible Assets" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133800000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
 
     <!-- 134000 ASSET - FIXED OTHER -->
