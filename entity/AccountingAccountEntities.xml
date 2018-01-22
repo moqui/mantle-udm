@@ -184,6 +184,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderId" type="id"/>
         <field name="orderItemSeqId" type="id"><description>To be used along with orderId to point to an OrderItem that
             represents the purchase of a product to add money to the account.</description></field>
+        <field name="otherFinAccountTransId" type="id" create-only="false"><description>For FinancialAccount transfer transaction pairs</description></field>
         <field name="performedByUserId" type="id"/>
         <field name="acctgTransResultEnumId" type="id" create-only="false"/>
         <field name="reversedByTransId" type="id" create-only="false"/>
@@ -240,14 +241,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Replenishment" enumId="FatrReplenish" enumTypeId="FinancialAccountTransReason"/>
             <moqui.basic.Enumeration description="Refund" enumId="FatrRefund" enumTypeId="FinancialAccountTransReason"/>
             <moqui.basic.Enumeration description="Disbursement" enumId="FatrDisbursement" enumTypeId="FinancialAccountTransReason"/>
+            <moqui.basic.Enumeration description="Account Transfer" enumId="FatrTransfer" enumTypeId="FinancialAccountTransReason"/>
             <moqui.basic.Enumeration description="Customer Service Credit" enumId="FatrCsCredit" enumTypeId="FinancialAccountTransReason"/>
             <moqui.basic.Enumeration description="Error Adjustment" enumId="FatrErrorAdjust" enumTypeId="FinancialAccountTransReason"/>
-            <!-- TODO:
-            <moqui.basic.Enumeration description="FA Transfer" enumId="FatrTransfer" enumTypeId="FinancialAccountTransReason"/>
-            - add other otherFinAccountTransId field
-            - add transfer#FinancialAccount service to create the 2 FA TX records and link together with otherFinAccountTransId
-            - add FinancialAccountReasonGlAccount record for GL mapping
-            -->
         </seed-data>
     </entity>
     <entity entity-name="FinancialAccountType" package="mantle.account.financial">

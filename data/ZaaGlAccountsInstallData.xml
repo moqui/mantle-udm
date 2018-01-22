@@ -679,6 +679,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="258100000" glAccountTypeEnumId="GatCurrentLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="258000000"/>
     <mantle.ledger.account.GlAccount accountName="Financial Account In Transit Withdrawals" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="258200000" glAccountTypeEnumId="GatCurrentLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="258000000"/>
+    <mantle.ledger.account.GlAccount accountName="Financial Account In Transit Transfers" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+        glAccountId="258300000" glAccountTypeEnumId="GatCurrentLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="258000000"/>
 
     <!-- 260000 LIABILITY - UNEARNED REVENUE -->
     <mantle.ledger.account.GlAccount accountName="Unearned Revenue" description="" glAccountClassEnumId="UNEARNED_REVENUE"
@@ -1970,6 +1972,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="258100000" reasonEnumId="FatrReplenish" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="258200000" reasonEnumId="FatrRefund" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="258200000" reasonEnumId="FatrDisbursement" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="258300000" reasonEnumId="FatrTransfer" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="430000000" reasonEnumId="FatrCsCredit" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="784000000" reasonEnumId="FatrErrorAdjust" organizationPartyId="DefaultSettings"/>
 
