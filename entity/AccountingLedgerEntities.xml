@@ -412,7 +412,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productCategoryId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountTypeEnumId" type="id" is-pk="true"/>
-        <field name="glAccountId" type="id"/>
+        <field name="glAccountId" type="id"><description>Revenue account for products in the category</description></field>
+        <field name="contraGlAccountId" type="id"><description>Contra Revenue account for products in the category</description></field>
         <relationship type="one" related="ProductCategory"/>
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
@@ -424,7 +425,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountTypeEnumId" type="id" is-pk="true"/>
-        <field name="glAccountId" type="id"/>
+        <field name="glAccountId" type="id"><description>Product Revenue account</description></field>
+        <field name="contraGlAccountId" type="id"><description>Product Contra Revenue account</description></field>
         <relationship type="one" related="Product"/>
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
