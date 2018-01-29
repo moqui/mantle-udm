@@ -97,7 +97,7 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="91" fieldPath="part:customerClasses:fromDate" fieldNameAlias="classFromDate"/>
         <fields fieldSeqId="92" fieldPath="part:customerClasses:thruDate" fieldNameAlias="classThruDate"/>
         <fields fieldSeqId="93" fieldPath="part:customerClasses:classification:classificationTypeEnumId"/>
-        <fields fieldSeqId="94" fieldPath="((org.moqui.util.CollectionUtilities.filterMapListByDate(customerClasses?.findAll(),'classFromDate','classThruDate', null)?.find()?.partyClassificationId)?:'CustConsumer')"
+        <fields fieldSeqId="94" fieldPath="((org.moqui.util.CollectionUtilities.filterMapListByDate(customerClasses?.findAll(),'classFromDate','classThruDate',null)?.find()?.partyClassificationId)?:'CustConsumer')"
                 fieldNameAlias="customerClassId" fieldType="keyword"/>
 
         <conditions conditionSeqId="01" fieldNameAlias="vendorRoleTypeId" fieldValue="OrgInternal"/>
@@ -123,12 +123,15 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="21" fieldPath="paymentApplications:paymentId"/>
         <fields fieldSeqId="22" fieldPath="paymentApplications:amountApplied"/>
         <fields fieldSeqId="23" fieldPath="paymentApplications:appliedDate"/>
+        <fields fieldSeqId="24" fieldPath="paymentApplications:payment:effectiveDate"/>
+        <fields fieldSeqId="28" fieldNameAlias="prePaymentsTotal" fieldType="double"
+                fieldPath="(paymentApplications.findAll({invoiceDate&amp;&amp;it.effectiveDate&amp;&amp;(invoiceDate-it.effectiveDate)&gt;=0})*.amountApplied.sum())"/>
 
         <fields fieldSeqId="31" fieldPath="toClasses:partyClassificationId"/>
         <fields fieldSeqId="32" fieldPath="toClasses:fromDate" fieldNameAlias="classFromDate"/>
         <fields fieldSeqId="33" fieldPath="toClasses:thruDate" fieldNameAlias="classThruDate"/>
         <fields fieldSeqId="34" fieldPath="toClasses:classification:classificationTypeEnumId"/>
-        <fields fieldSeqId="35" fieldPath="((org.moqui.util.CollectionUtilities.filterMapListByDate(toClasses?.findAll(),'classFromDate','classThruDate', null)?.find()?.partyClassificationId)?:'CustConsumer')"
+        <fields fieldSeqId="35" fieldPath="((org.moqui.util.CollectionUtilities.filterMapListByDate(toClasses?.findAll(),'classFromDate','classThruDate',null)?.find()?.partyClassificationId)?:'CustConsumer')"
                 fieldNameAlias="customerClassId" fieldType="keyword"/>
 
         <conditions conditionSeqId="01" fieldNameAlias="fromRoleTypeId" fieldValue="OrgInternal"/>
