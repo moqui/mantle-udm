@@ -291,7 +291,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productPriceId" type="id"/>
         <field name="productCategoryId" type="id"/>
         <field name="isPromo" type="text-indicator"/>
-        <field name="promoQuantity" type="number-decimal"/>
+        <field name="promoQuantity" type="number-decimal"><description>For promo items. The quantity of the parent order item
+            'consumed' by the promotion, excluding from use in other promotions if promotion set to limit by this.</description></field>
+        <field name="promoTimesUsed" type="number-decimal"><description>For promo items. The number of times the promo was used for use limits.</description></field>
         <field name="storePromotionId" type="id"/>
         <field name="promoCodeId" type="id"/>
 
