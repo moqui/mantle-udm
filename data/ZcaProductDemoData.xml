@@ -106,12 +106,14 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.product.ProductPriceModify priceModifyId="ProductPriceKS" serviceRegisterId="ProductPriceKS"/>
 
     <mantle.product.store.ProductStorePromotion storePromotionId="PopcBuyGet" productStoreId="POPC_DEFAULT"
-            itemDescription="Buy 1 Get 1 Half Off" serviceRegisterId="BuyGetDiscount" sequenceNum="10" requireCode="Y">
+            itemDescription="Buy 1 Get 1 Half Off" serviceRegisterId="BuyGetDiscount" sequenceNum="10" requireCode="Y"
+            useLimitPerOrder="2" useLimitPerCustomer="4" useLimitPerPromotion="10">
         <parameters parameterName="buyQuantity" parameterValue="1"/>
         <parameters parameterName="getQuantity" parameterValue="1"/>
         <parameters parameterName="discountPercent" parameterValue="50"/>
-        <codes promoCodeId="TEST1" promoCode="TEST1" requireParty="Y">
+        <codes promoCodeId="TEST1" promoCode="TEST1" requireParty="Y" useLimitPerCustomer="2">
             <parties partyId="CustJqp"/></codes>
+        <codes promoCodeId="TEST2" promoCode="TEST2" requireParty="N" useLimitPerCode="5" useLimitPerCustomer="1"/>
     </mantle.product.store.ProductStorePromotion>
     <mantle.product.store.ProductStorePromotion storePromotionId="PopcNewCustomer" productStoreId="POPC_DEFAULT"
             itemDescription="20% Discount for New Customers" serviceRegisterId="NewCustomerDiscount" sequenceNum="99">
