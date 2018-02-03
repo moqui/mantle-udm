@@ -408,7 +408,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="postalContactMechId" type="id"/>
         <field name="telecomContactMechId" type="id"/>
         <field name="trackingNumber" type="text-short"/>
-        <field name="shippingInstructions" type="text-medium"/>
+        <field name="shippingInstructions" type="text-long"/>
         <field name="maySplit" type="text-indicator"/>
         <field name="giftMessage" type="text-medium"/>
         <field name="isGift" type="text-indicator"/>
