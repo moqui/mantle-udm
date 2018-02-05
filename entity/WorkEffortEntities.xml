@@ -680,7 +680,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="timesheetId" type="id"/>
         <field name="partyId" type="id"><description>The party performing work (worker, may be the vendor or work for the vendor)</description></field>
         <field name="teamPartyId" type="id"/>
-        <field name="clientPartyId" type="id"><description>Should always be set, may get through timesheetId or workEffortId</description></field>
+        <field name="vendorPartyId" type="id"><description>The vendor (employer, etc) who pays the worker.
+            With workEffortId (task or project) the party in the Vendor role, with facilityId the party in the Manager role</description></field>
+        <field name="clientPartyId" type="id"><description>The client who pays the vendor for bill through.
+            May get through timesheetId, workEffortId (with Customer or CustomerBillTo role), or facilityId (Facility.ownerPartyId)</description></field>
         <field name="rateTypeEnumId" type="id"/>
         <field name="rateModifierEnumId" type="id"/>
         <field name="workTypeEnumId" type="id"/>
