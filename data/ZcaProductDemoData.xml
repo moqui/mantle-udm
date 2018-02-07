@@ -157,8 +157,60 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.product.category.ProductCategoryRollup productCategoryId="DEMO_THREE"
             parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="3"/>
 
+    <!-- Demo Sub Assembly and Raw Materials Categories -->
+    <mantle.product.category.ProductCategory productCategoryId="DEMO_SA" productCategoryTypeEnumId="PctMaterials"
+            categoryName="Demo Sub Assemblies" description=""/>
+    <mantle.product.category.ProductCategory productCategoryId="DEMO_RM" productCategoryTypeEnumId="PctMaterials"
+            categoryName="Demo Raw Materials" description=""/>
+
+    <!-- Demo Equipment Categories -->
+    <mantle.product.category.ProductCategory productCategoryId="DEMO_EQUIP" productCategoryTypeEnumId="PctMaterials"
+            categoryName="Demo Equipment" description=""/>
+
     <!-- ========== Demo Products ========== -->
 
+    <!-- Sub Assemblies and Materials for DEMO Products -->
+    <mantle.product.Product productId="DEMO_SA_1" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory"
+            assetClassEnumId="AsClsInventorySub" productName="Demo Sub Assembly One" description="">
+        <categories productCategoryId="DEMO_SA" fromDate="1265184000000" sequenceNum="1"/>
+        <mantle.product.asset.Asset assetId="DEMO_SA_1A" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventorySub"
+                statusId="AstAvailable" facilityId="ZIRET_WH" ownerPartyId="ORG_ZIZI_RETAIL"
+                hasQuantity="Y" quantityOnHandTotal="0" availableToPromiseTotal="0"
+                acquireCost="0.50" acquireCostUomId="USD" receivedDate="1265184000000">
+            <mantle.product.asset.AssetDetail assetDetailId="DEMO_SA_1A" effectiveDate="1265184000000"
+                    quantityOnHandDiff="100" availableToPromiseDiff="100"/>
+        </mantle.product.asset.Asset>
+        <prices productPriceId="DEMO_SA_1_CS1" vendorPartyId="ZiddlemanInc" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"
+                fromDate="1265184000000" minQuantity="1" price="0.50" priceUomId="USD"/>
+    </mantle.product.Product>
+    <mantle.product.Product productId="DEMO_SA_2" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory"
+            assetClassEnumId="AsClsInventorySub" productName="Demo Sub Assembly Two" description="">
+        <categories productCategoryId="DEMO_SA" fromDate="1265184000000" sequenceNum="2"/>
+        <mantle.product.asset.Asset assetId="DEMO_SA_2A" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventorySub"
+                statusId="AstAvailable" facilityId="ZIRET_WH" ownerPartyId="ORG_ZIZI_RETAIL"
+                hasQuantity="Y" quantityOnHandTotal="0" availableToPromiseTotal="0"
+                acquireCost="0.75" acquireCostUomId="USD" receivedDate="1265184000000">
+            <mantle.product.asset.AssetDetail assetDetailId="DEMO_SA_2A" effectiveDate="1265184000000"
+                    quantityOnHandDiff="150" availableToPromiseDiff="150"/>
+        </mantle.product.asset.Asset>
+        <prices productPriceId="DEMO_SA_2_CS1" vendorPartyId="ZiddlemanInc" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"
+                fromDate="1265184000000" minQuantity="1" price="0.75" priceUomId="USD"/>
+    </mantle.product.Product>
+    <mantle.product.Product productId="DEMO_RM_1" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory"
+            assetClassEnumId="AsClsInventoryRaw" productName="Demo Raw Material 1" description="">
+        <categories productCategoryId="DEMO_RM" fromDate="1265184000000" sequenceNum="1"/>
+        <mantle.product.asset.Asset assetId="DEMO_RM_1A" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventoryRaw"
+                statusId="AstAvailable" facilityId="ZIRET_WH" ownerPartyId="ORG_ZIZI_RETAIL"
+                hasQuantity="Y" quantityOnHandTotal="0" availableToPromiseTotal="0"
+                acquireCost="0.10" acquireCostUomId="USD" receivedDate="1265184000000">
+            <mantle.product.asset.AssetDetail assetDetailId="DEMO_RM_1A" effectiveDate="1265184000000"
+                    quantityOnHandDiff="500" availableToPromiseDiff="500"/>
+        </mantle.product.asset.Asset>
+        <prices productPriceId="DEMO_RM_1_CS1" vendorPartyId="ZiddlemanInc" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"
+                fromDate="1265184000000" minQuantity="1" price="0.10" priceUomId="USD"/>
+    </mantle.product.Product>
+
+    <!-- Demo Unit Product -->
     <mantle.product.Product productId="DEMO_UNIT" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
             chargeShipping="Y" returnable="Y" productName="Demo Product One Unit" description=""/>
     <mantle.product.ProductPrice productPriceId="DEMO_UNIT_C" productId="DEMO_UNIT"
@@ -220,6 +272,13 @@ along with this software (see the LICENSE.md file). If not, see
         <contents productContentTypeEnumId="PcntImageSmall" locale="" sequenceNum="3" description="Vendor"
                 contentLocation="component://SimpleScreens/screen/ssstatic/images/Vendor.png"/>
     </mantle.product.Product>
+    <!-- DEMO_1_1 BOM -->
+    <mantle.product.ProductAssoc productId="DEMO_1_1" toProductId="DEMO_SA_1" productAssocTypeEnumId="PatMfgBom"
+            fromDate="1265184000000" thruDate="" sequenceNum="" quantity="1"/>
+    <mantle.product.ProductAssoc productId="DEMO_1_1" toProductId="DEMO_SA_2" productAssocTypeEnumId="PatMfgBom"
+            fromDate="1265184000000" thruDate="" sequenceNum="" quantity="2"/>
+    <mantle.product.ProductAssoc productId="DEMO_1_1" toProductId="DEMO_RM_1" productAssocTypeEnumId="PatMfgBom"
+            fromDate="1265184000000" thruDate="" sequenceNum="" quantity="4"/>
 
     <mantle.product.Product productId="DEMO_1_2" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
             productName="Demo Product One-Two" description="" chargeShipping="Y" returnable="Y"/>
@@ -253,7 +312,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.product.ProductDimension productId="DEMO_2_1" dimensionTypeId="ShippingWeight" value="2" valueUomId="WT_lb"/>
     <!-- NOTE: no Asset for this product record so we can test auto-create of Asset, etc -->
 
-
+    <!-- Demo Three-One Product -->
     <mantle.product.Product productId="DEMO_3_1" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
             chargeShipping="Y" returnable="Y" productName="Demo Product Three-One" description=""/>
     <!-- long term price -->
@@ -264,10 +323,8 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.product.ProductPrice productPriceId="DEMO_3_1_CS" productId="DEMO_3_1" vendorPartyId="ZiddlemanInc"
             pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"
             fromDate="1265184000000" minQuantity="1" price="4.50" priceUomId="USD"/>
-    <mantle.product.category.ProductCategoryMember productCategoryId="PopcAllProducts" productId="DEMO_3_1"
-            fromDate="1265184000000"/>
-    <mantle.product.category.ProductCategoryMember productCategoryId="DEMO_THREE" productId="DEMO_3_1"
-            fromDate="1265184000000" sequenceNum="1"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="PopcAllProducts" productId="DEMO_3_1" fromDate="1265184000000"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="DEMO_THREE" productId="DEMO_3_1" fromDate="1265184000000" sequenceNum="1"/>
     <mantle.product.ProductDimension productId="DEMO_3_1" dimensionTypeId="ShippingWeight" value="0.5" valueUomId="WT_lb"/>
     <mantle.product.asset.Asset assetId="DEMO_3_1A" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventoryFin"
             statusId="AstAvailable" productId="DEMO_3_1" facilityId="ZIRET_WH" ownerPartyId="ORG_ZIZI_RETAIL"
@@ -275,6 +332,13 @@ along with this software (see the LICENSE.md file). If not, see
             acquireCost="4.00" acquireCostUomId="USD" receivedDate="1265184000000"/>
     <mantle.product.asset.AssetDetail assetDetailId="DEMO_3_1A" assetId="DEMO_3_1A" effectiveDate="1265184000000"
             quantityOnHandDiff="5" availableToPromiseDiff="5" productId="DEMO_3_1"/>
+    <!-- DEMO_3_1 BOM -->
+    <mantle.product.ProductAssoc productId="DEMO_3_1" toProductId="DEMO_SA_1" productAssocTypeEnumId="PatMfgBom"
+            fromDate="1265184000000" thruDate="" sequenceNum="" quantity="1"/>
+    <mantle.product.ProductAssoc productId="DEMO_3_1" toProductId="DEMO_SA_2" productAssocTypeEnumId="PatMfgBom"
+            fromDate="1265184000000" thruDate="" sequenceNum="" quantity="1"/>
+    <mantle.product.ProductAssoc productId="DEMO_3_1" toProductId="DEMO_RM_1" productAssocTypeEnumId="PatMfgBom"
+            fromDate="1265184000000" thruDate="" sequenceNum="" quantity="2"/>
 
     <!-- A digital subscription product, was used for tenant provisioning but multi-tenant support deprecated, leaving as model for executing instance provisioning -->
     <!--
@@ -299,4 +363,28 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.product.subscription.ProductSubscriptionResource productId="DEMO_TNT" subscriptionResourceId="TENANT"
             fromDate="1265184000000" availableTime="1" availableTimeUomId="TF_mon"/>
     -->
+
+    <!-- Demo Equipment -->
+    <mantle.product.Product productId="EQUIP_1" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpEquipment"
+            assetClassEnumId="AsClsWhEquip" productName="Picker Bot 2000"/>
+    <mantle.product.ProductPrice productPriceId="EQUIP_1_P" productId="EQUIP_1" vendorPartyId="ZiddlemanInc" pricePurposeEnumId="PppPurchase"
+            priceTypeEnumId="PptCurrent" fromDate="1265184000000" minQuantity="1" price="12,000.00" priceUomId="USD"/>
+    <mantle.product.category.ProductCategoryMember productCategoryId="DEMO_EQUIP" productId="EQUIP_1" fromDate="1265184000000"/>
+
+    <mantle.product.Product productId="EQUIP_AB4" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpEquipment"
+            assetClassEnumId="AsClsMfgEquip" productName="Assembly Bot 4000">
+        <prices productPriceId="EQUIP_AB4_P" vendorPartyId="ZiddlemanInc" pricePurposeEnumId="PppPurchase"
+                priceTypeEnumId="PptCurrent" fromDate="1265184000000" minQuantity="1" price="4,000.00" priceUomId="USD"/>
+        <categories productCategoryId="DEMO_EQUIP" fromDate="1265184000000"/>
+        <assets assetId="EQUIP_AB4_1" assetTypeEnumId="AstTpEquipment" classEnumId="AsClsMfgEquip"
+                assetName="Assembly Bot 4 1234" serialNumber="1234"
+                statusId="AstAvailable" facilityId="ZIRET_WH" ownerPartyId="ORG_ZIZI_RETAIL"
+                hasQuantity="N" acquireCost="4000.00" acquireCostUomId="USD" receivedDate="1265184000000"
+                acquiredDate="1265184000000" depreciationTypeEnumId="DtpStraightLine" expectedEndOfLife="2020-01-01"/>
+        <assets assetId="EQUIP_AB4_2" assetTypeEnumId="AstTpEquipment" classEnumId="AsClsMfgEquip"
+                assetName="Assembly Bot 4 2345" serialNumber="2345"
+                statusId="AstAvailable" facilityId="ZIRET_WH" ownerPartyId="ORG_ZIZI_RETAIL"
+                hasQuantity="N" acquireCost="4000.00" acquireCostUomId="USD" receivedDate="1265184000000"
+                acquiredDate="1265184000000" depreciationTypeEnumId="DtpStraightLine" expectedEndOfLife="2020-01-01"/>
+    </mantle.product.Product>
 </entity-facade-xml>
