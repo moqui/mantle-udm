@@ -111,6 +111,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.product.subscription.ProductSubscriptionResource" short-alias="subscriptionResources">
             <key-map field-name="productId"/></relationship>
 
+        <relationship type="many" related="mantle.product.asset.Asset" short-alias="assets">
+            <key-map field-name="productId"/></relationship>
+
         <index name="PRODUCT_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
 
         <seed-data>
