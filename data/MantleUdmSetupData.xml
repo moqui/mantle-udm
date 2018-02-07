@@ -60,7 +60,7 @@ along with this software (see the LICENSE.md file). If not, see
             localized="${countryCode ? countryCode + '-' : ''}${areaCode ? areaCode + '-' : ''}${contactNumber}"/>
 
     <moqui.basic.LocalizedMessage locale="default" original="ProductAmountNameTemplate"
-            localized="${(amountFixed != 1 ? (ec.l10n.format(amountFixed, '')+' ') : '') + uomDescription?:description?:''}"/>
+            localized="${(amountFixed&amp;&amp;amountFixed!=1?(ec.l10n.format(amountFixed,'')+' '):'')+(uomDescription?:description?:'')}"/>
     <moqui.basic.LocalizedMessage locale="default" original="ProductCategoryNameTemplate"
             localized="${pseudoId}: ${categoryName?:''}"/>
     <moqui.basic.LocalizedMessage locale="default" original="ProductFeatureGroupNameTemplate"
