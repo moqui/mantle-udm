@@ -740,14 +740,14 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="Agreement" package="mantle.party.agreement" short-alias="agreements">
         <field name="agreementId" type="id" is-pk="true"/>
         <field name="agreementTypeEnumId" type="id"/>
-        <field name="statusId" type="id"/>
-        <field name="agreementDate" type="date-time"/>
+        <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="organizationPartyId" type="id"/>
         <field name="organizationRoleTypeId" type="id"/>
-        <field name="otherPartyId" type="id"/>
+        <field name="otherPartyId" type="id" enable-audit-log="update"/>
         <field name="otherRoleTypeId" type="id"/>
-        <field name="fromDate" type="date-time"/>
-        <field name="thruDate" type="date-time"/>
+        <field name="agreementDate" type="date-time"/>
+        <field name="fromDate" type="date-time" enable-audit-log="update"/>
+        <field name="thruDate" type="date-time" enable-audit-log="update"/>
         <field name="description" type="text-medium"/>
         <field name="currencyUomId" type="id"/>
         <field name="textData" type="text-very-long"/>
@@ -802,6 +802,24 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="agreementId"/>
             <key-map field-name="agreementItemSeqId"/>
         </relationship>
+    </entity>
+    <entity entity-name="AgreementContent" package="mantle.party.agreement">
+        <field name="agreementContentId" type="id" is-pk="true"/>
+        <field name="agreementId" type="id"/>
+        <field name="contentLocation" type="text-medium"/>
+        <field name="contentTypeEnumId" type="id"/>
+        <field name="description" type="text-long"/>
+        <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
+        <relationship type="one" related="mantle.party.agreement.Agreement"/>
+        <relationship type="one" title="AgreementContentType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="contentTypeEnumId"/></relationship>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Agreement Content Type" enumTypeId="AgreementContentType"/>
+            <moqui.basic.Enumeration description="Agreement Document" enumId="AcntDocument" enumTypeId="AgreementContentType"/>
+            <moqui.basic.Enumeration description="Supporting Document" enumId="AcntSupporting" enumTypeId="AgreementContentType"/>
+            <moqui.basic.Enumeration description="Price Sheet" enumId="AcntPriceSheet" enumTypeId="AgreementContentType"/>
+        </seed-data>
     </entity>
     <entity entity-name="AgreementParty" package="mantle.party.agreement">
         <field name="agreementId" type="id" is-pk="true"/>
