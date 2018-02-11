@@ -591,7 +591,9 @@ along with this software (see the LICENSE.md file). If not, see
 
         <relationship type="many" related="mantle.account.invoice.InvoiceItemDetail" short-alias="details">
             <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
-        <relationship type="many" related="mantle.order.OrderItemBilling" short-alias="orderItemBilling">
+        <relationship type="many" related="mantle.order.OrderItemBilling" short-alias="orderItemBillings">
+            <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
+        <relationship type="many" related="mantle.shipment.ShipmentItemSource" short-alias="shipmentItemSources">
             <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
 
         <relationship type="many" related="mantle.product.issuance.AssetIssuance" short-alias="issuances">
@@ -605,12 +607,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="invoiceItemSeqId" type="id" not-null="true"/>
         <field name="facilityId" type="id"/>
         <field name="assetId" type="id"/>
+        <field name="partyId" type="id"/>
         <field name="quantity" type="number-decimal"/>
 
         <relationship type="one-nofk" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
         <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem"/>
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
     </entity>
     <entity entity-name="InvoiceItemAssoc" package="mantle.account.invoice" cache="never">
         <field name="invoiceItemAssocId" type="id" is-pk="true"/>
