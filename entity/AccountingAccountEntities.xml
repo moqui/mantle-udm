@@ -1117,13 +1117,15 @@ along with this software (see the LICENSE.md file). If not, see
             PaymentGatewayType Enumeration record plus an entity with a shared PK (ie PK is paymentGatewayConfigId).</description></field>
         <field name="description" type="text-medium"/>
         <field name="authorizeServiceName" type="text-medium">
-            <description>Service implementing mantle.account.PaymentServices.authorize#Payment interface.</description></field>
+            <description>Service implementing the mantle.account.PaymentServices.authorize#Payment interface</description></field>
         <field name="captureServiceName" type="text-medium">
-            <description>Service implementing mantle.account.PaymentServices.capture#Payment interface.</description></field>
+            <description>Service implementing the mantle.account.PaymentServices.capture#Payment interface</description></field>
         <field name="releaseServiceName" type="text-medium">
-            <description>Service implementing mantle.account.PaymentServices.release#Payment interface.</description></field>
+            <description>Service implementing the mantle.account.PaymentServices.release#Payment interface</description></field>
         <field name="refundServiceName" type="text-medium">
-            <description>Service implementing mantle.account.PaymentServices.refund#Payment interface.</description></field>
+            <description>Service implementing the mantle.account.PaymentServices.refund#Payment interface</description></field>
+        <field name="detailsServiceName" type="text-medium">
+            <description>Service implementing the mantle.account.PaymentServices.get#PaymentGatewayDetails interface</description></field>
         <relationship type="one" title="PaymentGatewayType" related="moqui.basic.Enumeration">
             <key-map field-name="paymentGatewayTypeEnumId"/></relationship>
         <seed-data>
@@ -1151,6 +1153,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="cvResult" type="text-short"/>
         <field name="scoreResult" type="text-short"/>
         <field name="transactionDate" type="date-time"/>
+        <field name="transactionStatus" type="text-short"/>
         <field name="resultSuccess" type="text-indicator"/>
         <field name="resultDeclined" type="text-indicator"/>
         <field name="resultError" type="text-indicator"/>
@@ -1173,6 +1176,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Authorize and Capture" enumId="PgoAuthAndCapture" enumTypeId="PaymentOperation"/>
             <moqui.basic.Enumeration description="Refund" enumId="PgoRefund" enumTypeId="PaymentOperation"/>
             <moqui.basic.Enumeration description="Release" enumId="PgoRelease" enumTypeId="PaymentOperation"/>
+            <moqui.basic.Enumeration description="Transaction Details" enumId="PgoTxDetails" enumTypeId="PaymentOperation"/>
         </seed-data>
     </entity>
 
@@ -1376,6 +1380,7 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- deprecated: <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDelivered" toStatusId="PmntRefunded" transitionName="Refund"/> -->
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDelivered" toStatusId="PmntCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDelivered" toStatusId="PmntVoid" transitionName="Void"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDelivered" toStatusId="PmntDeclined" transitionName="Decline"/>
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntConfirmed" toStatusId="PmntDelivered" transitionName="Uncomfirm"/>
             <!-- deprecated: <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntConfirmed" toStatusId="PmntRefunded" transitionName="Refund"/> -->
