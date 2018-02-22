@@ -1213,7 +1213,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderPartSeqId" type="id"><description>Set if the Payment represents the payment settings for an OrderPart.</description></field>
 
         <field name="statusId" type="id" enable-audit-log="true"/>
-        <field name="effectiveDate" type="date-time" enable-audit-log="update"/>
+        <field name="effectiveDate" type="date-time" enable-audit-log="update"><description>When the payment is issued (delivered)</description></field>
+        <field name="settlementDate" type="date-time"><description>When the payment is settled (confirmed)</description></field>
         <field name="paymentAuthCode" type="text-short"/>
         <field name="paymentRefNum" type="text-short" enable-audit-log="update"/>
         <field name="comments" type="text-medium"/>
