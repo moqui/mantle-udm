@@ -266,13 +266,22 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="settingTypeEnumId"/></relationship>
         <seed-data>
             <moqui.basic.EnumerationType description="Product Store Setting Type" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration enumCode="restApiLocation" description="REST API Location" enumId="PsstRestApiLocation" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="contentLocation" description="Content Location" enumId="PsstContentLocation" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="contentAttachmentLocation" description="Content Attachment Location" enumId="PsstContentAttachmentLoc" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="productImageLocation" description="Product Image Location" enumId="PsstProductImageLoc" enumTypeId="ProductStoreSettingType"/>
+
             <moqui.basic.Enumeration enumCode="homeTemplate" description="Home Template" enumId="PsstHomeTemplate" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration enumCode="searchTemplate" description="Search Template" enumId="PsstSearchTemplate" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="categoryTemplate" description="Category Template" enumId="PsstCategoryTemplate" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="categoryProductTemplate" description="Category Product Template" enumId="PsstCategoryProductTemplate" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="productTemplate" description="Product Template" enumId="PsstProductTemplate" enumTypeId="ProductStoreSettingType"/>
+
+            <moqui.basic.Enumeration enumCode="loginTemplate" description="Login Template" enumId="PsstLoginTemplate" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration enumCode="profileTemplate" description="Profile Template" enumId="PsstProfileTemplate" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration enumCode="orderHistoryTemplate" description="Order History Template" enumId="PsstOrderHistoryTemplate" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration enumCode="orderDetailTemplate" description="Order Detail Template" enumId="PsstOrderDetailTemplate" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration enumCode="cartTemplate" description="Cart Template" enumId="PsstCartTemplate" enumTypeId="ProductStoreSettingType"/>
         </seed-data>
     </entity>
 
