@@ -111,6 +111,12 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.account.payment.Payment" short-alias="payments">
             <key-map field-name="orderId"/></relationship>
 
+        <relationship type="many" title="Status" related="moqui.entity.EntityAuditLog" short-alias="statusLogs">
+            <key-map field-name="orderId" related="pkPrimaryValue"/>
+            <key-value related="changedEntityName" value="mantle.order.OrderHeader"/>
+            <key-value related="changedFieldName" value="statusId"/>
+        </relationship>
+
         <index name="ORDEREXT_ID_IDX"><index-field name="externalId"/></index>
 
         <seed-data>
