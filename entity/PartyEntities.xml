@@ -32,6 +32,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="pseudoId" type="id" default="partyId"/>
         <field name="partyTypeEnumId" type="id"/>
         <field name="disabled" type="text-indicator" enable-audit-log="true"/>
+        <field name="ownerPartyId" type="id" enable-audit-log="update">
+            <description>If applicable, such as for customer records, the other Party that 'owns' the data for this Party.</description></field>
         <field name="externalId" type="id"/>
         <field name="dataSourceId" type="id"/>
         <field name="gatewayCimId" type="text-short" enable-audit-log="update"/>
@@ -40,8 +42,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="hasDuplicates" type="text-indicator"/>
         <field name="lastDupCheckDate" type="date-time"/>
         <field name="mergedToPartyId" type="id"/><!-- no fk to avoid circular dependency, set automatically -->
+
         <relationship type="one" title="PartyType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyTypeEnumId"/></relationship>
+        <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
+            <key-map field-name="ownerPartyId"/></relationship>
         <relationship type="one" related="moqui.basic.DataSource"/>
 
         <relationship type="one-nofk" related="mantle.party.Organization" short-alias="organization" mutable="true"/>

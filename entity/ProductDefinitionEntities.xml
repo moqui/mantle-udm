@@ -35,6 +35,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="assetTypeEnumId" type="id"/>
         <field name="assetClassEnumId" type="id"/>
         <field name="statusId" type="id"/>
+        <field name="ownerPartyId" type="id" enable-audit-log="update">
+            <description>Brand or other organization that owns the product design, IP, etc.
+                There may be multiple suppliers, manufacturers, etc for a product but only one that 'owns' it.</description></field>
 
         <field name="productName" type="text-medium"/>
         <field name="description" type="text-long"/>
@@ -71,6 +74,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="AssetClass" related="moqui.basic.Enumeration" short-alias="assetClass">
             <key-map field-name="assetClassEnumId"/></relationship>
         <relationship type="one" title="Product" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
+            <key-map field-name="ownerPartyId"/></relationship>
+
         <relationship type="one" title="RequirementMethod" related="moqui.basic.Enumeration">
             <key-map field-name="requirementMethodEnumId"/></relationship>
         <relationship type="one" title="Origin" related="moqui.basic.Geo" short-alias="originGeo">
