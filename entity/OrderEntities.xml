@@ -410,10 +410,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="facilityId" type="id"><description>The Facility to fulfill the order from (if null look up from
             ProductStore), or for purchase orders the Facility the order will be shipped to.</description></field>
 
-        <field name="carrierPartyId" type="id" enable-audit-log="true"/>
-        <field name="shipmentMethodEnumId" type="id" enable-audit-log="true"/>
+        <field name="carrierPartyId" type="id" enable-audit-log="update"/>
+        <field name="shipmentMethodEnumId" type="id" enable-audit-log="update"/>
 
-        <field name="postalContactMechId" type="id"/>
+        <field name="postalContactMechId" type="id" enable-audit-log="update"/>
         <field name="telecomContactMechId" type="id"/>
         <field name="trackingNumber" type="text-short"/>
         <field name="shippingInstructions" type="text-long"/>

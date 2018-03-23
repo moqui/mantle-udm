@@ -393,7 +393,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="originPostalContactMechId" type="id"/>
         <field name="originTelecomContactMechId" type="id"/>
         <field name="destinationFacilityId" type="id"/>
-        <field name="destPostalContactMechId" type="id"/>
+        <field name="destPostalContactMechId" type="id" enable-audit-log="update"/>
         <field name="destTelecomContactMechId" type="id"/>
 
         <field name="carrierPartyId" type="id"/>
