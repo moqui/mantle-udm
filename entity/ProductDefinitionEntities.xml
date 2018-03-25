@@ -272,6 +272,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="contentLocation" type="text-medium"/>
         <field name="productContentTypeEnumId" type="id"/>
         <field name="locale" type="text-short"/>
+        <field name="productFeatureId" type="id"><description>For virtual products to limit images/etc displayed by selectable feature, if null always display</description></field>
+        <field name="productStoreId" type="id"><description>For content limited to a specific store</description></field>
         <field name="fromDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="thruDate" type="date-time"/>
         <field name="description" type="text-long"/>
@@ -280,6 +282,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.Product"/>
         <relationship type="one" title="ProductContentType" related="moqui.basic.Enumeration">
             <key-map field-name="productContentTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.product.feature.ProductFeature" short-alias="feature"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <seed-data>
             <!-- Product Content Type -->
             <moqui.basic.EnumerationType description="Product Content Type" enumTypeId="ProductContentType"/>
