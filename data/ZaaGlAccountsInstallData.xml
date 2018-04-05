@@ -1820,9 +1820,9 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemBonusNonDisc" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631600000" direction="I" itemTypeEnumId="ItemPrlCommission" organizationPartyId="DefaultSettings"/>
 
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151300000" direction="I" itemTypeEnumId="ItemAdvancePay" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151400000" direction="I" itemTypeEnumId="ItemAdvancePay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPayAdjOverpay" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151300000" direction="I" itemTypeEnumId="ItemPayAdjPay" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPayAdjPay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="260000000" direction="O" itemTypeEnumId="ItemAdvancePay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="260000000" direction="O" itemTypeEnumId="ItemPayAdjPay" organizationPartyId="DefaultSettings"/>
 
@@ -1833,7 +1833,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDed125Compy" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDed125Ppo" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDed125Hsa" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151300000" direction="E" itemTypeEnumId="ItemDedAdvRepay" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151400000" direction="E" itemTypeEnumId="ItemDedAdvRepay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="254000000" direction="E" itemTypeEnumId="ItemDedCharity" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222700000" direction="E" itemTypeEnumId="ItemDedChildGarnish" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="" direction="E" itemTypeEnumId="ItemDedMisc" organizationPartyId="DefaultSettings"/>
@@ -1966,7 +1966,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="252000000" finAccountTypeId="SupplierDeposit" organizationPartyId="DefaultSettings"/>
     <!-- <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251500000" finAccountTypeId="BankAccount" organizationPartyId="DefaultSettings"/> -->
     <!-- <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251500000" finAccountTypeId="Investment" organizationPartyId="DefaultSettings"/> -->
-    <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="151300000" finAccountTypeId="EmployeeAdvance" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="151400000" finAccountTypeId="EmployeeAdvance" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="121000000" reasonEnumId="FatrPurchase" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="258100000" reasonEnumId="FatrInitDeposit" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="258100000" reasonEnumId="FatrReplenish" organizationPartyId="DefaultSettings"/>
