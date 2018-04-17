@@ -804,6 +804,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderId" type="id"/>
         <field name="orderItemSeqId" type="id"/>
         <field name="shipmentId" type="id"/>
+        <field name="shipmentItemSourceId" type="id"/>
         <field name="shipmentPackageSeqId" type="id"/>
         <field name="invoiceId" type="id"/>
         <field name="invoiceItemSeqId" type="id"/>
@@ -821,6 +822,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem"/>
         <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
+        <relationship type="one" related="mantle.shipment.ShipmentItemSource" short-alias="shipmentItemSource"/>
         <relationship type="one-nofk" related="mantle.shipment.ShipmentItem" short-alias="shipmentItem"/>
         <relationship type="one-nofk" related="mantle.shipment.ShipmentPackage" short-alias="shipmentPackage">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>
