@@ -451,14 +451,16 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="Container" package="mantle.product.asset" sequence-primary-prefix="C" cache="never">
         <!-- Sequence prefix of "C" is mostly to differentiate from Asset IDs; in inventory situations either may be scanned/entered -->
         <field name="containerId" type="id" is-pk="true"/>
+        <field name="serialNumber" type="id" default="containerId">
+            <description>Serial number or license plate for the container.</description></field>
         <field name="containerTypeEnumId" type="id"/>
         <field name="createdDate" type="date-time" default="ec.user.nowTimestamp"/>
-        <field name="externalId" type="id"><description>An identifier for the container in an external system (source, origin, etc).</description></field>
-        <field name="serialNumber" type="id"><description>Serial number or license plate for the container.</description></field>
+        <field name="description" type="text-medium"/>
+        <field name="externalId" type="id">
+            <description>An identifier for the container in an external system (source, origin, etc).</description></field>
         <field name="facilityId" type="id" enable-audit-log="true"/>
         <field name="locationSeqId" type="id" enable-audit-log="true"/>
         <field name="geoPointId" type="id" enable-audit-log="true"/>
-        <field name="description" type="text-medium"/>
         <relationship type="one" title="ContainerType" related="moqui.basic.Enumeration">
             <key-map field-name="containerTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.facility.Facility"/>

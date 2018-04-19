@@ -30,7 +30,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.LocalizedMessage locale="default" original="FacilityNameTemplate"
             localized="${pseudoId}: ${facilityName?:name?:''}"/> <!-- name is used in data documents -->
     <moqui.basic.LocalizedMessage locale="default" original="FacilityLocationNameTemplate"
-            localized="${locationSeqId?:''} ${description?:''} [${areaId?:' '}:${aisleId?:' '}:${sectionId?:' '}:${levelId?:' '}:${positionId?:' '}]"/>
+            localized="${locationSeqId?:''} ${description?:''} [${areaId?:' '}:${aisleId?:' '}:${sectionId?:' '}:${levelId?:' '}:${positionId?:' '}] ${type?.description?:(locationTypeEnumId?locationTypeEnumId.substring(3):null)?:''}"/>
 
     <moqui.basic.LocalizedMessage locale="default" original="FinancialAccountNameTemplate"
             localized="${finAccountCode ?: finAccountId}: ${finAccountName} (${ec.l10n.format(availableBalance ?: 0.0, '#,##0.00')})"/>
