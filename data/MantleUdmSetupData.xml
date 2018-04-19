@@ -24,7 +24,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- NOTE: Other common message templates in CommonL10nData -->
     <moqui.basic.LocalizedMessage locale="default" original="AssetNameTemplate" localized="${assetName ? assetId + ': ' + assetName : assetId}"/>
     <moqui.basic.LocalizedMessage locale="default" original="ContainerNameTemplate"
-            localized="${description ? containerId + ': ' + description : containerId}"/>
+            localized="${serialNumber ?: containerId}${description ? ': ' + description : ''}"/>
     <moqui.basic.LocalizedMessage locale="default" original="LotNameTemplate"
             localized="${lotId}: ${pseudoId?:mfgParty?.pseudoId?:''} ${lotNumber?:'No Lot #'} Mfg ${ec.l10n.format(manufacturedDate, 'yyyy-MM-dd')?:'N/A'} Exp ${ec.l10n.format(expirationDate, 'yyyy-MM-dd')}"/>
     <moqui.basic.LocalizedMessage locale="default" original="FacilityNameTemplate"

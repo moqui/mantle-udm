@@ -120,7 +120,7 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="printers"><detail relationship="printer"/></detail>
         </master>
     </entity>
-    <entity entity-name="FacilityCertification" package="mantle.facility">
+    <entity entity-name="FacilityCertification" package="mantle.facility" cache="never">
         <field name="facilityCertificationId" type="id" is-pk="true"/>
         <field name="facilityId" type="id"/>
         <field name="certificationTypeEnumId" type="id"/>
@@ -151,7 +151,7 @@ along with this software (see the LICENSE.md file). If not, see
         </seed-data>
     </entity>
 
-    <entity entity-name="FacilityContactMech" package="mantle.facility">
+    <entity entity-name="FacilityContactMech" package="mantle.facility" cache="never">
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="contactMechId" type="id" is-pk="true"/>
         <field name="contactMechPurposeId" type="id" is-pk="true"/>
@@ -165,7 +165,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one-nofk" related="mantle.party.contact.PostalAddress" short-alias="postalAddress"/>
         <relationship type="one-nofk" related="mantle.party.contact.TelecomNumber" short-alias="telecomNumber"/>
     </entity>
-    <entity entity-name="FacilityContent" package="mantle.facility">
+    <entity entity-name="FacilityContent" package="mantle.facility" cache="never">
         <field name="facilityContentId" type="id" is-pk="true"/>
         <field name="facilityId" type="id"/>
         <field name="contentLocation" type="text-medium"/>
@@ -182,7 +182,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Image URL"  enumId="FcntImageUrl" enumTypeId="FacilityContentType"/>
         </seed-data>
     </entity>
-    <entity entity-name="FacilityGlAppl" package="mantle.facility">
+    <entity entity-name="FacilityGlAppl" package="mantle.facility" cache="never">
         <description>Used to specify relevant GL Accounts for a Facility (expense, revenue, etc); not related to posting conf</description>
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="glAccountId" type="id" is-pk="true"/>
@@ -249,7 +249,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Bulk" enumId="FltBulk" enumTypeId="FacilityLocationType"/>
         </seed-data>
     </entity>
-    <entity entity-name="FacilityNote" package="mantle.facility">
+    <entity entity-name="FacilityNote" package="mantle.facility" cache="never">
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="noteDate" type="date-time" is-pk="true"/>
         <field name="userId" type="id"/>
@@ -257,7 +257,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.facility.Facility"/>
         <relationship type="one" related="moqui.security.UserAccount"/>
     </entity>
-    <entity entity-name="FacilityParty" package="mantle.facility">
+    <entity entity-name="FacilityParty" package="mantle.facility" cache="never">
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
@@ -284,7 +284,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Shipment Documents" enumId="PtpShipmentDocuments" enumTypeId="PrinterPurpose"/>
         </seed-data>
     </entity>
-    <entity entity-name="ProductFacility" package="mantle.facility">
+    <entity entity-name="ProductFacility" package="mantle.facility" cache="never">
         <field name="productId" type="id" is-pk="true"/>
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="minimumStock" type="number-decimal"/>
@@ -293,7 +293,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
     </entity>
-    <entity entity-name="ProductFacilityLocation" package="mantle.facility">
+    <entity entity-name="ProductFacilityLocation" package="mantle.facility" cache="never">
         <field name="productId" type="id" is-pk="true"/>
         <field name="facilityId" type="id" is-pk="true"/>
         <field name="locationSeqId" type="id" is-pk="true"/>

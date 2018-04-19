@@ -90,6 +90,21 @@ along with this software (see the LICENSE.md file). If not, see
         <locations locationTypeEnumId="FltBulk" locationSeqId="01020502" areaId="01" aisleId="02" sectionId="05" levelId="02" positionId=""/>
     </mantle.facility.Facility>
 
+    <mantle.product.asset.Container containerId="ZWH_1234" containerTypeEnumId="CtBinShelf" serialNumber="1234"
+            description="Test container 1234" facilityId="ZIRET_WH" locationSeqId="01010101"/>
+    <mantle.product.asset.Container containerId="ZWH_1235" containerTypeEnumId="CtBinShelf" serialNumber="1235"
+            description="Test container 1235" facilityId="ZIRET_WH" locationSeqId="01010101"/>
+    <mantle.product.asset.Container containerId="ZWH_2234" containerTypeEnumId="CtBinShelf" serialNumber="2234"
+            description="Test container 2234" facilityId="ZIRET_WH" locationSeqId="01020101"/>
+    <mantle.product.asset.Container containerId="ZWH_2235" containerTypeEnumId="CtBinShelf" serialNumber="2235"
+            description="Test container 2235" facilityId="ZIRET_WH" locationSeqId="01020201"/>
+
+    <mantle.product.asset.Container containerId="ZWH_P123" containerTypeEnumId="CtPalletUs4048" serialNumber="P123"
+            description="Test pallet P123" facilityId="ZIRET_WH" locationSeqId="01010102"/>
+    <mantle.product.asset.Container containerId="ZWH_P199" containerTypeEnumId="CtPalletUs4048" serialNumber="P199"
+            description="Test pallet P199" facilityId="ZIRET_WH" locationSeqId="01010502"/>
+
+
     <!-- Ziziwork Retail ProductStore -->
     <mantle.product.store.ProductStore productStoreId="POPC_DEFAULT" storeName="Ziziwork Retail Store"
             organizationPartyId="ORG_ZIZI_RETAIL" inventoryFacilityId="ZIRET_WH"
@@ -174,7 +189,7 @@ along with this software (see the LICENSE.md file). If not, see
             assetClassEnumId="AsClsInventorySub" productName="Demo Sub Assembly One" description="">
         <categories productCategoryId="DEMO_SA" fromDate="1265184000000" sequenceNum="1"/>
         <mantle.product.asset.Asset assetId="DEMO_SA_1A" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventorySub"
-                statusId="AstAvailable" facilityId="ZIRET_WH" ownerPartyId="ORG_ZIZI_RETAIL"
+                statusId="AstAvailable" containerId="ZWH_P199" ownerPartyId="ORG_ZIZI_RETAIL"
                 hasQuantity="Y" quantityOnHandTotal="0" availableToPromiseTotal="0"
                 acquireCost="0.50" acquireCostUomId="USD" receivedDate="1265184000000">
             <mantle.product.asset.AssetDetail assetDetailId="DEMO_SA_1A" effectiveDate="1265184000000"
@@ -187,7 +202,7 @@ along with this software (see the LICENSE.md file). If not, see
             assetClassEnumId="AsClsInventorySub" productName="Demo Sub Assembly Two" description="">
         <categories productCategoryId="DEMO_SA" fromDate="1265184000000" sequenceNum="2"/>
         <mantle.product.asset.Asset assetId="DEMO_SA_2A" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventorySub"
-                statusId="AstAvailable" facilityId="ZIRET_WH" ownerPartyId="ORG_ZIZI_RETAIL"
+                statusId="AstAvailable" containerId="ZWH_P199" ownerPartyId="ORG_ZIZI_RETAIL"
                 hasQuantity="Y" quantityOnHandTotal="0" availableToPromiseTotal="0"
                 acquireCost="0.75" acquireCostUomId="USD" receivedDate="1265184000000">
             <mantle.product.asset.AssetDetail assetDetailId="DEMO_SA_2A" effectiveDate="1265184000000"
@@ -219,8 +234,9 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.product.category.ProductCategoryMember productCategoryId="PopcAllProducts" productId="DEMO_UNIT" fromDate="1265184000000"/>
     <mantle.product.category.ProductCategoryMember productCategoryId="DEMO_ONE" productId="DEMO_UNIT" fromDate="1265184000000" sequenceNum="10"/>
     <mantle.product.category.ProductCategoryMember productCategoryId="PopcHome" productId="DEMO_UNIT" fromDate="1265184000000" sequenceNum="3"/>
+    <!-- In container facility and location set automatically, ie no facilityId="ZIRET_WH" -->
     <mantle.product.asset.Asset assetId="DEMO_UNITA" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventoryFin"
-            statusId="AstAvailable" productId="DEMO_UNIT" facilityId="ZIRET_WH" ownerPartyId="ORG_ZIZI_RETAIL"
+            statusId="AstAvailable" productId="DEMO_UNIT" containerId="ZWH_P123" ownerPartyId="ORG_ZIZI_RETAIL"
             hasQuantity="Y" quantityOnHandTotal="0" availableToPromiseTotal="0"
             acquireCost="1" acquireCostUomId="USD" receivedDate="1265184000000"/>
     <mantle.product.asset.AssetDetail assetDetailId="DEMO_UNITA" assetId="DEMO_UNITA" effectiveDate="1265184000000"

@@ -62,22 +62,26 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="capacity" type="number-decimal"/>
         <field name="capacityUomId" type="id"/>
 
-        <field name="originId" type="id"><description>Origin ID, the ID used wherever this came from.</description></field>
-        <field name="originFacilityId" type="id"><description>Origin Facility, where manufactured or came from.</description></field>
         <field name="facilityId" type="id"><description>Current Facility, where stored.</description></field>
         <field name="locationSeqId" type="id" enable-audit-log="true"/>
-        <field name="containerId" type="id"><description>Container stored in, if specified the current facilityId and
-            locationSeqId should come from the container and not from this record.</description></field>
+        <field name="containerId" type="id" enable-audit-log="true"><description>
+            Container stored in, if specified the current facilityId and locationSeqId should come from the container
+            and not from this record or with standard EECA rule in place facilityId and locationSeqId will be set and
+            maintained from the Container values.
+        </description></field>
         <field name="shipmentBoxTypeId" type="id"/>
         <field name="lotId" type="id"/>
         <field name="geoPointId" type="id" enable-audit-log="true"/>
 
+        <field name="originId" type="id"><description>Origin ID, the ID used wherever this came from.</description></field>
+        <field name="originFacilityId" type="id"><description>Origin Facility, where manufactured or came from.</description></field>
         <field name="acquireOrderId" type="id"/>
         <field name="acquireOrderItemSeqId" type="id"/>
         <field name="acquireWorkEffortId" type="id"><description>For assets created from production runs, etc.</description></field>
         <field name="acquireShipmentId" type="id"/>
         <field name="acquireCost" type="currency-amount" enable-audit-log="update"/>
         <field name="acquireCostUomId" type="id"/>
+
         <field name="salvageValue" type="currency-amount" enable-audit-log="update"/>
         <field name="depreciation" type="currency-amount"><description>History in AssetDepreciation</description></field>
         <field name="depreciationTypeEnumId" type="id"/>
@@ -459,9 +463,11 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="containerTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.facility.Facility"/>
         <relationship type="one-nofk" related="mantle.facility.FacilityLocation"/>
+        <index name="CONTNR_SER_NUM" unique="true"><index-field name="serialNumber"/></index>
         <seed-data>
             <!-- Container Type -->
             <moqui.basic.EnumerationType description="Container Type" enumTypeId="ContainerType"/>
+            <moqui.basic.Enumeration description="Bin - Shelf Std" enumId="CtBinShelf" enumTypeId="ContainerType"/>
             <moqui.basic.Enumeration description="Pallet US 40x48in" enumId="CtPalletUs4048" enumTypeId="ContainerType"/>
             <moqui.basic.Enumeration description="Pallet US 40x40in" enumId="CtPalletUs4040" enumTypeId="ContainerType"/>
             <moqui.basic.Enumeration description="Pallet US 42x42in" enumId="CtPalletUs4242" enumTypeId="ContainerType"/>
