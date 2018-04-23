@@ -458,13 +458,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="description" type="text-medium"/>
         <field name="externalId" type="id">
             <description>An identifier for the container in an external system (source, origin, etc).</description></field>
-        <field name="facilityId" type="id" enable-audit-log="true"/>
-        <field name="locationSeqId" type="id" enable-audit-log="true"/>
-        <field name="geoPointId" type="id" enable-audit-log="true"/>
+        <field name="facilityId" type="id" enable-audit-log="update"/>
+        <field name="locationSeqId" type="id" enable-audit-log="update"/>
+        <field name="geoPointId" type="id" enable-audit-log="update"/>
         <relationship type="one" title="ContainerType" related="moqui.basic.Enumeration">
             <key-map field-name="containerTypeEnumId"/></relationship>
-        <relationship type="one" related="mantle.facility.Facility"/>
-        <relationship type="one-nofk" related="mantle.facility.FacilityLocation"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one-nofk" related="mantle.facility.FacilityLocation" short-alias="location"/>
         <index name="CONTNR_SER_NUM" unique="true"><index-field name="serialNumber"/></index>
         <seed-data>
             <!-- Container Type -->
