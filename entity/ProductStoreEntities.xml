@@ -28,7 +28,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="storeDomain" type="text-short"><description>Store domain for use in emails</description></field>
         <field name="profileUrlPath" type="text-medium"><description>Path to profile page for use in emails</description></field>
-        <field name="wikiSpaceId" type="id"><description>For a WikiSpace mounted as content</description></field>
+        <field name="wikiSpaceId" type="id"><description>For a WikiSpace mounted as content, superceded by ProductStoreWikiSpace entity</description></field>
 
         <field name="defaultLocale" type="text-short"/>
         <field name="defaultCurrencyUomId" type="id"/>
@@ -272,18 +272,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumCode="contentLocation" description="Content Location" enumId="PsstContentLocation" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="contentAttachmentLocation" description="Content Attachment Location" enumId="PsstContentAttachmentLoc" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="productImageLocation" description="Product Image Location" enumId="PsstProductImageLoc" enumTypeId="ProductStoreSettingType"/>
-
-            <moqui.basic.Enumeration enumCode="homeTemplate" description="Home Template" enumId="PsstHomeTemplate" enumTypeId="ProductStoreSettingType"/>
-            <moqui.basic.Enumeration enumCode="searchTemplate" description="Search Template" enumId="PsstSearchTemplate" enumTypeId="ProductStoreSettingType"/>
-            <moqui.basic.Enumeration enumCode="categoryTemplate" description="Category Template" enumId="PsstCategoryTemplate" enumTypeId="ProductStoreSettingType"/>
-            <moqui.basic.Enumeration enumCode="categoryProductTemplate" description="Category Product Template" enumId="PsstCategoryProductTemplate" enumTypeId="ProductStoreSettingType"/>
-            <moqui.basic.Enumeration enumCode="productTemplate" description="Product Template" enumId="PsstProductTemplate" enumTypeId="ProductStoreSettingType"/>
-
-            <moqui.basic.Enumeration enumCode="loginTemplate" description="Login Template" enumId="PsstLoginTemplate" enumTypeId="ProductStoreSettingType"/>
-            <moqui.basic.Enumeration enumCode="profileTemplate" description="Profile Template" enumId="PsstProfileTemplate" enumTypeId="ProductStoreSettingType"/>
-            <moqui.basic.Enumeration enumCode="orderHistoryTemplate" description="Order History Template" enumId="PsstOrderHistoryTemplate" enumTypeId="ProductStoreSettingType"/>
-            <moqui.basic.Enumeration enumCode="orderDetailTemplate" description="Order Detail Template" enumId="PsstOrderDetailTemplate" enumTypeId="ProductStoreSettingType"/>
-            <moqui.basic.Enumeration enumCode="cartTemplate" description="Cart Template" enumId="PsstCartTemplate" enumTypeId="ProductStoreSettingType"/>
         </seed-data>
     </entity>
 
@@ -306,6 +294,72 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="carrierPartyId"/></relationship>
         <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration" short-alias="shipmentMethodEnum">
             <key-map field-name="shipmentMethodEnumId"/></relationship>
+    </entity>
+
+    <entity entity-name="ProductStoreWikiSpace" package="mantle.product.store">
+        <description>Used to configure a WikiSpace to use for a given store, space type, and locale instead of directly referencing a wikiSpaceId.</description>
+        <field name="storeWikiSpaceId" type="id" is-pk="true"/>
+        <field name="productStoreId" type="id"/>
+        <field name="spaceTypeEnumId" type="id"/>
+        <field name="locale" type="text-short"/>
+        <field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+        <field name="wikiSpaceId" type="id"/>
+        <!-- future: <field name="allowSplit" type="text-indicator"><description>If all matching records have a 'Y' randomize and remember the
+            wikiSpaceId used instead of using from/thru date pattern (filter, get most recent by fromDate) to determine a single space.</description></field> -->
+        <!-- future, for version tagging once implemented: <field name="spaceTag" type="text-short"/> -->
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" title="ProductStoreWikiSpaceType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="spaceTypeEnumId"/></relationship>
+        <relationship type="one" related="moqui.resource.wiki.WikiSpace" short-alias="wikiSpace"/>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Product Store Wiki Space Type" enumTypeId="ProductStoreWikiSpaceType"/>
+            <!-- full page content like about us, policies, etc -->
+            <moqui.basic.Enumeration description="Content - Full Page" enumId="PswstFullPage" enumTypeId="ProductStoreWikiSpaceType"/>
+            <!-- page snippet content including banners, carousel slides, etc; often referred to through a WikiPageCategory -->
+            <moqui.basic.Enumeration description="Content - Snippet" enumId="PswstSnippet" enumTypeId="ProductStoreWikiSpaceType"/>
+            <!-- templates for information pages like header, footer, home, category, product, search, etc; server rendered, change frequently -->
+            <moqui.basic.Enumeration description="Template - Information (home, product, etc)" enumId="PswstTemplateInfo" enumTypeId="ProductStoreWikiSpaceType"/>
+            <!-- templates for interactive pages like checkout, profile, etc; client rendered, change less frequently -->
+            <moqui.basic.Enumeration description="Template - Interactive (checkout, profile, etc)" enumId="PswstTemplateInteractive" enumTypeId="ProductStoreWikiSpaceType"/>
+        </seed-data>
+    </entity>
+    <entity entity-name="ProductStoreWikiContent" package="mantle.product.store">
+        <description>Used to configure the wiki space type and page path given a store content type.
+            An alternative to directly specifying the spaceTypeEnumId (for ProductStoreWikiSpace) and pagePath for lookup within the WikiSpace.</description>
+        <field name="storeWikiContentId" type="id" is-pk="true"/>
+        <field name="productStoreId" type="id"/>
+        <field name="contentTypeEnumId" type="id"/>
+        <!-- maybe at this level... <field name="locale" type="text-short"/> -->
+        <field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+        <field name="spaceTypeEnumId" type="id"/>
+        <field name="pagePath" type="text-medium"/>
+        <!-- future: <field name="allowSplit" type="text-indicator"><description>If all matching records have a 'Y' randomize and remember the
+            wikiSpaceId used instead of using from/thru date pattern (filter, get most recent by fromDate) to determine a single space.</description></field> -->
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" title="ProductStoreContentType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="contentTypeEnumId"/></relationship>
+        <relationship type="one" title="ProductStoreWikiSpaceType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="spaceTypeEnumId"/></relationship>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Product Store Content Type" enumTypeId="ProductStoreContentType"/>
+
+            <moqui.basic.Enumeration enumCode="headerTemplate" description="Header Template" enumId="PsctHeaderTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="footerTemplate" description="Footer Template" enumId="PsctFooterTemplate" enumTypeId="ProductStoreContentType"/>
+
+            <moqui.basic.Enumeration enumCode="homeTemplate" description="Home Template" enumId="PsctHomeTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="searchTemplate" description="Search Template" enumId="PsctSearchTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="categoryTemplate" description="Category Template" enumId="PsctCategoryTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="categoryProductTemplate" description="Category Product Template" enumId="PsctCategoryProductTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="productTemplate" description="Product Template" enumId="PsctProductTemplate" enumTypeId="ProductStoreContentType"/>
+
+            <moqui.basic.Enumeration enumCode="loginTemplate" description="Login Template" enumId="PsctLoginTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="profileTemplate" description="Profile Template" enumId="PsctProfileTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="orderHistoryTemplate" description="Order History Template" enumId="PsctOrderHistoryTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="orderDetailTemplate" description="Order Detail Template" enumId="PsctOrderDetailTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="cartTemplate" description="Cart Template" enumId="PsctCartTemplate" enumTypeId="ProductStoreContentType"/>
+        </seed-data>
     </entity>
 
     <entity entity-name="ProductStoreGroup" package="mantle.product.store">
