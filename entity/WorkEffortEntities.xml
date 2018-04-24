@@ -224,13 +224,13 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Work Effort Status -->
             <moqui.basic.StatusType description="Work Effort Status" statusTypeId="WorkEffort"/>
             <moqui.basic.StatusItem description="In Planning" sequenceNum="1" statusId="WeInPlanning" statusTypeId="WorkEffort"/>
-            <moqui.basic.StatusItem description="Approved/Scheduled" sequenceNum="2" statusId="WeApproved" statusTypeId="WorkEffort"/>
+            <moqui.basic.StatusItem description="Approved" sequenceNum="2" statusId="WeApproved" statusTypeId="WorkEffort"/>
             <moqui.basic.StatusItem description="In Progress" sequenceNum="3" statusId="WeInProgress" statusTypeId="WorkEffort"/>
             <moqui.basic.StatusItem description="On Hold" sequenceNum="5" statusId="WeOnHold" statusTypeId="WorkEffort"/>
             <moqui.basic.StatusItem description="Complete" sequenceNum="9" statusId="WeComplete" statusTypeId="WorkEffort"/>
             <moqui.basic.StatusItem description="Closed" sequenceNum="10" statusId="WeClosed" statusTypeId="WorkEffort"/>
             <moqui.basic.StatusItem description="Cancelled" sequenceNum="99" statusId="WeCancelled" statusTypeId="WorkEffort"/>
-            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeInPlanning" toStatusId="WeApproved" transitionName="Schedule/Approve"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeInPlanning" toStatusId="WeApproved" transitionName="Approve"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeInPlanning" toStatusId="WeInProgress" transitionName="Begin"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeInPlanning" toStatusId="WeCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeInPlanning" toStatusId="WeComplete" transitionName="Complete"/>
