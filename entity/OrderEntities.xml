@@ -516,7 +516,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.order.OrderPart" short-alias="orderPart"/>
         <relationship type="one" related="SettlementTerm" short-alias="term"/>
     </entity>
-    <entity entity-name="OrderPromoCode" package="mantle.order">
+    <entity entity-name="OrderPromoCode" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="promoCodeId" type="id" is-pk="true"/>
         <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
