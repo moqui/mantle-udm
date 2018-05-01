@@ -320,6 +320,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="trackingCode" type="text-medium" enable-audit-log="update"/>
         <field name="trackingUrl" type="text-long"/>
         <field name="trackingStatusEnumId" type="id" enable-audit-log="true"/>
+        <field name="trackingSubStatus" type="text-short" enable-audit-log="update"/>
         <field name="trackingStatusDate" type="date-time"/>
         <field name="trackingEta" type="date-time"/>
         <field name="trackingOrigEta" type="date-time"/>
@@ -343,6 +344,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="returnTrackingCode" type="text-medium" enable-audit-log="update"/>
         <field name="returnTrackingUrl" type="text-long"/>
         <field name="returnTrackingStatusEnumId" type="id" enable-audit-log="update"/>
+        <field name="returnTrackingSubStatus" type="text-short" enable-audit-log="update"/>
         <field name="returnTrackingStatusDate" type="date-time"/>
         <field name="returnLabelDate" type="date-time"/>
         <field name="returnLabelUrl" type="text-long"/>
