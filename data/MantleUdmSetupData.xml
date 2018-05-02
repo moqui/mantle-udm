@@ -66,7 +66,9 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.LocalizedMessage locale="default" original="ProductFeatureGroupNameTemplate"
             localized="${description}: ${productFeatureGroupId?:''}"/>
     <moqui.basic.LocalizedMessage locale="default" original="ProductFeatureNameTemplate"
-            localized="${abbrev ?: productFeatureId}: ${description}"/>
+            localized="${abbrev?:productFeatureId}: ${description}"/>
+    <moqui.basic.LocalizedMessage locale="default" original="ProductFeatureAndTypeTemplate"
+            localized="${typeDescription} - ${abbrev?:productFeatureId}: ${description}"/>
     <moqui.basic.LocalizedMessage locale="default" original="ProductNameTemplate"
             localized="${pseudoId?:productId}: ${productName?:name?:''}"/> <!-- name is used in data documents -->
 
