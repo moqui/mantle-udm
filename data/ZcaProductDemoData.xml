@@ -15,6 +15,18 @@ along with this software (see the LICENSE.md file). If not, see
 <entity-facade-xml type="demo">
     <!-- NOTE 1265184000000 = 2010-02-03 00:00:00 US/Pacific -->
 
+    <!-- Demo Features -->
+    <mantle.product.feature.ProductFeature productFeatureId="ColorBlue" productFeatureTypeEnumId="PftColor" description="Blue" abbrev="BU"/>
+    <mantle.product.feature.ProductFeature productFeatureId="ColorBlack" productFeatureTypeEnumId="PftColor" description="Black" abbrev="BL"/>
+    <mantle.product.feature.ProductFeature productFeatureId="ColorRed" productFeatureTypeEnumId="PftColor" description="Red" abbrev="RD"/>
+    <mantle.product.feature.ProductFeature productFeatureId="ColorGreen" productFeatureTypeEnumId="PftColor" description="Green" abbrev="GR"/>
+    <mantle.product.feature.ProductFeature productFeatureId="ColorYellow" productFeatureTypeEnumId="PftColor" description="Yellow" abbrev="YL"/>
+
+    <mantle.product.feature.ProductFeature productFeatureId="SizeSmall" productFeatureTypeEnumId="PftSize" description="Small" abbrev="SM"/>
+    <mantle.product.feature.ProductFeature productFeatureId="SizeMedium" productFeatureTypeEnumId="PftSize" description="Medium" abbrev="MD"/>
+    <mantle.product.feature.ProductFeature productFeatureId="SizeLarge" productFeatureTypeEnumId="PftSize" description="Large" abbrev="LG"/>
+    <mantle.product.feature.ProductFeature productFeatureId="SizeXL" productFeatureTypeEnumId="PftSize" description="Extra Large" abbrev="XL"/>
+
     <!-- Ziziwork Retail Wiki/Content -->
     <moqui.resource.DbResource filename="Ziziwork" isFile="N" resourceId="Ziziwork" parentResourceId=""/>
     <moqui.resource.DbResource filename="retail" isFile="N" resourceId="zzw_retail" parentResourceId="Ziziwork"/>
