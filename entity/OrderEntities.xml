@@ -66,7 +66,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="salesChannelEnumId" type="id"/>
 
         <field name="terminalId" type="text-short"/>
-        <field name="externalId" type="text-short"/>
+        <field name="displayId" type="text-short"><description>ID to display to customers, can be different from orderId and/or externalId</description></field>
+        <field name="externalId" type="text-short"><description>ID for the order in the system it came from if it came from an external system</description></field>
         <field name="externalRevision" type="text-short"/>
         <field name="syncStatusId" type="id"/>
         <field name="systemMessageRemoteId" type="id"/>
