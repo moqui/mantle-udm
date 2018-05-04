@@ -407,8 +407,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="otherPartyOrderId" type="text-short"/>
         <field name="otherPartyOrderDate" type="date-time"/>
 
-        <field name="facilityId" type="id"><description>The Facility to fulfill the order from (if null look up from
-            ProductStore), or for purchase orders the Facility the order will be shipped to.</description></field>
+        <field name="facilityId" type="id" enable-audit-log="update"><description>The Facility to fulfill the order from
+            (if null look up from ProductStore), or for purchase orders the Facility the order will be shipped to.</description></field>
 
         <field name="carrierPartyId" type="id" enable-audit-log="update"/>
         <field name="shipmentMethodEnumId" type="id" enable-audit-log="update"/>
