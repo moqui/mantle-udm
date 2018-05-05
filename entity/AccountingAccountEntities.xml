@@ -333,6 +333,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="overrideOrgPartyId" type="id"><description>Used to specify the organization override rather than
             using the fromPartyId and/or toPartyId (depending on which is an internal org).</description></field>
 
+        <field name="productStoreId" type="id"><description>For sales invoices processed through a ProductStore, copied from order if applicable</description></field>
         <field name="partyRelationshipId" type="id"><description>For Payroll invoices, points to Employment record</description></field>
         <field name="timePeriodId" type="id"><description>For Payroll invoices, points to Payroll TimePeriod</description></field>
         <field name="acctgTransResultEnumId" type="id"/>
@@ -372,6 +373,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="OverrideOrg" related="mantle.party.Party" short-alias="overrideOrgParty">
             <key-map field-name="overrideOrgPartyId"/></relationship>
 
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="productStore"/>
         <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
         <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
         <relationship type="one" title="AcctgTransResult" related="moqui.basic.Enumeration" short-alias="acctgTransResultEnum">

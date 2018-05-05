@@ -161,6 +161,7 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="04" fieldPath="appliedPaymentsTotal"/>
         <fields fieldSeqId="05" fieldPath="unpaidTotal"/>
         <fields fieldSeqId="06" fieldPath="currencyUomId"/>
+        <fields fieldSeqId="07" fieldPath="productStoreId"/>
 
         <fields fieldSeqId="11" fieldPath="fromPartyId"/>
         <fields fieldSeqId="12" fieldPath="fromRoles:roleTypeId" fieldNameAlias="fromRoleTypeId"/>
@@ -212,6 +213,7 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="25" fieldPath="invoice:dueDate"/>
         <fields fieldSeqId="26" fieldPath="invoice:statusId"/>
         <fields fieldSeqId="27" fieldPath="invoice:currencyUomId"/>
+        <fields fieldSeqId="28" fieldPath="invoice:productStoreId"/>
 
         <fields fieldSeqId="51" fieldPath="issuances:issuedDate"/>
         <fields fieldSeqId="52" fieldPath="issuances:quantity" fieldNameAlias="issuedQuantity"/>
