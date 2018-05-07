@@ -392,6 +392,27 @@ along with this software (see the LICENSE.md file). If not, see
             fromDate="1265184000000" availableTime="1" availableTimeUomId="TF_mon"/>
     -->
 
+    <!-- Demo Virtual with Variants -->
+    <mantle.product.Product productId="DEMO_VAR" productTypeEnumId="PtVirtual" assetTypeEnumId="" assetClassEnumId=""
+            chargeShipping="Y" returnable="Y" productName="Demo with Variants" description="">
+        <prices productPriceId="DEMO_VAR_L" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptList"  fromDate="1265184000000"
+                minQuantity="1" price="29.99" priceUomId="USD"/>
+        <prices productPriceId="DEMO_VAR_CLT" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="1265184000000"
+                minQuantity="1" price="24.99" priceUomId="USD"/>
+        <categories productCategoryId="PopcAllProducts" fromDate="1265184000000"/>
+        <categories productCategoryId="DEMO_ONE" fromDate="1265184000000" sequenceNum="1"/>
+        <features productFeatureId="ColorBlack" sequenceNum="1" applTypeEnumId="PfatSelectable" fromDate="1265184000000"/>
+        <features productFeatureId="ColorBlue" sequenceNum="2" applTypeEnumId="PfatSelectable" fromDate="1265184000000"/>
+        <features productFeatureId="ColorRed" sequenceNum="3" applTypeEnumId="PfatSelectable" fromDate="1265184000000"/>
+        <features productFeatureId="SizeSmall" sequenceNum="1" applTypeEnumId="PfatSelectable" fromDate="1265184000000"/>
+        <features productFeatureId="SizeMedium" sequenceNum="2" applTypeEnumId="PfatSelectable" fromDate="1265184000000"/>
+        <features productFeatureId="SizeLarge" sequenceNum="3" applTypeEnumId="PfatSelectable" fromDate="1265184000000"/>
+        <features productFeatureId="SizeXL" sequenceNum="4" applTypeEnumId="PfatSelectable" fromDate="1265184000000"/>
+    </mantle.product.Product>
+    <!-- call a service to generate variants -->
+    <mantle.product.ProductServices.createVariantProducts productId="DEMO_VAR" productTypeEnumId="PtAsset"
+            assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin" copyCategoryMembers="false"/>
+
     <!-- Demo Equipment -->
     <mantle.product.Product productId="EQUIP_1" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpEquipment"
             assetClassEnumId="AsClsWhEquip" productName="Picker Bot 2000"/>
