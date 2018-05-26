@@ -398,8 +398,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="destPostalContactMechId" type="id" enable-audit-log="update"/>
         <field name="destTelecomContactMechId" type="id"/>
 
-        <field name="carrierPartyId" type="id"/>
-        <field name="shipmentMethodEnumId" type="id"/>
+        <field name="carrierPartyId" type="id" enable-audit-log="update"/>
+        <field name="shipmentMethodEnumId" type="id" enable-audit-log="update"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="carrierDeliveryZone" type="text-short"/>
         <field name="carrierRestrictionCodes" type="text-short"/>

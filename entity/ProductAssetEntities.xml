@@ -31,7 +31,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="assetTypeEnumId" type="id"/>
         <field name="classEnumId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
-        <field name="ownerPartyId" type="id" enable-audit-log="true"/>
+        <field name="ownerPartyId" type="id" enable-audit-log="update"/>
 
         <field name="productId" type="id"><description>The Asset is an Instance of this Product (for inventory, maintenance
             schedules/etc, content about what sort of thing the Asset is, etc)</description></field>
@@ -71,7 +71,7 @@ along with this software (see the LICENSE.md file). If not, see
         </description></field>
         <field name="shipmentBoxTypeId" type="id"/>
         <field name="lotId" type="id"/>
-        <field name="geoPointId" type="id" enable-audit-log="true"/>
+        <field name="geoPointId" type="id" enable-audit-log="update"/>
 
         <field name="originId" type="id"><description>Origin ID, the ID used wherever this came from.</description></field>
         <field name="originFacilityId" type="id"><description>Origin Facility, where manufactured or came from.</description></field>
