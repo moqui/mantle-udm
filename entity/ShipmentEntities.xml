@@ -120,12 +120,14 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipScheduled" toStatusId="ShipDelivered" transitionName="Deliver"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipScheduled" toStatusId="ShipCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPicked" toStatusId="ShipPacked" transitionName="Pack"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPicked" toStatusId="ShipCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPacked" toStatusId="ShipShipped" transitionName="Ship"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPacked" toStatusId="ShipDelivered" transitionName="Deliver"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPacked" toStatusId="ShipRejected" transitionName="Reject"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPacked" toStatusId="ShipCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipShipped" toStatusId="ShipDelivered" transitionName="Deliver"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipShipped" toStatusId="ShipRejected" transitionName="Reject"/>
-            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPicked" toStatusId="ShipCancelled" transitionName="Cancel"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipShipped" toStatusId="ShipCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipDelivered" toStatusId="ShipShipped" transitionName="Un-deliver"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipShipped" toStatusId="ShipPacked" transitionName="Un-ship"/>
         </seed-data>
