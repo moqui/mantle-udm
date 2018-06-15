@@ -409,6 +409,22 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Library of Congress" enumId="PidtLoc"  enumTypeId="ProductIdentificationType"/>
         </seed-data>
     </entity>
+    <entity entity-name="ProductOtherIdentification" package="mantle.product">
+        <field name="productOtherIdentId" type="id" is-pk="true"/>
+        <field name="productId" type="id"/>
+        <field name="productStoreId" type="id"/>
+        <field name="productIdTypeEnumId" type="id"/>
+        <field name="parentProductId" type="id"/>
+        <field name="idValue" type="text-medium"/>
+
+        <relationship type="one" title="ProductIdentificationType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="productIdTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.product.Product"/>
+        <relationship type="one" related="mantle.product.store.ProductStore"/>
+        <relationship type="one" title="Parent" related="mantle.product.Product">
+            <key-map field-name="parentProductId" related="productId"/></relationship>
+        <index name="PRODUCT_STR_ID_VAL" unique="false"><index-field name="idValue"/></index>
+    </entity>
     <entity entity-name="ProductParty" package="mantle.product">
         <field name="productId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>

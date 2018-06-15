@@ -36,6 +36,8 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="requireCustomerRole" type="text-indicator"/>
         <field name="taxGatewayConfigId" type="id"/>
+        <field name="systemMessageRemoteId" type="id">
+            <description>Reference to the SystemMessageRemote record for the remote system this store is for.</description></field>
 
         <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organization">
             <key-map field-name="organizationPartyId"/></relationship>
@@ -52,6 +54,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="DefaultSalesChannel" related="moqui.basic.Enumeration" short-alias="defaultSalesChannel">
             <key-map field-name="defaultSalesChannelEnumId"/></relationship>
         <relationship type="one" related="mantle.other.tax.TaxGatewayConfig" short-alias="taxGatewayConfig"/>
+        <relationship type="one" related="moqui.service.message.SystemMessageRemote" short-alias="remote"/>
 
         <relationship type="many" related="mantle.product.store.ProductStoreCategory" short-alias="categories">
             <key-map field-name="productStoreId"/></relationship>
