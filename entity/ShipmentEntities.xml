@@ -291,9 +291,9 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="ShipmentPackage" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentPackageSeqId" type="id" is-pk="true"/>
-        <field name="shipmentBoxTypeId" type="id"/>
-        <field name="weight" type="number-decimal"/>
-        <field name="weightUomId" type="id"/>
+        <field name="shipmentBoxTypeId" type="id" enable-audit-log="update"/>
+        <field name="weight" type="number-decimal" enable-audit-log="update"/>
+        <field name="weightUomId" type="id" enable-audit-log="update"/>
         <field name="gatewayPackageId" type="text-medium"/>
         <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
         <relationship type="one" related="mantle.shipment.ShipmentBoxType" short-alias="boxType"/>
