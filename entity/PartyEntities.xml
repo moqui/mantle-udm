@@ -1433,7 +1433,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="periodName" type="text-medium"/>
         <field name="fromDate" type="date" not-null="true"><description>The first day of the period.</description></field>
         <field name="thruDate" type="date" not-null="true"><description>The last day of the period.</description></field>
-        <field name="isClosed" type="text-indicator" default="'N'"/>
+        <field name="isClosed" type="text-indicator" default="'N'" enable-audit-log="update"/>
         <relationship type="one" title="Parent" related="mantle.party.time.TimePeriod" short-alias="parent">
             <key-map field-name="parentPeriodId" related="timePeriodId"/></relationship>
         <relationship type="one" title="Previous" related="mantle.party.time.TimePeriod" short-alias="previous">
