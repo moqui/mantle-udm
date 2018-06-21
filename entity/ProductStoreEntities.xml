@@ -275,6 +275,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumCode="contentLocation" description="Content Location" enumId="PsstContentLocation" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="contentAttachmentLocation" description="Content Attachment Location" enumId="PsstContentAttachmentLoc" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="productImageLocation" description="Product Image Location" enumId="PsstProductImageLoc" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration enumCode="getReturnLabels" description="Get Return Labels (true/false)" enumId="PsstGetReturnLabels" enumTypeId="ProductStoreSettingType"/>
         </seed-data>
     </entity>
 
