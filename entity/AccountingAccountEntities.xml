@@ -1179,6 +1179,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Refund" enumId="PgoRefund" enumTypeId="PaymentOperation"/>
             <moqui.basic.Enumeration description="Release" enumId="PgoRelease" enumTypeId="PaymentOperation"/>
             <moqui.basic.Enumeration description="Transaction Details" enumId="PgoTxDetails" enumTypeId="PaymentOperation"/>
+            <moqui.basic.Enumeration description="Level 2/3 Data" enumId="PgoLevel3Data" enumTypeId="PaymentOperation"/>
         </seed-data>
     </entity>
 
@@ -1370,6 +1371,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntPromised" toStatusId="PmntCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntPromised" toStatusId="PmntDeclined" transitionName="Sent"/>
 
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDeclined" toStatusId="PmntPromised" transitionName="Promise"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDeclined" toStatusId="PmntAuthorized" transitionName="Authorize"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntAuthorized" toStatusId="PmntPromised" transitionName="Unauthorize"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntAuthorized" toStatusId="PmntDelivered" transitionName="Deliver"/>
