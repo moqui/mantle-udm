@@ -225,6 +225,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="useLimitPerOrder" type="number-integer"/>
         <field name="useLimitPerCustomer" type="number-integer"/>
         <field name="useLimitPerPromotion" type="number-integer"/>
+        <field name="freeGroundShipping" type="text-indicator"/>
         <relationship type="one" related="moqui.service.ServiceRegister" short-alias="serviceRegister"/>
         <relationship type="many" related="mantle.product.store.ProductStorePromoParameter" short-alias="parameters">
             <key-map field-name="storePromotionId"/></relationship>
