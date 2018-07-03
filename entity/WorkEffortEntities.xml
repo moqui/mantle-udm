@@ -224,13 +224,13 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Work Effort Status -->
             <moqui.basic.StatusType description="Work Effort Status" statusTypeId="WorkEffort"/>
             <moqui.basic.StatusItem description="In Planning" sequenceNum="1" statusId="WeInPlanning" statusTypeId="WorkEffort"/>
-            <moqui.basic.StatusItem description="Approved/Scheduled" sequenceNum="2" statusId="WeApproved" statusTypeId="WorkEffort"/>
+            <moqui.basic.StatusItem description="Approved" sequenceNum="2" statusId="WeApproved" statusTypeId="WorkEffort"/>
             <moqui.basic.StatusItem description="In Progress" sequenceNum="3" statusId="WeInProgress" statusTypeId="WorkEffort"/>
             <moqui.basic.StatusItem description="On Hold" sequenceNum="5" statusId="WeOnHold" statusTypeId="WorkEffort"/>
             <moqui.basic.StatusItem description="Complete" sequenceNum="9" statusId="WeComplete" statusTypeId="WorkEffort"/>
             <moqui.basic.StatusItem description="Closed" sequenceNum="10" statusId="WeClosed" statusTypeId="WorkEffort"/>
             <moqui.basic.StatusItem description="Cancelled" sequenceNum="99" statusId="WeCancelled" statusTypeId="WorkEffort"/>
-            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeInPlanning" toStatusId="WeApproved" transitionName="Schedule/Approve"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeInPlanning" toStatusId="WeApproved" transitionName="Approve"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeInPlanning" toStatusId="WeInProgress" transitionName="Begin"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeInPlanning" toStatusId="WeCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeInPlanning" toStatusId="WeComplete" transitionName="Complete"/>
@@ -680,7 +680,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="timesheetId" type="id"/>
         <field name="partyId" type="id"><description>The party performing work (worker, may be the vendor or work for the vendor)</description></field>
         <field name="teamPartyId" type="id"/>
-        <field name="clientPartyId" type="id"><description>Should always be set, may get through timesheetId or workEffortId</description></field>
+        <field name="vendorPartyId" type="id"><description>The vendor (employer, etc) who pays the worker.
+            With workEffortId (task or project) the party in the Vendor role, with facilityId the party in the Manager role</description></field>
+        <field name="clientPartyId" type="id"><description>The client who pays the vendor for bill through.
+            May get through timesheetId, workEffortId (with Customer or CustomerBillTo role), or facilityId (Facility.ownerPartyId)</description></field>
         <field name="rateTypeEnumId" type="id"/>
         <field name="rateModifierEnumId" type="id"/>
         <field name="workTypeEnumId" type="id"/>

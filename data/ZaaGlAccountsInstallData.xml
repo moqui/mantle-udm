@@ -20,39 +20,50 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========== GL Account Class - account classification for add/subtract to balance, reporting, etc ========== -->
     <!-- for reference see the "GL Account Class Reference.md" file in SimpleScreens -->
 
-    <!-- DEBIT classes -->
-    <moqui.basic.Enumeration description="Contra Revenue" enumId="CONTRA_REVENUE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Discounts and Write-downs" enumId="COST_OF_DISCOUNTS" parentEnumId="CONTRA_REVENUE" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Customer Returns" enumId="CUSTOMER_RETURNS" parentEnumId="CONTRA_REVENUE" enumTypeId="GlAccountClass"/>
+    <!-- Top-level classes, referred to in reports, etc; the minimum required GL account classes -->
+    <moqui.basic.Enumeration description="Revenue" enumId="REVENUE" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+    <!-- deprecated, use REVENUE descendant with optionIndicator=Y to denote contra: <moqui.basic.Enumeration description="Contra Revenue" enumId="CONTRA_REVENUE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/> -->
+    <moqui.basic.Enumeration description="Cost of Sales" enumId="COST_OF_SALES" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Operating Expense" enumId="EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Non-operating Income" enumId="INCOME" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Non-operating Expense" enumId="NON_OP_EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
 
-    <moqui.basic.Enumeration description="Asset" enumId="ASSET" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Current Asset" enumId="CURRENT_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Assets" enumId="ASSET" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+    <!-- deprecated, use ASSET descendant with optionIndicator=Y to denote contra: <moqui.basic.Enumeration description="Contra Assets" enumId="CONTRA_ASSET" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/> -->
+    <moqui.basic.Enumeration description="Liabilities" enumId="LIABILITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Equity" enumId="EQUITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
+    <!-- deprecated, use EQUITY descendant with optionIndicator=Y to denote contra: <moqui.basic.Enumeration description="Contra Equity" enumId="CONTRA_EQUITY" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/> -->
+    <moqui.basic.Enumeration description="Equity Distribution" enumId="DISTRIBUTION" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+
+    <!-- DEBIT classes -->
+    <moqui.basic.Enumeration description="Current Assets" enumId="CURRENT_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Cash and Equivalent" enumId="CASH_EQUIVALENT" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Inventory Asset" enumId="INVENTORY_ASSET" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Inventory Assets" enumId="INVENTORY_ASSET" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Accounts Receivable" enumId="ACCOUNTS_RECEIVABLE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Loans Receivable" enumId="LOANS_RECEIVABLE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Prepaid Expense" enumId="PREPAID_EXPENSE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Prepaid Inventory" enumId="PREPAID_INVENTORY" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Accrued Revenue" enumId="ACCRUED_REVENUE" parentEnumId="CURRENT_ASSET" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Long Term Asset" enumId="LONG_TERM_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Land and Building" enumId="LAND_BUILDING" parentEnumId="LONG_TERM_ASSET" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Equipment" enumId="EQUIPMENT" parentEnumId="LONG_TERM_ASSET" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Other Asset" enumId="OTHER_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Allowance For Bad Debts" enumId="ALLOWANCE_BAD_DEBT" parentEnumId="CURRENT_ASSET" optionIndicator="Y" enumTypeId="GlAccountClass"/><!-- contra: CREDIT -->
 
-    <moqui.basic.Enumeration description="Equity Distribution" enumId="DISTRIBUTION" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Long Term Assets" enumId="LONG_TERM_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Land and Building" enumId="LAND_BUILDING" parentEnumId="LONG_TERM_ASSET" enumTypeId="GlAccountClass" sequenceNum="10"/>
+    <moqui.basic.Enumeration description="Equipment" enumId="EQUIPMENT" parentEnumId="LONG_TERM_ASSET" enumTypeId="GlAccountClass" sequenceNum="20"/>
+    <moqui.basic.Enumeration description="Accumulated Depreciation" enumId="ACCUM_DEPRECIATION" parentEnumId="LONG_TERM_ASSET" optionIndicator="Y" enumTypeId="GlAccountClass" sequenceNum="90"/><!-- contra: CREDIT -->
+
+    <moqui.basic.Enumeration description="Other Assets" enumId="OTHER_ASSET" parentEnumId="ASSET" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Intangible Assets" enumId="INTANGIBLE_ASSET" parentEnumId="OTHER_ASSET" enumTypeId="GlAccountClass" sequenceNum="10"/>
+    <moqui.basic.Enumeration description="Accumulated Amortization" enumId="ACCUM_AMORTIZATION" parentEnumId="OTHER_ASSET" optionIndicator="Y" enumTypeId="GlAccountClass" sequenceNum="90"/><!-- contra: CREDIT -->
+
     <moqui.basic.Enumeration description="Return of Capital" enumId="RETURN_OF_CAPITAL" parentEnumId="DISTRIBUTION" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Dividends" enumId="DIVIDEND" parentEnumId="DISTRIBUTION" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Contra Equity" enumId="CONTRA_EQUITY" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
 
-    <moqui.basic.Enumeration description="Cost of Sales" enumId="COST_OF_SALES" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Cost of Services Sold" enumId="COST_SERVICES_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Cost of Goods Sold" enumId="COST_GOODS_SOLD" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Good and Material Cost" enumId="GOOD_MATERIAL_COST" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Good Freight Cost" enumId="GOOD_FREIGHT_COST" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Good Royalties Cost" enumId="GOOD_ROYALTIES_COST" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Inventory Shrinkage" enumId="INVENTORY_SHRINKAGE" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
-
-    <moqui.basic.Enumeration description="Operating Expense" enumId="EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
 
     <moqui.basic.Enumeration description="General and Administrative Expense" enumId="GEN_ADMIN_EXPENSE" parentEnumId="EXPENSE" sequenceNum="1" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Employee Compensation" enumId="COMPENSATION" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="1" enumTypeId="GlAccountClass"/>
@@ -85,36 +96,30 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Bad Debt Expense" enumId="BAD_DEBT_EXPENSE" parentEnumId="NON_CASH_EXPENSE" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Depreciation" enumId="DEPRECIATION" parentEnumId="NON_CASH_EXPENSE" enumTypeId="GlAccountClass"/>
 
-    <moqui.basic.Enumeration description="Non-operating Expense" enumId="NON_OP_EXPENSE" parentEnumId="DEBIT" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Interest Expense" enumId="INTEREST_EXPENSE" parentEnumId="NON_OP_EXPENSE" enumTypeId="GlAccountClass"/><!-- useful for EBITDA, coverage ratios, etc. -->
     <moqui.basic.Enumeration description="Company Owned Life Insurance" enumId="CO_LIFE_INSURANCE" parentEnumId="NON_OP_EXPENSE" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Royalties Expense - Non-COGS" enumId="NON_COGS_ROYALTIES" parentEnumId="NON_OP_EXPENSE" enumTypeId="GlAccountClass"/>
 
     <!-- CREDIT classes -->
-    <moqui.basic.Enumeration description="Contra Asset" enumId="CONTRA_ASSET" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Accumulated Depreciation" enumId="ACCUM_DEPRECIATION" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Accumulated Amortization" enumId="ACCUM_AMORTIZATION" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Allowance For Bad Debts" enumId="ALLOWANCE_BAD_DEBT" parentEnumId="CONTRA_ASSET" enumTypeId="GlAccountClass"/>
-
-    <moqui.basic.Enumeration description="Liability" enumId="LIABILITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Current Liability" enumId="CURRENT_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Current Liabilities" enumId="CURRENT_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Accounts Payable" enumId="ACCOUNTS_PAYABLE" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Accrued Expenses" enumId="ACCRUED_EXPENSES" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Loans Payable" enumId="LOANS_PAYABLE" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Unearned Revenue" enumId="UNEARNED_REVENUE" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Third-Party Holdings" enumId="THIRD_PARTY_HOLDINGS" parentEnumId="CURRENT_LIABILITY" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Long Term Liability" enumId="LONG_TERM_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Long Term Liabilities" enumId="LONG_TERM_LIABILITY" parentEnumId="LIABILITY" enumTypeId="GlAccountClass"/>
 
-    <moqui.basic.Enumeration description="Equity" enumId="EQUITY" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Owners Equity" enumId="OWNERS_EQUITY" parentEnumId="EQUITY" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Treasury Stock" enumId="TREASURY_STOCK" parentEnumId="EQUITY" optionIndicator="Y" enumTypeId="GlAccountClass"/><!-- DEBIT -->
     <moqui.basic.Enumeration description="Retained Earnings" enumId="RETAINED_EARNINGS" parentEnumId="EQUITY" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Net Income" enumId="NET_INCOME" parentEnumId="EQUITY" enumTypeId="GlAccountClass"/>
 
-    <moqui.basic.Enumeration description="Revenue" enumId="REVENUE" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Goods Revenue" enumId="GOODS_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Services Revenue" enumId="SERVICES_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Other Revenue" enumId="OTHER_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Discounts and Write-downs" enumId="COST_OF_DISCOUNTS" parentEnumId="REVENUE" optionIndicator="Y" enumTypeId="GlAccountClass"/><!-- contra: DEBIT -->
+    <moqui.basic.Enumeration description="Customer Returns" enumId="CUSTOMER_RETURNS" parentEnumId="REVENUE" optionIndicator="Y" enumTypeId="GlAccountClass"/><!-- contra: DEBIT -->
 
-    <moqui.basic.Enumeration description="Income" enumId="INCOME" parentEnumId="CREDIT" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Cash Income" enumId="CASH_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Interest Income" enumId="INTEREST_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Non-Cash Income" enumId="NON_CASH_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass"/>
@@ -122,30 +127,27 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========== GL Account Class Groups ========== -->
 
     <moqui.basic.Enumeration description="Net Income" enumId="EngGlcNetIncome" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
-        <groupMembers enumId="REVENUE"/><groupMembers enumId="CONTRA_REVENUE" memberInfo="negate"/>
+        <groupMembers enumId="REVENUE"/>
         <groupMembers enumId="COST_OF_SALES" memberInfo="negate"/>
         <groupMembers enumId="INCOME"/>
         <groupMembers enumId="EXPENSE" memberInfo="negate"/><groupMembers enumId="NON_OP_EXPENSE" memberInfo="negate"/>
     </moqui.basic.Enumeration>
     <moqui.basic.Enumeration description="Gross Profit" enumId="EngGlcGrossProfit" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
-        <groupMembers enumId="REVENUE"/><groupMembers enumId="CONTRA_REVENUE" memberInfo="negate"/>
+        <groupMembers enumId="REVENUE"/>
         <groupMembers enumId="COST_OF_SALES" memberInfo="negate"/>
     </moqui.basic.Enumeration>
     <moqui.basic.Enumeration description="Net Revenue" enumId="EngGlcNetRevenue" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
-        <groupMembers enumId="REVENUE"/><groupMembers enumId="CONTRA_REVENUE" memberInfo="negate"/></moqui.basic.Enumeration>
+        <groupMembers enumId="REVENUE"/></moqui.basic.Enumeration>
     <moqui.basic.Enumeration description="Net Operating Income" enumId="EngGlcNetOpIncome" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
-        <groupMembers enumId="REVENUE"/><groupMembers enumId="CONTRA_REVENUE" memberInfo="negate"/>
+        <groupMembers enumId="REVENUE"/>
         <groupMembers enumId="COST_OF_SALES" memberInfo="negate"/>
-        <!-- exclude? non-operating income, ie not revenue: <groupMembers enumId="INCOME"/> -->
         <groupMembers enumId="EXPENSE" memberInfo="negate"/>
     </moqui.basic.Enumeration>
-    <moqui.basic.Enumeration description="Net Asset" enumId="EngGlcNetAsset" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
-        <groupMembers enumId="ASSET"/><groupMembers enumId="CONTRA_ASSET" memberInfo="negate"/></moqui.basic.Enumeration>
+    <moqui.basic.Enumeration description="Net Assets" enumId="EngGlcNetAsset" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+        <groupMembers enumId="ASSET"/></moqui.basic.Enumeration>
     <moqui.basic.Enumeration description="Net Equity" enumId="EngGlcNetEquity" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
-        <groupMembers enumId="EQUITY"/><groupMembers enumId="CONTRA_EQUITY" memberInfo="negate"/>
-        <groupMembers enumId="DISTRIBUTION" memberInfo="negate"/>
-    </moqui.basic.Enumeration>
-    <moqui.basic.Enumeration description="Liability" enumId="EngGlcLiability" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
+        <groupMembers enumId="EQUITY"/><groupMembers enumId="DISTRIBUTION" memberInfo="negate"/></moqui.basic.Enumeration>
+    <moqui.basic.Enumeration description="Liabilities" enumId="EngGlcLiability" parentEnumId="EngGlClassGroups" enumTypeId="EnumGroup">
         <groupMembers enumId="LIABILITY"/></moqui.basic.Enumeration>
 
     <!-- ========== GL Account Type, used for automated posting mappings ========== -->
@@ -348,17 +350,17 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- 133000 ASSET - INTANGIBLE -->
     <!-- previous version change note (after 1.0.1): 191* to 133* -->
-    <mantle.ledger.account.GlAccount accountName="Intangible Assets" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="Intangible Assets" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133000000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="130000000"/>
-    <mantle.ledger.account.GlAccount accountName="Covenant Not To Compete-Previous Owner" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="Covenant Not To Compete-Previous Owner" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133100000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
-    <mantle.ledger.account.GlAccount accountName="Goodwill" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="Goodwill" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133200000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
-    <mantle.ledger.account.GlAccount accountName="Customer Lists" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="Customer Lists" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133300000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
-    <mantle.ledger.account.GlAccount accountName="Intellectual Property Assets" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="Intellectual Property Assets" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133400000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Intangible Assets" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="Other Intangible Assets" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133800000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
 
     <!-- 134000 ASSET - FIXED OTHER -->
@@ -677,6 +679,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="258100000" glAccountTypeEnumId="GatCurrentLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="258000000"/>
     <mantle.ledger.account.GlAccount accountName="Financial Account In Transit Withdrawals" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="258200000" glAccountTypeEnumId="GatCurrentLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="258000000"/>
+    <mantle.ledger.account.GlAccount accountName="Financial Account In Transit Transfers" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+        glAccountId="258300000" glAccountTypeEnumId="GatCurrentLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="258000000"/>
 
     <!-- 260000 LIABILITY - UNEARNED REVENUE -->
     <mantle.ledger.account.GlAccount accountName="Unearned Revenue" description="" glAccountClassEnumId="UNEARNED_REVENUE"
@@ -703,7 +707,7 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="331100000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="331000000"/>
     <mantle.ledger.account.GlAccount accountName="Preferred Stock" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="3312000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="331000000"/>
-    <mantle.ledger.account.GlAccount accountName="Treasury Stock" description="" glAccountClassEnumId="CONTRA_EQUITY"
+    <mantle.ledger.account.GlAccount accountName="Treasury Stock" description="" glAccountClassEnumId="TREASURY_STOCK"
         glAccountId="331300000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="331000000"/>
 
     <mantle.ledger.account.GlAccount accountName="Paid-in Capital" description="" glAccountClassEnumId="OWNERS_EQUITY" disallowPosting="Y"
@@ -739,9 +743,9 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="411000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="410000000"/>
     <mantle.ledger.account.GlAccount accountName="Service Sales" description="" glAccountClassEnumId="SERVICES_REVENUE"
         glAccountId="412000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="410000000"/>
-    <mantle.ledger.account.GlAccount accountName="Asset Rental Sales" description="" glAccountClassEnumId="REVENUE"
+    <mantle.ledger.account.GlAccount accountName="Asset Rental Sales" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="413000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="410000000"/>
-    <mantle.ledger.account.GlAccount accountName="Miscellaneous Sales" description="" glAccountClassEnumId="REVENUE"
+    <mantle.ledger.account.GlAccount accountName="Miscellaneous Sales" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="419000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="410000000"/>
 
     <!-- 420000 SALES - CUSTOMER RETURNS -->
@@ -757,19 +761,19 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="424000000" glAccountTypeEnumId="GatCustomerReturns" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="420000000"/>
 
     <!-- 430000 SALES - CUSTOMER SERVICE CREDITS -->
-    <mantle.ledger.account.GlAccount accountName="Customer Service Credits" description="" glAccountClassEnumId="CONTRA_REVENUE"
+    <mantle.ledger.account.GlAccount accountName="Customer Service Credits" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="430000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="400000000"/>
 
     <!-- 440000 SALES - FEES RECEIVED -->
-    <mantle.ledger.account.GlAccount accountName="Sales Fees Received" description="" glAccountClassEnumId="REVENUE"
+    <mantle.ledger.account.GlAccount accountName="Sales Fees Received" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="440000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="400000000"/>
     <!-- NOTE: 721200000 => 441000000 -->
-    <mantle.ledger.account.GlAccount accountName="Postage and Handling Fees Received" description="" glAccountClassEnumId="REVENUE"
+    <mantle.ledger.account.GlAccount accountName="Postage and Handling Fees Received" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="441000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="440000000"/>
-    <mantle.ledger.account.GlAccount accountName="Late Payment Fees Received" description="" glAccountClassEnumId="REVENUE"
+    <mantle.ledger.account.GlAccount accountName="Late Payment Fees Received" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="442000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="440000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Third Party Sales" description="" glAccountClassEnumId="REVENUE"
+    <mantle.ledger.account.GlAccount accountName="Third Party Sales" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="450000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="400000000"/>
 
     <!-- ========== 500000 COST OF SALES ========== -->
@@ -1816,9 +1820,9 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemBonusNonDisc" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631600000" direction="I" itemTypeEnumId="ItemPrlCommission" organizationPartyId="DefaultSettings"/>
 
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151300000" direction="I" itemTypeEnumId="ItemAdvancePay" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151400000" direction="I" itemTypeEnumId="ItemAdvancePay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPayAdjOverpay" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151300000" direction="I" itemTypeEnumId="ItemPayAdjPay" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPayAdjPay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="260000000" direction="O" itemTypeEnumId="ItemAdvancePay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="260000000" direction="O" itemTypeEnumId="ItemPayAdjPay" organizationPartyId="DefaultSettings"/>
 
@@ -1829,7 +1833,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDed125Compy" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDed125Ppo" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDed125Hsa" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151300000" direction="E" itemTypeEnumId="ItemDedAdvRepay" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151400000" direction="E" itemTypeEnumId="ItemDedAdvRepay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="254000000" direction="E" itemTypeEnumId="ItemDedCharity" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222700000" direction="E" itemTypeEnumId="ItemDedChildGarnish" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="" direction="E" itemTypeEnumId="ItemDedMisc" organizationPartyId="DefaultSettings"/>
@@ -1962,12 +1966,13 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="252000000" finAccountTypeId="SupplierDeposit" organizationPartyId="DefaultSettings"/>
     <!-- <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251500000" finAccountTypeId="BankAccount" organizationPartyId="DefaultSettings"/> -->
     <!-- <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251500000" finAccountTypeId="Investment" organizationPartyId="DefaultSettings"/> -->
-    <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="151300000" finAccountTypeId="EmployeeAdvance" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="151400000" finAccountTypeId="EmployeeAdvance" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="121000000" reasonEnumId="FatrPurchase" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="258100000" reasonEnumId="FatrInitDeposit" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="258100000" reasonEnumId="FatrReplenish" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="258200000" reasonEnumId="FatrRefund" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="258200000" reasonEnumId="FatrDisbursement" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="258300000" reasonEnumId="FatrTransfer" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="430000000" reasonEnumId="FatrCsCredit" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountReasonGlAccount glAccountId="784000000" reasonEnumId="FatrErrorAdjust" organizationPartyId="DefaultSettings"/>
 

@@ -19,10 +19,14 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Workweek" enumId="PcfWorkweek" enumTypeId="PayrollCalcPer"/>
 
     <moqui.basic.EnumerationType description="Payroll Wage Grouping" enumTypeId="PayrollWageGrp"/>
-    <moqui.basic.Enumeration description="None" enumId="PwgNone" enumTypeId="PayrollWageGrp"/>
-    <moqui.basic.Enumeration description="Client" enumId="PwgClient" enumTypeId="PayrollWageGrp"/>
-    <moqui.basic.Enumeration description="Block" enumId="PwgBlock" enumTypeId="PayrollWageGrp"/>
-    <moqui.basic.Enumeration description="Block Group" enumId="PwgBlockGroup" enumTypeId="PayrollWageGrp"/>
+    <!-- All time entries are considered together for the calculation period. -->
+    <moqui.basic.Enumeration description="All" enumId="PwgAll" sequenceNum="1" enumTypeId="PayrollWageGrp"/>
+    <!-- All time entries for the same facility owner -->
+    <moqui.basic.Enumeration description="Facility Owner" enumId="PwgFacilityOwner" sequenceNum="2" enumTypeId="PayrollWageGrp"/>
+    <!-- All time entries for the same facility -->
+    <moqui.basic.Enumeration description="Facility" enumId="PwgFacility" sequenceNum="3" enumTypeId="PayrollWageGrp"/>
+    <!-- Time Entry grouping should evaluate each time entry separately as for whether it achieved minimum wage -->
+    <moqui.basic.Enumeration description="Time Entry" enumId="PwgTimeEntry" sequenceNum="10" enumTypeId="PayrollWageGrp"/>
 
     <!-- An FLSA workweek is a fixed, regularly-recurring period of 168 hours – that is, seven, consecutive, 24-hour periods –
          that the employer expressly adopts in order to maintain FLSA compliance.  It is unclear what effect daylight savings
@@ -42,6 +46,8 @@ along with this software (see the LICENSE.md file). If not, see
         If N, RRP calculation is performed against PIECE, HYBRID, and ND pay only.
     Should HOURLY Rest Breaks and NPT be paid RRP?
         If N, HOURLY Rest Breaks and NPT are paid HOURLY rate (If breaks are not extracted for RRP, they should not be paid RRP).
+    Should PIECE/HYBRID Rest Breaks be paid the higher of RRP and the hourly rate they would have otherwise earned?
+        If N, PIECE/HYBRID Rest Breaks will be paid RRP.
     Should Shift Differentials be included in RRP calculation?
         This is required in the USA by the FLSA: https://www.dol.gov/whd/regs/compliance/whdfs54.htm
     How frequently should RRP be calculated?
@@ -54,6 +60,9 @@ along with this software (see the LICENSE.md file). If not, see
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll RRP - Pay RRP on Hourly Break/NPT" partySettingTypeId="PayrollRrpPayOnHourlyBreakNpt"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll RRP - Pay Max(Hourly/RRP) on Piece Break" partySettingTypeId="PayrollRrpPayMaxRateOnPieceBreak"
+                                   enumTypeId="BooleanYN" defaultValue="BlN">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll RRP - Include Shift Differentials" partySettingTypeId="PayrollRrpInclShDiff"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
@@ -92,13 +101,15 @@ along with this software (see the LICENSE.md file). If not, see
     How frequently should minimum wage be tested?
     What is the minimum wage grouping level?
         If a grouping level is defined, makeup pay will be assigned at this level.
+    Should minimum wage makeup group by rate?
+        If Y, treat each rate as a separate grouping level.  This allows multiple mininum wages.
     -->
     <mantle.party.PartySettingType description="Payroll MWG - Check Minimum Wage" partySettingTypeId="PayrollMwCheck"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
-    <mantle.party.PartySettingType description="Payroll MWG - Default Minimum Wage" partySettingTypeId="PayrollMwDefault"
-                                   validRegexp="\d+\.\d*" defaultValue="0">
-        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <!--<mantle.party.PartySettingType description="Payroll MWG - Default Minimum Wage" partySettingTypeId="PayrollMwDefault"-->
+                                   <!--validRegexp="\d+\.\d*" defaultValue="0">-->
+        <!--<roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>-->
     <mantle.party.PartySettingType description="Payroll MWG - Check Hourly Entries" partySettingTypeId="PayrollMwCheckHourly"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
@@ -106,14 +117,27 @@ along with this software (see the LICENSE.md file). If not, see
                                    enumTypeId="PayrollCalcPer" defaultValue="PcfWorkweek">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll MWG - Calc Grouping" partySettingTypeId="PayrollMwCalcGrp"
-                                   enumTypeId="PayrollWageGrp" defaultValue="PwgNone">
+                                   enumTypeId="PayrollWageGrp" defaultValue="PwgAll">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll MWG - Makeup Group By Rate" partySettingTypeId="PayrollMwMkpGrpByRate"
+                                   enumTypeId="BooleanYN" defaultValue="BlN">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
+
     <!-- Workers Compensation (Risk Class):
+        Default Risk Class defines the default risk class for an organization or an employee.
+        Default Overrides Work Type determines whether the Default Risk Class overrides the risk class (if present)
+            overrides the risk class determined by the type of work being performed. 
         Should overtime premiums be included in Workers Compensation Insurance calculations?
             Pennsylvania, Delaware, Utah, and Nevada are the only states that included it currently.
         Should shift differential premiums be included in Workers Compensation Insurance calculations?
     -->
+    <mantle.party.PartySettingType description="Payroll WC - Default Risk Class" partySettingTypeId="PayrollWcRiskClass"
+                                   enumTypeId="RiskClassType">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll WC - Default Overrides Work Type" partySettingTypeId="PayrollWcDftOvrWrkTp"
+                                   enumTypeId="BooleanYN" defaultValue="BlY">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll WC - Include OT Premiums" partySettingTypeId="PayrollWcOtPrem"
                                    enumTypeId="BooleanYN" defaultValue="BlN">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>

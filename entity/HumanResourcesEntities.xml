@@ -214,7 +214,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="taxFormId"/></relationship>
         <relationship type="one" title="TaxClassification" related="moqui.basic.Enumeration">
             <key-map field-name="taxClassificationEnumId"/></relationship>
-        <relationship type="one" title="TaxHome" related="mantle.party.contact.PostalAddress">
+        <relationship type="one" title="TaxHome" related="mantle.party.contact.PostalAddress" short-alias="taxHomeContactMech">
             <key-map field-name="taxHomeContactMechId"/></relationship>
         <relationship type="one" title="TaxFederalStatus" related="moqui.basic.Enumeration">
             <key-map field-name="taxFederalStatusEnumId"/></relationship>
@@ -280,8 +280,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="taxStateStatusEnumId" type="id"/>
         -->
 
-        <relationship type="one" related="mantle.party.PartyRelationship"/>
-        <relationship type="one" related="mantle.humanres.position.EmplPosition"/>
+        <relationship type="one" related="mantle.party.PartyRelationship" short-alias="partyRel"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPosition" short-alias="position"/>
         <relationship type="one" title="TerminationReason" related="moqui.basic.Enumeration">
             <key-map field-name="terminationReasonEnumId"/></relationship>
         <relationship type="one" title="TerminationType" related="moqui.basic.Enumeration">
@@ -292,7 +292,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="EmplAuthzType" related="moqui.basic.Enumeration">
             <key-map field-name="emplAuthzTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType"/>
-        <relationship type="one" title="TaxWork" related="mantle.party.contact.PostalAddress">
+        <relationship type="one" title="TaxWork" related="mantle.party.contact.PostalAddress"
+                      short-alias="taxWorkContactMech">
             <key-map field-name="taxWorkContactMechId"/></relationship>
 
         <seed-data>
@@ -450,15 +451,15 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="amount" type="number-decimal"/>
         <field name="isEmployerPaid" type="text-indicator"/>
         <field name="taxAuthorityId" type="id"/>
-        <field name="garnishPartyId" type="id"/>
-        <field name="garnishCaseNumber" type="text-short"/>
+        <field name="payeePartyId" type="id"/>
+        <field name="payeeReference" type="text-short"/>
         <relationship type="one" related="mantle.humanres.employment.EmploymentPayHistory"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment"/>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
             <key-map field-name="itemTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.other.tax.TaxAuthority"/>
         <relationship type="one" title="Garnish" related="mantle.party.Party">
-            <key-map field-name="garnishPartyId"/></relationship>
+            <key-map field-name="payeePartyId"/></relationship>
     </entity>
     <entity entity-name="EmploymentSalary" package="mantle.humanres.employment" use="configuration">
         <description>The current and past actual salary amounts for Employment. Current salary found by standard date
@@ -484,6 +485,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="organizationPartyId" type="id"><description>If null applies to all organizations</description></field>
         <field name="partyRelationshipId" type="id"><description>If null applies to all employees</description></field>
         <field name="itemTypeEnumId" type="id"/>
+        <field name="exclusiveByItemType" type="text-indicator">
+            <description>Overrides less specific payroll adjusmtents if employment or employer is set.
+                Employment > Employer > open if set to Y.</description></field>
         <field name="overrideGlAccountId" type="id"/>
         <field name="payrollPhaseEnumId" type="id"/>
         <field name="timePeriodTypeId" type="id"/>
@@ -501,7 +505,7 @@ along with this software (see the LICENSE.md file). If not, see
             positive adjustments and deductible negative adjustments.</description></field>
 
         <field name="rateBasisEnumId" type="id"/>
-        <field name="riskClassCode" type="text-short"/>
+        <field name="riskClassEnumId" type="text-short"/>
         <field name="taxAuthorityId" type="id"/>
         <field name="taxBox" type="text-short"><description>For tax forms, the alphanumeric box</description></field>
         <field name="taxBoxCode" type="text-short"><description>For tax forms, the code/type</description></field>
@@ -511,12 +515,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="applyAllowanceDeduction" type="text-indicator"/>
         <field name="applyAllowanceExemption" type="text-indicator"/>
 
-        <field name="garnishPartyId" type="id"/>
+        <field name="payeePartyId" type="id"/><!-- replaces garnishPartyId -->
+        <field name="payeeReference" type="text-short"/><!-- replaces garnishCaseNumber -->
+        <field name="payeeDueDays" type="number-integer"/><!-- replaces garnishDueDays -->
+
         <field name="garnishDisposablePercent" type="number-decimal"/>
         <field name="garnishMinWageApplies" type="text-indicator"/>
         <field name="garnishPriority" type="number-integer"/>
-        <field name="garnishDueDays" type="number-integer"/>
-        <field name="garnishCaseNumber" type="text-short"/>
         <field name="deductFromDisposable" type="text-indicator"/>
 
         <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organizationParty">
@@ -532,8 +537,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="PayrollRateBasis" related="moqui.basic.Enumeration">
             <key-map field-name="rateBasisEnumId"/></relationship>
         <relationship type="one" related="mantle.other.tax.TaxAuthority" short-alias="taxAuthority"/>
-        <relationship type="one" title="Garnish" related="mantle.party.Party" short-alias="garnishParty">
-            <key-map field-name="garnishPartyId"/></relationship>
+        <relationship type="one" title="Payee" related="mantle.party.Party" short-alias="payeeParty">
+            <key-map field-name="payeePartyId"/></relationship>
 
         <relationship type="many" related="mantle.humanres.employment.PayrollAdjustmentDetail" short-alias="details">
             <key-map field-name="payrollAdjustmentId"/></relationship>
@@ -698,13 +703,18 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="overrideGlAccountId"/></relationship>
     </entity>
     <entity entity-name="WorkTypeRiskClass" package="mantle.humanres.employment" use="configuration">
-        <field name="stateGeoId" type="id" is-pk="true"/>
+        <field name="geoId" type="id" is-pk="true"/>
         <field name="workTypeEnumId" type="id" is-pk="true"/>
-        <field name="riskClassCode" type="text-short"/>
+        <field name="riskClassEnumId" type="id"/>
         <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workTypeEnum">
             <key-map field-name="workTypeEnumId"/></relationship>
-        <relationship type="one" title="State" related="moqui.basic.Geo">
-            <key-map field-name="stateGeoId"/></relationship>
+        <relationship type="one" title="RiskClass" related="moqui.basic.Enumeration" short-alias="riskClassEnum">
+            <key-map field-name="riskClassEnumId"/></relationship>
+        <relationship type="one" title="Geo" related="moqui.basic.Geo" short-alias="geo">
+            <key-map field-name="geoId"/></relationship>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Risk Class Type" enumTypeId="RiskClassType"/>
+        </seed-data>
     </entity>
 
     <!-- ========================================================= -->
@@ -771,6 +781,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="General Labor" enumId="WktpGeneralLabor" enumTypeId="WorkType"/>
             <moqui.basic.Enumeration description="General Office" enumId="WktpGeneralOffice" enumTypeId="WorkType"/>
             <moqui.basic.Enumeration description="Paid Break" enumId="WktpPaidBreak" enumTypeId="WorkType"/>
+            <moqui.basic.Enumeration description="Paid Non-productive Time" enumId="WktpPaidNpt" enumTypeId="WorkType"/>
 
             <!-- Empl Position Class -->
             <mantle.humanres.position.EmplPositionClass title="Project Manager" emplPositionClassId="ProjectManager"/>
@@ -907,18 +918,18 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Piece Rate Type" enumTypeId="PieceRateType"/>
             <!-- these are the primary types for manual time entry -->
             <moqui.basic.Enumeration enumId="RatpStandard" description="Standard" enumTypeId="RateType"/>
-            <moqui.basic.Enumeration enumId="RatpPieceMinWageAdj" description="Piece Min Wage Adjustment" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
-            <moqui.basic.Enumeration enumId="RatpPaidBreakStd" description="Paid Break STD (hourly)" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
-            <moqui.basic.Enumeration enumId="RatpPaidBreakRrp" description="Paid Break RRP (piece)" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
-            <moqui.basic.Enumeration enumId="RatpPaidNptStd" description="Paid Non-productive STD (hourly)" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
-            <moqui.basic.Enumeration enumId="RatpPaidNptRrp" description="Paid Non-productive RRP (piece)" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpPieceMinWageAdj" description="Min Wage Adj" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpPaidBreakStd" description="Paid Break STD" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpPaidBreakRrp" description="Paid Break RRP" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpPaidNptStd" description="NPT - STD" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpPaidNptRrp" description="NPT - RRP" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpVacation" description="PTO - Vacation" enumTypeId="RateType"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpHoliday" description="PTO - Holiday" enumTypeId="RateType"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpSick" description="PTO - Sick" enumTypeId="RateType"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpPtoOther" description="PTO - Other" enumTypeId="RateType"/><!-- calculated, not configured -->
             <!-- see store#TimeEntry, relatedEnumId used to find piece rate type based on hourly rate type -->
             <moqui.basic.Enumeration enumId="RatpPieceOrHour" description="Piece or Hourly" enumTypeId="PieceRateType" relatedEnumId="RatpStandard"/>
-            <moqui.basic.Enumeration enumId="RatpPieceOnly" description="Piece Only" enumTypeId="PieceRateType" relatedEnumId="RatpStandard"/>
+            <moqui.basic.Enumeration enumId="RatpPieceOnly" description="Piece" enumTypeId="PieceRateType" relatedEnumId="RatpStandard"/>
             <moqui.basic.Enumeration enumId="RatpPiecePlusHour" description="Piece plus Hourly" enumTypeId="PieceRateType" relatedEnumId="RatpStandard"/>
             <!-- these are less commonly used (NOTE if not configured looks for relatedEnumId to fill in) -->
             <moqui.basic.Enumeration enumId="RatpUnpaid" description="Unpaid" enumTypeId="RateType" relatedEnumId="RatpStandard"/>
@@ -973,23 +984,33 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Hour Rate Type -->
             <moqui.basic.Enumeration description="Hourly Rate Type" enumId="EngHourlyRateType" enumTypeId="EnumGroup"/>
             <moqui.basic.EnumGroupMember enumId="RatpStandard" sequenceNum="1" enumGroupEnumId="EngHourlyRateType"/>
-            <moqui.basic.EnumGroupMember enumId="RatpEvening" sequenceNum="21" enumGroupEnumId="EngHourlyRateType"/>
-            <moqui.basic.EnumGroupMember enumId="RatpNight" sequenceNum="22" enumGroupEnumId="EngHourlyRateType"/>
-            <moqui.basic.EnumGroupMember enumId="RatpWeekend" sequenceNum="23" enumGroupEnumId="EngHourlyRateType"/>
-            <moqui.basic.EnumGroupMember enumId="RatpShHoliday" sequenceNum="24" enumGroupEnumId="EngHourlyRateType"/>
-            <moqui.basic.EnumGroupMember enumId="RatpOnsite" sequenceNum="25" enumGroupEnumId="EngHourlyRateType"/>
+
+            <moqui.basic.EnumGroupMember enumId="RatpEvening" enumGroupEnumId="EngHourlyRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpNight" enumGroupEnumId="EngHourlyRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpWeekend" enumGroupEnumId="EngHourlyRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpShHoliday" enumGroupEnumId="EngHourlyRateType"/>
+
+            <moqui.basic.EnumGroupMember enumId="RatpPaidNptStd" enumGroupEnumId="EngHourlyRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPaidNptRrp" enumGroupEnumId="EngHourlyRateType"/>
+
+            <moqui.basic.EnumGroupMember enumId="RatpVacation" enumGroupEnumId="EngHourlyRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpHoliday" enumGroupEnumId="EngHourlyRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpSick" enumGroupEnumId="EngHourlyRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPtoOther" enumGroupEnumId="EngHourlyRateType"/>
 
             <!-- Piece Rate Type -->
             <moqui.basic.Enumeration description="Piece Rate Type" enumId="EngPieceRateType" enumTypeId="EnumGroup"/>
-            <moqui.basic.EnumGroupMember enumId="RatpPieceOnly" sequenceNum="4" enumGroupEnumId="EngPieceRateType"/>
-            <moqui.basic.EnumGroupMember enumId="RatpPieceOrHour" sequenceNum="5" enumGroupEnumId="EngPieceRateType"/>
-            <moqui.basic.EnumGroupMember enumId="RatpPiecePlusHour" sequenceNum="6" enumGroupEnumId="EngPieceRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPieceOnly" sequenceNum="1" enumGroupEnumId="EngPieceRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPieceOrHour" sequenceNum="2" enumGroupEnumId="EngPieceRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPiecePlusHour" sequenceNum="3" enumGroupEnumId="EngPieceRateType"/>
+            <!-- Include minimum wage adjustment, as the only reason for a minimum wage adjustment is the lack of piece income -->
+            <moqui.basic.EnumGroupMember enumId="RatpPieceMinWageAdj" sequenceNum="4" enumGroupEnumId="EngPieceRateType"/>
 
             <!-- Rate Modifier Type -->
             <moqui.basic.Enumeration description="Pay Rate Modifier Type" enumId="EngPayRateModifierType" enumTypeId="EnumGroup"/>
-            <moqui.basic.EnumGroupMember enumId="RatmRegular" sequenceNum="4" enumGroupEnumId="EngPayRateModifierType"/>
-            <moqui.basic.EnumGroupMember enumId="RatmOvertime" sequenceNum="5" enumGroupEnumId="EngPayRateModifierType"/>
-            <moqui.basic.EnumGroupMember enumId="RatmDouble" sequenceNum="6" enumGroupEnumId="EngPayRateModifierType"/>
+            <moqui.basic.EnumGroupMember enumId="RatmRegular" sequenceNum="1" enumGroupEnumId="EngPayRateModifierType"/>
+            <moqui.basic.EnumGroupMember enumId="RatmOvertime" sequenceNum="2" enumGroupEnumId="EngPayRateModifierType"/>
+            <moqui.basic.EnumGroupMember enumId="RatmDouble" sequenceNum="3" enumGroupEnumId="EngPayRateModifierType"/>
 
             <!-- Rate Purpose -->
             <moqui.basic.EnumerationType description="Rate Purpose" enumTypeId="RatePurpose"/>

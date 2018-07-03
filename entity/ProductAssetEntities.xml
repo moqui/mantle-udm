@@ -31,7 +31,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="assetTypeEnumId" type="id"/>
         <field name="classEnumId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
-        <field name="ownerPartyId" type="id" enable-audit-log="true"/>
+        <field name="ownerPartyId" type="id" enable-audit-log="update"/>
 
         <field name="productId" type="id"><description>The Asset is an Instance of this Product (for inventory, maintenance
             schedules/etc, content about what sort of thing the Asset is, etc)</description></field>
@@ -62,22 +62,26 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="capacity" type="number-decimal"/>
         <field name="capacityUomId" type="id"/>
 
-        <field name="originId" type="id"><description>Origin ID, the ID used wherever this came from.</description></field>
-        <field name="originFacilityId" type="id"><description>Origin Facility, where manufactured or came from.</description></field>
         <field name="facilityId" type="id"><description>Current Facility, where stored.</description></field>
         <field name="locationSeqId" type="id" enable-audit-log="true"/>
-        <field name="containerId" type="id"><description>Container stored in, if specified the current facilityId and
-            locationSeqId should come from the container and not from this record.</description></field>
+        <field name="containerId" type="id" enable-audit-log="true"><description>
+            Container stored in, if specified the current facilityId and locationSeqId should come from the container
+            and not from this record or with standard EECA rule in place facilityId and locationSeqId will be set and
+            maintained from the Container values.
+        </description></field>
         <field name="shipmentBoxTypeId" type="id"/>
         <field name="lotId" type="id"/>
-        <field name="geoPointId" type="id" enable-audit-log="true"/>
+        <field name="geoPointId" type="id" enable-audit-log="update"/>
 
+        <field name="originId" type="id"><description>Origin ID, the ID used wherever this came from.</description></field>
+        <field name="originFacilityId" type="id"><description>Origin Facility, where manufactured or came from.</description></field>
         <field name="acquireOrderId" type="id"/>
         <field name="acquireOrderItemSeqId" type="id"/>
         <field name="acquireWorkEffortId" type="id"><description>For assets created from production runs, etc.</description></field>
         <field name="acquireShipmentId" type="id"/>
         <field name="acquireCost" type="currency-amount" enable-audit-log="update"/>
         <field name="acquireCostUomId" type="id"/>
+
         <field name="salvageValue" type="currency-amount" enable-audit-log="update"/>
         <field name="depreciation" type="currency-amount"><description>History in AssetDepreciation</description></field>
         <field name="depreciationTypeEnumId" type="id"/>
@@ -175,6 +179,9 @@ along with this software (see the LICENSE.md file). If not, see
                     parentEnumId="AsClsInventory" enumTypeId="AssetClass"/>
             <moqui.basic.Enumeration description="Inventory - Finished Good" enumId="AsClsInventoryFin"
                     parentEnumId="AsClsInventory" enumTypeId="AssetClass"/>
+
+            <moqui.basic.Enumeration description="Warehouse Equipment" enumId="AsClsWhEquip" enumTypeId="AssetClass"/>
+            <moqui.basic.Enumeration description="Manufacturing Equipment" enumId="AsClsMfgEquip" enumTypeId="AssetClass"/>
 
             <moqui.basic.Enumeration description="Boat" enumId="AsClsBoat" enumTypeId="AssetClass"/>
             <moqui.basic.Enumeration description="Forklift" enumId="AsClsForklift" enumTypeId="AssetClass"/>
@@ -444,21 +451,25 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="Container" package="mantle.product.asset" sequence-primary-prefix="C" cache="never">
         <!-- Sequence prefix of "C" is mostly to differentiate from Asset IDs; in inventory situations either may be scanned/entered -->
         <field name="containerId" type="id" is-pk="true"/>
+        <field name="serialNumber" type="id" default="containerId">
+            <description>Serial number or license plate for the container.</description></field>
         <field name="containerTypeEnumId" type="id"/>
         <field name="createdDate" type="date-time" default="ec.user.nowTimestamp"/>
-        <field name="externalId" type="id"><description>An identifier for the container in an external system (source, origin, etc).</description></field>
-        <field name="serialNumber" type="id"><description>Serial number or license plate for the container.</description></field>
-        <field name="facilityId" type="id" enable-audit-log="true"/>
-        <field name="locationSeqId" type="id" enable-audit-log="true"/>
-        <field name="geoPointId" type="id" enable-audit-log="true"/>
         <field name="description" type="text-medium"/>
+        <field name="externalId" type="id">
+            <description>An identifier for the container in an external system (source, origin, etc).</description></field>
+        <field name="facilityId" type="id" enable-audit-log="update"/>
+        <field name="locationSeqId" type="id" enable-audit-log="update"/>
+        <field name="geoPointId" type="id" enable-audit-log="update"/>
         <relationship type="one" title="ContainerType" related="moqui.basic.Enumeration">
             <key-map field-name="containerTypeEnumId"/></relationship>
-        <relationship type="one" related="mantle.facility.Facility"/>
-        <relationship type="one-nofk" related="mantle.facility.FacilityLocation"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one-nofk" related="mantle.facility.FacilityLocation" short-alias="location"/>
+        <index name="CONTNR_SER_NUM" unique="true"><index-field name="serialNumber"/></index>
         <seed-data>
             <!-- Container Type -->
             <moqui.basic.EnumerationType description="Container Type" enumTypeId="ContainerType"/>
+            <moqui.basic.Enumeration description="Bin - Shelf Std" enumId="CtBinShelf" enumTypeId="ContainerType"/>
             <moqui.basic.Enumeration description="Pallet US 40x48in" enumId="CtPalletUs4048" enumTypeId="ContainerType"/>
             <moqui.basic.Enumeration description="Pallet US 40x40in" enumId="CtPalletUs4040" enumTypeId="ContainerType"/>
             <moqui.basic.Enumeration description="Pallet US 42x42in" enumId="CtPalletUs4242" enumTypeId="ContainerType"/>
@@ -801,6 +812,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderId" type="id"/>
         <field name="orderItemSeqId" type="id"/>
         <field name="shipmentId" type="id"/>
+        <field name="shipmentItemSourceId" type="id"/>
         <field name="shipmentPackageSeqId" type="id"/>
         <field name="invoiceId" type="id"/>
         <field name="invoiceItemSeqId" type="id"/>
@@ -818,6 +830,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem"/>
         <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
+        <relationship type="one" related="mantle.shipment.ShipmentItemSource" short-alias="shipmentItemSource"/>
         <relationship type="one-nofk" related="mantle.shipment.ShipmentItem" short-alias="shipmentItem"/>
         <relationship type="one-nofk" related="mantle.shipment.ShipmentPackage" short-alias="shipmentPackage">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>

@@ -66,7 +66,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="salesChannelEnumId" type="id"/>
 
         <field name="terminalId" type="text-short"/>
-        <field name="externalId" type="text-short"/>
+        <field name="displayId" type="text-short"><description>ID to display to customers, can be different from orderId and/or externalId</description></field>
+        <field name="externalId" type="text-short"><description>ID for the order in the system it came from if it came from an external system</description></field>
         <field name="externalRevision" type="text-short"/>
         <field name="syncStatusId" type="id"/>
         <field name="systemMessageRemoteId" type="id"/>
@@ -110,6 +111,12 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="orderId"/></relationship>
         <relationship type="many" related="mantle.account.payment.Payment" short-alias="payments">
             <key-map field-name="orderId"/></relationship>
+
+        <relationship type="many" title="Status" related="moqui.entity.EntityAuditLog" short-alias="statusLogs">
+            <key-map field-name="orderId" related="pkPrimaryValue"/>
+            <key-value related="changedEntityName" value="mantle.order.OrderHeader"/>
+            <key-value related="changedFieldName" value="statusId"/>
+        </relationship>
 
         <index name="ORDEREXT_ID_IDX"><index-field name="externalId"/></index>
 
@@ -291,18 +298,23 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productPriceId" type="id"/>
         <field name="productCategoryId" type="id"/>
         <field name="isPromo" type="text-indicator"/>
-        <field name="promoQuantity" type="number-decimal"/>
+        <field name="promoQuantity" type="number-decimal"><description>For promo items. The quantity of the parent order item
+            'consumed' by the promotion, excluding from use in other promotions if promotion set to limit by this.</description></field>
+        <field name="promoTimesUsed" type="number-decimal">
+            <description>For promo items. The number of times the promo was used for use limits.</description></field>
+        <field name="storePromotionId" type="id"/>
+        <field name="promoCodeId" type="id"/>
 
         <field name="subscriptionId" type="id"/>
-        <field name="overrideGlAccountId" type="id"><description>Used to specify the override or actual glAccountId
-            used for the item.</description></field>
+        <field name="overrideGlAccountId" type="id">
+            <description>Used to specify the override or actual glAccountId used for the item.</description></field>
         <field name="salesOpportunityId" type="id"/>
 
         <!-- these fields are for sales/VAT/etc tax items -->
         <field name="sourceReferenceId" type="text-short"/>
         <field name="sourcePercentage" type="number-decimal"><description>The percentage used for tax, promo, etc items</description></field>
-        <field name="amountAlreadyIncluded" type="currency-precise"><description>The amount here is already represented
-            in the item price, such as VAT taxes.</description></field>
+        <field name="amountAlreadyIncluded" type="currency-precise">
+            <description>The amount here is already represented in the item price, such as VAT taxes.</description></field>
         <field name="exemptAmount" type="currency-amount"><description>An amount that would normally apply, but not to
             this order; for tax exemption represents the what the tax would have been.</description></field>
         <field name="customerReferenceId" type="text-short"><description>For tax entries this is partyTaxId</description></field>
@@ -322,10 +334,14 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.feature.ProductFeature" short-alias="feature"/>
         <relationship type="one" title="Quantity" related="moqui.basic.Uom" short-alias="quantityUom">
             <key-map field-name="quantityUomId"/></relationship>
+
         <relationship type="one" title="From" related="mantle.product.asset.Asset" short-alias="fromAsset">
             <key-map field-name="fromAssetId"/></relationship>
         <relationship type="one" related="mantle.product.ProductPrice" short-alias="price"/>
         <relationship type="one" related="mantle.product.category.ProductCategory" short-alias="category"/>
+        <relationship type="one" related="mantle.product.store.ProductStorePromotion" short-alias="storePromotion"/>
+        <relationship type="one" related="mantle.product.store.ProductStorePromoCode" short-alias="storePromoCode"/>
+
         <relationship type="one" title="Override" related="mantle.ledger.account.GlAccount" short-alias="overrideGlAccount">
             <key-map field-name="overrideGlAccountId"/></relationship>
         <relationship type="one" related="SalesOpportunity" short-alias="opportunity"/>
@@ -390,17 +406,18 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="vendorPartyId" type="id"><description>The vendor (seller) of the items in the order part.</description></field>
         <field name="customerPartyId" type="id"><description>The customer (buyer) of the items in the order part.</description></field>
         <field name="otherPartyOrderId" type="text-short"/>
+        <field name="otherPartyOrderDate" type="date-time"/>
 
-        <field name="facilityId" type="id"><description>The Facility to fulfill the order from (if null look up from
-            ProductStore), or for purchase orders the Facility the order will be shipped to.</description></field>
+        <field name="facilityId" type="id" enable-audit-log="update"><description>The Facility to fulfill the order from
+            (if null look up from ProductStore), or for purchase orders the Facility the order will be shipped to.</description></field>
 
-        <field name="carrierPartyId" type="id" enable-audit-log="true"/>
-        <field name="shipmentMethodEnumId" type="id" enable-audit-log="true"/>
+        <field name="carrierPartyId" type="id" enable-audit-log="update"/>
+        <field name="shipmentMethodEnumId" type="id" enable-audit-log="update"/>
 
-        <field name="postalContactMechId" type="id"/>
+        <field name="postalContactMechId" type="id" enable-audit-log="update"/>
         <field name="telecomContactMechId" type="id"/>
         <field name="trackingNumber" type="text-short"/>
-        <field name="shippingInstructions" type="text-medium"/>
+        <field name="shippingInstructions" type="text-long"/>
         <field name="maySplit" type="text-indicator"/>
         <field name="giftMessage" type="text-medium"/>
         <field name="isGift" type="text-indicator"/>
@@ -425,8 +442,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="disableShippingCalc" type="text-indicator"/>
         <field name="disableTaxCalc" type="text-indicator"/>
 
-        <relationship type="one" related="mantle.order.OrderHeader"/>
-        <relationship type="one" title="Parent" related="mantle.order.OrderPart">
+        <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
+        <relationship type="one" title="Parent" related="mantle.order.OrderPart" short-alias="parentPart">
             <key-map field-name="orderId"/>
             <key-map field-name="parentPartSeqId" related="orderPartSeqId"/>
         </relationship>
@@ -499,6 +516,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="settlementTermId" type="id" is-pk="true"/>
         <relationship type="one" related="mantle.order.OrderPart" short-alias="orderPart"/>
         <relationship type="one" related="SettlementTerm" short-alias="term"/>
+    </entity>
+    <entity entity-name="OrderPromoCode" package="mantle.order" cache="never">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="promoCodeId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
+        <relationship type="one" related="mantle.product.store.ProductStorePromoCode" short-alias="storePromoCode"/>
     </entity>
     <entity entity-name="OrderItemWorkEffort" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>

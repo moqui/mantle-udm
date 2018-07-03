@@ -51,7 +51,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="addtlShippingCharge" type="currency-amount"/>
         <field name="addtlShippingChargeDesc" type="text-medium"/>
 
-        <field name="handlingInstructions" type="text-medium"/>
+        <field name="handlingInstructions" type="text-long"/>
         <field name="otherPartyOrderId" type="text-short"/>
         <field name="systemMessageRemoteId" type="id"/>
 
@@ -120,13 +120,16 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipScheduled" toStatusId="ShipDelivered" transitionName="Deliver"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipScheduled" toStatusId="ShipCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPicked" toStatusId="ShipPacked" transitionName="Pack"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPicked" toStatusId="ShipCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPacked" toStatusId="ShipShipped" transitionName="Ship"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPacked" toStatusId="ShipDelivered" transitionName="Deliver"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPacked" toStatusId="ShipRejected" transitionName="Reject"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPacked" toStatusId="ShipCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipShipped" toStatusId="ShipDelivered" transitionName="Deliver"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipShipped" toStatusId="ShipRejected" transitionName="Reject"/>
-            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPicked" toStatusId="ShipCancelled" transitionName="Cancel"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipShipped" toStatusId="ShipCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipDelivered" toStatusId="ShipShipped" transitionName="Un-deliver"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipShipped" toStatusId="ShipPacked" transitionName="Un-ship"/>
         </seed-data>
         <master>
             <detail relationship="type"/>
@@ -288,9 +291,9 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="ShipmentPackage" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentPackageSeqId" type="id" is-pk="true"/>
-        <field name="shipmentBoxTypeId" type="id"/>
-        <field name="weight" type="number-decimal"/>
-        <field name="weightUomId" type="id"/>
+        <field name="shipmentBoxTypeId" type="id" enable-audit-log="update"/>
+        <field name="weight" type="number-decimal" enable-audit-log="update"/>
+        <field name="weightUomId" type="id" enable-audit-log="update"/>
         <field name="gatewayPackageId" type="text-medium"/>
         <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
         <relationship type="one" related="mantle.shipment.ShipmentBoxType" short-alias="boxType"/>
@@ -320,7 +323,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="trackingCode" type="text-medium" enable-audit-log="update"/>
         <field name="trackingUrl" type="text-long"/>
         <field name="trackingStatusEnumId" type="id" enable-audit-log="true"/>
+        <field name="trackingSubStatus" type="text-short" enable-audit-log="update"/>
         <field name="trackingStatusDate" type="date-time"/>
+        <field name="trackingEta" type="date-time"/>
+        <field name="trackingOrigEta" type="date-time"/>
         <field name="boxNumber" type="text-short"/>
 
         <field name="gatewayStatus" type="text-short" enable-audit-log="update"/>
@@ -341,6 +347,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="returnTrackingCode" type="text-medium" enable-audit-log="update"/>
         <field name="returnTrackingUrl" type="text-long"/>
         <field name="returnTrackingStatusEnumId" type="id" enable-audit-log="update"/>
+        <field name="returnTrackingSubStatus" type="text-short" enable-audit-log="update"/>
+        <field name="returnTrackingStatusDate" type="date-time"/>
         <field name="returnLabelDate" type="date-time"/>
         <field name="returnLabelUrl" type="text-long"/>
         <field name="returnLabelImage" type="binary-very-long"/>
@@ -357,16 +365,20 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="codAmount" type="currency-amount"/>
         <field name="insuredAmount" type="currency-amount"/>
         <!-- should use costUomId on ShipmentRouteSegment or Shipment: <field name="amountUomId" type="id"/> -->
-        <relationship type="one-nofk" related="mantle.shipment.Shipment"/>
-        <relationship type="one" related="mantle.shipment.ShipmentPackage">
+        <relationship type="one-nofk" related="mantle.shipment.Shipment" short-alias="shipment"/>
+        <relationship type="one" related="mantle.shipment.ShipmentPackage" short-alias="package">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>
-        <relationship type="one" related="mantle.shipment.ShipmentRouteSegment">
+        <relationship type="one" related="mantle.shipment.ShipmentRouteSegment" short-alias="routeSegment">
             <key-map field-name="shipmentId"/><key-map field-name="shipmentRouteSegmentSeqId"/></relationship>
         <relationship type="one" title="ShipmentTrackingStatus" related="moqui.basic.Enumeration" short-alias="trackingStatusEnum">
             <key-map field-name="trackingStatusEnumId"/></relationship>
         <relationship type="one" title="ReturnTrackingStatus" related="moqui.basic.Enumeration" short-alias="returnTrackingStatusEnum">
             <key-map field-name="returnTrackingStatusEnumId"/></relationship>
         <index name="SHIP_PKRTSG_SHIPID"><index-field name="shipmentId"/></index>
+        <index name="SHIP_PKRTSG_TRKCODE"><index-field name="trackingCode"/></index>
+        <index name="SHIP_PKRTSG_GTLBL"><index-field name="gatewayLabelId"/></index>
+        <index name="SHIP_PKRTSG_RTTRKCD"><index-field name="returnTrackingCode"/></index>
+        <index name="SHIP_PKRTSG_RTGTLBL"><index-field name="returnGatewayLabelId"/></index>
         <seed-data>
             <moqui.basic.EnumerationType description="Shipping Tracking Status" enumTypeId="ShipmentTrackingStatus"/>
             <moqui.basic.Enumeration description="Unknown" enumId="ShTsUnknown" enumTypeId="ShipmentTrackingStatus"/>
@@ -386,11 +398,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="originPostalContactMechId" type="id"/>
         <field name="originTelecomContactMechId" type="id"/>
         <field name="destinationFacilityId" type="id"/>
-        <field name="destPostalContactMechId" type="id"/>
+        <field name="destPostalContactMechId" type="id" enable-audit-log="update"/>
         <field name="destTelecomContactMechId" type="id"/>
 
-        <field name="carrierPartyId" type="id"/>
-        <field name="shipmentMethodEnumId" type="id"/>
+        <field name="carrierPartyId" type="id" enable-audit-log="update"/>
+        <field name="shipmentMethodEnumId" type="id" enable-audit-log="update"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="carrierDeliveryZone" type="text-short"/>
         <field name="carrierRestrictionCodes" type="text-short"/>
@@ -480,20 +492,20 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="carrierServiceCode" type="text-short"/>
         <field name="scaCode" type="text-short"><description>Standard Carrier Alpha Code</description></field>
         <field name="gatewayServiceCode" type="text-short"/>
-        <relationship type="one" title="Carrier" related="mantle.party.Party">
+        <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrierParty">
             <key-map field-name="carrierPartyId"/></relationship>
-        <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration">
+        <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration" short-alias="shipmentMethodEnum">
             <key-map field-name="shipmentMethodEnumId"/></relationship>
         <seed-data>
             <!-- Shipment Method -->
             <moqui.basic.EnumerationType description="Shipment Method" enumTypeId="ShipmentMethod"/>
-            <moqui.basic.Enumeration description="Customer Pick Up" enumId="ShMthPickUp" enumTypeId="ShipmentMethod"/>
-            <moqui.basic.Enumeration description="Next Day Standard" enumId="ShMthNextDay" enumTypeId="ShipmentMethod"/>
-            <moqui.basic.Enumeration description="Next Day Priority" enumId="ShMthNextDayPri" enumTypeId="ShipmentMethod"/>
-            <moqui.basic.Enumeration description="Second Day" enumId="ShMthSecondDay" enumTypeId="ShipmentMethod"/>
-            <moqui.basic.Enumeration description="Third Day" enumId="ShMthThirdDay" enumTypeId="ShipmentMethod"/>
-            <moqui.basic.Enumeration description="Ground Parcel" enumId="ShMthGround" enumTypeId="ShipmentMethod"/>
-            <moqui.basic.Enumeration description="Motor (Common Carrier)" enumId="ShMthMotor" enumTypeId="ShipmentMethod"/>
+            <moqui.basic.Enumeration sequenceNum="0" description="Customer Pick Up" enumId="ShMthPickUp" enumTypeId="ShipmentMethod"/>
+            <moqui.basic.Enumeration sequenceNum="1" description="Next Day Priority" enumId="ShMthNextDayPri" enumTypeId="ShipmentMethod"/>
+            <moqui.basic.Enumeration sequenceNum="2" description="Next Day Standard" enumId="ShMthNextDay" enumTypeId="ShipmentMethod"/>
+            <moqui.basic.Enumeration sequenceNum="3" description="Second Day" enumId="ShMthSecondDay" enumTypeId="ShipmentMethod"/>
+            <moqui.basic.Enumeration sequenceNum="4" description="Third Day" enumId="ShMthThirdDay" enumTypeId="ShipmentMethod"/>
+            <moqui.basic.Enumeration sequenceNum="5" description="Ground Parcel" enumId="ShMthGround" enumTypeId="ShipmentMethod"/>
+            <moqui.basic.Enumeration sequenceNum="6" description="Motor (Common Carrier)" enumId="ShMthMotor" enumTypeId="ShipmentMethod"/>
 
             <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="_NA_" shipmentMethodEnumId="ShMthPickUp" sequenceNum="0"/>
             <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="_NA_" shipmentMethodEnumId="ShMthGround" sequenceNum="1"/>

@@ -179,9 +179,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="postBalance" type="currency-amount"/>
         <field name="paymentId" type="id"/>
         <field name="invoiceId" type="id"/>
+        <field name="invoiceItemSeqId" type="id"><description>To be used along with invoiceId to point to an InvoiceItem that
+            this transaction is based on, such as a full or partial credit against a charge.</description></field>
         <field name="orderId" type="id"/>
         <field name="orderItemSeqId" type="id"><description>To be used along with orderId to point to an OrderItem that
             represents the purchase of a product to add money to the account.</description></field>
+        <field name="otherFinAccountTransId" type="id" create-only="false"><description>For FinancialAccount transfer transaction pairs</description></field>
         <field name="performedByUserId" type="id"/>
         <field name="acctgTransResultEnumId" type="id" create-only="false"/>
         <field name="reversedByTransId" type="id" create-only="false"/>
@@ -238,6 +241,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Replenishment" enumId="FatrReplenish" enumTypeId="FinancialAccountTransReason"/>
             <moqui.basic.Enumeration description="Refund" enumId="FatrRefund" enumTypeId="FinancialAccountTransReason"/>
             <moqui.basic.Enumeration description="Disbursement" enumId="FatrDisbursement" enumTypeId="FinancialAccountTransReason"/>
+            <moqui.basic.Enumeration description="Account Transfer" enumId="FatrTransfer" enumTypeId="FinancialAccountTransReason"/>
             <moqui.basic.Enumeration description="Customer Service Credit" enumId="FatrCsCredit" enumTypeId="FinancialAccountTransReason"/>
             <moqui.basic.Enumeration description="Error Adjustment" enumId="FatrErrorAdjust" enumTypeId="FinancialAccountTransReason"/>
         </seed-data>
@@ -329,6 +333,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="overrideOrgPartyId" type="id"><description>Used to specify the organization override rather than
             using the fromPartyId and/or toPartyId (depending on which is an internal org).</description></field>
 
+        <field name="productStoreId" type="id"><description>For sales invoices processed through a ProductStore, copied from order if applicable</description></field>
         <field name="partyRelationshipId" type="id"><description>For Payroll invoices, points to Employment record</description></field>
         <field name="timePeriodId" type="id"><description>For Payroll invoices, points to Payroll TimePeriod</description></field>
         <field name="acctgTransResultEnumId" type="id"/>
@@ -368,6 +373,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="OverrideOrg" related="mantle.party.Party" short-alias="overrideOrgParty">
             <key-map field-name="overrideOrgPartyId"/></relationship>
 
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="productStore"/>
         <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
         <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
         <relationship type="one" title="AcctgTransResult" related="moqui.basic.Enumeration" short-alias="acctgTransResultEnum">
@@ -386,7 +392,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Invoice Type" enumTypeId="InvoiceType"/>
             <moqui.basic.Enumeration description="Sales/Purchase" enumId="InvoiceSales" enumTypeId="InvoiceType"/>
             <moqui.basic.Enumeration description="Return" enumId="InvoiceReturn" enumTypeId="InvoiceType"/>
-            <moqui.basic.Enumeration description="Payroll" enumId="InvoicePayroll" enumTypeId="InvoiceType"/>
+            <moqui.basic.Enumeration description="Payroll Employee" enumId="InvoicePayroll" enumTypeId="InvoiceType"/>
+            <moqui.basic.Enumeration description="Payroll Other" enumId="InvoicePayrollOther" enumTypeId="InvoiceType"/>
             <moqui.basic.Enumeration description="Tax" enumId="InvoiceTax" enumTypeId="InvoiceType"/>
             <moqui.basic.Enumeration description="Garnishment" enumId="InvoiceGarnishment" enumTypeId="InvoiceType"/>
             <moqui.basic.Enumeration description="Commission" enumId="InvoiceCommission" enumTypeId="InvoiceType"/>
@@ -586,7 +593,9 @@ along with this software (see the LICENSE.md file). If not, see
 
         <relationship type="many" related="mantle.account.invoice.InvoiceItemDetail" short-alias="details">
             <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
-        <relationship type="many" related="mantle.order.OrderItemBilling" short-alias="orderItemBilling">
+        <relationship type="many" related="mantle.order.OrderItemBilling" short-alias="orderItemBillings">
+            <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
+        <relationship type="many" related="mantle.shipment.ShipmentItemSource" short-alias="shipmentItemSources">
             <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
 
         <relationship type="many" related="mantle.product.issuance.AssetIssuance" short-alias="issuances">
@@ -600,12 +609,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="invoiceItemSeqId" type="id" not-null="true"/>
         <field name="facilityId" type="id"/>
         <field name="assetId" type="id"/>
+        <field name="partyId" type="id"/>
         <field name="quantity" type="number-decimal"/>
 
         <relationship type="one-nofk" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
         <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem"/>
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
     </entity>
     <entity entity-name="InvoiceItemAssoc" package="mantle.account.invoice" cache="never">
         <field name="invoiceItemAssocId" type="id" is-pk="true"/>
@@ -1108,13 +1119,15 @@ along with this software (see the LICENSE.md file). If not, see
             PaymentGatewayType Enumeration record plus an entity with a shared PK (ie PK is paymentGatewayConfigId).</description></field>
         <field name="description" type="text-medium"/>
         <field name="authorizeServiceName" type="text-medium">
-            <description>Service implementing mantle.account.PaymentServices.authorize#Payment interface.</description></field>
+            <description>Service implementing the mantle.account.PaymentServices.authorize#Payment interface</description></field>
         <field name="captureServiceName" type="text-medium">
-            <description>Service implementing mantle.account.PaymentServices.capture#Payment interface.</description></field>
+            <description>Service implementing the mantle.account.PaymentServices.capture#Payment interface</description></field>
         <field name="releaseServiceName" type="text-medium">
-            <description>Service implementing mantle.account.PaymentServices.release#Payment interface.</description></field>
+            <description>Service implementing the mantle.account.PaymentServices.release#Payment interface</description></field>
         <field name="refundServiceName" type="text-medium">
-            <description>Service implementing mantle.account.PaymentServices.refund#Payment interface.</description></field>
+            <description>Service implementing the mantle.account.PaymentServices.refund#Payment interface</description></field>
+        <field name="detailsServiceName" type="text-medium">
+            <description>Service implementing the mantle.account.PaymentServices.get#PaymentGatewayDetails interface</description></field>
         <relationship type="one" title="PaymentGatewayType" related="moqui.basic.Enumeration">
             <key-map field-name="paymentGatewayTypeEnumId"/></relationship>
         <seed-data>
@@ -1142,6 +1155,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="cvResult" type="text-short"/>
         <field name="scoreResult" type="text-short"/>
         <field name="transactionDate" type="date-time"/>
+        <field name="transactionStatus" type="text-short"/>
         <field name="resultSuccess" type="text-indicator"/>
         <field name="resultDeclined" type="text-indicator"/>
         <field name="resultError" type="text-indicator"/>
@@ -1164,6 +1178,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Authorize and Capture" enumId="PgoAuthAndCapture" enumTypeId="PaymentOperation"/>
             <moqui.basic.Enumeration description="Refund" enumId="PgoRefund" enumTypeId="PaymentOperation"/>
             <moqui.basic.Enumeration description="Release" enumId="PgoRelease" enumTypeId="PaymentOperation"/>
+            <moqui.basic.Enumeration description="Transaction Details" enumId="PgoTxDetails" enumTypeId="PaymentOperation"/>
+            <moqui.basic.Enumeration description="Level 2/3 Data" enumId="PgoLevel3Data" enumTypeId="PaymentOperation"/>
         </seed-data>
     </entity>
 
@@ -1200,7 +1216,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderPartSeqId" type="id"><description>Set if the Payment represents the payment settings for an OrderPart.</description></field>
 
         <field name="statusId" type="id" enable-audit-log="true"/>
-        <field name="effectiveDate" type="date-time" enable-audit-log="update"/>
+        <field name="effectiveDate" type="date-time" enable-audit-log="update"><description>When the payment is issued (delivered)</description></field>
+        <field name="settlementDate" type="date-time"><description>When the payment is settled (confirmed)</description></field>
         <field name="paymentAuthCode" type="text-short"/>
         <field name="paymentRefNum" type="text-short" enable-audit-log="update"/>
         <field name="comments" type="text-medium"/>
@@ -1345,15 +1362,16 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusItem description="Cancelled" sequenceNum="91" statusId="PmntCancelled" statusTypeId="Payment"/>
             <moqui.basic.StatusItem description="Void" sequenceNum="92" statusId="PmntVoid" statusTypeId="Payment"/>
             <moqui.basic.StatusItem description="Declined" sequenceNum="93" statusId="PmntDeclined" statusTypeId="Payment"/>
-            <moqui.basic.StatusItem description="Refunded" sequenceNum="94" statusId="PmntRefunded" statusTypeId="Payment"/>
+            <!-- deprecated, should always be separate payment applied to refunded payment: <moqui.basic.StatusItem description="Refunded" sequenceNum="94" statusId="PmntRefunded" statusTypeId="Payment"/> -->
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntProposed" toStatusId="PmntPromised" transitionName="Promise"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntProposed" toStatusId="PmntCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntPromised" toStatusId="PmntAuthorized" transitionName="Authorize"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntPromised" toStatusId="PmntDelivered" transitionName="Deliver"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntPromised" toStatusId="PmntCancelled" transitionName="Cancel"/>
-            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntPromised" toStatusId="PmntDeclined" transitionName="Sent"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntPromised" toStatusId="PmntDeclined" transitionName="Decline"/>
 
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDeclined" toStatusId="PmntPromised" transitionName="Promise"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDeclined" toStatusId="PmntAuthorized" transitionName="Authorize"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntAuthorized" toStatusId="PmntPromised" transitionName="Unauthorize"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntAuthorized" toStatusId="PmntDelivered" transitionName="Deliver"/>
@@ -1364,12 +1382,13 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDelivered" toStatusId="PmntAuthorized" transitionName="Undeliver"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDelivered" toStatusId="PmntPromised" transitionName="Undeliver and Unauthorize"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDelivered" toStatusId="PmntConfirmed" transitionName="Confirm"/>
-            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDelivered" toStatusId="PmntRefunded" transitionName="Refund"/>
+            <!-- deprecated: <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDelivered" toStatusId="PmntRefunded" transitionName="Refund"/> -->
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDelivered" toStatusId="PmntCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDelivered" toStatusId="PmntVoid" transitionName="Void"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDelivered" toStatusId="PmntDeclined" transitionName="Decline"/>
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntConfirmed" toStatusId="PmntDelivered" transitionName="Uncomfirm"/>
-            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntConfirmed" toStatusId="PmntRefunded" transitionName="Refund"/>
+            <!-- deprecated: <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntConfirmed" toStatusId="PmntRefunded" transitionName="Refund"/> -->
 
             <!-- Payment Reconcile Status -->
             <moqui.basic.StatusType description="Payment Reconcile Status" statusTypeId="PaymentReconcile"/>

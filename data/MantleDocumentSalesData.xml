@@ -17,10 +17,59 @@ along with this software (see the LICENSE.md file). If not, see
 
         curl http://localhost:9200/_cat/indices?v
 
+        curl -X DELETE http://localhost:9200/mantle_sales_order_part?pretty
         curl -X DELETE http://localhost:9200/mantle_sales_order_item?pretty
         curl -X DELETE http://localhost:9200/mantle_sales_invoice?pretty
         curl -X DELETE http://localhost:9200/mantle_sales_invoice_item?pretty
     -->
+
+    <!-- Sales OrderPart -->
+    <dataDocuments dataDocumentId="MantleSalesOrderPart" indexName="mantle_sales" documentName="Sales Order Part"
+            primaryEntityName="mantle.order.OrderPart" documentTitle="${orderId}:${orderPartSeqId}">
+        <fields fieldSeqId="01" fieldPath="orderId"/>
+        <fields fieldSeqId="02" fieldPath="orderPartSeqId"/>
+        <fields fieldSeqId="03" fieldPath="statusId" fieldNameAlias="partStatusId"/>
+        <fields fieldSeqId="04" fieldPath="facilityId"/>
+        <fields fieldSeqId="05" fieldPath="shipmentMethodEnumId"/>
+        <fields fieldSeqId="08" fieldPath="partTotal"/>
+
+        <fields fieldSeqId="11" fieldPath="vendorPartyId"/>
+        <fields fieldSeqId="12" fieldPath="vendorRoles:roleTypeId" fieldNameAlias="vendorRoleTypeId"/>
+        <fields fieldSeqId="15" fieldPath="customerPartyId"/>
+        <fields fieldSeqId="19" fieldPath="isNewCustomer"/>
+
+        <fields fieldSeqId="31" fieldPath="postalAddress:city"/>
+        <fields fieldSeqId="32" fieldPath="postalAddress:stateProvinceGeoId"/>
+        <fields fieldSeqId="33" fieldPath="postalAddress:countryGeoId"/>
+        <fields fieldSeqId="34" fieldPath="postalAddress:postalCode"/>
+        <fields fieldSeqId="35" fieldPath="postalAddress:postalCodeExt"/>
+
+        <fields fieldSeqId="41" fieldPath="orderHeader:entryDate"/>
+        <fields fieldSeqId="42" fieldPath="orderHeader:placedDate"/>
+        <fields fieldSeqId="43" fieldPath="orderHeader:statusId"/>
+        <fields fieldSeqId="44" fieldPath="orderHeader:productStoreId"/>
+        <fields fieldSeqId="45" fieldPath="orderHeader:salesChannelEnumId"/>
+        <fields fieldSeqId="46" fieldPath="orderHeader:currencyUomId"/>
+        <fields fieldSeqId="47" fieldPath="orderHeader:grandTotal"/>
+
+        <fields fieldSeqId="51" fieldPath="orderHeader:statusLogs:oldValueText" fieldNameAlias="oldStatusId"/>
+        <fields fieldSeqId="52" fieldPath="orderHeader:statusLogs:newValueText" fieldNameAlias="newStatusId"/>
+        <fields fieldSeqId="53" fieldPath="orderHeader:statusLogs:changedDate" fieldNameAlias="statusChangedDate"/>
+        <fields fieldSeqId="54" fieldPath="orderHeader:statusLogs:changeReason" fieldNameAlias="statusChangeReason"/>
+        <fields fieldSeqId="55" fieldPath="orderHeader:statusLogs:changedByUserId" fieldNameAlias="statusChangedByUserId"/>
+
+        <!-- get most recent approved and completed dates (sort reverse) -->
+        <fields fieldSeqId="61" fieldPath="(statusLogs?.sort({a,b-&gt;b.statusChangedDate&lt;=&gt;a.statusChangedDate})?.find({it.newStatusId=='OrderApproved'})?.statusChangedDate)"
+                fieldNameAlias="approvedDate" fieldType="date"/>
+        <fields fieldSeqId="62" fieldPath="(statusLogs?.sort({a,b-&gt;b.statusChangedDate&lt;=&gt;a.statusChangedDate})?.find({it.newStatusId=='OrderCompleted'})?.statusChangedDate)"
+                fieldNameAlias="completedDate" fieldType="date"/>
+        <fields fieldSeqId="65" fieldPath="(approvedDate&amp;&amp;placedDate?(approvedDate.time-placedDate.time)/(60*60*1000):null)"
+                fieldNameAlias="approvedHours" fieldType="double"/>
+        <fields fieldSeqId="66" fieldPath="(completedDate&amp;&amp;approvedDate?(completedDate.time-approvedDate.time)/(60*60*1000):null)"
+                fieldNameAlias="completedHours" fieldType="double"/>
+
+        <conditions conditionSeqId="01" fieldNameAlias="vendorRoleTypeId" fieldValue="OrgInternal"/>
+    </dataDocuments>
 
     <!-- Sales OrderItem -->
     <dataDocuments dataDocumentId="MantleSalesOrderItem" indexName="mantle_sales" documentName="Sales Order Item"
@@ -97,7 +146,7 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="91" fieldPath="part:customerClasses:fromDate" fieldNameAlias="classFromDate"/>
         <fields fieldSeqId="92" fieldPath="part:customerClasses:thruDate" fieldNameAlias="classThruDate"/>
         <fields fieldSeqId="93" fieldPath="part:customerClasses:classification:classificationTypeEnumId"/>
-        <fields fieldSeqId="94" fieldPath="((org.moqui.util.CollectionUtilities.filterMapListByDate(customerClasses?.findAll(),'classFromDate','classThruDate', null)?.find()?.partyClassificationId)?:'CustConsumer')"
+        <fields fieldSeqId="94" fieldPath="((org.moqui.util.CollectionUtilities.filterMapListByDate(customerClasses?.findAll(),'classFromDate','classThruDate',null)?.find()?.partyClassificationId)?:'CustConsumer')"
                 fieldNameAlias="customerClassId" fieldType="keyword"/>
 
         <conditions conditionSeqId="01" fieldNameAlias="vendorRoleTypeId" fieldValue="OrgInternal"/>
@@ -112,6 +161,7 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="04" fieldPath="appliedPaymentsTotal"/>
         <fields fieldSeqId="05" fieldPath="unpaidTotal"/>
         <fields fieldSeqId="06" fieldPath="currencyUomId"/>
+        <fields fieldSeqId="07" fieldPath="productStoreId"/>
 
         <fields fieldSeqId="11" fieldPath="fromPartyId"/>
         <fields fieldSeqId="12" fieldPath="fromRoles:roleTypeId" fieldNameAlias="fromRoleTypeId"/>
@@ -123,12 +173,15 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="21" fieldPath="paymentApplications:paymentId"/>
         <fields fieldSeqId="22" fieldPath="paymentApplications:amountApplied"/>
         <fields fieldSeqId="23" fieldPath="paymentApplications:appliedDate"/>
+        <fields fieldSeqId="24" fieldPath="paymentApplications:payment:effectiveDate"/>
+        <fields fieldSeqId="28" fieldNameAlias="prePaymentsTotal" fieldType="double"
+                fieldPath="(paymentApplications.findAll({invoiceDate&amp;&amp;it.effectiveDate&amp;&amp;(invoiceDate-it.effectiveDate)&gt;=0})*.amountApplied.sum())"/>
 
         <fields fieldSeqId="31" fieldPath="toClasses:partyClassificationId"/>
         <fields fieldSeqId="32" fieldPath="toClasses:fromDate" fieldNameAlias="classFromDate"/>
         <fields fieldSeqId="33" fieldPath="toClasses:thruDate" fieldNameAlias="classThruDate"/>
         <fields fieldSeqId="34" fieldPath="toClasses:classification:classificationTypeEnumId"/>
-        <fields fieldSeqId="35" fieldPath="((org.moqui.util.CollectionUtilities.filterMapListByDate(toClasses?.findAll(),'classFromDate','classThruDate', null)?.find()?.partyClassificationId)?:'CustConsumer')"
+        <fields fieldSeqId="35" fieldPath="((org.moqui.util.CollectionUtilities.filterMapListByDate(toClasses?.findAll(),'classFromDate','classThruDate',null)?.find()?.partyClassificationId)?:'CustConsumer')"
                 fieldNameAlias="customerClassId" fieldType="keyword"/>
 
         <conditions conditionSeqId="01" fieldNameAlias="fromRoleTypeId" fieldValue="OrgInternal"/>
@@ -160,6 +213,7 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="25" fieldPath="invoice:dueDate"/>
         <fields fieldSeqId="26" fieldPath="invoice:statusId"/>
         <fields fieldSeqId="27" fieldPath="invoice:currencyUomId"/>
+        <fields fieldSeqId="28" fieldPath="invoice:productStoreId"/>
 
         <fields fieldSeqId="51" fieldPath="issuances:issuedDate"/>
         <fields fieldSeqId="52" fieldPath="issuances:quantity" fieldNameAlias="issuedQuantity"/>
@@ -202,6 +256,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- Index Data Feed -->
     <moqui.entity.feed.DataFeed dataFeedId="MantleSales" dataFeedTypeEnumId="DTFDTP_RT_PUSH"
             feedName="Mantle Sales Data" feedReceiveServiceName="org.moqui.search.SearchServices.index#DataDocuments">
+        <documents dataDocumentId="MantleSalesOrderPart"/>
         <documents dataDocumentId="MantleSalesOrderItem"/>
         <documents dataDocumentId="MantleSalesInvoice"/>
         <documents dataDocumentId="MantleSalesInvoiceItem"/>

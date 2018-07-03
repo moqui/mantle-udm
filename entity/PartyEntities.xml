@@ -32,16 +32,21 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="pseudoId" type="id" default="partyId"/>
         <field name="partyTypeEnumId" type="id"/>
         <field name="disabled" type="text-indicator" enable-audit-log="true"/>
+        <field name="ownerPartyId" type="id" enable-audit-log="update">
+            <description>If applicable, such as for customer records, the other Party that 'owns' the data for this Party.</description></field>
         <field name="externalId" type="id"/>
         <field name="dataSourceId" type="id"/>
         <field name="gatewayCimId" type="text-short" enable-audit-log="update"/>
         <field name="comments" type="text-long"/>
-        <field name="shippingInstructions" type="text-medium"/>
+        <field name="shippingInstructions" type="text-long"/>
         <field name="hasDuplicates" type="text-indicator"/>
         <field name="lastDupCheckDate" type="date-time"/>
         <field name="mergedToPartyId" type="id"/><!-- no fk to avoid circular dependency, set automatically -->
+
         <relationship type="one" title="PartyType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyTypeEnumId"/></relationship>
+        <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
+            <key-map field-name="ownerPartyId"/></relationship>
         <relationship type="one" related="moqui.basic.DataSource"/>
 
         <relationship type="one-nofk" related="mantle.party.Organization" short-alias="organization" mutable="true"/>
@@ -487,6 +492,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Manufacturer" roleTypeId="Manufacturer"/>
             <mantle.party.RoleType description="Owner"  roleTypeId="Owner"/>
             <mantle.party.RoleType description="Partner" roleTypeId="Partner"/>
+            <mantle.party.RoleType description="Payroll Other Payee" roleTypeId="PayrollOtherPayee"/>
             <mantle.party.RoleType description="Prospect" roleTypeId="Prospect"/>
             <mantle.party.RoleType description="Referrer" roleTypeId="Referrer"/>
             <mantle.party.RoleType description="Sales Account" roleTypeId="Account"/>
@@ -739,14 +745,14 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="Agreement" package="mantle.party.agreement" short-alias="agreements">
         <field name="agreementId" type="id" is-pk="true"/>
         <field name="agreementTypeEnumId" type="id"/>
-        <field name="statusId" type="id"/>
-        <field name="agreementDate" type="date-time"/>
+        <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="organizationPartyId" type="id"/>
         <field name="organizationRoleTypeId" type="id"/>
-        <field name="otherPartyId" type="id"/>
+        <field name="otherPartyId" type="id" enable-audit-log="update"/>
         <field name="otherRoleTypeId" type="id"/>
-        <field name="fromDate" type="date-time"/>
-        <field name="thruDate" type="date-time"/>
+        <field name="agreementDate" type="date-time"/>
+        <field name="fromDate" type="date-time" enable-audit-log="update"/>
+        <field name="thruDate" type="date-time" enable-audit-log="update"/>
         <field name="description" type="text-medium"/>
         <field name="currencyUomId" type="id"/>
         <field name="textData" type="text-very-long"/>
@@ -801,6 +807,24 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="agreementId"/>
             <key-map field-name="agreementItemSeqId"/>
         </relationship>
+    </entity>
+    <entity entity-name="AgreementContent" package="mantle.party.agreement">
+        <field name="agreementContentId" type="id" is-pk="true"/>
+        <field name="agreementId" type="id"/>
+        <field name="contentLocation" type="text-medium"/>
+        <field name="contentTypeEnumId" type="id"/>
+        <field name="description" type="text-long"/>
+        <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
+        <relationship type="one" related="mantle.party.agreement.Agreement"/>
+        <relationship type="one" title="AgreementContentType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="contentTypeEnumId"/></relationship>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Agreement Content Type" enumTypeId="AgreementContentType"/>
+            <moqui.basic.Enumeration description="Agreement Document" enumId="AcntDocument" enumTypeId="AgreementContentType"/>
+            <moqui.basic.Enumeration description="Supporting Document" enumId="AcntSupporting" enumTypeId="AgreementContentType"/>
+            <moqui.basic.Enumeration description="Price Sheet" enumId="AcntPriceSheet" enumTypeId="AgreementContentType"/>
+        </seed-data>
     </entity>
     <entity entity-name="AgreementParty" package="mantle.party.agreement">
         <field name="agreementId" type="id" is-pk="true"/>
@@ -1409,7 +1433,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="periodName" type="text-medium"/>
         <field name="fromDate" type="date" not-null="true"><description>The first day of the period.</description></field>
         <field name="thruDate" type="date" not-null="true"><description>The last day of the period.</description></field>
-        <field name="isClosed" type="text-indicator" default="'N'"/>
+        <field name="isClosed" type="text-indicator" default="'N'" enable-audit-log="update"/>
         <relationship type="one" title="Parent" related="mantle.party.time.TimePeriod" short-alias="parent">
             <key-map field-name="parentPeriodId" related="timePeriodId"/></relationship>
         <relationship type="one" title="Previous" related="mantle.party.time.TimePeriod" short-alias="previous">

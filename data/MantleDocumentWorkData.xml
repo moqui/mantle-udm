@@ -105,6 +105,8 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="05" fieldPath="type:description" fieldNameAlias="type"/>
         <fields fieldSeqId="06" fieldPath="resolution:description" fieldNameAlias="resolution"/>
         <fields fieldSeqId="07" fieldPath="workEfforts:workEffortId" fieldNameAlias="task"/>
+        <fields fieldSeqId="08" fieldPath="priority"/>
+
         <fields fieldSeqId="10" fieldPath="parties:partyId"/>
         <fields fieldSeqId="11" fieldPath="parties:role:description" fieldNameAlias="role"/>
         <fields fieldSeqId="12" fieldPath="parties:person:firstName"/>

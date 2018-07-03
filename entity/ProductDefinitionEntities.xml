@@ -35,6 +35,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="assetTypeEnumId" type="id"/>
         <field name="assetClassEnumId" type="id"/>
         <field name="statusId" type="id"/>
+        <field name="ownerPartyId" type="id" enable-audit-log="update">
+            <description>Brand or other organization that owns the product design, IP, etc.
+                There may be multiple suppliers, manufacturers, etc for a product but only one that 'owns' it.</description></field>
 
         <field name="productName" type="text-medium"/>
         <field name="description" type="text-long"/>
@@ -71,6 +74,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="AssetClass" related="moqui.basic.Enumeration" short-alias="assetClass">
             <key-map field-name="assetClassEnumId"/></relationship>
         <relationship type="one" title="Product" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
+            <key-map field-name="ownerPartyId"/></relationship>
+
         <relationship type="one" title="RequirementMethod" related="moqui.basic.Enumeration">
             <key-map field-name="requirementMethodEnumId"/></relationship>
         <relationship type="one" title="Origin" related="moqui.basic.Geo" short-alias="originGeo">
@@ -109,6 +115,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.product.maintenance.ProductMeter" short-alias="meters">
             <key-map field-name="productId"/></relationship>
         <relationship type="many" related="mantle.product.subscription.ProductSubscriptionResource" short-alias="subscriptionResources">
+            <key-map field-name="productId"/></relationship>
+
+        <relationship type="many" related="mantle.product.asset.Asset" short-alias="assets">
             <key-map field-name="productId"/></relationship>
 
         <index name="PRODUCT_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
@@ -263,6 +272,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="contentLocation" type="text-medium"/>
         <field name="productContentTypeEnumId" type="id"/>
         <field name="locale" type="text-short"/>
+        <field name="productFeatureId" type="id"><description>For virtual products to limit images/etc displayed by selectable feature, if null always display</description></field>
+        <field name="productStoreId" type="id"><description>For content limited to a specific store</description></field>
         <field name="fromDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="thruDate" type="date-time"/>
         <field name="description" type="text-long"/>
@@ -271,6 +282,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.Product"/>
         <relationship type="one" title="ProductContentType" related="moqui.basic.Enumeration">
             <key-map field-name="productContentTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.product.feature.ProductFeature" short-alias="feature"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <seed-data>
             <!-- Product Content Type -->
             <moqui.basic.EnumerationType description="Product Content Type" enumTypeId="ProductContentType"/>
@@ -395,6 +408,22 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="GTIN" enumId="PidtGtin"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="Library of Congress" enumId="PidtLoc"  enumTypeId="ProductIdentificationType"/>
         </seed-data>
+    </entity>
+    <entity entity-name="ProductOtherIdentification" package="mantle.product">
+        <field name="productOtherIdentId" type="id" is-pk="true"/>
+        <field name="productId" type="id"/>
+        <field name="productStoreId" type="id"/>
+        <field name="productIdTypeEnumId" type="id"/>
+        <field name="parentProductId" type="id"/>
+        <field name="idValue" type="text-medium"/>
+
+        <relationship type="one" title="ProductIdentificationType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="productIdTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.product.Product"/>
+        <relationship type="one" related="mantle.product.store.ProductStore"/>
+        <relationship type="one" title="Parent" related="mantle.product.Product">
+            <key-map field-name="parentProductId" related="productId"/></relationship>
+        <index name="PRODUCT_STR_ID_VAL" unique="false"><index-field name="idValue"/></index>
     </entity>
     <entity entity-name="ProductParty" package="mantle.product">
         <field name="productId" type="id" is-pk="true"/>

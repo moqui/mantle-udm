@@ -28,8 +28,9 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="GlAccount" package="mantle.ledger.account" use="configuration" cache="true">
         <field name="glAccountId" type="id" is-pk="true"/>
         <field name="parentGlAccountId" type="id"/>
-        <field name="glAccountTypeEnumId" type="id"/>
-        <field name="glAccountClassEnumId" type="id"/>
+        <field name="glAccountTypeEnumId" type="id"><description>Optional. The 'type' of account, used in posting (GL mapping) configuration</description></field>
+        <field name="glAccountClassEnumId" type="id"><description>Required. The account classification such as Revenue, Expense, Asset, etc.
+            Used for report structure and to determine if account is a debit or credit account.</description></field>
         <field name="isDebit" type="text-indicator"><description>Y if account class is a Debit class, otherwise a Credit;
             determined automatically by class and saved here</description></field>
         <field name="isTemporary" type="text-indicator"><description>Y if account is a temporary (income statement) account,
@@ -411,7 +412,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productCategoryId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountTypeEnumId" type="id" is-pk="true"/>
-        <field name="glAccountId" type="id"/>
+        <field name="glAccountId" type="id"><description>Revenue account for products in the category</description></field>
+        <field name="contraGlAccountId" type="id"><description>Contra Revenue account for products in the category</description></field>
         <relationship type="one" related="ProductCategory"/>
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
@@ -423,7 +425,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountTypeEnumId" type="id" is-pk="true"/>
-        <field name="glAccountId" type="id"/>
+        <field name="glAccountId" type="id"><description>Product Revenue account</description></field>
+        <field name="contraGlAccountId" type="id"><description>Product Contra Revenue account</description></field>
         <relationship type="one" related="Product"/>
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
