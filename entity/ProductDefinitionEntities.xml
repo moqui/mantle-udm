@@ -631,6 +631,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="categoryContentTypeEnumId" type="id"/>
         <field name="fromDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="thruDate" type="date-time"/>
+        <field name="locale" type="text-short"/>
+        <field name="description" type="text-long"/>
+        <field name="sequenceNum" type="number-integer"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related="mantle.product.category.ProductCategory"/>
         <relationship type="one" title="ProductCategoryContentType" related="moqui.basic.Enumeration">
             <key-map field-name="categoryContentTypeEnumId"/></relationship>
