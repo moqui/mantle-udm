@@ -21,6 +21,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.product.feature.ProductFeature productFeatureId="ColorRed" productFeatureTypeEnumId="PftColor" description="Red" abbrev="RD"/>
     <mantle.product.feature.ProductFeature productFeatureId="ColorGreen" productFeatureTypeEnumId="PftColor" description="Green" abbrev="GR"/>
     <mantle.product.feature.ProductFeature productFeatureId="ColorYellow" productFeatureTypeEnumId="PftColor" description="Yellow" abbrev="YL"/>
+    <mantle.product.feature.ProductFeature productFeatureId="ColorWhite" productFeatureTypeEnumId="PftColor" description="White" abbrev="WH"/>
 
     <mantle.product.feature.ProductFeature productFeatureId="SizeSmall" productFeatureTypeEnumId="PftSize" description="Small" abbrev="SM"/>
     <mantle.product.feature.ProductFeature productFeatureId="SizeMedium" productFeatureTypeEnumId="PftSize" description="Medium" abbrev="MD"/>
@@ -168,28 +169,42 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ProductCategoryGlAccount productCategoryId="PopcAllProducts"
             organizationPartyId="ORG_ZIZI_RETAIL" glAccountTypeEnumId="GatInventory" glAccountId="141300000"/>
 
+    <mantle.product.category.ProductCategory productCategoryId="PopcDeals"
+            productCategoryTypeEnumId="PctCatalog" categoryName="Deals"/>
+    <mantle.product.store.ProductStoreCategory productStoreId="POPC_DEFAULT" productCategoryId="PopcDeals"
+            storeCategoryTypeEnumId="PsctPromotions" fromDate="1265184000000" thruDate=""/>
+
+    <mantle.product.category.ProductCategory productCategoryId="PopcNew"
+            productCategoryTypeEnumId="PctCatalog" categoryName="New"/>
+    <mantle.product.store.ProductStoreCategory productStoreId="POPC_DEFAULT" productCategoryId="PopcNew"
+            storeCategoryTypeEnumId="PsctNewProducts" fromDate="1265184000000" thruDate=""/>
+
+    <mantle.product.category.ProductCategory productCategoryId="PopcFeatured"
+            productCategoryTypeEnumId="PctCatalog" categoryName="Featured Best Sellers"/>
+    <mantle.product.store.ProductStoreCategory productStoreId="POPC_DEFAULT" productCategoryId="PopcFeatured"
+            storeCategoryTypeEnumId="PsctFeatured" fromDate="1265184000000" thruDate=""/>
+
     <!-- Demo Categories -->
     <mantle.product.category.ProductCategory productCategoryId="DEMO_ONE" productCategoryTypeEnumId="PctCatalog"
             categoryName="Demo Category One" description=""/>
     <mantle.product.category.ProductCategoryRollup productCategoryId="DEMO_ONE"
-            parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="1"/>
+            parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="11"/>
 
     <mantle.product.category.ProductCategory productCategoryId="DEMO_TWO" productCategoryTypeEnumId="PctCatalog"
             categoryName="Demo Category Two" description=""/>
     <mantle.product.category.ProductCategoryRollup productCategoryId="DEMO_TWO"
-            parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="2"/>
+            parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="12"/>
 
     <mantle.product.category.ProductCategory productCategoryId="DEMO_THREE" productCategoryTypeEnumId="PctCatalog"
             categoryName="Demo Category Three" description=""/>
     <mantle.product.category.ProductCategoryRollup productCategoryId="DEMO_THREE"
-            parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="3"/>
+            parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="13"/>
 
     <!-- Demo Sub Assembly and Raw Materials Categories -->
     <mantle.product.category.ProductCategory productCategoryId="DEMO_SA" productCategoryTypeEnumId="PctMaterials"
             categoryName="Demo Sub Assemblies" description=""/>
     <mantle.product.category.ProductCategory productCategoryId="DEMO_RM" productCategoryTypeEnumId="PctMaterials"
             categoryName="Demo Raw Materials" description=""/>
-
     <!-- Demo Equipment Categories -->
     <mantle.product.category.ProductCategory productCategoryId="DEMO_EQUIP" productCategoryTypeEnumId="PctMaterials"
             categoryName="Demo Equipment" description=""/>
@@ -290,14 +305,14 @@ along with this software (see the LICENSE.md file). If not, see
                 pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"
                 fromDate="1265184000000" minQuantity="100" price="8.00" priceUomId="USD"/>
         <dimensions dimensionTypeId="ShippingWeight" value="5" valueUomId="WT_lb"/>
-        <contents productContentTypeEnumId="PcntDescriptionLong" locale="en_US"
+        <contents productContentId="DEMO_1_1_DL" productContentTypeEnumId="PcntDescriptionLong" locale="en_US"
                 contentLocation="dbresource://mantle/content/product/DEMO_1_1/PcntDescriptionLong.html"/>
         <!-- these are for resource based product images -->
-        <contents productContentTypeEnumId="PcntImageSmall" locale="" sequenceNum="1" description="Parties"
+        <contents productContentId="DEMO_1_1_IS_1" productContentTypeEnumId="PcntImageSmall" locale="" sequenceNum="1" description="Parties"
                 contentLocation="component://SimpleScreens/screen/ssstatic/images/Parties.png"/>
-        <contents productContentTypeEnumId="PcntImageSmall" locale="" sequenceNum="2" description="Sales"
+        <contents productContentId="DEMO_1_1_IS_2" productContentTypeEnumId="PcntImageSmall" locale="" sequenceNum="2" description="Sales"
                 contentLocation="component://SimpleScreens/screen/ssstatic/images/Sales.png"/>
-        <contents productContentTypeEnumId="PcntImageSmall" locale="" sequenceNum="3" description="Vendor"
+        <contents productContentId="DEMO_1_1_IS_3" productContentTypeEnumId="PcntImageSmall" locale="" sequenceNum="3" description="Vendor"
                 contentLocation="component://SimpleScreens/screen/ssstatic/images/Vendor.png"/>
     </mantle.product.Product>
     <!-- DEMO_1_1 BOM -->
