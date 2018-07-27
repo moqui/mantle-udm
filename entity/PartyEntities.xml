@@ -729,6 +729,10 @@ along with this software (see the LICENSE.md file). If not, see
                     enumTypeId="BooleanYN" defaultValue="BlN"><roles roleTypeId="Customer"/></mantle.party.PartySettingType>
             <mantle.party.PartySettingType partySettingTypeId="CustomerNewerInventory" description="Newer Inventory each Order"
                     enumTypeId="BooleanYN" defaultValue="BlN"><roles roleTypeId="Customer"/></mantle.party.PartySettingType>
+
+            <!-- TODO: add and support setting type per org for default address validate and shipment gateways, see MantleUdmSetupData.xml -->
+            <mantle.party.PartySettingType partySettingTypeId="OrgInvoiceProductStoreId" description="Default Invoice Product Store ID">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
         </seed-data>
     </entity>
     <entity entity-name="PartySettingTypeRole" package="mantle.party" use="configuration">

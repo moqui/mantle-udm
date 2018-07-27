@@ -14,6 +14,7 @@ along with this software (see the LICENSE.md file). If not, see
 -->
 <entity-facade-xml type="seed-initial">
     <!-- User/Group Preferences -->
+    <!-- TODO: add equivalent settings per OrgInternal, see PartySettingType in PartyEntities.xml -->
     <moqui.basic.Enumeration enumId="ValidateAddressGatewayConfigId" description="Address Validate Gateway Config ID" enumTypeId="UserPreferenceKey"/>
     <moqui.basic.Enumeration enumId="DefaultShipmentGatewayConfigId" description="Shipment Default Gateway Config ID" enumTypeId="UserPreferenceKey"/>
 
