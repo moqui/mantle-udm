@@ -358,20 +358,38 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <moqui.basic.EnumerationType description="Product Store Content Type" enumTypeId="ProductStoreContentType"/>
 
-            <moqui.basic.Enumeration enumCode="headerTemplate" description="Header Template" enumId="PsctHeaderTemplate" enumTypeId="ProductStoreContentType"/>
-            <moqui.basic.Enumeration enumCode="footerTemplate" description="Footer Template" enumId="PsctFooterTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_header" description="Header Template - Client" enumId="PsctHeaderTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_footer" description="Footer Template - Client" enumId="PsctFooterTemplate" enumTypeId="ProductStoreContentType"/>
 
-            <moqui.basic.Enumeration enumCode="homeTemplate" description="Home Template" enumId="PsctHomeTemplate" enumTypeId="ProductStoreContentType"/>
-            <moqui.basic.Enumeration enumCode="searchTemplate" description="Search Template" enumId="PsctSearchTemplate" enumTypeId="ProductStoreContentType"/>
-            <moqui.basic.Enumeration enumCode="categoryTemplate" description="Category Template" enumId="PsctCategoryTemplate" enumTypeId="ProductStoreContentType"/>
-            <moqui.basic.Enumeration enumCode="categoryProductTemplate" description="Category Product Template" enumId="PsctCategoryProductTemplate" enumTypeId="ProductStoreContentType"/>
-            <moqui.basic.Enumeration enumCode="productTemplate" description="Product Template" enumId="PsctProductTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_home" description="Home Template - Client" enumId="PsctHomeTemplate" enumTypeId="ProductStoreContentType"/>
 
-            <moqui.basic.Enumeration enumCode="loginTemplate" description="Login Template" enumId="PsctLoginTemplate" enumTypeId="ProductStoreContentType"/>
-            <moqui.basic.Enumeration enumCode="profileTemplate" description="Profile Template" enumId="PsctProfileTemplate" enumTypeId="ProductStoreContentType"/>
-            <moqui.basic.Enumeration enumCode="orderHistoryTemplate" description="Order History Template" enumId="PsctOrderHistoryTemplate" enumTypeId="ProductStoreContentType"/>
-            <moqui.basic.Enumeration enumCode="orderDetailTemplate" description="Order Detail Template" enumId="PsctOrderDetailTemplate" enumTypeId="ProductStoreContentType"/>
-            <moqui.basic.Enumeration enumCode="cartTemplate" description="Cart Template" enumId="PsctCartTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_search" description="Search Template - Client" enumId="PsctSearchTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_category" description="Category Template - Client" enumId="PsctCategoryTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_product" description="Product Template - Client" enumId="PsctProductTemplate" enumTypeId="ProductStoreContentType"/>
+            <!-- consolidate these
+            <moqui.basic.Enumeration enumCode="template_client_categoryProduct" description="Category Product Template - Client" enumId="PsctCategoryProductTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_productImage" description="Product Image Template - Client" enumId="PsctProductImageTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_productReview" description="Product Review Template - Client" enumId="PsctProductReviewTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_starRating" description="Star Rating Template - Client" enumId="PsctProductTemplate" enumTypeId="ProductStoreContentType"/>
+            -->
+
+            <moqui.basic.Enumeration enumCode="template_client_login" description="Login Template - Client" enumId="PsctLoginTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_resetPassword" description="Reset Password Template - Client" enumId="PsctResetPasswordTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_account" description="Account Template - Client" enumId="PsctAccountTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_accountCreate" description="Account Create Template - Client" enumId="PsctAccountCreateTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_orderHistory" description="Order History Template - Client" enumId="PsctOrderHistoryTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_orderDetail" description="Order Detail Template - Client" enumId="PsctOrderDetailTemplate" enumTypeId="ProductStoreContentType"/>
+
+            <moqui.basic.Enumeration enumCode="template_client_checkout" description="Checkout Template - Client" enumId="PsctCheckoutTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_checkoutHeader" description="Checkout Header Template - Client" enumId="PsctCheckoutHeaderTemplate" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_client_checkoutSuccess" description="Checkout Success Template - Client" enumId="PsctCheckoutSuccessTemplate" enumTypeId="ProductStoreContentType"/>
+
+            <moqui.basic.Enumeration enumCode="template_server_root" description="Root Template - Server" enumId="PsctRootTemplateServer" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_server_header" description="Header Template - Server" enumId="PsctHeaderTemplateServer" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_server_footer" description="Footer Template - Server" enumId="PsctFooterTemplateServer" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_server_home" description="Home Template - Server" enumId="PsctHomeTemplateServer" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_server_category" description="Category Template - Server" enumId="PsctCategoryTemplateServer" enumTypeId="ProductStoreContentType"/>
+            <moqui.basic.Enumeration enumCode="template_server_product" description="Product Template - Server" enumId="PsctProductTemplateServer" enumTypeId="ProductStoreContentType"/>
         </seed-data>
     </entity>
 
