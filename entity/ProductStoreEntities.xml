@@ -24,7 +24,7 @@ along with this software (see the LICENSE.md file). If not, see
             <description>The Organization Party that Orders, Invoices, GL transactions, etc will be associated with.</description></field>
         <field name="inventoryFacilityId" type="id"/>
         <field name="reservationOrderEnumId" type="id"/>
-        <field name="requirementMethodEnumId" type="id"/>
+        <field name="requireInventory" type="text-indicator"/>
 
         <field name="storeDomain" type="text-short"><description>Store domain for use in emails</description></field>
         <field name="profileUrlPath" type="text-medium"><description>Path to profile page for use in emails</description></field>
@@ -45,8 +45,6 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="inventoryFacilityId"/></relationship>
         <relationship type="one" title="AssetReservationOrder" related="moqui.basic.Enumeration" short-alias="assetReservationOrder">
             <key-map field-name="reservationOrderEnumId"/></relationship>
-        <relationship type="one" title="RequirementMethod" related="moqui.basic.Enumeration" short-alias="requirementMethod">
-            <key-map field-name="requirementMethodEnumId"/></relationship>
 
         <relationship type="one" related="moqui.resource.wiki.WikiSpace" short-alias="wikiSpace"/>
         <relationship type="one" title="DefaultCurrency" related="moqui.basic.Uom" short-alias="defaultCurrencyUom">
@@ -84,26 +82,13 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Greatest Unit Cost" enumId="AsResOrdCostGr" enumCode="-acquireCost" enumTypeId="AssetReservationOrder"/>
             <moqui.basic.Enumeration description="Lowest Unit Cost" enumId="AsResOrdCostLw" enumCode="acquireCost" enumTypeId="AssetReservationOrder"/>
             <moqui.basic.Enumeration description="No Reservation" enumId="AsResOrdNoRes" enumTypeId="AssetReservationOrder"/>
-
-            <!-- Product Requirement Method -->
-            <moqui.basic.EnumerationType description="Product Requirement Method" enumTypeId="RequirementMethod"/>
-            <!-- NONE: no requirement is created (default) -->
-            <moqui.basic.Enumeration description="No Requirement Created" enumId="PrqmNone" enumTypeId="RequirementMethod"/>
-            <!-- AUTO: a requirement is created every time a sales order is entered; This is useful to implement cross-dock shipping processes -->
-            <moqui.basic.Enumeration description="Automatic For Every Sales Order" enumId="PrqmAuto" enumTypeId="RequirementMethod"/>
-            <!-- STOCK: a requirement is created when qoh reaches the minimum stock quantity (from ProductFacility) -->
-            <moqui.basic.Enumeration description="When QOH Reaches Minimum Stock for Product-Facility" enumId="PrqmStockQoh" enumTypeId="RequirementMethod"/>
-            <!-- STOCK_ATP: a requirement is created when atp reaches the minimum stock quantity (from ProductFacility) -->
-            <moqui.basic.Enumeration description="When ATP Reaches Minimum Stock for Product-Facility" enumId="PrqmStockAtp" enumTypeId="RequirementMethod"/>
-            <!-- PRODRQM_DS: a drop ship group is created to trigger automatic creation of a purchase order (drop shipment) every time a sales order is created-->
-            <moqui.basic.Enumeration description="Drop-ship only" enumId="PrqmDropShip" enumTypeId="RequirementMethod"/>
-            <!-- PRODRQM_DSQOH: auto drop ship on low quantity on hand -->
-            <moqui.basic.Enumeration description="Auto drop-ship on low quantity" enumId="PrqmDropShipLowQoh" enumTypeId="RequirementMethod"/>
         </seed-data>
         <master>
-            <detail relationship="organization"/><detail relationship="inventoryFacility"/>
-            <detail relationship="assetReservationOrder"/><detail relationship="requirementMethod"/>
-            <detail relationship="defaultCurrencyUom"/><detail relationship="defaultSalesChannel"/>
+            <detail relationship="organization"/>
+            <detail relationship="inventoryFacility"/>
+            <detail relationship="assetReservationOrder"/>
+            <detail relationship="defaultCurrencyUom"/>
+            <detail relationship="defaultSalesChannel"/>
             <detail relationship="taxGatewayConfig"/>
 
             <detail relationship="categories"><detail relationship="category"/><detail relationship="type"/></detail>

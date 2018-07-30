@@ -120,8 +120,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- Ziziwork Retail ProductStore -->
     <mantle.product.store.ProductStore productStoreId="POPC_DEFAULT" storeName="Ziziwork Retail Store"
-            organizationPartyId="ORG_ZIZI_RETAIL" inventoryFacilityId="ZIRET_WH"
-            reservationOrderEnumId="AsResOrdFifoRec" requirementMethodEnumId=""
+            organizationPartyId="ORG_ZIZI_RETAIL" inventoryFacilityId="ZIRET_WH" reservationOrderEnumId="AsResOrdFifoRec"
             wikiSpaceId="ZZW_RETAIL" defaultLocale="en_US" defaultCurrencyUomId="USD" taxGatewayConfigId="LOCAL">
         <!-- use these to limit options for store, defaults to all CarrierShipmentMethod options for each carrier there is a shipping gateway for:
         <shipOptions carrierPartyId="_NA_" shipmentMethodEnumId="ShMthGround" sequenceNum="1"/>

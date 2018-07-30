@@ -49,7 +49,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="supportDiscontinuationDate" type="date-time"/>
 
         <field name="requireInventory" type="text-indicator"/>
-        <field name="requirementMethodEnumId" type="id"/>
         <field name="chargeShipping" type="text-indicator"><description>Set to N to not charge shipping (ie defaults to Y)</description></field>
         <field name="inShippingBox" type="text-indicator"/>
         <field name="defaultShipmentBoxTypeId" type="id"/>
@@ -77,8 +76,6 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
             <key-map field-name="ownerPartyId"/></relationship>
 
-        <relationship type="one" title="RequirementMethod" related="moqui.basic.Enumeration">
-            <key-map field-name="requirementMethodEnumId"/></relationship>
         <relationship type="one" title="Origin" related="moqui.basic.Geo" short-alias="originGeo">
             <key-map field-name="originGeoId"/></relationship>
         <relationship type="one" title="Default" related="ShipmentBoxType" short-alias="defaultBoxType">
