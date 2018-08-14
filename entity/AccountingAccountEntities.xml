@@ -384,6 +384,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="invoiceId"/></relationship>
         <relationship type="many" related="mantle.account.payment.PaymentApplication" short-alias="paymentApplications">
             <key-map field-name="invoiceId"/></relationship>
+        <relationship type="many" title="To" related="mantle.account.payment.PaymentApplication" short-alias="toPaymentApplications">
+            <key-map field-name="invoiceId" related="toInvoiceId"/></relationship>
         <relationship type="many" related="mantle.ledger.transaction.AcctgTrans" short-alias="acctgTrans">
             <key-map field-name="invoiceId"/></relationship>
 
@@ -1302,6 +1304,8 @@ along with this software (see the LICENSE.md file). If not, see
 
         <relationship type="many" related="mantle.account.payment.PaymentApplication" short-alias="applications">
             <key-map field-name="paymentId"/></relationship>
+        <relationship type="many" title="To" related="mantle.account.payment.PaymentApplication" short-alias="toApplications">
+            <key-map field-name="paymentId" related="toPaymentId"/></relationship>
         <relationship type="many" related="mantle.account.payment.PaymentContent" short-alias="contents">
             <key-map field-name="paymentId"/></relationship>
 
