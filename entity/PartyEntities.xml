@@ -730,8 +730,43 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.PartySettingType partySettingTypeId="CustomerNewerInventory" description="Newer Inventory each Order"
                     enumTypeId="BooleanYN" defaultValue="BlN"><roles roleTypeId="Customer"/></mantle.party.PartySettingType>
 
-            <!-- TODO: add and support setting type per org for default address validate and shipment gateways, see MantleUdmSetupData.xml -->
             <mantle.party.PartySettingType partySettingTypeId="OrgInvoiceProductStoreId" description="Default Invoice Product Store ID">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+
+            <!-- Address validate and default shipment gateways -->
+            <!-- TODO: support setting type per org for default address validate and shipment gateways, see MantleUdmSetupData.xml -->
+            <mantle.party.PartySettingType partySettingTypeId="ValidateAddressGatewayConfigId" description="Validate Address Gateway Config ID">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+            <mantle.party.PartySettingType partySettingTypeId="DefaultShipmentGatewayConfigId" description="Default Shipment Gateway Config ID">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+            <!-- PaymentMethod vault gateway -->
+            <!-- TODO: support setting type per org for payment gateway config to use by default for CC vault -->
+            <mantle.party.PartySettingType partySettingTypeId="VaultPaymentGatewayConfigId" description="Vault Payment Gateway Config ID">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+
+            <!-- Print/PDF Template Location Settings -->
+            <mantle.party.PartySettingType partySettingTypeId="OrgTemplateShipmentInsert" description="Template Location Shipment Insert">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+            <mantle.party.PartySettingType partySettingTypeId="OrgTemplateShipmentPick" description="Template Location Shipment Pick Sheet">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+            <mantle.party.PartySettingType partySettingTypeId="OrgTemplateShipmentPack" description="Template Location Shipment Pack Sheet">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+            <mantle.party.PartySettingType partySettingTypeId="OrgTemplateShipmentByPackage" description="Template Location Shipment By Package">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+
+            <!-- TODO: support template location settings from here down -->
+            <mantle.party.PartySettingType partySettingTypeId="OrgTemplateInvoicePrint" description="Template Location Invoice Print">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+            <mantle.party.PartySettingType partySettingTypeId="OrgTemplateOrderPrint" description="Template Location Order Print">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+
+            <mantle.party.PartySettingType partySettingTypeId="OrgTemplatePaymentCheck" description="Template Location Payment Check">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+            <mantle.party.PartySettingType partySettingTypeId="OrgTemplatePaymentDetail" description="Template Location Payment Detail">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+            <mantle.party.PartySettingType partySettingTypeId="OrgTemplateReceivableStatement" description="Template Location Receivable Statement">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+            <mantle.party.PartySettingType partySettingTypeId="OrgTemplateFinancialAccountStatement" description="Template Location Financial Account Statement">
                 <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
         </seed-data>
     </entity>

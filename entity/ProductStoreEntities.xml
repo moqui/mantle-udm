@@ -270,6 +270,15 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumCode="contentAttachmentLocation" description="Content Attachment Location" enumId="PsstContentAttachmentLoc" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="productImageLocation" description="Product Image Location" enumId="PsstProductImageLoc" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="getReturnLabels" description="Get Return Labels (true/false)" enumId="PsstGetReturnLabels" enumTypeId="ProductStoreSettingType"/>
+
+            <moqui.basic.Enumeration description="Template Location Shipment Insert" enumId="PsstTemplateShipmentInsert" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Template Location Shipment Pick Sheet" enumId="PsstTemplateShipmentPick" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Template Location Shipment Pack Sheet" enumId="PsstTemplateShipmentPack" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Template Location Shipment By Package" enumId="PsstTemplateShipmentByPackage" enumTypeId="ProductStoreSettingType"/>
+
+            <!-- TODO: support template location settings from here down -->
+            <moqui.basic.Enumeration description="Template Location Invoice Print" enumId="PsstTemplateInvoicePrint" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Template Location Order Print" enumId="PsstTemplateOrderPrint" enumTypeId="ProductStoreSettingType"/>
         </seed-data>
     </entity>
 
