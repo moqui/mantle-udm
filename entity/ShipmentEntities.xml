@@ -37,6 +37,8 @@ along with this software (see the LICENSE.md file). If not, see
             field of the same name on ShipmentItemSource.</description></field>
 
         <field name="entryDate" type="date-time"/>
+        <field name="shipAfterDate" type="date-time" enable-audit-log="update"/>
+        <field name="shipBeforeDate" type="date-time" enable-audit-log="update"/>
         <field name="estimatedReadyDate" type="date-time" enable-audit-log="update"/>
         <field name="estimatedShipDate" type="date-time" enable-audit-log="update"/>
         <field name="estimatedArrivalDate" type="date-time" enable-audit-log="update"/>
