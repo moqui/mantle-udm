@@ -734,13 +734,12 @@ along with this software (see the LICENSE.md file). If not, see
                 <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
 
             <!-- Address validate and default shipment gateways -->
-            <!-- TODO: support setting type per org for default address validate and shipment gateways, see MantleUdmSetupData.xml -->
             <mantle.party.PartySettingType partySettingTypeId="ValidateAddressGatewayConfigId" description="Validate Address Gateway Config ID">
                 <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
             <mantle.party.PartySettingType partySettingTypeId="DefaultShipmentGatewayConfigId" description="Default Shipment Gateway Config ID">
                 <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
-            <!-- PaymentMethod vault gateway -->
-            <!-- TODO: support setting type per org for payment gateway config to use by default for CC vault -->
+            <!-- PaymentMethod vault gateway - setting type per org for payment gateway config to use by default for CC vault -->
+            <!-- Support required for each payment gateway integration, org partyId is: PaymentMethod.ownerPartyId => Payment.ownerPartyId -->
             <mantle.party.PartySettingType partySettingTypeId="VaultPaymentGatewayConfigId" description="Vault Payment Gateway Config ID">
                 <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
 
@@ -754,7 +753,6 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.PartySettingType partySettingTypeId="OrgTemplateShipmentByPackage" description="Template Location Shipment By Package">
                 <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
 
-            <!-- TODO: support template location settings from here down -->
             <mantle.party.PartySettingType partySettingTypeId="OrgTemplateInvoicePrint" description="Template Location Invoice Print">
                 <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
             <mantle.party.PartySettingType partySettingTypeId="OrgTemplateOrderPrint" description="Template Location Order Print">
@@ -764,8 +762,10 @@ along with this software (see the LICENSE.md file). If not, see
                 <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
             <mantle.party.PartySettingType partySettingTypeId="OrgTemplatePaymentDetail" description="Template Location Payment Detail">
                 <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+            <!-- TODO: support template location setting  -->
             <mantle.party.PartySettingType partySettingTypeId="OrgTemplateReceivableStatement" description="Template Location Receivable Statement">
                 <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+            <!-- TODO: support template location setting  -->
             <mantle.party.PartySettingType partySettingTypeId="OrgTemplateFinancialAccountStatement" description="Template Location Financial Account Statement">
                 <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
         </seed-data>
