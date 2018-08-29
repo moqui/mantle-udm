@@ -236,6 +236,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="geoPointId" type="id" enable-audit-log="true"/>
         <field name="capacity" type="number-decimal"/>
         <field name="capacityUomId" type="id"/>
+        <field name="sequenceNum" type="number-integer">
+            <description>For pick, etc sort by this then by area, aisle, section, level, position</description></field>
         <relationship type="one" related="mantle.facility.Facility"/>
         <relationship type="one" title="FacilityLocationType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="locationTypeEnumId"/></relationship>
