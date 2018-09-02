@@ -271,6 +271,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumCode="productImageLocation" description="Product Image Location" enumId="PsstProductImageLoc" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="getReturnLabels" description="Get Return Labels (true/false)" enumId="PsstGetReturnLabels" enumTypeId="ProductStoreSettingType"/>
 
+            <moqui.basic.Enumeration description="Ship Label From Name" enumId="PsstShipLabelName" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Ship Label From Company" enumId="PsstShipLabelCompany" enumTypeId="ProductStoreSettingType"/>
+
             <moqui.basic.Enumeration description="Template Location Shipment Insert" enumId="PsstTemplateShipmentInsert" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Template Location Shipment Pick Sheet" enumId="PsstTemplateShipmentPick" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Template Location Shipment Pack Sheet" enumId="PsstTemplateShipmentPack" enumTypeId="ProductStoreSettingType"/>
