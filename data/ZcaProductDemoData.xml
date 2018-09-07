@@ -75,7 +75,7 @@ along with this software (see the LICENSE.md file). If not, see
     </moqui.resource.wiki.WikiPage>
 
     <!-- Ziziwork Retail Warehouse Facility -->
-    <mantle.facility.Facility facilityId="ZIRET_WH" facilityTypeEnumId="FcTpWarehouse"
+    <mantle.facility.Facility facilityId="ZIRET_WH" facilityTypeEnumId="FcTpWarehouse" assetAllowIssueOverQoh="Y"
             ownerPartyId="ORG_ZIZI_RETAIL" facilityName="Ziziwork Retail Warehouse">
         <contactMechs contactMechId="ORG_ZIZI_RTL_SA" contactMechPurposeId="PostalPrimary"/>
         <contactMechs contactMechId="ORG_ZIZI_RTL_PT" contactMechPurposeId="PhonePrimary"/>

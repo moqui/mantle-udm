@@ -37,6 +37,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="countyGeoId" type="id"/>
         <field name="stateGeoId" type="id"/>
         <field name="assetAllowOtherOwner" type="text-indicator"/>
+        <field name="assetAllowIssueOverQoh" type="text-indicator"/>
         <field name="defaultDaysToShip" type="number-integer"/>
         <relationship type="one" title="FacilityType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="facilityTypeEnumId"/></relationship>
