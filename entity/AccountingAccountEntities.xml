@@ -316,8 +316,8 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="Invoice" package="mantle.account.invoice" short-alias="invoices" cache="never" optimistic-lock="true">
         <field name="invoiceId" type="id" is-pk="true"/>
         <field name="invoiceTypeEnumId" type="id"/>
-        <field name="fromPartyId" type="id"/>
-        <field name="toPartyId" type="id"/>
+        <field name="fromPartyId" type="id" enable-audit-log="update"/>
+        <field name="toPartyId" type="id" enable-audit-log="update"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="billingAccountId" type="id"/>
         <field name="invoiceDate" type="date-time" enable-audit-log="update"/>
@@ -766,7 +766,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="paymentMethodId" type="id" is-pk="true"/>
         <field name="paymentMethodTypeEnumId" type="id"/>
         <field name="purposeEnumId" type="id"/>
-        <field name="ownerPartyId" type="id"/>
+        <field name="ownerPartyId" type="id" enable-audit-log="update"/>
         <field name="description" type="text-medium"/>
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>

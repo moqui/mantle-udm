@@ -979,9 +979,9 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="fromContactMechId" type="id"/>
         <field name="toContactMechId" type="id"/>
-        <field name="fromPartyId" type="id"/>
+        <field name="fromPartyId" type="id" enable-audit-log="update"/>
         <field name="fromRoleTypeId" type="id"/>
-        <field name="toPartyId" type="id"/>
+        <field name="toPartyId" type="id" enable-audit-log="update"/>
         <field name="toRoleTypeId" type="id"/>
 
         <field name="entryDate" type="date-time"/>

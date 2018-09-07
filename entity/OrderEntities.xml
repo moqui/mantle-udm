@@ -403,8 +403,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="partName" type="text-medium"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
 
-        <field name="vendorPartyId" type="id"><description>The vendor (seller) of the items in the order part.</description></field>
-        <field name="customerPartyId" type="id"><description>The customer (buyer) of the items in the order part.</description></field>
+        <field name="vendorPartyId" type="id" enable-audit-log="update">
+            <description>The vendor (seller) of the items in the order part.</description></field>
+        <field name="customerPartyId" type="id" enable-audit-log="update">
+            <description>The customer (buyer) of the items in the order part.</description></field>
         <field name="otherPartyOrderId" type="text-short"/>
         <field name="otherPartyOrderDate" type="date-time"/>
 

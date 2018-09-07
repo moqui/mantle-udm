@@ -29,8 +29,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="shipmentTypeEnumId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
 
-        <field name="fromPartyId" type="id"/>
-        <field name="toPartyId" type="id"/>
+        <field name="fromPartyId" type="id" enable-audit-log="update"/>
+        <field name="toPartyId" type="id" enable-audit-log="update"/>
         <field name="binLocationNumber" type="number-integer"><description>For picking multiple shipments in a single
             shipment load (WorkEffort with purpose Shipment Load/Ship, WepShipmentShip); this is the structure for a
             picklist instead of having a separate Picklist entity. This may be overridden within a Shipment with the
