@@ -73,6 +73,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.resource.wiki.WikiPage wikiPageId="zzw_contact" wikiSpaceId="ZZW_RETAIL" pagePath="contact" publishedVersionName="01">
         <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
     </moqui.resource.wiki.WikiPage>
+    <moqui.screen.ScreenPathAlias aliasPath="/pcontact" fromDate="1485028800000" thruDate="" screenPath="/popc/content/contact"/>
 
     <!-- Ziziwork Retail Warehouse Facility -->
     <mantle.facility.Facility facilityId="ZIRET_WH" facilityTypeEnumId="FcTpWarehouse" assetAllowIssueOverQoh="Y"
