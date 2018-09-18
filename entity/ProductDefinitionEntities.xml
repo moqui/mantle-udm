@@ -578,8 +578,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productCategoryTypeEnumId" type="id"/>
         <field name="categoryName" type="text-medium"/>
         <field name="description" type="text-very-long"/>
+        <field name="ownerPartyId" type="id" enable-audit-log="update"/>
+
         <relationship type="one" title="ProductCategoryType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="productCategoryTypeEnumId"/></relationship>
+        <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
+            <key-map field-name="ownerPartyId"/></relationship>
+
         <relationship type="many" related="mantle.product.category.ProductCategoryContent" short-alias="contents">
             <key-map field-name="productCategoryId"/></relationship>
         <relationship type="many" related="mantle.product.category.ProductCategoryParty" short-alias="parties">
@@ -900,14 +905,18 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="defaultSequenceNum" type="number-integer"/>
         <field name="abbrev" type="id"/>
         <field name="idCode" type="text-short"/>
+        <field name="ownerPartyId" type="id" enable-audit-log="update"/>
         <!-- these pallet fields are specific to Packaging Type features, may be a better place for these -->
         <field name="numberPerPallet" type="number-decimal"/>
         <field name="perPalletTier" type="number-decimal"/>
         <field name="tiersPerPallet" type="number-decimal"/>
+
         <relationship type="one" title="ProductFeatureType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="productFeatureTypeEnumId"/></relationship>
         <relationship type="one" title="Number" related="moqui.basic.Uom" short-alias="numberUom">
             <key-map field-name="numberUomId"/></relationship>
+        <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
+            <key-map field-name="ownerPartyId"/></relationship>
 
         <relationship type="many" related="mantle.product.feature.ProductFeatureAppl" short-alias="products">
             <key-map field-name="productFeatureId"/></relationship>
