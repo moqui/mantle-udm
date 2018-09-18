@@ -261,7 +261,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="settingTypeEnumId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
-        <field name="settingValue" type="id"/>
+        <field name="settingValue" type="text-medium"/>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" title="ProductStoreSettingType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="settingTypeEnumId"/></relationship>
