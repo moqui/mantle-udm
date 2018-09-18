@@ -13,6 +13,16 @@ along with this software (see the LICENSE.md file). If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.
 -->
 <entity-facade-xml type="seed">
+    <!-- NOTE: when updating these it's best to delete the indexes through ElasticSearch, then reindex the MantleSales feed:
+
+        curl http://localhost:9200/_cat/indices?v
+
+        curl -X DELETE http://localhost:9200/mantle_project?pretty
+        curl -X DELETE http://localhost:9200/mantle_task?pretty
+        curl -X DELETE http://localhost:9200/mantle_event?pretty
+        curl -X DELETE http://localhost:9200/mantle_request?pretty
+    -->
+
     <!-- Project -->
     <dataDocuments dataDocumentId="MantleProject" indexName="mantle" documentName="Project"
             primaryEntityName="mantle.work.effort.WorkEffort" documentTitle="${name}">

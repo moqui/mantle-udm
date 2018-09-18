@@ -33,6 +33,17 @@ along with this software (see the LICENSE.md file). If not, see
          These can be queried using the mantle.product.InventoryReportServices.get#InventoryProjectedInfo service.
     -->
 
+    <!-- NOTE: when updating these it's best to delete the indexes through ElasticSearch, then reindex the MantleSales feed:
+
+        curl http://localhost:9200/_cat/indices?v
+
+        curl -X DELETE http://localhost:9200/mantle_inventory_asset?pretty
+        curl -X DELETE http://localhost:9200/mantle_inventory_order_item?pretty
+        curl -X DELETE http://localhost:9200/mantle_inventory_run_consume?pretty
+        curl -X DELETE http://localhost:9200/mantle_inventory_run_produce?pretty
+        curl -X DELETE http://localhost:9200/mantle_inventory_prod_estimate?pretty
+    -->
+
     <!-- Inventory Asset -->
 
     <!-- TODO: somehow handle old Asset records (with QOH=0)? If we set a condition we'll just end up with stale documents with a false positive QOH -->

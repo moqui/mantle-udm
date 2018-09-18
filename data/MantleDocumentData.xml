@@ -16,6 +16,17 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- NOTE: these documents are meant for cloning; they have no DataFeed/DataFeedDocument records to trigger search
          indexing or anything else, so don't do anything unless used explicitly -->
 
+    <!-- NOTE: when updating these it's best to delete the indexes through ElasticSearch, then reindex the MantleSales feed:
+
+        curl http://localhost:9200/_cat/indices?v
+
+        curl -X DELETE http://localhost:9200/mantle_party?pretty
+        curl -X DELETE http://localhost:9200/mantle_product?pretty
+        curl -X DELETE http://localhost:9200/mantle_facility?pretty
+        curl -X DELETE http://localhost:9200/mantle_communication_event?pretty
+        curl -X DELETE http://localhost:9200/mantle_wiki_page?pretty
+    -->
+
     <!-- ========== Party ========== -->
     <dataDocuments dataDocumentId="MantleParty" indexName="mantle" documentName="Party"
             primaryEntityName="mantle.party.Party" documentTitle="PartyNameTemplate">
