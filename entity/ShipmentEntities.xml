@@ -169,7 +169,7 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
     <extend-entity entity-name="SystemMessage" package="moqui.service.message">
         <field name="shipmentId" type="id"/>
-        <relationship type="one" related="mantle.shipment.Shipment"/>
+        <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
     </extend-entity>
 
     <entity entity-name="ShipmentBoxType" package="mantle.shipment" cache="true">
