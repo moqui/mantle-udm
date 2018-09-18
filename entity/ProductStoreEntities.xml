@@ -64,6 +64,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="productStoreId"/></relationship>
         <relationship type="many" related="mantle.product.store.ProductStorePaymentGateway" short-alias="paymentGateways">
             <key-map field-name="productStoreId"/></relationship>
+        <relationship type="many" related="mantle.product.store.ProductStoreSetting" short-alias="settings">
+            <key-map field-name="productStoreId"/></relationship>
         <relationship type="many" related="mantle.product.store.ProductStoreShippingGateway" short-alias="shippingGateways">
             <key-map field-name="productStoreId"/></relationship>
         <relationship type="many" related="mantle.product.store.ProductStoreShipOption" short-alias="shipOptions">
