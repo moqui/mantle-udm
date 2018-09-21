@@ -200,6 +200,16 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.account.method.PaymentGatewayConfig" short-alias="config"/>
     </entity>
 
+    <entity entity-name="ProductStoreProduct" package="mantle.product.store" use="configuration" cache="true">
+        <field name="productStoreId" type="id" is-pk="true"/>
+        <field name="productId" type="id" is-pk="true"/>
+        <field name="signatureRequiredEnumId" type="id"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" title="SignatureRequired" related="moqui.basic.Enumeration" short-alias="signatureRequiredEnum">
+            <key-map field-name="signatureRequiredEnumId"/></relationship>
+    </entity>
+
     <entity entity-name="ProductStorePromotion" package="mantle.product.store" use="configuration" cache="true">
         <field name="storePromotionId" type="id" is-pk="true"/>
         <field name="productStoreId" type="id"/>
@@ -215,6 +225,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="useLimitPerCustomer" type="number-integer"/>
         <field name="useLimitPerPromotion" type="number-integer"/>
         <field name="freeGroundShipping" type="text-indicator"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" related="moqui.service.ServiceRegister" short-alias="serviceRegister"/>
         <relationship type="many" related="mantle.product.store.ProductStorePromoParameter" short-alias="parameters">
             <key-map field-name="storePromotionId"/></relationship>

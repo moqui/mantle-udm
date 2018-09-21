@@ -50,6 +50,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="requireInventory" type="text-indicator"/>
         <field name="chargeShipping" type="text-indicator"><description>Set to N to not charge shipping (ie defaults to Y)</description></field>
+        <field name="signatureRequiredEnumId" type="id"/>
         <field name="inShippingBox" type="text-indicator"/>
         <field name="defaultShipmentBoxTypeId" type="id"/>
         <field name="taxable" type="text-indicator"><description>Set to N to not charge sales tax (ie defaults to Y)</description></field>
@@ -78,6 +79,8 @@ along with this software (see the LICENSE.md file). If not, see
 
         <relationship type="one" title="Origin" related="moqui.basic.Geo" short-alias="originGeo">
             <key-map field-name="originGeoId"/></relationship>
+        <relationship type="one" title="SignatureRequired" related="moqui.basic.Enumeration" short-alias="signatureRequiredEnum">
+            <key-map field-name="signatureRequiredEnumId"/></relationship>
         <relationship type="one" title="Default" related="ShipmentBoxType" short-alias="defaultBoxType">
             <key-map field-name="defaultShipmentBoxTypeId"/></relationship>
         <relationship type="one" title="Amount" related="moqui.basic.Uom" short-alias="amountUom">

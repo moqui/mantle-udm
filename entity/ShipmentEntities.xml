@@ -53,6 +53,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="addtlShippingCharge" type="currency-amount"/>
         <field name="addtlShippingChargeDesc" type="text-medium"/>
 
+        <field name="signatureRequiredEnumId" type="id"/>
         <field name="handlingInstructions" type="text-long"/>
         <field name="otherPartyOrderId" type="text-short"/>
         <field name="systemMessageRemoteId" type="id"/>
@@ -71,6 +72,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="receiveWorkEffortId"/></relationship>
         <relationship type="one" title="Cost" related="moqui.basic.Uom" short-alias="costUom">
             <key-map field-name="costUomId"/></relationship>
+        <relationship type="one" title="SignatureRequired" related="moqui.basic.Enumeration" short-alias="signatureRequiredEnum">
+            <key-map field-name="signatureRequiredEnumId"/></relationship>
         <relationship type="one" related="moqui.service.message.SystemMessageRemote"/>
 
         <relationship type="many" related="mantle.shipment.ShipmentContent" short-alias="contents">
@@ -132,6 +135,14 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipShipped" toStatusId="ShipCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipDelivered" toStatusId="ShipShipped" transitionName="Un-deliver"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipShipped" toStatusId="ShipPacked" transitionName="Un-ship"/>
+
+            <!-- Signature Required -->
+            <moqui.basic.EnumerationType description="Signature Required" enumTypeId="SignatureRequired"/>
+            <moqui.basic.Enumeration enumCode="" description="None" enumId="PsrNone" enumTypeId="SignatureRequired"/>
+            <moqui.basic.Enumeration enumCode="STANDARD" description="Standard" enumId="PsrStandard" enumTypeId="SignatureRequired"/>
+            <moqui.basic.Enumeration enumCode="ADULT" description="Adult" enumId="PsrAdult" enumTypeId="SignatureRequired"/>
+            <moqui.basic.Enumeration enumCode="CERTIFIED" description="Certified (USPS)" enumId="PsrCertified" enumTypeId="SignatureRequired"/>
+            <moqui.basic.Enumeration enumCode="INDIRECT" description="Indirect (FedEx)" enumId="PsrIndirect" enumTypeId="SignatureRequired"/>
         </seed-data>
         <master>
             <detail relationship="type"/>

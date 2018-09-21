@@ -421,6 +421,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="trackingNumber" type="text-short"/>
         <field name="shippingInstructions" type="text-long"/>
         <field name="maySplit" type="text-indicator"/>
+        <field name="signatureRequiredEnumId" type="id"/>
         <field name="giftMessage" type="text-medium"/>
         <field name="isGift" type="text-indicator"/>
         <field name="isNewCustomer" type="text-indicator"/>
@@ -476,6 +477,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="telecomContactMechId"/></relationship>
         <relationship type="one" related="mantle.party.contact.TelecomNumber" short-alias="telecomNumber">
             <key-map field-name="telecomContactMechId"/></relationship>
+        <relationship type="one" title="SignatureRequired" related="moqui.basic.Enumeration" short-alias="signatureRequiredEnum">
+            <key-map field-name="signatureRequiredEnumId"/></relationship>
 
         <relationship type="many" related="mantle.order.OrderItem" short-alias="items">
             <key-map field-name="orderId"/><key-map field-name="orderPartSeqId"/></relationship>
