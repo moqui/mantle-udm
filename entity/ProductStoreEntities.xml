@@ -25,6 +25,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="inventoryFacilityId" type="id"/>
         <field name="reservationOrderEnumId" type="id"/>
         <field name="requireInventory" type="text-indicator"/>
+        <field name="returnContactMechId" type="id"><description>Return postal address for shipping labels</description></field>
 
         <field name="storeDomain" type="text-short"><description>Store domain for use in emails</description></field>
         <field name="profileUrlPath" type="text-medium"><description>Path to profile page for use in emails</description></field>
@@ -45,6 +46,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="inventoryFacilityId"/></relationship>
         <relationship type="one" title="AssetReservationOrder" related="moqui.basic.Enumeration" short-alias="assetReservationOrder">
             <key-map field-name="reservationOrderEnumId"/></relationship>
+        <relationship type="one" title="Return" related="mantle.party.contact.ContactMech" short-alias="return">
+            <key-map field-name="returnContactMechId"/></relationship>
 
         <relationship type="one" related="moqui.resource.wiki.WikiSpace" short-alias="wikiSpace"/>
         <relationship type="one" title="DefaultCurrency" related="moqui.basic.Uom" short-alias="defaultCurrencyUom">
@@ -301,6 +304,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="carrierPartyId" type="id" is-pk="true"/>
         <field name="shippingGatewayConfigId" type="id"/>
+        <field name="billingType" type="text-short"><description>For third party and other carrier account billing;
+            for Shippo valid values are SENDER, RECIPIENT, THIRD_PARTY</description></field>
+        <field name="billingAccount" type="text-short"><description>Third party or other carrier account number</description></field>
+        <field name="billingZip" type="text-short"/>
+        <field name="billingCountry" type="text-short"><description>For Shippo this is the 2 letter ISO country code</description></field>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
             <key-map field-name="carrierPartyId"/></relationship>
