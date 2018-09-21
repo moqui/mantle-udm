@@ -138,11 +138,11 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- Signature Required -->
             <moqui.basic.EnumerationType description="Signature Required" enumTypeId="SignatureRequired"/>
-            <moqui.basic.Enumeration enumCode="" description="None" enumId="PsrNone" enumTypeId="SignatureRequired"/>
-            <moqui.basic.Enumeration enumCode="STANDARD" description="Standard" enumId="PsrStandard" enumTypeId="SignatureRequired"/>
-            <moqui.basic.Enumeration enumCode="ADULT" description="Adult" enumId="PsrAdult" enumTypeId="SignatureRequired"/>
-            <moqui.basic.Enumeration enumCode="CERTIFIED" description="Certified (USPS)" enumId="PsrCertified" enumTypeId="SignatureRequired"/>
-            <moqui.basic.Enumeration enumCode="INDIRECT" description="Indirect (FedEx)" enumId="PsrIndirect" enumTypeId="SignatureRequired"/>
+            <moqui.basic.Enumeration enumCode="" description="None" enumId="PsrNone" sequenceNum="1" enumTypeId="SignatureRequired"/>
+            <moqui.basic.Enumeration enumCode="STANDARD" description="Standard" enumId="PsrStandard" sequenceNum="2" enumTypeId="SignatureRequired"/>
+            <moqui.basic.Enumeration enumCode="ADULT" description="Adult" enumId="PsrAdult" sequenceNum="3" enumTypeId="SignatureRequired"/>
+            <moqui.basic.Enumeration enumCode="CERTIFIED" description="Certified (USPS)" enumId="PsrCertified" sequenceNum="4" enumTypeId="SignatureRequired"/>
+            <moqui.basic.Enumeration enumCode="INDIRECT" description="Indirect (FedEx)" enumId="PsrIndirect" sequenceNum="5" enumTypeId="SignatureRequired"/>
         </seed-data>
         <master>
             <detail relationship="type"/>
