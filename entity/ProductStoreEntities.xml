@@ -25,7 +25,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="inventoryFacilityId" type="id"/>
         <field name="reservationOrderEnumId" type="id"/>
         <field name="requireInventory" type="text-indicator"/>
-        <field name="returnContactMechId" type="id"><description>Return postal address for shipping labels</description></field>
+        <field name="returnPostalContactMechId" type="id"><description>Return postal address for shipping labels</description></field>
 
         <field name="storeDomain" type="text-short"><description>Store domain for use in emails</description></field>
         <field name="profileUrlPath" type="text-medium"><description>Path to profile page for use in emails</description></field>
@@ -46,8 +46,10 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="inventoryFacilityId"/></relationship>
         <relationship type="one" title="AssetReservationOrder" related="moqui.basic.Enumeration" short-alias="assetReservationOrder">
             <key-map field-name="reservationOrderEnumId"/></relationship>
-        <relationship type="one" title="Return" related="mantle.party.contact.ContactMech" short-alias="return">
-            <key-map field-name="returnContactMechId"/></relationship>
+        <relationship type="one-nofk" title="Return" related="mantle.party.contact.ContactMech" short-alias="returnPostal">
+            <key-map field-name="returnPostalContactMechId"/></relationship>
+        <relationship type="one" title="Return" related="mantle.party.contact.PostalAddress" short-alias="returnPostalAddress">
+            <key-map field-name="returnPostalContactMechId"/></relationship>
 
         <relationship type="one" related="moqui.resource.wiki.WikiSpace" short-alias="wikiSpace"/>
         <relationship type="one" title="DefaultCurrency" related="moqui.basic.Uom" short-alias="defaultCurrencyUom">

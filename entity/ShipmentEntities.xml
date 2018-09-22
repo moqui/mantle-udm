@@ -410,6 +410,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="originFacilityId" type="id"/>
         <field name="originPostalContactMechId" type="id"/>
         <field name="originTelecomContactMechId" type="id"/>
+        <field name="returnPostalContactMechId" type="id"/>
         <field name="destinationFacilityId" type="id"/>
         <field name="destPostalContactMechId" type="id" enable-audit-log="update"/>
         <field name="destTelecomContactMechId" type="id"/>
@@ -454,16 +455,22 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="carrierPartyId"/></relationship>
         <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration" short-alias="shipmentMethod">
             <key-map field-name="shipmentMethodEnumId"/></relationship>
+
         <relationship type="one" title="Origin" related="mantle.facility.Facility" short-alias="originFacility">
             <key-map field-name="originFacilityId"/></relationship>
         <relationship type="one-nofk" title="Origin" related="mantle.party.contact.ContactMech" short-alias="originPostal">
             <key-map field-name="originPostalContactMechId"/></relationship>
-        <relationship type="one" title="Origin" related="mantle.party.contact.PostalAddress">
+        <relationship type="one" title="Origin" related="mantle.party.contact.PostalAddress" short-alias="originPostalAddress">
             <key-map field-name="originPostalContactMechId"/></relationship>
         <relationship type="one-nofk" title="Origin" related="mantle.party.contact.ContactMech" short-alias="originTelecom">
             <key-map field-name="originTelecomContactMechId"/></relationship>
         <relationship type="one" title="Origin" related="mantle.party.contact.TelecomNumber">
             <key-map field-name="originTelecomContactMechId"/></relationship>
+        <relationship type="one-nofk" title="Return" related="mantle.party.contact.ContactMech" short-alias="returnPostal">
+            <key-map field-name="returnPostalContactMechId"/></relationship>
+        <relationship type="one" title="Return" related="mantle.party.contact.PostalAddress" short-alias="returnPostalAddress">
+            <key-map field-name="returnPostalContactMechId"/></relationship>
+
         <relationship type="one" title="Destination" related="mantle.facility.Facility" short-alias="destFacility">
             <key-map field-name="destinationFacilityId"/></relationship>
         <relationship type="one-nofk" title="Destination" related="mantle.party.contact.ContactMech" short-alias="destPostal">
