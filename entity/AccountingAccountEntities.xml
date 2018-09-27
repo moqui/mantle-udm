@@ -86,7 +86,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="finAccountPin" type="text-medium" encrypt="true"/>
         <field name="organizationPartyId" type="id">
             <description>The internal organization Party that is liable for the account.</description></field>
-        <field name="ownerPartyId" type="id"/>
+        <field name="ownerPartyId" type="id" enable-audit-log="update"/>
         <field name="postToGlAccountId" type="id"/>
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>

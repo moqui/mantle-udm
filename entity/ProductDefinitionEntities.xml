@@ -35,7 +35,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="assetTypeEnumId" type="id"/>
         <field name="assetClassEnumId" type="id"/>
         <field name="statusId" type="id"/>
-        <field name="ownerPartyId" type="id" enable-audit-log="update">
+        <field name="ownerPartyId" type="id" enable-audit-log="update" default="'_NA_'">
             <description>Brand or other organization that owns the product design, IP, etc.
                 There may be multiple suppliers, manufacturers, etc for a product but only one that 'owns' it.</description></field>
 
@@ -120,7 +120,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.product.asset.Asset" short-alias="assets">
             <key-map field-name="productId"/></relationship>
 
-        <index name="PRODUCT_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
+        <index name="PRODUCT_ID_PSEUDO" unique="true"><index-field name="pseudoId"/><index-field name="ownerPartyId"/></index>
 
         <seed-data>
             <!-- Product Type -->
@@ -581,7 +581,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productCategoryTypeEnumId" type="id"/>
         <field name="categoryName" type="text-medium"/>
         <field name="description" type="text-very-long"/>
-        <field name="ownerPartyId" type="id" enable-audit-log="update"/>
+        <field name="ownerPartyId" type="id" enable-audit-log="update" default="'_NA_'"/>
 
         <relationship type="one" title="ProductCategoryType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="productCategoryTypeEnumId"/></relationship>
@@ -601,7 +601,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.product.feature.ProductCategoryFeatGrpAppl" short-alias="featureGroups">
             <key-map field-name="productCategoryId"/></relationship>
 
-        <index name="CATEGORY_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
+        <index name="CATEGORY_ID_PSEUDO" unique="true"><index-field name="pseudoId"/><index-field name="ownerPartyId"/></index>
         <seed-data>
             <!-- Product Category Type -->
             <moqui.basic.EnumerationType description="Product Category Type" enumTypeId="ProductCategoryType"/>
@@ -908,7 +908,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="defaultSequenceNum" type="number-integer"/>
         <field name="abbrev" type="id"/>
         <field name="idCode" type="text-short"/>
-        <field name="ownerPartyId" type="id" enable-audit-log="update"/>
+        <field name="ownerPartyId" type="id" enable-audit-log="update" default="'_NA_'"/>
         <!-- these pallet fields are specific to Packaging Type features, may be a better place for these -->
         <field name="numberPerPallet" type="number-decimal"/>
         <field name="perPalletTier" type="number-decimal"/>
