@@ -57,6 +57,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="handlingInstructions" type="text-long"/>
         <field name="otherPartyOrderId" type="text-short"/>
         <field name="systemMessageRemoteId" type="id"/>
+        <field name="externalId" type="text-short"/>
 
         <relationship type="one" title="ShipmentType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="shipmentTypeEnumId"/></relationship>
