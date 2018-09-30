@@ -81,7 +81,8 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="11" fieldPath="part:facilityId" fieldNameAlias="facilityId"/>
         <fields fieldSeqId="12" fieldPath="part:vendorPartyId" fieldNameAlias="vendorPartyId"/>
         <fields fieldSeqId="13" fieldPath="part:vendorRoles:roleTypeId" fieldNameAlias="vendorRoleTypeId"/>
-    
+        <fields fieldSeqId="14" fieldPath="part:customerPartyId" fieldNameAlias="customerPartyId"/>
+
         <fields fieldSeqId="20" fieldPath="reservations:assetId" fieldNameAlias="assetId"/>
         <fields fieldSeqId="21" fieldPath="reservations:quantity" fieldNameAlias="quantityReserved"/>
         <fields fieldSeqId="22" fieldPath="reservations:quantityNotAvailable" fieldNameAlias="quantityNotAvailable"/>

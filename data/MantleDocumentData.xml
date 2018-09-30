@@ -93,6 +93,9 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="62" fieldPath="notes:noteText"/>
         <fields fieldSeqId="63" fieldPath="notes:internalNote"/>
         <fields fieldSeqId="64" fieldPath="notes:userId" fieldNameAlias="noteUserId"/>
+        <!-- other Party fields, included here because no seq room lower -->
+        <fields fieldSeqId="90" fieldPath="ownerPartyId"/>
+        <fields fieldSeqId="91" fieldPath="dataSourceId"/>
     </dataDocuments>
     <dataDocuments dataDocumentId="MantleCommunicationEvent" indexName="mantle" documentName="Communication Event"
             primaryEntityName="mantle.party.communication.CommunicationEvent" documentTitle="${subject}">
@@ -141,7 +144,8 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="05" fieldPath="salesIntroductionDate"/>
         <fields fieldSeqId="06" fieldPath="salesDiscontinuationDate"/>
         <fields fieldSeqId="07" fieldPath="supportDiscontinuationDate"/>
-    
+        <fields fieldSeqId="08" fieldPath="ownerPartyId"/>
+
         <fields fieldSeqId="10" fieldPath="productTypeEnumId"/>
         <fields fieldSeqId="11" fieldPath="type:description" fieldNameAlias="type"/>
         <fields fieldSeqId="12" fieldPath="productClassEnumId"/>
@@ -207,7 +211,8 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="06" fieldPath="type:description" fieldNameAlias="type"/>
         <fields fieldSeqId="07" fieldPath="status:description" fieldNameAlias="status"/>
         <fields fieldSeqId="08" fieldPath="ownerOrganization:organizationName" fieldNameAlias="ownerName"/>
-    
+        <fields fieldSeqId="09" fieldPath="ownerPartyId"/>
+
         <fields fieldSeqId="20" fieldPath="contactMechs:postalAddress:contactMechId"/>
         <fields fieldSeqId="21" fieldPath="contactMechs:postalAddress:address1"/>
         <fields fieldSeqId="22" fieldPath="contactMechs:postalAddress:city"/>

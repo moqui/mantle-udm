@@ -37,6 +37,7 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="12" fieldPath="parties:person:firstName"/>
         <fields fieldSeqId="13" fieldPath="parties:person:lastName"/>
         <fields fieldSeqId="14" fieldPath="parties:organization:organizationName"/>
+        <fields fieldSeqId="17" fieldPath="ownerPartyId"/>
 
         <conditions conditionSeqId="01" fieldNameAlias="workEffortTypeEnumId" fieldValue="WetProject"/>
     </dataDocuments>
@@ -57,6 +58,7 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="14" fieldPath="purpose:description" fieldNameAlias="purpose"/>
         <fields fieldSeqId="15" fieldPath="resolutionEnumId"/>
         <fields fieldSeqId="16" fieldPath="resolution:description" fieldNameAlias="resolution"/>
+        <fields fieldSeqId="17" fieldPath="ownerPartyId"/>
 
         <fields fieldSeqId="20" fieldPath="parties:partyId"/>
         <fields fieldSeqId="21" fieldPath="parties:role:description" fieldNameAlias="role"/>
@@ -69,6 +71,10 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="31" fieldPath="assocs:type:description" fieldNameAlias="assocType"/>
         <fields fieldSeqId="32" fieldPath="toAssocs:workEffortId" fieldNameAlias="assocFromId"/>
         <fields fieldSeqId="33" fieldPath="toAssocs:type:description" fieldNameAlias="assocTypeTo"/>
+
+        <fields fieldSeqId="40" fieldPath="facility:pseudoId" fieldNameAlias="facilityPseudoId"/>
+        <fields fieldSeqId="41" fieldPath="facility:facilityName" fieldNameAlias="facilityName"/>
+        <fields fieldSeqId="42" fieldPath="facility:ownerPartyId" fieldNameAlias="facilityOwnerPartyId"/>
 
         <conditions conditionSeqId="01" fieldNameAlias="workEffortTypeEnumId" fieldValue="WetTask"/>
     </dataDocuments>
@@ -89,6 +95,7 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="14" fieldPath="purpose:description" fieldNameAlias="purpose"/>
         <fields fieldSeqId="15" fieldPath="resolutionEnumId"/>
         <fields fieldSeqId="16" fieldPath="resolution:description" fieldNameAlias="resolution"/>
+        <fields fieldSeqId="17" fieldPath="ownerPartyId"/>
 
         <fields fieldSeqId="20" fieldPath="parties:partyId"/>
         <fields fieldSeqId="21" fieldPath="parties:role:description" fieldNameAlias="role"/>
@@ -101,6 +108,10 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="31" fieldPath="assocs:type:description" fieldNameAlias="assocType"/>
         <fields fieldSeqId="32" fieldPath="toAssocs:workEffortId" fieldNameAlias="assocFromId"/>
         <fields fieldSeqId="33" fieldPath="toAssocs:type:description" fieldNameAlias="assocTypeTo"/>
+
+        <fields fieldSeqId="40" fieldPath="facility:pseudoId" fieldNameAlias="facilityPseudoId"/>
+        <fields fieldSeqId="41" fieldPath="facility:facilityName" fieldNameAlias="facilityName"/>
+        <fields fieldSeqId="42" fieldPath="facility:ownerPartyId" fieldNameAlias="facilityOwnerPartyId"/>
 
         <conditions conditionSeqId="01" fieldNameAlias="workEffortTypeEnumId" fieldValue="WetEvent"/>
     </dataDocuments>
@@ -122,6 +133,12 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="12" fieldPath="parties:person:firstName"/>
         <fields fieldSeqId="13" fieldPath="parties:person:lastName"/>
         <fields fieldSeqId="14" fieldPath="parties:organization:organizationName"/>
+
+        <fields fieldSeqId="40" fieldPath="facility:pseudoId" fieldNameAlias="facilityPseudoId"/>
+        <fields fieldSeqId="41" fieldPath="facility:facilityName" fieldNameAlias="facilityName"/>
+        <fields fieldSeqId="42" fieldPath="facility:ownerPartyId" fieldNameAlias="facilityOwnerPartyId"/>
+        <fields fieldSeqId="46" fieldPath="store:storeName" fieldNameAlias="storeName"/>
+        <fields fieldSeqId="47" fieldPath="store:organizationPartyId" fieldNameAlias="storeOrganizationPartyId"/>
     </dataDocuments>
 
     <!-- ================ -->
