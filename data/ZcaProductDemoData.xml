@@ -186,28 +186,28 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- Demo Categories -->
     <mantle.product.category.ProductCategory productCategoryId="DEMO_ONE" productCategoryTypeEnumId="PctCatalog"
-            categoryName="Demo Category One" description=""/>
+            categoryName="Demo Category One" description="" ownerPartyId="ORG_ZIZI_RETAIL"/>
     <mantle.product.category.ProductCategoryRollup productCategoryId="DEMO_ONE"
             parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="11"/>
 
     <mantle.product.category.ProductCategory productCategoryId="DEMO_TWO" productCategoryTypeEnumId="PctCatalog"
-            categoryName="Demo Category Two" description=""/>
+            categoryName="Demo Category Two" description="" ownerPartyId="ORG_ZIZI_RETAIL"/>
     <mantle.product.category.ProductCategoryRollup productCategoryId="DEMO_TWO"
             parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="12"/>
 
     <mantle.product.category.ProductCategory productCategoryId="DEMO_THREE" productCategoryTypeEnumId="PctCatalog"
-            categoryName="Demo Category Three" description=""/>
+            categoryName="Demo Category Three" description="" ownerPartyId="ORG_ZIZI_RETAIL"/>
     <mantle.product.category.ProductCategoryRollup productCategoryId="DEMO_THREE"
             parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="13"/>
 
     <!-- Demo Sub Assembly and Raw Materials Categories -->
     <mantle.product.category.ProductCategory productCategoryId="DEMO_SA" productCategoryTypeEnumId="PctMaterials"
-            categoryName="Demo Sub Assemblies" description=""/>
+            categoryName="Demo Sub Assemblies" description="" ownerPartyId="ORG_ZIZI_RETAIL"/>
     <mantle.product.category.ProductCategory productCategoryId="DEMO_RM" productCategoryTypeEnumId="PctMaterials"
-            categoryName="Demo Raw Materials" description=""/>
+            categoryName="Demo Raw Materials" description="" ownerPartyId="ORG_ZIZI_RETAIL"/>
     <!-- Demo Equipment Categories -->
     <mantle.product.category.ProductCategory productCategoryId="DEMO_EQUIP" productCategoryTypeEnumId="PctMaterials"
-            categoryName="Demo Equipment" description=""/>
+            categoryName="Demo Equipment" description="" ownerPartyId="ORG_ZIZI_RETAIL"/>
 
     <!-- ========== Demo Products ========== -->
 
@@ -254,7 +254,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- Demo Unit Product -->
     <mantle.product.Product productId="DEMO_UNIT" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
-            chargeShipping="Y" returnable="Y" productName="Demo Product One Unit" description=""/>
+            chargeShipping="Y" returnable="Y" productName="Demo Product One Unit" description="" ownerPartyId="ORG_ZIZI_RETAIL"/>
     <mantle.product.ProductPrice productPriceId="DEMO_UNIT_C" productId="DEMO_UNIT"
             pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="1265184000000"
             minQuantity="1" price="1" priceUomId="USD"/>
@@ -277,7 +277,7 @@ along with this software (see the LICENSE.md file). If not, see
         </file>
     </moqui.resource.DbResource>
     <mantle.product.Product productId="DEMO_1_1" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
-            chargeShipping="Y" returnable="Y" productName="Demo Product One-One" description="">
+            chargeShipping="Y" returnable="Y" productName="Demo Product One-One" description="" ownerPartyId="ORG_ZIZI_RETAIL">
         <!-- list price -->
         <prices productPriceId="DEMO_1_1_L" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptList"  fromDate="1265184000000"
                 minQuantity="1" price="19.99" priceUomId="USD"/>
@@ -324,7 +324,7 @@ along with this software (see the LICENSE.md file). If not, see
             fromDate="1265184000000" thruDate="" sequenceNum="" quantity="4"/>
 
     <mantle.product.Product productId="DEMO_1_2" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
-            productName="Demo Product One-Two" description="" chargeShipping="Y" returnable="Y"/>
+            productName="Demo Product One-Two" description="" chargeShipping="Y" returnable="Y" ownerPartyId="ORG_ZIZI_RETAIL"/>
     <mantle.product.ProductPrice productPriceId="DEMO_1_2_C" productId="DEMO_1_2"
             pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="1265184000000"
             minQuantity="1" price="11119.99" priceUomId="USD"/>
@@ -342,7 +342,7 @@ along with this software (see the LICENSE.md file). If not, see
             postedDateTime="1432675690547" lastUpdatedStamp="1432675690534"/>
 
     <mantle.product.Product productId="DEMO_2_1" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
-            chargeShipping="Y" returnable="Y" productName="Demo Product Two-One" description=""/>
+            chargeShipping="Y" returnable="Y" productName="Demo Product Two-One" description="" ownerPartyId="ORG_ZIZI_RETAIL"/>
     <mantle.product.ProductPrice productPriceId="DEMO_2_1_C" productId="DEMO_2_1"
             pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="1265184000000"
             minQuantity="1" price="12.12" priceUomId="USD"/>
@@ -357,7 +357,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- Demo Three-One Product -->
     <mantle.product.Product productId="DEMO_3_1" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
-            chargeShipping="Y" returnable="Y" productName="Demo Product Three-One" description=""/>
+            chargeShipping="Y" returnable="Y" productName="Demo Product Three-One" description="" ownerPartyId="ORG_ZIZI_RETAIL"/>
     <!-- long term price -->
     <mantle.product.ProductPrice productPriceId="DEMO_3_1_C" productId="DEMO_3_1"
             pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="1265184000000"
@@ -409,7 +409,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- Demo Virtual with Variants -->
     <mantle.product.Product productId="DEMO_VAR" productTypeEnumId="PtVirtual" assetTypeEnumId="" assetClassEnumId=""
-            chargeShipping="Y" returnable="Y" productName="Demo with Variants" description="">
+            chargeShipping="Y" returnable="Y" productName="Demo with Variants" description="" ownerPartyId="ORG_ZIZI_RETAIL">
         <prices productPriceId="DEMO_VAR_L" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptList"  fromDate="1265184000000"
                 minQuantity="1" price="29.99" priceUomId="USD"/>
         <prices productPriceId="DEMO_VAR_CLT" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent"  fromDate="1265184000000"

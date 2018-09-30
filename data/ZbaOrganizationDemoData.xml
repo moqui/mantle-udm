@@ -285,7 +285,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- ========== DEMO CUSTOMER DATA ========== -->
     <!-- Demo Customer: Joe Q Public (joe@public.com) -->
-    <mantle.party.Party partyId="CustJqp" partyTypeEnumId="PtyPerson">
+    <mantle.party.Party partyId="CustJqp" partyTypeEnumId="PtyPerson" ownerPartyId="ORG_ZIZI_RETAIL">
         <person firstName="Joe" middleName="Q" lastName="Public"/>
         <roles roleTypeId="Customer"/>
         <classifications partyClassificationId="CustConsumer" fromDate="1265184000000"/>
@@ -316,7 +316,7 @@ along with this software (see the LICENSE.md file). If not, see
         </paymentMethods>
     </mantle.party.Party>
     <!-- Demo Company Customer: Joe's Distributing -->
-    <mantle.party.Party partyId="JoeDist" partyTypeEnumId="PtyOrganization">
+    <mantle.party.Party partyId="JoeDist" partyTypeEnumId="PtyOrganization" ownerPartyId="ORG_ZIZI_RETAIL">
         <organization organizationName="Joe &amp; Joe's Distributing"/>
         <roles roleTypeId="Customer"/>
         <classifications partyClassificationId="CustDistributor" fromDate="1265184000000"/>
