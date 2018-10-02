@@ -708,11 +708,19 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Return Reason -->
             <moqui.basic.EnumerationType description="Return Reason" enumTypeId="ReturnReason"/>
-            <moqui.basic.Enumeration enumId="RrsnDidNotWant" description="Did Not Want" enumTypeId="ReturnReason"/>
-            <moqui.basic.Enumeration enumId="RrsnDefective" description="Defective" enumTypeId="ReturnReason"/>
-            <moqui.basic.Enumeration enumId="RrsnMisShip" description="Mis-Shipped" enumTypeId="ReturnReason"/>
-            <moqui.basic.Enumeration enumId="RrsnCodPmtRejected" description="COD Payment Rejected" enumTypeId="ReturnReason"/>
-            <moqui.basic.Enumeration enumId="RrsnSizeExchange" description="Size Exchange" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration sequenceNum="1" description="01 Damaged in Shipping" enumId="RrsnDamagedShip" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration sequenceNum="2" description="02 Defective" enumId="RrsnDefective" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration sequenceNum="3" description="03 Wrong Item Shipped" enumId="RrsnMisShip" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration sequenceNum="4" description="04 Not as Expected" enumId="RrsnNotExpected" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration sequenceNum="5" description="05 Did not Fit/Wrong Size" enumId="RrsnWrongSize" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration sequenceNum="6" description="06 Duplicate Shipment" enumId="RrsnDupShip" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration sequenceNum="7" description="07 Gift, Not Wanted" enumId="RrsnGiftNotWant" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration sequenceNum="8" description="08 Arrived Too Late" enumId="RrsnArrivedLate" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration sequenceNum="9" description="09 Did not Want/Like" enumId="RrsnDidNotWant" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration sequenceNum="10" description="10 Found Better Price" enumId="RrsnBetterPrice" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration sequenceNum="11" description="11 Poor Customer Service" enumId="RrsnPoorService" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration sequenceNum="12" description="12 Unlike Photo/Description" enumId="RrsnUnlikeDescribed" enumTypeId="ReturnReason"/>
+            <moqui.basic.Enumeration sequenceNum="13" description="13 COD Payment Rejected" enumId="RrsnCodPmtRejected" enumTypeId="ReturnReason"/>
 
             <!-- Return Response -->
             <moqui.basic.EnumerationType description="Return Response" enumTypeId="ReturnResponse"/>
