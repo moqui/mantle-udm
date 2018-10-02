@@ -18,7 +18,8 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration enumId="DefaultShipmentGatewayConfigId" description="Shipment Default Gateway Config ID" enumTypeId="UserPreferenceKey"/>
 
     <moqui.basic.Enumeration enumId="GlAccountCodeMask" description="GL Account Code Mask (like ###-###)" enumTypeId="UserPreferenceKey"/>
-    <moqui.basic.Enumeration enumId="mantle.content.root" description="Mantle Content Root Resource Location" enumTypeId="UserPreferenceKey"/>
+    <moqui.basic.Enumeration enumId="mantle.content.root" description="Mantle Content Root Loc" enumTypeId="UserPreferenceKey"/>
+    <moqui.basic.Enumeration enumId="mantle.content.large.root" description="Mantle Content Large Root Loc - binary, etc files" enumTypeId="UserPreferenceKey"/>
 
     <!-- Message templates for formatting common sets of entity fields (generally for a view-entity) -->
     <!-- NOTE: Other common message templates in CommonL10nData -->
