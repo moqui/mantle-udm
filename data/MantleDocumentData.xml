@@ -96,6 +96,7 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- other Party fields, included here because no seq room lower -->
         <fields fieldSeqId="90" fieldPath="ownerPartyId"/>
         <fields fieldSeqId="91" fieldPath="dataSourceId"/>
+        <fields fieldSeqId="92" fieldPath="customerStatusId"/>
     </dataDocuments>
     <dataDocuments dataDocumentId="MantleCommunicationEvent" indexName="mantle" documentName="Communication Event"
             primaryEntityName="mantle.party.communication.CommunicationEvent" documentTitle="${subject}">
