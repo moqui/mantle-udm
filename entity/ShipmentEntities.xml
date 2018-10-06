@@ -520,13 +520,16 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Shipment Method -->
             <moqui.basic.EnumerationType description="Shipment Method" enumTypeId="ShipmentMethod"/>
-            <moqui.basic.Enumeration sequenceNum="0" description="Customer Pick Up" enumId="ShMthPickUp" enumTypeId="ShipmentMethod"/>
             <moqui.basic.Enumeration sequenceNum="1" description="Next Day Priority" enumId="ShMthNextDayPri" enumTypeId="ShipmentMethod"/>
             <moqui.basic.Enumeration sequenceNum="2" description="Next Day Standard" enumId="ShMthNextDay" enumTypeId="ShipmentMethod"/>
             <moqui.basic.Enumeration sequenceNum="3" description="Second Day" enumId="ShMthSecondDay" enumTypeId="ShipmentMethod"/>
             <moqui.basic.Enumeration sequenceNum="4" description="Third Day" enumId="ShMthThirdDay" enumTypeId="ShipmentMethod"/>
             <moqui.basic.Enumeration sequenceNum="5" description="Ground Parcel" enumId="ShMthGround" enumTypeId="ShipmentMethod"/>
+            <!-- NOTE Ground Parcel and Ground Commercial have same sequenceNum so sort together;
+                main reason for Ground Commercial is annoying FedEx: FedEx Ground can't go to residential, FedEx Home Delivery can't go to commercial -->
+            <moqui.basic.Enumeration sequenceNum="5" description="Ground Commercial" enumId="ShMthGroundCom" enumTypeId="ShipmentMethod"/>
             <moqui.basic.Enumeration sequenceNum="6" description="Motor (Common Carrier)" enumId="ShMthMotor" enumTypeId="ShipmentMethod"/>
+            <moqui.basic.Enumeration sequenceNum="9" description="Customer Pick Up" enumId="ShMthPickUp" enumTypeId="ShipmentMethod"/>
 
             <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="_NA_" shipmentMethodEnumId="ShMthPickUp" sequenceNum="0"/>
             <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="_NA_" shipmentMethodEnumId="ShMthGround" sequenceNum="1"/>
