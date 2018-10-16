@@ -170,7 +170,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="salutation" type="text-medium"/>
         <field name="firstName" type="text-medium"/>
         <field name="middleName" type="text-medium"/>
-        <field name="lastName" type="text-medium" enable-audit-log="true"/>
+        <field name="lastName" type="text-medium" enable-audit-log="update"/>
         <field name="personalTitle" type="text-medium"/>
         <field name="suffix" type="text-medium"/>
         <field name="nickname" type="text-medium"/>
