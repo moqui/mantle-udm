@@ -32,6 +32,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="pseudoId" type="id" default="partyId"/>
         <field name="partyTypeEnumId" type="id"/>
         <field name="disabled" type="text-indicator" enable-audit-log="true"/>
+        <field name="customerStatusId" type="id"/>
         <field name="ownerPartyId" type="id" enable-audit-log="update" default="'_NA_'">
             <description>If applicable, such as for customer records, the other Party that 'owns' the data for this Party.</description></field>
         <field name="externalId" type="id"/>
@@ -45,6 +46,8 @@ along with this software (see the LICENSE.md file). If not, see
 
         <relationship type="one" title="PartyType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyTypeEnumId"/></relationship>
+        <relationship type="one" title="CustomerStatus" related="moqui.basic.StatusItem">
+            <key-map field-name="customerStatusId" related="statusId"/></relationship>
         <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
             <key-map field-name="ownerPartyId"/></relationship>
         <relationship type="one" related="moqui.basic.DataSource"/>
