@@ -565,6 +565,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="currencyUomId" type="id"/>
         <field name="supplierRmaId" type="text-short"/>
         <field name="visitId" type="id"/>
+        <field name="systemMessageRemoteId" type="id"/>
 
         <relationship type="one" title="Return" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" title="Customer" related="mantle.party.Party" short-alias="customer">
@@ -587,6 +588,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Currency" related="moqui.basic.Uom" short-alias="currencyUom">
             <key-map field-name="currencyUomId"/></relationship>
         <relationship type="one" related="moqui.server.Visit" short-alias="visit"/>
+        <relationship type="one" related="moqui.service.message.SystemMessageRemote" short-alias="systemMessageRemote"/>
 
         <relationship type="many" related="mantle.order.return.ReturnItem" short-alias="items">
             <key-map field-name="returnId"/></relationship>
@@ -645,6 +647,11 @@ along with this software (see the LICENSE.md file). If not, see
             </detail>
         </master>
     </entity>
+    <extend-entity entity-name="SystemMessage" package="moqui.service.message">
+        <field name="returnId" type="id"/>
+        <relationship type="one" related="mantle.order.return.ReturnHeader"/>
+    </extend-entity>
+
     <entity entity-name="ReturnItem" package="mantle.order.return" short-alias="returnItems" cache="never">
         <field name="returnId" type="id" is-pk="true"/>
         <field name="returnItemSeqId" type="id" is-pk="true"/>
