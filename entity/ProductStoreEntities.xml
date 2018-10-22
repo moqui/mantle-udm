@@ -310,6 +310,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Root Template" enumId="template_server_root" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Header Template" enumId="template_server_header" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Footer Template" enumId="template_server_footer" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Home Template" enumId="template_server_home" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Category Template" enumId="template_server_category" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Product Template" enumId="template_server_product" enumTypeId="ProductStoreSettingType"/>
         </seed-data>
