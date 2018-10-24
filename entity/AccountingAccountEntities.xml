@@ -338,6 +338,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="timePeriodId" type="id"><description>For Payroll invoices, points to Payroll TimePeriod</description></field>
         <field name="acctgTransResultEnumId" type="id"/>
         <field name="systemMessageRemoteId" type="id"/>
+        <field name="externalId" type="text-short"><description>ID for the invoice in the direct upstream system it came from if it came from an external system</description></field>
+        <field name="originId" type="text-short"><description>ID for the invoice in the original system it came from if not the direct upstream system</description></field>
 
         <field name="invoiceTotal" type="currency-amount"/>
         <field name="appliedPaymentsTotal" type="currency-amount">
@@ -506,6 +508,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="invoiceId" type="id"/>
         <relationship type="one" related="mantle.account.invoice.Invoice"/>
     </extend-entity>
+    <entity entity-name="InvoiceSystemMessage" package="mantle.account.invoice" cache="never">
+        <field name="invoiceId" type="id" is-pk="true"/>
+        <field name="systemMessageId" type="id" is-pk="true"/>
+        <field name="externalId" type="text-short"/>
+        <field name="originId" type="text-short"/>
+        <relationship type="one" related="mantle.account.invoice.Invoice"/>
+        <relationship type="one" related="moqui.service.message.SystemMessage"/>
+    </entity>
 
     <entity entity-name="InvoiceContactMech" package="mantle.account.invoice" cache="never">
         <field name="invoiceId" type="id" is-pk="true"/>

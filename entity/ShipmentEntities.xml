@@ -57,7 +57,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="handlingInstructions" type="text-long"/>
         <field name="otherPartyOrderId" type="text-short"/>
         <field name="systemMessageRemoteId" type="id"/>
-        <field name="externalId" type="text-short"/>
+        <field name="externalId" type="text-short"><description>ID for the shipment in the direct upstream system it came from if it came from an external system</description></field>
+        <field name="originId" type="text-short"><description>ID for the shipment in the original system it came from if not the direct upstream system</description></field>
 
         <relationship type="one" title="ShipmentType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="shipmentTypeEnumId"/></relationship>
@@ -183,6 +184,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="shipmentId" type="id"/>
         <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
     </extend-entity>
+    <entity entity-name="ShipmentSystemMessage" package="mantle.shipment" cache="never">
+        <field name="shipmentId" type="id" is-pk="true"/>
+        <field name="systemMessageId" type="id" is-pk="true"/>
+        <field name="externalId" type="text-short"/>
+        <field name="originId" type="text-short"/>
+        <relationship type="one" related="mantle.shipment.Shipment"/>
+        <relationship type="one" related="moqui.service.message.SystemMessage"/>
+    </entity>
 
     <entity entity-name="ShipmentBoxType" package="mantle.shipment" cache="true">
         <field name="shipmentBoxTypeId" type="id" is-pk="true"/>
