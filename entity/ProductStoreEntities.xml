@@ -307,6 +307,16 @@ along with this software (see the LICENSE.md file). If not, see
 
             <moqui.basic.Enumeration description="Template Location Invoice Print" enumId="PsstTemplateInvoicePrint" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Template Location Order Print" enumId="PsstTemplateOrderPrint" enumTypeId="ProductStoreSettingType"/>
+
+            <moqui.basic.Enumeration description="Order Approve Warn New Customer (false to disable)" enumId="PsstOrdApproveNewCust" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Order Approve Warn Address not Valid (false to disable)" enumId="PsstOrdApproveAddrNotValid" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Order Approve Warn Address Missing (false to disable)" enumId="PsstOrdApproveAddrMissing" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Order Approve Warn Std Devs Over Avg Total (default 3.0, 0 to disable)" enumId="PsstOrdApproveStdDevTotal" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Order Approve Warn Std Devs Over Avg Product Qty (default 3.0, 0 to disable)" enumId="PsstOrdApproveStdDevProdQty" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Order Approve Warn Inventory Not Available (false to disable)" enumId="PsstOrdApproveInventoryNotAvail" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Order Approve Warn Percent Available Inventory (default 20, 0 to disable)" enumId="PsstOrdApprovePercAvailInv" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Order Approve Warn Similar within 24hrs (false to disable)" enumId="PsstOrdApproveSimilar" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Order Approve Warn Price Min/Max (false to disable)" enumId="PsstOrdApprovePriceMinMax" enumTypeId="ProductStoreSettingType"/>
         </seed-data>
     </entity>
 
