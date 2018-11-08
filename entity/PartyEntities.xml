@@ -98,6 +98,28 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- _NA_ Party -->
             <Party partyId="_NA_" partyTypeEnumId="PtyPerson"/>
             <Person partyId="_NA_" firstName="Not" lastName="Applicable"/>
+
+            <!--  leads: customers with a filled customerStatusId field-->
+            <moqui.basic.StatusType description="Customer" statusTypeId="Customer"/>
+            <moqui.basic.StatusItem description="Unattempted" sequenceNum="1" statusId="CS_CREATED" statusTypeId="Customer"/>
+		    <moqui.basic.StatusItem description="Assigned" sequenceNum="2" statusId="CS_ASSIGNED" statusTypeId="Customer"/>
+		    <moqui.basic.StatusItem description="Contacted" sequenceNum="3" statusId="CS_CONTACTED" statusTypeId="Customer"/>
+		    <moqui.basic.StatusItem description="Conversation" sequenceNum="4" statusId="CS_CONVERSATION" statusTypeId="Customer"/>
+		    <moqui.basic.StatusItem description="Opportunity" sequenceNum="5" statusId="CS_OPPORTUNITY" statusTypeId="Customer"/>
+		    <moqui.basic.StatusItem description="Qualified" sequenceNum="8" statusId="CS_QUALIFIED" statusTypeId="Customer"/>
+		    <moqui.basic.StatusItem description="Disqualified" sequenceNum="9" statusId="CS_DISQUALIFIED" statusTypeId="Customer"/>
+
+		    <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CS_CREATED" toStatusId="CS_ASSIGNED" transitionName="Assigned"/>
+		    <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CS_CREATED" toStatusId="CS_CONVERSATION" transitionName="Contacted"/>
+		    <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CS_ASSIGNED" toStatusId="CS_CONTACTED" transitionName="Assigned"/>
+		    <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CS_CREATED" toStatusId="CS_CONTACTED" transitionName="Contacted"/>
+		    <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CS_CONTACTED" toStatusId="CS_CONVERSATION" transitionName="Converstion"/>
+		    <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CS_CONVERSATION" toStatusId="CS_OPPORTUNITY" transitionName="Opportunity"/>
+		    <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CS_OPPORTUNITY" toStatusId="CS_QUALIFIED" transitionName="QUALIFIED"/>
+		    <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CS_CONTACTED" toStatusId="CS_DISQUALIFIED" transitionName="DISQUALIFIED"/>
+		    <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CS_CONVERSATION" toStatusId="CS_DISQUALIFIED" transitionName="DISQUALIFIED"/>
+		    <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CS_OPPORTUNITY" toStatusId="CS_DISQUALIFIED" transitionName="DISQUALIFIED"/>
+		    <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CS_QUALIFIED" toStatusId="CS_DISQUALIFIED" transitionName="DISQUALIFIED"/>
         </seed-data>
 
         <master name="default">
