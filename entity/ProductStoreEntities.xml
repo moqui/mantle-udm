@@ -306,12 +306,6 @@ along with this software (see the LICENSE.md file). If not, see
 
             <moqui.basic.Enumeration description="Template Location Invoice Print" enumId="PsstTemplateInvoicePrint" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Template Location Order Print" enumId="PsstTemplateOrderPrint" enumTypeId="ProductStoreSettingType"/>
-            <!-- from PopRestStore -->
-            <moqui.basic.Enumeration description="Root Template" enumId="template_server_root" enumTypeId="ProductStoreSettingType"/>
-            <moqui.basic.Enumeration description="Root Template" enumId="template_server_header" enumTypeId="ProductStoreSettingType"/>
-            <moqui.basic.Enumeration description="Root Template" enumId="template_server_footer" enumTypeId="ProductStoreSettingType"/>
-            <moqui.basic.Enumeration description="Root Template" enumId="template_server_category" enumTypeId="ProductStoreSettingType"/>
-            <moqui.basic.Enumeration description="Root Template" enumId="template_server_product" enumTypeId="ProductStoreSettingType"/>
         </seed-data>
     </entity>
 
