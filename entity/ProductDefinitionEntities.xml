@@ -901,12 +901,12 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="ProductFeature" package="mantle.product.feature" short-alias="features">
         <field name="productFeatureId" type="id" is-pk="true"/>
         <field name="productFeatureTypeEnumId" type="id"/>
-        <field name="description" type="text-medium"/>
+        <field name="description" type="text-medium" enable-localization="true"/>
         <field name="numberSpecified" type="number-decimal"/>
         <field name="numberUomId" type="id"/>
         <field name="defaultAmount" type="currency-amount"/>
         <field name="defaultSequenceNum" type="number-integer"/>
-        <field name="abbrev" type="id"/>
+        <field name="abbrev" type="id" enable-localization="true"/>
         <field name="idCode" type="text-short"/>
         <field name="ownerPartyId" type="id" enable-audit-log="update" default="'_NA_'"/>
         <!-- these pallet fields are specific to Packaging Type features, may be a better place for these -->
