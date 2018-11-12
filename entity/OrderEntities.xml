@@ -67,8 +67,9 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="terminalId" type="text-short"/>
         <field name="displayId" type="text-short"><description>ID to display to customers, can be different from orderId and/or externalId</description></field>
-        <field name="externalId" type="text-short"><description>ID for the order in the system it came from if it came from an external system</description></field>
+        <field name="externalId" type="text-short"><description>ID for the order in the direct upstream system it came from if it came from an external system</description></field>
         <field name="externalRevision" type="text-short"/>
+        <field name="originId" type="text-short"><description>ID for the order in the original system it came from if not the direct upstream system</description></field>
         <field name="syncStatusId" type="id"/>
         <field name="systemMessageRemoteId" type="id"/>
 
@@ -262,6 +263,16 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.order.OrderHeader"/>
         <!-- should have auto based on FK: <index name="SYSMSG_ORDER"><index-field name="orderId"/></index> -->
     </extend-entity>
+    <entity entity-name="OrderSystemMessage" package="mantle.order" cache="never">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="systemMessageId" type="id" is-pk="true"/>
+        <field name="externalId" type="text-short"/>
+        <field name="originId" type="text-short"/>
+        <field name="displayId" type="text-short"/>
+        <relationship type="one" related="mantle.order.OrderHeader"/>
+        <relationship type="one" related="moqui.service.message.SystemMessage"/>
+    </entity>
+
     <entity entity-name="OrderItem" package="mantle.order" short-alias="orderItems" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderItemSeqId" type="id" is-pk="true"/>
@@ -566,6 +577,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="supplierRmaId" type="text-short"/>
         <field name="visitId" type="id"/>
         <field name="systemMessageRemoteId" type="id"/>
+        <field name="displayId" type="text-short"><description>ID to display to customers, can be different from returnId and/or externalId</description></field>
+        <field name="externalId" type="text-short"><description>ID for the return in the direct upstream system it came from if it came from an external system</description></field>
+        <field name="originId" type="text-short"><description>ID for the return in the original system it came from if not the direct upstream system</description></field>
 
         <relationship type="one" title="Return" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" title="Customer" related="mantle.party.Party" short-alias="customer">
@@ -651,6 +665,15 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="returnId" type="id"/>
         <relationship type="one" related="mantle.order.return.ReturnHeader"/>
     </extend-entity>
+    <entity entity-name="ReturnSystemMessage" package="mantle.order.return" cache="never">
+        <field name="returnId" type="id" is-pk="true"/>
+        <field name="systemMessageId" type="id" is-pk="true"/>
+        <field name="externalId" type="text-short"/>
+        <field name="originId" type="text-short"/>
+        <field name="displayId" type="text-short"/>
+        <relationship type="one" related="mantle.order.return.ReturnHeader"/>
+        <relationship type="one" related="moqui.service.message.SystemMessage"/>
+    </entity>
 
     <entity entity-name="ReturnItem" package="mantle.order.return" short-alias="returnItems" cache="never">
         <field name="returnId" type="id" is-pk="true"/>
