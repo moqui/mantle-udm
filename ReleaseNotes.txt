@@ -2,10 +2,10 @@
 Mantle Business Artifacts - Universal Data Model Release Notes
 
 ===========================================================================
-Release 2.0.1 - Not Yet Released
+Release 2.1.0 - Not Yet Released
 ===========================================================================
 
-Mantle Universal Data Model 2.0.1 is a patch level new feature and bug fix
+Mantle Universal Data Model 2.1.0 is a minor new feature and bug fix
 release. This release is based on Moqui Framework 2.1.1.
 
 This release includes some refinement and reorganization of seed,
