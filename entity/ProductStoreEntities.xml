@@ -363,15 +363,16 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="spaceTypeEnumId"/></relationship>
         <relationship type="one" related="moqui.resource.wiki.WikiSpace" short-alias="wikiSpace"/>
         <seed-data>
+            <!-- NOTE: these enumId values go in URLs to keep small -->
             <moqui.basic.EnumerationType description="Product Store Wiki Space Type" enumTypeId="ProductStoreWikiSpaceType"/>
             <!-- full page content like about us, policies, etc -->
-            <moqui.basic.Enumeration description="Content - Full Page" enumId="PswstFullPage" enumTypeId="ProductStoreWikiSpaceType"/>
+            <moqui.basic.Enumeration description="Content - Full Page" enumId="PstFull" enumTypeId="ProductStoreWikiSpaceType"/>
             <!-- page snippet content including banners, carousel slides, etc; often referred to through a WikiPageCategory -->
-            <moqui.basic.Enumeration description="Content - Snippet" enumId="PswstSnippet" enumTypeId="ProductStoreWikiSpaceType"/>
+            <moqui.basic.Enumeration description="Content - Snippet" enumId="PstSnip" enumTypeId="ProductStoreWikiSpaceType"/>
             <!-- templates for information pages like header, footer, home, category, product, search, etc; server rendered, change frequently -->
-            <moqui.basic.Enumeration description="Template - Information (home, product, etc)" enumId="PswstTemplateInfo" enumTypeId="ProductStoreWikiSpaceType"/>
+            <moqui.basic.Enumeration description="Template - Information (home, product, etc)" enumId="PstTmpSrv" enumTypeId="ProductStoreWikiSpaceType"/>
             <!-- templates for interactive pages like checkout, profile, etc; client rendered, change less frequently -->
-            <moqui.basic.Enumeration description="Template - Interactive (checkout, profile, etc)" enumId="PswstTemplateInteractive" enumTypeId="ProductStoreWikiSpaceType"/>
+            <moqui.basic.Enumeration description="Template - Interactive (checkout, profile, etc)" enumId="PstTmpClt" enumTypeId="ProductStoreWikiSpaceType"/>
         </seed-data>
     </entity>
     <entity entity-name="ProductStoreWikiContent" package="mantle.product.store">
