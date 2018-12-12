@@ -138,13 +138,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipDelivered" toStatusId="ShipShipped" transitionName="Un-deliver"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipShipped" toStatusId="ShipPacked" transitionName="Un-ship"/>
 
-            <!-- Signature Required -->
-            <moqui.basic.EnumerationType description="Signature Required" enumTypeId="SignatureRequired"/>
-            <moqui.basic.Enumeration enumCode="" description="None" enumId="PsrNone" sequenceNum="1" enumTypeId="SignatureRequired"/>
-            <moqui.basic.Enumeration enumCode="STANDARD" description="Standard" enumId="PsrStandard" sequenceNum="2" enumTypeId="SignatureRequired"/>
-            <moqui.basic.Enumeration enumCode="ADULT" description="Adult" enumId="PsrAdult" sequenceNum="3" enumTypeId="SignatureRequired"/>
-            <moqui.basic.Enumeration enumCode="CERTIFIED" description="Certified (USPS)" enumId="PsrCertified" sequenceNum="4" enumTypeId="SignatureRequired"/>
-            <moqui.basic.Enumeration enumCode="INDIRECT" description="Indirect (FedEx)" enumId="PsrIndirect" sequenceNum="5" enumTypeId="SignatureRequired"/>
+            <!-- Signature Required - see data in PartyEntities.xml under PartySettingType, there for FK dependency -->
         </seed-data>
         <master>
             <detail relationship="type"/>
