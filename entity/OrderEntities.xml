@@ -455,6 +455,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="disablePromotions" type="text-indicator"/>
         <field name="disableShippingCalc" type="text-indicator"/>
         <field name="disableTaxCalc" type="text-indicator"/>
+        <field name="reservationAutoEnumId" type="id"/>
 
         <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
         <relationship type="one" title="Parent" related="mantle.order.OrderPart" short-alias="parentPart">
@@ -490,6 +491,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="telecomContactMechId"/></relationship>
         <relationship type="one" title="SignatureRequired" related="moqui.basic.Enumeration" short-alias="signatureRequiredEnum">
             <key-map field-name="signatureRequiredEnumId"/></relationship>
+        <relationship type="one" title="AssetReservationAuto" related="moqui.basic.Enumeration" short-alias="reservationAutoEnum">
+            <key-map field-name="reservationAutoEnumId"/></relationship>
 
         <relationship type="many" related="mantle.order.OrderItem" short-alias="items">
             <key-map field-name="orderId"/><key-map field-name="orderPartSeqId"/></relationship>

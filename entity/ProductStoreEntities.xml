@@ -24,6 +24,7 @@ along with this software (see the LICENSE.md file). If not, see
             <description>The Organization Party that Orders, Invoices, GL transactions, etc will be associated with.</description></field>
         <field name="inventoryFacilityId" type="id"/>
         <field name="reservationOrderEnumId" type="id"/>
+        <field name="reservationAutoEnumId" type="id"/>
         <field name="requireInventory" type="text-indicator"/>
         <field name="returnPostalContactMechId" type="id"><description>Return postal address for shipping labels</description></field>
 
@@ -48,6 +49,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="inventoryFacilityId"/></relationship>
         <relationship type="one" title="AssetReservationOrder" related="moqui.basic.Enumeration" short-alias="assetReservationOrder">
             <key-map field-name="reservationOrderEnumId"/></relationship>
+        <relationship type="one" title="AssetReservationAuto" related="moqui.basic.Enumeration" short-alias="reservationAutoEnum">
+            <key-map field-name="reservationAutoEnumId"/></relationship>
         <relationship type="one-nofk" title="Return" related="mantle.party.contact.ContactMech" short-alias="returnPostal">
             <key-map field-name="returnPostalContactMechId"/></relationship>
         <relationship type="one" title="Return" related="mantle.party.contact.PostalAddress" short-alias="returnPostalAddress">
@@ -91,6 +94,12 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Greatest Unit Cost" enumId="AsResOrdCostGr" enumCode="-acquireCost" enumTypeId="AssetReservationOrder"/>
             <moqui.basic.Enumeration description="Lowest Unit Cost" enumId="AsResOrdCostLw" enumCode="acquireCost" enumTypeId="AssetReservationOrder"/>
             <moqui.basic.Enumeration description="No Reservation" enumId="AsResOrdNoRes" enumTypeId="AssetReservationOrder"/>
+
+            <!-- Asset (Inventory) Auto Reservation Trigger -->
+            <moqui.basic.EnumerationType description="Asset Auto Reservation" enumTypeId="AssetReservationAuto"/>
+            <moqui.basic.Enumeration description="No Auto Reserve" enumId="AsResAutoNone" enumTypeId="AssetReservationAuto"/>
+            <moqui.basic.Enumeration description="On Order Placed" enumId="AsResAutoPlaced" enumTypeId="AssetReservationAuto"/>
+            <moqui.basic.Enumeration description="On Order Approved" enumId="AsResAutoApproved" enumTypeId="AssetReservationAuto"/>
         </seed-data>
         <master>
             <detail relationship="organization"/>
