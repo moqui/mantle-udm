@@ -1174,6 +1174,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="resultNsf" type="text-indicator"/>
         <field name="resultBadExpire" type="text-indicator"/>
         <field name="resultBadCardNumber" type="text-indicator"/>
+
         <relationship type="one" title="PaymentOperation" related="moqui.basic.Enumeration">
             <key-map field-name="paymentOperationEnumId" related="enumId"/></relationship>
         <relationship type="one" title="Amount" related="moqui.basic.Uom">
@@ -1181,6 +1182,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.account.payment.Payment"/>
         <relationship type="one" related="mantle.account.method.PaymentMethod"/>
         <relationship type="one" related="mantle.account.financial.FinancialAccount"/>
+
+        <index name="PMT_GTWR_REFNUM"><index-field name="referenceNum"/></index>
+
         <seed-data>
             <moqui.basic.EnumerationType description="Payment Gateway Operation" enumTypeId="PaymentOperation"/>
             <moqui.basic.Enumeration description="Store CIM Profile" enumId="PgoStoreCim" enumTypeId="PaymentOperation"/>
