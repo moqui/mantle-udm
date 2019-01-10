@@ -699,6 +699,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="returnPrice" type="currency-amount" enable-audit-log="true"/>
         <field name="responseAmount" type="currency-amount"><description>Manually set before response processes to use
             the given amount, otherwise calculated from received/return quantity OrderItem.unitAmount</description></field>
+        <field name="externalId" type="text-short"><description>ID for the return item in the direct upstream system it came from if it came from an external system</description></field>
         <!-- Response Detail Fields -->
         <field name="responseDate" type="date-time"/>
         <field name="replacementOrderId" type="id"/>
