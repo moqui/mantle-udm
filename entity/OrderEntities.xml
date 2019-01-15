@@ -136,13 +136,13 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusItem description="Proposed by Vendor" sequenceNum="3" statusId="OrderProposed" statusTypeId="OrderHeader"/>
             <!-- Place done by Customer (or at Customer's request) -->
             <moqui.basic.StatusItem description="Placed" sequenceNum="4" statusId="OrderPlaced" statusTypeId="OrderHeader"/>
+            <moqui.basic.StatusItem description="Held" sequenceNum="5" statusId="OrderHold" statusTypeId="OrderHeader"/>
 
             <moqui.basic.StatusItem description="Processing" sequenceNum="11" statusId="OrderProcessing" statusTypeId="OrderHeader"/>
             <moqui.basic.StatusItem description="Approved" sequenceNum="12" statusId="OrderApproved" statusTypeId="OrderHeader"/>
             <moqui.basic.StatusItem description="Sent" sequenceNum="13" statusId="OrderSent" statusTypeId="OrderHeader"/>
 
             <moqui.basic.StatusItem description="Completed" sequenceNum="21" statusId="OrderCompleted" statusTypeId="OrderHeader"/>
-            <moqui.basic.StatusItem description="Held" sequenceNum="22" statusId="OrderHold" statusTypeId="OrderHeader"/>
 
             <!-- Reject done by Vendor -->
             <moqui.basic.StatusItem description="Rejected" sequenceNum="98" statusId="OrderRejected" statusTypeId="OrderHeader"/>
