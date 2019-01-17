@@ -471,6 +471,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="employerClassEnumId" type="id"/>
         <field name="cogsMethodEnumId" type="id"/>
         <field name="baseCurrencyUomId" type="id"/>
+        <field name="localCurrencyUomId" type="id"><description>For unstable local currencies when different from a more stable base currency</description></field>
         <field name="invoiceSequenceEnumId" type="id"/>
         <field name="invoiceIdPrefix" type="text-short"/>
         <field name="useInvoiceIdForReturns" type="text-indicator"/>
@@ -508,8 +509,10 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="employerClassEnumId"/></relationship>
         <relationship type="one" title="CogsMethod" related="moqui.basic.Enumeration" short-alias="cogsMethod">
             <key-map field-name="cogsMethodEnumId"/></relationship>
-        <relationship type="one" related="moqui.basic.Uom">
+        <relationship type="one" title="BaseCurrency" related="moqui.basic.Uom">
             <key-map field-name="baseCurrencyUomId"/></relationship>
+        <relationship type="one" title="LocalCurrency" related="moqui.basic.Uom">
+            <key-map field-name="localCurrencyUomId"/></relationship>
         <relationship type="one" title="Refund" related="mantle.account.method.PaymentMethod">
             <key-map field-name="refundPaymentMethodId"/></relationship>
         <relationship type="one" related="mantle.ledger.transaction.GlJournal">
@@ -636,6 +639,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="voucherDate" type="date-time"/>
         <field name="groupStatusId" type="id"/>
         <field name="amountUomId" type="id"/>
+        <field name="localCurrencyUomId" type="id"/>
         <field name="originalCurrencyUomId" type="id"/>
 
         <field name="assetId" type="id"/>
@@ -666,6 +670,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="groupStatusId"/></relationship>
         <relationship type="one" title="Amount" related="moqui.basic.Uom" short-alias="amountUom">
             <key-map field-name="amountUomId"/></relationship>
+        <relationship type="one" title="LocalCurrency" related="moqui.basic.Uom" short-alias="localCurrencyUom">
+            <key-map field-name="localCurrencyUomId"/></relationship>
         <relationship type="one" title="OriginalCurrency" related="moqui.basic.Uom" short-alias="originalCurrencyUom">
             <key-map field-name="originalCurrencyUomId"/></relationship>
 
@@ -809,6 +815,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="acctgTransEntrySeqId" type="id" is-pk="true"/>
         <field name="debitCreditFlag" type="text-indicator"><description>If D is a debit, if C is a credit.</description></field>
         <field name="amount" type="currency-amount" enable-audit-log="update"/>
+        <field name="localCurrencyAmount" type="currency-amount" enable-audit-log="update"/>
         <field name="originalCurrencyAmount" type="currency-amount"/>
         <field name="description" type="text-medium"/>
         <field name="voucherRef" type="text-short"/>
