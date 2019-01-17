@@ -624,6 +624,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusItem description="Cancelled" sequenceNum="99" statusId="ReturnCancelled" statusTypeId="Return"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnCreated" toStatusId="ReturnRequested" transitionName="Request"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnCreated" toStatusId="ReturnApproved" transitionName="Approve"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnCreated" toStatusId="ReturnCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnRequested" toStatusId="ReturnApproved" transitionName="Approve"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnRequested" toStatusId="ReturnCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnApproved" toStatusId="ReturnReceived" transitionName="Receive"/>
