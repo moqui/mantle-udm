@@ -579,13 +579,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="finAccountId" type="id"/>
         <field name="finAccountTransId" type="id"/>
 
+        <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
         <relationship type="one-nofk" title="Parent" related="mantle.account.invoice.InvoiceItem" short-alias="parent">
             <key-map field-name="invoiceId"/><key-map field-name="parentItemSeqId" related="invoiceItemSeqId"/></relationship>
         <relationship type="many" title="Child" related="mantle.account.invoice.InvoiceItem" short-alias="children">
             <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId" related="parentItemSeqId"/></relationship>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="itemTypeEnumId"/></relationship>
-        <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
         <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" title="OtherParent" related="mantle.account.invoice.InvoiceItem" short-alias="otherParent">

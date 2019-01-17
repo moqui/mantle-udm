@@ -683,6 +683,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="ReturnItem" package="mantle.order.return" short-alias="returnItems" cache="never">
         <field name="returnId" type="id" is-pk="true"/>
         <field name="returnItemSeqId" type="id" is-pk="true"/>
+        <field name="parentItemSeqId" type="id"/>
         <field name="returnReasonEnumId" type="id" enable-audit-log="true"/>
         <field name="returnResponseEnumId" type="id" enable-audit-log="true"/>
         <field name="responseImmediate" type="text-indicator"><description>Process response immediately (Y) or wait for returned inventory (N)</description></field>
@@ -698,8 +699,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="receivedQuantity" type="number-decimal" enable-audit-log="true">
             <description>Quantity actually received from customer</description></field>
         <field name="returnPrice" type="currency-amount" enable-audit-log="true"/>
-        <field name="responseAmount" type="currency-amount"><description>Manually set before response processes to use
-            the given amount, otherwise calculated from received/return quantity OrderItem.unitAmount</description></field>
+        <field name="responseAmount" type="currency-amount"><description>Total response amount, independent of quantity.
+            Manually set before response processes to use the given amount, otherwise calculated during process response from
+            received/return quantity * returnPrice (defaults to OrderItem.unitAmount)</description></field>
         <field name="externalId" type="text-short"><description>ID for the return item in the direct upstream system it came from if it came from an external system</description></field>
         <!-- Response Detail Fields -->
         <field name="responseDate" type="date-time"/>
@@ -710,8 +712,12 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- doesn't make sense, may be multiple payments: <field name="originalPaymentId" type="id"/> -->
         <!-- maybe future: <field name="billingAccountId" type="id"/> -->
 
-        <relationship type="one" related="mantle.order.return.ReturnHeader" short-alias="returnHeader">
-            <key-map field-name="returnId"/></relationship>
+        <relationship type="one" related="mantle.order.return.ReturnHeader" short-alias="returnHeader"/>
+        <relationship type="one-nofk" title="Parent" related="mantle.account.invoice.InvoiceItem" short-alias="parent">
+            <key-map field-name="invoiceId"/><key-map field-name="parentItemSeqId" related="invoiceItemSeqId"/></relationship>
+        <relationship type="many" title="Child" related="mantle.account.invoice.InvoiceItem" short-alias="children">
+            <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId" related="parentItemSeqId"/></relationship>
+
         <relationship type="one" title="ReturnReason" related="moqui.basic.Enumeration" short-alias="reason">
             <key-map field-name="returnReasonEnumId"/></relationship>
         <relationship type="one" title="ReturnResponse" related="moqui.basic.Enumeration" short-alias="response">
@@ -719,8 +725,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemType">
             <key-map field-name="itemTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem"/>
-        <relationship type="one" title="Return" related="moqui.basic.StatusItem" short-alias="status"/>
-        <relationship type="one" title="Asset" related="moqui.basic.StatusItem" short-alias="inventoryStatus">
+        <relationship type="one" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="Inventory" related="moqui.basic.StatusItem" short-alias="inventoryStatus">
             <key-map field-name="inventoryStatusId"/></relationship>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
 
