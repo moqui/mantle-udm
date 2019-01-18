@@ -713,10 +713,10 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- maybe future: <field name="billingAccountId" type="id"/> -->
 
         <relationship type="one" related="mantle.order.return.ReturnHeader" short-alias="returnHeader"/>
-        <relationship type="one-nofk" title="Parent" related="mantle.account.invoice.InvoiceItem" short-alias="parent">
-            <key-map field-name="invoiceId"/><key-map field-name="parentItemSeqId" related="invoiceItemSeqId"/></relationship>
-        <relationship type="many" title="Child" related="mantle.account.invoice.InvoiceItem" short-alias="children">
-            <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId" related="parentItemSeqId"/></relationship>
+        <relationship type="one-nofk" title="Parent" related="mantle.order.return.ReturnItem" short-alias="parent">
+            <key-map field-name="returnId"/><key-map field-name="parentItemSeqId" related="returnItemSeqId"/></relationship>
+        <relationship type="many" title="Child" related="mantle.order.return.ReturnItem" short-alias="children">
+            <key-map field-name="returnId"/><key-map field-name="returnItemSeqId" related="parentItemSeqId"/></relationship>
 
         <relationship type="one" title="ReturnReason" related="moqui.basic.Enumeration" short-alias="reason">
             <key-map field-name="returnReasonEnumId"/></relationship>
