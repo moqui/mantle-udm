@@ -501,7 +501,14 @@ along with this software (see the LICENSE.md file). If not, see
                 <detail relationship="type"/>
                 <detail relationship="product"/>
                 <detail relationship="quantityUom"/>
+                <detail relationship="details"/>
+                <detail relationship="orderItemBillings"/>
+                <detail relationship="shipmentItemSources"/>
+                <detail relationship="issuances"/>
+                <detail relationship="receipts"/>
             </detail>
+            <detail relationship="paymentApplications"/>
+            <detail relationship="toPaymentApplications"/>
         </master>
     </entity>
     <extend-entity entity-name="SystemMessage" package="moqui.service.message">
