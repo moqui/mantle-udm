@@ -684,8 +684,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="returnId" type="id" is-pk="true"/>
         <field name="returnItemSeqId" type="id" is-pk="true"/>
         <field name="parentItemSeqId" type="id"/>
-        <field name="returnReasonEnumId" type="id" enable-audit-log="true"/>
-        <field name="returnResponseEnumId" type="id" enable-audit-log="true"/>
+        <field name="returnReasonEnumId" type="id" enable-audit-log="update"/>
+        <field name="returnResponseEnumId" type="id" enable-audit-log="update"/>
         <field name="responseImmediate" type="text-indicator"><description>Process response immediately (Y) or wait for returned inventory (N)</description></field>
         <field name="itemTypeEnumId" type="id"/>
         <field name="productId" type="id"/>
@@ -694,20 +694,20 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderItemSeqId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="inventoryStatusId" type="id"><description>If specified the status of received inventory (for resell, damaged, etc)</description></field>
-        <field name="returnQuantity" type="number-decimal" enable-audit-log="true">
+        <field name="returnQuantity" type="number-decimal" enable-audit-log="update">
             <description>Quantity promised by customer</description></field>
-        <field name="receivedQuantity" type="number-decimal" enable-audit-log="true">
+        <field name="receivedQuantity" type="number-decimal" enable-audit-log="update">
             <description>Quantity actually received from customer</description></field>
-        <field name="returnPrice" type="currency-amount" enable-audit-log="true"/>
+        <field name="returnPrice" type="currency-amount" enable-audit-log="update"/>
         <field name="responseAmount" type="currency-amount"><description>Total response amount, independent of quantity.
             Manually set before response processes to use the given amount, otherwise calculated during process response from
             received/return quantity * returnPrice (defaults to OrderItem.unitAmount)</description></field>
         <field name="externalId" type="text-short"><description>ID for the return item in the direct upstream system it came from if it came from an external system</description></field>
         <!-- Response Detail Fields -->
-        <field name="responseDate" type="date-time"/>
-        <field name="replacementOrderId" type="id"/>
-        <field name="finAccountTransId" type="id"/>
-        <field name="refundPaymentId" type="id"/>
+        <field name="responseDate" type="date-time" enable-audit-log="update"/>
+        <field name="replacementOrderId" type="id" enable-audit-log="update"/>
+        <field name="finAccountTransId" type="id" enable-audit-log="update"/>
+        <field name="refundPaymentId" type="id" enable-audit-log="update"/>
 
         <!-- doesn't make sense, may be multiple payments: <field name="originalPaymentId" type="id"/> -->
         <!-- maybe future: <field name="billingAccountId" type="id"/> -->
