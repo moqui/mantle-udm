@@ -249,8 +249,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="productId" type="id" is-pk="true"/>
         <field name="quantity" type="number-decimal"/>
-        <relationship type="one" related="mantle.shipment.Shipment"/>
-        <relationship type="one" related="mantle.product.Product"/>
+        <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="many" related="mantle.shipment.ShipmentItemSource" short-alias="sources">
             <key-map field-name="shipmentId"/><key-map field-name="productId"/></relationship>
         <relationship type="many" related="mantle.shipment.ShipmentPackageContent" short-alias="contents">
@@ -479,7 +479,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="destinationFacilityId"/></relationship>
         <relationship type="one-nofk" title="Destination" related="mantle.party.contact.ContactMech" short-alias="destPostal">
             <key-map field-name="destPostalContactMechId"/></relationship>
-        <relationship type="one" title="Destination" related="mantle.party.contact.PostalAddress">
+        <relationship type="one" title="Destination" related="mantle.party.contact.PostalAddress" short-alias="destPostalAddress">
             <key-map field-name="destPostalContactMechId"/></relationship>
         <relationship type="one-nofk" title="Destination" related="mantle.party.contact.ContactMech" short-alias="destTelecom">
             <key-map field-name="destTelecomContactMechId"/></relationship>
