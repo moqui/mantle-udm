@@ -316,6 +316,7 @@ along with this software (see the LICENSE.md file). If not, see
             <description>For promo items. The number of times the promo was used for use limits.</description></field>
         <field name="storePromotionId" type="id"/>
         <field name="promoCodeId" type="id"/>
+        <field name="promoCodeText" type="text-medium"><description>Promo code(s) entered by customer used for the item, may be from external system</description></field>
 
         <field name="subscriptionId" type="id"/>
         <field name="overrideGlAccountId" type="id">
