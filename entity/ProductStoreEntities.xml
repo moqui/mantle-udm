@@ -126,6 +126,28 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.store.ProductStore"/>
     </extend-entity>
 
+    <entity entity-name="ProductStoreApprove" package="mantle.product.store" use="configuration" cache="true">
+        <description>For per-store configurable pre-approve order validations</description>
+        <field name="storeApproveId" type="id" is-pk="true"/>
+        <field name="productStoreId" type="id"/>
+        <field name="serviceRegisterId" type="id" not-null="true"><description>Registered Service of type OrderValidate that implements the
+            mantle.order.OrderInfoServices.validate#Order interface</description></field>
+        <field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+        <field name="sequenceNum" type="number-integer"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" related="moqui.service.ServiceRegister" short-alias="serviceRegister"/>
+        <relationship type="many" related="mantle.product.store.ProductStoreApproveParam" short-alias="parameters">
+            <key-map field-name="storeApproveId"/></relationship>
+        <seed-data><moqui.basic.Enumeration description="Order Approve Validate" enumId="OrderValidate" enumTypeId="ServiceRegisterType"/></seed-data>
+    </entity>
+    <entity entity-name="ProductStoreApproveParam" package="mantle.product.store" use="configuration" cache="true">
+        <field name="storeApproveId" type="id" is-pk="true"/>
+        <field name="parameterName" type="text-short" is-pk="true"/>
+        <field name="parameterValue" type="text-medium"/>
+        <relationship type="one" related="mantle.product.store.ProductStoreApprove" short-alias="storeApprove"/>
+    </entity>
+
     <entity entity-name="ProductStoreCategory" package="mantle.product.store">
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="productCategoryId" type="id" is-pk="true"/>
@@ -200,6 +222,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
     </entity>
+
     <entity entity-name="ProductStoreParty" package="mantle.product.store">
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
