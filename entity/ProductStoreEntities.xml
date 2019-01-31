@@ -27,7 +27,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="reservationAutoEnumId" type="id"/>
         <field name="requireInventory" type="text-indicator"/>
         <field name="returnPostalContactMechId" type="id"><description>Return postal address for shipping labels</description></field>
-        <field name="autoApproveDelay" type="number-integer"><description>Time in minutes to wait before trying to auto-approve;
+        <field name="autoApproveDelay" type="number-integer"><description>Minimum time in minutes to wait before trying to auto-approve;
             defaults to 0 which means auto-approve immediately (via SECA rule), otherwise delayed auto-approve handled with service job</description></field>
 
         <field name="storeDomain" type="text-short"><description>Store domain for use in emails</description></field>
