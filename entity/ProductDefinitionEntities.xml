@@ -149,9 +149,13 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Product Status -->
             <moqui.basic.StatusType description="Product" statusTypeId="Product"/>
 
-            <!-- Product Class -->
+            <!-- Product Class - used to classify products with similar Content types, Dimension types, Feature types, and Feature Groups -->
             <moqui.basic.EnumerationType description="Product Class" enumTypeId="ProductClass"/>
-            <!-- No default product classes, vary widely by industry -->
+            <!-- A gift card may a Asset, Digital, or Digital and Asset type of product, to distinguish from other products use this class -->
+            <moqui.basic.Enumeration description="Gift Card or Certificate" enumId="PclsGiftCard" enumTypeId="ProductClass"/>
+            <!-- NOTE: only minimal default product classes for those used in code, others vary widely by industry and company;
+                for example 'bike' and 'car' might be classifications for certain companies while for others 'car' isn't adequate
+                and needs to be more specific like 'economy car', 'compact car', 'mid-size car', etc -->
         </seed-data>
 
         <master>

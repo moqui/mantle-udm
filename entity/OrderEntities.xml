@@ -319,6 +319,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="promoCodeText" type="text-medium"><description>Promo code(s) entered by customer used for the item, may be from external system</description></field>
 
         <field name="subscriptionId" type="id"/>
+        <field name="finAccountId" type="id"><description>Populate along with finAccountTransId for gift card/certificate/etc purchase and replenishment</description></field>
+        <field name="finAccountTransId" type="id"/>
         <field name="overrideGlAccountId" type="id">
             <description>Used to specify the override or actual glAccountId used for the item.</description></field>
         <field name="salesOpportunityId" type="id"/>
@@ -355,10 +357,13 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.store.ProductStorePromotion" short-alias="storePromotion"/>
         <relationship type="one" related="mantle.product.store.ProductStorePromoCode" short-alias="storePromoCode"/>
 
+        <relationship type="one" related="mantle.product.subscription.Subscription" short-alias="subscription"/>
+        <relationship type="one" related="mantle.account.financial.FinancialAccount" short-alias="financialAccount"/>
+        <relationship type="one" related="mantle.account.financial.FinancialAccountTrans" short-alias="financialAccountTrans"/>
         <relationship type="one" title="Override" related="mantle.ledger.account.GlAccount" short-alias="overrideGlAccount">
             <key-map field-name="overrideGlAccountId"/></relationship>
         <relationship type="one" related="SalesOpportunity" short-alias="opportunity"/>
-        <relationship type="one" related="mantle.other.tax.TaxAuthority"/>
+        <relationship type="one" related="mantle.other.tax.TaxAuthority" short-alias="taxAuthority"/>
 
         <relationship type="many" related="mantle.product.issuance.AssetReservation" short-alias="reservations">
             <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>

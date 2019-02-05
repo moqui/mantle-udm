@@ -282,7 +282,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Replenish-level" enumId="FarmLevel" enumTypeId="FinancialAccountReplenishMethod"/>
 
             <!-- Financial Account Type (NOTE: not an Enumeration because has additional fields) -->
-            <mantle.account.financial.FinancialAccountType description="Gift Certificate" finAccountTypeId="GiftCertificate"
+            <mantle.account.financial.FinancialAccountType description="Gift Card or Certificate" finAccountTypeId="GiftCertificate"
                     replenishTypeEnumId="FarpManual" isRefundable="N"/>
             <mantle.account.financial.FinancialAccountType description="Deposit" finAccountTypeId="DepositAccount"
                     replenishTypeEnumId="FarpManual" isRefundable="Y"/>
