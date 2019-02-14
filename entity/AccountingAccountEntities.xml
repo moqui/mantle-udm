@@ -113,6 +113,14 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="currencyUomId"/></relationship>
         <relationship type="one" title="Replenish" related="mantle.account.method.PaymentMethod" short-alias="replenishMethod">
             <key-map field-name="replenishPaymentId"/></relationship>
+
+        <relationship type="many" related="mantle.account.financial.FinancialAccountAuth" short-alias="authorizations">
+            <key-map field-name="finAccountId"/></relationship>
+        <relationship type="many" related="mantle.account.financial.FinancialAccountTrans" short-alias="transactions">
+            <key-map field-name="finAccountId"/></relationship>
+        <relationship type="many" related="mantle.account.financial.FinancialAccountParty" short-alias="parties">
+            <key-map field-name="finAccountId"/></relationship>
+
         <seed-data>
             <!-- Financial Account Status -->
             <moqui.basic.StatusType description="Financial Account Status" statusTypeId="FinancialAccount"/>
@@ -148,8 +156,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="authorizationDate" type="date-time"/>
         <field name="expireDate" type="date-time"/>
         <field name="paymentId" type="id"/>
-        <relationship type="one" related="mantle.account.financial.FinancialAccount"/>
-        <relationship type="one" related="mantle.account.payment.Payment"/>
+        <relationship type="one" related="mantle.account.financial.FinancialAccount" short-alias="finAccount"/>
+        <relationship type="one" related="mantle.account.payment.Payment" short-alias="payment"/>
     </entity>
     <entity entity-name="FinancialAccountParty" package="mantle.account.financial">
         <field name="finAccountId" type="id" is-pk="true"/>
@@ -191,25 +199,25 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="reverseOfTransId" type="id"/>
         <field name="comments" type="text-medium"/>
 
-        <relationship type="one" title="FinancialAccountTransType" related="moqui.basic.Enumeration">
+        <relationship type="one" title="FinancialAccountTransType" related="moqui.basic.Enumeration" short-alias="finAccountTransTypeEnum">
             <key-map field-name="finAccountTransTypeEnumId"/></relationship>
-        <relationship type="one" related="mantle.account.financial.FinancialAccount"/>
-        <relationship type="one" related="mantle.account.financial.FinancialAccountAuth"/>
-        <!-- <relationship type="one" title="FinancialAccountTrans" related="moqui.basic.StatusItem"/> -->
-        <relationship type="one" title="From" related="mantle.party.Party">
+        <relationship type="one" related="mantle.account.financial.FinancialAccount" short-alias="finAccount"/>
+        <relationship type="one" related="mantle.account.financial.FinancialAccountAuth" short-alias="finAccountAuth"/>
+        <!-- <relationship type="one" title="FinancialAccountTrans" related="moqui.basic.StatusItem" short-alias="status"/> -->
+        <relationship type="one" title="From" related="mantle.party.Party" short-alias="fromParty">
             <key-map field-name="fromPartyId"/></relationship>
-        <relationship type="one" title="To" related="mantle.party.Party">
+        <relationship type="one" title="To" related="mantle.party.Party" short-alias="toParty">
             <key-map field-name="toPartyId"/></relationship>
-        <relationship type="one" related="mantle.ledger.reconciliation.GlReconciliation"/>
-        <relationship type="one" title="FinancialAccountTransReason" related="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.ledger.reconciliation.GlReconciliation" short-alias="glReconciliation"/>
+        <relationship type="one" title="FinancialAccountTransReason" related="moqui.basic.Enumeration" short-alias="reasonEnum">
             <key-map field-name="reasonEnumId"/></relationship>
-        <relationship type="one" related="mantle.account.payment.Payment"/>
-        <relationship type="one" related="mantle.account.invoice.Invoice"/>
-        <relationship type="one" related="mantle.order.OrderItem">
+        <relationship type="one" related="mantle.account.payment.Payment" short-alias="payment"/>
+        <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
+        <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem">
             <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
-        <relationship type="one" title="PerformedBy" related="moqui.security.UserAccount">
+        <relationship type="one" title="PerformedBy" related="moqui.security.UserAccount" short-alias="performedByUser">
             <key-map field-name="performedByUserId"/></relationship>
-        <relationship type="one" title="AcctgTransResult" related="moqui.basic.Enumeration">
+        <relationship type="one" title="AcctgTransResult" related="moqui.basic.Enumeration" short-alias="acctgTransResultEnum">
             <key-map field-name="acctgTransResultEnumId"/></relationship>
         <relationship type="one" title="ReversedBy" related="mantle.account.financial.FinancialAccountTrans" short-alias="reversedBy">
             <key-map field-name="reversedByTransId" related="finAccountTransId"/></relationship>
