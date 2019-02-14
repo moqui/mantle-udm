@@ -1961,6 +1961,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- <mantle.ledger.config.CreditCardTypeGlAccount creditCardTypeEnumId="CctVisa" organizationPartyId="DefaultSettings" glAccountId="122000000"/> -->
 
     <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251100000" finAccountTypeId="CustomerCredit" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251200000" finAccountTypeId="GiftCard" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251200000" finAccountTypeId="GiftCertificate" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="251500000" finAccountTypeId="DepositAccount" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.FinancialAccountTypeGlAccount glAccountId="252000000" finAccountTypeId="SupplierDeposit" organizationPartyId="DefaultSettings"/>
