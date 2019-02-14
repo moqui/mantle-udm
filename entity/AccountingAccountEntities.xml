@@ -254,7 +254,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Error Adjustment" enumId="FatrErrorAdjust" enumTypeId="FinancialAccountTransReason"/>
         </seed-data>
     </entity>
-    <entity entity-name="FinancialAccountType" package="mantle.account.financial">
+    <entity entity-name="FinancialAccountType" package="mantle.account.financial" use="configuration" cache="true">
         <field name="finAccountTypeId" type="id" is-pk="true"/>
         <field name="parentTypeId" type="id"/>
         <field name="description" type="text-medium"/>
