@@ -65,7 +65,15 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Shipment" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" title="From" related="mantle.party.Party" short-alias="fromParty">
             <key-map field-name="fromPartyId"/></relationship>
+        <relationship type="one-nofk" title="From" related="mantle.party.Organization" short-alias="fromOrganization">
+            <key-map field-name="fromPartyId"/></relationship>
+        <relationship type="one-nofk" title="From" related="mantle.party.Person" short-alias="fromPerson">
+            <key-map field-name="fromPartyId"/></relationship>
         <relationship type="one" title="To" related="mantle.party.Party" short-alias="toParty">
+            <key-map field-name="toPartyId"/></relationship>
+        <relationship type="one-nofk" title="To" related="mantle.party.Organization" short-alias="toOrganization">
+            <key-map field-name="toPartyId"/></relationship>
+        <relationship type="one-nofk" title="To" related="mantle.party.Person" short-alias="toPerson">
             <key-map field-name="toPartyId"/></relationship>
 
         <relationship type="one" title="Ship" related="mantle.work.effort.WorkEffort" short-alias="shipWorkEffort">
@@ -332,6 +340,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.shipment.ShipmentItem" short-alias="item">
             <key-map field-name="shipmentId"/><key-map field-name="productId"/></relationship>
         <relationship type="one-nofk" related="mantle.product.Product" short-alias="product"/>
+
+        <relationship type="many" related="mantle.shipment.ShipmentItemSource" short-alias="itemSources">
+            <key-map field-name="shipmentId"/><key-map field-name="productId"/></relationship>
     </entity>
     <entity entity-name="ShipmentPackageRouteSeg" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
@@ -391,6 +402,10 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="trackingStatusEnumId"/></relationship>
         <relationship type="one" title="ReturnTrackingStatus" related="moqui.basic.Enumeration" short-alias="returnTrackingStatusEnum">
             <key-map field-name="returnTrackingStatusEnumId"/></relationship>
+
+        <relationship type="many" related="mantle.shipment.ShipmentPackageContent" short-alias="contents">
+            <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>
+
         <index name="SHIP_PKRTSG_SHIPID"><index-field name="shipmentId"/></index>
         <index name="SHIP_PKRTSG_TRKCODE"><index-field name="trackingCode"/></index>
         <index name="SHIP_PKRTSG_GTLBL"><index-field name="gatewayLabelId"/></index>
