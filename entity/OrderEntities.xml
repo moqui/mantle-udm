@@ -159,9 +159,11 @@ along with this software (see the LICENSE.md file). If not, see
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderBeingChanged" transitionName="Begin Changes"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderPlaced" transitionName="Place##Order"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderHold" transitionName="Hold##Order"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderRejected" transitionName="Reject"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderRequested" transitionName="Request Quote"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderProposed" transitionName="Propose Quote"/>
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderRequested" toStatusId="OrderProposed" transitionName="Propose Quote"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderRequested" toStatusId="OrderRejected" transitionName="Reject Request"/>
