@@ -351,6 +351,11 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Order Approve Warn Percent Available Inventory (default 20, 0 to disable)" enumId="PsstOrdApprovePercAvailInv" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Order Approve Warn Similar within 24hrs (false to disable)" enumId="PsstOrdApproveSimilar" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Order Approve Warn Price Min/Max (false to disable)" enumId="PsstOrdApprovePriceMinMax" enumTypeId="ProductStoreSettingType"/>
+
+            <moqui.basic.Enumeration description="Order Approve Warn Billing and Shipping Addresses Differ (false to disable)" enumId="PsstOrdApproveBillShipAddrDiff" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Order Approve Warn Payment Method Name Differs (false to disable)" enumId="PsstOrdApprovePayMethNameDiff" enumTypeId="ProductStoreSettingType"/>
+            <!-- <moqui.basic.Enumeration description="Order Approve Warn Payment Method Grey/Blacklisted (false to disable)" enumId="PsstOrdApprovePayMethBlacklist" enumTypeId="ProductStoreSettingType"/> -->
+            <moqui.basic.Enumeration description="Order Approve Warn Contact Mech Grey/Blacklisted (false to disable)" enumId="PsstOrdApproveContactBlacklist" enumTypeId="ProductStoreSettingType"/>
         </seed-data>
     </entity>
 
