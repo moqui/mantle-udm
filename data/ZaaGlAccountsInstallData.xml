@@ -114,15 +114,15 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Retained Earnings" enumId="RETAINED_EARNINGS" parentEnumId="EQUITY" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Net Income" enumId="NET_INCOME" parentEnumId="EQUITY" enumTypeId="GlAccountClass"/>
 
-    <moqui.basic.Enumeration description="Goods Revenue" enumId="GOODS_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Services Revenue" enumId="SERVICES_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Other Revenue" enumId="OTHER_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Discounts and Write-downs" enumId="COST_OF_DISCOUNTS" parentEnumId="REVENUE" optionIndicator="Y" enumTypeId="GlAccountClass"/><!-- contra: DEBIT -->
-    <moqui.basic.Enumeration description="Customer Returns" enumId="CUSTOMER_RETURNS" parentEnumId="REVENUE" optionIndicator="Y" enumTypeId="GlAccountClass"/><!-- contra: DEBIT -->
+    <moqui.basic.Enumeration description="Goods Revenue" enumId="GOODS_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass" sequenceNum="10"/>
+    <moqui.basic.Enumeration description="Services Revenue" enumId="SERVICES_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass" sequenceNum="20"/>
+    <moqui.basic.Enumeration description="Other Revenue" enumId="OTHER_REVENUE" parentEnumId="REVENUE" enumTypeId="GlAccountClass" sequenceNum="30"/>
+    <moqui.basic.Enumeration description="Discounts and Write-downs" enumId="COST_OF_DISCOUNTS" parentEnumId="REVENUE" optionIndicator="Y" enumTypeId="GlAccountClass" sequenceNum="40"/><!-- contra: DEBIT -->
+    <moqui.basic.Enumeration description="Customer Returns" enumId="CUSTOMER_RETURNS" parentEnumId="REVENUE" optionIndicator="Y" enumTypeId="GlAccountClass" sequenceNum="50"/><!-- contra: DEBIT -->
 
-    <moqui.basic.Enumeration description="Cash Income" enumId="CASH_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Interest Income" enumId="INTEREST_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass"/>
-    <moqui.basic.Enumeration description="Non-Cash Income" enumId="NON_CASH_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Cash Income" enumId="CASH_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass" sequenceNum="10"/>
+    <moqui.basic.Enumeration description="Interest Income" enumId="INTEREST_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass" sequenceNum="20"/>
+    <moqui.basic.Enumeration description="Non-Cash Income" enumId="NON_CASH_INCOME" parentEnumId="INCOME" enumTypeId="GlAccountClass" sequenceNum="30"/>
 
     <!-- ========== GL Account Class Groups ========== -->
 
