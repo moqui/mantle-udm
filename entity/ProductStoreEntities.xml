@@ -32,7 +32,10 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="storeDomain" type="text-short"><description>Store domain for use in emails</description></field>
         <field name="profileUrlPath" type="text-medium"><description>Path to profile page for use in emails</description></field>
-        <field name="wikiSpaceId" type="id"><description>For a WikiSpace mounted as content, superceded by ProductStoreWikiSpace entity</description></field>
+        <field name="wikiSpaceId" type="id"><description>For a WikiSpace mounted as content, superceded by ProductStoreWikiSpace with spaceTypeEnumId=PstFull</description></field>
+        <field name="contentDataDocumentId" type="text-medium"><description>The dataDocumentId to use for search of content pages in wikiSpaceId</description></field>
+        <field name="blogDataDocumentId" type="text-medium"><description>The dataDocumentId to use for search of blog entries</description></field>
+        <field name="productDataDocumentId" type="text-medium"><description>The dataDocumentId to use for product search</description></field>
 
         <field name="defaultLocale" type="text-short"/>
         <field name="defaultCurrencyUomId" type="id"/>
@@ -59,6 +62,13 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="returnPostalContactMechId"/></relationship>
 
         <relationship type="one" related="moqui.resource.wiki.WikiSpace" short-alias="wikiSpace"/>
+        <relationship type="one" title="Content" related="moqui.entity.document.DataDocument" short-alias="contentDataDocument">
+            <key-map field-name="contentDataDocumentId"/></relationship>
+        <relationship type="one" title="Blog" related="moqui.entity.document.DataDocument" short-alias="blogDataDocument">
+            <key-map field-name="blogDataDocumentId"/></relationship>
+        <relationship type="one" title="Product" related="moqui.entity.document.DataDocument" short-alias="productDataDocument">
+            <key-map field-name="productDataDocumentId"/></relationship>
+
         <relationship type="one" title="DefaultCurrency" related="moqui.basic.Uom" short-alias="defaultCurrencyUom">
             <key-map field-name="defaultCurrencyUomId"/></relationship>
         <relationship type="one" title="DefaultSalesChannel" related="moqui.basic.Enumeration" short-alias="defaultSalesChannel">
@@ -406,6 +416,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Product Store Wiki Space Type" enumTypeId="ProductStoreWikiSpaceType"/>
             <!-- full page content like about us, policies, etc -->
             <moqui.basic.Enumeration description="Content - Full Page" enumId="PstFull" enumTypeId="ProductStoreWikiSpaceType"/>
+            <!-- blog post content like about us, policies, etc -->
+            <moqui.basic.Enumeration description="Content - Blog Posts" enumId="PstBlog" enumTypeId="ProductStoreWikiSpaceType"/>
             <!-- page snippet content including banners, carousel slides, etc; often referred to through a WikiPageCategory -->
             <moqui.basic.Enumeration description="Content - Snippet" enumId="PstSnip" enumTypeId="ProductStoreWikiSpaceType"/>
             <!-- templates for information pages like header, footer, home, category, product, search, etc; server rendered, change frequently -->
