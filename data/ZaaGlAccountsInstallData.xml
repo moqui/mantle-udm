@@ -409,6 +409,9 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccount accountName="Packaging Components Inventory" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="141400000" glAccountTypeEnumId="GatInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="141000000"/>
 
+    <mantle.ledger.account.GlAccount accountName="Inventory in Transit" description="" glAccountClassEnumId="INVENTORY_ASSET"
+        glAccountId="142000000" glAccountTypeEnumId="GatInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="140000000"/>
+
     <mantle.ledger.account.GlAccount accountName="Prepaid Inventory" description="" glAccountClassEnumId="PREPAID_INVENTORY"
         glAccountId="147000000" glAccountTypeEnumId="GatPrepaidInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="140000000"/>
     <mantle.ledger.account.GlAccount accountName="Inventory - Average Cost Valuation Adjustment" description="" glAccountClassEnumId="INVENTORY_ASSET"
@@ -1979,71 +1982,71 @@ along with this software (see the LICENSE.md file). If not, see
 
     <mantle.ledger.config.AssetTypeGlAccount assetTypeEnumId="AstTpInventory" classEnumId="" organizationPartyId="DefaultSettings"
             assetGlAccountId="141000000" wipAssetGlAccountId="141200000" receiptGlAccountId="149000000" issuanceGlAccountId="512000000"
-            profitGlAccountId="411000000" lossGlAccountId="525000000"
+            transferGlAccountId="142000000" profitGlAccountId="411000000" lossGlAccountId="525000000"
             receiptTransTypeEnumId="AttInventoryReceipt" issuanceTransTypeEnumId="AttInventoryIssuance"
             shrinkageGlAccountId="527000000" foundGlAccountId="814300000"/>
     <mantle.ledger.config.AssetTypeGlAccount assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventoryRaw" organizationPartyId="DefaultSettings"
             assetGlAccountId="141100000" wipAssetGlAccountId="141200000" receiptGlAccountId="149100000" issuanceGlAccountId="512000000"
-            profitGlAccountId="411000000" lossGlAccountId="525000000"
+            transferGlAccountId="142000000" profitGlAccountId="411000000" lossGlAccountId="525000000"
             receiptTransTypeEnumId="AttInventoryReceipt" issuanceTransTypeEnumId="AttInventoryIssuance"
             shrinkageGlAccountId="527000000" foundGlAccountId="814300000"/>
     <!-- NOTE: sub-assemblies are tracked in the same account as raw materials (WIP is for inventory consumed in a run and moved to finished good or back to raw materials when produced from a run) -->
     <mantle.ledger.config.AssetTypeGlAccount assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventorySub" organizationPartyId="DefaultSettings"
             assetGlAccountId="141100000" wipAssetGlAccountId="141200000" receiptGlAccountId="149100000" issuanceGlAccountId="512000000"
-            profitGlAccountId="411000000" lossGlAccountId="525000000"
+            transferGlAccountId="142000000" profitGlAccountId="411000000" lossGlAccountId="525000000"
             receiptTransTypeEnumId="AttInventoryReceipt" issuanceTransTypeEnumId="AttInventoryIssuance"
             shrinkageGlAccountId="527000000" foundGlAccountId="814300000"/>
     <mantle.ledger.config.AssetTypeGlAccount assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventoryFin" organizationPartyId="DefaultSettings"
             assetGlAccountId="141300000" wipAssetGlAccountId="141200000" receiptGlAccountId="149300000" issuanceGlAccountId="512000000"
-            profitGlAccountId="411000000" lossGlAccountId="525000000"
+            transferGlAccountId="142000000" profitGlAccountId="411000000" lossGlAccountId="525000000"
             receiptTransTypeEnumId="AttInventoryReceipt" issuanceTransTypeEnumId="AttInventoryIssuance"
             shrinkageGlAccountId="527000000" foundGlAccountId="814300000"/>
 
     <!-- TODO: better handle supplies that are tracked (expensed but with Asset records)
     <mantle.ledger.config.AssetTypeGlAccount assetTypeEnumId="AstTpSupplies" classEnumId="" organizationPartyId="DefaultSettings"
-            assetGlAccountId="" receiptGlAccountId="" issuanceGlAccountId=""
+            assetGlAccountId="" receiptGlAccountId="" issuanceGlAccountId="" transferGlAccountId=""
             depreciationGlAccountId="" profitGlAccountId="" lossGlAccountId=""
             receiptTransTypeEnumId="" issuanceTransTypeEnumId=""/>
     -->
 
     <mantle.ledger.config.AssetTypeGlAccount assetTypeEnumId="AstTpFixed" classEnumId="" organizationPartyId="DefaultSettings"
-            assetGlAccountId="131000000" receiptGlAccountId="139000000" issuanceGlAccountId="253000000"
+            assetGlAccountId="131000000" receiptGlAccountId="139000000" issuanceGlAccountId="253000000" transferGlAccountId=""
             accDepreciationGlAccountId="182000000" depreciationGlAccountId="672000000" profitGlAccountId="814100000" lossGlAccountId="793100000"
             receiptTransTypeEnumId="AttAssetReceipt" issuanceTransTypeEnumId="AttAssetIssuance"
             shrinkageGlAccountId="793200000" foundGlAccountId="814200000"/>
 
     <!-- TODO more detailed mappings for various Equipment classes -->
     <mantle.ledger.config.AssetTypeGlAccount assetTypeEnumId="AstTpEquipment" classEnumId="" organizationPartyId="DefaultSettings"
-            assetGlAccountId="131100000" receiptGlAccountId="139100000" issuanceGlAccountId="253100000"
+            assetGlAccountId="131100000" receiptGlAccountId="139100000" issuanceGlAccountId="253100000" transferGlAccountId=""
             accDepreciationGlAccountId="182000000" depreciationGlAccountId="672000000" profitGlAccountId="814100000" lossGlAccountId="793100000"
             receiptTransTypeEnumId="AttAssetReceipt" issuanceTransTypeEnumId="AttAssetIssuance"
             shrinkageGlAccountId="793200000" foundGlAccountId="814200000"/>
 
     <mantle.ledger.config.AssetTypeGlAccount assetTypeEnumId="AstTpRental" classEnumId="" organizationPartyId="DefaultSettings"
-            assetGlAccountId="131100000" receiptGlAccountId="139100000" issuanceGlAccountId="253100000"
+            assetGlAccountId="131100000" receiptGlAccountId="139100000" issuanceGlAccountId="253100000" transferGlAccountId=""
             accDepreciationGlAccountId="182000000" depreciationGlAccountId="672000000" profitGlAccountId="814100000" lossGlAccountId="793100000"
             receiptTransTypeEnumId="AttAssetReceipt" issuanceTransTypeEnumId="AttAssetIssuance"
             shrinkageGlAccountId="793200000" foundGlAccountId="814200000"/>
     <!-- NOTE: rental of assets profit goes to 403000000, handled through ItemRental invoice item mapping -->
 
     <mantle.ledger.config.AssetTypeGlAccount assetTypeEnumId="AstTpRealEstate" classEnumId="" organizationPartyId="DefaultSettings"
-            assetGlAccountId="132000000" receiptGlAccountId="139200000" issuanceGlAccountId="253200000"
+            assetGlAccountId="132000000" receiptGlAccountId="139200000" issuanceGlAccountId="253200000" transferGlAccountId=""
             accDepreciationGlAccountId="181000000" depreciationGlAccountId="671000000" profitGlAccountId="814100000" lossGlAccountId="793100000"
             receiptTransTypeEnumId="AttAssetReceipt" issuanceTransTypeEnumId="AttAssetIssuance"
             shrinkageGlAccountId="793200000" foundGlAccountId="814200000"/>
     <mantle.ledger.config.AssetTypeGlAccount assetTypeEnumId="AstTpInvRealEstate" classEnumId="" organizationPartyId="DefaultSettings"
-            assetGlAccountId="132800000" receiptGlAccountId="139200000" issuanceGlAccountId="253200000"
+            assetGlAccountId="132800000" receiptGlAccountId="139200000" issuanceGlAccountId="253200000" transferGlAccountId=""
             accDepreciationGlAccountId="181800000" depreciationGlAccountId="671800000" profitGlAccountId="814100000" lossGlAccountId="793100000"
             receiptTransTypeEnumId="AttAssetReceipt" issuanceTransTypeEnumId="AttAssetIssuance"
             shrinkageGlAccountId="793200000" foundGlAccountId="814200000"/>
 
     <mantle.ledger.config.AssetTypeGlAccount assetTypeEnumId="AstTpBearerBiological" classEnumId="" organizationPartyId="DefaultSettings"
-            assetGlAccountId="134600000" receiptGlAccountId="139300000" issuanceGlAccountId="253300000"
+            assetGlAccountId="134600000" receiptGlAccountId="139300000" issuanceGlAccountId="253300000" transferGlAccountId=""
             accDepreciationGlAccountId="183500000" depreciationGlAccountId="673500000" profitGlAccountId="814100000" lossGlAccountId="793100000"
             receiptTransTypeEnumId="AttAssetReceipt" issuanceTransTypeEnumId="AttAssetIssuance"
             shrinkageGlAccountId="793200000" foundGlAccountId="814200000"/>
     <mantle.ledger.config.AssetTypeGlAccount assetTypeEnumId="AstTpBiological" classEnumId="" organizationPartyId="DefaultSettings"
-            assetGlAccountId="134500000" receiptGlAccountId="139300000" issuanceGlAccountId="253300000"
+            assetGlAccountId="134500000" receiptGlAccountId="139300000" issuanceGlAccountId="253300000" transferGlAccountId=""
             accDepreciationGlAccountId="183500000" depreciationGlAccountId="673500000" profitGlAccountId="814100000" lossGlAccountId="793100000"
             receiptTransTypeEnumId="AttAssetReceipt" issuanceTransTypeEnumId="AttAssetIssuance"
             shrinkageGlAccountId="793200000" foundGlAccountId="814200000"/>
