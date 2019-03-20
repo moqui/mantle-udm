@@ -437,6 +437,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="thruDate" type="date-time"/>
         <field name="spaceTypeEnumId" type="id"/>
         <field name="pagePath" type="text-medium"/>
+        <!-- for AB testing add field with percentage weight for each alternative; should also remember in session for user so the randomly selected option is consistent -->
         <!-- future: <field name="allowSplit" type="text-indicator"><description>If all matching records have a 'Y' randomize and remember the
             wikiSpaceId used instead of using from/thru date pattern (filter, get most recent by fromDate) to determine a single space.</description></field> -->
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>

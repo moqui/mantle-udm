@@ -254,6 +254,9 @@ along with this software (see the LICENSE.md file). If not, see
             for inventory assets this is the COGS account (GatCogs);
             for fixed assets this is the Unissued Asset account (GatUnissuedFixedAsset)
         </description></field>
+        <field name="transferGlAccountId" type="id"><description>The credit account on for inventory being transferred (in transit),
+                used instead of receipt and issuance accounts for transfer shipments, etc</description></field>
+
         <field name="accDepreciationGlAccountId" type="id">
             <description>The credit account for the depreciation expense for Fixed Assets (paired with depreciationGlAccountId);
                 A debit account for Fixed Asset sale or write off</description></field>
