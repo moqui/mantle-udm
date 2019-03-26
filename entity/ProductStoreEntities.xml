@@ -27,10 +27,15 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="reservationAutoEnumId" type="id"/>
         <field name="requireInventory" type="text-indicator"/>
         <field name="returnPostalContactMechId" type="id"><description>Return postal address for shipping labels</description></field>
+        <field name="autoApproveDelay" type="number-integer"><description>Minimum time in minutes to wait before trying to auto-approve;
+            defaults to 0 which means auto-approve immediately (via SECA rule), otherwise delayed auto-approve handled with service job</description></field>
 
         <field name="storeDomain" type="text-short"><description>Store domain for use in emails</description></field>
         <field name="profileUrlPath" type="text-medium"><description>Path to profile page for use in emails</description></field>
-        <field name="wikiSpaceId" type="id"><description>For a WikiSpace mounted as content, superceded by ProductStoreWikiSpace entity</description></field>
+        <field name="wikiSpaceId" type="id"><description>For a WikiSpace mounted as content, superceded by ProductStoreWikiSpace with spaceTypeEnumId=PstFull</description></field>
+        <field name="contentDataDocumentId" type="text-medium"><description>The dataDocumentId to use for search of content pages in wikiSpaceId</description></field>
+        <field name="blogDataDocumentId" type="text-medium"><description>The dataDocumentId to use for search of blog entries</description></field>
+        <field name="productDataDocumentId" type="text-medium"><description>The dataDocumentId to use for product search</description></field>
 
         <field name="defaultLocale" type="text-short"/>
         <field name="defaultCurrencyUomId" type="id"/>
@@ -57,6 +62,13 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="returnPostalContactMechId"/></relationship>
 
         <relationship type="one" related="moqui.resource.wiki.WikiSpace" short-alias="wikiSpace"/>
+        <relationship type="one" title="Content" related="moqui.entity.document.DataDocument" short-alias="contentDataDocument">
+            <key-map field-name="contentDataDocumentId"/></relationship>
+        <relationship type="one" title="Blog" related="moqui.entity.document.DataDocument" short-alias="blogDataDocument">
+            <key-map field-name="blogDataDocumentId"/></relationship>
+        <relationship type="one" title="Product" related="moqui.entity.document.DataDocument" short-alias="productDataDocument">
+            <key-map field-name="productDataDocumentId"/></relationship>
+
         <relationship type="one" title="DefaultCurrency" related="moqui.basic.Uom" short-alias="defaultCurrencyUom">
             <key-map field-name="defaultCurrencyUomId"/></relationship>
         <relationship type="one" title="DefaultSalesChannel" related="moqui.basic.Enumeration" short-alias="defaultSalesChannel">
@@ -125,6 +137,28 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productStoreId" type="id"/>
         <relationship type="one" related="mantle.product.store.ProductStore"/>
     </extend-entity>
+
+    <entity entity-name="ProductStoreApprove" package="mantle.product.store" use="configuration" cache="true">
+        <description>For per-store configurable pre-approve order validations</description>
+        <field name="storeApproveId" type="id" is-pk="true"/>
+        <field name="productStoreId" type="id"/>
+        <field name="serviceRegisterId" type="id" not-null="true"><description>Registered Service of type OrderValidate that implements the
+            mantle.order.OrderInfoServices.validate#Order interface</description></field>
+        <field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+        <field name="sequenceNum" type="number-integer"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" related="moqui.service.ServiceRegister" short-alias="serviceRegister"/>
+        <relationship type="many" related="mantle.product.store.ProductStoreApproveParam" short-alias="parameters">
+            <key-map field-name="storeApproveId"/></relationship>
+        <seed-data><moqui.basic.Enumeration description="Order Approve Validate" enumId="OrderValidate" enumTypeId="ServiceRegisterType"/></seed-data>
+    </entity>
+    <entity entity-name="ProductStoreApproveParam" package="mantle.product.store" use="configuration" cache="true">
+        <field name="storeApproveId" type="id" is-pk="true"/>
+        <field name="parameterName" type="text-short" is-pk="true"/>
+        <field name="parameterValue" type="text-medium"/>
+        <relationship type="one" related="mantle.product.store.ProductStoreApprove" short-alias="storeApprove"/>
+    </entity>
 
     <entity entity-name="ProductStoreCategory" package="mantle.product.store">
         <field name="productStoreId" type="id" is-pk="true"/>
@@ -200,6 +234,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
     </entity>
+
     <entity entity-name="ProductStoreParty" package="mantle.product.store">
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
@@ -326,6 +361,11 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Order Approve Warn Percent Available Inventory (default 20, 0 to disable)" enumId="PsstOrdApprovePercAvailInv" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Order Approve Warn Similar within 24hrs (false to disable)" enumId="PsstOrdApproveSimilar" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Order Approve Warn Price Min/Max (false to disable)" enumId="PsstOrdApprovePriceMinMax" enumTypeId="ProductStoreSettingType"/>
+
+            <moqui.basic.Enumeration description="Order Approve Warn Billing and Shipping Addresses Differ (false to disable)" enumId="PsstOrdApproveBillShipAddrDiff" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Order Approve Warn Payment Method Name Differs (false to disable)" enumId="PsstOrdApprovePayMethNameDiff" enumTypeId="ProductStoreSettingType"/>
+            <!-- <moqui.basic.Enumeration description="Order Approve Warn Payment Method Grey/Blacklisted (false to disable)" enumId="PsstOrdApprovePayMethBlacklist" enumTypeId="ProductStoreSettingType"/> -->
+            <moqui.basic.Enumeration description="Order Approve Warn Contact Mech Grey/Blacklisted (false to disable)" enumId="PsstOrdApproveContactBlacklist" enumTypeId="ProductStoreSettingType"/>
         </seed-data>
     </entity>
 
@@ -376,6 +416,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Product Store Wiki Space Type" enumTypeId="ProductStoreWikiSpaceType"/>
             <!-- full page content like about us, policies, etc -->
             <moqui.basic.Enumeration description="Content - Full Page" enumId="PstFull" enumTypeId="ProductStoreWikiSpaceType"/>
+            <!-- blog post content like about us, policies, etc -->
+            <moqui.basic.Enumeration description="Content - Blog Posts" enumId="PstBlog" enumTypeId="ProductStoreWikiSpaceType"/>
             <!-- page snippet content including banners, carousel slides, etc; often referred to through a WikiPageCategory -->
             <moqui.basic.Enumeration description="Content - Snippet" enumId="PstSnip" enumTypeId="ProductStoreWikiSpaceType"/>
             <!-- templates for information pages like header, footer, home, category, product, search, etc; server rendered, change frequently -->
@@ -395,6 +437,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="thruDate" type="date-time"/>
         <field name="spaceTypeEnumId" type="id"/>
         <field name="pagePath" type="text-medium"/>
+        <!-- for AB testing add field with percentage weight for each alternative; should also remember in session for user so the randomly selected option is consistent -->
         <!-- future: <field name="allowSplit" type="text-indicator"><description>If all matching records have a 'Y' randomize and remember the
             wikiSpaceId used instead of using from/thru date pattern (filter, get most recent by fromDate) to determine a single space.</description></field> -->
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>

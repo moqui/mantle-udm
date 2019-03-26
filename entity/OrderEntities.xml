@@ -159,9 +159,11 @@ along with this software (see the LICENSE.md file). If not, see
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderBeingChanged" transitionName="Begin Changes"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderPlaced" transitionName="Place##Order"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderHold" transitionName="Hold##Order"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderRejected" transitionName="Reject"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderRequested" transitionName="Request Quote"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderOpen" toStatusId="OrderProposed" transitionName="Propose Quote"/>
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderRequested" toStatusId="OrderProposed" transitionName="Propose Quote"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderRequested" toStatusId="OrderRejected" transitionName="Reject Request"/>
@@ -316,8 +318,11 @@ along with this software (see the LICENSE.md file). If not, see
             <description>For promo items. The number of times the promo was used for use limits.</description></field>
         <field name="storePromotionId" type="id"/>
         <field name="promoCodeId" type="id"/>
+        <field name="promoCodeText" type="text-medium"><description>Promo code(s) entered by customer used for the item, may be from external system</description></field>
 
         <field name="subscriptionId" type="id"/>
+        <field name="finAccountId" type="id"><description>Populate along with finAccountTransId for gift card/certificate/etc purchase and replenishment</description></field>
+        <field name="finAccountTransId" type="id"/>
         <field name="overrideGlAccountId" type="id">
             <description>Used to specify the override or actual glAccountId used for the item.</description></field>
         <field name="salesOpportunityId" type="id"/>
@@ -354,10 +359,13 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.store.ProductStorePromotion" short-alias="storePromotion"/>
         <relationship type="one" related="mantle.product.store.ProductStorePromoCode" short-alias="storePromoCode"/>
 
+        <relationship type="one" related="mantle.product.subscription.Subscription" short-alias="subscription"/>
+        <relationship type="one" related="mantle.account.financial.FinancialAccount" short-alias="financialAccount"/>
+        <relationship type="one" related="mantle.account.financial.FinancialAccountTrans" short-alias="financialAccountTrans"/>
         <relationship type="one" title="Override" related="mantle.ledger.account.GlAccount" short-alias="overrideGlAccount">
             <key-map field-name="overrideGlAccountId"/></relationship>
         <relationship type="one" related="SalesOpportunity" short-alias="opportunity"/>
-        <relationship type="one" related="mantle.other.tax.TaxAuthority"/>
+        <relationship type="one" related="mantle.other.tax.TaxAuthority" short-alias="taxAuthority"/>
 
         <relationship type="many" related="mantle.product.issuance.AssetReservation" short-alias="reservations">
             <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
@@ -684,8 +692,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="returnId" type="id" is-pk="true"/>
         <field name="returnItemSeqId" type="id" is-pk="true"/>
         <field name="parentItemSeqId" type="id"/>
-        <field name="returnReasonEnumId" type="id" enable-audit-log="true"/>
-        <field name="returnResponseEnumId" type="id" enable-audit-log="true"/>
+        <field name="returnReasonEnumId" type="id" enable-audit-log="update"/>
+        <field name="returnResponseEnumId" type="id" enable-audit-log="update"/>
         <field name="responseImmediate" type="text-indicator"><description>Process response immediately (Y) or wait for returned inventory (N)</description></field>
         <field name="itemTypeEnumId" type="id"/>
         <field name="productId" type="id"/>
@@ -694,29 +702,29 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderItemSeqId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="inventoryStatusId" type="id"><description>If specified the status of received inventory (for resell, damaged, etc)</description></field>
-        <field name="returnQuantity" type="number-decimal" enable-audit-log="true">
+        <field name="returnQuantity" type="number-decimal" enable-audit-log="update">
             <description>Quantity promised by customer</description></field>
-        <field name="receivedQuantity" type="number-decimal" enable-audit-log="true">
+        <field name="receivedQuantity" type="number-decimal" enable-audit-log="update">
             <description>Quantity actually received from customer</description></field>
-        <field name="returnPrice" type="currency-amount" enable-audit-log="true"/>
+        <field name="returnPrice" type="currency-amount" enable-audit-log="update"/>
         <field name="responseAmount" type="currency-amount"><description>Total response amount, independent of quantity.
             Manually set before response processes to use the given amount, otherwise calculated during process response from
             received/return quantity * returnPrice (defaults to OrderItem.unitAmount)</description></field>
         <field name="externalId" type="text-short"><description>ID for the return item in the direct upstream system it came from if it came from an external system</description></field>
         <!-- Response Detail Fields -->
-        <field name="responseDate" type="date-time"/>
-        <field name="replacementOrderId" type="id"/>
-        <field name="finAccountTransId" type="id"/>
-        <field name="refundPaymentId" type="id"/>
+        <field name="responseDate" type="date-time" enable-audit-log="update"/>
+        <field name="replacementOrderId" type="id" enable-audit-log="update"/>
+        <field name="finAccountTransId" type="id" enable-audit-log="update"/>
+        <field name="refundPaymentId" type="id" enable-audit-log="update"/>
 
         <!-- doesn't make sense, may be multiple payments: <field name="originalPaymentId" type="id"/> -->
         <!-- maybe future: <field name="billingAccountId" type="id"/> -->
 
         <relationship type="one" related="mantle.order.return.ReturnHeader" short-alias="returnHeader"/>
-        <relationship type="one-nofk" title="Parent" related="mantle.account.invoice.InvoiceItem" short-alias="parent">
-            <key-map field-name="invoiceId"/><key-map field-name="parentItemSeqId" related="invoiceItemSeqId"/></relationship>
-        <relationship type="many" title="Child" related="mantle.account.invoice.InvoiceItem" short-alias="children">
-            <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId" related="parentItemSeqId"/></relationship>
+        <relationship type="one-nofk" title="Parent" related="mantle.order.return.ReturnItem" short-alias="parent">
+            <key-map field-name="returnId"/><key-map field-name="parentItemSeqId" related="returnItemSeqId"/></relationship>
+        <relationship type="many" title="Child" related="mantle.order.return.ReturnItem" short-alias="children">
+            <key-map field-name="returnId"/><key-map field-name="returnItemSeqId" related="parentItemSeqId"/></relationship>
 
         <relationship type="one" title="ReturnReason" related="moqui.basic.Enumeration" short-alias="reason">
             <key-map field-name="returnReasonEnumId"/></relationship>
@@ -724,6 +732,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="returnResponseEnumId"/></relationship>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemType">
             <key-map field-name="itemTypeEnumId"/></relationship>
+        <relationship type="one-nofk" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
         <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem"/>
         <relationship type="one" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" title="Inventory" related="moqui.basic.StatusItem" short-alias="inventoryStatus">
