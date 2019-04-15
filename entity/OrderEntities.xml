@@ -48,8 +48,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderId" type="id" is-pk="true"/>
         <field name="emailMessageId" type="id" is-pk="true"/>
         <field name="orderRevision" type="number-integer"/>
-        <relationship type="one" related="mantle.order.OrderHeader"/>
-        <relationship type="one" related="moqui.basic.email.EmailMessage"/>
+        <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
+        <relationship type="one" related="moqui.basic.email.EmailMessage" short-alias="emailMessage"/>
     </entity>
     <entity entity-name="OrderHeader" package="mantle.order" short-alias="orders" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
@@ -109,6 +109,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.order.OrderNote" short-alias="notes">
             <key-map field-name="orderId"/></relationship>
         <relationship type="many" related="mantle.order.OrderCommunicationEvent" short-alias="communicationEvents">
+            <key-map field-name="orderId"/></relationship>
+        <relationship type="many" related="mantle.order.OrderEmailMessage" short-alias="emailMessages">
             <key-map field-name="orderId"/></relationship>
         <relationship type="many" related="mantle.account.payment.Payment" short-alias="payments">
             <key-map field-name="orderId"/></relationship>
