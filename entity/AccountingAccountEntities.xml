@@ -665,6 +665,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="payrollAdjustmentId" type="id"/>
         <field name="finAccountId" type="id"/>
         <field name="finAccountTransId" type="id"/>
+        <field name="billThruVendorName" type="text-medium">
+            <description>For tracking purposes when there is no associated bill through invoice with InvoiceItemAssoc records</description></field>
+        <field name="billThruVendorRef" type="text-short"/>
 
         <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
         <relationship type="one-nofk" title="Parent" related="mantle.account.invoice.InvoiceItem" short-alias="parent">
