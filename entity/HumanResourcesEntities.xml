@@ -620,6 +620,8 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="PayrollAdjCalcParameter" package="mantle.humanres.employment" use="configuration" cache="true">
         <field name="adjCalcServiceId" type="id" is-pk="true"/>
         <field name="parameterName" type="text-short" is-pk="true"/>
+        <field name="fromDate" type="date-time" is-pk="true"/>
+        <field name="thruDate" type="date-time"/>
         <field name="parameterValue" type="text-medium"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjCalcService" short-alias="adjCalcService"/>
     </entity>
