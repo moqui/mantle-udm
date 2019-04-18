@@ -607,8 +607,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="adjCalcServiceId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id"><description>If null applies to all organizations</description></field>
         <field name="payrollPhaseEnumId" type="id"/>
-        <field name="description" type="text-medium"><description>Description for the OrderItem (itemDescription), promo service
-            should run this through ResourceFacade.expand() with parameters depending on the promo service</description></field>
+        <field name="description" type="text-medium"><description>Description for the OrderItem (itemDescription), adjustment calc service
+            should run this through ResourceFacade.expand() with parameters depending on the adjustment calc service</description></field>
         <field name="serviceRegisterId" type="id" not-null="true"><description>Registered Service of type PayrollAdjustmentCalc that implements the
             mantle.humanres.PayrollServices.calculate#Adjustment interface</description></field>
         <field name="sequenceNum" type="number-integer"/>
