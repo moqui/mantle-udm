@@ -43,6 +43,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="OrderContentType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="orderContentTypeEnumId"/></relationship>
         <relationship type="one" related="moqui.security.UserAccount"/>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Order Content Type" enumTypeId="OrderContentType"/>
+        </seed-data>
     </entity>
     <entity entity-name="OrderEmailMessage" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
