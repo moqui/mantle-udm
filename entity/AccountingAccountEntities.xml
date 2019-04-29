@@ -1007,6 +1007,8 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <moqui.basic.EnumerationType description="Payment Method File Type" enumTypeId="PaymentMethodFileType"/>
             <moqui.basic.Enumeration description="NACHA" enumId="PmftNacha" enumTypeId="PaymentMethodFileType"/>
+            <moqui.basic.Enumeration description="OFX/QFX" enumId="PmftOfx" enumTypeId="PaymentMethodFileType"/>
+            <moqui.basic.Enumeration description="BAI 2" enumId="PmftBai2" enumTypeId="PaymentMethodFileType"/>
 
             <moqui.basic.Enumeration description="Positive Pay File" enumId="PmftPositivePay" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
             <moqui.basic.Enumeration description="Bank of America AR PNV" enumId="PmftBankOfAmericaAr" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
