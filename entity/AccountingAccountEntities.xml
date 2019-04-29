@@ -999,9 +999,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="creditAmountTotal" type="currency-amount"/>
         <field name="fileText" type="text-very-long"/>
 
-        <relationship type="one" related="mantle.account.method.PaymentMethod"/>
-        <relationship type="one" title="PaymentMethodFileType" related="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod"/>
+        <relationship type="one" title="PaymentMethodFileType" related="moqui.basic.Enumeration" short-alias="fileTypeEnum">
             <key-map field-name="fileTypeEnumId"/></relationship>
+        <relationship type="one-nofk" related="mantle.account.method.PaymentMethodFileType" short-alias="paymentMethodFileType">
+            <key-map field-name="paymentMethodId"/><key-map field-name="fileTypeEnumId"/></relationship>
         <seed-data>
             <moqui.basic.EnumerationType description="Payment Method File Type" enumTypeId="PaymentMethodFileType"/>
             <moqui.basic.Enumeration description="NACHA" enumId="PmftNacha" enumTypeId="PaymentMethodFileType"/>
@@ -1015,6 +1017,22 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Zions Bank CSV" enumId="PmftZionsBankCsv" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
         </seed-data>
     </entity>
+    <extend-entity entity-name="SystemMessage" package="moqui.service.message">
+        <field name="paymentMethodFileId" type="id"/>
+        <relationship type="one" related="mantle.account.method.PaymentMethodFile"/>
+    </extend-entity>
+    <entity entity-name="PaymentMethodFileType" package="mantle.account.method">
+        <field name="paymentMethodId" type="id" is-pk="true"/>
+        <field name="fileTypeEnumId" type="id" is-pk="true"/>
+        <field name="systemMessageTypeId" type="id"/>
+        <field name="systemMessageRemoteId" type="id"/>
+        <relationship type="one" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod"/>
+        <relationship type="one" title="PaymentMethodFileType" related="moqui.basic.Enumeration" short-alias="fileTypeEnum">
+            <key-map field-name="fileTypeEnumId"/></relationship>
+        <relationship type="one" related="moqui.service.message.SystemMessageType" short-alias="type"/>
+        <relationship type="one" related="moqui.service.message.SystemMessageRemote" short-alias="remote"/>
+    </entity>
+
     <entity entity-name="PaymentMethodTrans" package="mantle.account.method" cache="never">
         <description>Transactions of the PaymentMethod, such as imported from an OFX file (see www.ofx.net); can be
             imported from any source and reconciled in a more consistent way from here</description>
@@ -1031,9 +1049,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="paymentId" type="id"/>
         <field name="acctgTransId" type="id"/>
         <field name="acctgTransEntrySeqId" type="id"/>
-        <relationship type="one" related="mantle.account.method.PaymentMethod"/>
+        <relationship type="one" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod"/>
         <!-- Type one-nofk for this because we want to allow other values -->
-        <relationship type="one-nofk" title="PaymentMethodTransType" related="moqui.basic.Enumeration">
+        <relationship type="one-nofk" title="PaymentMethodTransType" related="moqui.basic.Enumeration" short-alias="transTypeEnum">
             <key-map field-name="transType"/></relationship>
         <relationship type="one" related="mantle.account.payment.Payment"/>
         <relationship type="one" related="mantle.ledger.transaction.AcctgTransEntry">
