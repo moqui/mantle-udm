@@ -437,6 +437,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="thruDate" type="date-time"/>
         <field name="sequenceNum" type="number-integer"/>
         <field name="comments" type="text-medium"/>
+        <field name="otherPartyItemName" type="text-medium"/>
+        <field name="otherPartyItemId" type="text-short"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
@@ -475,7 +477,7 @@ along with this software (see the LICENSE.md file). If not, see
             an AgreementItem.</description></field>
 
         <field name="otherPartyItemName" type="text-medium"/>
-        <field name="otherPartyItemId" type="id"/>
+        <field name="otherPartyItemId" type="text-short"/>
         <field name="comments" type="text-long"/>
 
         <!-- these fields are for supplier pricing (where customerPartyId is an internal organization) -->
