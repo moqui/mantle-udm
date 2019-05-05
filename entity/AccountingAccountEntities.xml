@@ -998,6 +998,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="debitAmountTotal" type="currency-amount"/>
         <field name="creditAmountTotal" type="currency-amount"/>
         <field name="fileText" type="text-very-long"/>
+        <field name="isCancelled" type="text-indicator"/>
 
         <relationship type="one" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod"/>
         <relationship type="one" title="PaymentMethodFileType" related="moqui.basic.Enumeration" short-alias="fileTypeEnum">
@@ -1006,7 +1007,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="paymentMethodId"/><key-map field-name="fileTypeEnumId"/></relationship>
         <seed-data>
             <moqui.basic.EnumerationType description="Payment Method File Type" enumTypeId="PaymentMethodFileType"/>
-            <moqui.basic.Enumeration description="NACHA" enumId="PmftNacha" enumTypeId="PaymentMethodFileType"/>
+            <!-- NOTE: optionIndicator=Y means on cancel reset Payment.statusId for payments in file -->
+            <moqui.basic.Enumeration description="NACHA" enumId="PmftNacha" enumTypeId="PaymentMethodFileType" optionIndicator="Y"/>
             <moqui.basic.Enumeration description="OFX/QFX" enumId="PmftOfx" enumTypeId="PaymentMethodFileType"/>
             <moqui.basic.Enumeration description="BAI 2" enumId="PmftBai2" enumTypeId="PaymentMethodFileType"/>
 
