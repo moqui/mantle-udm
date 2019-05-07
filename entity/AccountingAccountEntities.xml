@@ -1081,6 +1081,268 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Merchant initiated debit" enumId="PMTT_DIRECTDEBIT" enumCode="DIRECTDEBIT" enumTypeId="PaymentMethodTransType"/>
             <moqui.basic.Enumeration description="Repeating payment/standing order" enumId="PMTT_REPEATPMT" enumCode="REPEATPMT" enumTypeId="PaymentMethodTransType"/>
             <moqui.basic.Enumeration description="Other" enumId="PMTT_OTHER" enumCode="OTHER" enumTypeId="PaymentMethodTransType"/>
+            <!-- Payment Method Trans Type from BAI v2 possible values -->
+            <!-- Credit -->
+            <moqui.basic.Enumeration description="Credit (Any Type)" enumId="PMTT_BAI_108" enumCode="108" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Lockbox Deposit" enumId="PMTT_BAI_115" enumCode="115" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Item in Lockbox Deposit" enumId="PMTT_BAI_116" enumCode="116" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Lockbox Adjustment Credit" enumId="PMTT_BAI_118" enumCode="118" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="EDI Transaction Credit" enumId="PMTT_BAI_121" enumCode="121" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="EDIBANX Credit Received" enumId="PMTT_BAI_122" enumCode="122" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="EDIBANX Credit Return" enumId="PMTT_BAI_123" enumCode="123" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="DTC Concentration Credit" enumId="PMTT_BAI_135" enumCode="135" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Item in DTC Deposit" enumId="PMTT_BAI_136" enumCode="136" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ACH Credit Received" enumId="PMTT_BAI_142" enumCode="142" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Item in ACH Deposit" enumId="PMTT_BAI_143" enumCode="143" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ACH Concentration Credit" enumId="PMTT_BAI_145" enumCode="145" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Bank Card Deposit" enumId="PMTT_BAI_147" enumCode="147" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Preauthorized Draft Credit" enumId="PMTT_BAI_155" enumCode="155" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Item in PAC Deposit" enumId="PMTT_BAI_156" enumCode="156" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Corporate Trade Payment Credit" enumId="PMTT_BAI_164" enumCode="164" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Preauthorized ACH Credit" enumId="PMTT_BAI_165" enumCode="165" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ACH Settlement (C)" enumId="PMTT_BAI_166" enumCode="166" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ACH Return Item or Adjustment Settlement (C)" enumId="PMTT_BAI_168" enumCode="168" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Miscellaneous ACH Credit" enumId="PMTT_BAI_169" enumCode="169" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Loan Deposit" enumId="PMTT_BAI_171" enumCode="171" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Deposit Correction" enumId="PMTT_BAI_172" enumCode="172" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Bank-Prepared Deposit" enumId="PMTT_BAI_173" enumCode="173" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Other Deposit" enumId="PMTT_BAI_174" enumCode="174" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Check Deposit Package" enumId="PMTT_BAI_175" enumCode="175" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Re-presented Check Deposit" enumId="PMTT_BAI_176" enumCode="176" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Draft Deposit" enumId="PMTT_BAI_184" enumCode="184" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Cash Letter Credit" enumId="PMTT_BAI_187" enumCode="187" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Cash Letter Adjustment (C)" enumId="PMTT_BAI_189" enumCode="189" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Incoming Internal Money Transfer" enumId="PMTT_BAI_191" enumCode="191" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Incoming Money Transfer" enumId="PMTT_BAI_195" enumCode="195" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Money Transfer Adjustment (C)" enumId="PMTT_BAI_196" enumCode="196" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Compensation (C)" enumId="PMTT_BAI_198" enumCode="198" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Automatic Transfer Credit" enumId="PMTT_BAI_201" enumCode="201" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Bond Operations Credit" enumId="PMTT_BAI_202" enumCode="202" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Book Transfer Credit" enumId="PMTT_BAI_206" enumCode="206" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual International Money Transfer Credit" enumId="PMTT_BAI_208" enumCode="208" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Foreign Letter of Credit" enumId="PMTT_BAI_212" enumCode="212" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Letter of Credit" enumId="PMTT_BAI_213" enumCode="213" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Foreign Exchange of Credit" enumId="PMTT_BAI_214" enumCode="214" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Foreign Remittance Credit" enumId="PMTT_BAI_216" enumCode="216" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Foreign Collection Credit" enumId="PMTT_BAI_218" enumCode="218" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Foreign Check Purchase" enumId="PMTT_BAI_221" enumCode="221" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Foreign Checks Deposited" enumId="PMTT_BAI_222" enumCode="222" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Commission (C)" enumId="PMTT_BAI_224" enumCode="224" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="International Money Market Trading (C)" enumId="PMTT_BAI_226" enumCode="226" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Standing Order (C)" enumId="PMTT_BAI_227" enumCode="227" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Miscellaneous International Credit" enumId="PMTT_BAI_229" enumCode="229" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Sale of Debt Security" enumId="PMTT_BAI_232" enumCode="232" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Securities Sold" enumId="PMTT_BAI_233" enumCode="233" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Sale of Equity Security" enumId="PMTT_BAI_234" enumCode="234" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Matured Reverse Repurchase Order" enumId="PMTT_BAI_235" enumCode="235" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Maturity of Debt Security" enumId="PMTT_BAI_236" enumCode="236" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Collection Credit" enumId="PMTT_BAI_237" enumCode="237" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Collection of Dividends" enumId="PMTT_BAI_238" enumCode="238" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Coupon Collections – Banks" enumId="PMTT_BAI_240" enumCode="240" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Bankers’ Acceptances (C)" enumId="PMTT_BAI_241" enumCode="241" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Collection of Interest Income" enumId="PMTT_BAI_242" enumCode="242" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Matured Fed Funds Purchased" enumId="PMTT_BAI_243" enumCode="243" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Interest/Matured Principal Payment (C)" enumId="PMTT_BAI_244" enumCode="244" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Commercial Paper" enumId="PMTT_BAI_246" enumCode="246" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Capital Change (C)" enumId="PMTT_BAI_247" enumCode="247" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Savings Bonds Sales Adjustment (C)" enumId="PMTT_BAI_248" enumCode="248" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Miscellaneous Security Credit" enumId="PMTT_BAI_249" enumCode="249" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Debit Reversal" enumId="PMTT_BAI_252" enumCode="252" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Posting Error Correction Credit" enumId="PMTT_BAI_254" enumCode="254" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Check Posted and Returned" enumId="PMTT_BAI_255" enumCode="255" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual ACH Return Item (C)" enumId="PMTT_BAI_257" enumCode="257" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ACH Reversal Credit" enumId="PMTT_BAI_258" enumCode="258" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Rejected Credit" enumId="PMTT_BAI_261" enumCode="261" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Overdraft (C)" enumId="PMTT_BAI_263" enumCode="263" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Return Item (C)" enumId="PMTT_BAI_266" enumCode="266" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Return Item Adjustment (C)" enumId="PMTT_BAI_268" enumCode="268" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Cumulative ZBA or Disbursement Credits" enumId="PMTT_BAI_274" enumCode="274" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ZBA Credit" enumId="PMTT_BAI_275" enumCode="275" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ZBA Float Adjustment" enumId="PMTT_BAI_276" enumCode="276" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ZBA Credit Transfer" enumId="PMTT_BAI_277" enumCode="277" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ZBA Credit Adjustment" enumId="PMTT_BAI_278" enumCode="278" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Controlled Disbursing Credit" enumId="PMTT_BAI_281" enumCode="281" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual DTC Disbursing Credit" enumId="PMTT_BAI_286" enumCode="286" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ATM Credit" enumId="PMTT_BAI_295" enumCode="295" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Commercial Deposit" enumId="PMTT_BAI_301" enumCode="301" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Fed Funds Sold" enumId="PMTT_BAI_306" enumCode="306" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Trust Credit" enumId="PMTT_BAI_308" enumCode="308" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Escrow Credit" enumId="PMTT_BAI_331" enumCode="331" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Broker Deposit" enumId="PMTT_BAI_342" enumCode="342" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Back Value Credit" enumId="PMTT_BAI_344" enumCode="344" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Item in Brokers Deposit" enumId="PMTT_BAI_345" enumCode="345" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Sweep Interest Income" enumId="PMTT_BAI_346" enumCode="346" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Sweep Principal Sell" enumId="PMTT_BAI_347" enumCode="347" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Futures Credit" enumId="PMTT_BAI_348" enumCode="348" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Principal Payments Credit" enumId="PMTT_BAI_349" enumCode="349" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Investment Sold" enumId="PMTT_BAI_351" enumCode="351" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Cash Center Credit" enumId="PMTT_BAI_353" enumCode="353" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Interest Credit" enumId="PMTT_BAI_354" enumCode="354" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Credit Adjustment" enumId="PMTT_BAI_357" enumCode="357" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="YTD Adjustment Credit" enumId="PMTT_BAI_358" enumCode="358" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Interest Adjustment Credit" enumId="PMTT_BAI_359" enumCode="359" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Correspondent Collection" enumId="PMTT_BAI_362" enumCode="362" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Correspondent Collection Adjustment (C)" enumId="PMTT_BAI_363" enumCode="363" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Loan Participation (C)" enumId="PMTT_BAI_364" enumCode="364" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Currency and Coin Deposited" enumId="PMTT_BAI_366" enumCode="366" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Food Stamp Letter (C)" enumId="PMTT_BAI_367" enumCode="367" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Food Stamp Adjustment (C)" enumId="PMTT_BAI_368" enumCode="368" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Clearing Settlement Credit" enumId="PMTT_BAI_369" enumCode="369" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Back Value Adjustment (C)" enumId="PMTT_BAI_372" enumCode="372" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Customer Payroll (C)" enumId="PMTT_BAI_373" enumCode="373" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Statement Recap (C)" enumId="PMTT_BAI_374" enumCode="374" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Savings Bond Letter or Adjustment (C)" enumId="PMTT_BAI_376" enumCode="376" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Treasury Tax and Loan Credit" enumId="PMTT_BAI_377" enumCode="377" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Transfer of Treasury Credit" enumId="PMTT_BAI_378" enumCode="378" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Government Checks Cash Letter Credit" enumId="PMTT_BAI_379" enumCode="379" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Government Check Adjustment (C)" enumId="PMTT_BAI_381" enumCode="381" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Postal Money Order Credit" enumId="PMTT_BAI_382" enumCode="382" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Postal Money Order Adjustment (C)" enumId="PMTT_BAI_383" enumCode="383" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Cash Letter Auto Charge Credit" enumId="PMTT_BAI_384" enumCode="384" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Cash Letter Auto Charge Adjustment (C)" enumId="PMTT_BAI_386" enumCode="386" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Fine-Sort Cash Letter Credit" enumId="PMTT_BAI_387" enumCode="387" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Fine-Sort Adjustment (C)" enumId="PMTT_BAI_388" enumCode="388" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Universal Credit" enumId="PMTT_BAI_391" enumCode="391" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Freight Payment Credit" enumId="PMTT_BAI_392" enumCode="392" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Itemized Credit Over $10,000" enumId="PMTT_BAI_393" enumCode="393" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Cumulative Credits" enumId="PMTT_BAI_394" enumCode="394" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Check Reversal" enumId="PMTT_BAI_395" enumCode="395" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Float Adjustment (C)" enumId="PMTT_BAI_397" enumCode="397" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Miscellaneous Fee Refund" enumId="PMTT_BAI_398" enumCode="398" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Miscellaneous Credit" enumId="PMTT_BAI_399" enumCode="399" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Amount Applied to Interest" enumId="PMTT_BAI_721" enumCode="721" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Amount Applied to Principal" enumId="PMTT_BAI_722" enumCode="722" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Amount Applied to Escrow" enumId="PMTT_BAI_723" enumCode="723" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Amount Applied to Late Charges" enumId="PMTT_BAI_724" enumCode="724" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Amount Applied to Buydown" enumId="PMTT_BAI_725" enumCode="725" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Amount Applied to Misc. Fees" enumId="PMTT_BAI_726" enumCode="726" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Amount Applied to Deferred Interest Detail" enumId="PMTT_BAI_727" enumCode="727" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Amount Applied to Service Charge" enumId="PMTT_BAI_728" enumCode="728" enumTypeId="PaymentMethodTransType"/>
+            <!-- Debit -->
+            <moqui.basic.Enumeration description="Float Adjustment (D)" enumId="PMTT_BAI_408" enumCode="408" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Debit (Any Type)" enumId="PMTT_BAI_409" enumCode="409" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Lockbox Debit" enumId="PMTT_BAI_415" enumCode="415" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="EDI Transaction Debit" enumId="PMTT_BAI_421" enumCode="421" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="EDIBANX Settlement Debit" enumId="PMTT_BAI_422" enumCode="422" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="EDIBANX Return Item Debit" enumId="PMTT_BAI_423" enumCode="423" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Payable–Through Draft" enumId="PMTT_BAI_435" enumCode="435" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ACH Concentration Debit" enumId="PMTT_BAI_445" enumCode="445" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ACH Disbursement Funding Debit" enumId="PMTT_BAI_447" enumCode="447" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ACH Debit Received" enumId="PMTT_BAI_451" enumCode="451" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Item in ACH Disbursement or Debit" enumId="PMTT_BAI_452" enumCode="452" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Preauthorized ACH Debit" enumId="PMTT_BAI_455" enumCode="455" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Account Holder Initiated ACH Debit" enumId="PMTT_BAI_462" enumCode="462" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Corporate Trade Payment Debit" enumId="PMTT_BAI_464" enumCode="464" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ACH Settlement (D)" enumId="PMTT_BAI_466" enumCode="466" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ACH Return Item or Adjustment Settlement (D)" enumId="PMTT_BAI_468" enumCode="468" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Miscellaneous ACH Debit" enumId="PMTT_BAI_469" enumCode="469" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Cumulative Checks Paid" enumId="PMTT_BAI_472" enumCode="472" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Certified Check Debit" enumId="PMTT_BAI_474" enumCode="474" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Check Paid" enumId="PMTT_BAI_475" enumCode="475" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Federal Reserve Bank Letter Debit" enumId="PMTT_BAI_476" enumCode="476" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Bank Originated Debit" enumId="PMTT_BAI_477" enumCode="477" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="List Post Debit" enumId="PMTT_BAI_479" enumCode="479" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Loan Payment" enumId="PMTT_BAI_481" enumCode="481" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Draft" enumId="PMTT_BAI_484" enumCode="484" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="DTC Debit" enumId="PMTT_BAI_485" enumCode="485" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Cash Letter Debit" enumId="PMTT_BAI_487" enumCode="487" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Cash Letter Adjustment (D)" enumId="PMTT_BAI_489" enumCode="489" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Outgoing Internal Money Transfer" enumId="PMTT_BAI_491" enumCode="491" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Customer Terminal Initiated Money Transfer" enumId="PMTT_BAI_493" enumCode="493" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Outgoing Money Transfer" enumId="PMTT_BAI_495" enumCode="495" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Money Transfer Adjustment (D)" enumId="PMTT_BAI_496" enumCode="496" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Compensation (D)" enumId="PMTT_BAI_498" enumCode="498" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Automatic Transfer Debit" enumId="PMTT_BAI_501" enumCode="501" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Bond Operations Debit" enumId="PMTT_BAI_502" enumCode="502" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Book Transfer Debit" enumId="PMTT_BAI_506" enumCode="506" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual International Money Transfer Debits" enumId="PMTT_BAI_508" enumCode="508" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Letter of Credit Debit" enumId="PMTT_BAI_512" enumCode="512" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Letter of Credit" enumId="PMTT_BAI_513" enumCode="513" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Foreign Exchange Debit" enumId="PMTT_BAI_514" enumCode="514" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Foreign Remittance Debit" enumId="PMTT_BAI_516" enumCode="516" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Foreign Collection Debit" enumId="PMTT_BAI_518" enumCode="518" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Foreign Checks Paid" enumId="PMTT_BAI_522" enumCode="522" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Commission (D)" enumId="PMTT_BAI_524" enumCode="524" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="International Money Market Trading (D)" enumId="PMTT_BAI_526" enumCode="526" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Standing Order (D)" enumId="PMTT_BAI_527" enumCode="527" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Miscellaneous International Debit" enumId="PMTT_BAI_529" enumCode="529" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Securities Purchased" enumId="PMTT_BAI_531" enumCode="531" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Security Collection Debit" enumId="PMTT_BAI_533" enumCode="533" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Purchase of Equity Securities" enumId="PMTT_BAI_535" enumCode="535" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Matured Repurchase Order" enumId="PMTT_BAI_538" enumCode="538" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Coupon Collection Debit" enumId="PMTT_BAI_540" enumCode="540" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Bankers’ Acceptances (D)" enumId="PMTT_BAI_541" enumCode="541" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Purchase of Debt Securities" enumId="PMTT_BAI_542" enumCode="542" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Domestic Collection" enumId="PMTT_BAI_543" enumCode="543" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Interest/Matured Principal Payment (D)" enumId="PMTT_BAI_544" enumCode="544" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Commercial paper" enumId="PMTT_BAI_546" enumCode="546" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Capital Change (D)" enumId="PMTT_BAI_547" enumCode="547" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Savings Bonds Sales Adjustment (D)" enumId="PMTT_BAI_548" enumCode="548" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Miscellaneous Security Debit" enumId="PMTT_BAI_549" enumCode="549" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Credit Reversal" enumId="PMTT_BAI_552" enumCode="552" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Posting Error Correction Debit" enumId="PMTT_BAI_554" enumCode="554" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Deposited Item Returned" enumId="PMTT_BAI_555" enumCode="555" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual ACH Return Item (D)" enumId="PMTT_BAI_557" enumCode="557" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ACH Reversal Debit" enumId="PMTT_BAI_558" enumCode="558" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Rejected Debit" enumId="PMTT_BAI_561" enumCode="561" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Overdraft (D)" enumId="PMTT_BAI_563" enumCode="563" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Overdraft Fee" enumId="PMTT_BAI_564" enumCode="564" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Return Item (D)" enumId="PMTT_BAI_566" enumCode="566" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Return Item Fee" enumId="PMTT_BAI_567" enumCode="567" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Return Item Adjustment (D)" enumId="PMTT_BAI_568" enumCode="568" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Cumulative ZBA Debits" enumId="PMTT_BAI_574" enumCode="574" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ZBA Debit" enumId="PMTT_BAI_575" enumCode="575" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ZBA Debit Transfer" enumId="PMTT_BAI_577" enumCode="577" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ZBA Debit Adjustment" enumId="PMTT_BAI_578" enumCode="578" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Controlled Disbursing Debit" enumId="PMTT_BAI_581" enumCode="581" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ATM Debit" enumId="PMTT_BAI_595" enumCode="595" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ARP Debit" enumId="PMTT_BAI_597" enumCode="597" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Federal Reserve Bank – Commercial Bank Debit" enumId="PMTT_BAI_616" enumCode="616" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Broker Debit" enumId="PMTT_BAI_622" enumCode="622" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Fed Funds Purchased" enumId="PMTT_BAI_627" enumCode="627" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Cash Center Debit" enumId="PMTT_BAI_629" enumCode="629" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Debit Adjustment" enumId="PMTT_BAI_631" enumCode="631" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Trust Debit" enumId="PMTT_BAI_633" enumCode="633" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="YTD Adjustment Debit" enumId="PMTT_BAI_634" enumCode="634" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Escrow Debit" enumId="PMTT_BAI_641" enumCode="641" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Back Value Debit" enumId="PMTT_BAI_644" enumCode="644" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Individual Investment purchased" enumId="PMTT_BAI_651" enumCode="651" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Interest Debit" enumId="PMTT_BAI_654" enumCode="654" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Sweep Principal Buy" enumId="PMTT_BAI_656" enumCode="656" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Futures Debit" enumId="PMTT_BAI_657" enumCode="657" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Principal Payments Debit" enumId="PMTT_BAI_658" enumCode="658" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Interest Adjustment Debit" enumId="PMTT_BAI_659" enumCode="659" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Account Analysis Fee" enumId="PMTT_BAI_661" enumCode="661" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Correspondent Collection Debit" enumId="PMTT_BAI_662" enumCode="662" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Correspondent Collection Adjustment (D)" enumId="PMTT_BAI_663" enumCode="663" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Loan Participation (D)" enumId="PMTT_BAI_664" enumCode="664" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Currency and Coin Shipped" enumId="PMTT_BAI_666" enumCode="666" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Food Stamp Letter (D)" enumId="PMTT_BAI_667" enumCode="667" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Food Stamp Adjustment (D)" enumId="PMTT_BAI_668" enumCode="668" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Clearing Settlement Debit" enumId="PMTT_BAI_669" enumCode="669" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Back Value Adjustment (D)" enumId="PMTT_BAI_672" enumCode="672" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Customer Payroll (D)" enumId="PMTT_BAI_673" enumCode="673" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Statement Recap (D)" enumId="PMTT_BAI_674" enumCode="674" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Savings Bond Letter or Adjustment (D)" enumId="PMTT_BAI_676" enumCode="676" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Treasury Tax and Loan Debit" enumId="PMTT_BAI_677" enumCode="677" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Transfer of Treasury Debit" enumId="PMTT_BAI_678" enumCode="678" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Government Checks Cash Letter Debit" enumId="PMTT_BAI_679" enumCode="679" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Government Check Adjustment (D)" enumId="PMTT_BAI_681" enumCode="681" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Postal Money Order Debit" enumId="PMTT_BAI_682" enumCode="682" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Postal Money Order Adjustment (D)" enumId="PMTT_BAI_683" enumCode="683" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Cash Letter Auto Charge Debit" enumId="PMTT_BAI_684" enumCode="684" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Cash Letter Auto Charge Adjustment (D)" enumId="PMTT_BAI_686" enumCode="686" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Fine-Sort Cash Letter Debit" enumId="PMTT_BAI_687" enumCode="687" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="FRB Fine-Sort Adjustment (D)" enumId="PMTT_BAI_688" enumCode="688" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Universal Debit" enumId="PMTT_BAI_691" enumCode="691" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Freight Payment Debit" enumId="PMTT_BAI_692" enumCode="692" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Itemized Debit Over $10,000" enumId="PMTT_BAI_693" enumCode="693" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Deposit Reversal" enumId="PMTT_BAI_694" enumCode="694" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Deposit Correction Debit" enumId="PMTT_BAI_695" enumCode="695" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Regular Collection Debit" enumId="PMTT_BAI_696" enumCode="696" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Cumulative Debits" enumId="PMTT_BAI_697" enumCode="697" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Miscellaneous Fees" enumId="PMTT_BAI_698" enumCode="698" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="Miscellaneous Debit" enumId="PMTT_BAI_699" enumCode="699" enumTypeId="PaymentMethodTransType"/>
         </seed-data>
     </entity>
 
