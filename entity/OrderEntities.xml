@@ -402,7 +402,7 @@ along with this software (see the LICENSE.md file). If not, see
             to find the Shipment but for adjustments and such, possibly prorated for a particular Shipment, this is
             the way to find it.</description></field>
         <field name="quantity" type="number-decimal"/>
-        <field name="amount" type="currency-amount"/>
+        <field name="amount" type="currency-precise"/>
         <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem">
             <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
         <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem">
