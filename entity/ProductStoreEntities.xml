@@ -340,6 +340,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumCode="productImageLocation" description="Product Image Location" enumId="PsstProductImageLoc" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="getReturnLabels" description="Get Return Labels (true/false)" enumId="PsstGetReturnLabels" enumTypeId="ProductStoreSettingType"/>
 
+            <moqui.basic.Enumeration description="Product Detail URL GString" enumId="PsstProductDetailUrl" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Product Image URL GString" enumId="PsstProductImageUrl" enumTypeId="ProductStoreSettingType"/>
+
             <moqui.basic.Enumeration description="Ship Label From Name" enumId="PsstShipLabelName" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Ship Label From Company" enumId="PsstShipLabelCompany" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Ship Restrict Carriers (true/false)" enumId="PsstShipRestrictCarriers" enumTypeId="ProductStoreSettingType"/>
