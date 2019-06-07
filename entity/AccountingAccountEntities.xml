@@ -809,20 +809,27 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Commission Term Variable" parentEnumId="TtCommission" enumId="TtCommissionVariable" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Commission Term Minimum Per Unit" parentEnumId="TtCommission" enumId="TtCommissionMin" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Commission Term Maximum Per Unit" parentEnumId="TtCommission" enumId="TtCommissionMax" enumTypeId="TermType"/>
+
+            <!-- Incoterms as of 2010; see https://en.wikipedia.org/wiki/Incoterms -->
             <moqui.basic.Enumeration description="Incoterm" enumId="TtInco" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Ex Works" parentEnumId="TtInco" enumId="TtEXW" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Free Carrier" parentEnumId="TtInco" enumId="TtFCA" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Free Alongside Ship" parentEnumId="TtInco" enumId="TtFAS" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Free On Board" parentEnumId="TtInco" enumId="TtFOB" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Cost and Freight" parentEnumId="TtInco" enumId="TtCFR" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Cost, Insurance and Freight" parentEnumId="TtInco" enumId="TtCIF" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Carriage Paid To" parentEnumId="TtInco" enumId="TtCPT" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Carriage and Insurance Paid to" parentEnumId="TtInco" enumId="TtCIP" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Delivered At Frontier" parentEnumId="TtInco" enumId="TtDAF" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Delivered Ex Ship" parentEnumId="TtInco" enumId="TtDES" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Delivered Ex Quay" parentEnumId="TtInco" enumId="TtDEQ" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Delivered Duty Unpaid" parentEnumId="TtInco" enumId="TtDDU" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Delivered Duty Paid" parentEnumId="TtInco" enumId="TtDDP" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Ex Works" parentEnumId="TtInco" enumId="TtEXW" enumCode="EXW" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Free Carrier" parentEnumId="TtInco" enumId="TtFCA" enumCode="FCA" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Free Alongside Ship" parentEnumId="TtInco" enumId="TtFAS" enumCode="FAS" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Free On Board" parentEnumId="TtInco" enumId="TtFOB" enumCode="FOB" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Cost and Freight" parentEnumId="TtInco" enumId="TtCFR" enumCode="CFR" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Cost, Insurance and Freight" parentEnumId="TtInco" enumId="TtCIF" enumCode="CIF" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Carriage Paid To" parentEnumId="TtInco" enumId="TtCPT" enumCode="CPT" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Carriage and Insurance Paid to" parentEnumId="TtInco" enumId="TtCIP" enumCode="CIP" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered Duty Paid" parentEnumId="TtInco" enumId="TtDDP" enumCode="DDP" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered at Terminal" parentEnumId="TtInco" enumId="TtDAT" enumCode="DAT" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered at Place" parentEnumId="TtInco" enumId="TtDAP" enumCode="DAP" enumTypeId="TermType"/>
+            <!-- Incoterms deprecated in 2010: "Delivered at Frontier"; DAF, "Delivered Ex Ship"; DES, "Delivered Ex Quay"; DEQ, "Delivered Duty Unpaid"; DDU -->
+            <!-- NOTE: in general DDU => DAP, especially for fulfill to customer -->
+            <moqui.basic.Enumeration description="Incoterm Delivered At Frontier" parentEnumId="TtInco" enumId="TtDAF" enumCode="DAF" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered Ex Ship" parentEnumId="TtInco" enumId="TtDES" enumCode="DES" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered Ex Quay" parentEnumId="TtInco" enumId="TtDEQ" enumCode="DEQ" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered Duty Unpaid" parentEnumId="TtInco" enumId="TtDDU" enumCode="DDU" enumTypeId="TermType"/>
+
             <moqui.basic.Enumeration description="Purchasing" enumId="TtPurchasing" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Preferred Freight" enumId="TtFreight" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Other" enumId="TtOther" enumTypeId="TermType"/>

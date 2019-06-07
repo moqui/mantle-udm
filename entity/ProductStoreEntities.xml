@@ -381,10 +381,17 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="billingAccount" type="text-short"><description>Third party or other carrier account number</description></field>
         <field name="billingZip" type="text-short"/>
         <field name="billingCountry" type="text-short"><description>For Shippo this is the 2 letter ISO country code</description></field>
+        <field name="defaultTradeTermEnumId" type="id"/>
+        <field name="customsCertify" type="text-short"/>
+        <field name="customsCertifySigner" type="text-short"/>
+        <field name="customsContentsType" type="text-short"/>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
             <key-map field-name="carrierPartyId"/></relationship>
         <relationship type="one" related="mantle.shipment.carrier.ShippingGatewayConfig" short-alias="config"/>
+        <!-- For defaultTradeTermEnumId terms are defined with enumTypeId="TermType" in AccountingAccountEntities.xml -->
+        <relationship type="one" title="TermType" related="moqui.basic.Enumeration" short-alias="defaultTradeTermEnum">
+            <key-map field-name="defaultTradeTermEnumId"/></relationship>
     </entity>
     <entity entity-name="ProductStoreShipOption" package="mantle.product.store">
         <field name="productStoreId" type="id" is-pk="true"/>

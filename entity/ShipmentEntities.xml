@@ -372,6 +372,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="labelHtml" type="text-very-long"/>
         <field name="labelPrinted" type="text-indicator"/>
         <field name="internationalInvoice" type="binary-very-long"/>
+        <field name="internationalInvoiceUrl" type="text-long"/>
 
         <field name="returnTrackingCode" type="text-medium" enable-audit-log="update"/>
         <field name="returnTrackingUrl" type="text-long"/>
@@ -437,6 +438,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="carrierPartyId" type="id" enable-audit-log="update"/>
         <field name="shipmentMethodEnumId" type="id" enable-audit-log="update"/>
+        <field name="tradeTermEnumId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="carrierDeliveryZone" type="text-short"/>
         <field name="carrierRestrictionCodes" type="text-short"/>
@@ -475,6 +477,9 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="carrierPartyId"/></relationship>
         <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration" short-alias="shipmentMethod">
             <key-map field-name="shipmentMethodEnumId"/></relationship>
+        <!-- For tradeTermEnumId terms are defined with enumTypeId="TermType" in AccountingAccountEntities.xml -->
+        <relationship type="one" title="TermType" related="moqui.basic.Enumeration" short-alias="tradeTermEnum">
+            <key-map field-name="tradeTermEnumId"/></relationship>
 
         <relationship type="one" title="Origin" related="mantle.facility.Facility" short-alias="originFacility">
             <key-map field-name="originFacilityId"/></relationship>
