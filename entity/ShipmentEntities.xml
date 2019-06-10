@@ -35,6 +35,7 @@ along with this software (see the LICENSE.md file). If not, see
             shipment load (WorkEffort with purpose Shipment Load/Ship, WepShipmentShip); this is the structure for a
             picklist instead of having a separate Picklist entity. This may be overridden within a Shipment with the
             field of the same name on ShipmentItemSource.</description></field>
+        <field name="productStoreId" type="id"/>
 
         <field name="entryDate" type="date-time"/>
         <field name="shipAfterDate" type="date-time" enable-audit-log="update"/>
@@ -75,6 +76,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="toPartyId"/></relationship>
         <relationship type="one-nofk" title="To" related="mantle.party.Person" short-alias="toPerson">
             <key-map field-name="toPartyId"/></relationship>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="productStore"/>
 
         <relationship type="one" title="Ship" related="mantle.work.effort.WorkEffort" short-alias="shipWorkEffort">
             <key-map field-name="shipWorkEffortId"/></relationship>
