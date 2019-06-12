@@ -388,6 +388,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="returnGatewayMessage" type="text-medium"/>
         <field name="returnGatewayLabelId" type="text-medium" enable-audit-log="update"/>
         <field name="returnGatewayRateId" type="text-medium" enable-audit-log="update"/>
+        <field name="returnGatewayRefundStatus" type="text-short" enable-audit-log="update"/>
         <field name="returnEstimatedAmount" type="currency-amount"/>
 
         <field name="estimatedAmount" type="currency-amount"/>
