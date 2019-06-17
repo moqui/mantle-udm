@@ -1049,7 +1049,8 @@ along with this software (see the LICENSE.md file). If not, see
             imported from any source and reconciled in a more consistent way from here</description>
         <field name="paymentMethodId" type="id" is-pk="true"/>
         <field name="fitId" type="text-short" is-pk="true"><description>Financial Institution Transaction ID (OFX STMTTRN.FITID)</description></field>
-        <field name="transType" type="text-short"><description>Transaction type (OFX STMTTRN.TRNTYPE)</description></field>
+        <field name="transType" type="text-short"><description>Transaction type (OFX STMTTRN.TRNTYPE), either literal value or enumId with enumTypeId PaymentMethodTransType</description></field>
+        <field name="transCode" type="text-short"><description>The original transaction type code, will be same as transType unless enumId used for transType</description></field>
         <field name="postedDate" type="date-time"><description>Date posted (OFX STMTTRN.DTPOSTED)</description></field>
         <field name="transAmount" type="currency-amount"><description>Transaction amount (OFX STMTTRN.TRNAMT)</description></field>
         <field name="transName" type="text-short"><description>Transaction name (OFX STMTTRN.NAME or PAYEE; as per spec only one may be used)</description></field>
