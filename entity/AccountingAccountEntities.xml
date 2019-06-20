@@ -555,8 +555,13 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- ========== Special (hidden) Invoice StatusFlow ========== -->
             <moqui.basic.StatusFlow statusFlowId="InvoiceSpecial" statusTypeId="Invoice" description="Invoice Special"/>
+            <!-- for manual un-cancel -->
             <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceCancelled" toStatusId="InvoiceInProcess" transitionName="Uncancel Receivable"/>
             <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceCancelled" toStatusId="InvoiceReceived" transitionName="Uncancel Payable"/>
+            <!-- for reverse#Invoice, handled internally only -->
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceInProcess" toStatusId="InvoiceIncoming" transitionName="Reverse to Payable"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceIncoming" toStatusId="InvoiceInProcess" transitionName="Reverse to Receivable"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceReceived" toStatusId="InvoiceInProcess" transitionName="Reverse to Receivable"/>
 
             <!--
             - TODO: InvoicePmtRecvd => InvoiceFinalized (Unpay) crosses Payable invoice statuses where from and to parties are in role OrgInternal
