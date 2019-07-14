@@ -340,6 +340,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumCode="productImageLocation" description="Product Image Location" enumId="PsstProductImageLoc" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="getReturnLabels" description="Get Return Labels (true/false)" enumId="PsstGetReturnLabels" enumTypeId="ProductStoreSettingType"/>
 
+            <moqui.basic.Enumeration description="Product Detail URL GString" enumId="PsstProductDetailUrl" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Product Image URL GString" enumId="PsstProductImageUrl" enumTypeId="ProductStoreSettingType"/>
+
             <moqui.basic.Enumeration description="Ship Label From Name" enumId="PsstShipLabelName" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Ship Label From Company" enumId="PsstShipLabelCompany" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Ship Restrict Carriers (true/false)" enumId="PsstShipRestrictCarriers" enumTypeId="ProductStoreSettingType"/>
@@ -378,10 +381,17 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="billingAccount" type="text-short"><description>Third party or other carrier account number</description></field>
         <field name="billingZip" type="text-short"/>
         <field name="billingCountry" type="text-short"><description>For Shippo this is the 2 letter ISO country code</description></field>
+        <field name="defaultTradeTermEnumId" type="id"/>
+        <field name="customsCertify" type="text-short"/>
+        <field name="customsCertifySigner" type="text-short"/>
+        <field name="customsContentsType" type="text-short"/>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
             <key-map field-name="carrierPartyId"/></relationship>
         <relationship type="one" related="mantle.shipment.carrier.ShippingGatewayConfig" short-alias="config"/>
+        <!-- For defaultTradeTermEnumId terms are defined with enumTypeId="TermType" in AccountingAccountEntities.xml -->
+        <relationship type="one" title="TermType" related="moqui.basic.Enumeration" short-alias="defaultTradeTermEnum">
+            <key-map field-name="defaultTradeTermEnumId"/></relationship>
     </entity>
     <entity entity-name="ProductStoreShipOption" package="mantle.product.store">
         <field name="productStoreId" type="id" is-pk="true"/>

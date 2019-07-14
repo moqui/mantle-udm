@@ -197,8 +197,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderHold" toStatusId="OrderApproved" transitionName="Approve"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderHold" toStatusId="OrderCancelled" transitionName="Cancel"/>
 
-            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderSent" toStatusId="OrderCompleted" transitionName="Order Completed"/>
-            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderSent" toStatusId="OrderCancelled" transitionName="Order Cancelled"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderSent" toStatusId="OrderApproved" transitionName="Approve (un-send)"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderSent" toStatusId="OrderCompleted" transitionName="Complete"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderSent" toStatusId="OrderCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderCompleted" toStatusId="OrderApproved" transitionName="Approve (un-complete)"/>
 
             <!-- Sales Channel -->
@@ -264,8 +265,10 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
     <extend-entity entity-name="SystemMessage" package="moqui.service.message">
         <field name="orderId" type="id"/>
+        <field name="orderPartSeqId" type="id"/>
         <field name="orderRevision" type="number-integer"/>
         <relationship type="one" related="mantle.order.OrderHeader"/>
+        <relationship type="one-nofk" related="mantle.order.OrderPart"/>
         <!-- should have auto based on FK: <index name="SYSMSG_ORDER"><index-field name="orderId"/></index> -->
     </extend-entity>
     <entity entity-name="OrderSystemMessage" package="mantle.order" cache="never">
@@ -400,7 +403,7 @@ along with this software (see the LICENSE.md file). If not, see
             to find the Shipment but for adjustments and such, possibly prorated for a particular Shipment, this is
             the way to find it.</description></field>
         <field name="quantity" type="number-decimal"/>
-        <field name="amount" type="currency-amount"/>
+        <field name="amount" type="currency-precise"/>
         <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem">
             <key-map field-name="orderId"/><key-map field-name="orderItemSeqId"/></relationship>
         <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem">
@@ -434,9 +437,9 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="facilityId" type="id" enable-audit-log="update"><description>The Facility to fulfill the order from
             (if null look up from ProductStore), or for purchase orders the Facility the order will be shipped to.</description></field>
-
         <field name="carrierPartyId" type="id" enable-audit-log="update"/>
         <field name="shipmentMethodEnumId" type="id" enable-audit-log="update"/>
+        <field name="tradeTermEnumId" type="id"/>
 
         <field name="postalContactMechId" type="id" enable-audit-log="update"/>
         <field name="telecomContactMechId" type="id"/>
@@ -492,6 +495,10 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="carrierPartyId"/></relationship>
         <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration" short-alias="shipmentMethod">
             <key-map field-name="shipmentMethodEnumId"/></relationship>
+        <!-- For tradeTermEnumId terms are defined with enumTypeId="TermType" in AccountingAccountEntities.xml -->
+        <relationship type="one" title="TermType" related="moqui.basic.Enumeration" short-alias="tradeTermEnum">
+            <key-map field-name="tradeTermEnumId"/></relationship>
+
         <relationship type="one" title="Postal" related="mantle.party.contact.ContactMech" short-alias="postal">
             <key-map field-name="postalContactMechId"/></relationship>
         <relationship type="one" related="mantle.party.contact.PostalAddress" short-alias="postalAddress">

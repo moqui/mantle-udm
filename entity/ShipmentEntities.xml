@@ -35,6 +35,7 @@ along with this software (see the LICENSE.md file). If not, see
             shipment load (WorkEffort with purpose Shipment Load/Ship, WepShipmentShip); this is the structure for a
             picklist instead of having a separate Picklist entity. This may be overridden within a Shipment with the
             field of the same name on ShipmentItemSource.</description></field>
+        <field name="productStoreId" type="id"/>
 
         <field name="entryDate" type="date-time"/>
         <field name="shipAfterDate" type="date-time" enable-audit-log="update"/>
@@ -75,6 +76,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="toPartyId"/></relationship>
         <relationship type="one-nofk" title="To" related="mantle.party.Person" short-alias="toPerson">
             <key-map field-name="toPartyId"/></relationship>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="productStore"/>
 
         <relationship type="one" title="Ship" related="mantle.work.effort.WorkEffort" short-alias="shipWorkEffort">
             <key-map field-name="shipWorkEffortId"/></relationship>
@@ -135,6 +137,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipScheduled" toStatusId="ShipDelivered" transitionName="Deliver"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipScheduled" toStatusId="ShipCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPicked" toStatusId="ShipPacked" transitionName="Pack"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPicked" toStatusId="ShipScheduled" transitionName="Un-pick"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPicked" toStatusId="ShipCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPacked" toStatusId="ShipShipped" transitionName="Ship"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShipPacked" toStatusId="ShipDelivered" transitionName="Deliver"/>
@@ -371,6 +374,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="labelHtml" type="text-very-long"/>
         <field name="labelPrinted" type="text-indicator"/>
         <field name="internationalInvoice" type="binary-very-long"/>
+        <field name="internationalInvoiceUrl" type="text-long"/>
 
         <field name="returnTrackingCode" type="text-medium" enable-audit-log="update"/>
         <field name="returnTrackingUrl" type="text-long"/>
@@ -384,6 +388,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="returnGatewayMessage" type="text-medium"/>
         <field name="returnGatewayLabelId" type="text-medium" enable-audit-log="update"/>
         <field name="returnGatewayRateId" type="text-medium" enable-audit-log="update"/>
+        <field name="returnGatewayRefundStatus" type="text-short" enable-audit-log="update"/>
         <field name="returnEstimatedAmount" type="currency-amount"/>
 
         <field name="estimatedAmount" type="currency-amount"/>
@@ -436,6 +441,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="carrierPartyId" type="id" enable-audit-log="update"/>
         <field name="shipmentMethodEnumId" type="id" enable-audit-log="update"/>
+        <field name="tradeTermEnumId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="carrierDeliveryZone" type="text-short"/>
         <field name="carrierRestrictionCodes" type="text-short"/>
@@ -474,6 +480,9 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="carrierPartyId"/></relationship>
         <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration" short-alias="shipmentMethod">
             <key-map field-name="shipmentMethodEnumId"/></relationship>
+        <!-- For tradeTermEnumId terms are defined with enumTypeId="TermType" in AccountingAccountEntities.xml -->
+        <relationship type="one" title="TermType" related="moqui.basic.Enumeration" short-alias="tradeTermEnum">
+            <key-map field-name="tradeTermEnumId"/></relationship>
 
         <relationship type="one" title="Origin" related="mantle.facility.Facility" short-alias="originFacility">
             <key-map field-name="originFacilityId"/></relationship>
@@ -592,7 +601,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Carrier" related="mantle.party.Party">
             <key-map field-name="carrierPartyId"/></relationship>
     </entity>
-    <entity entity-name="ShippingGatewayConfig" package="mantle.shipment.carrier" cache="true">
+    <entity entity-name="ShippingGatewayConfig" package="mantle.shipment.carrier" use="configuration" cache="true">
         <field name="shippingGatewayConfigId" type="id" is-pk="true"/>
         <field name="shippingGatewayTypeEnumId" type="id"><description>Each shipping gateway integration should define a
             ShippingGatewayType Enumeration record plus an entity with a shared PK (ie PK is shippingGatewayConfigId).</description></field>
@@ -615,7 +624,11 @@ along with this software (see the LICENSE.md file). If not, see
             mantle.shipment.CarrierServices.validate#ShippingPostalAddress interface.</description></field>
         <relationship type="one" title="ShippingGatewayType" related="moqui.basic.Enumeration">
             <key-map field-name="shippingGatewayTypeEnumId"/></relationship>
+        <relationship type="many" related="mantle.shipment.carrier.ShippingGatewayBoxType" short-alias="boxTypes">
+            <key-map field-name="shippingGatewayConfigId"/></relationship>
         <relationship type="many" related="mantle.shipment.carrier.ShippingGatewayCarrier" short-alias="carriers">
+            <key-map field-name="shippingGatewayConfigId"/></relationship>
+        <relationship type="many" related="mantle.shipment.carrier.ShippingGatewayMethod" short-alias="methods">
             <key-map field-name="shippingGatewayConfigId"/></relationship>
         <relationship type="many" related="mantle.shipment.carrier.ShippingGatewayOption" short-alias="options">
             <key-map field-name="shippingGatewayConfigId"/></relationship>
@@ -629,7 +642,15 @@ along with this software (see the LICENSE.md file). If not, see
                     getOrderRateServiceName="mantle.shipment.CarrierServices.get#OrderShippingRateLocal"/>
         </seed-data>
     </entity>
-    <entity entity-name="ShippingGatewayCarrier" package="mantle.shipment.carrier" cache="true">
+    <entity entity-name="ShippingGatewayBoxType" package="mantle.shipment.carrier" use="configuration" cache="true">
+        <description>Use to override gatewayBoxId on ShipmentBoxType</description>
+        <field name="shippingGatewayConfigId" type="id" is-pk="true"/>
+        <field name="shipmentBoxTypeId" type="id" is-pk="true"/>
+        <field name="gatewayBoxId" type="text-medium"/>
+        <relationship type="one" related="mantle.shipment.carrier.ShippingGatewayConfig"/>
+        <relationship type="one" related="mantle.shipment.ShipmentBoxType" short-alias="boxType"/>
+    </entity>
+    <entity entity-name="ShippingGatewayCarrier" package="mantle.shipment.carrier" use="configuration" cache="true">
         <field name="shippingGatewayConfigId" type="id" is-pk="true"/>
         <field name="carrierPartyId" type="id" is-pk="true"/>
         <field name="gatewayAccountId" type="text-medium"/>
@@ -637,7 +658,19 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Carrier" related="mantle.party.Party">
             <key-map field-name="carrierPartyId"/></relationship>
     </entity>
-    <entity entity-name="ShippingGatewayOption" package="mantle.shipment.carrier" cache="true">
+    <entity entity-name="ShippingGatewayMethod" package="mantle.shipment.carrier" use="configuration" cache="true">
+        <description>Use to override gatewayServiceCode on CarrierShipmentMethod</description>
+        <field name="shippingGatewayConfigId" type="id" is-pk="true"/>
+        <field name="carrierPartyId" type="id" is-pk="true"/>
+        <field name="shipmentMethodEnumId" type="id" is-pk="true"/>
+        <field name="gatewayServiceCode" type="text-short"/>
+        <relationship type="one" related="mantle.shipment.carrier.ShippingGatewayConfig"/>
+        <relationship type="one" title="Carrier" related="mantle.party.Party">
+            <key-map field-name="carrierPartyId"/></relationship>
+        <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration" short-alias="shipmentMethodEnum">
+            <key-map field-name="shipmentMethodEnumId"/></relationship>
+    </entity>
+    <entity entity-name="ShippingGatewayOption" package="mantle.shipment.carrier" use="configuration" cache="true">
         <field name="shippingGatewayConfigId" type="id" is-pk="true"/>
         <field name="optionEnumId" type="id" is-pk="true"/>
         <field name="optionValue" type="text-medium"/>

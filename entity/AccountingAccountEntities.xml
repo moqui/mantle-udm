@@ -555,8 +555,13 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- ========== Special (hidden) Invoice StatusFlow ========== -->
             <moqui.basic.StatusFlow statusFlowId="InvoiceSpecial" statusTypeId="Invoice" description="Invoice Special"/>
+            <!-- for manual un-cancel -->
             <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceCancelled" toStatusId="InvoiceInProcess" transitionName="Uncancel Receivable"/>
             <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceCancelled" toStatusId="InvoiceReceived" transitionName="Uncancel Payable"/>
+            <!-- for reverse#Invoice, handled internally only -->
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceInProcess" toStatusId="InvoiceIncoming" transitionName="Reverse to Payable"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceIncoming" toStatusId="InvoiceInProcess" transitionName="Reverse to Receivable"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceReceived" toStatusId="InvoiceInProcess" transitionName="Reverse to Receivable"/>
 
             <!--
             - TODO: InvoicePmtRecvd => InvoiceFinalized (Unpay) crosses Payable invoice statuses where from and to parties are in role OrgInternal
@@ -665,6 +670,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="payrollAdjustmentId" type="id"/>
         <field name="finAccountId" type="id"/>
         <field name="finAccountTransId" type="id"/>
+        <field name="billThruVendorName" type="text-medium">
+            <description>For tracking purposes when there is no associated bill through invoice with InvoiceItemAssoc records</description></field>
+        <field name="billThruVendorRef" type="text-short"/>
 
         <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
         <relationship type="one-nofk" title="Parent" related="mantle.account.invoice.InvoiceItem" short-alias="parent">
@@ -806,20 +814,27 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Commission Term Variable" parentEnumId="TtCommission" enumId="TtCommissionVariable" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Commission Term Minimum Per Unit" parentEnumId="TtCommission" enumId="TtCommissionMin" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Commission Term Maximum Per Unit" parentEnumId="TtCommission" enumId="TtCommissionMax" enumTypeId="TermType"/>
+
+            <!-- Incoterms as of 2010; see https://en.wikipedia.org/wiki/Incoterms -->
             <moqui.basic.Enumeration description="Incoterm" enumId="TtInco" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Ex Works" parentEnumId="TtInco" enumId="TtEXW" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Free Carrier" parentEnumId="TtInco" enumId="TtFCA" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Free Alongside Ship" parentEnumId="TtInco" enumId="TtFAS" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Free On Board" parentEnumId="TtInco" enumId="TtFOB" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Cost and Freight" parentEnumId="TtInco" enumId="TtCFR" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Cost, Insurance and Freight" parentEnumId="TtInco" enumId="TtCIF" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Carriage Paid To" parentEnumId="TtInco" enumId="TtCPT" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Carriage and Insurance Paid to" parentEnumId="TtInco" enumId="TtCIP" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Delivered At Frontier" parentEnumId="TtInco" enumId="TtDAF" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Delivered Ex Ship" parentEnumId="TtInco" enumId="TtDES" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Delivered Ex Quay" parentEnumId="TtInco" enumId="TtDEQ" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Delivered Duty Unpaid" parentEnumId="TtInco" enumId="TtDDU" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Incoterm Delivered Duty Paid" parentEnumId="TtInco" enumId="TtDDP" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Ex Works" parentEnumId="TtInco" enumId="TtEXW" enumCode="EXW" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Free Carrier" parentEnumId="TtInco" enumId="TtFCA" enumCode="FCA" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Free Alongside Ship" parentEnumId="TtInco" enumId="TtFAS" enumCode="FAS" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Free On Board" parentEnumId="TtInco" enumId="TtFOB" enumCode="FOB" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Cost and Freight" parentEnumId="TtInco" enumId="TtCFR" enumCode="CFR" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Cost, Insurance and Freight" parentEnumId="TtInco" enumId="TtCIF" enumCode="CIF" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Carriage Paid To" parentEnumId="TtInco" enumId="TtCPT" enumCode="CPT" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Carriage and Insurance Paid to" parentEnumId="TtInco" enumId="TtCIP" enumCode="CIP" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered Duty Paid" parentEnumId="TtInco" enumId="TtDDP" enumCode="DDP" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered at Terminal" parentEnumId="TtInco" enumId="TtDAT" enumCode="DAT" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered at Place" parentEnumId="TtInco" enumId="TtDAP" enumCode="DAP" enumTypeId="TermType"/>
+            <!-- Incoterms deprecated in 2010: "Delivered at Frontier"; DAF, "Delivered Ex Ship"; DES, "Delivered Ex Quay"; DEQ, "Delivered Duty Unpaid"; DDU -->
+            <!-- NOTE: in general DDU => DAP, especially for fulfill to customer -->
+            <moqui.basic.Enumeration description="Incoterm Delivered At Frontier" parentEnumId="TtInco" enumId="TtDAF" enumCode="DAF" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered Ex Ship" parentEnumId="TtInco" enumId="TtDES" enumCode="DES" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered Ex Quay" parentEnumId="TtInco" enumId="TtDEQ" enumCode="DEQ" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Incoterm Delivered Duty Unpaid" parentEnumId="TtInco" enumId="TtDDU" enumCode="DDU" enumTypeId="TermType"/>
+
             <moqui.basic.Enumeration description="Purchasing" enumId="TtPurchasing" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Preferred Freight" enumId="TtFreight" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Other" enumId="TtOther" enumTypeId="TermType"/>
@@ -995,13 +1010,19 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="debitAmountTotal" type="currency-amount"/>
         <field name="creditAmountTotal" type="currency-amount"/>
         <field name="fileText" type="text-very-long"/>
+        <field name="isCancelled" type="text-indicator"/>
 
-        <relationship type="one" related="mantle.account.method.PaymentMethod"/>
-        <relationship type="one" title="PaymentMethodFileType" related="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod"/>
+        <relationship type="one" title="PaymentMethodFileType" related="moqui.basic.Enumeration" short-alias="fileTypeEnum">
             <key-map field-name="fileTypeEnumId"/></relationship>
+        <relationship type="one-nofk" related="mantle.account.method.PaymentMethodFileType" short-alias="paymentMethodFileType">
+            <key-map field-name="paymentMethodId"/><key-map field-name="fileTypeEnumId"/></relationship>
         <seed-data>
             <moqui.basic.EnumerationType description="Payment Method File Type" enumTypeId="PaymentMethodFileType"/>
-            <moqui.basic.Enumeration description="NACHA" enumId="PmftNacha" enumTypeId="PaymentMethodFileType"/>
+            <!-- NOTE: optionIndicator=Y means on cancel reset Payment.statusId for payments in file -->
+            <moqui.basic.Enumeration description="NACHA" enumId="PmftNacha" enumTypeId="PaymentMethodFileType" optionIndicator="Y"/>
+            <moqui.basic.Enumeration description="OFX/QFX" enumId="PmftOfx" enumTypeId="PaymentMethodFileType"/>
+            <moqui.basic.Enumeration description="BAI 2" enumId="PmftBai2" enumTypeId="PaymentMethodFileType"/>
 
             <moqui.basic.Enumeration description="Positive Pay File" enumId="PmftPositivePay" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
             <moqui.basic.Enumeration description="Bank of America AR PNV" enumId="PmftBankOfAmericaAr" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
@@ -1012,12 +1033,29 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Zions Bank CSV" enumId="PmftZionsBankCsv" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
         </seed-data>
     </entity>
+    <extend-entity entity-name="SystemMessage" package="moqui.service.message">
+        <field name="paymentMethodFileId" type="id"/>
+        <relationship type="one" related="mantle.account.method.PaymentMethodFile"/>
+    </extend-entity>
+    <entity entity-name="PaymentMethodFileType" package="mantle.account.method">
+        <field name="paymentMethodId" type="id" is-pk="true"/>
+        <field name="fileTypeEnumId" type="id" is-pk="true"/>
+        <field name="systemMessageTypeId" type="id"/>
+        <field name="systemMessageRemoteId" type="id"/>
+        <relationship type="one" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod"/>
+        <relationship type="one" title="PaymentMethodFileType" related="moqui.basic.Enumeration" short-alias="fileTypeEnum">
+            <key-map field-name="fileTypeEnumId"/></relationship>
+        <relationship type="one" related="moqui.service.message.SystemMessageType" short-alias="type"/>
+        <relationship type="one" related="moqui.service.message.SystemMessageRemote" short-alias="remote"/>
+    </entity>
+
     <entity entity-name="PaymentMethodTrans" package="mantle.account.method" cache="never">
         <description>Transactions of the PaymentMethod, such as imported from an OFX file (see www.ofx.net); can be
             imported from any source and reconciled in a more consistent way from here</description>
         <field name="paymentMethodId" type="id" is-pk="true"/>
         <field name="fitId" type="text-short" is-pk="true"><description>Financial Institution Transaction ID (OFX STMTTRN.FITID)</description></field>
-        <field name="transType" type="text-short"><description>Transaction type (OFX STMTTRN.TRNTYPE)</description></field>
+        <field name="transType" type="text-short"><description>Transaction type (OFX STMTTRN.TRNTYPE), either literal value or enumId with enumTypeId PaymentMethodTransType</description></field>
+        <field name="transCode" type="text-short"><description>The original transaction type code, will be same as transType unless enumId used for transType</description></field>
         <field name="postedDate" type="date-time"><description>Date posted (OFX STMTTRN.DTPOSTED)</description></field>
         <field name="transAmount" type="currency-amount"><description>Transaction amount (OFX STMTTRN.TRNAMT)</description></field>
         <field name="transName" type="text-short"><description>Transaction name (OFX STMTTRN.NAME or PAYEE; as per spec only one may be used)</description></field>
@@ -1028,9 +1066,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="paymentId" type="id"/>
         <field name="acctgTransId" type="id"/>
         <field name="acctgTransEntrySeqId" type="id"/>
-        <relationship type="one" related="mantle.account.method.PaymentMethod"/>
+        <relationship type="one" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod"/>
         <!-- Type one-nofk for this because we want to allow other values -->
-        <relationship type="one-nofk" title="PaymentMethodTransType" related="moqui.basic.Enumeration">
+        <relationship type="one-nofk" title="PaymentMethodTransType" related="moqui.basic.Enumeration" short-alias="transTypeEnum">
             <key-map field-name="transType"/></relationship>
         <relationship type="one" related="mantle.account.payment.Payment"/>
         <relationship type="one" related="mantle.ledger.transaction.AcctgTransEntry">
@@ -1056,6 +1094,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Merchant initiated debit" enumId="PMTT_DIRECTDEBIT" enumCode="DIRECTDEBIT" enumTypeId="PaymentMethodTransType"/>
             <moqui.basic.Enumeration description="Repeating payment/standing order" enumId="PMTT_REPEATPMT" enumCode="REPEATPMT" enumTypeId="PaymentMethodTransType"/>
             <moqui.basic.Enumeration description="Other" enumId="PMTT_OTHER" enumCode="OTHER" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ZBA Credit Transfer" enumId="PMTT_ZBA_CRTR" enumCode="" enumTypeId="PaymentMethodTransType"/>
         </seed-data>
     </entity>
 
