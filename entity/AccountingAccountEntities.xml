@@ -403,6 +403,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.ledger.transaction.AcctgTrans" short-alias="acctgTrans">
             <key-map field-name="invoiceId"/></relationship>
 
+        <index name="INVOICE_EXTERNAL"><index-field name="externalId"/></index>
+        <index name="INVOICE_ORIGIN"><index-field name="originId"/></index>
+
         <seed-data>
             <!-- Invoice Type -->
             <moqui.basic.EnumerationType description="Invoice Type" enumTypeId="InvoiceType"/>
@@ -1449,6 +1452,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="paymentId" related="toPaymentId"/></relationship>
         <relationship type="many" related="mantle.account.payment.PaymentContent" short-alias="contents">
             <key-map field-name="paymentId"/></relationship>
+
+        <index name="PAYMENT_REFNUM"><index-field name="paymentRefNum"/></index>
 
         <seed-data>
             <!-- Payment Type -->
