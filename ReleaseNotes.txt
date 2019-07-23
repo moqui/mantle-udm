@@ -2,6 +2,24 @@
 Mantle Business Artifacts - Universal Data Model Release Notes
 
 ===========================================================================
+Release 2.1.1 - 23 July 2019
+===========================================================================
+
+Mantle Universal Data Model 2.1.1 is a patch level new feature and bug fix
+release. This release is based on Moqui Framework 2.1.2.
+
+This release includes various new fields, a few new entities, and new and
+updated seed data for various entities. There are some changes to
+ProductStore related entities for store configuration. The Invoice status
+flows have been expanded with new status flows specifically for payable
+and receivable invoices as well as transitions between them for when
+invoice from and to parties are both internal organizations.
+
+For a complete list of changes see:
+
+https://github.com/moqui/mantle-udm/compare/v2.1.0...v2.1.1
+
+===========================================================================
 Release 2.1.0 - 29 Nov 2018
 ===========================================================================
 
