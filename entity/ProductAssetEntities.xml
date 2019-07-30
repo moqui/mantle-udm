@@ -228,6 +228,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusItem description="In Transfer (Promised)" sequenceNum="11" statusId="AstInTransferPromise" statusTypeId="Asset"/>
             <moqui.basic.StatusItem description="Returned" sequenceNum="20" statusId="AstReturned" statusTypeId="Asset"/>
             <moqui.basic.StatusItem description="Defective" sequenceNum="21" statusId="AstDefective" statusTypeId="Asset"/>
+            <moqui.basic.StatusItem description="Quarantine" sequenceNum="30" statusId="AstQuarantine" statusTypeId="Asset"/>
+            <moqui.basic.StatusItem description="Morgue" sequenceNum="31" statusId="AstMorgue" statusTypeId="Asset"/>
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstIncoming" toStatusId="AstAvailable" transitionName="Arrived"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstAvailable" toStatusId="AstPromised" transitionName="Promise"/>
@@ -253,6 +255,15 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstActivated" toStatusId="AstReturned" transitionName="Return"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstDeactivated" toStatusId="AstOnHold" transitionName="Hold"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstDeactivated" toStatusId="AstReturned" transitionName="Return"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstIncoming" toStatusId="AstQuarantine" transitionName="Quarantine"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstAvailable" toStatusId="AstQuarantine" transitionName="Quarantine"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstOnHold" toStatusId="AstQuarantine" transitionName="Quarantine"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstQuarantine" toStatusId="AstAvailable" transitionName="Release Available"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstQuarantine" toStatusId="AstOnHold" transitionName="Release Hold"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstIncoming" toStatusId="AstMorgue" transitionName="Morgue"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstAvailable" toStatusId="AstMorgue" transitionName="Morgue"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstOnHold" toStatusId="AstMorgue" transitionName="Morgue"/>
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInUse" toStatusId="AstInStorage" transitionName="Store"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInUse" toStatusId="AstReturned" transitionName="Return"/>
