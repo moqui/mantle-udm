@@ -358,6 +358,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Order Approve Warn New Customer (false to disable)" enumId="PsstOrdApproveNewCust" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Order Approve Warn Address not Valid (false to disable)" enumId="PsstOrdApproveAddrNotValid" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Order Approve Warn Address Missing (false to disable)" enumId="PsstOrdApproveAddrMissing" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Order Approve Warn Large Order - Total Above (default 0, 0 to disable)" enumId="PsstOrdApproveLargeOrder" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Order Approve Warn Std Devs Over Avg Total (default 3.0, 0 to disable)" enumId="PsstOrdApproveStdDevTotal" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Order Approve Warn Std Devs Over Avg Product Qty (default 3.0, 0 to disable)" enumId="PsstOrdApproveStdDevProdQty" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Order Approve Warn Inventory Not Available (false to disable)" enumId="PsstOrdApproveInventoryNotAvail" enumTypeId="ProductStoreSettingType"/>
