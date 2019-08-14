@@ -33,9 +33,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="storeDomain" type="text-short"><description>Store domain for use in emails</description></field>
         <field name="profileUrlPath" type="text-medium"><description>Path to profile page for use in emails</description></field>
         <field name="wikiSpaceId" type="id"><description>For a WikiSpace mounted as content, superceded by ProductStoreWikiSpace with spaceTypeEnumId=PstFull</description></field>
-        <field name="contentDataDocumentId" type="text-medium"><description>The dataDocumentId to use for search of content pages in wikiSpaceId</description></field>
-        <field name="blogDataDocumentId" type="text-medium"><description>The dataDocumentId to use for search of blog entries</description></field>
-        <field name="productDataDocumentId" type="text-medium"><description>The dataDocumentId to use for product search</description></field>
+        <field name="contentDataDocumentId" type="id"><description>The dataDocumentId to use for search of content pages in wikiSpaceId</description></field>
+        <field name="blogDataDocumentId" type="id"><description>The dataDocumentId to use for search of blog entries</description></field>
+        <field name="productDataDocumentId" type="id"><description>The dataDocumentId to use for product search</description></field>
 
         <field name="defaultLocale" type="text-short"/>
         <field name="defaultCurrencyUomId" type="id"/>
