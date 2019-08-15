@@ -1069,6 +1069,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="paymentId" type="id"/>
         <field name="acctgTransId" type="id"/>
         <field name="acctgTransEntrySeqId" type="id"/>
+        <field name="noReconcile" type="text-indicator"><description>If Y this transaction is not to be reconciled, represents multiple payments or otherwise</description></field>
         <relationship type="one" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod"/>
         <!-- Type one-nofk for this because we want to allow other values -->
         <relationship type="one-nofk" title="PaymentMethodTransType" related="moqui.basic.Enumeration" short-alias="transTypeEnum">
