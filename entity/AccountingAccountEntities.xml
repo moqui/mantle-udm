@@ -1099,6 +1099,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Repeating payment/standing order" enumId="PMTT_REPEATPMT" enumCode="REPEATPMT" enumTypeId="PaymentMethodTransType"/>
             <moqui.basic.Enumeration description="Other" enumId="PMTT_OTHER" enumCode="OTHER" enumTypeId="PaymentMethodTransType"/>
             <moqui.basic.Enumeration description="ZBA Credit Transfer" enumId="PMTT_ZBA_CRTR" enumCode="" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ZBA Debit Transfer" enumId="PMTT_ZBA_DBTR" enumCode="" enumTypeId="PaymentMethodTransType"/>
         </seed-data>
     </entity>
 
