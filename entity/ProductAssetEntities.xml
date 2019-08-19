@@ -530,6 +530,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="facilityId" type="id"/>
         <field name="locationSeqId" type="id"/>
         <field name="productId" type="id"/>
+        <field name="lotId" type="id"/>
         <field name="countDate" type="date-time"/>
         <field name="quantityOnHand" type="number-decimal"/>
         <field name="comments" type="text-medium"/>
@@ -537,6 +538,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one-nofk" related="mantle.facility.FacilityLocation" short-alias="facilityLocation"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related="mantle.product.asset.Lot" short-alias="lot"/>
     </entity>
 
     <!-- ========================================================= -->
