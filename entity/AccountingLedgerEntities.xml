@@ -387,6 +387,18 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
     </entity>
+    <entity entity-name="InvoiceTypePaymentType" package="mantle.ledger.config" use="configuration">
+        <field name="invoiceTypeEnumId" type="id" is-pk="true"/>
+        <field name="paymentTypeEnumId" type="id"/>
+        <relationship type="one" title="InvoiceType" related="moqui.basic.Enumeration">
+            <key-map field-name="invoiceTypeEnumId"/></relationship>
+        <relationship type="one" title="PaymentType" related="moqui.basic.Enumeration">
+            <key-map field-name="paymentTypeEnumId"/></relationship>
+        <seed-data>
+            <mantle.ledger.config.InvoiceTypePaymentType invoiceTypeEnumId="InvoicePayroll" paymentTypeEnumId="PtPayrollPayment"/>
+            <mantle.ledger.config.InvoiceTypePaymentType invoiceTypeEnumId="InvoicePayrollOther" paymentTypeEnumId="PtPayrollOtherPayment"/>
+        </seed-data>
+    </entity>
     <entity entity-name="PaymentInstrumentGlAccount" package="mantle.ledger.config" use="configuration">
         <field name="paymentInstrumentEnumId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>

@@ -1469,6 +1469,8 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Payment for deposit to or withdrawal from a FinancialAccount, never applied to an invoice -->
             <moqui.basic.Enumeration description="Financial Account Transaction" enumId="PtFinancialAccount" enumTypeId="PaymentType"/>
             <moqui.basic.Enumeration description="Order Payment Preference" enumId="PtOrderPref" enumTypeId="PaymentType"/>
+            <moqui.basic.Enumeration description="Payroll Employee Payment" enumId="PtPayrollPayment" enumTypeId="PaymentType"/>
+            <moqui.basic.Enumeration description="Payroll Other Payment" enumId="PtPayrollOtherPayment" enumTypeId="PaymentType"/>
 
             <!-- Payment Instrument -->
             <moqui.basic.EnumerationType description="Payment Instrument" enumTypeId="PaymentInstrument"/>
