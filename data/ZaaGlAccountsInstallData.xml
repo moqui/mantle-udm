@@ -818,6 +818,10 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="522100000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="522000000"/>
     <mantle.ledger.account.GlAccount accountName="Promotional Discounts" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="522200000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="522000000"/>
+    <mantle.ledger.account.GlAccount accountName="Appeasement Discounts" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+        glAccountId="522300000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="522000000"/>
+    <mantle.ledger.account.GlAccount accountName="Supplier Discounts" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+        glAccountId="522400000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="522000000"/>
     <mantle.ledger.account.GlAccount accountName="Fees on Sales" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="523000000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="520000000"/>
     <mantle.ledger.account.GlAccount accountName="Slotting Fees" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
@@ -1529,6 +1533,9 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccountOrganization glAccountId="782100000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="862000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="522000000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="522200000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="522300000" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.account.GlAccountOrganization glAccountId="522400000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="527000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="550000000" organizationPartyId="DefaultSettings"/>
 
@@ -1687,8 +1694,12 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="258200000" direction="I" itemTypeEnumId="ItemRentalDeposit" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="522000000" direction="O" itemTypeEnumId="ItemReplacement" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="522000000" direction="O" itemTypeEnumId="ItemDiscount" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="522200000" direction="O" itemTypeEnumId="ItemDiscount" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="865000000" direction="I" itemTypeEnumId="ItemDiscount" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="522300000" direction="O" itemTypeEnumId="ItemDiscountAppease" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="865000000" direction="I" itemTypeEnumId="ItemDiscountAppease" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="522400000" direction="O" itemTypeEnumId="ItemSupplierDiscount" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="865000000" direction="I" itemTypeEnumId="ItemSupplierDiscount" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="254000000" direction="E" itemTypeEnumId="ItemDonation" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="834000000" direction="O" itemTypeEnumId="ItemFee" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="798000000" direction="I" itemTypeEnumId="ItemFee" organizationPartyId="DefaultSettings"/>
