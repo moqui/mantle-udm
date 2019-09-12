@@ -258,6 +258,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Pick" enumId="FltPick" enumTypeId="FacilityLocationType"/>
             <moqui.basic.Enumeration description="Bulk" enumId="FltBulk" enumTypeId="FacilityLocationType"/>
             <moqui.basic.Enumeration description="Staging" enumId="FltStaging" enumTypeId="FacilityLocationType"/>
+            <moqui.basic.Enumeration description="Quarantine" enumId="FltQuarantine" enumTypeId="FacilityLocationType"/>
+            <moqui.basic.Enumeration description="Morgue" enumId="FltMorgue" enumTypeId="FacilityLocationType"/>
         </seed-data>
     </entity>
     <entity entity-name="FacilityNote" package="mantle.facility" cache="never">

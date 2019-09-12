@@ -123,6 +123,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <index name="ORDERDISP_ID_IDX"><index-field name="displayId"/></index>
         <index name="ORDEREXT_ID_IDX"><index-field name="externalId"/></index>
+        <index name="ORDERORIG_ID_IDX"><index-field name="originId"/></index>
 
         <seed-data>
             <!-- Order Header Status -->
@@ -627,6 +628,10 @@ along with this software (see the LICENSE.md file). If not, see
 
         <relationship type="many" related="mantle.order.return.ReturnItem" short-alias="items">
             <key-map field-name="returnId"/></relationship>
+
+        <index name="RETURN_DISPLAY"><index-field name="displayId"/></index>
+        <index name="RETURN_EXTERNAL"><index-field name="externalId"/></index>
+        <index name="RETURN_ORIGIN"><index-field name="originId"/></index>
 
         <seed-data>
             <!-- Return Header and Item Status -->

@@ -101,6 +101,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.shipment.ShipmentPackageRouteSeg" short-alias="packageRouteSegments">
             <key-map field-name="shipmentId"/></relationship>
 
+        <index name="SHIPMENT_EXTERNAL"><index-field name="externalId"/></index>
+        <index name="SHIPMENT_ORIGIN"><index-field name="originId"/></index>
+
         <seed-data>
             <!-- Shipment Type -->
             <moqui.basic.EnumerationType description="Shipment Type" enumTypeId="ShipmentType"/>

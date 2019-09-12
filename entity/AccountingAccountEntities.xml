@@ -403,6 +403,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.ledger.transaction.AcctgTrans" short-alias="acctgTrans">
             <key-map field-name="invoiceId"/></relationship>
 
+        <index name="INVOICE_EXTERNAL"><index-field name="externalId"/></index>
+        <index name="INVOICE_ORIGIN"><index-field name="originId"/></index>
+
         <seed-data>
             <!-- Invoice Type -->
             <moqui.basic.EnumerationType description="Invoice Type" enumTypeId="InvoiceType"/>
@@ -1066,6 +1069,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="paymentId" type="id"/>
         <field name="acctgTransId" type="id"/>
         <field name="acctgTransEntrySeqId" type="id"/>
+        <field name="noReconcile" type="text-indicator"><description>If Y this transaction is not to be reconciled, represents multiple payments or otherwise</description></field>
         <relationship type="one" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod"/>
         <!-- Type one-nofk for this because we want to allow other values -->
         <relationship type="one-nofk" title="PaymentMethodTransType" related="moqui.basic.Enumeration" short-alias="transTypeEnum">
@@ -1095,6 +1099,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Repeating payment/standing order" enumId="PMTT_REPEATPMT" enumCode="REPEATPMT" enumTypeId="PaymentMethodTransType"/>
             <moqui.basic.Enumeration description="Other" enumId="PMTT_OTHER" enumCode="OTHER" enumTypeId="PaymentMethodTransType"/>
             <moqui.basic.Enumeration description="ZBA Credit Transfer" enumId="PMTT_ZBA_CRTR" enumCode="" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ZBA Debit Transfer" enumId="PMTT_ZBA_DBTR" enumCode="" enumTypeId="PaymentMethodTransType"/>
         </seed-data>
     </entity>
 
@@ -1449,6 +1454,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="paymentId" related="toPaymentId"/></relationship>
         <relationship type="many" related="mantle.account.payment.PaymentContent" short-alias="contents">
             <key-map field-name="paymentId"/></relationship>
+
+        <index name="PAYMENT_REFNUM"><index-field name="paymentRefNum"/></index>
 
         <seed-data>
             <!-- Payment Type -->

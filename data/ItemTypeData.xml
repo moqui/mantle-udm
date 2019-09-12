@@ -22,9 +22,10 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Shipping and Handling" enumId="ItemShipping" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Other Shipping (Non-Inventory)" enumId="ItemShippingOther" enumTypeId="ItemType"/>
 
-    <moqui.basic.Enumeration description="Discount" enumId="ItemDiscount" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Discount - Promotional" enumId="ItemDiscount" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Discount - Appeasement" enumId="ItemDiscountAppease" enumTypeId="ItemType"/>
     <!-- for manufacturer/distributor/other supplier discounts, generally handled differently from other discounts for sales tax, GL posting, etc -->
-    <moqui.basic.Enumeration description="Supplier Discount" enumId="ItemSupplierDiscount" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Discount - Supplier" enumId="ItemSupplierDiscount" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Fee" enumId="ItemFee" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Miscellaneous Charge" enumId="ItemMiscCharge" enumTypeId="ItemType"/>
 
@@ -230,6 +231,8 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemVatTax" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemShipping" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemDiscount" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDiscountAppease" enumGroupEnumId="EngItemsSales"/>
+    <moqui.basic.EnumGroupMember enumId="ItemSupplierDiscount" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemFee" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemMiscCharge" enumGroupEnumId="EngItemsSales"/>
 
@@ -356,6 +359,12 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemSlottingFees" enumGroupEnumId="EngItemsAdjust"/>
     <moqui.basic.EnumGroupMember enumId="ItemAdjAdvertising" enumGroupEnumId="EngItemsAdjust"/>
     <moqui.basic.EnumGroupMember enumId="ItemAdjJointAdv" enumGroupEnumId="EngItemsAdjust"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemDiscount" enumGroupEnumId="EngItemsAdjust"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDiscountAppease" enumGroupEnumId="EngItemsAdjust"/>
+    <moqui.basic.EnumGroupMember enumId="ItemSupplierDiscount" enumGroupEnumId="EngItemsAdjust"/>
+    <moqui.basic.EnumGroupMember enumId="ItemFee" enumGroupEnumId="EngItemsAdjust"/>
+    <moqui.basic.EnumGroupMember enumId="ItemMiscCharge" enumGroupEnumId="EngItemsAdjust"/>
 
     <!-- 401k and Section 125 Enum Groups -->
     <moqui.basic.Enumeration description="Employer 401k Types" enumId="Eng401kEmpr" enumTypeId="EnumGroup"/>
