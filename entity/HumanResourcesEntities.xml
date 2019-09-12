@@ -304,6 +304,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Layoff" enumId="TtLayoff" enumTypeId="TerminationType"/>
             <moqui.basic.Enumeration description="Retired" enumId="TtRetired" enumTypeId="TerminationType"/>
 
+            <!-- Termination Rason -->
+            <moqui.basic.EnumerationType description="Termination Reason" enumTypeId="TerminationReason"/>
+
             <!-- Identity Type -->
             <moqui.basic.EnumerationType description="Identity Type" enumTypeId="IdentityType"/>
             <moqui.basic.Enumeration description="Local Passport" enumId="IdTpLocalPassport" enumTypeId="IdentityType"/>
