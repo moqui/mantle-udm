@@ -1378,6 +1378,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="unappliedTotal" type="currency-amount"/>
 
         <field name="forInvoiceId" type="id" enable-audit-log="update"/>
+        <field name="refundForPaymentId" type="id"/>
         <field name="finAccountId" type="id"/>
         <field name="finAccountAuthId" type="id"/>
         <field name="finAccountTransId" type="id"/>
@@ -1428,6 +1429,8 @@ along with this software (see the LICENSE.md file). If not, see
 
         <relationship type="one" title="For" related="mantle.account.invoice.Invoice" short-alias="forInvoice">
             <key-map field-name="forInvoiceId"/></relationship>
+        <relationship type="one" title="RefundFor" related="mantle.account.payment.Payment" short-alias="refundForPayment">
+            <key-map field-name="refundForPaymentId"/></relationship>
         <relationship type="one" related="mantle.account.financial.FinancialAccount" short-alias="financialAccount"/>
         <relationship type="one" related="mantle.account.financial.FinancialAccountAuth" short-alias="financialAccountAuth"/>
         <relationship type="one" related="mantle.account.financial.FinancialAccountTrans" short-alias="financialAccountTrans"/>
