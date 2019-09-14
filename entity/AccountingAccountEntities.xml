@@ -411,8 +411,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Invoice Type" enumTypeId="InvoiceType"/>
             <moqui.basic.Enumeration description="Sales/Purchase" enumId="InvoiceSales" enumTypeId="InvoiceType"/>
             <moqui.basic.Enumeration description="Return" enumId="InvoiceReturn" enumTypeId="InvoiceType"/>
-            <moqui.basic.Enumeration description="Payroll Employee" enumId="InvoicePayroll" enumTypeId="InvoiceType"/>
-            <moqui.basic.Enumeration description="Payroll Other" enumId="InvoicePayrollOther" enumTypeId="InvoiceType"/>
+            <moqui.basic.Enumeration description="Payroll Employee" enumId="InvoicePayroll" enumTypeId="InvoiceType" relatedEnumId="PtPayrollPayment"/>
+            <moqui.basic.Enumeration description="Payroll Other" enumId="InvoicePayrollOther" enumTypeId="InvoiceType" relatedEnumId="PtPayrollOtherPayment"/>
             <moqui.basic.Enumeration description="Tax" enumId="InvoiceTax" enumTypeId="InvoiceType"/>
             <moqui.basic.Enumeration description="Garnishment" enumId="InvoiceGarnishment" enumTypeId="InvoiceType"/>
             <moqui.basic.Enumeration description="Commission" enumId="InvoiceCommission" enumTypeId="InvoiceType"/>
