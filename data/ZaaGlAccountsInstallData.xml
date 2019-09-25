@@ -1807,6 +1807,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="621000000" direction="E" itemTypeEnumId="ItemAdjAdvertising" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="624000000" direction="E" itemTypeEnumId="ItemAdjJointAdv" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="522100000" direction="E" itemTypeEnumId="ItemChargebackAdjust" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="527000000" direction="E" itemTypeEnumId="ItemShrinkage" organizationPartyId="DefaultSettings"/>
 
     <!-- Payroll Item Types -->
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPayrollIncome" organizationPartyId="DefaultSettings"/>
