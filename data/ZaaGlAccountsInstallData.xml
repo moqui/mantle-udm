@@ -778,6 +778,12 @@ along with this software (see the LICENSE.md file). If not, see
 
     <mantle.ledger.account.GlAccount accountName="Third Party Sales" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="450000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="400000000"/>
+    <mantle.ledger.account.GlAccount accountName="Third Party Product Sales" description="" glAccountClassEnumId="OTHER_REVENUE"
+        glAccountId="451000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="450000000"/>
+    <mantle.ledger.account.GlAccount accountName="Third Party Shrinkage Credit" description="" glAccountClassEnumId="OTHER_REVENUE"
+        glAccountId="458000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="450000000"/>
+    <mantle.ledger.account.GlAccount accountName="Third Party Misc Sales" description="" glAccountClassEnumId="OTHER_REVENUE"
+        glAccountId="459000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="450000000"/>
 
     <!-- ========== 500000 COST OF SALES ========== -->
     <mantle.ledger.account.GlAccount accountName="Cost of Sales" description="" glAccountClassEnumId="COST_OF_SALES"
