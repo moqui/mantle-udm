@@ -262,7 +262,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="ShipmentItem" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="productId" type="id" is-pk="true"/>
-        <field name="quantity" type="number-decimal"/>
+        <field name="quantity" type="number-decimal" enable-audit-log="update"/>
         <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="many" related="mantle.shipment.ShipmentItemSource" short-alias="sources">
