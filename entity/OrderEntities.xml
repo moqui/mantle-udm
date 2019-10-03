@@ -590,6 +590,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="customerPartyId" type="id"/>
         <field name="vendorPartyId" type="id"/>
         <field name="paymentMethodId" type="id"><description>Customer PaymentMethod to refund to, override original</description></field>
+        <field name="useSingleRefundPayment" type="text-indicator">
+            <description>If Y create a single refund Payment, otherwise look for Credit Card order payments and refund first against those</description></field>
         <field name="finAccountId" type="id"/>
         <!-- maybe support later: <field name="billingAccountId" type="id"/> -->
         <field name="entryDate" type="date-time"/>
