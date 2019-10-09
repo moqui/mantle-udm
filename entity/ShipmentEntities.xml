@@ -393,8 +393,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="returnGatewayRateId" type="text-medium" enable-audit-log="update"/>
         <field name="returnGatewayRefundStatus" type="text-short" enable-audit-log="update"/>
         <field name="returnEstimatedAmount" type="currency-amount"/>
+        <field name="returnBaseAmount" type="currency-amount"/>
+        <field name="returnActualAmount" type="currency-amount"/>
 
         <field name="estimatedAmount" type="currency-amount"/>
+        <field name="baseAmount" type="currency-amount"/>
+        <field name="actualAmount" type="currency-amount"/>
         <field name="packageTransportAmount" type="currency-amount"/>
         <field name="packageServiceAmount" type="currency-amount"/>
         <field name="packageOtherAmount" type="currency-amount"/>

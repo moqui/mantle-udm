@@ -346,6 +346,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Ship Label From Name" enumId="PsstShipLabelName" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Ship Label From Company" enumId="PsstShipLabelCompany" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Ship Restrict Carriers (true/false)" enumId="PsstShipRestrictCarriers" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Shipping Label Cost Markup Percent" enumId="PsstShipLabelMarkup" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Shipping Customer Charge Markup Percent" enumId="PsstShipCustomerMarkup" enumTypeId="ProductStoreSettingType"/>
 
             <moqui.basic.Enumeration description="Template Location Shipment Insert" enumId="PsstTemplateShipmentInsert" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Template Location Shipment Pick Sheet" enumId="PsstTemplateShipmentPick" enumTypeId="ProductStoreSettingType"/>
