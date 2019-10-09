@@ -507,8 +507,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceSent" toStatusId="InvoiceWriteOff" transitionSequence="4" transitionName="Write Off"/>
             <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceSent" toStatusId="InvoiceCancelled" transitionSequence="5" transitionName="Cancel"/>
 
-            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceAcked" toStatusId="InvoicePmtRecvd" transitionSequence="1" transitionName="Payment Received"/>
-            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceAcked" toStatusId="InvoiceCancelled" transitionSequence="2" transitionName="Cancel"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceAcked" toStatusId="InvoiceSent" transitionSequence="1" transitionName="Un-acknowledge"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceAcked" toStatusId="InvoicePmtRecvd" transitionSequence="2" transitionName="Payment Received"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceAcked" toStatusId="InvoiceCancelled" transitionSequence="3" transitionName="Cancel"/>
 
             <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceWriteOff" toStatusId="InvoicePmtRecvd" transitionSequence="1" transitionName="Payment Received"/>
             <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceWriteOff" toStatusId="InvoiceCancelled" transitionSequence="2" transitionName="Cancel"/>
