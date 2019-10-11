@@ -440,7 +440,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Friend" enumId="PrtFriend" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Manager" enumId="PrtManager" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Organization Member" enumId="PrtMember" enumTypeId="PartyRelationshipType"/>
-            <moqui.basic.Enumeration description="Organization Rollup" enumId="PrtOrgRollup" enumTypeId="PartyRelationshipType"/>
+            <moqui.basic.Enumeration description="Organization Rollup (Child)" enumId="PrtOrgRollup" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Partner" enumId="PrtPartner" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Representative" enumId="PrtRepresentative" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Sales Affiliate" enumId="PrtSalesAffiliate" enumTypeId="PartyRelationshipType"/>
