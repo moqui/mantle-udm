@@ -71,6 +71,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="facilityId"/></relationship>
         <relationship type="many" related="mantle.facility.FacilityLocation" short-alias="locations">
             <key-map field-name="facilityId"/></relationship>
+        <relationship type="many" related="mantle.facility.FacilityLocationType" short-alias="locationTypes">
+            <key-map field-name="facilityId"/></relationship>
         <relationship type="many" related="mantle.facility.FacilityNote" short-alias="notes">
             <key-map field-name="facilityId"/></relationship>
         <relationship type="many" related="mantle.facility.FacilityParty" short-alias="parties">
@@ -257,10 +259,21 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Facility Location Type" enumTypeId="FacilityLocationType"/>
             <moqui.basic.Enumeration description="Pick" enumId="FltPick" enumTypeId="FacilityLocationType"/>
             <moqui.basic.Enumeration description="Bulk" enumId="FltBulk" enumTypeId="FacilityLocationType"/>
+            <moqui.basic.Enumeration description="Receiving" enumId="FltReceiving" enumTypeId="FacilityLocationType"/>
             <moqui.basic.Enumeration description="Staging" enumId="FltStaging" enumTypeId="FacilityLocationType"/>
             <moqui.basic.Enumeration description="Quarantine" enumId="FltQuarantine" enumTypeId="FacilityLocationType"/>
             <moqui.basic.Enumeration description="Morgue" enumId="FltMorgue" enumTypeId="FacilityLocationType"/>
         </seed-data>
+    </entity>
+    <entity entity-name="FacilityLocationType" package="mantle.facility">
+        <field name="facilityId" type="id" is-pk="true"/>
+        <field name="locationTypeEnumId" type="id" is-pk="true"/>
+        <field name="autoStatusId" type="id" enable-audit-log="update"/>
+        <relationship type="one" related="mantle.facility.Facility"/>
+        <relationship type="one" title="FacilityLocationType" related="moqui.basic.Enumeration" short-alias="locationTypeEnum">
+            <key-map field-name="locationTypeEnumId"/></relationship>
+        <relationship type="one" title="Asset" related="moqui.basic.StatusItem" short-alias="autoStatusItem">
+            <key-map field-name="autoStatusId"/></relationship>
     </entity>
     <entity entity-name="FacilityNote" package="mantle.facility" cache="never">
         <field name="facilityId" type="id" is-pk="true"/>
