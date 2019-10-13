@@ -32,6 +32,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="classEnumId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="ownerPartyId" type="id" enable-audit-log="update"/>
+        <field name="assetPoolId" type="id" enable-audit-log="update"/>
 
         <field name="productId" type="id"><description>The Asset is an Instance of this Product (for inventory, maintenance
             schedules/etc, content about what sort of thing the Asset is, etc)</description></field>
@@ -98,6 +99,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Asset" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
             <key-map field-name="ownerPartyId"/></relationship>
+        <relationship type="one" related="mantle.product.asset.AssetPool" short-alias="pool"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" title="OriginalQuantity" related="moqui.basic.Uom" short-alias="originalQuantityUom">
             <key-map field-name="originalQuantityUomId"/></relationship>
@@ -448,6 +450,35 @@ along with this software (see the LICENSE.md file). If not, see
         </seed-data>
     </entity>
     -->
+
+    <entity entity-name="AssetPool" package="mantle.product.asset">
+        <field name="assetPoolId" type="id" is-pk="true"/>
+        <field name="pseudoId" type="text-short" default="assetPoolId"/>
+        <field name="ownerPartyId" type="id" enable-audit-log="update" default="'_NA_'"/>
+        <field name="description" type="text-medium"/>
+        <relationship type="many" related="mantle.product.asset.Asset" short-alias="assets">
+            <key-map field-name="assetPoolId"/></relationship>
+        <relationship type="many" related="mantle.product.asset.AssetPoolParty" short-alias="poolParties">
+            <key-map field-name="assetPoolId"/></relationship>
+        <relationship type="many" related="mantle.product.asset.AssetPoolStore" short-alias="poolStores">
+            <key-map field-name="assetPoolId"/></relationship>
+        <index name="ASSET_POOL_PSEUDO" unique="true"><index-field name="pseudoId"/><index-field name="ownerPartyId"/></index>
+    </entity>
+    <entity entity-name="AssetPoolParty" package="mantle.product.asset">
+        <field name="assetPoolId" type="id" is-pk="true"/>
+        <field name="partyId" type="id" is-pk="true"/>
+        <field name="roleTypeId" type="id"/>
+        <relationship type="one" related="mantle.product.asset.AssetPool" short-alias="pool"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="roleType"/>
+    </entity>
+    <entity entity-name="AssetPoolStore" package="mantle.product.asset">
+        <field name="assetPoolId" type="id" is-pk="true"/>
+        <field name="productStoreId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.product.asset.AssetPool" short-alias="pool"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="productStore"/>
+    </entity>
+
     <entity entity-name="AssetStandardCost" package="mantle.product.asset" cache="never">
         <field name="assetId" type="id" is-pk="true"/>
         <field name="assetStandardCostTypeEnumId" type="id" is-pk="true"/>
