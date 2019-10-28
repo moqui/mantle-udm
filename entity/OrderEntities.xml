@@ -664,6 +664,10 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnReceived" toStatusId="ReturnCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnReceived" toStatusId="ReturnManResp" transitionName="Manual Response"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnManResp" toStatusId="ReturnCompleted" transitionName="Complete"/>
+            <!-- special cases to cancel late in flow after Manual Response or Completed -->
+            <!-- TODO: code changes to auto cancel records derived from Return data: return shipment, credit memo invoice, refund payment, FA trans, replacement orders, etc (anything else?) -->
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnManResp" toStatusId="ReturnCancelled" transitionName="Cancel"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ReturnCompleted" toStatusId="ReturnCancelled" transitionName="Cancel"/>
         </seed-data>
         <master>
             <detail relationship="status"/>
