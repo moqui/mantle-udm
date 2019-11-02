@@ -64,6 +64,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Good Freight Cost" enumId="GOOD_FREIGHT_COST" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Good Royalties Cost" enumId="GOOD_ROYALTIES_COST" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Inventory Shrinkage" enumId="INVENTORY_SHRINKAGE" parentEnumId="COST_GOODS_SOLD" enumTypeId="GlAccountClass"/>
+    <moqui.basic.Enumeration description="Other Cost of Sales" enumId="OTHER_COST_SALES" parentEnumId="COST_OF_SALES" enumTypeId="GlAccountClass"/>
 
     <moqui.basic.Enumeration description="General and Administrative Expense" enumId="GEN_ADMIN_EXPENSE" parentEnumId="EXPENSE" sequenceNum="1" enumTypeId="GlAccountClass"/>
     <moqui.basic.Enumeration description="Employee Compensation" enumId="COMPENSATION" parentEnumId="GEN_ADMIN_EXPENSE" sequenceNum="1" enumTypeId="GlAccountClass"/>
@@ -802,7 +803,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccount accountName="COGS Late Payment Charges" description="" glAccountClassEnumId="COST_GOODS_SOLD"
         glAccountId="517000000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="510000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Other Cogs" description="" glAccountClassEnumId="COST_GOODS_SOLD"
+    <mantle.ledger.account.GlAccount accountName="Other COGS" description="" glAccountClassEnumId="COST_GOODS_SOLD"
         glAccountId="518000000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="510000000"/>
 
     <mantle.ledger.account.GlAccount accountName="COGS Freight" description="" glAccountClassEnumId="GOOD_FREIGHT_COST"
@@ -855,6 +856,11 @@ along with this software (see the LICENSE.md file). If not, see
 
     <mantle.ledger.account.GlAccount accountName="Cost of Services Sold" description="" glAccountClassEnumId="COST_SERVICES_SOLD"
         glAccountId="550000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="500000000"/>
+
+    <mantle.ledger.account.GlAccount accountName="Other Cost of Sales" description="" glAccountClassEnumId="OTHER_COST_SALES"
+        glAccountId="560000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="500000000"/>
+    <mantle.ledger.account.GlAccount accountName="Third Party Sales Commissions Deducted" description="" glAccountClassEnumId="OTHER_COST_SALES"
+        glAccountId="561000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="560000000"/>
 
     <!-- ========== 600000-700000 OPERATING EXPENSES ========== -->
     <!-- 600000 GENERAL EXPENSE -->
