@@ -861,6 +861,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="560000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="500000000"/>
     <mantle.ledger.account.GlAccount accountName="Third Party Sales Commissions Deducted" description="" glAccountClassEnumId="OTHER_COST_SALES"
         glAccountId="561000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="560000000"/>
+    <mantle.ledger.account.GlAccount accountName="Third Party Fulfillment Fee Deducted" description="" glAccountClassEnumId="OTHER_COST_SALES"
+        glAccountId="562000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="560000000"/>
 
     <!-- ========== 600000-700000 OPERATING EXPENSES ========== -->
     <!-- 600000 GENERAL EXPENSE -->
