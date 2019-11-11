@@ -355,7 +355,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="shipmentPackageSeqId" type="id" is-pk="true"/>
         <field name="shipmentRouteSegmentSeqId" type="id" is-pk="true"/>
         <field name="trackingCode" type="text-medium" enable-audit-log="update"/>
-        <field name="trackingUrl" type="text-long"/>
+        <field name="trackingUrl" type="text-medium"/>
         <field name="trackingStatusEnumId" type="id" enable-audit-log="true"/>
         <field name="trackingSubStatus" type="text-short" enable-audit-log="update"/>
         <field name="trackingStatusDate" type="date-time"/>
@@ -365,9 +365,9 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="gatewayStatus" type="text-short" enable-audit-log="update"/>
         <field name="gatewayMessage" type="text-medium"/>
-        <field name="gatewayLabelId" type="text-medium" enable-audit-log="update"/>
-        <field name="gatewayRateId" type="text-medium" enable-audit-log="update"/>
-        <field name="gatewayRefundId" type="text-medium" enable-audit-log="update"/>
+        <field name="gatewayLabelId" type="text-short" enable-audit-log="update"/>
+        <field name="gatewayRateId" type="text-short" enable-audit-log="update"/>
+        <field name="gatewayRefundId" type="text-short" enable-audit-log="update"/>
         <field name="gatewayRefundStatus" type="text-short" enable-audit-log="update"/>
 
         <field name="labelDate" type="date-time"/>
@@ -377,10 +377,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="labelHtml" type="text-very-long"/>
         <field name="labelPrinted" type="text-indicator"/>
         <field name="internationalInvoice" type="binary-very-long"/>
-        <field name="internationalInvoiceUrl" type="text-long"/>
+        <field name="internationalInvoiceUrl" type="text-medium"/>
 
         <field name="returnTrackingCode" type="text-medium" enable-audit-log="update"/>
-        <field name="returnTrackingUrl" type="text-long"/>
+        <field name="returnTrackingUrl" type="text-medium"/>
         <field name="returnTrackingStatusEnumId" type="id" enable-audit-log="update"/>
         <field name="returnTrackingSubStatus" type="text-short" enable-audit-log="update"/>
         <field name="returnTrackingStatusDate" type="date-time"/>
@@ -389,8 +389,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="returnLabelImage" type="binary-very-long"/>
         <field name="returnGatewayStatus" type="text-short" enable-audit-log="update"/>
         <field name="returnGatewayMessage" type="text-medium"/>
-        <field name="returnGatewayLabelId" type="text-medium" enable-audit-log="update"/>
-        <field name="returnGatewayRateId" type="text-medium" enable-audit-log="update"/>
+        <field name="returnGatewayLabelId" type="text-short" enable-audit-log="update"/>
+        <field name="returnGatewayRateId" type="text-short" enable-audit-log="update"/>
         <field name="returnGatewayRefundStatus" type="text-short" enable-audit-log="update"/>
         <field name="returnEstimatedAmount" type="currency-amount"/>
         <field name="returnBaseAmount" type="currency-amount"/>
