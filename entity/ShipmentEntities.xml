@@ -480,9 +480,9 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="highValueReport" type="binary-very-long"/>
 
-        <relationship type="one" related="mantle.shipment.Shipment"/>
-        <relationship type="one" related="mantle.shipment.carrier.Delivery"/>
-        <relationship type="one" related="mantle.shipment.carrier.ShippingGatewayConfig"/>
+        <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
+        <relationship type="one" related="mantle.shipment.carrier.Delivery" short-alias="delivery"/>
+        <relationship type="one" related="mantle.shipment.carrier.ShippingGatewayConfig" short-alias="shippingGatewayConfig"/>
         <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrierParty">
             <key-map field-name="carrierPartyId"/></relationship>
         <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration" short-alias="shipmentMethod">
@@ -521,6 +521,10 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="costUomId"/></relationship>
         <relationship type="one" title="BillingWeight" related="moqui.basic.Uom" short-alias="billingWeightUom">
             <key-map field-name="billingWeightUomId"/></relationship>
+
+        <relationship type="many" related="mantle.shipment.ShipmentPackageRouteSeg" short-alias="packageRouteSegments">
+            <key-map field-name="shipmentId"/><key-map field-name="shipmentRouteSegmentSeqId"/></relationship>
+
         <seed-data>
             <!-- Shipment Route Segment Status -->
             <moqui.basic.StatusType description="Shipment Route Segment Status" statusTypeId="ShipmentRouteSegment"/>
