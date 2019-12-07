@@ -2,7 +2,7 @@
 Mantle Business Artifacts - Universal Data Model Release Notes
 
 ===========================================================================
-Release 2.1.2 - Not Yet Released
+Release 2.1.2 - 07 Dec 2019
 ===========================================================================
 
 Mantle Universal Data Model 2.1.2 is a patch level new feature and bug fix
