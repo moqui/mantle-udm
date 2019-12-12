@@ -230,6 +230,7 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="02" fieldPath="wikiSpaceId"/>
         <fields fieldSeqId="03" fieldPath="pagePath"/>
         <fields fieldSeqId="04" fieldPath="space:description" fieldNameAlias="space"/>
+        <fields fieldSeqId="05" fieldPath="publishedVersionName"/>
         <!-- the history fields are useful for update history and search by users who have updated a page, but also trigger indexing on page update -->
         <fields fieldSeqId="10" fieldPath="histories:historySeqId"/>
         <fields fieldSeqId="11" fieldPath="histories:changeDateTime"/>
