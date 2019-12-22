@@ -270,6 +270,13 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="PARTNER_MGD" description="Partner Managed" enumTypeId="TrackingCodeType"/>
         </seed-data>
     </entity>
+    <!--
+    Tracking code events
+    - incoming link parameter
+    - automatic for path (with option to only apply if no code in URL) possibly path + parameter constraint
+    - wiki page, for full page or content snippet (also track version number...)
+    -
+    -->
     <entity entity-name="TrackingCodeOrder" package="mantle.marketing.tracking">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="trackingCodeTypeEnumId" type="id" is-pk="true"/>

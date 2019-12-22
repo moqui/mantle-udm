@@ -1039,7 +1039,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="To" related="mantle.party.RoleType" short-alias="toRole">
             <key-map field-name="toRoleTypeId"/></relationship>
         <relationship type="one" related="ContactList" short-alias="contactList"/>
-        <relationship type="one" title="Reason" related="moqui.basic.Enumeration" short-alias="reason">
+        <relationship type="one" title="CommunicationEventReason" related="moqui.basic.Enumeration" short-alias="reason">
             <key-map field-name="reasonEnumId"/></relationship>
 
         <relationship type="many" related="mantle.party.communication.CommunicationEventContent" short-alias="contents">
@@ -1099,6 +1099,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CeResolved" toStatusId="CeCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CeReferred" toStatusId="CeCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CeUnknownParty" toStatusId="CeCancelled" transitionName="Cancel"/>
+
+            <!-- Communication Event Reason -->
+            <moqui.basic.EnumerationType description="Communication Event Reason" enumTypeId="CommunicationEventReason"/>
         </seed-data>
 
         <master>
@@ -1191,6 +1194,7 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Communication Purpose -->
             <moqui.basic.EnumerationType description="Communication Purpose" enumTypeId="CommunicationPurpose"/>
             <moqui.basic.Enumeration enumId="CpActivityRequest" description="Activity Request" enumTypeId="CommunicationPurpose"/>
+            <moqui.basic.Enumeration enumId="CpBilling" description="Billing" enumTypeId="CommunicationPurpose"/>
             <moqui.basic.Enumeration enumId="CpComment" description="Comment" enumTypeId="CommunicationPurpose"/>
             <moqui.basic.Enumeration enumId="CpConference" description="Conference" enumTypeId="CommunicationPurpose"/>
             <moqui.basic.Enumeration enumId="CpCustomerService" description="Customer Service" enumTypeId="CommunicationPurpose"/>
@@ -1199,6 +1203,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="CpSalesInquiry" description="Sales Inquiry" enumTypeId="CommunicationPurpose"/>
             <moqui.basic.Enumeration enumId="CpSalesFollowUp" description="Sales Follow-Up" enumTypeId="CommunicationPurpose"/>
             <moqui.basic.Enumeration enumId="CpSeminar" description="Seminar" enumTypeId="CommunicationPurpose"/>
+            <moqui.basic.Enumeration enumId="CpShipments" description="Shipments" enumTypeId="CommunicationPurpose"/>
         </seed-data>
     </entity>
     <entity entity-name="CommunicationEventType" package="mantle.party.communication">
