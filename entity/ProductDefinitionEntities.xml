@@ -29,7 +29,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <entity entity-name="Product" package="mantle.product" short-alias="products" cache="true">
         <field name="productId" type="id" is-pk="true"/>
-        <field name="pseudoId" type="id" default="productId"/>
+        <field name="pseudoId" type="text-short" default="productId"/>
         <field name="productTypeEnumId" type="id"/>
         <field name="productClassEnumId" type="id"/>
         <field name="assetTypeEnumId" type="id"/>
@@ -585,7 +585,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <entity entity-name="ProductCategory" package="mantle.product.category" short-alias="categories">
         <field name="productCategoryId" type="id" is-pk="true"/>
-        <field name="pseudoId" type="id" default="productCategoryId"/>
+        <field name="pseudoId" type="text-short" default="productCategoryId"/>
         <field name="productCategoryTypeEnumId" type="id"/>
         <field name="categoryName" type="text-medium"/>
         <field name="description" type="text-very-long"/>

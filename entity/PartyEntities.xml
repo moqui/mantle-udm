@@ -29,7 +29,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <entity entity-name="Party" package="mantle.party" short-alias="parties">
         <field name="partyId" type="id" is-pk="true"/>
-        <field name="pseudoId" type="id" default="partyId"/>
+        <field name="pseudoId" type="text-short" default="partyId"/>
         <field name="partyTypeEnumId" type="id"/>
         <field name="disabled" type="text-indicator" enable-audit-log="true"/>
         <field name="customerStatusId" type="id"/>
