@@ -541,46 +541,46 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- Some WorkEffort-specific role groups -->
             <moqui.basic.Enumeration description="Project" enumId="RgpProject" enumTypeId="RoleGroup"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="Customer"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="CustomerBillTo"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="Vendor"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="VendorBillFrom"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="ClientManager"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="ClientBilling"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="Assignee"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="DefaultAssignee"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="Manager"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="OrgTeam"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="Customer"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="CustomerBillTo"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="Vendor"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="VendorBillFrom"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="ClientManager"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="ClientBilling"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="Assignee"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="DefaultAssignee"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="Manager"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="OrgTeam"/>
 
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="BusinessAnalyst"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="ExpertUser"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="Programmer"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="ProgrammerLead"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="ProjectManager"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="QualityAnalyst"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="QualityLead"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="SysAdmin"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="SysArchitect"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProject" roleTypeId="UiDesigner"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="BusinessAnalyst"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="ExpertUser"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="Programmer"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="ProgrammerLead"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="ProjectManager"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="QualityAnalyst"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="QualityLead"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="SysAdmin"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="SysArchitect"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProject" roleTypeId="UiDesigner"/>
 
             <moqui.basic.Enumeration description="Task" enumId="RgpTask" enumTypeId="RoleGroup"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpTask" roleTypeId="Assignee"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpTask" roleTypeId="Manager"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpTask" roleTypeId="Reporter"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpTask" roleTypeId="Watcher"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpTask" roleTypeId="Assignee"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpTask" roleTypeId="Manager"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpTask" roleTypeId="Reporter"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpTask" roleTypeId="Watcher"/>
 
             <moqui.basic.Enumeration description="Project Client" enumId="RgpProjectClient" enumTypeId="RoleGroup"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProjectClient" roleTypeId="ClientManager"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProjectClient" roleTypeId="ClientBilling"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProjectClient" roleTypeId="Assignee"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProjectClient" roleTypeId="Reporter"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProjectClient" roleTypeId="Watcher"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProjectClient" roleTypeId="ClientManager"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProjectClient" roleTypeId="ClientBilling"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProjectClient" roleTypeId="Assignee"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProjectClient" roleTypeId="Reporter"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProjectClient" roleTypeId="Watcher"/>
 
             <moqui.basic.Enumeration description="Project Vendor" enumId="RgpProjectVendor" enumTypeId="RoleGroup"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProjectVendor" roleTypeId="Manager"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProjectVendor" roleTypeId="Assignee"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProjectVendor" roleTypeId="Reporter"/>
-            <mantle.party.RoleGroupMember  roleGroupEnumId="RgpProjectVendor" roleTypeId="Watcher"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProjectVendor" roleTypeId="Manager"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProjectVendor" roleTypeId="Assignee"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProjectVendor" roleTypeId="Reporter"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpProjectVendor" roleTypeId="Watcher"/>
         </seed-data>
     </entity>
 
