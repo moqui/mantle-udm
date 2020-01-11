@@ -281,6 +281,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInStorage" toStatusId="AstInTransfer" transitionName="Start Transfer"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInTransfer" toStatusId="AstInStorage" transitionName="Transfer Complete (Store)"/>
 
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstDefective" toStatusId="AstOnHold" transitionName="Not Defective"/>
+
             <!-- Depreciation Type -->
             <moqui.basic.EnumerationType description="Depreciation Type" enumTypeId="DepreciationType"/>
             <moqui.basic.Enumeration description="Straight Line" enumId="DtpStraightLine" enumTypeId="DepreciationType"/>
