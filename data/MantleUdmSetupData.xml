@@ -13,6 +13,10 @@ along with this software (see the LICENSE.md file). If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.
 -->
 <entity-facade-xml type="seed-initial">
+    <!-- Special Permissions - NOTE: other such permissions that the data model seed data does not rely on are in MantleSetupData.xml in mantle-usl -->
+    <userPermissions userPermissionId="INVOICE_APPROVE" description="Invoice Approve"/>
+    <userGroupPermissions userGroupId="ADMIN" userPermissionId="INVOICE_APPROVE" fromDate="0"/>
+
     <!-- User/Group Preferences -->
     <moqui.basic.Enumeration enumId="ValidateAddressGatewayConfigId" description="Address Validate Gateway Config ID" enumTypeId="UserPreferenceKey"/>
     <moqui.basic.Enumeration enumId="DefaultShipmentGatewayConfigId" description="Shipment Default Gateway Config ID" enumTypeId="UserPreferenceKey"/>
