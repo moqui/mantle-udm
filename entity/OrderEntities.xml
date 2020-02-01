@@ -304,7 +304,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="quantityUomId" type="id"/>
         <field name="quantityCancelled" type="number-decimal"/>
         <field name="selectedAmount" type="number-decimal"/>
-        <field name="priority" type="number-integer"/>
+        <field name="priority" type="number-integer"><description>NOTE: this may be deprecated in favor of OrderPart.priority</description></field>
         <field name="requiredByDate" type="date-time" enable-audit-log="update"/>
 
         <field name="unitAmount" type="currency-precise" enable-audit-log="true">
@@ -457,6 +457,8 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="partTotal" type="currency-amount"/>
 
+        <field name="priority" type="number-integer" default="5">
+            <description>Numeric priority, 1 to 9 where 1 is highest priority and 9 is lowest priority (like a to do list), defaults to 5</description></field>
         <field name="shipAfterDate" type="date-time"/>
         <field name="shipBeforeDate" type="date-time"/>
         <field name="estimatedShipDate" type="date-time"/>
