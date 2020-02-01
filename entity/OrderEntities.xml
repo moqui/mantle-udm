@@ -457,7 +457,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="partTotal" type="currency-amount"/>
 
-        <field name="priority" type="number-integer" default="5">
+        <field name="priority" type="number-integer" default="5" enable-audit-log="update">
             <description>Numeric priority, 1 to 9 where 1 is highest priority and 9 is lowest priority (like a to do list), defaults to 5</description></field>
         <field name="shipAfterDate" type="date-time"/>
         <field name="shipBeforeDate" type="date-time"/>
