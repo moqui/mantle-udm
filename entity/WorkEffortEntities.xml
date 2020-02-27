@@ -245,13 +245,16 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeComplete" toStatusId="WeClosed" transitionName="Close"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeComplete" toStatusId="WeInProgress" transitionName="Resume"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeOnHold" toStatusId="WeInProgress" transitionName="Resume"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeOnHold" toStatusId="WeComplete" transitionName="Complete"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeOnHold" toStatusId="WeCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeClosed" toStatusId="WeInPlanning" transitionName="Re-open"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeCancelled" toStatusId="WeInPlanning" transitionName="Re-open"/>
 
             <moqui.basic.StatusFlow statusFlowId="WorkEffortOther" description="Other, more lenient, status transitions for WorkEffort"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="WorkEffortOther" statusId="WeInPlanning" toStatusId="WeClosed" transitionName="Close"/>
             <moqui.basic.StatusFlowTransition statusFlowId="WorkEffortOther" statusId="WeApproved" toStatusId="WeClosed" transitionName="Close"/>
             <moqui.basic.StatusFlowTransition statusFlowId="WorkEffortOther" statusId="WeInProgress" toStatusId="WeClosed" transitionName="Close"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="WorkEffortOther" statusId="WeOnHold" toStatusId="WeClosed" transitionName="Close"/>
             <moqui.basic.StatusFlowTransition statusFlowId="WorkEffortOther" statusId="WeComplete" toStatusId="WeCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="WorkEffortOther" statusId="WeClosed" toStatusId="WeInProgress" transitionName="Re-open"/>
             <moqui.basic.StatusFlowTransition statusFlowId="WorkEffortOther" statusId="WeCancelled" toStatusId="WeInProgress" transitionName="Re-open"/>
