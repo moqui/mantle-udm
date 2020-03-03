@@ -85,6 +85,7 @@ along with this software (see the LICENSE.md file). If not, see
     <GeoAssoc geoId="USA" toGeoId="USA_AK" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_AL" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_AR" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="USA" toGeoId="USA_AS" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_AZ" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_CA" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_CO" geoAssocTypeEnumId="GAT_REGIONS"/>
@@ -92,6 +93,7 @@ along with this software (see the LICENSE.md file). If not, see
     <GeoAssoc geoId="USA" toGeoId="USA_DC" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_DE" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_FL" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="USA" toGeoId="USA_FM" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_GA" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_GU" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_HI" geoAssocTypeEnumId="GAT_REGIONS"/>
@@ -105,9 +107,11 @@ along with this software (see the LICENSE.md file). If not, see
     <GeoAssoc geoId="USA" toGeoId="USA_MA" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_MD" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_ME" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="USA" toGeoId="USA_MH" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_MI" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_MN" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_MO" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="USA" toGeoId="USA_MP" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_MS" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_MT" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_NC" geoAssocTypeEnumId="GAT_REGIONS"/>
@@ -123,11 +127,13 @@ along with this software (see the LICENSE.md file). If not, see
     <GeoAssoc geoId="USA" toGeoId="USA_OR" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_PA" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_PR" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="USA" toGeoId="USA_PW" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_RI" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_SC" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_SD" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_TN" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_TX" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="USA" toGeoId="USA_UM" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_UT" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_VA" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="USA" toGeoId="USA_VT" geoAssocTypeEnumId="GAT_REGIONS"/>
@@ -148,8 +154,8 @@ along with this software (see the LICENSE.md file). If not, see
     <GeoAssoc geoId="USTR" toGeoId="USA_GU" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
     <GeoAssoc geoId="USTR" toGeoId="USA_MH" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
     <GeoAssoc geoId="USTR" toGeoId="USA_MP" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
-    <GeoAssoc geoId="USTR" toGeoId="USA_PW" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
     <GeoAssoc geoId="USTR" toGeoId="USA_PR" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
+    <GeoAssoc geoId="USTR" toGeoId="USA_PW" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
     <GeoAssoc geoId="USTR" toGeoId="USA_UM" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
     <GeoAssoc geoId="USTR" toGeoId="USA_VI" geoAssocTypeEnumId="GAT_GROUP_MEMBER"/>
 
