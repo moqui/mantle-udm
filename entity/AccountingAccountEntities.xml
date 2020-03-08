@@ -887,6 +887,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="description" type="text-medium"/>
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
+        <field name="thruDateSetAuto" type="text-indicator"><description>If Y then expire (set thruDate) once allowed (no active Payment)</description></field>
         <field name="openedDate" type="date-time"/>
 
         <field name="titleOnAccount" type="text-medium"><description>Not commonly used; payment gateways generally only
