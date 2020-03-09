@@ -296,6 +296,10 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- for future reference when configurable products are supported: <field name="productConfigSavedId" type="id"/> -->
         <field name="productFeatureId" type="id"/>
         <field name="otherPartyProductId" type="text-short"/>
+        <field name="productParameterSetId" type="id">
+            <description>For a set of Product Parameters to personalize a Product and/or record details specific to a purchase of the Product.
+                If used represents a distinct Product instance (OrderItem, etc records should not be combined unless matches).</description>
+        </field>
 
         <field name="itemDescription" type="text-medium"/>
         <field name="comments" type="text-medium"/>
@@ -358,6 +362,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <!-- <relationship type="one" related="mantle.product.config.ProductConfigSaved"/> -->
         <relationship type="one" related="mantle.product.feature.ProductFeature" short-alias="feature"/>
+        <relationship type="one" related="mantle.product.ProductParameterSet" short-alias="productParameterSet"/>
         <relationship type="one" title="Quantity" related="moqui.basic.Uom" short-alias="quantityUom">
             <key-map field-name="quantityUomId"/></relationship>
 

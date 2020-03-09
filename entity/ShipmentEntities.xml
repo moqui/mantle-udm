@@ -338,6 +338,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="shipmentId"/><key-map field-name="shipmentPackageSeqId"/></relationship>
     </entity>
     <entity entity-name="ShipmentPackageContent" package="mantle.shipment" cache="never">
+        <!-- TODO: support personalized, etc Products with a productParameterSetId, or more flexible approach with shipmentItemSourceId (personalized products would be on separate OrderItems) -->
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentPackageSeqId" type="id" is-pk="true"/>
         <field name="productId" type="id" is-pk="true"/>
