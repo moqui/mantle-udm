@@ -248,12 +248,20 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="ProductContentType" related="moqui.basic.Enumeration">
             <key-map field-name="productContentTypeEnumId"/></relationship>
     </entity>
+    <!-- TODO: deprecate by ProductClassUomDimension, will require data migration -->
     <entity entity-name="ProductClassDimension" package="mantle.product">
         <field name="productClassEnumId" type="id" is-pk="true"/>
         <field name="dimensionTypeId" type="id" is-pk="true"/>
         <relationship type="one" title="ProductClass" related="moqui.basic.Enumeration">
             <key-map field-name="productClassEnumId"/></relationship>
         <relationship type="one" related="mantle.product.ProductDimensionType"/>
+    </entity>
+    <entity entity-name="ProductClassUomDimension" package="mantle.product">
+        <field name="productClassEnumId" type="id" is-pk="true"/>
+        <field name="uomDimensionTypeId" type="id" is-pk="true"/>
+        <relationship type="one" title="ProductClass" related="moqui.basic.Enumeration">
+            <key-map field-name="productClassEnumId"/></relationship>
+        <relationship type="one" related="moqui.basic.UomDimensionType" short-alias="type"/>
     </entity>
     <entity entity-name="ProductClassFeature" package="mantle.product">
         <field name="productClassEnumId" type="id" is-pk="true"/>
@@ -333,15 +341,18 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Meta-Description" enumId="PcntMetaDescription" enumTypeId="ProductContentType"/>
         </seed-data>
     </entity>
+    <!-- TODO: deprecate by ProductUomDimension, will require data migration -->
     <entity entity-name="ProductDimension" package="mantle.product">
         <field name="productId" type="id" is-pk="true"/>
         <field name="dimensionTypeId" type="id" is-pk="true"/>
         <field name="value" type="number-decimal"/>
         <field name="valueUomId" type="id"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" related="mantle.product.ProductDimensionType" short-alias="type"/>
         <relationship type="one" title="Value" related="moqui.basic.Uom" short-alias="valueUom">
             <key-map field-name="valueUomId"/></relationship>
     </entity>
+    <!-- TODO: deprecate by moqui.basic.UomDimensionType, will require data migration -->
     <entity entity-name="ProductDimensionType" package="mantle.product">
         <field name="dimensionTypeId" type="id" is-pk="true"/>
         <field name="description" type="text-medium"/>
@@ -366,6 +377,19 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.product.ProductDimensionType description="Diameter" dimensionTypeId="Diameter" uomTypeEnumId="UT_LENGTH_MEASURE"/>
         </seed-data>
     </entity>
+    <entity entity-name="ProductUomDimension" package="mantle.product">
+        <field name="productUomDimensionId" type="id" is-pk="true"/>
+        <field name="productId" type="id" not-null="true"/>
+        <field name="uomDimensionTypeId" type="id"/>
+        <field name="marketSegmentId" type="id"/>
+        <field name="value" type="number-decimal"/>
+        <field name="uomId" type="id"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related="moqui.basic.UomDimensionType" short-alias="type"/>
+        <relationship type="one" related="mantle.marketing.segment.MarketSegment" short-alias="marketSegment"/>
+        <relationship type="one" related="moqui.basic.Uom" short-alias="uom"/>
+    </entity>
+
     <entity entity-name="ProductGeo" package="mantle.product">
         <field name="productId" type="id" is-pk="true"/>
         <field name="geoId" type="id" is-pk="true"/>
@@ -420,6 +444,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productId" type="id"/>
         <field name="productStoreId" type="id"/>
         <field name="productIdTypeEnumId" type="id"/>
+        <field name="marketSegmentId" type="id"/>
         <field name="parentProductId" type="id"/>
         <field name="idValue" type="text-medium"/>
 
@@ -427,10 +452,62 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="productIdTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.product.Product"/>
         <relationship type="one" related="mantle.product.store.ProductStore"/>
+        <relationship type="one" related="mantle.marketing.segment.MarketSegment" short-alias="marketSegment"/>
         <relationship type="one" title="Parent" related="mantle.product.Product">
             <key-map field-name="parentProductId" related="productId"/></relationship>
         <index name="PRODUCT_STR_ID_VAL" unique="false"><index-field name="idValue"/></index>
     </entity>
+
+    <entity entity-name="ProductParameter" package="mantle.product">
+        <description>Parameters for personalization and other information to track with purchase of Product</description>
+        <field name="productParameterId" type="id" is-pk="true"/>
+        <field name="productId" type="id" not-null="true"/>
+        <field name="description" type="text-medium"/>
+        <field name="uomDimensionTypeId" type="id"><description>Optional dimension type</description></field>
+        <field name="productIdTypeEnumId" type="id"><description>Optional product ID type</description></field>
+        <relationship type="one" related="mantle.product.Product"/>
+        <relationship type="one" related="moqui.basic.UomDimensionType" short-alias="uomDimensionType"/>
+        <relationship type="one" title="ProductIdentificationType" related="moqui.basic.Enumeration" short-alias="productIdTypeEnum">
+            <key-map field-name="productIdTypeEnumId"/></relationship>
+    </entity>
+    <entity entity-name="ProductParameterOption" package="mantle.product">
+        <field name="productParameterOptionId" type="id" is-pk="true"/>
+        <field name="productParameterId" type="id" not-null="true"/>
+        <field name="marketSegmentId" type="id"/>
+        <field name="productUomDimensionId" type="id"><description>For options associated with a ProductUomDimension</description></field>
+        <field name="productOtherIdentId" type="id"><description>For options associated with a ProductOtherIdentification</description></field>
+        <field name="parameterValue" type="text-medium"/>
+        <relationship type="one" related="mantle.product.ProductParameter" short-alias="productParameter"/>
+        <relationship type="one" related="mantle.marketing.segment.MarketSegment" short-alias="marketSegment"/>
+        <relationship type="one" related="mantle.product.ProductUomDimension" short-alias="productUomDimension"/>
+        <relationship type="one" related="mantle.product.ProductOtherIdentification" short-alias="productOtherIdent"/>
+    </entity>
+    <entity entity-name="ProductParameterSet" package="mantle.product">
+        <description>Used to group a set of parameter values for reference by single ID used on OrderItem, etc</description>
+        <field name="productParameterSetId" type="id" is-pk="true"/>
+        <!-- all fields are optional, parameter values usually looked up by productParameterSetId, might be useful for reuse and tracking -->
+        <field name="comments" type="text-medium"/>
+        <field name="productId" type="id"/>
+        <field name="customerPartyId" type="id"/>
+        <relationship type="one" related="mantle.product.Product"/>
+        <relationship type="one" title="Customer" related="mantle.party.Party" short-alias="customerParty">
+            <key-map field-name="customerPartyId"/></relationship>
+    </entity>
+    <entity entity-name="ProductParameterValue" package="mantle.product">
+        <field name="productParameterValueId" type="id" is-pk="true"/>
+        <field name="productParameterId" type="id" not-null="true"/>
+        <field name="productParameterSetId" type="id"/>
+        <field name="marketSegmentId" type="id"><description>Specify if parameterValue is based on customer's inclusion in a MarketSegment</description></field>
+        <field name="productParameterOptionId" type="id"><description>For values that come from a ProductParameterOption</description></field>
+        <field name="parameterValue" type="text-medium"/>
+        <field name="uomId" type="id"/>
+        <relationship type="one" related="mantle.product.ProductParameterSet" short-alias="productParameterSet"/>
+        <relationship type="one" related="mantle.marketing.segment.MarketSegment" short-alias="marketSegment"/>
+        <relationship type="one" related="mantle.product.ProductParameter" short-alias="productParameter"/>
+        <relationship type="one" related="mantle.product.ProductParameterOption" short-alias="productParameterOption"/>
+        <relationship type="one" related="moqui.basic.Uom" short-alias="uom"/>
+    </entity>
+
     <entity entity-name="ProductParty" package="mantle.product">
         <field name="productId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
