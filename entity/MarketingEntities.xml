@@ -210,9 +210,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="marketSegmentTypeEnumId" type="id"/>
         <field name="description" type="text-medium"/>
         <field name="productStoreId" type="id"/>
+        <field name="ownerPartyId" type="id" enable-audit-log="update" default="'_NA_'"/>
         <relationship type="one" title="MarketSegmentType" related="moqui.basic.Enumeration">
             <key-map field-name="marketSegmentTypeEnumId"/></relationship>
         <relationship type="one" related="ProductStore"/>
+        <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
+            <key-map field-name="ownerPartyId"/></relationship>
         <seed-data>
             <!-- Market Segment Type -->
             <moqui.basic.EnumerationType description="Market Segment Type" enumTypeId="MarketSegmentType"/>
@@ -221,12 +224,25 @@ along with this software (see the LICENSE.md file). If not, see
         </seed-data>
     </entity>
     <entity entity-name="MarketSegmentClassification" package="mantle.marketing.segment">
+        <description>Define the segment by PartyClassification</description>
         <field name="marketSegmentId" type="id" is-pk="true"/>
         <field name="partyClassificationId" type="id" is-pk="true"/>
         <relationship type="one" related="mantle.marketing.segment.MarketSegment"/>
         <relationship type="one" related="mantle.party.PartyClassification"/>
     </entity>
+    <entity entity-name="MarketSegmentDimension" package="mantle.marketing.segment">
+        <description>Define the segment in terms of PartyDimension values</description>
+        <field name="marketSegmentId" type="id" is-pk="true"/>
+        <field name="uomDimensionTypeId" type="id" is-pk="true"/>
+        <field name="uomId" type="id"/>
+        <field name="minValue" type="number-decimal"/>
+        <field name="maxValue" type="number-decimal"/>
+        <relationship type="one" related="mantle.marketing.segment.MarketSegment" short-alias="marketSegment"/>
+        <relationship type="one" related="moqui.basic.UomDimensionType" short-alias="type"/>
+        <relationship type="one" related="moqui.basic.Uom" short-alias="uom"/>
+    </entity>
     <entity entity-name="MarketSegmentGeo" package="mantle.marketing.segment">
+        <description>Define the segment by geographic area</description>
         <field name="marketSegmentId" type="id" is-pk="true"/>
         <field name="geoId" type="id" is-pk="true"/>
         <relationship type="one" related="mantle.marketing.segment.MarketSegment"/>
