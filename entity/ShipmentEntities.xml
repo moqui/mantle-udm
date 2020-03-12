@@ -374,7 +374,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="gatewayRefundStatus" type="text-short" enable-audit-log="update"/>
 
         <field name="labelDate" type="date-time"/>
-        <field name="labelUrl" type="text-long"/>
+        <field name="labelUrl" type="text-medium"/>
         <field name="labelImage" type="binary-very-long"/>
         <field name="labelIntlSignImage" type="binary-very-long"/>
         <field name="labelHtml" type="text-very-long"/>
@@ -388,8 +388,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="returnTrackingSubStatus" type="text-short" enable-audit-log="update"/>
         <field name="returnTrackingStatusDate" type="date-time"/>
         <field name="returnLabelDate" type="date-time"/>
-        <field name="returnLabelUrl" type="text-long"/>
+        <field name="returnLabelUrl" type="text-medium"/>
         <field name="returnLabelImage" type="binary-very-long"/>
+        <field name="returnIntlInvoiceUrl" type="text-medium"/>
         <field name="returnGatewayStatus" type="text-short" enable-audit-log="update"/>
         <field name="returnGatewayMessage" type="text-medium"/>
         <field name="returnGatewayLabelId" type="text-short" enable-audit-log="update"/>
