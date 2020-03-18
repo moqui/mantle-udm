@@ -461,18 +461,24 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="ProductParameter" package="mantle.product">
         <description>Parameters for personalization and other information to track with purchase of Product</description>
         <field name="productParameterId" type="id" is-pk="true"/>
-        <field name="productId" type="id" not-null="true"/>
+        <!-- deprecated, needs to be dropped from existing databases: <field name="productId" type="id" not-null="true"/> -->
         <field name="description" type="text-medium"/>
         <field name="uomDimensionTypeId" type="id"><description>Optional dimension type</description></field>
         <field name="productIdTypeEnumId" type="id"><description>Optional product ID type</description></field>
-        <relationship type="one" related="mantle.product.Product"/>
         <relationship type="one" related="moqui.basic.UomDimensionType" short-alias="uomDimensionType"/>
         <relationship type="one" title="ProductIdentificationType" related="moqui.basic.Enumeration" short-alias="productIdTypeEnum">
             <key-map field-name="productIdTypeEnumId"/></relationship>
     </entity>
+    <entity entity-name="ProductParameterProduct" package="mantle.product">
+        <field name="productParameterId" type="id" is-pk="true"/>
+        <field name="productId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.product.ProductParameter"/>
+        <relationship type="one" related="mantle.product.Product"/>
+    </entity>
     <entity entity-name="ProductParameterOption" package="mantle.product">
         <field name="productParameterOptionId" type="id" is-pk="true"/>
         <field name="productParameterId" type="id" not-null="true"/>
+        <field name="productId" type="id"><description>Optional, if null option applies to all products that use the ProductParameter</description></field>
         <field name="marketSegmentId" type="id"/>
         <field name="productUomDimensionId" type="id"><description>For options associated with a ProductUomDimension</description></field>
         <field name="productOtherIdentId" type="id"><description>For options associated with a ProductOtherIdentification</description></field>
@@ -482,6 +488,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.ProductUomDimension" short-alias="productUomDimension"/>
         <relationship type="one" related="mantle.product.ProductOtherIdentification" short-alias="productOtherIdent"/>
     </entity>
+
     <entity entity-name="ProductParameterSet" package="mantle.product">
         <description>Used to group a set of parameter values for reference by single ID used on OrderItem, etc</description>
         <field name="productParameterSetId" type="id" is-pk="true"/>
