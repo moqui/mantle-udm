@@ -333,6 +333,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="otherAssetId" type="id"/>
         <field name="shipmentId" type="id"/>
         <field name="productId" type="id"/>
+        <field name="orderId" type="id"/>
+        <field name="orderItemSeqId" type="id"/>
         <field name="returnId" type="id"/>
         <field name="returnItemSeqId" type="id"/>
         <field name="workEffortId" type="id"/>
@@ -350,6 +352,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="otherAssetId"/></relationship>
         <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem"/>
         <relationship type="one" related="mantle.order.return.ReturnItem" short-alias="returnItem"/>
         <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
         <relationship type="one" related="mantle.product.maintenance.AssetMaintenance" short-alias="assetMaintenance"/>
