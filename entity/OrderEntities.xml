@@ -60,6 +60,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderName" type="text-medium"/>
         <field name="entryDate" type="date-time"/>
         <field name="placedDate" type="date-time"/>
+        <field name="approvedDate" type="date-time"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="orderRevision" type="number-integer"/>
 
