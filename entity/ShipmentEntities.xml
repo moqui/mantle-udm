@@ -453,6 +453,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="carrierPartyId" type="id" enable-audit-log="update"/>
         <field name="shipmentMethodEnumId" type="id" enable-audit-log="update"/>
         <field name="tradeTermEnumId" type="id"/>
+        <field name="customsCertify" type="text-indicator"/>
+        <field name="customsCertifySigner" type="text-short"/>
+        <field name="customsContentsEnumId" type="id"/>
+        <field name="customsNonDeliveryEnumId" type="id"/>
+
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="carrierDeliveryZone" type="text-short"/>
         <field name="carrierRestrictionCodes" type="text-short"/>
@@ -494,6 +499,10 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- For tradeTermEnumId terms are defined with enumTypeId="TermType" in AccountingAccountEntities.xml -->
         <relationship type="one" title="TermType" related="moqui.basic.Enumeration" short-alias="tradeTermEnum">
             <key-map field-name="tradeTermEnumId"/></relationship>
+        <relationship type="one" title="CustomsContents" related="moqui.basic.Enumeration" short-alias="customsContentsEnum">
+            <key-map field-name="customsContentsEnumId"/></relationship>
+        <relationship type="one" title="CustomsNonDelivery" related="moqui.basic.Enumeration" short-alias="customsNonDeliveryEnum">
+            <key-map field-name="customsNonDeliveryEnumId"/></relationship>
 
         <relationship type="one" title="Origin" related="mantle.facility.Facility" short-alias="originFacility">
             <key-map field-name="originFacilityId"/></relationship>
@@ -540,6 +549,21 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShrssConfirmed" toStatusId="ShrssAccepted" transitionName="Accept"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShrssConfirmed" toStatusId="ShrssVoided" transitionName="Void"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ShrssAccepted" toStatusId="ShrssVoided" transitionName="Void"/>
+
+            <!-- Customs Contents Type -->
+            <moqui.basic.EnumerationType description="Customs Contents Type" enumTypeId="CustomsContents"/>
+            <moqui.basic.Enumeration sequenceNum="1" description="Merchandise" enumId="CcntMerchandise" enumCode="MERCHANDISE" enumTypeId="CustomsContents"/>
+            <moqui.basic.Enumeration sequenceNum="2" description="Return Merchandise" enumId="CcntReturnMerch" enumCode="RETURN_MERCHANDISE" enumTypeId="CustomsContents"/>
+            <moqui.basic.Enumeration sequenceNum="3" description="Documents" enumId="CcntDocuments" enumCode="DOCUMENTS" enumTypeId="CustomsContents"/>
+            <moqui.basic.Enumeration sequenceNum="4" description="Gift" enumId="CcntGift" enumCode="GIFT" enumTypeId="CustomsContents"/>
+            <moqui.basic.Enumeration sequenceNum="5" description="Sample" enumId="CcntSample" enumCode="SAMPLE" enumTypeId="CustomsContents"/>
+            <moqui.basic.Enumeration sequenceNum="6" description="Humanitarian Donation" enumId="CcntDonation" enumCode="HUMANITARIAN_DONATION" enumTypeId="CustomsContents"/>
+            <moqui.basic.Enumeration sequenceNum="7" description="Other" enumId="CcntOther" enumCode="OTHER" enumTypeId="CustomsContents"/>
+
+            <!-- Customs Non Delivery -->
+            <moqui.basic.EnumerationType description="Customs Non Delivery" enumTypeId="CustomsNonDelivery"/>
+            <moqui.basic.Enumeration sequenceNum="1" description="Abandon" enumId="CndAbandon" enumCode="ABANDON" enumTypeId="CustomsNonDelivery"/>
+            <moqui.basic.Enumeration sequenceNum="2" description="Return" enumId="CndReturn" enumCode="RETURN" enumTypeId="CustomsNonDelivery"/>
         </seed-data>
     </entity>
 

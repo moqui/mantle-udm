@@ -26,6 +26,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="reservationOrderEnumId" type="id"/>
         <field name="reservationAutoEnumId" type="id"/>
         <field name="requireInventory" type="text-indicator"/>
+        <field name="defaultDisablePromotions" type="text-indicator"/>
+        <field name="defaultDisableShippingCalc" type="text-indicator"/>
+        <field name="defaultDisableTaxCalc" type="text-indicator"/>
         <field name="returnPostalContactMechId" type="id"><description>Return postal address for shipping labels</description></field>
         <field name="autoApproveDelay" type="number-integer"><description>Minimum time in minutes to wait before trying to auto-approve;
             defaults to 0 which means auto-approve immediately (via SECA rule), otherwise delayed auto-approve handled with service job</description></field>
@@ -389,9 +392,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="billingZip" type="text-short"/>
         <field name="billingCountry" type="text-short"><description>For Shippo this is the 2 letter ISO country code</description></field>
         <field name="defaultTradeTermEnumId" type="id"/>
-        <field name="customsCertify" type="text-short"/>
+        <!-- on further analysis doesn't make sense to configure at the store/gateway level:
+        <field name="customsCertify" type="text-indicator"/>
         <field name="customsCertifySigner" type="text-short"/>
-        <field name="customsContentsType" type="text-short"/>
+        -->
+        <!-- replaced by customsContentsEnumId, had not yet been used: <field name="customsContentsType" type="text-short"/> -->
+        <field name="customsContentsEnumId" type="id"/>
+        <field name="customsNonDeliveryEnumId" type="id"/>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
             <key-map field-name="carrierPartyId"/></relationship>
