@@ -76,6 +76,10 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="41" fieldPath="facility:facilityName" fieldNameAlias="facilityName"/>
         <fields fieldSeqId="42" fieldPath="facility:ownerPartyId" fieldNameAlias="facilityOwnerPartyId"/>
 
+        <fields fieldSeqId="50" fieldPath="communicationEvents:communicationEventId"/>
+        <fields fieldSeqId="51" fieldPath="communicationEvents:communicationEvent:subject" fieldNameAlias="comSubject"/>
+        <fields fieldSeqId="52" fieldPath="communicationEvents:communicationEvent:body" fieldNameAlias="comBody"/>
+
         <conditions conditionSeqId="01" fieldNameAlias="workEffortTypeEnumId" fieldValue="WetTask"/>
     </dataDocuments>
 
