@@ -138,6 +138,19 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="13" fieldPath="parties:person:lastName"/>
         <fields fieldSeqId="14" fieldPath="parties:organization:organizationName"/>
 
+        <fields fieldSeqId="20" fieldPath="requestDate"/>
+        <fields fieldSeqId="21" fieldPath="responseRequiredDate"/>
+        <fields fieldSeqId="22" fieldPath="requestTypeEnumId"/>
+        <fields fieldSeqId="23" fieldPath="requestCategoryId"/>
+        <fields fieldSeqId="24" fieldPath="statusId"/>
+        <fields fieldSeqId="25" fieldPath="requestResolutionEnumId"/>
+
+        <fields fieldSeqId="31" fieldPath="rootWorkEffortId"/>
+        <fields fieldSeqId="32" fieldPath="facilityId"/>
+        <fields fieldSeqId="33" fieldPath="productStoreId"/>
+        <fields fieldSeqId="34" fieldPath="salesChannelEnumId"/>
+        <fields fieldSeqId="35" fieldPath="filedByPartyId"/>
+
         <fields fieldSeqId="40" fieldPath="facility:pseudoId" fieldNameAlias="facilityPseudoId"/>
         <fields fieldSeqId="41" fieldPath="facility:facilityName" fieldNameAlias="facilityName"/>
         <fields fieldSeqId="42" fieldPath="facility:ownerPartyId" fieldNameAlias="facilityOwnerPartyId"/>
