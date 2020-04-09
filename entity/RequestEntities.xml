@@ -71,6 +71,19 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="requestId"/></relationship>
         <relationship type="one" related="moqui.server.Visit" short-alias="visit"/>
 
+        <relationship type="many" related="mantle.request.RequestCommEvent" short-alias="communicationEvents">
+            <key-map field-name="requestId"/></relationship>
+        <relationship type="many" related="mantle.request.RequestItem" short-alias="items">
+            <key-map field-name="requestId"/></relationship>
+        <relationship type="many" related="mantle.request.RequestNote" short-alias="notes">
+            <key-map field-name="requestId"/></relationship>
+        <relationship type="many" related="mantle.request.RequestParty" short-alias="parties">
+            <key-map field-name="requestId"/></relationship>
+        <relationship type="many" related="mantle.request.RequestWorkEffort" short-alias="workEfforts">
+            <key-map field-name="requestId"/></relationship>
+        <relationship type="many" related="mantle.request.WikiPageRequest" short-alias="wikiPages">
+            <key-map field-name="requestId"/></relationship>
+
         <seed-data>
             <!-- Request Type -->
             <moqui.basic.EnumerationType description="Request Type" enumTypeId="RequestType"/>
