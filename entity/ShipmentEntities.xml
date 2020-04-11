@@ -359,13 +359,22 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="shipmentPackageSeqId" type="id" is-pk="true"/>
         <field name="shipmentRouteSegmentSeqId" type="id" is-pk="true"/>
         <field name="trackingCode" type="text-medium" enable-audit-log="update"/>
-        <field name="trackingUrl" type="text-medium"/>
+        <field name="trackingUrl" type="text-intermediate"/>
         <field name="trackingStatusEnumId" type="id" enable-audit-log="true"/>
         <field name="trackingSubStatus" type="text-short" enable-audit-log="update"/>
         <field name="trackingStatusDate" type="date-time"/>
         <field name="trackingEta" type="date-time"/>
         <field name="trackingOrigEta" type="date-time"/>
         <field name="boxNumber" type="text-short"/>
+
+        <field name="labelDate" type="date-time"/>
+        <field name="labelUrl" type="text-intermediate"/>
+        <field name="labelImage" type="binary-very-long"/>
+        <field name="labelIntlSignImage" type="binary-very-long"/>
+        <field name="labelHtml" type="text-very-long"/>
+        <field name="labelPrinted" type="text-indicator"/>
+        <field name="internationalInvoice" type="binary-very-long"/>
+        <field name="internationalInvoiceUrl" type="text-intermediate"/>
 
         <field name="gatewayStatus" type="text-short" enable-audit-log="update"/>
         <field name="gatewayMessage" type="text-medium"/>
@@ -374,24 +383,16 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="gatewayRefundId" type="text-short" enable-audit-log="update"/>
         <field name="gatewayRefundStatus" type="text-short" enable-audit-log="update"/>
 
-        <field name="labelDate" type="date-time"/>
-        <field name="labelUrl" type="text-medium"/>
-        <field name="labelImage" type="binary-very-long"/>
-        <field name="labelIntlSignImage" type="binary-very-long"/>
-        <field name="labelHtml" type="text-very-long"/>
-        <field name="labelPrinted" type="text-indicator"/>
-        <field name="internationalInvoice" type="binary-very-long"/>
-        <field name="internationalInvoiceUrl" type="text-medium"/>
-
         <field name="returnTrackingCode" type="text-medium" enable-audit-log="update"/>
-        <field name="returnTrackingUrl" type="text-medium"/>
+        <field name="returnTrackingUrl" type="text-intermediate"/>
         <field name="returnTrackingStatusEnumId" type="id" enable-audit-log="update"/>
         <field name="returnTrackingSubStatus" type="text-short" enable-audit-log="update"/>
         <field name="returnTrackingStatusDate" type="date-time"/>
         <field name="returnLabelDate" type="date-time"/>
-        <field name="returnLabelUrl" type="text-medium"/>
+        <field name="returnLabelUrl" type="text-intermediate"/>
         <field name="returnLabelImage" type="binary-very-long"/>
-        <field name="returnIntlInvoiceUrl" type="text-medium"/>
+        <field name="returnIntlInvoiceUrl" type="text-intermediate"/>
+
         <field name="returnGatewayStatus" type="text-short" enable-audit-log="update"/>
         <field name="returnGatewayMessage" type="text-medium"/>
         <field name="returnGatewayLabelId" type="text-short" enable-audit-log="update"/>

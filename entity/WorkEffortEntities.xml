@@ -259,6 +259,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="WorkEffortOther" statusId="WeClosed" toStatusId="WeInProgress" transitionName="Re-open"/>
             <moqui.basic.StatusFlowTransition statusFlowId="WorkEffortOther" statusId="WeClosed" toStatusId="WeComplete" transitionName="Complete"/>
             <moqui.basic.StatusFlowTransition statusFlowId="WorkEffortOther" statusId="WeCancelled" toStatusId="WeInProgress" transitionName="Re-open"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="WorkEffortOther" statusId="WeCancelled" toStatusId="WeComplete" transitionName="Complete"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="WorkEffortOther" statusId="WeCancelled" toStatusId="WeClosed" transitionName="Close"/>
 
             <!-- Work Effort Visibility -->
             <moqui.basic.EnumerationType description="Work Effort Visibility" enumTypeId="WorkEffortVisibility"/>
