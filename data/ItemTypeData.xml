@@ -243,6 +243,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <moqui.basic.EnumGroupMember enumId="ItemWorkEffort" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemTimeEntry" enumGroupEnumId="EngItemsSales"/>
+
     <moqui.basic.EnumGroupMember enumId="ItemDonation" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemSurcharge" enumGroupEnumId="EngItemsSales"/>
     <moqui.basic.EnumGroupMember enumId="ItemReplacement" enumGroupEnumId="EngItemsSales"/>
@@ -280,6 +281,9 @@ along with this software (see the LICENSE.md file). If not, see
 
     <moqui.basic.EnumGroupMember enumId="ItemInventory" enumGroupEnumId="EngItemsPurchase"/>
     <moqui.basic.EnumGroupMember enumId="ItemAsset" enumGroupEnumId="EngItemsPurchase"/>
+
+    <moqui.basic.EnumGroupMember enumId="ItemWorkEffort" enumGroupEnumId="EngItemsPurchase"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTimeEntry" enumGroupEnumId="EngItemsPurchase"/>
 
     <moqui.basic.EnumGroupMember enumId="ItemExpAdvertising" enumGroupEnumId="EngItemsPurchase"/>
     <moqui.basic.EnumGroupMember enumId="ItemExpCharitable" enumGroupEnumId="EngItemsPurchase"/>
