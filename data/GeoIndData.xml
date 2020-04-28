@@ -28,10 +28,11 @@ along with this software (see the LICENSE.md file). If not, see
     <Geo geoId="IND_GJ" geoCodeAlpha2="GJ" geoName="Gujarat" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_HR" geoCodeAlpha2="HR" geoName="Haryana" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_HP" geoCodeAlpha2="HP" geoName="Himachal Pradesh" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_JK" geoCodeAlpha2="JK" geoName="Jammu and Kashmir" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_JK" geoCodeAlpha2="JK" geoName="Jammu and Kashmir" geoTypeEnumId="GEOT_TERRITORY"/>
     <Geo geoId="IND_JH" geoCodeAlpha2="JH" geoName="Jharkhand" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_KA" geoCodeAlpha2="KA" geoName="Karnataka" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_KL" geoCodeAlpha2="KL" geoName="Kerala" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND-LA" geoCodeAlpha2="LA" geoName="Ladakh" geoTypeId="TERRITORY"/>
     <Geo geoId="IND_LD" geoCodeAlpha2="LD" geoName="Lakshadweep" geoTypeEnumId="GEOT_TERRITORY"/>
     <Geo geoId="IND_MP" geoCodeAlpha2="MP" geoName="Madhya Pradesh" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_MH" geoCodeAlpha2="MH" geoName="Maharashtra" geoTypeEnumId="GEOT_STATE"/>
@@ -69,6 +70,7 @@ along with this software (see the LICENSE.md file). If not, see
     <GeoAssoc geoId="IND" toGeoId="IND_JH" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="IND" toGeoId="IND_KA" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="IND" toGeoId="IND_KL" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="IND" toGeoId="IND-LA" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="IND" toGeoId="IND_LD" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="IND" toGeoId="IND_MP" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="IND" toGeoId="IND_MH" geoAssocTypeEnumId="GAT_REGIONS"/>
