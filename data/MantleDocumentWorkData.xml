@@ -51,6 +51,9 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="04" fieldPath="workEffortName" fieldNameAlias="name"/>
         <fields fieldSeqId="05" fieldPath="workEffortTypeEnumId"/><!-- this is aliased so we can have a condition on it -->
         <fields fieldSeqId="06" fieldPath="priority"/>
+        <fields fieldSeqId="07" fieldPath="description"/>
+        <fields fieldSeqId="08" fieldPath="location"/>
+
         <fields fieldSeqId="10" fieldPath="statusId"/>
         <fields fieldSeqId="11" fieldPath="status:description" fieldNameAlias="status"/>
         <fields fieldSeqId="12" fieldPath="type:description" fieldNameAlias="type"/>
