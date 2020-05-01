@@ -22,14 +22,20 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="storeName" type="text-medium"/>
         <field name="organizationPartyId" type="id">
             <description>The Organization Party that Orders, Invoices, GL transactions, etc will be associated with.</description></field>
+
         <field name="inventoryFacilityId" type="id"/>
         <field name="reservationOrderEnumId" type="id"/>
         <field name="reservationAutoEnumId" type="id"/>
         <field name="requireInventory" type="text-indicator"/>
+
         <field name="defaultDisablePromotions" type="text-indicator"/>
         <field name="defaultDisableShippingCalc" type="text-indicator"/>
         <field name="defaultDisableTaxCalc" type="text-indicator"/>
+
         <field name="returnPostalContactMechId" type="id"><description>Return postal address for shipping labels</description></field>
+        <field name="markupOrderShipLabels" type="text-indicator"/>
+        <field name="markupShipmentShipLabels" type="text-indicator"/>
+
         <field name="autoApproveDelay" type="number-integer"><description>Minimum time in minutes to wait before trying to auto-approve;
             defaults to 0 which means auto-approve immediately (via SECA rule), otherwise delayed auto-approve handled with service job</description></field>
 
@@ -412,6 +418,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="carrierPartyId" type="id" is-pk="true"/>
         <field name="shipmentMethodEnumId" type="id" is-pk="true"/>
         <field name="sequenceNum" type="number-integer"/>
+        <field name="markupPercent" type="number-decimal"/>
+        <field name="markupAmount" type="currency-amount"/>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
             <key-map field-name="carrierPartyId"/></relationship>
