@@ -24,7 +24,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.request -->
     <!-- ========================================================= -->
 
-    <entity entity-name="Request" package="mantle.request" cache="never">
+    <entity entity-name="Request" package="mantle.request" cache="never" sequence-bank-size="10">
         <field name="requestId" type="id" is-pk="true"/>
         <field name="requestTypeEnumId" type="id"/>
         <field name="requestCategoryId" type="id"/>
