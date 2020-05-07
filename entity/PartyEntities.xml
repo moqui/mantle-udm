@@ -706,6 +706,14 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="SalesRepresentative"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="ShipmentClerk"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="SupplierAgent"/>
+
+            <moqui.basic.Enumeration description="Directly Applied Roles" enumId="RgpDirect" enumTypeId="RoleGroup"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="Customer"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="Account"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="Contact"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="Supplier"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="OrgInternal"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="Employee"/>
         </seed-data>
     </entity>
 
