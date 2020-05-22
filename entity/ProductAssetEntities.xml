@@ -34,8 +34,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="ownerPartyId" type="id" enable-audit-log="update"/>
         <field name="assetPoolId" type="id" enable-audit-log="update"/>
 
-        <field name="productId" type="id"><description>The Asset is an Instance of this Product (for inventory, maintenance
-            schedules/etc, content about what sort of thing the Asset is, etc)</description></field>
+        <field name="productId" type="id" enable-audit-log="update">
+            <description>The Asset is an Instance of this Product (for inventory, maintenance
+                schedules/etc, content about what sort of thing the Asset is, etc)</description>
+        </field>
 
         <field name="hasQuantity" type="text-indicator"><description>If Y asset has a quantity and QOH/ATP may be
             greater than one. If N (default) asset is a single item and may have a serial number, etc.</description></field>
@@ -49,7 +51,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="assetName" type="text-medium"/>
         <field name="comments" type="text-long"/>
 
-        <field name="serialNumber" type="text-medium"/>
+        <field name="serialNumber" type="text-medium" enable-audit-log="update"/>
         <field name="softIdentifier" type="text-medium"/>
         <field name="activationNumber" type="text-medium"/>
         <field name="activationValidThru" type="date-time"/>
@@ -63,15 +65,16 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="capacity" type="number-decimal"/>
         <field name="capacityUomId" type="id"/>
 
-        <field name="facilityId" type="id"><description>Current Facility, where stored.</description></field>
-        <field name="locationSeqId" type="id" enable-audit-log="true"/>
-        <field name="containerId" type="id" enable-audit-log="true"><description>
+        <field name="facilityId" type="id" enable-audit-log="update">
+            <description>Current Facility, where stored.</description></field>
+        <field name="locationSeqId" type="id" enable-audit-log="update"/>
+        <field name="containerId" type="id" enable-audit-log="update"><description>
             Container stored in, if specified the current facilityId and locationSeqId should come from the container
             and not from this record or with standard EECA rule in place facilityId and locationSeqId will be set and
             maintained from the Container values.
         </description></field>
         <field name="shipmentBoxTypeId" type="id"/>
-        <field name="lotId" type="id"/>
+        <field name="lotId" type="id" enable-audit-log="update"/>
         <field name="geoPointId" type="id" enable-audit-log="update"/>
 
         <field name="originId" type="id"><description>Origin ID, the ID used wherever this came from.</description></field>
@@ -81,13 +84,15 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="acquireWorkEffortId" type="id"><description>For assets created from production runs, etc.</description></field>
         <field name="acquireShipmentId" type="id"/>
         <field name="acquireCost" type="currency-amount" enable-audit-log="update"/>
-        <field name="acquireCostUomId" type="id"/>
+        <field name="acquireCostUomId" type="id" enable-audit-log="update"/>
 
         <field name="salvageValue" type="currency-amount" enable-audit-log="update"/>
-        <field name="depreciation" type="currency-amount"><description>History in AssetDepreciation</description></field>
-        <field name="depreciationTypeEnumId" type="id"/>
-        <field name="yearBeginDepreciation" type="currency-amount"><description>History in AssetDepreciation</description></field>
-        <field name="taxDepreciation" type="currency-amount"/>
+        <field name="depreciation" type="currency-amount" enable-audit-log="update">
+            <description>History in AssetDepreciation</description></field>
+        <field name="depreciationTypeEnumId" type="id" enable-audit-log="update"/>
+        <field name="yearBeginDepreciation" type="currency-amount" enable-audit-log="update">
+            <description>History in AssetDepreciation</description></field>
+        <field name="taxDepreciation" type="currency-amount" enable-audit-log="update"/>
         <field name="taxDepreciationTypeEnumId" type="id"/>
 
         <relationship type="one" title="Parent" related="mantle.product.asset.Asset" short-alias="parent">
