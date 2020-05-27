@@ -79,9 +79,11 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="visitId" type="id"/>
         <field name="enteredByPartyId" type="id"/>
-        <field name="parentOrderId" type="id"/>
-        <!-- <field name="recurrenceInfoId" type="id"/> TODO: replace this with something else to configure the recurrence pattern for auto reorder, might be best on the item or part level instead -->
-        <field name="lastOrderedDate" type="date-time"/>
+
+        <field name="parentOrderId" type="id"><description>The original/parent order this is based on, used for all order clones including recurring orders</description></field>
+        <field name="recurCronExpression" type="text-medium"><description>If populated is a recurring order, automatically cloned if in Approved status</description></field>
+        <field name="lastOrderedDate" type="date-time"><description>For recurring orders the date/time of the most recent clone/recurrence</description></field>
+        <field name="recurAutoInvoice" type="text-indicator"><description>If Y and cloned recurring order successfully auto-approved then also invoice/bill the order immediately</description></field>
 
         <field name="remainingSubTotal" type="currency-amount"/>
         <field name="grandTotal" type="currency-amount"/>
@@ -118,6 +120,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="orderId"/></relationship>
         <relationship type="many" related="mantle.account.payment.Payment" short-alias="payments">
             <key-map field-name="orderId"/></relationship>
+        <relationship type="many" title="Child" related="mantle.order.OrderHeader" short-alias="childOrders">
+            <key-map field-name="orderId" related="parentOrderId"/></relationship>
 
         <relationship type="many" title="Status" related="moqui.entity.EntityAuditLog" short-alias="statusLogs">
             <key-map field-name="orderId" related="pkPrimaryValue"/>
