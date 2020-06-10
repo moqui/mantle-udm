@@ -721,6 +721,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="facilityId" type="id"/>
         <field name="assetId" type="id"/>
         <field name="partyId" type="id"/>
+        <field name="workEffortId" type="id"/>
         <field name="quantity" type="number-decimal"/>
 
         <relationship type="one-nofk" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
@@ -728,6 +729,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
     </entity>
     <entity entity-name="InvoiceItemAssoc" package="mantle.account.invoice" cache="never">
         <field name="invoiceItemAssocId" type="id" is-pk="true"/>
