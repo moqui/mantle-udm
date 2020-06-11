@@ -1367,6 +1367,7 @@ along with this software (see the LICENSE.md file). If not, see
             automatically on auth for capture, etc.</description></field>
         <field name="orderId" type="id"><description>Set if the Payment represents the payment settings for an Order.</description></field>
         <field name="orderPartSeqId" type="id"><description>Set if the Payment represents the payment settings for an OrderPart.</description></field>
+        <field name="orderItemSeqId" type="id"><description>Set if the Payment represents the payment settings for an OrderItem.</description></field>
 
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="effectiveDate" type="date-time" enable-audit-log="update"><description>When the payment is issued (delivered)</description></field>
@@ -1421,6 +1422,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.account.method.PaymentGatewayConfig" short-alias="paymentGatewayConfig"/>
         <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
         <relationship type="one-nofk" related="mantle.order.OrderPart" short-alias="orderPart"/>
+        <relationship type="one-nofk" related="mantle.order.OrderItem" short-alias="orderItem"/>
         <relationship type="one" title="PayDistributionGroup" related="moqui.basic.Enumeration" short-alias="distGroup">
             <key-map field-name="distGroupEnumId"/></relationship>
 

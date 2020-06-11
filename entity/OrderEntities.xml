@@ -426,6 +426,18 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.issuance.AssetIssuance" short-alias="issuance"/>
         <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
     </entity>
+    <entity entity-name="OrderItemParty" package="mantle.order" cache="never">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="orderItemSeqId" type="id" is-pk="true"/>
+        <field name="partyId" type="id" is-pk="true"/>
+        <field name="roleTypeId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one-nofk" related="mantle.party.Person" short-alias="person"/>
+        <relationship type="one-nofk" related="mantle.party.Organization" short-alias="organization"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="roleType"/>
+    </entity>
+
     <entity entity-name="OrderNote" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="noteDate" type="date-time" is-pk="true" default="ec.user.nowTimestamp"/>
@@ -546,7 +558,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderPartSeqId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
-        <relationship type="one" related="mantle.order.OrderPart"/>
+        <relationship type="one" related="mantle.order.OrderPart" short-alias="orderPart"/>
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one-nofk" related="mantle.party.Person" short-alias="person"/>
         <relationship type="one-nofk" related="mantle.party.Organization" short-alias="organization"/>
