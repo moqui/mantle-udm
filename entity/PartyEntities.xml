@@ -495,6 +495,7 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- General Roles -->
             <mantle.party.RoleType description="Agent" roleTypeId="Agent"/>
             <mantle.party.RoleType description="Affiliate" roleTypeId="Affiliate"/>
+            <mantle.party.RoleType description="Asset Owner" roleTypeId="AssetOwner"/>
             <mantle.party.RoleType description="Carrier" roleTypeId="Carrier"/>
             <mantle.party.RoleType description="Competitor" roleTypeId="Competitor"/>
             <mantle.party.RoleType description="Consumer" roleTypeId="Consumer"/>

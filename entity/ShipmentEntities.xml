@@ -438,6 +438,24 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Failure" enumId="ShTsFailure" enumTypeId="ShipmentTrackingStatus"/>
         </seed-data>
     </entity>
+    <entity entity-name="ShipmentParty" package="mantle.shipment">
+        <field name="shipmentId" type="id" is-pk="true"/>
+        <field name="partyId" type="id" is-pk="true"/>
+        <field name="roleTypeId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="roleType"/>
+        <seed-data>
+            <moqui.basic.Enumeration description="Shipment Roles" enumId="RgpShipment" enumTypeId="RoleGroup"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpShipment" roleTypeId="AssetOwner"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpShipment" roleTypeId="CustomerShipTo"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpShipment" roleTypeId="VendorShipFrom"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpShipment" roleTypeId="Receiver"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpShipment" roleTypeId="ShipmentClerk"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpShipment" roleTypeId="Packer"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpShipment" roleTypeId="Picker"/>
+        </seed-data>
+    </entity>
     <entity entity-name="ShipmentRouteSegment" package="mantle.shipment" cache="never">
         <field name="shipmentId" type="id" is-pk="true"/>
         <field name="shipmentRouteSegmentSeqId" type="id" is-pk="true"/>
