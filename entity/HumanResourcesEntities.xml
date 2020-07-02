@@ -376,6 +376,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Personal Referral" enumId="EarbPersonal" enumTypeId="EmploymentApplicationReferredBy"/>
             <moqui.basic.Enumeration description="Internet" enumId="EarbInternet" enumTypeId="EmploymentApplicationReferredBy"/>
             <moqui.basic.Enumeration description="Advertisement" enumId="EarbAdvertisement" enumTypeId="EmploymentApplicationReferredBy"/>
+            <moqui.basic.Enumeration description="Mk Website" enumId="EarbMkWebsite" enumTypeId="EmploymentApplicationReferredBy"/>
+            <moqui.basic.Enumeration description="Friends" enumId="EarbFriends" enumTypeId="EmploymentApplicationReferredBy"/>
         </seed-data>
     </entity>
     <entity entity-name="EmploymentBenefit" package="mantle.humanres.employment" use="nontransactional">
