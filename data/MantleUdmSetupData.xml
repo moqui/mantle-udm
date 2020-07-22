@@ -61,6 +61,8 @@ along with this software (see the LICENSE.md file). If not, see
             localized="${typeDescription} - ${description?:''}${gatewayDescription ? ' - ' + gatewayDescription : ''}"/>
     <moqui.basic.LocalizedMessage locale="default" original="PostalAddressSimpleTemplate"
             localized="${address1}${unitNumber ? ' #' + unitNumber : ''}, ${city}, ${stateGeoCodeAlpha2}"/>
+    <moqui.basic.LocalizedMessage locale="default" original="PostalAddressInfoTemplate"
+            localized="${postalAddress.toName ? postalAddress.toName + ' - ' : ''}${postalAddress.attnName ? postalAddress.attnName + ' - ' : ''}${postalAddress.address1?:''}${postalAddress.unitNumber ? ' #' + postalAddress.unitNumber : ''}, ${postalAddress.address2 ? postalAddress.address2 + ', ' : ''}${postalAddress.city?:''}${postalAddressStateGeo?.geoCodeAlpha2 ? ', ' + postalAddressStateGeo.geoCodeAlpha2 : (postalAddressStateGeo?.geoName ? ', ' + postalAddressStateGeo.geoName : '')} ${postalAddress.postalCode?:''}${postalAddress.postalCodeExt ? '-' + postalAddress.postalCodeExt : ''} ${postalAddressCountryGeo?.geoCodeAlpha3?:''} ${telecomNumber?.countryCode ? telecomNumber.countryCode + '-' : ''}${telecomNumber?.areaCode ? telecomNumber.areaCode + '-' : ''}${telecomNumber?.contactNumber?:''} - ${postalTrustLevelEnum?.description ?: 'New'}"/>
     <moqui.basic.LocalizedMessage locale="default" original="TelecomNumberSimpleTemplate"
             localized="${countryCode ? countryCode + '-' : ''}${areaCode ? areaCode + '-' : ''}${contactNumber}"/>
 
