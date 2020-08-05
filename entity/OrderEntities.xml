@@ -62,6 +62,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="placedDate" type="date-time"/>
         <field name="approvedDate" type="date-time"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
+        <field name="processingStatusId" type="id" enable-audit-log="true">
+            <description>Sub-status for use when statusId=OrderProcessing for custom pre-approve status flows</description></field>
         <field name="orderRevision" type="number-integer"/>
 
         <field name="currencyUomId" type="id"/>
@@ -89,6 +91,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="grandTotal" type="currency-amount"/>
 
         <relationship type="one" title="OrderHeader" related="moqui.basic.StatusItem" short-alias="status"/>
+        <relationship type="one" title="OrderProcessing" related="moqui.basic.StatusItem" short-alias="processingStatus">
+            <key-map field-name="processingStatusId"/></relationship>
         <relationship type="one" title="Currency" related="moqui.basic.Uom" short-alias="currencyUom">
             <key-map field-name="currencyUomId"/></relationship>
         <relationship type="one" related="mantle.account.billing.BillingAccount" short-alias="billingAccount"/>
@@ -229,6 +233,8 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- Sync Status -->
             <moqui.basic.StatusType description="Sync Status" statusTypeId="Sync"/>
+            <!-- Order Processing Status: placeholder for custom processing (pre-approve) status flow -->
+            <moqui.basic.StatusType description="Order Processing Status" statusTypeId="OrderProcessing"/>
         </seed-data>
         <master>
             <detail relationship="status"/>
@@ -276,8 +282,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderId" type="id"/>
         <field name="orderPartSeqId" type="id"/>
         <field name="orderRevision" type="number-integer"/>
-        <relationship type="one" related="mantle.order.OrderHeader"/>
-        <relationship type="one-nofk" related="mantle.order.OrderPart"/>
+        <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
+        <relationship type="one-nofk" related="mantle.order.OrderPart" short-alias="orderPart"/>
         <!-- should have auto based on FK: <index name="SYSMSG_ORDER"><index-field name="orderId"/></index> -->
     </extend-entity>
     <entity entity-name="OrderSystemMessage" package="mantle.order" cache="never">
@@ -286,8 +292,43 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="externalId" type="text-short"/>
         <field name="originId" type="text-short"/>
         <field name="displayId" type="text-short"/>
-        <relationship type="one" related="mantle.order.OrderHeader"/>
-        <relationship type="one" related="moqui.service.message.SystemMessage"/>
+        <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
+        <relationship type="one" related="moqui.service.message.SystemMessage" short-alias="systemMessage"/>
+    </entity>
+
+    <entity entity-name="OrderDecision" package="mantle.order" cache="never">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="decisionDate" type="date-time" is-pk="true"/>
+        <field name="decisionByPartyId" type="id"/>
+        <field name="statusId" type="id"/>
+        <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
+        <relationship type="one" title="DecisionBy" related="mantle.party.Party" short-alias="decisionByParty">
+            <key-map field-name="decisionByPartyId" related="partyId"/></relationship>
+        <relationship type="many" related="mantle.order.OrderDecisionReason" short-alias="decisionReasons">
+            <key-map field-name="orderId"/><key-map field-name="decisionDate"/></relationship>
+    </entity>
+    <entity entity-name="OrderDecisionReason" package="mantle.order" cache="never">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="decisionDate" type="date-time" is-pk="true"/>
+        <field name="decisionReasonEnumId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
+        <relationship type="one" title="OrderDecisionReason" related="moqui.basic.Enumeration">
+            <key-map field-name="decisionReasonEnumId"/></relationship>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Order Decision Reason" enumTypeId="OrderDecisionReason"/>
+
+            <moqui.basic.Enumeration description="Fraud" enumId="OdrFraud" enumTypeId="OrderDecisionReason"/>
+            <moqui.basic.Enumeration description="Payment Not Received" enumId="OdrPayment" enumTypeId="OrderDecisionReason"/>
+            <moqui.basic.Enumeration description="Other" enumId="OdrOther" enumTypeId="OrderDecisionReason"/>
+
+            <moqui.basic.Enumeration description="Order Approved Reasons" enumId="EngOrderReasonApproved" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumGroupEnumId="EngOrderReasonApproved" enumId="OdrOther"/>
+
+            <moqui.basic.Enumeration description="Order Rejected Reasons" enumId="EngOrderReasonRejected" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumGroupEnumId="EngOrderReasonRejected" enumId="OdrFraud"/>
+            <moqui.basic.EnumGroupMember enumGroupEnumId="EngOrderReasonRejected" enumId="OdrPayment"/>
+            <moqui.basic.EnumGroupMember enumGroupEnumId="EngOrderReasonRejected" enumId="OdrOther"/>
+        </seed-data>
     </entity>
 
     <entity entity-name="OrderItem" package="mantle.order" short-alias="orderItems" cache="never">
