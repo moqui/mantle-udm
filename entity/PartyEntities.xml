@@ -1429,6 +1429,12 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Website URL - Twitter"/>
             <ContactMechPurpose contactMechPurposeId="WebRetailStore" contactMechTypeEnumId="CmtWebAddress"
                     description="Website URL - Retail Store"/>
+
+            <!-- General 'Other' purpose, mainly needed because PartyContactMech.contactMechPurposeId is a PK field, needs a non-null value -->
+            <ContactMechPurpose contactMechPurposeId="Other" contactMechTypeEnumId="" description="Other"/>
+
+            <ContactMechPurpose contactMechPurposeId="IpAddressClient" contactMechTypeEnumId="CmtIpAddress"
+                    description="IP Address - Client"/>
         </seed-data>
     </entity>
     <entity entity-name="PartyContactMech" package="mantle.party.contact" use="nontransactional" cache="never">
