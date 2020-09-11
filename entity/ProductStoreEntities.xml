@@ -59,6 +59,9 @@ along with this software (see the LICENSE.md file). If not, see
             Note that SystemMessageRemote is extended with a productStoreId so that other SystemMessageRemotes know which store they are for (if applicable).
         </description></field>
 
+        <field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+
         <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organization">
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" title="Inventory" related="mantle.facility.Facility" short-alias="inventoryFacility">
