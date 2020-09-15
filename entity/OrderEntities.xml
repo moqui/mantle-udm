@@ -312,6 +312,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="decisionDate" type="date-time" is-pk="true"/>
         <field name="decisionReasonEnumId" type="id" is-pk="true"/>
         <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
+        <relationship type="one" related="mantle.order.OrderDecision" short-alias="orderDecision"/>
         <relationship type="one" title="OrderDecisionReason" related="moqui.basic.Enumeration">
             <key-map field-name="decisionReasonEnumId"/></relationship>
         <seed-data>
