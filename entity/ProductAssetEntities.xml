@@ -683,6 +683,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="intervalProductMeterId" type="id"/>
         <field name="purchaseOrderId" type="id"/>
         <field name="userId" type="id" default="ec.user.userId"/>
+        <field name="comments" type="text-long"/>
         <relationship type="one" related="mantle.product.asset.Asset"/>
         <relationship type="one" title="AssetMaintenance" related="moqui.basic.StatusItem"/>
         <relationship type="one" title="MaintenanceType" related="moqui.basic.Enumeration">
