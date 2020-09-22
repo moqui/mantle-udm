@@ -93,6 +93,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Floor" enumId="FcTpFloor" enumTypeId="FacilityType"/>
             <moqui.basic.Enumeration description="Office" enumId="FcTpOffice" enumTypeId="FacilityType"/>
             <moqui.basic.Enumeration description="Call Center" enumId="FcTpCallCenter" enumTypeId="FacilityType"/>
+            <moqui.basic.Enumeration description="Data Center" enumId="FcTpDataCenter" enumTypeId="FacilityType"/>
             <moqui.basic.Enumeration description="Plant" enumId="FcTpPlant" enumTypeId="FacilityType"/>
             <moqui.basic.Enumeration description="Room" enumId="FcTpRoom" enumTypeId="FacilityType"/>
             <moqui.basic.Enumeration description="Retail Store" enumId="FcTpRetailStore" enumTypeId="FacilityType"/>
