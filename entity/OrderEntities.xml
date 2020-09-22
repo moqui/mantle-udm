@@ -286,6 +286,12 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one-nofk" related="mantle.order.OrderPart" short-alias="orderPart"/>
         <!-- should have auto based on FK: <index name="SYSMSG_ORDER"><index-field name="orderId"/></index> -->
     </extend-entity>
+    <entity entity-name="OrderServiceJobRun" package="mantle.order" cache="never">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="jobRunId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
+        <relationship type="one" related="moqui.service.job.ServiceJobRun" short-alias="systemMessage"/>
+    </entity>
     <entity entity-name="OrderSystemMessage" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="systemMessageId" type="id" is-pk="true"/>
