@@ -474,6 +474,13 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.issuance.AssetIssuance" short-alias="issuance"/>
         <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
     </entity>
+    <entity entity-name="OrderItemFormResponse" package="mantle.order" cache="never">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="orderItemSeqId" type="id" is-pk="true"/>
+        <field name="formResponseId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem"/>
+        <relationship type="one" related="moqui.screen.form.FormResponse" short-alias="formResponse"/>
+    </entity>
     <entity entity-name="OrderItemParty" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderItemSeqId" type="id" is-pk="true"/>
