@@ -187,6 +187,7 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="features"><detail relationship="feature"/></detail>
         </master>
     </entity>
+
     <entity entity-name="ProductAssoc" package="mantle.product">
         <field name="productId" type="id" is-pk="true"/>
         <field name="toProductId" type="id" is-pk="true"/>
@@ -240,6 +241,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="averageCustomerRating" type="number-decimal"/>
         <relationship type="one" related="mantle.product.Product"/>
     </entity>
+
     <entity entity-name="ProductClassContent" package="mantle.product">
         <field name="productClassEnumId" type="id" is-pk="true"/>
         <field name="productContentTypeEnumId" type="id" is-pk="true"/>
@@ -278,6 +280,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="productClassEnumId"/></relationship>
         <relationship type="one" related="mantle.product.feature.ProductFeatureGroup"/>
     </entity>
+
     <entity entity-name="ProductContent" package="mantle.product">
         <field name="productContentId" type="id" is-pk="true"/>
         <field name="productId" type="id" not-null="true"/>
@@ -341,6 +344,24 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Meta-Description" enumId="PcntMetaDescription" enumTypeId="ProductContentType"/>
         </seed-data>
     </entity>
+
+    <entity entity-name="ProductDbForm" package="mantle.product">
+        <field name="productId" type="id" is-pk="true"/>
+        <field name="formId" type="id" is-pk="true"/>
+        <field name="productFormTypeEnumId" type="id"/>
+        <field name="sequenceNum" type="number-integer"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related="moqui.screen.form.DbForm" short-alias="dbForm"/>
+        <relationship type="one" title="ProductFormType" related="moqui.basic.Enumeration" short-alias="productFormTypeEnum">
+            <key-map field-name="productFormTypeEnumId" related="enumId"/></relationship>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Product Form Type" enumTypeId="ProductFormType"/>
+            <moqui.basic.Enumeration description="Sales Required Info" enumId="PfmtSalesRequired" enumTypeId="ProductFormType"/>
+            <moqui.basic.Enumeration description="Sales Optional Info" enumId="PfmtSalesOptional" enumTypeId="ProductFormType"/>
+            <moqui.basic.Enumeration description="Post Sale Survey" enumId="PfmtPostSaleSurvey" enumTypeId="ProductFormType"/>
+        </seed-data>
+    </entity>
+
     <!-- TODO: deprecate by ProductUomDimension, will require data migration -->
     <entity entity-name="ProductDimension" package="mantle.product">
         <field name="productId" type="id" is-pk="true"/>

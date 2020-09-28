@@ -527,6 +527,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="description" type="text-medium"/>
         <relationship type="one" title="ProductStoreGroupType" related="moqui.basic.Enumeration">
             <key-map field-name="storeGroupTypeEnumId"/></relationship>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Product Store Group Type" enumTypeId="ProductStoreGroupType"/>
+        </seed-data>
     </entity>
     <entity entity-name="ProductStoreGroupMember" package="mantle.product.store">
         <field name="productStoreGroupId" type="id" is-pk="true"/>
