@@ -905,6 +905,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="ledgerBalance" type="currency-amount"/>
         <field name="availableBalance" type="currency-amount"/>
         <field name="balanceDate" type="date-time"/>
+        <field name="loanPaymentAmount" type="currency-amount"/>
+        <field name="loanPaymentPeriodUomId" type="id"><description>Uom with uomTypeEnumId=UT_TIME_FREQ_MEASURE</description></field>
 
         <field name="currencyUomId" type="id"/>
         <field name="postalContactMechId" type="id"/>
@@ -1155,6 +1157,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Credit Installment" enumId="BatCreditInstallment" enumTypeId="BankAccountType"/>
             <moqui.basic.Enumeration description="Credit Open" enumId="BatCreditOpen" enumTypeId="BankAccountType"/>
             <moqui.basic.Enumeration description="Credit Revolving" enumId="BatCreditRevolving" enumTypeId="BankAccountType"/>
+            <moqui.basic.Enumeration description="Credit Secured" enumId="BatCreditSecured" enumTypeId="BankAccountType"/>
         </seed-data>
     </entity>
     <entity entity-name="BankAccountCheck" package="mantle.account.method" cache="never">
