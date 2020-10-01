@@ -478,8 +478,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderItemSeqId" type="id" is-pk="true"/>
         <field name="formResponseId" type="id" is-pk="true"/>
+        <field name="partyId" type="id"><description>The Party who the FormResponse information is for or about</description></field>
+        <field name="roleTypeId" type="id"/>
         <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem"/>
         <relationship type="one" related="moqui.screen.form.FormResponse" short-alias="formResponse"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
     </entity>
     <entity entity-name="OrderItemParty" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
