@@ -255,7 +255,8 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- =============== -->
     <!-- Index Data Feed -->
     <moqui.entity.feed.DataFeed dataFeedId="MantleSales" dataFeedTypeEnumId="DTFDTP_RT_PUSH"
-            feedName="Mantle Sales Data" feedReceiveServiceName="org.moqui.search.SearchServices.index#DataDocuments">
+            feedName="Mantle Sales Data" feedReceiveServiceName="org.moqui.search.SearchServices.index#DataDocuments"
+            feedDeleteServiceName="org.moqui.search.SearchServices.delete#DataDocument">
         <documents dataDocumentId="MantleSalesOrderPart"/>
         <documents dataDocumentId="MantleSalesOrderItem"/>
         <documents dataDocumentId="MantleSalesInvoice"/>
