@@ -341,7 +341,11 @@ along with this software (see the LICENSE.md file). If not, see
             <description>Vendor or other invoice number.</description></field>
         <field name="otherPartyOrderId" type="text-short" enable-audit-log="update"/>
         <field name="description" type="text-medium"/>
-        <field name="currencyUomId" type="id"/>
+        <field name="currencyUomId" type="id"><description>The original (external) currency</description></field>
+        <!-- maybe better not to track these here on Invoice (or Payment, etc) because would be redundant with AcctgTrans and would need the 2 currency UOMs for from and to parties when both are internal orgs
+        <field name="baseCurrencyUomId" type="id"><description>The unit of account (base) currency used to post to the GL, must match PartyAcctgPreference.baseCurrencyUomId</description></field>
+        <field name="localCurrencyUomId" type="id"><description>The local (internal) currency, also used to post to the GL, must match PartyAcctgPreference.localCurrencyUomId</description></field>
+        -->
         <field name="overrideOrgPartyId" type="id"><description>Used to specify the organization override rather than
             using the fromPartyId and/or toPartyId (depending on which is an internal org).</description></field>
 
