@@ -345,7 +345,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="parentItemSeqId" type="id"/>
 
         <field name="itemTypeEnumId" type="id"/>
-        <field name="productId" type="id"/>
+        <field name="productId" type="id" enable-audit-log="update"/>
         <!-- for future reference when configurable products are supported: <field name="productConfigSavedId" type="id"/> -->
         <field name="productFeatureId" type="id"/>
         <field name="otherPartyProductId" type="text-short"/>
