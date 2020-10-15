@@ -512,6 +512,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="parameterValue" type="text-medium"/>
         <field name="sequenceNum" type="number-integer"/>
         <relationship type="one" related="mantle.product.ProductParameter" short-alias="productParameter"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" related="mantle.marketing.segment.MarketSegment" short-alias="marketSegment"/>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="productStore"/>
         <relationship type="one" related="mantle.product.ProductUomDimension" short-alias="productUomDimension"/>
