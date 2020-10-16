@@ -500,7 +500,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="OrderNote" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="noteDate" type="date-time" is-pk="true" default="ec.user.nowTimestamp"/>
-        <field name="noteText" type="text-long" enable-audit-log="true"/>
+        <field name="noteText" type="text-long" enable-audit-log="update"/>
         <field name="internalNote" type="text-indicator"/>
         <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related="mantle.order.OrderHeader"/>
