@@ -453,7 +453,7 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Product Identification Type -->
             <moqui.basic.EnumerationType description="Product Identification Type" enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="ISBN" enumId="PidtIsbn"  enumTypeId="ProductIdentificationType"/>
-            <moqui.basic.Enumeration description="Manufacturer Model Number" enumId="PidtIsbnMfgModelNum"  enumTypeId="ProductIdentificationType"/>
+            <moqui.basic.Enumeration description="Mfg Model Number" enumId="PidtMfgModelNum"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="Other" enumId="PidtOther"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="SKU" enumId="PidtSku"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="UPCA" enumId="PidtUpca"  enumTypeId="ProductIdentificationType"/>
