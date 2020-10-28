@@ -1379,6 +1379,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="effectiveDate" type="date-time" enable-audit-log="update"><description>When the payment is issued (delivered)</description></field>
         <field name="settlementDate" type="date-time"><description>When the payment is settled (confirmed)</description></field>
+        <field name="dueDate" type="date-time"><description>Due Date for this Payment, different concept than Invoice Due Date for planned split payments, etc</description></field>
         <field name="paymentAuthCode" type="text-short"/>
         <field name="paymentRefNum" type="text-short" enable-audit-log="update"/>
         <field name="comments" type="text-medium"/>
