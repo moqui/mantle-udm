@@ -617,6 +617,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderPartSeqId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
+        <field name="sequenceNum" type="number-integer"/>
         <relationship type="one" related="mantle.order.OrderPart" short-alias="orderPart"/>
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one-nofk" related="mantle.party.Person" short-alias="person"/>
