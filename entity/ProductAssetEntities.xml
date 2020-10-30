@@ -462,6 +462,21 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
     -->
 
+    <entity entity-name="AssetPaymentMethod" package="mantle.product.asset">
+        <field name="assetId" type="id" is-pk="true"/>
+        <field name="paymentMethodId" type="id" is-pk="true"/>
+        <field name="typeEnumId" type="id"/>
+        <field name="sequenceNum" type="number-integer"/>
+        <relationship type="one" related="mantle.product.asset.Asset"/>
+        <relationship type="one" related="mantle.account.method.PaymentMethod"/>
+        <relationship type="one" title="AssetPaymentMethodType" related="moqui.basic.Enumeration">
+            <key-map field-name="typeEnumId"/></relationship>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Asset Payment Method Type" enumTypeId="AssetPaymentMethodType"/>
+            <moqui.basic.Enumeration enumId="ApmtSecuredLoan" description="Secured Loan" enumTypeId="AssetPaymentMethodType"/>
+        </seed-data>
+    </entity>
+
     <entity entity-name="AssetPool" package="mantle.product.asset">
         <field name="assetPoolId" type="id" is-pk="true"/>
         <field name="pseudoId" type="text-short" default="assetPoolId"/>

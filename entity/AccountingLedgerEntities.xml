@@ -473,7 +473,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="taxClassificationEnumId" type="id"/>
         <field name="employerClassEnumId" type="id"/>
         <field name="cogsMethodEnumId" type="id"/>
-        <field name="baseCurrencyUomId" type="id"/>
+        <field name="baseCurrencyUomId" type="id"><description>The unit of account currency for the Internal Organization</description></field>
         <field name="localCurrencyUomId" type="id"><description>For unstable local currencies when different from a more stable base currency</description></field>
         <field name="invoiceSequenceEnumId" type="id"/>
         <field name="invoiceIdPrefix" type="text-short"/>
@@ -641,9 +641,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="voucherRef" type="text-short"/>
         <field name="voucherDate" type="date-time"/>
         <field name="groupStatusId" type="id"/>
-        <field name="amountUomId" type="id"/>
-        <field name="localCurrencyUomId" type="id"/>
-        <field name="originalCurrencyUomId" type="id"/>
+        <field name="amountUomId" type="id"><description>The unit of account (base) currency, must match PartyAcctgPreference.baseCurrencyUomId</description></field>
+        <field name="localCurrencyUomId" type="id"><description>The local currency for the Organization, must match PartyAcctgPreference.localCurrencyUomId</description></field>
+        <field name="originalCurrencyUomId" type="id"><description>The original currency for the invoice, payment, etc - the currency used to interact with the external Party</description></field>
 
         <field name="assetId" type="id"/>
         <field name="assetIssuanceId" type="id"/>

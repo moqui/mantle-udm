@@ -345,7 +345,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="parentItemSeqId" type="id"/>
 
         <field name="itemTypeEnumId" type="id"/>
-        <field name="productId" type="id"/>
+        <field name="productId" type="id" enable-audit-log="update"/>
         <!-- for future reference when configurable products are supported: <field name="productConfigSavedId" type="id"/> -->
         <field name="productFeatureId" type="id"/>
         <field name="otherPartyProductId" type="text-short"/>
@@ -478,8 +478,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderItemSeqId" type="id" is-pk="true"/>
         <field name="formResponseId" type="id" is-pk="true"/>
+        <field name="partyId" type="id"><description>The Party who the FormResponse information is for or about</description></field>
+        <field name="roleTypeId" type="id"/>
         <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem"/>
         <relationship type="one" related="moqui.screen.form.FormResponse" short-alias="formResponse"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
     </entity>
     <entity entity-name="OrderItemParty" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
@@ -496,7 +500,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="OrderNote" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="noteDate" type="date-time" is-pk="true" default="ec.user.nowTimestamp"/>
-        <field name="noteText" type="text-long" enable-audit-log="true"/>
+        <field name="noteText" type="text-long" enable-audit-log="update"/>
         <field name="internalNote" type="text-indicator"/>
         <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related="mantle.order.OrderHeader"/>
@@ -613,6 +617,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderPartSeqId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
+        <field name="sequenceNum" type="number-integer"/>
         <relationship type="one" related="mantle.order.OrderPart" short-alias="orderPart"/>
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one-nofk" related="mantle.party.Person" short-alias="person"/>

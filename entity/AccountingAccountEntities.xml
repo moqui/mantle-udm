@@ -341,7 +341,11 @@ along with this software (see the LICENSE.md file). If not, see
             <description>Vendor or other invoice number.</description></field>
         <field name="otherPartyOrderId" type="text-short" enable-audit-log="update"/>
         <field name="description" type="text-medium"/>
-        <field name="currencyUomId" type="id"/>
+        <field name="currencyUomId" type="id"><description>The original (external) currency</description></field>
+        <!-- maybe better not to track these here on Invoice (or Payment, etc) because would be redundant with AcctgTrans and would need the 2 currency UOMs for from and to parties when both are internal orgs
+        <field name="baseCurrencyUomId" type="id"><description>The unit of account (base) currency used to post to the GL, must match PartyAcctgPreference.baseCurrencyUomId</description></field>
+        <field name="localCurrencyUomId" type="id"><description>The local (internal) currency, also used to post to the GL, must match PartyAcctgPreference.localCurrencyUomId</description></field>
+        -->
         <field name="overrideOrgPartyId" type="id"><description>Used to specify the organization override rather than
             using the fromPartyId and/or toPartyId (depending on which is an internal org).</description></field>
 
@@ -905,6 +909,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="ledgerBalance" type="currency-amount"/>
         <field name="availableBalance" type="currency-amount"/>
         <field name="balanceDate" type="date-time"/>
+        <field name="loanPaymentAmount" type="currency-amount"/>
+        <field name="loanPaymentPeriodUomId" type="id"><description>Uom with uomTypeEnumId=UT_TIME_FREQ_MEASURE</description></field>
 
         <field name="currencyUomId" type="id"/>
         <field name="postalContactMechId" type="id"/>
@@ -1155,6 +1161,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Credit Installment" enumId="BatCreditInstallment" enumTypeId="BankAccountType"/>
             <moqui.basic.Enumeration description="Credit Open" enumId="BatCreditOpen" enumTypeId="BankAccountType"/>
             <moqui.basic.Enumeration description="Credit Revolving" enumId="BatCreditRevolving" enumTypeId="BankAccountType"/>
+            <moqui.basic.Enumeration description="Credit Secured" enumId="BatCreditSecured" enumTypeId="BankAccountType"/>
         </seed-data>
     </entity>
     <entity entity-name="BankAccountCheck" package="mantle.account.method" cache="never">
@@ -1372,6 +1379,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="effectiveDate" type="date-time" enable-audit-log="update"><description>When the payment is issued (delivered)</description></field>
         <field name="settlementDate" type="date-time"><description>When the payment is settled (confirmed)</description></field>
+        <field name="dueDate" type="date-time"><description>Due Date for this Payment, different concept than Invoice Due Date for planned split payments, etc</description></field>
         <field name="paymentAuthCode" type="text-short"/>
         <field name="paymentRefNum" type="text-short" enable-audit-log="update"/>
         <field name="comments" type="text-medium"/>

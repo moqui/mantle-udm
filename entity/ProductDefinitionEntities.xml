@@ -346,14 +346,19 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
 
     <entity entity-name="ProductDbForm" package="mantle.product">
-        <field name="productId" type="id" is-pk="true"/>
-        <field name="formId" type="id" is-pk="true"/>
+        <field name="productDbFormId" type="id" is-pk="true"/>
+        <field name="productId" type="id" not-null="true"/>
+        <field name="formId" type="id" not-null="true"/>
         <field name="productFormTypeEnumId" type="id"/>
         <field name="sequenceNum" type="number-integer"/>
+        <field name="roleTypeId" type="id"/>
+        <field name="marketSegmentId" type="id"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" related="moqui.screen.form.DbForm" short-alias="dbForm"/>
         <relationship type="one" title="ProductFormType" related="moqui.basic.Enumeration" short-alias="productFormTypeEnum">
             <key-map field-name="productFormTypeEnumId" related="enumId"/></relationship>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
+        <relationship type="one" related="mantle.marketing.segment.MarketSegment" short-alias="marketSegment"/>
         <seed-data>
             <moqui.basic.EnumerationType description="Product Form Type" enumTypeId="ProductFormType"/>
             <moqui.basic.Enumeration description="Sales Required Info" enumId="PfmtSalesRequired" enumTypeId="ProductFormType"/>
@@ -448,7 +453,7 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Product Identification Type -->
             <moqui.basic.EnumerationType description="Product Identification Type" enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="ISBN" enumId="PidtIsbn"  enumTypeId="ProductIdentificationType"/>
-            <moqui.basic.Enumeration description="Manufacturer Model Number" enumId="PidtIsbnMfgModelNum"  enumTypeId="ProductIdentificationType"/>
+            <moqui.basic.Enumeration description="Mfg Model Number" enumId="PidtMfgModelNum"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="Other" enumId="PidtOther"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="SKU" enumId="PidtSku"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="UPCA" enumId="PidtUpca"  enumTypeId="ProductIdentificationType"/>
@@ -501,11 +506,15 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productParameterId" type="id" not-null="true"/>
         <field name="productId" type="id"><description>Optional, if null option applies to all products that use the ProductParameter</description></field>
         <field name="marketSegmentId" type="id"/>
+        <field name="productStoreId" type="id"/>
         <field name="productUomDimensionId" type="id"><description>For options associated with a ProductUomDimension</description></field>
         <field name="productOtherIdentId" type="id"><description>For options associated with a ProductOtherIdentification</description></field>
         <field name="parameterValue" type="text-medium"/>
+        <field name="sequenceNum" type="number-integer"/>
         <relationship type="one" related="mantle.product.ProductParameter" short-alias="productParameter"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" related="mantle.marketing.segment.MarketSegment" short-alias="marketSegment"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="productStore"/>
         <relationship type="one" related="mantle.product.ProductUomDimension" short-alias="productUomDimension"/>
         <relationship type="one" related="mantle.product.ProductOtherIdentification" short-alias="productOtherIdent"/>
     </entity>

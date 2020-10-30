@@ -337,9 +337,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="description" type="text-long"/>
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="userId" type="id" default="ec.user.userId"/>
+        <field name="partyIdTypeEnumId" type="id"/>
         <relationship type="one" related="mantle.party.Party"/>
         <relationship type="one" title="PartyContentType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyContentTypeEnumId"/></relationship>
+        <relationship type="one" title="PartyIdType" related="moqui.basic.Enumeration" short-alias="partyIdTypeEnum">
+            <key-map field-name="partyIdTypeEnumId"/></relationship>
         <seed-data>
             <!-- Party Content Type -->
             <moqui.basic.EnumerationType description="Party Content Type" enumTypeId="PartyContentType"/>
@@ -809,6 +812,16 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="roleTypeId" type="id" is-pk="true"/>
         <relationship type="one" related="mantle.party.PartySettingType" short-alias="settingType"/>
         <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
+    </entity>
+
+    <entity entity-name="PartySystemMessage" package="mantle.party" cache="never">
+        <field name="partyId" type="id" is-pk="true"/>
+        <field name="systemMessageId" type="id" is-pk="true"/>
+        <field name="partyIdTypeEnumId" type="id"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="moqui.service.message.SystemMessage" short-alias="systemMessage"/>
+        <relationship type="one" title="PartyIdType" related="moqui.basic.Enumeration" short-alias="partyIdTypeEnum">
+            <key-map field-name="partyIdTypeEnumId"/></relationship>
     </entity>
 
     <!-- ========================================================= -->
@@ -1447,6 +1460,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="comments" type="text-medium"/>
         <field name="allowSolicitation" type="text-indicator"/>
         <field name="usedSince" type="date"/>
+        <field name="usedUntil" type="date"/>
         <field name="verifyCode" type="text-medium"/>
         <relationship type="one" related="mantle.party.Party"/>
         <relationship type="one" related="mantle.party.contact.ContactMech" short-alias="contactMech" mutable="true"/>
