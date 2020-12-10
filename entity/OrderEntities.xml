@@ -146,11 +146,11 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- An Open Order is like a shopping cart -->
             <moqui.basic.StatusItem description="Open (Tentative)" sequenceNum="1" statusId="OrderOpen" statusTypeId="OrderHeader"/>
             <!-- Request Quote done by Customer (or at Customer's request) -->
-            <moqui.basic.StatusItem description="Quote Requested" sequenceNum="2" statusId="OrderRequested" statusTypeId="OrderHeader"/>
+            <moqui.basic.StatusItem description="Quote Requested by Customer" sequenceNum="2" statusId="OrderRequested" statusTypeId="OrderHeader"/>
             <!-- Propose done by Vendor -->
-            <moqui.basic.StatusItem description="Proposed by Vendor" sequenceNum="3" statusId="OrderProposed" statusTypeId="OrderHeader"/>
+            <moqui.basic.StatusItem description="Quote Proposed by Vendor" sequenceNum="3" statusId="OrderProposed" statusTypeId="OrderHeader"/>
             <!-- Place done by Customer (or at Customer's request) -->
-            <moqui.basic.StatusItem description="Placed" sequenceNum="4" statusId="OrderPlaced" statusTypeId="OrderHeader"/>
+            <moqui.basic.StatusItem description="Placed by Customer" sequenceNum="4" statusId="OrderPlaced" statusTypeId="OrderHeader"/>
             <moqui.basic.StatusItem description="Held" sequenceNum="5" statusId="OrderHold" statusTypeId="OrderHeader"/>
 
             <moqui.basic.StatusItem description="Processing" sequenceNum="11" statusId="OrderProcessing" statusTypeId="OrderHeader"/>
