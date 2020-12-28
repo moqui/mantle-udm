@@ -175,6 +175,7 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Work Effort Purpose -->
             <moqui.basic.EnumerationType description="Work Effort Purpose" enumTypeId="WorkEffortPurpose"/>
 
+            <!-- Purposes for Task type WE -->
             <moqui.basic.Enumeration description="Task" enumId="WepTask" parentEnumId="WetTask" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="Bug Fix" enumId="WepFix" parentEnumId="WetTask" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="New Feature" enumId="WepNewFeature" parentEnumId="WetTask" enumTypeId="WorkEffortPurpose"/>
@@ -184,6 +185,14 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Document" enumId="WepDocument" parentEnumId="WetTask" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="Communication" enumId="WepCommunication" parentEnumId="WetTask" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="Placeholder" enumId="WepPlaceholder" parentEnumId="WetTask" enumTypeId="WorkEffortPurpose"/>
+
+            <!-- Purposes for Project type WE -->
+            <moqui.basic.Enumeration description="Organization Management" enumId="WepPrOrgMgmt" parentEnumId="WetProject" enumTypeId="WorkEffortPurpose"/>
+            <moqui.basic.Enumeration description="Training" enumId="WepPrTraining" parentEnumId="WetProject" enumTypeId="WorkEffortPurpose"/>
+            <moqui.basic.Enumeration description="IT Security" enumId="WepPrItSecurity" parentEnumId="WetProject" enumTypeId="WorkEffortPurpose"/>
+            <moqui.basic.Enumeration description="Marketing" enumId="WepPrMarketing" parentEnumId="WetProject" enumTypeId="WorkEffortPurpose"/>
+            <moqui.basic.Enumeration description="Product Development" enumId="WepPrProdDev" parentEnumId="WetProject" enumTypeId="WorkEffortPurpose"/>
+            <moqui.basic.Enumeration description="Product Fulfillment" enumId="WepPrProdFulfill" parentEnumId="WetProject" enumTypeId="WorkEffortPurpose"/>
 
             <moqui.basic.Enumeration description="Manufacturing" enumId="WepManufacturing" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="Assembling" enumId="WepAssembling" parentEnumId="WepManufacturing" enumTypeId="WorkEffortPurpose"/>
