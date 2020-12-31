@@ -456,8 +456,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Mfg Model Number" enumId="PidtMfgModelNum"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="Other" enumId="PidtOther"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="SKU" enumId="PidtSku"  enumTypeId="ProductIdentificationType"/>
-            <moqui.basic.Enumeration description="UPCA" enumId="PidtUpca"  enumTypeId="ProductIdentificationType"/>
-            <moqui.basic.Enumeration description="UPCE" enumId="PidtUpce"  enumTypeId="ProductIdentificationType"/>
+            <moqui.basic.Enumeration description="UPC-A" enumId="PidtUpca"  enumTypeId="ProductIdentificationType"/>
+            <moqui.basic.Enumeration description="UPC-E" enumId="PidtUpce"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="EAN" enumId="PidtEan"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="GTIN" enumId="PidtGtin"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="Library of Congress" enumId="PidtLoc"  enumTypeId="ProductIdentificationType"/>
