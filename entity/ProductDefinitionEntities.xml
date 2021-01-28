@@ -757,6 +757,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productCategoryId" type="id"/>
         <field name="contentLocation" type="text-medium"/>
         <field name="categoryContentTypeEnumId" type="id"/>
+        <field name="productStoreId" type="id"><description>For content limited to a specific store</description></field>
         <field name="fromDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="thruDate" type="date-time"/>
         <field name="locale" type="text-short"/>
@@ -766,6 +767,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.category.ProductCategory"/>
         <relationship type="one" title="ProductCategoryContentType" related="moqui.basic.Enumeration">
             <key-map field-name="categoryContentTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <index name="PRDCAT_CNT_CTTP"><index-field name="productCategoryId"/><index-field name="categoryContentTypeEnumId"/></index>
         <seed-data>
             <!-- Product Category Content Type -->
