@@ -1285,6 +1285,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="parentResourceId" type="id"/>
         <field name="description" type="text-medium"/>
         <field name="contentLocation" type="text-medium"/>
+        <field name="remoteResourceId" type="text-medium"/>
 
         <field name="initServiceName" type="text-medium">
             <description>Service called when a new subscription to a resource begins. Must implement the
