@@ -652,6 +652,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderItemSeqId" type="id" is-pk="true"/>
         <field name="workEffortId" type="id" is-pk="true"/>
+        <field name="requiredWork" type="text-indicator">
+            <description>If Y require WorkEffort Status of Complete, Closed, or Cancelled to consider OrderItem fulfilled</description></field>
         <relationship type="one" related="mantle.order.OrderItem"/>
         <relationship type="one" related="mantle.work.effort.WorkEffort"/>
     </entity>
