@@ -37,6 +37,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="markupShipmentShipLabels" type="text-indicator"/>
         <field name="shipmentAnyCarrierMethod" type="text-indicator">
             <description>If Y don't restrict Shipment Shipping Options by ProductStoreShipOption records during fulfillment, show all Shipment Methods for Carriers associated with shipping gateway</description></field>
+        <field name="insurancePackageThreshold" type="currency-amount">
+            <description>If total cost of items in a package is above this amount buy insurance on that package</description></field>
 
         <field name="autoApproveDelay" type="number-integer"><description>Minimum time in minutes to wait before trying to auto-approve;
             defaults to 0 which means auto-approve immediately (via SECA rule), otherwise delayed auto-approve handled with service job</description></field>
@@ -400,7 +402,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="billingAccount" type="text-short"><description>Third party or other carrier account number</description></field>
         <field name="billingZip" type="text-short"/>
         <field name="billingCountry" type="text-short"><description>For Shippo this is the 2 letter ISO country code</description></field>
-        <field name="insurancePackageThreshold" type="currency-amount"><description>If total cost of items in a package is above this amount buy insurance on that package</description></field>
         <field name="insurancePercent" type="number-decimal"><description>For insurance estimate records the percent of insured amount that is the cost of the insurance</description></field>
         <field name="defaultTradeTermEnumId" type="id"/>
         <!-- on further analysis doesn't make sense to configure at the store/gateway level:
