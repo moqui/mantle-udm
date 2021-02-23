@@ -409,6 +409,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="packageServiceAmount" type="currency-amount"/>
         <field name="packageOtherAmount" type="currency-amount"/>
         <field name="codAmount" type="currency-amount"/>
+        <field name="insuranceAmount" type="currency-amount"><description>Usually an estimate: insuredAmount * (ProductStoreShippingGateway.insurancePercent/100)</description></field>
         <field name="insuredAmount" type="currency-amount"/>
         <!-- should use costUomId on ShipmentRouteSegment or Shipment: <field name="amountUomId" type="id"/> -->
         <relationship type="one-nofk" related="mantle.shipment.Shipment" short-alias="shipment"/>
