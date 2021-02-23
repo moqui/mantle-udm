@@ -233,6 +233,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Packaging For" enumId="PatPackagingFor" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Alternative Packaging" enumId="PatAlternativePkg" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Used to Produce" enumId="PatUsedToProduce" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Requires" enumId="PatRequires" enumTypeId="ProductAssocType"/>
         </seed-data>
     </entity>
     <entity entity-name="ProductCalculatedInfo" package="mantle.product" cache="never">
