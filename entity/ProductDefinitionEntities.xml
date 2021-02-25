@@ -211,29 +211,34 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Product Assoc Type -->
             <moqui.basic.EnumerationType description="Product Association Type" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Also Bought" enumId="PatAlsoBought" enumTypeId="ProductAssocType"/>
+
             <moqui.basic.Enumeration description="Up-Sell (Upgrade)" enumId="PatUpsell" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Cross-Sell (Complementary)" enumId="PatCrossSell" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Incompatible" enumId="PatIncompatible" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="New Version, Replacement" enumId="PatReplacement" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Actual Product Component" enumId="PatComponent" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Equivalent or Substitute" enumId="PatEquivalent" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Product Variant" enumId="PatVariant" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Unique Item" enumId="PatUniqueItem" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Accessory" enumId="PatAccessory" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Add On For" enumId="PatAddOn" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Refurbished Equivalent" enumId="PatRefurbished" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Repair Service" enumId="PatRepairService" enumTypeId="ProductAssocType"/>
+
+            <moqui.basic.Enumeration description="Cross-Sell (Complementary)" enumId="PatCrossSell" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Also Bought" enumId="PatAlsoBought" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Alternative Packaging" enumId="PatAlternativePkg" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Refurbished Equivalent" enumId="PatRefurbished" enumTypeId="ProductAssocType"/>
+
+            <moqui.basic.Enumeration description="Product Variant" enumId="PatVariant" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Requires" enumId="PatRequires" enumTypeId="ProductAssocType"/>
+
+            <moqui.basic.Enumeration description="Incompatible" enumId="PatIncompatible" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Unique Item" enumId="PatUniqueItem" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Auto Reorder (needs recurrenceInfoId)" enumId="PatAutoReorder" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Revision" enumId="PatRevision" enumTypeId="ProductAssocType"/>
+
             <moqui.basic.Enumeration description="Manufacturing Bill of Materials" parentEnumId="PatComponent" enumId="PatMfgBom" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Engineering Bill of Materials" parentEnumId="PatComponent" enumId="PatEngBom" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Product Manufactured As" enumId="PatMfgAs" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Configurable Product Instance" enumId="PatConfigInstance" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Packaging For" enumId="PatPackagingFor" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Alternative Packaging" enumId="PatAlternativePkg" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Used to Produce" enumId="PatUsedToProduce" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Requires" enumId="PatRequires" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Configurable Product Instance" enumId="PatConfigInstance" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Actual Product Component" enumId="PatComponent" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Packaging For" enumId="PatPackagingFor" enumTypeId="ProductAssocType"/>
         </seed-data>
     </entity>
     <entity entity-name="ProductCalculatedInfo" package="mantle.product" cache="never">
