@@ -50,6 +50,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="shipWorkEffortId" type="id" enable-audit-log="update"/>
         <field name="receiveWorkEffortId" type="id"/>
+        <field name="assemblyWorkEffortId" type="id"/>
 
         <field name="estimatedShipCost" type="currency-amount"/>
         <field name="costUomId" type="id"/>
@@ -84,6 +85,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="shipWorkEffortId"/></relationship>
         <relationship type="one" title="Receive" related="mantle.work.effort.WorkEffort" short-alias="receiveWorkEffort">
             <key-map field-name="receiveWorkEffortId"/></relationship>
+        <relationship type="one" title="Assembly" related="mantle.work.effort.WorkEffort" short-alias="assemblyWorkEffort">
+            <key-map field-name="assemblyWorkEffortId"/></relationship>
         <relationship type="one" title="Cost" related="moqui.basic.Uom" short-alias="costUom">
             <key-map field-name="costUomId"/></relationship>
         <relationship type="one" title="SignatureRequired" related="moqui.basic.Enumeration" short-alias="signatureRequiredEnum">
