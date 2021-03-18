@@ -40,6 +40,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="assetAllowIssueOverQoh" type="text-indicator"/>
         <field name="assetInventoryLocRequire" type="text-indicator"/>
         <field name="defaultDaysToShip" type="number-integer"/>
+        <field name="externalId" type="text-short"><description>ID for the Facility in the direct upstream system it came from if it came from an external system</description></field>
+        <field name="originId" type="text-short"><description>ID for the Facility in the original system it came from (system of record) if not the direct upstream system</description></field>
+
         <relationship type="one" title="FacilityType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="facilityTypeEnumId"/></relationship>
         <relationship type="one" title="Parent" related="mantle.facility.Facility" short-alias="parent">

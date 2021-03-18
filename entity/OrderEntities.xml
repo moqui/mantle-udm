@@ -75,7 +75,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="displayId" type="text-short"><description>ID to display to customers, can be different from orderId and/or externalId</description></field>
         <field name="externalId" type="text-short"><description>ID for the order in the direct upstream system it came from if it came from an external system</description></field>
         <field name="externalRevision" type="text-short"/>
-        <field name="originId" type="text-short"><description>ID for the order in the original system it came from if not the direct upstream system</description></field>
+        <field name="originId" type="text-short"><description>ID for the order in the original system it came from (system of record) if not the direct upstream system</description></field>
         <field name="syncStatusId" type="id"/>
         <field name="systemMessageRemoteId" type="id"/>
 
@@ -160,9 +160,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusItem description="Completed" sequenceNum="21" statusId="OrderCompleted" statusTypeId="OrderHeader"/>
 
             <!-- Reject done by Vendor -->
-            <moqui.basic.StatusItem description="Rejected" sequenceNum="98" statusId="OrderRejected" statusTypeId="OrderHeader"/>
+            <moqui.basic.StatusItem description="Rejected by Vendor" sequenceNum="98" statusId="OrderRejected" statusTypeId="OrderHeader"/>
             <!-- Cancel done by Customer (or at Customer's request) -->
-            <moqui.basic.StatusItem description="Cancelled" sequenceNum="99" statusId="OrderCancelled" statusTypeId="OrderHeader"/>
+            <moqui.basic.StatusItem description="Cancelled by Customer" sequenceNum="99" statusId="OrderCancelled" statusTypeId="OrderHeader"/>
 
             <moqui.basic.StatusItem description="Wish List" sequenceNum="101" statusId="OrderWishList" statusTypeId="OrderHeader"/>
             <moqui.basic.StatusItem description="Gift Registry" sequenceNum="102" statusId="OrderGiftRegistry" statusTypeId="OrderHeader"/>

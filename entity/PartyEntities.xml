@@ -621,7 +621,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Government" roleTypeId="OrgGovernment"/>
             <mantle.party.RoleType description="Government Agency" roleTypeId="OrgGovernmentAgency"/>
             <mantle.party.RoleType description="Household" roleTypeId="OrgHousehold"/>
-            <mantle.party.RoleType description="Internal" roleTypeId="OrgInternal"/>
+            <mantle.party.RoleType description="Internal Organization" roleTypeId="OrgInternal"/>
             <mantle.party.RoleType description="Team" roleTypeId="OrgTeam"/>
             <mantle.party.RoleType description="Unit" roleTypeId="OrgUnit"/>
             <mantle.party.RoleType description="Parent" roleTypeId="OrgParent"/>
