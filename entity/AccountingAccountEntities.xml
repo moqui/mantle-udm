@@ -787,16 +787,20 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
         <relationship type="one" related="mantle.account.invoice.SettlementTerm"/>
     </entity>
-    <entity entity-name="SettlementTerm" package="mantle.account.invoice">
+    <entity entity-name="SettlementTerm" package="mantle.account.invoice" cache="true">
         <field name="settlementTermId" type="id" is-pk="true"/>
         <field name="termTypeEnumId" type="id"/>
         <field name="description" type="text-medium"/>
         <field name="termValue" type="number-decimal"/>
         <field name="termValueUomId" type="id"/>
+        <field name="orderPmtServiceRegisterId" type="id"><description>Use ServiceRegister.serviceTypeEnumId = 'SettleTermOrderPmt';
+                service will receive in-parameters: orderId, orderPartSeqId, and settlementTermId</description></field>
         <relationship type="one" title="TermType" related="moqui.basic.Enumeration">
             <key-map field-name="termTypeEnumId"/></relationship>
         <relationship type="one" title="TermValue" related="moqui.basic.Uom">
             <key-map field-name="termValueUomId"/></relationship>
+        <relationship type="one" related="moqui.service.ServiceRegister" short-alias="orderPmtServiceRegister">
+            <key-map field-name="orderPmtServiceRegisterId"/></relationship>
         <seed-data>
             <!-- Term Type; these are used for AgreementTerm as well -->
             <moqui.basic.EnumerationType description="Term Type" enumTypeId="TermType"/>
@@ -850,6 +854,12 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Preferred Freight" enumId="TtFreight" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Other" enumId="TtOther" enumTypeId="TermType"/>
 
+            <moqui.basic.Enumeration description="Payment Term Types" enumId="EngPaymentTermType" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumGroupEnumId="EngPaymentTermType" enumId="TtFinPaymentDays"/>
+            <moqui.basic.EnumGroupMember enumGroupEnumId="EngPaymentTermType" enumId="TtFinPaymentDisc"/>
+            <moqui.basic.EnumGroupMember enumGroupEnumId="EngPaymentTermType" enumId="TtFinPaymentDayCurMonth"/>
+            <moqui.basic.EnumGroupMember enumGroupEnumId="EngPaymentTermType" enumId="TtFinPaymentDayNextMonth"/>
+
             <!-- NOTE: SettlementTerm is not an Enumeration because it needs additional fields -->
             <mantle.account.invoice.SettlementTerm settlementTermId="Immediate" termTypeEnumId="TtFinPaymentDays"
                     description="Immediate (Due on Delivery)" termValue="0" termValueUomId="TF_day"/>
@@ -878,6 +888,9 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Net Due in 30 Days, 2% Discount within 10 Days" termValue="30" termValueUomId="TF_day"/>
             <mantle.account.invoice.SettlementTerm settlementTermId="Net45Disc2Pct15" termTypeEnumId="TtFinPaymentDisc"
                     description="Net Due in 45 Days, 2% Discount within 15 Days" termValue="45" termValueUomId="TF_day"/>
+
+            <!-- ServiceRegisterType -->
+            <moqui.basic.Enumeration description="Settlement Term - Generate Order Payments" enumId="SettleTermOrderPmt" enumTypeId="ServiceRegisterType"/>
         </seed-data>
     </entity>
 
