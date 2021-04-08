@@ -186,6 +186,8 @@ along with this software (see the LICENSE.md file). If not, see
                     parentEnumId="AsClsInventory" enumTypeId="AssetClass"/>
             <moqui.basic.Enumeration description="Inventory - Finished Good" enumId="AsClsInventoryFin"
                     parentEnumId="AsClsInventory" enumTypeId="AssetClass"/>
+            <moqui.basic.Enumeration description="Inventory - Digital Good" enumId="AsClsInventoryDig"
+                    parentEnumId="AsClsInventory" enumTypeId="AssetClass"/>
 
             <moqui.basic.Enumeration description="Warehouse Equipment" enumId="AsClsWhEquip" enumTypeId="AssetClass"/>
             <moqui.basic.Enumeration description="Manufacturing Equipment" enumId="AsClsMfgEquip" enumTypeId="AssetClass"/>
