@@ -199,6 +199,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Routing" enumId="WepRouting" parentEnumId="WepManufacturing" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="Routing Task" enumId="WepRoutingTask" parentEnumId="WepManufacturing" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="Production Run" enumId="WepProductionRun" parentEnumId="WepManufacturing" enumTypeId="WorkEffortPurpose"/>
+            <moqui.basic.Enumeration description="Pick Assembly" enumId="WepPickAssembly" parentEnumId="WepManufacturing" enumTypeId="WorkEffortPurpose"/>
 
             <moqui.basic.Enumeration description="Shipment Pick/Load/Ship" enumId="WepShipmentShip" enumTypeId="WorkEffortPurpose"/>
             <moqui.basic.Enumeration description="Shipment Receive" enumId="WepShipmentReceive" enumTypeId="WorkEffortPurpose"/>

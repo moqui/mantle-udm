@@ -51,6 +51,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="requireInventory" type="text-indicator"/>
         <field name="chargeShipping" type="text-indicator"><description>Set to N to not charge shipping (ie defaults to Y)</description></field>
         <field name="signatureRequiredEnumId" type="id"/>
+        <field name="shippingInsuranceReqd" type="text-indicator"/>
         <field name="inShippingBox" type="text-indicator"/>
         <field name="defaultShipmentBoxTypeId" type="id"/>
         <field name="taxable" type="text-indicator"><description>Set to N to not charge sales tax (ie defaults to Y)</description></field>
@@ -210,28 +211,34 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Product Assoc Type -->
             <moqui.basic.EnumerationType description="Product Association Type" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Also Bought" enumId="PatAlsoBought" enumTypeId="ProductAssocType"/>
+
             <moqui.basic.Enumeration description="Up-Sell (Upgrade)" enumId="PatUpsell" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Cross-Sell (Complementary)" enumId="PatCrossSell" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Incompatible" enumId="PatIncompatible" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="New Version, Replacement" enumId="PatReplacement" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Actual Product Component" enumId="PatComponent" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Equivalent or Substitute" enumId="PatEquivalent" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Product Variant" enumId="PatVariant" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Unique Item" enumId="PatUniqueItem" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Accessory" enumId="PatAccessory" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Add On For" enumId="PatAddOn" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Refurbished Equivalent" enumId="PatRefurbished" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Repair Service" enumId="PatRepairService" enumTypeId="ProductAssocType"/>
+
+            <moqui.basic.Enumeration description="Cross-Sell (Complementary)" enumId="PatCrossSell" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Also Bought" enumId="PatAlsoBought" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Alternative Packaging" enumId="PatAlternativePkg" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Refurbished Equivalent" enumId="PatRefurbished" enumTypeId="ProductAssocType"/>
+
+            <moqui.basic.Enumeration description="Product Variant" enumId="PatVariant" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Requires" enumId="PatRequires" enumTypeId="ProductAssocType"/>
+
+            <moqui.basic.Enumeration description="Incompatible" enumId="PatIncompatible" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Unique Item" enumId="PatUniqueItem" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Auto Reorder (needs recurrenceInfoId)" enumId="PatAutoReorder" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Revision" enumId="PatRevision" enumTypeId="ProductAssocType"/>
+
             <moqui.basic.Enumeration description="Manufacturing Bill of Materials" parentEnumId="PatComponent" enumId="PatMfgBom" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Engineering Bill of Materials" parentEnumId="PatComponent" enumId="PatEngBom" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Product Manufactured As" enumId="PatMfgAs" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Configurable Product Instance" enumId="PatConfigInstance" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Packaging For" enumId="PatPackagingFor" enumTypeId="ProductAssocType"/>
-            <moqui.basic.Enumeration description="Alternative Packaging" enumId="PatAlternativePkg" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Used to Produce" enumId="PatUsedToProduce" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Configurable Product Instance" enumId="PatConfigInstance" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Actual Product Component" enumId="PatComponent" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Packaging For" enumId="PatPackagingFor" enumTypeId="ProductAssocType"/>
         </seed-data>
     </entity>
     <entity entity-name="ProductCalculatedInfo" package="mantle.product" cache="never">
@@ -691,6 +698,21 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PrvwPending" toStatusId="PrvwDeleted" transitionName="Review Deleted"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PrvwApproved" toStatusId="PrvwDeleted" transitionName="Review Deleted"/>
         </seed-data>
+    </entity>
+    <entity entity-name="ProductWorkEffort" package="mantle.product">
+        <description>Configure tasks (WorkEffort) that will be cloned when Product is ordered and associated with OrderItem using OrderItemWorkEffort.</description>
+        <field name="productId" type="id" is-pk="true"/>
+        <field name="workEffortId" type="id" is-pk="true"/>
+        <field name="fromDate" type="date-time" is-pk="true"/>
+        <field name="thruDate" type="date-time"/>
+        <field name="requiredWork" type="text-indicator">
+            <description>If Y require WorkEffort Status of Complete, Closed, or Cancelled to consider OrderItem fulfilled</description></field>
+        <field name="forStatusId" type="id">
+            <description>Task must be Complete or Closed before change to this status (soft rule, depending on code in place)</description></field>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+        <relationship type="one" title="OrderHeader" related="moqui.basic.StatusItem" short-alias="forStatus">
+            <key-map field-name="forStatusId"/></relationship>
     </entity>
 
     <!-- ========================================================= -->
