@@ -306,11 +306,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderId" type="id" is-pk="true"/>
         <field name="decisionDate" type="date-time" is-pk="true"/>
         <field name="decisionByPartyId" type="id"/>
-        <field name="statusId" type="id"/>
+        <field name="statusId" type="id"><description>OrderHeader status the decision is meant for</description></field>
         <field name="invalidatedDate" type="date-time"/>
+        <field name="approvedAmount" type="number-decimal"/>
         <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
         <relationship type="one" title="DecisionBy" related="mantle.party.Party" short-alias="decisionByParty">
             <key-map field-name="decisionByPartyId" related="partyId"/></relationship>
+        <!-- has title OrderHeader to use same statuses as OrderHeader -->
+        <relationship type="one" title="OrderHeader" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="many" related="mantle.order.OrderDecisionReason" short-alias="decisionReasons">
             <key-map field-name="orderId"/><key-map field-name="decisionDate"/></relationship>
     </entity>
