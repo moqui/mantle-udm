@@ -307,6 +307,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="decisionDate" type="date-time" is-pk="true"/>
         <field name="decisionByPartyId" type="id"/>
         <field name="statusId" type="id"/>
+        <field name="invalidatedDate" type="date-time"/>
         <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
         <relationship type="one" title="DecisionBy" related="mantle.party.Party" short-alias="decisionByParty">
             <key-map field-name="decisionByPartyId" related="partyId"/></relationship>
