@@ -76,6 +76,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="externalId" type="text-short"><description>ID for the order in the direct upstream system it came from if it came from an external system</description></field>
         <field name="externalRevision" type="text-short"/>
         <field name="originId" type="text-short"><description>ID for the order in the original system it came from (system of record) if not the direct upstream system</description></field>
+        <field name="originUrl" type="text-medium"><description>URL to view the order on the original system it came from</description></field>
         <field name="syncStatusId" type="id"/>
         <field name="systemMessageRemoteId" type="id"/>
 
@@ -230,6 +231,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="EDI" enumId="ScEdi" enumTypeId="SalesChannel"/>
             <moqui.basic.Enumeration description="OAGIS" enumId="ScOagis" enumTypeId="SalesChannel"/>
             <moqui.basic.Enumeration description="Unknown" enumId="ScUnknown" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="Test Order" enumId="ScTest" enumTypeId="SalesChannel"/>
 
             <!-- Sync Status -->
             <moqui.basic.StatusType description="Sync Status" statusTypeId="Sync"/>
