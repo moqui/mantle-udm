@@ -61,6 +61,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="entryDate" type="date-time"/>
         <field name="placedDate" type="date-time"/>
         <field name="approvedDate" type="date-time"/>
+        <field name="completedDate" type="date-time"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="processingStatusId" type="id" enable-audit-log="true">
             <description>Sub-status for use when statusId=OrderProcessing for custom pre-approve status flows</description></field>
