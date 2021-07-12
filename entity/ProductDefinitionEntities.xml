@@ -376,6 +376,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- TODO: deprecate by ProductUomDimension, will require data migration -->
     <entity entity-name="ProductDimension" package="mantle.product">
+        <description>WARNING: to be deprecated by mantle.product.ProductUomDimension</description>
         <field name="productId" type="id" is-pk="true"/>
         <field name="dimensionTypeId" type="id" is-pk="true"/>
         <field name="value" type="number-decimal"/>
@@ -387,6 +388,7 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
     <!-- TODO: deprecate by moqui.basic.UomDimensionType, will require data migration -->
     <entity entity-name="ProductDimensionType" package="mantle.product">
+        <description>WARNING: to be deprecated by moqui.basic.UomDimensionType</description>
         <field name="dimensionTypeId" type="id" is-pk="true"/>
         <field name="description" type="text-medium"/>
         <field name="uomTypeEnumId" type="id"/>
