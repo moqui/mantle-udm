@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-This software is in the public domain under CC0 1.0 Universal plus a 
+This software is in the public domain under CC0 1.0 Universal plus a
 Grant of Patent License.
 
 To the extent possible under law, the author(s) have dedicated all
@@ -73,6 +73,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="salesChannelEnumId" type="id"/>
 
         <field name="terminalId" type="text-short"><description>ID for the terminal, such as a POS system, where the order was recorded</description></field>
+        <field name="merchantId" type="text-short"><description>ID for a merchant of a productStore</description></field>
         <field name="displayId" type="text-short"><description>ID to display to customers, can be different from orderId and/or externalId</description></field>
         <field name="externalId" type="text-short"><description>ID for the order in the direct upstream system it came from if it came from an external system</description></field>
         <field name="externalRevision" type="text-short"/>
