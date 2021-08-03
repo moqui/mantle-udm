@@ -61,6 +61,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="entryDate" type="date-time"/>
         <field name="placedDate" type="date-time"/>
         <field name="approvedDate" type="date-time"/>
+        <field name="completedDate" type="date-time"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="processingStatusId" type="id" enable-audit-log="true">
             <description>Sub-status for use when statusId=OrderProcessing for custom pre-approve status flows</description></field>
@@ -71,11 +72,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productStoreId" type="id"/>
         <field name="salesChannelEnumId" type="id"/>
 
-        <field name="terminalId" type="text-short"/>
+        <field name="terminalId" type="text-short"><description>ID for the terminal, such as a POS system, where the order was recorded</description></field>
         <field name="displayId" type="text-short"><description>ID to display to customers, can be different from orderId and/or externalId</description></field>
         <field name="externalId" type="text-short"><description>ID for the order in the direct upstream system it came from if it came from an external system</description></field>
         <field name="externalRevision" type="text-short"/>
-        <field name="originId" type="text-short"><description>ID for the order in the original system it came from if not the direct upstream system</description></field>
+        <field name="originId" type="text-short"><description>ID for the order in the original system it came from (system of record) if not the direct upstream system</description></field>
+        <field name="originUrl" type="text-medium"><description>URL to view the order on the original system it came from</description></field>
         <field name="syncStatusId" type="id"/>
         <field name="systemMessageRemoteId" type="id"/>
 
@@ -160,9 +162,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusItem description="Completed" sequenceNum="21" statusId="OrderCompleted" statusTypeId="OrderHeader"/>
 
             <!-- Reject done by Vendor -->
-            <moqui.basic.StatusItem description="Rejected" sequenceNum="98" statusId="OrderRejected" statusTypeId="OrderHeader"/>
+            <moqui.basic.StatusItem description="Rejected by Vendor" sequenceNum="98" statusId="OrderRejected" statusTypeId="OrderHeader"/>
             <!-- Cancel done by Customer (or at Customer's request) -->
-            <moqui.basic.StatusItem description="Cancelled" sequenceNum="99" statusId="OrderCancelled" statusTypeId="OrderHeader"/>
+            <moqui.basic.StatusItem description="Cancelled by Customer" sequenceNum="99" statusId="OrderCancelled" statusTypeId="OrderHeader"/>
 
             <moqui.basic.StatusItem description="Wish List" sequenceNum="101" statusId="OrderWishList" statusTypeId="OrderHeader"/>
             <moqui.basic.StatusItem description="Gift Registry" sequenceNum="102" statusId="OrderGiftRegistry" statusTypeId="OrderHeader"/>
@@ -230,6 +232,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="EDI" enumId="ScEdi" enumTypeId="SalesChannel"/>
             <moqui.basic.Enumeration description="OAGIS" enumId="ScOagis" enumTypeId="SalesChannel"/>
             <moqui.basic.Enumeration description="Unknown" enumId="ScUnknown" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="Test Order" enumId="ScTest" enumTypeId="SalesChannel"/>
 
             <!-- Sync Status -->
             <moqui.basic.StatusType description="Sync Status" statusTypeId="Sync"/>
@@ -306,10 +309,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderId" type="id" is-pk="true"/>
         <field name="decisionDate" type="date-time" is-pk="true"/>
         <field name="decisionByPartyId" type="id"/>
-        <field name="statusId" type="id"/>
+        <field name="statusId" type="id"><description>OrderHeader status the decision is meant for</description></field>
+        <field name="invalidatedDate" type="date-time"/>
+        <field name="approvedAmount" type="number-decimal"/>
         <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
         <relationship type="one" title="DecisionBy" related="mantle.party.Party" short-alias="decisionByParty">
             <key-map field-name="decisionByPartyId" related="partyId"/></relationship>
+        <!-- has title OrderHeader to use same statuses as OrderHeader -->
+        <relationship type="one" title="OrderHeader" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="many" related="mantle.order.OrderDecisionReason" short-alias="decisionReasons">
             <key-map field-name="orderId"/><key-map field-name="decisionDate"/></relationship>
     </entity>
@@ -525,6 +532,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="carrierPartyId" type="id" enable-audit-log="update"/>
         <field name="shipmentMethodEnumId" type="id" enable-audit-log="update"/>
         <field name="tradeTermEnumId" type="id"/>
+        <field name="settlementTermId" type="id">
+            <description>Settlement (payment) term for auto order payments and set on Invoice(s) based on this OrderPart</description></field>
 
         <field name="postalContactMechId" type="id" enable-audit-log="update"/>
         <field name="telecomContactMechId" type="id"/>
@@ -585,6 +594,7 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- For tradeTermEnumId terms are defined with enumTypeId="TermType" in AccountingAccountEntities.xml -->
         <relationship type="one" title="TermType" related="moqui.basic.Enumeration" short-alias="tradeTermEnum">
             <key-map field-name="tradeTermEnumId"/></relationship>
+        <relationship type="one" related="SettlementTerm" short-alias="settlementTerm"/>
 
         <relationship type="one" title="Postal" related="mantle.party.contact.ContactMech" short-alias="postal">
             <key-map field-name="postalContactMechId"/></relationship>
@@ -654,8 +664,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="workEffortId" type="id" is-pk="true"/>
         <field name="requiredWork" type="text-indicator">
             <description>If Y require WorkEffort Status of Complete, Closed, or Cancelled to consider OrderItem fulfilled</description></field>
+        <field name="forStatusId" type="id">
+            <description>Task must be Complete or Closed before change to this status (soft rule, depending on code in place)</description></field>
         <relationship type="one" related="mantle.order.OrderItem"/>
         <relationship type="one" related="mantle.work.effort.WorkEffort"/>
+        <relationship type="one" title="OrderHeader" related="moqui.basic.StatusItem" short-alias="forStatus">
+            <key-map field-name="forStatusId"/></relationship>
     </entity>
 
     <!-- ========================================================= -->

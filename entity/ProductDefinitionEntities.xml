@@ -376,6 +376,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- TODO: deprecate by ProductUomDimension, will require data migration -->
     <entity entity-name="ProductDimension" package="mantle.product">
+        <description>WARNING: to be deprecated by mantle.product.ProductUomDimension</description>
         <field name="productId" type="id" is-pk="true"/>
         <field name="dimensionTypeId" type="id" is-pk="true"/>
         <field name="value" type="number-decimal"/>
@@ -387,6 +388,7 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
     <!-- TODO: deprecate by moqui.basic.UomDimensionType, will require data migration -->
     <entity entity-name="ProductDimensionType" package="mantle.product">
+        <description>WARNING: to be deprecated by moqui.basic.UomDimensionType</description>
         <field name="dimensionTypeId" type="id" is-pk="true"/>
         <field name="description" type="text-medium"/>
         <field name="uomTypeEnumId" type="id"/>
@@ -698,6 +700,21 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PrvwPending" toStatusId="PrvwDeleted" transitionName="Review Deleted"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PrvwApproved" toStatusId="PrvwDeleted" transitionName="Review Deleted"/>
         </seed-data>
+    </entity>
+    <entity entity-name="ProductWorkEffort" package="mantle.product">
+        <description>Configure tasks (WorkEffort) that will be cloned when Product is ordered and associated with OrderItem using OrderItemWorkEffort.</description>
+        <field name="productId" type="id" is-pk="true"/>
+        <field name="workEffortId" type="id" is-pk="true"/>
+        <field name="fromDate" type="date-time" is-pk="true"/>
+        <field name="thruDate" type="date-time"/>
+        <field name="requiredWork" type="text-indicator">
+            <description>If Y require WorkEffort Status of Complete, Closed, or Cancelled to consider OrderItem fulfilled</description></field>
+        <field name="forStatusId" type="id">
+            <description>Task must be Complete or Closed before change to this status (soft rule, depending on code in place)</description></field>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+        <relationship type="one" title="OrderHeader" related="moqui.basic.StatusItem" short-alias="forStatus">
+            <key-map field-name="forStatusId"/></relationship>
     </entity>
 
     <!-- ========================================================= -->

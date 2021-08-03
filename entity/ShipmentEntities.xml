@@ -32,7 +32,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="fromPartyId" type="id" enable-audit-log="update"/>
         <field name="toPartyId" type="id" enable-audit-log="update"/>
         <field name="binLocationNumber" type="number-integer"><description>For picking multiple shipments in a single
-            shipment load (WorkEffort with purpose Shipment Load/Ship, WepShipmentShip); this is the structure for a
+            shipment load (shipWorkEffortId, with purpose Shipment Load/Ship, WepShipmentShip); this is the structure for a
             picklist instead of having a separate Picklist entity. This may be overridden within a Shipment with the
             field of the same name on ShipmentItemSource.</description></field>
         <field name="productStoreId" type="id"/>
@@ -48,6 +48,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="latestCancelDate" type="date-time"/>
         <field name="packedDate" type="date-time"/>
 
+        <field name="pickContainerId" type="id" enable-audit-log="update">
+            <description>Container assigned for picking, to move Asset(s) to Container on pick and issue from Container on pack</description></field>
         <field name="shipWorkEffortId" type="id" enable-audit-log="update"/>
         <field name="receiveWorkEffortId" type="id"/>
         <field name="assemblyWorkEffortId" type="id"/>
@@ -81,6 +83,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="toPartyId"/></relationship>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="productStore"/>
 
+        <relationship type="one" title="Pick" related="mantle.product.asset.Container" short-alias="pickContainer">
+            <key-map field-name="pickContainerId"/></relationship>
         <relationship type="one" title="Ship" related="mantle.work.effort.WorkEffort" short-alias="shipWorkEffort">
             <key-map field-name="shipWorkEffortId"/></relationship>
         <relationship type="one" title="Receive" related="mantle.work.effort.WorkEffort" short-alias="receiveWorkEffort">
@@ -295,6 +299,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="statusId" type="id"/>
         <field name="quantity" type="number-decimal"/>
         <field name="quantityNotHandled" type="number-decimal"/>
+        <field name="quantityPicked" type="number-decimal"/>
         <field name="invoiceId" type="id"/>
         <field name="invoiceItemSeqId" type="id"/>
         <relationship type="one-nofk" related="mantle.shipment.Shipment" short-alias="shipment"/>
