@@ -1461,7 +1461,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="allowSolicitation" type="text-indicator"/>
         <field name="usedSince" type="date"/>
         <field name="usedUntil" type="date"/>
-        <field name="verifyCode" type="text-medium"/>
+        <field name="verifyCode" type="text-medium" enable-audit-log="true"/>
+        <field name="verifyCodeDate" type="date-time"/>
+        <field name="verifyCodeAttempts" type="number-integer"/>
         <relationship type="one" related="mantle.party.Party"/>
         <relationship type="one" related="mantle.party.contact.ContactMech" short-alias="contactMech" mutable="true"/>
         <relationship type="one" related="mantle.party.contact.ContactMechPurpose" short-alias="purpose"/>
