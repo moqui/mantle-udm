@@ -234,7 +234,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- =============================================== -->
 
     <!-- This chart of accounts is based (loosely) on the ABA Standard Chart of Accounts:
-        http://bestsellers.bookweb.org/membership/products/scoa.html -->
+        https://www.bookweb.org/standard-chart-accounts -->
 
     <!-- NOTE: GlAccount.accountCode defaults to glAccountId, so not set on records in this file -->
 
