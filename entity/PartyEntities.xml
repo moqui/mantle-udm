@@ -499,6 +499,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Agent" roleTypeId="Agent"/>
             <mantle.party.RoleType description="Affiliate" roleTypeId="Affiliate"/>
             <mantle.party.RoleType description="Asset Owner" roleTypeId="AssetOwner"/>
+            <mantle.party.RoleType description="Bad Actor (Banned)" roleTypeId="BadActor"/>
             <mantle.party.RoleType description="Carrier" roleTypeId="Carrier"/>
             <mantle.party.RoleType description="Competitor" roleTypeId="Competitor"/>
             <mantle.party.RoleType description="Consumer" roleTypeId="Consumer"/>
@@ -718,6 +719,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="Supplier"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="OrgInternal"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="Employee"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="BadActor"/>
         </seed-data>
     </entity>
 
