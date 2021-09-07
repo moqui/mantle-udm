@@ -338,11 +338,16 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="userId" type="id" default="ec.user.userId"/>
         <field name="partyIdTypeEnumId" type="id"/>
+        <field name="originalPartyContentId" type="id">
+            <description>Set this when copying content from one Party to another, may have same or different contentLocation</description></field>
         <relationship type="one" related="mantle.party.Party"/>
         <relationship type="one" title="PartyContentType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyContentTypeEnumId"/></relationship>
         <relationship type="one" title="PartyIdType" related="moqui.basic.Enumeration" short-alias="partyIdTypeEnum">
             <key-map field-name="partyIdTypeEnumId"/></relationship>
+        <relationship type="one" title="Original" related="mantle.party.PartyContent" short-alias="originalPartyContent">
+            <key-map field-name="originalPartyContentId"/></relationship>
+
         <seed-data>
             <!-- Party Content Type -->
             <moqui.basic.EnumerationType description="Party Content Type" enumTypeId="PartyContentType"/>
