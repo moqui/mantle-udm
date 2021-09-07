@@ -340,7 +340,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="partyIdTypeEnumId" type="id"/>
         <field name="originalPartyContentId" type="id">
             <description>Set this when copying content from one Party to another, may have same or different contentLocation</description></field>
-        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one" title="PartyContentType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyContentTypeEnumId"/></relationship>
         <relationship type="one" title="PartyIdType" related="moqui.basic.Enumeration" short-alias="partyIdTypeEnum">
@@ -867,6 +867,9 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="agreementId"/></relationship>
         <relationship type="many" related="mantle.party.agreement.AgreementItem" short-alias="items">
             <key-map field-name="agreementId"/></relationship>
+        <relationship type="many" related="mantle.party.agreement.AgreementParty" short-alias="parties">
+            <key-map field-name="agreementId"/></relationship>
+
         <seed-data>
             <!-- Agreement Type -->
             <moqui.basic.EnumerationType description="Agreement Type" enumTypeId="AgreementType"/>
@@ -923,9 +926,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="agreementId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
-        <relationship type="one" related="mantle.party.agreement.Agreement"/>
-        <relationship type="one" related="mantle.party.Party"/>
-        <relationship type="one" related="mantle.party.RoleType"/>
+        <relationship type="one" related="mantle.party.agreement.Agreement" short-alias="agreement"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="roleType"/>
     </entity>
     <entity entity-name="AgreementTerm" package="mantle.party.agreement">
         <field name="agreementTermId" type="id" is-pk="true"/>
