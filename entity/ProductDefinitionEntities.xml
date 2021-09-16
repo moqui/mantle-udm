@@ -213,6 +213,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Product Association Type" enumTypeId="ProductAssocType"/>
 
             <moqui.basic.Enumeration description="Up-Sell (Upgrade)" enumId="PatUpsell" enumTypeId="ProductAssocType"/>
+            <moqui.basic.Enumeration description="Down-Sell (Downgrade)" enumId="PatDownSell" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="New Version, Replacement" enumId="PatReplacement" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Equivalent or Substitute" enumId="PatEquivalent" enumTypeId="ProductAssocType"/>
             <moqui.basic.Enumeration description="Accessory" enumId="PatAccessory" enumTypeId="ProductAssocType"/>
