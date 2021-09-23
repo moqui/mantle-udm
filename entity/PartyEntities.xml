@@ -904,6 +904,28 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="agreementItemSeqId"/>
         </relationship>
     </entity>
+    <entity entity-name="AgreementAssoc" package="mantle.party.agreement">
+        <field name="agreementAssocId" type="id" is-pk="true"/>
+        <field name="agreementId" type="id" not-null="true"/>
+        <field name="toAgreementId" type="id" not-null="true"/>
+        <field name="agreementAssocTypeEnumId" type="id"/>
+        <field name="geoId" type="id"/>
+
+        <relationship type="one" related="mantle.party.agreement.Agreement" short-alias="agreement"/>
+        <relationship type="one" title="To" related="mantle.party.agreement.Agreement" short-alias="toAgreement">
+            <key-map field-name="toAgreementId"/></relationship>
+        <relationship type="one" related="moqui.basic.Geo" short-alias="geo">
+            <key-map field-name="geoId"/></relationship>
+        <relationship type="one" title="AgreementAssocType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="agreementAssocTypeEnumId"/></relationship>
+        <seed-data>
+            <!-- Agreement Assoc Type -->
+            <moqui.basic.EnumerationType description="Agreement Association Type" enumTypeId="AgreementAssocType"/>
+
+            <moqui.basic.Enumeration description="Alternate" enumId="AatAlternate" enumTypeId="AgreementAssocType"/>
+            <moqui.basic.Enumeration description="Addendum" enumId="AatAddendum" enumTypeId="AgreementAssocType"/>
+        </seed-data>
+    </entity>
     <entity entity-name="AgreementContent" package="mantle.party.agreement">
         <field name="agreementContentId" type="id" is-pk="true"/>
         <field name="agreementId" type="id"/>
