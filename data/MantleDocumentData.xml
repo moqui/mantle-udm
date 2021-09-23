@@ -78,6 +78,9 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="41" fieldPath="userAccounts:username" sortable="Y"/>
         <fields fieldSeqId="42" fieldPath="userAccounts:userFullName"/>
         <fields fieldSeqId="43" fieldPath="userAccounts:emailAddress"/>
+        <fields fieldSeqId="44" fieldPath="userAccounts:disabled" fieldNameAlias="userDisabled"/>
+        <fields fieldSeqId="45" fieldPath="userAccounts:disabledDateTime" fieldNameAlias="userDisabledDateTime"/>
+        <fields fieldSeqId="46" fieldPath="userAccounts:terminateDate" fieldNameAlias="userTerminateDate"/>
 
         <fields fieldSeqId="50" fieldPath="classifications:partyClassificationId"/>
         <fields fieldSeqId="51" fieldPath="classifications:fromDate" fieldNameAlias="classFromDate"/>

@@ -16,40 +16,39 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- see https://www.iso.org/obp/ui/#iso:code:3166:IN -->
     <Geo geoId="IND_AN" geoCodeAlpha2="AN" geoName="Andaman and Nicobar Islands" geoTypeEnumId="GEOT_TERRITORY"/>
     <Geo geoId="IND_AP" geoCodeAlpha2="AP" geoName="Andhra Pradesh" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_AR" geoCodeAlpha2="AR" geoName="Arunachal Pradesh" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_AR" geoCodeAlpha2="AR" geoName="Arunāchal Pradesh" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_AS" geoCodeAlpha2="AS" geoName="Assam" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_BR" geoCodeAlpha2="BR" geoName="Bihar" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_BR" geoCodeAlpha2="BR" geoName="Bihār" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_CH" geoCodeAlpha2="CH" geoName="Chandigarh" geoTypeEnumId="GEOT_TERRITORY"/>
-    <Geo geoId="IND_CT" geoCodeAlpha2="CT" geoName="Chhattisgarh" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_DN" geoCodeAlpha2="DN" geoName="Dadra and Nagar Haveli" geoTypeEnumId="GEOT_TERRITORY"/>
-    <Geo geoId="IND_DD" geoCodeAlpha2="DD" geoName="Daman and Diu" geoTypeEnumId="GEOT_TERRITORY"/>
+    <Geo geoId="IND_CT" geoCodeAlpha2="CT" geoName="Chhattīsgarh" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_DH" geoCodeAlpha2="DH" geoName="Dādra and Nagar Haveli and Damān and Diu" geoTypeEnumId="GEOT_TERRITORY"/>
     <Geo geoId="IND_DL" geoCodeAlpha2="DL" geoName="Delhi" geoTypeEnumId="GEOT_TERRITORY"/>
     <Geo geoId="IND_GA" geoCodeAlpha2="GA" geoName="Goa" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_GJ" geoCodeAlpha2="GJ" geoName="Gujarat" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_HR" geoCodeAlpha2="HR" geoName="Haryana" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_HP" geoCodeAlpha2="HP" geoName="Himachal Pradesh" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_JK" geoCodeAlpha2="JK" geoName="Jammu and Kashmir" geoTypeEnumId="GEOT_TERRITORY"/>
-    <Geo geoId="IND_JH" geoCodeAlpha2="JH" geoName="Jharkhand" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_KA" geoCodeAlpha2="KA" geoName="Karnataka" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_GJ" geoCodeAlpha2="GJ" geoName="Gujarāt" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_HR" geoCodeAlpha2="HR" geoName="Haryāna" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_HP" geoCodeAlpha2="HP" geoName="Himāchal Pradesh" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_JK" geoCodeAlpha2="JK" geoName="Jammu and Kashmīr" geoTypeEnumId="GEOT_TERRITORY"/>
+    <Geo geoId="IND_JH" geoCodeAlpha2="JH" geoName="Jhārkhand" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_KA" geoCodeAlpha2="KA" geoName="Karnātaka" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_KL" geoCodeAlpha2="KL" geoName="Kerala" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND-LA" geoCodeAlpha2="LA" geoName="Ladakh" geoTypeEnumId="GEOT_TERRITORY"/>
+    <Geo geoId="IND-LA" geoCodeAlpha2="LA" geoName="Ladākh" geoTypeEnumId="GEOT_TERRITORY"/>
     <Geo geoId="IND_LD" geoCodeAlpha2="LD" geoName="Lakshadweep" geoTypeEnumId="GEOT_TERRITORY"/>
     <Geo geoId="IND_MP" geoCodeAlpha2="MP" geoName="Madhya Pradesh" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_MH" geoCodeAlpha2="MH" geoName="Maharashtra" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_MH" geoCodeAlpha2="MH" geoName="Mahārāshtra" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_MN" geoCodeAlpha2="MN" geoName="Manipur" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_ML" geoCodeAlpha2="ML" geoName="Meghalaya" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_ML" geoCodeAlpha2="ML" geoName="Meghālaya" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_MZ" geoCodeAlpha2="MZ" geoName="Mizoram" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_NL" geoCodeAlpha2="NL" geoName="Nagaland" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_NL" geoCodeAlpha2="NL" geoName="Nāgāland" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_OR" geoCodeAlpha2="OR" geoName="Odisha" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_PY" geoCodeAlpha2="PY" geoName="Puducherry" geoNameLocal="Pondicherry" geoTypeEnumId="GEOT_TERRITORY"/>
     <Geo geoId="IND_PB" geoCodeAlpha2="PB" geoName="Punjab" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_RJ" geoCodeAlpha2="RJ" geoName="Rajasthan" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_RJ" geoCodeAlpha2="RJ" geoName="Rājasthān" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_SK" geoCodeAlpha2="SK" geoName="Sikkim" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_TN" geoCodeAlpha2="TN" geoName="Tamil Nadu" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_TG" geoCodeAlpha2="TG" geoName="Telangana" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_TN" geoCodeAlpha2="TN" geoName="Tamil Nādu" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_TG" geoCodeAlpha2="TG" geoName="Telangāna" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_TR" geoCodeAlpha2="TR" geoName="Tripura" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_UP" geoCodeAlpha2="UP" geoName="Uttar Pradesh" geoTypeEnumId="GEOT_STATE"/>
-    <Geo geoId="IND_UT" geoCodeAlpha2="UT" geoName="Uttarakhand" geoTypeEnumId="GEOT_STATE"/>
+    <Geo geoId="IND_UT" geoCodeAlpha2="UT" geoName="Uttarākhand" geoTypeEnumId="GEOT_STATE"/>
     <Geo geoId="IND_WB" geoCodeAlpha2="WB" geoName="West Bengal" geoTypeEnumId="GEOT_STATE"/>
 
     <GeoAssoc geoId="IND" toGeoId="IND_AN" geoAssocTypeEnumId="GAT_REGIONS"/>
@@ -59,8 +58,7 @@ along with this software (see the LICENSE.md file). If not, see
     <GeoAssoc geoId="IND" toGeoId="IND_BR" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="IND" toGeoId="IND_CH" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="IND" toGeoId="IND_CT" geoAssocTypeEnumId="GAT_REGIONS"/>
-    <GeoAssoc geoId="IND" toGeoId="IND_DN" geoAssocTypeEnumId="GAT_REGIONS"/>
-    <GeoAssoc geoId="IND" toGeoId="IND_DD" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="IND" toGeoId="IND_DH" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="IND" toGeoId="IND_DL" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="IND" toGeoId="IND_GA" geoAssocTypeEnumId="GAT_REGIONS"/>
     <GeoAssoc geoId="IND" toGeoId="IND_GJ" geoAssocTypeEnumId="GAT_REGIONS"/>

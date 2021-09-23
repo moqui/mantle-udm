@@ -338,11 +338,16 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="userId" type="id" default="ec.user.userId"/>
         <field name="partyIdTypeEnumId" type="id"/>
-        <relationship type="one" related="mantle.party.Party"/>
+        <field name="originalPartyContentId" type="id">
+            <description>Set this when copying content from one Party to another, may have same or different contentLocation</description></field>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one" title="PartyContentType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyContentTypeEnumId"/></relationship>
         <relationship type="one" title="PartyIdType" related="moqui.basic.Enumeration" short-alias="partyIdTypeEnum">
             <key-map field-name="partyIdTypeEnumId"/></relationship>
+        <relationship type="one" title="Original" related="mantle.party.PartyContent" short-alias="originalPartyContent">
+            <key-map field-name="originalPartyContentId"/></relationship>
+
         <seed-data>
             <!-- Party Content Type -->
             <moqui.basic.EnumerationType description="Party Content Type" enumTypeId="PartyContentType"/>
@@ -499,6 +504,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Agent" roleTypeId="Agent"/>
             <mantle.party.RoleType description="Affiliate" roleTypeId="Affiliate"/>
             <mantle.party.RoleType description="Asset Owner" roleTypeId="AssetOwner"/>
+            <mantle.party.RoleType description="Bad Actor (Banned)" roleTypeId="BadActor"/>
             <mantle.party.RoleType description="Carrier" roleTypeId="Carrier"/>
             <mantle.party.RoleType description="Competitor" roleTypeId="Competitor"/>
             <mantle.party.RoleType description="Consumer" roleTypeId="Consumer"/>
@@ -718,6 +724,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="Supplier"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="OrgInternal"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="Employee"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="BadActor"/>
         </seed-data>
     </entity>
 
@@ -860,6 +867,9 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="agreementId"/></relationship>
         <relationship type="many" related="mantle.party.agreement.AgreementItem" short-alias="items">
             <key-map field-name="agreementId"/></relationship>
+        <relationship type="many" related="mantle.party.agreement.AgreementParty" short-alias="parties">
+            <key-map field-name="agreementId"/></relationship>
+
         <seed-data>
             <!-- Agreement Type -->
             <moqui.basic.EnumerationType description="Agreement Type" enumTypeId="AgreementType"/>
@@ -894,6 +904,28 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="agreementItemSeqId"/>
         </relationship>
     </entity>
+    <entity entity-name="AgreementAssoc" package="mantle.party.agreement">
+        <field name="agreementAssocId" type="id" is-pk="true"/>
+        <field name="agreementId" type="id" not-null="true"/>
+        <field name="toAgreementId" type="id" not-null="true"/>
+        <field name="agreementAssocTypeEnumId" type="id"/>
+        <field name="geoId" type="id"/>
+
+        <relationship type="one" related="mantle.party.agreement.Agreement" short-alias="agreement"/>
+        <relationship type="one" title="To" related="mantle.party.agreement.Agreement" short-alias="toAgreement">
+            <key-map field-name="toAgreementId"/></relationship>
+        <relationship type="one" related="moqui.basic.Geo" short-alias="geo">
+            <key-map field-name="geoId"/></relationship>
+        <relationship type="one" title="AgreementAssocType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="agreementAssocTypeEnumId"/></relationship>
+        <seed-data>
+            <!-- Agreement Assoc Type -->
+            <moqui.basic.EnumerationType description="Agreement Association Type" enumTypeId="AgreementAssocType"/>
+
+            <moqui.basic.Enumeration description="Alternate" enumId="AatAlternate" enumTypeId="AgreementAssocType"/>
+            <moqui.basic.Enumeration description="Addendum" enumId="AatAddendum" enumTypeId="AgreementAssocType"/>
+        </seed-data>
+    </entity>
     <entity entity-name="AgreementContent" package="mantle.party.agreement">
         <field name="agreementContentId" type="id" is-pk="true"/>
         <field name="agreementId" type="id"/>
@@ -916,9 +948,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="agreementId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
-        <relationship type="one" related="mantle.party.agreement.Agreement"/>
-        <relationship type="one" related="mantle.party.Party"/>
-        <relationship type="one" related="mantle.party.RoleType"/>
+        <relationship type="one" related="mantle.party.agreement.Agreement" short-alias="agreement"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="roleType"/>
     </entity>
     <entity entity-name="AgreementTerm" package="mantle.party.agreement">
         <field name="agreementTermId" type="id" is-pk="true"/>
