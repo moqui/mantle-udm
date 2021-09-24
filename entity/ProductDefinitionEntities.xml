@@ -1129,8 +1129,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="thruDate" type="date-time"/>
         <field name="applTypeEnumId" type="id"/>
         <field name="sequenceNum" type="number-integer"/>
-        <field name="amount" type="currency-amount"/>
-        <field name="recurringAmount" type="currency-amount"/>
+        <field name="amount" type="number-decimal"/>
+        <field name="recurringAmount" type="number-decimal"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" related="mantle.product.feature.ProductFeature" short-alias="feature"/>
         <relationship type="one" title="ProductFeatureApplType" related="moqui.basic.Enumeration">
