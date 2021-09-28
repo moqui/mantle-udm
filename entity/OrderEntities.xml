@@ -212,6 +212,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderHold" toStatusId="OrderApproved" transitionName="Approve"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderHold" toStatusId="OrderCancelled" transitionName="Cancel"/>
 
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderSent" toStatusId="OrderProcessing" transitionName="Process (un-send, un-approve)"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderSent" toStatusId="OrderApproved" transitionName="Approve (un-send)"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderSent" toStatusId="OrderCompleted" transitionName="Complete"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderSent" toStatusId="OrderCancelled" transitionName="Cancel"/>
