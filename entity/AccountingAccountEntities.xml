@@ -1148,6 +1148,8 @@ along with this software (see the LICENSE.md file). If not, see
             must not be more than 20 characters</description></field>
         <field name="nachaCompanyId" type="text-short"><description>Bank-assigned Company ID for ACH transactions;
             must not be more than 10 characters</description></field>
+        <field name="nachaOdfiId" type="text-short"><description>Batch ODFI ID (Originating Depository Financial Institution),
+            8 digits, defaults to first 8 digits of nachaImmedDest (Immediate Destination ID)</description></field>
         <field name="nachaEntryDescription" type="text-short"><description>A description to be added to ACH transactions
             (such as Payroll, Order); must not be more than 10 characters</description></field>
         <field name="nachaAddNewLine" type="text-indicator"/>
