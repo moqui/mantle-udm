@@ -51,8 +51,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderId" type="id" is-pk="true"/>
         <field name="emailMessageId" type="id" is-pk="true"/>
         <field name="orderRevision" type="number-integer"/>
+        <field name="partyId" type="id"><description>The Party the email was sent to, for different emails sent to different parties associated with an order</description></field>
+        <field name="roleTypeId" type="id"/>
         <relationship type="one" related="mantle.order.OrderHeader" short-alias="orderHeader"/>
         <relationship type="one" related="moqui.basic.email.EmailMessage" short-alias="emailMessage"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="roleType"/>
     </entity>
     <entity entity-name="OrderHeader" package="mantle.order" short-alias="orders" cache="never">
         <field name="orderId" type="id" is-pk="true"/>
