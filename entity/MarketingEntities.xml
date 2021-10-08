@@ -208,12 +208,33 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="MarketSegment" package="mantle.marketing.segment">
         <field name="marketSegmentId" type="id" is-pk="true"/>
         <field name="marketSegmentTypeEnumId" type="id"/>
+        <field name="typeSequenceNum" type="number-integer"><description>
+            Intra-type Sequence Number for sets of segments that are not fully mutually exclusive.
+            When determining a MarketSegment by type, evaluate in order of this number to determine the first match.
+        </description></field>
+        <field name="parentMarketSegmentId" type="id"><description>
+            NOTE: this description is for the intended application of parentMarketSegmentId, actual behavior depends on code and could vary
+
+            A MarketSegment tree is a dependency tree with bi-directional dependencies so that any node in the tree can be
+            evaluated for membership by a Party while being able to configure segment factors at any level of the tree and have
+            them apply to all levels of a branch of the tree.
+
+            To implement this the general rule is that a Party is a member of a MarketSegment if all factors of that MarketSegment
+            match, and the factors of the parent MarketSegment match (if there is one), and the factors of at least one child
+            segment all match (if there is at least one child segment).
+
+            For example if segment A has two child segments A-1 and A-2, then a Party is in A if all factors of A match AND
+            they are a member of either sub-segment A-1 or sub-segment A-2. A Party is in A-2 if all factors of A-2 match,
+            and all factors of A match.
+        </description></field>
         <field name="description" type="text-medium"/>
         <field name="productStoreId" type="id"/>
         <field name="ownerPartyId" type="id" enable-audit-log="update" default="'_NA_'"/>
         <relationship type="one" title="MarketSegmentType" related="moqui.basic.Enumeration">
             <key-map field-name="marketSegmentTypeEnumId"/></relationship>
-        <relationship type="one" related="ProductStore"/>
+        <relationship type="one" related="mantle.product.store.ProductStore"/>
+        <relationship type="one" title="Parent" related="mantle.marketing.segment.MarketSegment" short-alias="parent">
+            <key-map field-name="parentMarketSegmentId"/></relationship>
         <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
             <key-map field-name="ownerPartyId"/></relationship>
         <seed-data>
