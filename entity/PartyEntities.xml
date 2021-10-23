@@ -849,6 +849,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="thruDate" type="date-time" enable-audit-log="update"/>
         <field name="description" type="text-medium"/>
         <field name="currencyUomId" type="id"/>
+        <field name="isTemplate" type="text-indicator"/>
+        <field name="templateAgreementId" type="id"><description>The template agreement this agreement was cloned from</description></field>
         <field name="textData" type="text-very-long"/>
         <relationship type="one" title="AgreementType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="agreementTypeEnumId"/></relationship>
@@ -863,6 +865,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="otherRoleTypeId"/></relationship>
         <relationship type="one" title="Currency" related="moqui.basic.Uom" short-alias="currencyUom">
             <key-map field-name="currencyUomId"/></relationship>
+        <relationship type="one" title="Template" related="mantle.party.agreement.Agreement" short-alias="templateAgreement">
+            <key-map field-name="templateAgreementId"/></relationship>
 
         <relationship type="many" related="mantle.party.agreement.AgreementTerm" short-alias="terms">
             <key-map field-name="agreementId"/></relationship>
