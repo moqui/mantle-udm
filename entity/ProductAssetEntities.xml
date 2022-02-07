@@ -631,6 +631,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="quantity" type="number-decimal" enable-audit-log="update"/>
         <field name="quantityCancelled" type="number-decimal"/>
         <field name="acctgTransResultEnumId" type="id"/>
+
         <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
         <relationship type="one-nofk" related="mantle.product.issuance.AssetReservation" short-alias="assetReservation"/><!-- nofk for when record is deleted -->
         <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem"/>
@@ -651,6 +652,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="issuedByUserId"/></relationship>
         <relationship type="one" title="AcctgTransResult" related="moqui.basic.Enumeration" short-alias="acctgTransResult">
             <key-map field-name="acctgTransResultEnumId"/></relationship>
+
+        <index name="ASSET_ISS_SHPPRD"><index-field name="shipmentId"/><index-field name="productId"/></index>
     </entity>
     <entity entity-name="AssetIssuanceParty" package="mantle.product.issuance" cache="never">
         <field name="assetIssuanceId" type="id" is-pk="true"/>
@@ -929,7 +932,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="AcctgTransResult" related="moqui.basic.Enumeration" short-alias="acctgTransResult">
             <key-map field-name="acctgTransResultEnumId"/></relationship>
 
-        <index name="ASSET_REC_ORDID" unique="false"><index-field name="orderId"/></index>
+        <index name="ASSET_REC_ORDID"><index-field name="orderId"/></index>
+        <index name="ASSET_REC_SHPPRD"><index-field name="shipmentId"/><index-field name="productId"/></index>
 
         <seed-data>
             <moqui.basic.EnumerationType description="Rejection Reason" enumTypeId="RejectionReason"/>
