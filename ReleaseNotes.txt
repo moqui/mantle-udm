@@ -2,6 +2,42 @@
 Mantle Business Artifacts - Universal Data Model Release Notes
 
 ===========================================================================
+Release 2.2.0 - 31 May 2022
+===========================================================================
+
+Mantle Universal Data Model 2.2.0 is a minor new feature and bug fix
+release. This release is based on Moqui Framework 3.0.0.
+
+This release includes a number of new entities, additional fields for
+service and screen level options, and seed data improvements.
+
+- new entities using UomDimensionType in moqui-framework:
+  ProductUomDimension, PartyDimension, MarketSegmentDimension
+- new ProductParameter and related entities to configure parameters
+  applicable to products with optional options, generally additional
+  information to collect from the customer when the product is purchase,
+  including: ProductParameterOption, ProductParameterProduct,
+  ProductParameterSet, and ProductParameterValue; parameter values on
+  orders with OrderItem.productParameterSetId, uses single ID to represent
+  value set for easier future association with shipment items, assets, etc
+- new ProductWorkEffort entity for tasks related to product purchase, and
+  OrderItemWorkEffort.forStatusId to track when should be considered done
+- new ShipmentParty and OrderItemParty entities
+- new OrderServiceJobRun entity to track job runs for orders
+- new ProductDbForm and OrderItemFormResponse entities to have forms
+  associated with products that are filled out by customer on purchase
+- new PartySystemMessage entity, like other *SystemMessage join entities
+
+DEPRECATION NOTES: ProductDimension (use ProductUomDimension instead)
+and ProductDimensionType (use UomDimensionType instead); these will be
+removed in a future release, recommend updating code and migrating data
+before the next major release (non backward compatible).
+
+For a complete list of changes see:
+
+https://github.com/moqui/mantle-udm/compare/v2.1.2...v2.2.0
+
+===========================================================================
 Release 2.1.2 - 07 Dec 2019
 ===========================================================================
 
