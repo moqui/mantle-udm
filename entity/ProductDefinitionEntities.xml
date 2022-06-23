@@ -471,6 +471,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="EAN" enumId="PidtEan"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="GTIN" enumId="PidtGtin"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="Library of Congress" enumId="PidtLoc"  enumTypeId="ProductIdentificationType"/>
+            <moqui.basic.Enumeration description="URL Slug" enumId="PidtUrlSlug"  enumTypeId="ProductIdentificationType"/>
             <!-- see https://en.wikipedia.org/wiki/Harmonized_Tariff_Schedule_of_the_United_States and https://hts.usitc.gov/ -->
             <moqui.basic.Enumeration description="HTS (Tariff)" enumId="PidtHts"  enumTypeId="ProductIdentificationType"/>
         </seed-data>
