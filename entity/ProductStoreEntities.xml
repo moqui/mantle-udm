@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-This software is in the public domain under CC0 1.0 Universal plus a 
+This software is in the public domain under CC0 1.0 Universal plus a
 Grant of Patent License.
 
 To the extent possible under law, the author(s) have dedicated all
@@ -75,6 +75,9 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="returnPostalContactMechId"/></relationship>
 
         <relationship type="one" related="moqui.resource.wiki.WikiSpace" short-alias="wikiSpace"/>
+        <relationship type="many" related="mantle.product.store.ProductStoreDataDocument" short-alias="storeDataDocuments">
+            <key-map field-name="productStoreId"/></relationship>
+        <!-- TODO: dataDocumentId fields are to be depricated -->
         <relationship type="one" title="Content" related="moqui.entity.document.DataDocument" short-alias="contentDataDocument">
             <key-map field-name="contentDataDocumentId"/></relationship>
         <relationship type="one" title="Blog" related="moqui.entity.document.DataDocument" short-alias="blogDataDocument">
@@ -517,6 +520,32 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumCode="template_server_home" description="Home Template - Server" enumId="PsctHomeTemplateServer" enumTypeId="ProductStoreContentType"/>
             <moqui.basic.Enumeration enumCode="template_server_category" description="Category Template - Server" enumId="PsctCategoryTemplateServer" enumTypeId="ProductStoreContentType"/>
             <moqui.basic.Enumeration enumCode="template_server_product" description="Product Template - Server" enumId="PsctProductTemplateServer" enumTypeId="ProductStoreContentType"/>
+        </seed-data>
+    </entity>
+
+    <extend-entity entity-name="DataDocument" package="moqui.entity.document">
+        <relationship type="many" related="mantle.product.store.ProductStoreDataDocument" short-alias="storeDataDocuments">
+            <key-map field-name="dataDocumentId"/></relationship>
+    </extend-entity>
+    <entity entity-name="ProductStoreDataDocument" package="mantle.product.store">
+        <description>Relationship between the ProductStore and DataDocument Entities meant to replace ProductStore.productDataDocumentId fields and the like. See: https://forum.moqui.org/t/productstore-datadocument-options/303.</description>
+        <field name="productStoreId" type="id" is-pk="true"/>
+        <field name="storeDataDocumentTypeEnumId" type="id" is-pk="true"/>
+        <field name="dataDocumentId" type="id"/>
+
+        <!-- TODO: Are these many relationships? -->
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" related="moqui.entity.document.DataDocument" short-alias="dataDocument"/>
+        <relationship type="one" title="StoreDataDocumentType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="storeDataDocumentTypeEnumId"/></relationship>
+
+        <seed-data>
+            <moqui.basic.EnumerationType description="Product Store Data Document Type" enumTypeId="ProductStoreDataDocumentType"/>
+            <moqui.basic.Enumeration description="Store - Product Data Document" enumId="PsdtProduct" enumTypeId="ProductStoreDataDocumentType"/>
+            <moqui.basic.Enumeration description="Store - Category Data Document" enumId="PsdtCategory" enumTypeId="ProductStoreDataDocumentType"/>
+            <moqui.basic.Enumeration description="Store - Blog Data Document" enumId="PsdtBlog" enumTypeId="ProductStoreDataDocumentType"/>
+            <!-- TODO: What type of Content was the ProductStore.contentDataDocumentId for? -->
+            <moqui.basic.Enumeration description="Store - Content Data Document" enumId="PsdtContent" enumTypeId="ProductStoreDataDocumentType"/>
         </seed-data>
     </entity>
 
