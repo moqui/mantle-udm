@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-This software is in the public domain under CC0 1.0 Universal plus a 
+This software is in the public domain under CC0 1.0 Universal plus a
 Grant of Patent License.
 
 To the extent possible under law, the author(s) have dedicated all
@@ -102,6 +102,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="productId"/></relationship>
         <relationship type="many" related="mantle.product.ProductIdentification" short-alias="identifications">
             <key-map field-name="productId"/></relationship>
+        <relationship type="many" related="mantle.product.ProductOtherIdentification" short-alias="otherIdentifications">
+            <key-map field-name="productId"/></relationship>
         <relationship type="many" related="mantle.product.ProductParty" short-alias="parties">
             <key-map field-name="productId"/></relationship>
         <relationship type="many" related="mantle.product.ProductPrice" short-alias="prices">
@@ -175,6 +177,7 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="dimensions"/>
             <detail relationship="geos"><detail relationship="geo"/></detail>
             <detail relationship="identifications"><detail relationship="type"/></detail>
+            <detail relationship="otherIdentifications"><detail relationship="type"/></detail>
             <detail relationship="parties"><detail relationship="party" use-master="basic"/><detail relationship="role"/></detail>
             <detail relationship="prices">
                 <detail relationship="type"/>
@@ -471,6 +474,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="EAN" enumId="PidtEan"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="GTIN" enumId="PidtGtin"  enumTypeId="ProductIdentificationType"/>
             <moqui.basic.Enumeration description="Library of Congress" enumId="PidtLoc"  enumTypeId="ProductIdentificationType"/>
+            <!-- see https://en.wikipedia.org/wiki/Clean_URL#Slug -->
             <moqui.basic.Enumeration description="URL Slug" enumId="PidtUrlSlug"  enumTypeId="ProductIdentificationType"/>
             <!-- see https://en.wikipedia.org/wiki/Harmonized_Tariff_Schedule_of_the_United_States and https://hts.usitc.gov/ -->
             <moqui.basic.Enumeration description="HTS (Tariff)" enumId="PidtHts"  enumTypeId="ProductIdentificationType"/>
@@ -740,6 +744,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="productCategoryId"/></relationship>
         <relationship type="many" related="mantle.product.category.ProductCategoryParty" short-alias="parties">
             <key-map field-name="productCategoryId"/></relationship>
+        <relationship type="many" related="mantle.product.category.ProductCategoryIdent" short-alias="identifications">
+            <key-map field-name="productCategoryId"/></relationship>
         <relationship type="many" related="mantle.product.category.ProductCategoryMember" short-alias="products">
             <key-map field-name="productCategoryId"/></relationship>
         <relationship type="many" related="mantle.product.category.ProductCategoryRollup" short-alias="parents">
@@ -747,6 +753,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.product.category.ProductCategoryRollup" short-alias="children">
             <key-map field-name="productCategoryId" related="parentProductCategoryId"/></relationship>
         <relationship type="many" related="mantle.product.feature.ProductCategoryFeatGrpAppl" short-alias="featureGroups">
+            <key-map field-name="productCategoryId"/></relationship>
+        <relationship type="many" related="mantle.product.store.ProductStoreCategory" short-alias="storeCategories">
             <key-map field-name="productCategoryId"/></relationship>
 
         <index name="CATEGORY_ID_PSEUDO" unique="true"><index-field name="pseudoId"/><index-field name="ownerPartyId"/></index>
@@ -791,7 +799,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="sequenceNum" type="number-integer"/>
         <field name="userId" type="id" default="ec.user.userId"/>
         <relationship type="one" related="mantle.product.category.ProductCategory"/>
-        <relationship type="one" title="ProductCategoryContentType" related="moqui.basic.Enumeration">
+        <relationship type="one" title="ProductCategoryContentType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="categoryContentTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <index name="PRDCAT_CNT_CTTP"><index-field name="productCategoryId"/><index-field name="categoryContentTypeEnumId"/></index>
@@ -818,6 +826,27 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.category.ProductCategory" short-alias="category"/>
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
+    </entity>
+    <entity entity-name="ProductCategoryIdent" package="mantle.product.category">
+        <description>Based on mantle.product.ProductOtherIdentification to be a one ProductCategory to many ProductCategoryIdent.</description>
+        <field name="productCategoryIdentId" type="id" is-pk="true"/>
+        <field name="productCategoryId" type="id"/>
+        <field name="identTypeEnumId" type="id"/>
+        <field name="productStoreId" type="id"/>
+        <field name="marketSegmentId" type="id"/>
+        <field name="idValue" type="text-medium"/>
+        <relationship type="one" title="ProductCategoryIdentType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="identTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.product.category.ProductCategory" short-alias="productCategory"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="productStore"/>
+        <relationship type="one" related="mantle.marketing.segment.MarketSegment" short-alias="marketSegment"/>
+        <index name="PRODUCT_CAT_STR_ID_VAL" unique="false"><index-field name="idValue"/></index>
+        <seed-data>
+            <!-- Product Category Ident Type -->
+            <moqui.basic.EnumerationType description="Product Category Ident Type" enumTypeId="ProductCategoryIdentType"/>
+            <!-- see https://en.wikipedia.org/wiki/Clean_URL#Slug -->
+            <moqui.basic.Enumeration description="URL Slug" enumId="PcitUrlSlug" enumTypeId="ProductCategoryIdentType"/>
+        </seed-data>
     </entity>
 
     <entity entity-name="ProductCategoryMember" package="mantle.product.category">
@@ -1179,7 +1208,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="applTypeEnumId" type="id"/>
         <relationship type="one" related="mantle.product.category.ProductCategory" short-alias="category"/>
         <relationship type="one" related="mantle.product.feature.ProductFeatureGroup" short-alias="group"/>
-        <relationship type="one" title="ProductFeatureApplType" related="moqui.basic.Enumeration">
+        <relationship type="one" title="ProductFeatureApplType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="applTypeEnumId"/></relationship>
     </entity>
     <entity entity-name="ProductFeatureGroup" package="mantle.product.feature" short-alias="featureGroups">
