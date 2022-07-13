@@ -47,9 +47,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="profileUrlPath" type="text-medium"><description>Path to profile page for use in emails</description></field>
         <field name="wikiSpaceId" type="id"><description>For a WikiSpace mounted as content, superceded by ProductStoreWikiSpace with spaceTypeEnumId=PstFull</description></field>
         <!-- TODO: Warning dataDocumentId fields are to be deprecated in favor of the ProductStoreDataDocument entity -->
-        <field name="contentDataDocumentId" type="id"><description>Warning: this field to be deprecated in favor of a ProductStoreDataDocument entity with a storeDocumentTypeEnumId of PsdtContent. The dataDocumentId to use for search of content pages in wikiSpaceId</description></field>
-        <field name="blogDataDocumentId" type="id"><description>Warning: this field to be deprecated in favor a ProductStoreDataDocument entity with a storeDocumentTypeEnumId of PsdtBlog. The dataDocumentId to use for search of blog entries</description></field>
-        <field name="productDataDocumentId" type="id"><description>Warning: this field to be deprecated in favor of a ProductStoreDataDocument entity with a storeDocumentTypeEnumId of PsdtProduct. The dataDocumentId to use for product search</description></field>
+        <field name="contentDataDocumentId" type="id"><description>Warning: this field to be deprecated in favor of a ProductStoreDataDocument entity with a typeEnumId of PsdtContent. The dataDocumentId to use for search of content pages in wikiSpaceId</description></field>
+        <field name="blogDataDocumentId" type="id"><description>Warning: this field to be deprecated in favor a ProductStoreDataDocument entity with a typeEnumId of PsdtBlog. The dataDocumentId to use for search of blog entries</description></field>
+        <field name="productDataDocumentId" type="id"><description>Warning: this field to be deprecated in favor of a ProductStoreDataDocument entity with a typeEnumId of PsdtProduct. The dataDocumentId to use for product search</description></field>
 
         <field name="defaultLocale" type="text-short"/>
         <field name="defaultCurrencyUomId" type="id"/>
@@ -530,14 +530,14 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="ProductStoreDataDocument" package="mantle.product.store">
         <description>Relationship between the ProductStore and DataDocument Entities meant to replace ProductStore.productDataDocumentId fields and the like. See: https://forum.moqui.org/t/productstore-datadocument-options/303.</description>
         <field name="productStoreId" type="id" is-pk="true"/>
-        <field name="storeDocumentTypeEnumId" type="id" is-pk="true"/>
+        <field name="typeEnumId" type="id" is-pk="true"/>
         <field name="dataDocumentId" type="id"/>
 
         <!-- TODO: Are these many relationships? -->
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" related="moqui.entity.document.DataDocument" short-alias="dataDocument"/>
         <relationship type="one" title="StoreDataDocumentType" related="moqui.basic.Enumeration" short-alias="type">
-            <key-map field-name="storeDocumentTypeEnumId"/></relationship>
+            <key-map field-name="typeEnumId"/></relationship>
 
         <seed-data>
             <moqui.basic.EnumerationType description="Product Store Data Document Type" enumTypeId="ProductStoreDataDocumentType"/>
