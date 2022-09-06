@@ -25,6 +25,19 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========================================================= -->
     <!-- mantle.humanres.ability -->
     <!-- ========================================================= -->
+
+    <entity entity-name="PartySkill" package="mantle.humanres.ability" use="nontransactional">
+        <field name="partyId" type="id" is-pk="true"/>
+        <field name="skillTypeEnumId" type="id" is-pk="true"/>
+        <field name="rating" type="number-integer"/>
+        <field name="skillLevel" type="number-integer"/>
+        <field name="startedUsingDate" type="date-time"/>
+        <field name="yearsExperience" type="number-integer"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" title="SkillType" related="moqui.basic.Enumeration" short-alias="skillTypeEnum">
+            <key-map field-name="skillTypeEnumId"/></relationship>
+    </entity>
+
     <!-- not yet used so commented for now:
     <entity entity-name="PartyQualification" package="mantle.humanres.ability" use="nontransactional">
         <field name="partyId" type="id" is-pk="true"/>
@@ -71,17 +84,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="resumeDate" type="date-time"/>
         <field name="resumeText" type="text-very-long"/>
         <relationship type="one" related="mantle.party.Party"/>
-    </entity>
-    <entity entity-name="PartySkill" package="mantle.humanres.ability" use="nontransactional">
-        <field name="partyId" type="id" is-pk="true"/>
-        <field name="skillTypeEnumId" type="id" is-pk="true"/>
-        <field name="yearsExperience" type="number-integer"/>
-        <field name="rating" type="number-integer"/>
-        <field name="skillLevel" type="number-integer"/>
-        <field name="startedUsingDate" type="date-time"/>
-        <relationship type="one" related="mantle.party.Party"/>
-        <relationship type="one" title="SkillType" related="moqui.basic.Enumeration">
-            <key-map field-name="skillTypeEnumId"/></relationship>
     </entity>
     <entity entity-name="PerformanceReview" package="mantle.humanres.ability" use="nontransactional">
         <field name="performanceReviewId" type="id" is-pk="true"/>
@@ -731,6 +733,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="pseudoId" type="text-short" default="emplPositionId"/>
         <field name="organizationPartyId" type="id"/>
         <field name="emplPositionClassId" type="id" enable-audit-log="true"/>
+        <field name="workEffortId" type="id"/>
         <field name="description" type="text-medium"/>
         <field name="statusId" type="id"/>
         <field name="payGradeId" type="id" enable-audit-log="true"/>
@@ -749,6 +752,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.humanres.position.EmplPositionClass"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
         <relationship type="one" title="EmplPosition" related="moqui.basic.StatusItem"/>
         <relationship type="one" related="mantle.humanres.rate.PayGrade"/>
         <relationship type="one" related="BudgetItem">
@@ -794,6 +798,25 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.humanres.position.EmplPositionClass title="General Manager" emplPositionClassId="GeneralManager"/>
             <mantle.humanres.position.EmplPositionClassWorkType emplPositionClassId="GeneralManager" workTypeEnumId="WktpManagement"/>
         </seed-data>
+    </entity>
+    <entity entity-name="EmplPositionClassPartyCls" package="mantle.party">
+        <field name="emplPositionClassId" type="id" is-pk="true"/>
+        <field name="partyClassificationId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPositionClass"/>
+        <relationship type="one" related="mantle.party.PartyClassification" short-alias="classification"/>
+    </entity>
+    <entity entity-name="EmplPositionClassDimension" package="mantle.humanres.position" use="configuration">
+        <field name="emplPositionClassId" type="id" is-pk="true"/>
+        <field name="uomDimensionTypeId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPositionClass"/>
+        <relationship type="one" related="moqui.basic.UomDimensionType" short-alias="type"/>
+    </entity>
+    <entity entity-name="EmplPositionClassSkill" package="mantle.humanres.position" use="configuration">
+        <field name="emplPositionClassId" type="id" is-pk="true"/>
+        <field name="skillTypeEnumId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPositionClass"/>
+        <relationship type="one" title="SkillType" related="moqui.basic.Enumeration" short-alias="skillTypeEnum">
+            <key-map field-name="skillTypeEnumId"/></relationship>
     </entity>
     <entity entity-name="EmplPositionClassParty" package="mantle.humanres.position" use="nontransactional">
         <description>An alternative to EmplPosition and Employment to represent an employee in a position class for
