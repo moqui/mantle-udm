@@ -505,6 +505,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="expectationEnumId" type="id"/>
         <field name="workTypeEnumId" type="id"/>
         <field name="emplPositionClassId" type="id"/>
+        <field name="emplPositionId" type="id"/>
         <field name="comments" type="text-medium"/>
         <field name="mustRsvp" type="text-indicator"/>
         <field name="receiveNotifications" type="text-indicator"/>
@@ -523,6 +524,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="WorkType" related="moqui.basic.Enumeration">
             <key-map field-name="workTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.humanres.position.EmplPositionClass" short-alias="positionClass"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPosition" short-alias="position"/>
         <relationship type="many" related="moqui.security.UserAccount" short-alias="userAccounts">
             <key-map field-name="partyId"/></relationship>
         <seed-data>
