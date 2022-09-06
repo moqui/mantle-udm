@@ -317,6 +317,14 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.party.PartyClassification" short-alias="classification"/>
     </entity>
     -->
+    <!-- not currently used, likely useful at some point for dimensions applicable to a PartyClassification
+    <entity entity-name="PartyClassDimension" package="mantle.party">
+        <field name="partyClassificationId" type="id" is-pk="true"/>
+        <field name="uomDimensionTypeId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.party.PartyClassification" short-alias="classification"/>
+        <relationship type="one" related="moqui.basic.UomDimensionType" short-alias="type"/>
+    </entity>
+    -->
 
     <entity entity-name="PartyDimension" package="mantle.party">
         <field name="partyId" type="id" is-pk="true"/>
@@ -821,6 +829,14 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.party.PartySettingType" short-alias="settingType"/>
         <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
     </entity>
+    <!-- not currently used, likely useful for specifying settings applicable for a PartyClassification
+    <entity entity-name="PartySettingTypeClass" package="mantle.party" use="configuration">
+        <field name="partySettingTypeId" type="id" is-pk="true"/>
+        <field name="partyClassificationId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.party.PartySettingType" short-alias="settingType"/>
+        <relationship type="one" related="mantle.party.PartyClassification" short-alias="classification"/>
+    </entity>
+    -->
 
     <entity entity-name="PartySystemMessage" package="mantle.party" cache="never">
         <field name="partyId" type="id" is-pk="true"/>
