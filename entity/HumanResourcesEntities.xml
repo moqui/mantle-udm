@@ -733,7 +733,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="pseudoId" type="text-short" default="emplPositionId"/>
         <field name="organizationPartyId" type="id"/>
         <field name="emplPositionClassId" type="id" enable-audit-log="true"/>
-        <field name="workEffortId" type="id"/>
         <field name="description" type="text-medium"/>
         <field name="statusId" type="id"/>
         <field name="payGradeId" type="id" enable-audit-log="true"/>
@@ -752,7 +751,6 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.humanres.position.EmplPositionClass"/>
-        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
         <relationship type="one" title="EmplPosition" related="moqui.basic.StatusItem"/>
         <relationship type="one" related="mantle.humanres.rate.PayGrade"/>
         <relationship type="one" related="BudgetItem">
@@ -846,9 +844,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
         <field name="comments" type="text-medium"/>
-        <relationship type="one" related="mantle.humanres.position.EmplPosition"/>
-        <relationship type="one" related="mantle.party.Party"/>
-        <relationship type="one" related="mantle.party.RoleType"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPosition" short-alias="position"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="roleType"/>
     </entity>
     <entity entity-name="EmplPositionResponsibility" package="mantle.humanres.position" use="configuration">
         <field name="emplPositionId" type="id" is-pk="true"/>
