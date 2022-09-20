@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-This software is in the public domain under CC0 1.0 Universal plus a 
+This software is in the public domain under CC0 1.0 Universal plus a
 Grant of Patent License.
 
 To the extent possible under law, the author(s) have dedicated all
@@ -36,6 +36,11 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one" title="SkillType" related="moqui.basic.Enumeration" short-alias="skillTypeEnum">
             <key-map field-name="skillTypeEnumId"/></relationship>
+
+        <seed-data>
+            <!-- Skill Type -->
+            <moqui.basic.EnumerationType description="Skill Type" enumTypeId="SkillType"/>
+        </seed-data>
     </entity>
 
     <!-- not yet used so commented for now:
@@ -306,7 +311,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Layoff" enumId="TtLayoff" enumTypeId="TerminationType"/>
             <moqui.basic.Enumeration description="Retired" enumId="TtRetired" enumTypeId="TerminationType"/>
 
-            <!-- Termination Rason -->
+            <!-- Termination Reason -->
             <moqui.basic.EnumerationType description="Termination Reason" enumTypeId="TerminationReason"/>
 
             <!-- Identity Type -->
@@ -483,7 +488,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="currencyUomId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType"/>
     </entity>
-    
+
     <entity entity-name="PayrollAdjustment" package="mantle.humanres.employment" use="configuration">
         <field name="payrollAdjustmentId" type="id" is-pk="true"/>
         <field name="description" type="text-medium"/>
