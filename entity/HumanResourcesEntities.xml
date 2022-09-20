@@ -797,11 +797,12 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.humanres.position.EmplPositionClassWorkType emplPositionClassId="GeneralManager" workTypeEnumId="WktpManagement"/>
         </seed-data>
     </entity>
-    <entity entity-name="EmplPositionClassPartyCls" package="mantle.party">
+    <entity entity-name="EmplPositionClassPtyClsTp" package="mantle.party">
         <field name="emplPositionClassId" type="id" is-pk="true"/>
-        <field name="partyClassificationId" type="id" is-pk="true"/>
-        <relationship type="one" related="mantle.humanres.position.EmplPositionClass"/>
-        <relationship type="one" related="mantle.party.PartyClassification" short-alias="classification"/>
+        <field name="classificationTypeEnumId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPositionClass" short-alias="emplPositionClass"/>
+        <relationship type="one" title="PartyClassificationType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="classificationTypeEnumId"/></relationship>
     </entity>
     <entity entity-name="EmplPositionClassDimension" package="mantle.humanres.position" use="configuration">
         <field name="emplPositionClassId" type="id" is-pk="true"/>
