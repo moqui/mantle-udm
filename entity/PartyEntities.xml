@@ -370,6 +370,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Payment Signature Secondary"  enumId="PcntPaymentSignatureSecondary" enumTypeId="PartyContentType"/>
             <moqui.basic.Enumeration description="Identity Document"  enumId="PcntIdentityDocument" enumTypeId="PartyContentType"/>
             <moqui.basic.Enumeration description="Employment Authorization Document"  enumId="PcntEmplAuthzDocument" enumTypeId="PartyContentType"/>
+            <moqui.basic.Enumeration description="Bio"  enumId="PcntBio" enumTypeId="PartyContentType"/>
         </seed-data>
     </entity>
     <entity entity-name="PartyGeoPoint" package="mantle.party">
