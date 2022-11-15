@@ -568,6 +568,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Spouse" roleTypeId="Spouse"/>
             <mantle.party.RoleType description="Stocker" roleTypeId="Stocker"/>
             <mantle.party.RoleType description="Supplier Agent" roleTypeId="SupplierAgent"/>
+            <mantle.party.RoleType description="Technical Contact" roleTypeId="TechContact"/>
             <mantle.party.RoleType description="Watcher" roleTypeId="Watcher"/>
             <mantle.party.RoleType description="Worker" roleTypeId="Worker"/>
 
@@ -721,11 +722,13 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="InventoryManager"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="Manager"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="OrderClerk"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="Owner"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="Receiver"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="ProductionManager"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="SalesRepresentative"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="ShipmentClerk"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="SupplierAgent"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="TechContact"/>
 
             <moqui.basic.Enumeration description="Directly Applied Roles" enumId="RgpDirect" enumTypeId="RoleGroup"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="Customer"/>
