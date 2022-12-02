@@ -366,6 +366,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Logo Image"  enumId="PcntLogoImage" enumTypeId="PartyContentType"/>
             <moqui.basic.Enumeration description="Face Image"  enumId="PcntFaceImage" enumTypeId="PartyContentType"/>
             <moqui.basic.Enumeration description="Vendor Shipping Info"  enumId="PcntVendorShipping" enumTypeId="PartyContentType"/>
+            <moqui.basic.Enumeration description="Invoice Message - When From Party" enumId="PcntInvoiceMessageFrom" enumTypeId="PartyContentType"/>
+            <moqui.basic.Enumeration description="Invoice Message - When To Party" enumId="PcntInvoiceMessageTo" enumTypeId="PartyContentType"/>
             <moqui.basic.Enumeration description="Payment Signature Primary"  enumId="PcntPaymentSignaturePrimary" enumTypeId="PartyContentType"/>
             <moqui.basic.Enumeration description="Payment Signature Secondary"  enumId="PcntPaymentSignatureSecondary" enumTypeId="PartyContentType"/>
             <moqui.basic.Enumeration description="Identity Document"  enumId="PcntIdentityDocument" enumTypeId="PartyContentType"/>
