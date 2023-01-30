@@ -542,7 +542,9 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="containerTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one-nofk" related="mantle.facility.FacilityLocation" short-alias="location"/>
-        <index name="CONTNR_SER_NUM" unique="true"><index-field name="serialNumber"/></index>
+        <!-- NOTE: this was a unique index but that limits the usefulness of serialNumber and doesn't handle real world
+            situations with containers of different types or in different facilities with the same serialNumber -->
+        <index name="CONTNR_SER_NUM" unique="false"><index-field name="serialNumber"/></index>
         <seed-data>
             <!-- Container Type -->
             <moqui.basic.EnumerationType description="Container Type" enumTypeId="ContainerType"/>

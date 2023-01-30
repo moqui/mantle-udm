@@ -1438,9 +1438,10 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.PartyAcctgPreference organizationPartyId="DefaultSettings" baseCurrencyUomId="USD"
             cogsMethodEnumId="CogsActualCost" errorGlJournalId="DefaultSettingsError"
             invoiceIdPrefix="" invoiceSequenceEnumId="InvSqStandard" orderIdPrefix="" orderSequenceEnumId="OrdSqStandard"
-            fiscalYearStartMonth="1" fiscalYearStartDay="1" hourlyTimePeriodTypeId="PayrollWeek" salaryTimePeriodTypeId="PayrollBiWeek"
+            fiscalYearStartMonth="1" fiscalYearStartDay="1"
+            hourlyTimePeriodTypeId="PayrollBiWeek" salaryTimePeriodTypeId="PayrollSemiMonth"
             taxClassificationEnumId="TxcCCorp" taxFormEnumId="TxfUsIrs1120"
-            employerClassEnumId="EmclsUsIrsRegularOther" payrollTaxFormEnumId="PtxfUsIrs941" settlementTermId="NetLastNext"/>
+            employerClassEnumId="EmclsUsIrsRegularOther" payrollTaxFormEnumId="PtxfUsIrs941" settlementTermId="Net30"/>
 
     <mantle.ledger.account.GlAccountOrganization glAccountId="110000000" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.account.GlAccountOrganization glAccountId="111100000" organizationPartyId="DefaultSettings"/>
@@ -1977,6 +1978,8 @@ along with this software (see the LICENSE.md file). If not, see
             paymentInstrumentEnumId="PiBillingAccount" isPayable="E"/>
     <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="111100000" organizationPartyId="DefaultSettings"
             paymentInstrumentEnumId="PiCod" isPayable="E"/>
+    <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="111100000" organizationPartyId="DefaultSettings"
+            paymentInstrumentEnumId="PiWireTransfer" isPayable="E"/>
 
     <!-- Using Payment for these is messy, use adjust#Invoice with appropriate item type instead:
     <mantle.ledger.config.PaymentInstrumentGlAccount glAccountId="782100000" organizationPartyId="DefaultSettings"
