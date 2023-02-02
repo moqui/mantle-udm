@@ -321,7 +321,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="finAccountTypeId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountId" type="id"/>
-        <relationship type="one" related="FinancialAccountType"/>
+        <relationship type="one" related="mantle.account.financial.FinancialAccountType"/>
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
@@ -417,7 +417,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="glAccountTypeEnumId" type="id" is-pk="true"/>
         <field name="glAccountId" type="id"><description>Revenue account for products in the category</description></field>
         <field name="contraGlAccountId" type="id"><description>Contra Revenue account for products in the category</description></field>
-        <relationship type="one" related="ProductCategory"/>
+        <relationship type="one" related="mantle.product.category.ProductCategory"/>
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" title="GlAccountType" related="moqui.basic.Enumeration">
@@ -441,7 +441,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="taxAuthorityId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountId" type="id"/>
-        <relationship type="one" related="TaxAuthority"/>
+        <relationship type="one" related="mantle.other.tax.TaxAuthority"/>
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
@@ -840,7 +840,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.ledger.account.GlAccount" short-alias="glAccount"/>
         <relationship type="one" title="AcctgTransEntryReconcile" related="moqui.basic.StatusItem" short-alias="reconcileStatus">
             <key-map field-name="reconcileStatusId"/></relationship>
-        <relationship type="one" related="SettlementTerm" short-alias="settlementTerm"/>
+        <relationship type="one" related="mantle.account.invoice.SettlementTerm" short-alias="settlementTerm"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
 

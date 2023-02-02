@@ -105,8 +105,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="partyId" type="id"/>
         <field name="budgetReviewResultEnumId" type="id"/>
         <field name="reviewDate" type="date-time"/>
-        <relationship type="one" related="Budget"/>
-        <relationship type="one" related="Party"/>
+        <relationship type="one" related="mantle.other.budget.Budget"/>
+        <relationship type="one" related="mantle.party.Party"/>
         <relationship type="one" title="BudgetReviewResult" related="moqui.basic.Enumeration">
             <key-map field-name="budgetReviewResultEnumId"/></relationship>
         <seed-data>
@@ -119,7 +119,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="revisionSeqId" type="id" is-pk="true"/>
         <field name="dateRevised" type="date-time"/>
         <field name="description" type="text-medium"/>
-        <relationship type="one" related="Budget"/>
+        <relationship type="one" related="mantle.other.budget.Budget"/>
     </entity>
     <entity entity-name="BudgetRevisionImpact" package="mantle.other.budget">
         <field name="budgetId" type="id" is-pk="true"/>
@@ -128,19 +128,19 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="revisedAmount" type="currency-amount"/>
         <field name="addDeleteFlag" type="text-indicator"/>
         <field name="revisionReason" type="text-medium"/>
-        <relationship type="one" related="Budget"/>
-        <relationship type="one" related="BudgetItem">
+        <relationship type="one" related="mantle.other.budget.Budget"/>
+        <relationship type="one" related="mantle.other.budget.BudgetItem">
             <key-map field-name="budgetId"/><key-map field-name="budgetItemSeqId"/></relationship>
-        <relationship type="one" related="BudgetRevision">
+        <relationship type="one" related="mantle.other.budget.BudgetRevision">
             <key-map field-name="budgetId"/><key-map field-name="revisionSeqId"/></relationship>
     </entity>
     <entity entity-name="BudgetParty" package="mantle.other.budget">
         <field name="budgetId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
-        <relationship type="one" related="Budget"/>
-        <relationship type="one" related="Party"/>
-        <relationship type="one" related="RoleType"/>
+        <relationship type="one" related="mantle.other.budget.Budget"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="mantle.party.RoleType"/>
     </entity>
     <entity entity-name="BudgetScenario" package="mantle.other.budget">
         <field name="budgetScenarioId" type="id" is-pk="true"/>
@@ -153,9 +153,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="budgetItemSeqId" type="id"/>
         <field name="amountChange" type="currency-amount"/>
         <field name="percentageChange" type="number-decimal"/>
-        <relationship type="one" related="BudgetScenario"/>
-        <relationship type="one" related="Budget"/>
-        <relationship type="one" related="BudgetItem">
+        <relationship type="one" related="mantle.other.budget.BudgetScenario"/>
+        <relationship type="one" related="mantle.other.budget.Budget"/>
+        <relationship type="one" related="mantle.other.budget.BudgetItem">
             <key-map field-name="budgetId"/><key-map field-name="budgetItemSeqId"/></relationship>
     </entity>
     <entity entity-name="BudgetScenarioRule" package="mantle.other.budget">
@@ -163,7 +163,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="budgetItemTypeEnumId" type="id" is-pk="true"/>
         <field name="amountChange" type="currency-amount"/>
         <field name="percentageChange" type="number-decimal"/>
-        <relationship type="one" related="BudgetScenario"/>
+        <relationship type="one" related="mantle.other.budget.BudgetScenario"/>
         <relationship type="one" title="BudgetItemType" related="moqui.basic.Enumeration">
             <key-map field-name="budgetItemTypeEnumId"/></relationship>
     </entity>
@@ -254,8 +254,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="taxAuthGeoId"/><key-map field-name="taxAuthPartyId"/></relationship>
         <relationship type="one" title="TaxAuthorityRateType" related="moqui.basic.Enumeration">
             <key-map field-name="rateTypeEnumId"/></relationship>
-        <relationship type="one" related="ProductStore"/>
-        <relationship type="one" related="ProductCategory"/>
+        <relationship type="one" related="mantle.product.store.ProductStore"/>
+        <relationship type="one" related="mantle.product.category.ProductCategory"/>
         <seed-data>
             <!- - Tax Authority Rate Type - ->
             <moqui.basic.EnumerationType description="Tax Authority Rate Type" enumTypeId="TaxAuthorityRateType"/>
