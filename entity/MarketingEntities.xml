@@ -125,7 +125,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
         <field name="emailTemplateId" type="id"/>
-        <relationship type="one" related="ContactList"/>
+        <relationship type="one" related="mantle.marketing.contact.ContactList"/>
         <relationship type="one" title="ContactListEmailType" related="moqui.basic.Enumeration">
             <key-map field-name="emailTypeEnumId"/></relationship>
         <relationship type="one" related="moqui.basic.email.EmailTemplate"/>
@@ -202,7 +202,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="marketSegmentId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
-        <relationship type="one" related="ProductCategory"/>
+        <relationship type="one" related="mantle.product.category.ProductCategory"/>
         <relationship type="one" related="mantle.marketing.segment.MarketSegment"/>
     </entity>
     <entity entity-name="MarketSegment" package="mantle.marketing.segment">

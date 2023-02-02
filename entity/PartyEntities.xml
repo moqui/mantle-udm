@@ -1045,7 +1045,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="agreementId"/>
             <key-map field-name="agreementItemSeqId"/>
         </relationship>
-        <relationship type="one" related="Geo"/>
+        <relationship type="one" related="moqui.basic.Geo"/>
     </entity>
     <entity entity-name="AgreementItemParty" package="mantle.party.agreement">
         <field name="agreementId" type="id" is-pk="true"/>
@@ -1130,7 +1130,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="toPartyId" related="partyId"/></relationship>
         <relationship type="one" title="To" related="mantle.party.RoleType" short-alias="toRole">
             <key-map field-name="toRoleTypeId"/></relationship>
-        <relationship type="one" related="ContactList" short-alias="contactList"/>
+        <relationship type="one" related="mantle.marketing.contact.ContactList" short-alias="contactList"/>
         <relationship type="one" title="CommunicationEventReason" related="moqui.basic.Enumeration" short-alias="reason">
             <key-map field-name="reasonEnumId"/></relationship>
 

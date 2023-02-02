@@ -629,7 +629,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="priceUomId"/></relationship>
         <relationship type="one" title="Term" related="moqui.basic.Uom" short-alias="termUom">
             <key-map field-name="termUomId"/></relationship>
-        <relationship type="one" related="ProductStore" short-alias="store"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" related="mantle.other.tax.TaxAuthority" short-alias="taxAuthority"/>
 
         <relationship type="one" title="SupplierPreferredOrder" related="moqui.basic.Enumeration" short-alias="supplierOrder">
