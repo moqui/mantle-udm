@@ -140,14 +140,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="description" type="text-medium"/>
         <relationship type="one" title="Parent" related="mantle.request.RequestCategory" short-alias="parent">
             <key-map field-name="parentCategoryId" related="requestCategoryId"/></relationship>
-        <relationship type="one" title="Responsible" related="Party" short-alias="responsible">
+        <relationship type="one" title="Responsible" related="mantle.party.Party" short-alias="responsible">
             <key-map field-name="responsiblePartyId"/></relationship>
     </entity>
     <entity entity-name="RequestCommEvent" package="mantle.request" cache="never">
         <field name="requestId" type="id" is-pk="true"/>
         <field name="communicationEventId" type="id" is-pk="true"/>
         <relationship type="one" related="mantle.request.Request" short-alias="request"/>
-        <relationship type="one" related="CommunicationEvent" short-alias="communicationEvent"/>
+        <relationship type="one" related="mantle.party.communication.CommunicationEvent" short-alias="communicationEvent"/>
     </entity>
     <entity entity-name="RequestContent" package="mantle.request" cache="never">
         <field name="requestContentId" type="id" is-pk="true"/>
@@ -320,7 +320,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="budgetId" type="id" is-pk="true"/>
         <field name="budgetItemSeqId" type="id" is-pk="true"/>
         <field name="amount" type="currency-amount"/>
-        <relationship type="one" related="BudgetItem">
+        <relationship type="one" related="mantle.other.budget.BudgetItem">
             <key-map field-name="budgetId"/>
             <key-map field-name="budgetItemSeqId"/>
         </relationship>

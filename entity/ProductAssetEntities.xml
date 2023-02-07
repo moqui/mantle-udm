@@ -716,7 +716,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="AssetMaintenance" related="moqui.basic.StatusItem"/>
         <relationship type="one" title="MaintenanceType" related="moqui.basic.Enumeration">
             <key-map field-name="maintenanceTypeEnumId"/></relationship>
-        <relationship type="one" related="ProductMaintenance"/>
+        <relationship type="one" related="mantle.product.maintenance.ProductMaintenance"/>
         <relationship type="one" title="Task" related="mantle.work.effort.WorkEffort">
             <key-map field-name="taskWorkEffortId"/></relationship>
         <relationship type="one" title="Interval" related="moqui.basic.Uom">
@@ -810,7 +810,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="registrationNumber" type="text-medium"/>
         <field name="licenseNumber" type="text-medium"/>
         <relationship type="one" related="mantle.product.asset.Asset"/>
-        <relationship type="one" title="GovAgency" related="Party">
+        <relationship type="one" title="GovAgency" related="mantle.party.Party">
             <key-map field-name="govAgencyPartyId"/></relationship>
     </entity>
 

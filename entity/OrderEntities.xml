@@ -449,7 +449,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.account.financial.FinancialAccountTrans" short-alias="financialAccountTrans"/>
         <relationship type="one" title="Override" related="mantle.ledger.account.GlAccount" short-alias="overrideGlAccount">
             <key-map field-name="overrideGlAccountId"/></relationship>
-        <relationship type="one" related="SalesOpportunity" short-alias="opportunity"/>
+        <relationship type="one" related="mantle.sales.opportunity.SalesOpportunity" short-alias="opportunity"/>
         <relationship type="one" related="mantle.other.tax.TaxAuthority" short-alias="taxAuthority"/>
 
         <relationship type="many" related="mantle.product.issuance.AssetReservation" short-alias="reservations">
@@ -597,7 +597,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" title="Customer" related="mantle.party.PartyClassificationAppl" short-alias="customerClasses">
             <key-map field-name="customerPartyId" related="partyId"/></relationship>
 
-        <relationship type="one" related="Facility" short-alias="facility"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
             <key-map field-name="carrierPartyId"/></relationship>
         <relationship type="one" title="ShipmentMethod" related="moqui.basic.Enumeration" short-alias="shipmentMethod">
@@ -605,7 +605,7 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- For tradeTermEnumId terms are defined with enumTypeId="TermType" in AccountingAccountEntities.xml -->
         <relationship type="one" title="TermType" related="moqui.basic.Enumeration" short-alias="tradeTermEnum">
             <key-map field-name="tradeTermEnumId"/></relationship>
-        <relationship type="one" related="SettlementTerm" short-alias="settlementTerm"/>
+        <relationship type="one" related="mantle.account.invoice.SettlementTerm" short-alias="settlementTerm"/>
 
         <relationship type="one" title="Postal" related="mantle.party.contact.ContactMech" short-alias="postal">
             <key-map field-name="postalContactMechId"/></relationship>
@@ -661,7 +661,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderPartSeqId" type="id" is-pk="true"/>
         <field name="settlementTermId" type="id" is-pk="true"/>
         <relationship type="one" related="mantle.order.OrderPart" short-alias="orderPart"/>
-        <relationship type="one" related="SettlementTerm" short-alias="term"/>
+        <relationship type="one" related="mantle.account.invoice.SettlementTerm" short-alias="term"/>
     </entity>
     <entity entity-name="OrderPromoCode" package="mantle.order" cache="never">
         <field name="orderId" type="id" is-pk="true"/>

@@ -100,7 +100,7 @@ along with this software (see the LICENSE.md file). If not, see
             <description>Calculated as actualBalance minus sum of outstanding FinancialAccountAuth.amount</description></field>
         <field name="replenishPaymentId" type="id"/>
         <field name="replenishLevel" type="currency-amount"/>
-        <relationship type="one" related="FinancialAccountType" short-alias="type">
+        <relationship type="one" related="mantle.account.financial.FinancialAccountType" short-alias="type">
             <key-map field-name="finAccountTypeId"/></relationship>
         <relationship type="one" title="FinancialAccount" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organization">
@@ -698,7 +698,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <relationship type="one" title="Quantity" related="moqui.basic.Uom" short-alias="quantityUom">
             <key-map field-name="quantityUomId"/></relationship>
-        <relationship type="one" related="SalesOpportunity" short-alias="salesOpportunity"/>
+        <relationship type="one" related="mantle.sales.opportunity.SalesOpportunity" short-alias="salesOpportunity"/>
         <relationship type="one" related="mantle.other.tax.TaxAuthority" short-alias="taxAuthority"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment" short-alias="payrollAdjustment"/>
         <relationship type="one" related="mantle.account.financial.FinancialAccount" short-alias="financialAccount"/>
@@ -1369,7 +1369,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="amount" type="currency-amount"/>
         <relationship type="one" title="DeductionType" related="moqui.basic.Enumeration">
             <key-map field-name="deductionTypeEnumId"/></relationship>
-        <relationship type="one" related="Payment"/>
+        <relationship type="one" related="mantle.account.payment.Payment"/>
     </entity>
     <entity entity-name="Payment" package="mantle.account.payment" short-alias="payments" cache="never" optimistic-lock="true">
         <field name="paymentId" type="id" is-pk="true"/>

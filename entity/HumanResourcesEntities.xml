@@ -758,7 +758,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.humanres.position.EmplPositionClass"/>
         <relationship type="one" title="EmplPosition" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" related="mantle.humanres.rate.PayGrade"/>
-        <relationship type="one" related="BudgetItem">
+        <relationship type="one" related="mantle.other.budget.BudgetItem">
             <key-map field-name="budgetId"/><key-map field-name="budgetItemSeqId"/></relationship>
         <relationship type="one" title="EmplTaxExempt" related="moqui.basic.Enumeration">
             <key-map field-name="taxExemptEnumId"/></relationship>
