@@ -362,15 +362,15 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="referredByPartyId" type="id"/>
         <field name="approverPartyId" type="id"/>
         <!-- not yet used: <field name="jobRequisitionId" type="id"/> -->
-        <relationship type="one" related="mantle.humanres.position.EmplPosition"/>
-        <relationship type="one" title="EmploymentApplication" related="moqui.basic.StatusItem"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPosition" short-alias="position"/>
+        <relationship type="one" title="EmploymentApplication" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" title="EmploymentApplicationReferredBy" related="moqui.basic.Enumeration">
             <key-map field-name="referredByEnumId"/></relationship>
-        <relationship type="one" title="Applying" related="mantle.party.Party">
+        <relationship type="one" title="Applying" related="mantle.party.Party" short-alias="applyingParty">
             <key-map field-name="applyingPartyId"/></relationship>
-        <relationship type="one" title="ReferredBy" related="mantle.party.Party">
+        <relationship type="one" title="ReferredBy" related="mantle.party.Party" short-alias="referredParty">
             <key-map field-name="referredByPartyId"/></relationship>
-        <relationship type="one" title="Approver" related="mantle.party.Party">
+        <relationship type="one" title="Approver" related="mantle.party.Party" short-alias="approverParty">
             <key-map field-name="approverPartyId"/></relationship>
         <!-- <relationship type="one" related="mantle.humanres.recruitment.JobRequisition"/> -->
         <seed-data>
