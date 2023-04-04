@@ -1491,16 +1491,25 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Website URL - Primary"/>
             <ContactMechPurpose contactMechPurposeId="WebUrlPayment" contactMechTypeEnumId="CmtWebAddress"
                     description="Website URL - Payment (AR)"/>
-            <ContactMechPurpose contactMechPurposeId="WebUrlFacebook" contactMechTypeEnumId="CmtWebAddress"
-                    description="Website URL - Facebook"/>
+            <ContactMechPurpose contactMechPurposeId="WebRetailStore" contactMechTypeEnumId="CmtWebAddress"
+                    description="Website URL - Retail Store"/>        
             <ContactMechPurpose contactMechPurposeId="WebUrlICal" contactMechTypeEnumId="CmtWebAddress"
                     description="Website URL - iCal"/>
+
+            <ContactMechPurpose contactMechPurposeId="WebUrlFacebook" contactMechTypeEnumId="CmtWebAddress"
+                    description="Website URL - Facebook"/>
+            <ContactMechPurpose contactMechPurposeId="WebUrlInstagram" contactMechTypeEnumId="CmtWebAddress"
+                    description="Website URL - Instagram"/>
             <ContactMechPurpose contactMechPurposeId="WebUrlLinkedIn" contactMechTypeEnumId="CmtWebAddress"
                     description="Website URL - LinkedIn"/>
+            <ContactMechPurpose contactMechPurposeId="WebUrlSnapchat" contactMechTypeEnumId="CmtWebAddress"
+                    description="Website URL - Snapchat"/>
+            <ContactMechPurpose contactMechPurposeId="WebUrlTikTok" contactMechTypeEnumId="CmtWebAddress"
+                    description="Website URL - TikTok"/>
             <ContactMechPurpose contactMechPurposeId="WebUrlTwitter" contactMechTypeEnumId="CmtWebAddress"
-                    description="Website URL - Twitter"/>
-            <ContactMechPurpose contactMechPurposeId="WebRetailStore" contactMechTypeEnumId="CmtWebAddress"
-                    description="Website URL - Retail Store"/>
+                    description="Website URL - Twitter"/>                  
+                  
+
 
             <!-- General 'Other' purpose, mainly needed because PartyContactMech.contactMechPurposeId is a PK field, needs a non-null value -->
             <ContactMechPurpose contactMechPurposeId="Other" contactMechTypeEnumId="" description="Other"/>
