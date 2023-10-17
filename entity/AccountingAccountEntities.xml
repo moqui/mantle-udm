@@ -1299,8 +1299,11 @@ along with this software (see the LICENSE.md file). If not, see
             <description>Service implementing the mantle.account.PaymentServices.refund#Payment interface</description></field>
         <field name="detailsServiceName" type="text-medium">
             <description>Service implementing the mantle.account.PaymentServices.get#PaymentGatewayDetails interface</description></field>
+        <field name="systemMessageRemoteId" type="id"/>
         <relationship type="one" title="PaymentGatewayType" related="moqui.basic.Enumeration">
             <key-map field-name="paymentGatewayTypeEnumId"/></relationship>
+        <relationship type="one" title="SystemMessageRemote" related="moqui.service.message.SystemMessageRemote" short-alias="remote">
+            <key-map field-name="systemMessageRemoteId"/></relationship>
         <seed-data>
             <moqui.basic.EnumerationType description="Payment Gateway Type" enumTypeId="PaymentGatewayType"/>
             <moqui.basic.Enumeration description="Test" enumId="PgtTest" enumTypeId="PaymentGatewayType"/>
