@@ -384,12 +384,14 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="moqui.basic.GeoPoint"/>
     </entity>
     <entity entity-name="PartyIdentification" package="mantle.party">
-        <!-- FUTURE? support multiple/history of IDs; single sequenced PK; update lookup/etc services -->
-        <field name="partyId" type="id" is-pk="true"/>
-        <field name="partyIdTypeEnumId" type="id" is-pk="true"/>
+        <field name="partyIdentificationId" type="id" is-pk="true"/>
+        <field name="partyId" type="id"/>
+        <field name="partyIdTypeEnumId" type="id"/>
         <field name="idValue" type="text-medium" encrypt="true"/>
         <field name="issuedBy" type="text-medium"/>
         <field name="issuedByPartyId" type="id"/>
+        <field name="fromDate" type="date"/>
+        <field name="thruDate" type="date"/>
         <field name="expireDate" type="date"/>
         <relationship type="one" title="PartyIdType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyIdTypeEnumId"/></relationship>
