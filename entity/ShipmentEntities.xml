@@ -624,7 +624,7 @@ along with this software (see the LICENSE.md file). If not, see
                 main reason for Ground Commercial is annoying FedEx: FedEx Ground can't go to residential, FedEx Home Delivery can't go to commercial -->
             <moqui.basic.Enumeration sequenceNum="5" description="Ground Commercial" enumId="ShMthGroundCom" enumTypeId="ShipmentMethod"/>
             <moqui.basic.Enumeration sequenceNum="6" description="Motor (Common Carrier)" enumId="ShMthMotor" enumTypeId="ShipmentMethod"/>
-            <moqui.basic.Enumeration sequenceNum="9" description="Customer Pick Up" enumId="ShMthPickUp" enumTypeId="ShipmentMethod"/>
+            <moqui.basic.Enumeration sequenceNum="9" description="客户取货" enumId="ShMthPickUp" enumTypeId="ShipmentMethod"/>
 
             <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="_NA_" shipmentMethodEnumId="ShMthPickUp" sequenceNum="0"/>
             <mantle.shipment.carrier.CarrierShipmentMethod carrierPartyId="_NA_" shipmentMethodEnumId="ShMthGround" sequenceNum="1"/>
