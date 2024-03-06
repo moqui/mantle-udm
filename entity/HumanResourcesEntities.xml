@@ -796,9 +796,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Paid Non-productive Time" enumId="WktpPaidNpt" enumTypeId="WorkType"/>
 
             <!-- Empl Position Class -->
-            <mantle.humanres.position.EmplPositionClass title="Project Manager" emplPositionClassId="ProjectManager"/>
+            <mantle.humanres.position.EmplPositionClass title="项目经理" emplPositionClassId="ProjectManager"/>
             <mantle.humanres.position.EmplPositionClassWorkType emplPositionClassId="ProjectManager" workTypeEnumId="WktpManagement"/>
-            <mantle.humanres.position.EmplPositionClass title="General Manager" emplPositionClassId="GeneralManager"/>
+            <mantle.humanres.position.EmplPositionClass title="总经理" emplPositionClassId="GeneralManager"/>
             <mantle.humanres.position.EmplPositionClassWorkType emplPositionClassId="GeneralManager" workTypeEnumId="WktpManagement"/>
         </seed-data>
     </entity>

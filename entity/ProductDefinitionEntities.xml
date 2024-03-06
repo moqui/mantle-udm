@@ -402,18 +402,18 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Default" related="moqui.basic.Uom" short-alias="defaultUom">
             <key-map field-name="defaultUomId"/></relationship>
         <seed-data>
-            <mantle.product.ProductDimensionType description="Quantity Included" dimensionTypeId="QuantityIncluded" defaultUomId="OTH_ct"/>
-            <mantle.product.ProductDimensionType description="Pieces Included" dimensionTypeId="PiecesIncluded" defaultUomId="OTH_ea"/>
-            <mantle.product.ProductDimensionType description="Weight" dimensionTypeId="Weight" uomTypeEnumId="UT_WEIGHT_MEASURE"/>
-            <mantle.product.ProductDimensionType description="Height" dimensionTypeId="Height" uomTypeEnumId="UT_LENGTH_MEASURE"/>
-            <mantle.product.ProductDimensionType description="Width" dimensionTypeId="Width" uomTypeEnumId="UT_LENGTH_MEASURE"/>
-            <mantle.product.ProductDimensionType description="Depth" dimensionTypeId="Depth" uomTypeEnumId="UT_LENGTH_MEASURE"/>
-            <mantle.product.ProductDimensionType description="Volume" dimensionTypeId="Volume" uomTypeEnumId="UT_VOLUME_DRY_MEAS"/>
-            <mantle.product.ProductDimensionType description="Shipping Weight" dimensionTypeId="ShippingWeight" uomTypeEnumId="UT_WEIGHT_MEASURE"/>
-            <mantle.product.ProductDimensionType description="Shipping Height" dimensionTypeId="ShippingHeight" uomTypeEnumId="UT_LENGTH_MEASURE"/>
-            <mantle.product.ProductDimensionType description="Shipping Width" dimensionTypeId="ShippingWidth" uomTypeEnumId="UT_LENGTH_MEASURE"/>
-            <mantle.product.ProductDimensionType description="Shipping Depth" dimensionTypeId="ShippingDepth" uomTypeEnumId="UT_LENGTH_MEASURE"/>
-            <mantle.product.ProductDimensionType description="Diameter" dimensionTypeId="Diameter" uomTypeEnumId="UT_LENGTH_MEASURE"/>
+            <mantle.product.ProductDimensionType description="包含数量" dimensionTypeId="QuantityIncluded" defaultUomId="OTH_ct"/>
+            <mantle.product.ProductDimensionType description="包括件" dimensionTypeId="PiecesIncluded" defaultUomId="OTH_ea"/>
+            <mantle.product.ProductDimensionType description="重量" dimensionTypeId="Weight" uomTypeEnumId="UT_WEIGHT_MEASURE"/>
+            <mantle.product.ProductDimensionType description="高度" dimensionTypeId="Height" uomTypeEnumId="UT_LENGTH_MEASURE"/>
+            <mantle.product.ProductDimensionType description="宽度" dimensionTypeId="Width" uomTypeEnumId="UT_LENGTH_MEASURE"/>
+            <mantle.product.ProductDimensionType description="深度" dimensionTypeId="Depth" uomTypeEnumId="UT_LENGTH_MEASURE"/>
+            <mantle.product.ProductDimensionType description="体积" dimensionTypeId="Volume" uomTypeEnumId="UT_VOLUME_DRY_MEAS"/>
+            <mantle.product.ProductDimensionType description="装运重量" dimensionTypeId="ShippingWeight" uomTypeEnumId="UT_WEIGHT_MEASURE"/>
+            <mantle.product.ProductDimensionType description="装运高度" dimensionTypeId="ShippingHeight" uomTypeEnumId="UT_LENGTH_MEASURE"/>
+            <mantle.product.ProductDimensionType description="装运宽度" dimensionTypeId="ShippingWidth" uomTypeEnumId="UT_LENGTH_MEASURE"/>
+            <mantle.product.ProductDimensionType description="装运深度" dimensionTypeId="ShippingDepth" uomTypeEnumId="UT_LENGTH_MEASURE"/>
+            <mantle.product.ProductDimensionType description="直径" dimensionTypeId="Diameter" uomTypeEnumId="UT_LENGTH_MEASURE"/>
         </seed-data>
     </entity>
     <entity entity-name="ProductUomDimension" package="mantle.product">
