@@ -292,31 +292,31 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Replenish-level" enumId="FarmLevel" enumTypeId="FinancialAccountReplenishMethod"/>
 
             <!-- Financial Account Type (NOTE: not an Enumeration because has additional fields) -->
-            <mantle.account.financial.FinancialAccountType description="Gift Card" finAccountTypeId="GiftCard"
+            <mantle.account.financial.FinancialAccountType description="礼品卡" finAccountTypeId="GiftCard"
                     replenishTypeEnumId="FarpManual" isRefundable="Y"/>
-            <mantle.account.financial.FinancialAccountType description="Gift Certificate" finAccountTypeId="GiftCertificate"
+            <mantle.account.financial.FinancialAccountType description="礼券" finAccountTypeId="GiftCertificate"
                     replenishTypeEnumId="FarpManual" isRefundable="N"/>
-            <mantle.account.financial.FinancialAccountType description="Deposit" finAccountTypeId="DepositAccount"
+            <mantle.account.financial.FinancialAccountType description="订金" finAccountTypeId="DepositAccount"
                     replenishTypeEnumId="FarpManual" isRefundable="Y"/>
-            <mantle.account.financial.FinancialAccountType description="Customer Credit" finAccountTypeId="CustomerCredit"
+            <mantle.account.financial.FinancialAccountType description="客户信用" finAccountTypeId="CustomerCredit"
                     replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="DepositAccount"/>
-            <mantle.account.financial.FinancialAccountType description="Deposit Replenish" finAccountTypeId="Replenish"
+            <mantle.account.financial.FinancialAccountType description="存款补充" finAccountTypeId="Replenish"
                     replenishTypeEnumId="FarpAutomatic" isRefundable="Y" parentTypeId="DepositAccount"/>
             <!-- <mantle.account.financial.FinancialAccountType description="Investment" finAccountTypeId="Investment"
                     replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="DepositAccount"/> -->
             <!-- <mantle.account.financial.FinancialAccountType description="Bank" finAccountTypeId="BankAccount"
                     replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="DepositAccount"/> -->
-            <mantle.account.financial.FinancialAccountType description="Service Credit" finAccountTypeId="ServiceCredit"
+            <mantle.account.financial.FinancialAccountType description="服务信用" finAccountTypeId="ServiceCredit"
                     replenishTypeEnumId="FarpManual" isRefundable="N"/>
-            <mantle.account.financial.FinancialAccountType description="Loan" finAccountTypeId="LoanAccount"
+            <mantle.account.financial.FinancialAccountType description="贷款" finAccountTypeId="LoanAccount"
                     replenishTypeEnumId="FarpManual" isRefundable="Y"/>
-            <mantle.account.financial.FinancialAccountType description="Employee Advance" finAccountTypeId="EmployeeAdvance"
+            <mantle.account.financial.FinancialAccountType description="员工预付款" finAccountTypeId="EmployeeAdvance"
                     replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="LoanAccount"/>
             <!-- <mantle.account.financial.FinancialAccountType description="Credit Card" finAccountTypeId="CreditCard"
                     replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="LoanAccount"/> -->
             <!-- <mantle.account.financial.FinancialAccountType description="Equity Line" finAccountTypeId="EquityLine"
                     replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="LoanAccount"/> -->
-            <mantle.account.financial.FinancialAccountType description="Supplier Deposit" finAccountTypeId="SupplierDeposit"
+            <mantle.account.financial.FinancialAccountType description="供应商保证金" finAccountTypeId="SupplierDeposit"
                     replenishTypeEnumId="FarpManual" isRefundable="Y"/>
         </seed-data>
     </entity>
@@ -485,7 +485,7 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- ========== Receivable Invoice StatusFlow ========== -->
             <!-- NOTE 2019-03-08: on existing databases (deployed with code from before 2019-03-08) load the data from here down to support new status flows -->
 
-            <moqui.basic.StatusFlow statusFlowId="InvoiceReceivable" statusTypeId="Invoice" description="Invoice Receivable"/>
+            <moqui.basic.StatusFlow statusFlowId="InvoiceReceivable" statusTypeId="Invoice" description="应收发票"/>
             <!-- available statuses in flow -->
             <moqui.basic.StatusFlowItem statusFlowId="InvoiceReceivable" statusId="InvoiceInProcess"/>
             <moqui.basic.StatusFlowItem statusFlowId="InvoiceReceivable" statusId="InvoiceFinalized"/>
@@ -524,7 +524,7 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- ========== Payable Invoice StatusFlow ========== -->
 
-            <moqui.basic.StatusFlow statusFlowId="InvoicePayable" statusTypeId="Invoice" description="Invoice Payable"/>
+            <moqui.basic.StatusFlow statusFlowId="InvoicePayable" statusTypeId="Invoice" description="应付发票"/>
             <!-- available statuses in flow -->
             <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoiceIncoming"/>
             <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoiceReceived"/>
@@ -560,7 +560,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceSent" toStatusId="InvoiceApproved" transitionSequence="2" transitionName="Approve" userPermissionId="INVOICE_APPROVE"/>
 
             <!-- ========== Special (hidden) Invoice StatusFlow ========== -->
-            <moqui.basic.StatusFlow statusFlowId="InvoiceSpecial" statusTypeId="Invoice" description="Invoice Special"/>
+            <moqui.basic.StatusFlow statusFlowId="InvoiceSpecial" statusTypeId="Invoice" description="特殊发票"/>
             <!-- for manual un-cancel -->
             <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceCancelled" toStatusId="InvoiceInProcess" transitionName="Uncancel Receivable"/>
             <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceCancelled" toStatusId="InvoiceReceived" transitionName="Uncancel Payable"/>
@@ -860,32 +860,32 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- NOTE: SettlementTerm is not an Enumeration because it needs additional fields -->
             <mantle.account.invoice.SettlementTerm settlementTermId="Immediate" termTypeEnumId="TtFinPaymentDays"
-                    description="Immediate (Due on Delivery)" termValue="0" termValueUomId="TF_day"/>
+                    description="立即（交货时到期）" termValue="0" termValueUomId="TF_day"/>
             <mantle.account.invoice.SettlementTerm settlementTermId="Net10" termTypeEnumId="TtFinPaymentDays"
-                    description="Net Due in 10 Days" termValue="10" termValueUomId="TF_day"/>
+                    description="10天内到期净额" termValue="10" termValueUomId="TF_day"/>
             <mantle.account.invoice.SettlementTerm settlementTermId="Net15" termTypeEnumId="TtFinPaymentDays"
-                    description="Net Due in 15 Days" termValue="15" termValueUomId="TF_day"/>
+                    description="15天内到期净额" termValue="15" termValueUomId="TF_day"/>
             <mantle.account.invoice.SettlementTerm settlementTermId="Net30" termTypeEnumId="TtFinPaymentDays"
-                    description="Net Due in 30 Days" termValue="30" termValueUomId="TF_day"/>
+                    description="30天内到期净额" termValue="30" termValueUomId="TF_day"/>
             <mantle.account.invoice.SettlementTerm settlementTermId="Net60" termTypeEnumId="TtFinPaymentDays"
-                    description="Net Due in 60 Days" termValue="60" termValueUomId="TF_day"/>
+                    description="60天内到期净额" termValue="60" termValueUomId="TF_day"/>
             <mantle.account.invoice.SettlementTerm settlementTermId="Net90" termTypeEnumId="TtFinPaymentDays"
-                    description="Net Due in 90 Days" termValue="90" termValueUomId="TF_day"/>
+                    description="90天内到期净额" termValue="90" termValueUomId="TF_day"/>
             <mantle.account.invoice.SettlementTerm settlementTermId="Net15thCur" termTypeEnumId="TtFinPaymentDayCurMonth"
-                    description="Net Due on 15th of Current Month" termValue="15"/>
+                    description="本月15日到期" termValue="15"/>
             <mantle.account.invoice.SettlementTerm settlementTermId="NetLastCur" termTypeEnumId="TtFinPaymentDayCurMonth"
-                    description="Net Due on Last Day of Current Month" termValue="31"/>
+                    description="本月最后一天净额" termValue="31"/>
             <mantle.account.invoice.SettlementTerm settlementTermId="Net1stNext" termTypeEnumId="TtFinPaymentDayNextMonth"
-                    description="Net Due on 1st of Next Month" termValue="1"/>
+                    description="下月1日到期净额" termValue="1"/>
             <mantle.account.invoice.SettlementTerm settlementTermId="Net15thNext" termTypeEnumId="TtFinPaymentDayNextMonth"
-                    description="Net Due on 15th of Next Month" termValue="15"/>
+                    description="下月15日到期净额" termValue="15"/>
             <mantle.account.invoice.SettlementTerm settlementTermId="NetLastNext" termTypeEnumId="TtFinPaymentDayNextMonth"
-                    description="Net Due on Last Day of Next Month" termValue="31"/>
+                    description="下月最后一天到期净额" termValue="31"/>
 
             <mantle.account.invoice.SettlementTerm settlementTermId="Net30Disc2Pct10" termTypeEnumId="TtFinPaymentDisc"
-                    description="Net Due in 30 Days, 2% Discount within 10 Days" termValue="30" termValueUomId="TF_day"/>
+                    description="30天内付清，10天内打2%折扣" termValue="30" termValueUomId="TF_day"/>
             <mantle.account.invoice.SettlementTerm settlementTermId="Net45Disc2Pct15" termTypeEnumId="TtFinPaymentDisc"
-                    description="Net Due in 45 Days, 2% Discount within 15 Days" termValue="45" termValueUomId="TF_day"/>
+                    description="45天内付清，15天内打2%折扣" termValue="45" termValueUomId="TF_day"/>
 
             <!-- ServiceRegisterType -->
             <moqui.basic.Enumeration description="Settlement Term - Generate Order Payments" enumId="SettleTermOrderPmt" enumTypeId="ServiceRegisterType"/>

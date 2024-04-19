@@ -510,81 +510,81 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="parentTypeId" related="roleTypeId"/></relationship>
         <seed-data>
             <!-- Role to use when a role is not really applicable for the party association with a record. -->
-            <mantle.party.RoleType description="Not Applicable" roleTypeId="_NA_"/>
+            <mantle.party.RoleType description="不适用" roleTypeId="_NA_"/>
 
             <!-- General Roles -->
-            <mantle.party.RoleType description="Agent" roleTypeId="Agent"/>
-            <mantle.party.RoleType description="Affiliate" roleTypeId="Affiliate"/>
-            <mantle.party.RoleType description="Asset Owner" roleTypeId="AssetOwner"/>
-            <mantle.party.RoleType description="Bad Actor (Banned)" roleTypeId="BadActor"/>
-            <mantle.party.RoleType description="Carrier" roleTypeId="Carrier"/>
-            <mantle.party.RoleType description="Competitor" roleTypeId="Competitor"/>
-            <mantle.party.RoleType description="Consumer" roleTypeId="Consumer"/>
-            <mantle.party.RoleType description="Contractor" roleTypeId="Contractor"/>
-            <mantle.party.RoleType description="Distributor" roleTypeId="Distributor"/>
-            <mantle.party.RoleType description="Garnishment Payee" roleTypeId="GarnishmentPayee"/>
-            <mantle.party.RoleType description="Internet Service Provider" roleTypeId="InternetSp"/>
-            <mantle.party.RoleType description="Hosting Provider" roleTypeId="HostingProvider"/>
-            <mantle.party.RoleType description="Manufacturer" roleTypeId="Manufacturer"/>
-            <mantle.party.RoleType description="Owner"  roleTypeId="Owner"/>
-            <mantle.party.RoleType description="Partner" roleTypeId="Partner"/>
-            <mantle.party.RoleType description="Payroll Other Payee" roleTypeId="PayrollOtherPayee"/>
-            <mantle.party.RoleType description="Prospect" roleTypeId="Prospect"/>
-            <mantle.party.RoleType description="Referrer" roleTypeId="Referrer"/>
-            <mantle.party.RoleType description="Sales Account" roleTypeId="Account"/>
-            <mantle.party.RoleType description="Sales Account Lead" roleTypeId="AccountLead"/>
-            <mantle.party.RoleType description="Shareholder" roleTypeId="Shareholder"/>
-            <mantle.party.RoleType description="Subscriber" roleTypeId="Subscriber"/>
-            <mantle.party.RoleType description="Supplier" roleTypeId="Supplier"/>
-            <mantle.party.RoleType description="Visitor" roleTypeId="Visitor"/>
-            <mantle.party.RoleType description="Web Master" roleTypeId="WebMaster"/>
+            <mantle.party.RoleType description="代理" roleTypeId="Agent"/>
+            <mantle.party.RoleType description="会员" roleTypeId="Affiliate"/>
+            <mantle.party.RoleType description="资产所有者" roleTypeId="AssetOwner"/>
+            <mantle.party.RoleType description="坏角色（禁止）" roleTypeId="BadActor"/>
+            <mantle.party.RoleType description="承运人" roleTypeId="Carrier"/>
+            <mantle.party.RoleType description="竞争者" roleTypeId="Competitor"/>
+            <mantle.party.RoleType description="消费者" roleTypeId="Consumer"/>
+            <mantle.party.RoleType description="承包商" roleTypeId="Contractor"/>
+            <mantle.party.RoleType description="分销商" roleTypeId="Distributor"/>
+            <mantle.party.RoleType description="负债执行收款人" roleTypeId="GarnishmentPayee"/>
+            <mantle.party.RoleType description="网络服务提供商" roleTypeId="InternetSp"/>
+            <mantle.party.RoleType description="托管服务提供商" roleTypeId="HostingProvider"/>
+            <mantle.party.RoleType description="制造商" roleTypeId="Manufacturer"/>
+            <mantle.party.RoleType description="所有者" roleTypeId="Owner"/>
+            <mantle.party.RoleType description="合作伙伴" roleTypeId="Partner"/>
+            <mantle.party.RoleType description="工资单其他收款人" roleTypeId="PayrollOtherPayee"/>
+            <mantle.party.RoleType description="潜在客户" roleTypeId="Prospect"/>
+            <mantle.party.RoleType description="推荐人" roleTypeId="Referrer"/>
+            <mantle.party.RoleType description="销售帐户" roleTypeId="Account"/>
+            <mantle.party.RoleType description="销售帐户主管" roleTypeId="AccountLead"/>
+            <mantle.party.RoleType description="股东" roleTypeId="Shareholder"/>
+            <mantle.party.RoleType description="订阅者" roleTypeId="Subscriber"/>
+            <mantle.party.RoleType description="供应商" roleTypeId="Supplier"/>
+            <mantle.party.RoleType description="访客" roleTypeId="Visitor"/>
+            <mantle.party.RoleType description="网站管理员" roleTypeId="WebMaster"/>
 
             <!-- Person Roles -->
-            <mantle.party.RoleType description="Accountant" roleTypeId="Accountant"/>
-            <mantle.party.RoleType description="Administrator" roleTypeId="Administrator"/>
-            <mantle.party.RoleType description="Assignee" roleTypeId="Assignee"/>
-            <mantle.party.RoleType description="Buyer" roleTypeId="Buyer"/>
-            <mantle.party.RoleType description="Cashier" roleTypeId="Cashier"/>
-            <mantle.party.RoleType description="Client Billing Rep" roleTypeId="ClientBilling"/>
-            <mantle.party.RoleType description="Client Manager" roleTypeId="ClientManager"/>
-            <mantle.party.RoleType description="Email Administrator" roleTypeId="EmailAdmin"/>
-            <mantle.party.RoleType description="Employee" roleTypeId="Employee"/>
-            <mantle.party.RoleType description="Executive" roleTypeId="Executive"/>
-            <mantle.party.RoleType description="Family Member" roleTypeId="FamilyMember"/>
-            <mantle.party.RoleType description="Human Resources Manager" roleTypeId="HumanResourcesManager"/>
-            <mantle.party.RoleType description="Inventory Manager" roleTypeId="InventoryManager"/>
-            <mantle.party.RoleType description="Manager" roleTypeId="Manager"/>
-            <mantle.party.RoleType description="Operator" roleTypeId="Operator"/>
-            <mantle.party.RoleType description="Order Clerk" roleTypeId="OrderClerk"/>
-            <mantle.party.RoleType description="Packer" roleTypeId="Packer"/>
-            <mantle.party.RoleType description="Payroll" roleTypeId="Payroll"/>
-            <mantle.party.RoleType description="Picker" roleTypeId="Picker"/>
-            <mantle.party.RoleType description="Production Manager" roleTypeId="ProductionManager"/>
-            <mantle.party.RoleType description="Production Worker" roleTypeId="ProductionWorker"/>
-            <mantle.party.RoleType description="Receiver" roleTypeId="Receiver"/>
-            <mantle.party.RoleType description="Reporter" roleTypeId="Reporter"/>
-            <mantle.party.RoleType description="Sales Contact" roleTypeId="Contact"/>
-            <mantle.party.RoleType description="Sales Representative" roleTypeId="SalesRepresentative"/>
-            <mantle.party.RoleType description="Shipment Clerk" roleTypeId="ShipmentClerk"/>
-            <mantle.party.RoleType description="Sponsor" roleTypeId="Sponsor"/>
-            <mantle.party.RoleType description="Spouse" roleTypeId="Spouse"/>
-            <mantle.party.RoleType description="Stocker" roleTypeId="Stocker"/>
-            <mantle.party.RoleType description="Supplier Agent" roleTypeId="SupplierAgent"/>
-            <mantle.party.RoleType description="Technical Contact" roleTypeId="TechContact"/>
-            <mantle.party.RoleType description="Watcher" roleTypeId="Watcher"/>
-            <mantle.party.RoleType description="Worker" roleTypeId="Worker"/>
+            <mantle.party.RoleType description="会计" roleTypeId="Accountant"/>
+            <mantle.party.RoleType description="管理员" roleTypeId="Administrator"/>
+            <mantle.party.RoleType description="受让人" roleTypeId="Assignee"/>
+            <mantle.party.RoleType description="买家" roleTypeId="Buyer"/>
+            <mantle.party.RoleType description="出纳" roleTypeId="Cashier"/>
+            <mantle.party.RoleType description="客户账单代表" roleTypeId="ClientBilling"/>
+            <mantle.party.RoleType description="客户经理" roleTypeId="ClientManager"/>
+            <mantle.party.RoleType description="电子邮件管理员" roleTypeId="EmailAdmin"/>
+            <mantle.party.RoleType description="员工" roleTypeId="Employee"/>
+            <mantle.party.RoleType description="行政人员" roleTypeId="Executive"/>
+            <mantle.party.RoleType description="家庭成员" roleTypeId="FamilyMember"/>
+            <mantle.party.RoleType description="人力资源经理" roleTypeId="HumanResourcesManager"/>
+            <mantle.party.RoleType description="库存经理" roleTypeId="InventoryManager"/>
+            <mantle.party.RoleType description="经理" roleTypeId="Manager"/>
+            <mantle.party.RoleType description="操作员" roleTypeId="Operator"/>
+            <mantle.party.RoleType description="订单文员" roleTypeId="OrderClerk"/>
+            <mantle.party.RoleType description="打包工人" roleTypeId="Packer"/>
+            <mantle.party.RoleType description="薪资专员" roleTypeId="Payroll"/>
+            <mantle.party.RoleType description="拣货员" roleTypeId="Picker"/>
+            <mantle.party.RoleType description="产品经理" roleTypeId="ProductionManager"/>
+            <mantle.party.RoleType description="生产工人" roleTypeId="ProductionWorker"/>
+            <mantle.party.RoleType description="接受者" roleTypeId="Receiver"/>
+            <mantle.party.RoleType description="汇报人" roleTypeId="Reporter"/>
+            <mantle.party.RoleType description="销售联系人" roleTypeId="Contact"/>
+            <mantle.party.RoleType description="销售代表" roleTypeId="SalesRepresentative"/>
+            <mantle.party.RoleType description="装运员" roleTypeId="ShipmentClerk"/>
+            <mantle.party.RoleType description="赞助商" roleTypeId="Sponsor"/>
+            <mantle.party.RoleType description="配偶" roleTypeId="Spouse"/>
+            <mantle.party.RoleType description="理货员" roleTypeId="Stocker"/>
+            <mantle.party.RoleType description="供应商代理" roleTypeId="SupplierAgent"/>
+            <mantle.party.RoleType description="技术联系人" roleTypeId="TechContact"/>
+            <mantle.party.RoleType description="关注者" roleTypeId="Watcher"/>
+            <mantle.party.RoleType description="工人" roleTypeId="Worker"/>
 
-            <mantle.party.RoleType description="Business Analyst" roleTypeId="BusinessAnalyst"/>
-            <mantle.party.RoleType description="Default Assignee" roleTypeId="DefaultAssignee"/>
-            <mantle.party.RoleType description="Expert User" roleTypeId="ExpertUser"/>
-            <mantle.party.RoleType description="Programmer" roleTypeId="Programmer"/>
-            <mantle.party.RoleType description="Programmer Lead" roleTypeId="ProgrammerLead"/>
-            <mantle.party.RoleType description="Project Manager" roleTypeId="ProjectManager"/>
-            <mantle.party.RoleType description="Quality Analyst" roleTypeId="QualityAnalyst"/>
-            <mantle.party.RoleType description="Quality Lead" roleTypeId="QualityLead"/>
-            <mantle.party.RoleType description="System Administrator" roleTypeId="SysAdmin"/>
-            <mantle.party.RoleType description="System Architect" roleTypeId="SysArchitect"/>
-            <mantle.party.RoleType description="UI Designer" roleTypeId="UiDesigner"/>
+            <mantle.party.RoleType description="业务分析师" roleTypeId="BusinessAnalyst"/>
+            <mantle.party.RoleType description="默认受让人" roleTypeId="DefaultAssignee"/>
+            <mantle.party.RoleType description="专家用户" roleTypeId="ExpertUser"/>
+            <mantle.party.RoleType description="程序员" roleTypeId="Programmer"/>
+            <mantle.party.RoleType description="程序员主管" roleTypeId="ProgrammerLead"/>
+            <mantle.party.RoleType description="项目经理" roleTypeId="ProjectManager"/>
+            <mantle.party.RoleType description="质量分析师" roleTypeId="QualityAnalyst"/>
+            <mantle.party.RoleType description="质量主管" roleTypeId="QualityLead"/>
+            <mantle.party.RoleType description="系统管理员" roleTypeId="SysAdmin"/>
+            <mantle.party.RoleType description="系统架构师" roleTypeId="SysArchitect"/>
+            <mantle.party.RoleType description="UI 设计师" roleTypeId="UiDesigner"/>
 
 
             <moqui.basic.Enumeration description="Person Roles" enumId="RgpPerson" enumTypeId="RoleGroup"/>
@@ -631,23 +631,23 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpPerson" roleTypeId="UiDesigner"/>
 
             <!-- Organization Roles -->
-            <mantle.party.RoleType description="Association" roleTypeId="OrgAssociation"/>
-            <mantle.party.RoleType description="Corporation" roleTypeId="OrgCorporation"/>
-            <mantle.party.RoleType description="Department" roleTypeId="OrgDepartment"/>
-            <mantle.party.RoleType description="Division" roleTypeId="OrgDivision"/>
-            <mantle.party.RoleType description="Employer" roleTypeId="OrgEmployer"/>
-            <mantle.party.RoleType description="Family" roleTypeId="OrgFamily"/>
-            <mantle.party.RoleType description="Government" roleTypeId="OrgGovernment"/>
-            <mantle.party.RoleType description="Government Agency" roleTypeId="OrgGovernmentAgency"/>
-            <mantle.party.RoleType description="Household" roleTypeId="OrgHousehold"/>
-            <mantle.party.RoleType description="Internal Organization" roleTypeId="OrgInternal"/>
-            <mantle.party.RoleType description="Team" roleTypeId="OrgTeam"/>
-            <mantle.party.RoleType description="Unit" roleTypeId="OrgUnit"/>
-            <mantle.party.RoleType description="Parent" roleTypeId="OrgParent"/>
-            <mantle.party.RoleType description="Regulatory Agency" roleTypeId="OrgRegulatoryAgency"/>
-            <mantle.party.RoleType description="Subsidiary" roleTypeId="OrgSubsidiary"/>
-            <mantle.party.RoleType description="Tax Authority" roleTypeId="OrgTaxAuthority"/>
-            <mantle.party.RoleType description="Union" roleTypeId="OrgUnion"/>
+            <mantle.party.RoleType description="协会" roleTypeId="OrgAssociation"/>
+            <mantle.party.RoleType description="公司" roleTypeId="OrgCorporation"/>
+            <mantle.party.RoleType description="部门" roleTypeId="OrgDepartment"/>
+            <mantle.party.RoleType description="分配" roleTypeId="OrgDivision"/>
+            <mantle.party.RoleType description="雇主" roleTypeId="OrgEmployer"/>
+            <mantle.party.RoleType description="家庭" roleTypeId="OrgFamily"/>
+            <mantle.party.RoleType description="政府" roleTypeId="OrgGovernment"/>
+            <mantle.party.RoleType description="政府机关" roleTypeId="OrgGovernmentAgency"/>
+            <mantle.party.RoleType description="住处" roleTypeId="OrgHousehold"/>
+            <mantle.party.RoleType description="内部组织" roleTypeId="OrgInternal"/>
+            <mantle.party.RoleType description="团队" roleTypeId="OrgTeam"/>
+            <mantle.party.RoleType description="单元" roleTypeId="OrgUnit"/>
+            <mantle.party.RoleType description="父组织" roleTypeId="OrgParent"/>
+            <mantle.party.RoleType description="监管机构" roleTypeId="OrgRegulatoryAgency"/>
+            <mantle.party.RoleType description="子公司" roleTypeId="OrgSubsidiary"/>
+            <mantle.party.RoleType description="税务机关" roleTypeId="OrgTaxAuthority"/>
+            <mantle.party.RoleType description="联盟" roleTypeId="OrgUnion"/>
 
             <moqui.basic.Enumeration description="Organization Roles" enumId="RgpOrganization" enumTypeId="RoleGroup"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrganization" roleTypeId="OrgAssociation"/>
@@ -668,10 +668,10 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrganization" roleTypeId="OrgUnion"/>
 
             <!-- Calendar Roles -->
-            <mantle.party.RoleType description="Attendee" roleTypeId="Attendee"/>
-            <mantle.party.RoleType description="Delegate" roleTypeId="Delegate"/>
-            <mantle.party.RoleType description="Host" roleTypeId="Host"/>
-            <mantle.party.RoleType description="Organizer" roleTypeId="Organizer"/>
+            <mantle.party.RoleType description="与会者" roleTypeId="Attendee"/>
+            <mantle.party.RoleType description="代表" roleTypeId="Delegate"/>
+            <mantle.party.RoleType description="主持人" roleTypeId="Host"/>
+            <mantle.party.RoleType description="组织者" roleTypeId="Organizer"/>
 
             <moqui.basic.Enumeration description="Calendar Roles" enumId="RgpCalendar" enumTypeId="RoleGroup"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpCalendar" roleTypeId="Attendee"/>
@@ -682,15 +682,15 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- Customer and Vendor Roles -->
             <!-- NOTE: these don't use RoleGroupMember because they are an actual hierarchy of roles (Customer and Vendor are valid roles with sub-roles) -->
-            <mantle.party.RoleType description="Customer" roleTypeId="Customer"/>
-            <mantle.party.RoleType description="Customer - Bill To" parentTypeId="Customer" roleTypeId="CustomerBillTo"/>
-            <mantle.party.RoleType description="Customer - End User" parentTypeId="Customer" roleTypeId="CustomerEndUser"/>
-            <mantle.party.RoleType description="Customer - Placing" parentTypeId="Customer" roleTypeId="CustomerPlacing"/>
-            <mantle.party.RoleType description="Customer - Ship To" parentTypeId="Customer" roleTypeId="CustomerShipTo"/>
-            <mantle.party.RoleType description="Vendor" roleTypeId="Vendor"/>
-            <mantle.party.RoleType description="Vendor - Bill From" parentTypeId="Vendor" roleTypeId="VendorBillFrom"/>
-            <mantle.party.RoleType description="Vendor - Ship From" parentTypeId="Vendor" roleTypeId="VendorShipFrom"/>
-            <mantle.party.RoleType description="Vendor - Pick Up From" parentTypeId="Vendor" roleTypeId="VendorPickUpFrom"/>
+            <mantle.party.RoleType description="顾客" roleTypeId="Customer"/>
+            <mantle.party.RoleType description="顾客 - 账单地址" parentTypeId="Customer" roleTypeId="CustomerBillTo"/>
+            <mantle.party.RoleType description="顾客 - 最终用户" parentTypeId="Customer" roleTypeId="CustomerEndUser"/>
+            <mantle.party.RoleType description="顾客 - 配售" parentTypeId="Customer" roleTypeId="CustomerPlacing"/>
+            <mantle.party.RoleType description="顾客 - 送货地址" parentTypeId="Customer" roleTypeId="CustomerShipTo"/>
+            <mantle.party.RoleType description="供应商" roleTypeId="Vendor"/>
+            <mantle.party.RoleType description="供应商 - 账单来源" parentTypeId="Vendor" roleTypeId="VendorBillFrom"/>
+            <mantle.party.RoleType description="供应商 - 发货来源" parentTypeId="Vendor" roleTypeId="VendorShipFrom"/>
+            <mantle.party.RoleType description="供应商 - 取件来源" parentTypeId="Vendor" roleTypeId="VendorPickUpFrom"/>
 
             <moqui.basic.Enumeration description="Order Roles" enumId="RgpOrder" enumTypeId="RoleGroup"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="Customer"/>
@@ -1637,46 +1637,60 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="Payroll" description="Payroll" enumTypeId="TimePeriodPurpose"/>
             <moqui.basic.Enumeration enumId="Sales" description="Sales" enumTypeId="TimePeriodPurpose"/>
             <moqui.basic.Enumeration enumId="Tax" description="Tax" enumTypeId="TimePeriodPurpose"/>
-
+            <!--财政年度-->
             <mantle.party.time.TimePeriodType description="Fiscal Year" timePeriodTypeId="FiscalYear"
-                    periodPurposeEnumId="Fiscal" periodLength="1" lengthUomId="TF_yr"/>
+                                              periodPurposeEnumId="Fiscal" periodLength="1" lengthUomId="TF_yr"/>
+            <!--财政季度-->
             <mantle.party.time.TimePeriodType description="Fiscal Quarter" timePeriodTypeId="FiscalQuarter"
-                    parentPeriodTypeId="FiscalYear" periodPurposeEnumId="Fiscal" periodLength="3" lengthUomId="TF_mon"/>
+                                              parentPeriodTypeId="FiscalYear" periodPurposeEnumId="Fiscal" periodLength="3" lengthUomId="TF_mon"/>
+            <!--财政月度-->
             <mantle.party.time.TimePeriodType description="Fiscal Month" timePeriodTypeId="FiscalMonth"
-                    parentPeriodTypeId="FiscalQuarter" periodPurposeEnumId="Fiscal" periodLength="1" lengthUomId="TF_mon"/>
+                                              parentPeriodTypeId="FiscalQuarter" periodPurposeEnumId="Fiscal" periodLength="1" lengthUomId="TF_mon"/>
+            <!--财政双周-->
             <mantle.party.time.TimePeriodType description="Fiscal Bi-Week" timePeriodTypeId="FiscalBiWeek"
-                    parentPeriodTypeId="FiscalMonth" periodPurposeEnumId="Fiscal" periodLength="2" lengthUomId="TF_wk"/>
+                                              parentPeriodTypeId="FiscalMonth" periodPurposeEnumId="Fiscal" periodLength="2" lengthUomId="TF_wk"/>
+            <!--财政单周-->
             <mantle.party.time.TimePeriodType description="Fiscal Week" timePeriodTypeId="FiscalWeek"
-                    parentPeriodTypeId="FiscalMonth" periodPurposeEnumId="Fiscal" periodLength="1" lengthUomId="TF_wk"/>
-
+                                              parentPeriodTypeId="FiscalMonth" periodPurposeEnumId="Fiscal" periodLength="1" lengthUomId="TF_wk"/>
+            <!--薪资年付-->
             <mantle.party.time.TimePeriodType description="Payroll Year" timePeriodTypeId="PayrollYear"
-                    periodPurposeEnumId="Payroll" periodLength="1" lengthUomId="TF_yr"/>
+                                              periodPurposeEnumId="Payroll" periodLength="1" lengthUomId="TF_yr"/>
+            <!--薪资半年付-->
             <mantle.party.time.TimePeriodType description="Payroll Semi-Year" timePeriodTypeId="PayrollSemiYear"
-                    parentPeriodTypeId="PayrollYear" periodPurposeEnumId="Payroll" periodLength="6" lengthUomId="TF_mon"/>
+                                              parentPeriodTypeId="PayrollYear" periodPurposeEnumId="Payroll" periodLength="6" lengthUomId="TF_mon"/>
+            <!--薪资季付-->
             <mantle.party.time.TimePeriodType description="Payroll Quarter" timePeriodTypeId="PayrollQuarter"
-                    parentPeriodTypeId="PayrollYear" periodPurposeEnumId="Payroll" periodLength="3" lengthUomId="TF_mon"/>
+                                              parentPeriodTypeId="PayrollYear" periodPurposeEnumId="Payroll" periodLength="3" lengthUomId="TF_mon"/>
+            <!--薪资月付-->
             <mantle.party.time.TimePeriodType description="Payroll Month" timePeriodTypeId="PayrollMonth"
-                    parentPeriodTypeId="PayrollQuarter" periodPurposeEnumId="Payroll" periodLength="1" lengthUomId="TF_mon"/>
+                                              parentPeriodTypeId="PayrollQuarter" periodPurposeEnumId="Payroll" periodLength="1" lengthUomId="TF_mon"/>
+            <!--薪资半月付-->
             <mantle.party.time.TimePeriodType description="Payroll Semi-Month" timePeriodTypeId="PayrollSemiMonth"
-                    parentPeriodTypeId="PayrollMonth" periodPurposeEnumId="Payroll" periodLength="0.5" lengthUomId="TF_mon"/>
+                                              parentPeriodTypeId="PayrollMonth" periodPurposeEnumId="Payroll" periodLength="0.5" lengthUomId="TF_mon"/>
+            <!--薪资双周-->
             <mantle.party.time.TimePeriodType description="Payroll Bi-Week" timePeriodTypeId="PayrollBiWeek"
-                    parentPeriodTypeId="PayrollMonth" periodPurposeEnumId="Payroll" periodLength="2" lengthUomId="TF_wk"/>
+                                              parentPeriodTypeId="PayrollMonth" periodPurposeEnumId="Payroll" periodLength="2" lengthUomId="TF_wk"/>
+            <!--薪资周付-->
             <mantle.party.time.TimePeriodType description="Payroll Week" timePeriodTypeId="PayrollWeek"
-                    parentPeriodTypeId="PayrollMonth" periodPurposeEnumId="Payroll" periodLength="1" lengthUomId="TF_wk"/>
-
+                                              parentPeriodTypeId="PayrollMonth" periodPurposeEnumId="Payroll" periodLength="1" lengthUomId="TF_wk"/>
+            <!--销售年度-->
             <mantle.party.time.TimePeriodType description="Sales Year" timePeriodTypeId="SalesYear"
-                    periodPurposeEnumId="Sales" periodLength="1" lengthUomId="TF_yr"/>
+                                              periodPurposeEnumId="Sales" periodLength="1" lengthUomId="TF_yr"/>
+            <!--销售季度-->
             <mantle.party.time.TimePeriodType description="Sales Quarter" timePeriodTypeId="SalesQuarter"
-                    parentPeriodTypeId="SalesYear" periodPurposeEnumId="Sales" periodLength="3" lengthUomId="TF_mon"/>
+                                              parentPeriodTypeId="SalesYear" periodPurposeEnumId="Sales" periodLength="3" lengthUomId="TF_mon"/>
+            <!--销售月度-->
             <mantle.party.time.TimePeriodType description="Sales Month" timePeriodTypeId="SalesMonth"
-                    parentPeriodTypeId="SalesQuarter" periodPurposeEnumId="Sales" periodLength="1" lengthUomId="TF_mon"/>
-
+                                              parentPeriodTypeId="SalesQuarter" periodPurposeEnumId="Sales" periodLength="1" lengthUomId="TF_mon"/>
+            <!--税收年度-->
             <mantle.party.time.TimePeriodType description="Tax Year" timePeriodTypeId="TaxYear"
-                    periodPurposeEnumId="Tax" periodLength="1" lengthUomId="TF_yr"/>
+                                              periodPurposeEnumId="Tax" periodLength="1" lengthUomId="TF_yr"/>
+            <!--税收季度-->
             <mantle.party.time.TimePeriodType description="Tax Quarter" timePeriodTypeId="TaxQuarter"
-                    parentPeriodTypeId="TaxYear" periodPurposeEnumId="Tax" periodLength="3" lengthUomId="TF_mon"/>
+                                              parentPeriodTypeId="TaxYear" periodPurposeEnumId="Tax" periodLength="3" lengthUomId="TF_mon"/>
+            <!--税收月度-->
             <mantle.party.time.TimePeriodType description="Tax Month" timePeriodTypeId="TaxMonth"
-                    parentPeriodTypeId="TaxQuarter" periodPurposeEnumId="Tax" periodLength="1" lengthUomId="TF_mon"/>
+                                              parentPeriodTypeId="TaxQuarter" periodPurposeEnumId="Tax" periodLength="1" lengthUomId="TF_mon"/>
         </seed-data>
     </entity>
 </entities>
