@@ -101,6 +101,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Room" enumId="FcTpRoom" enumTypeId="FacilityType"/>
             <moqui.basic.Enumeration description="Retail Store" enumId="FcTpRetailStore" enumTypeId="FacilityType"/>
             <moqui.basic.Enumeration description="Warehouse" enumId="FcTpWarehouse" enumTypeId="FacilityType"/>
+            <moqui.basic.Enumeration description="Drop-ship" enumId="FcTpDropShip" enumTypeId="FacilityType"/>
             <moqui.basic.Enumeration description="Dock" enumId="FcTpDock" enumTypeId="FacilityType"/>
             <moqui.basic.Enumeration description="Production Line" enumId="FcTpLine" enumTypeId="FacilityType"/>
 
