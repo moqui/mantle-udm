@@ -43,6 +43,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="externalId" type="text-short"><description>ID for the Facility in the direct upstream system it came from if it came from an external system</description></field>
         <field name="originId" type="text-short"><description>ID for the Facility in the original system it came from (system of record) if not the direct upstream system</description></field>
 
+        <field name="dropShipRemoteId" type="id"><description>ID for remote communications for the Facility (like drop-shipping)</description></field>
+
         <relationship type="one" title="FacilityType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="facilityTypeEnumId"/></relationship>
         <relationship type="one" title="Parent" related="mantle.facility.Facility" short-alias="parent">
@@ -83,6 +85,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="facilityId"/></relationship>
         <relationship type="many" related="mantle.facility.FacilityPrinter" short-alias="printers">
             <key-map field-name="facilityId"/></relationship>
+        <relationship type="one" title="DropShipSystemMessageRemote" related="moqui.service.message.SystemMessageRemote" short-alias="dropShipRemote">
+            <key-map field-name="dropShipRemoteId"/></relationship>
 
         <index name="FACILITY_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
 
