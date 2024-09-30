@@ -687,8 +687,10 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Customer - End User" parentTypeId="Customer" roleTypeId="CustomerEndUser"/>
             <mantle.party.RoleType description="Customer - Placing" parentTypeId="Customer" roleTypeId="CustomerPlacing"/>
             <mantle.party.RoleType description="Customer - Ship To" parentTypeId="Customer" roleTypeId="CustomerShipTo"/>
+            <mantle.party.RoleType description="Customer - Ship From (rare)" parentTypeId="Customer" roleTypeId="CustomerShipFrom"/>
             <mantle.party.RoleType description="Vendor" roleTypeId="Vendor"/>
             <mantle.party.RoleType description="Vendor - Bill From" parentTypeId="Vendor" roleTypeId="VendorBillFrom"/>
+            <mantle.party.RoleType description="Vendor - Ship To (rare)" parentTypeId="Vendor" roleTypeId="VendorShipTo"/>
             <mantle.party.RoleType description="Vendor - Ship From" parentTypeId="Vendor" roleTypeId="VendorShipFrom"/>
             <mantle.party.RoleType description="Vendor - Pick Up From" parentTypeId="Vendor" roleTypeId="VendorPickUpFrom"/>
 
@@ -698,8 +700,10 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="CustomerEndUser"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="CustomerPlacing"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="CustomerShipTo"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="CustomerShipFrom"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="Vendor"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="VendorBillFrom"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="VendorShipTo"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="VendorShipFrom"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="VendorPickUpFrom"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrder" roleTypeId="Supplier"/>
