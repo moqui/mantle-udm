@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This software is in the public domain under CC0 1.0 Universal plus a
+Grant of Patent License.
+
+To the extent possible under law, the author(s) have dedicated all
+copyright and related and neighboring rights to this software to the
+public domain worldwide. This software is distributed without any
+warranty.
+
+You should have received a copy of the CC0 Public Domain Dedication
+along with this software (see the LICENSE.md file). If not, see
+<http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-3.xsd"
+        require-authentication="anonymous-view" allow-extra-path="true" default-menu-include="false">
+
+    <parameter name="agreementId"/>
+    <parameter name="ver"/>
+
+    <transition name="attachment"><actions>
+        <set field="extraPathNameList" from="new ArrayList(sri.screenUrlInfo.extraPathNameList)"/>
+        <if condition="!extraPathNameList"><script>ec.web.sendError(404, null, null)</script></if>
+        <set field="filename" from="extraPathNameList.remove(extraPathNameList.size()-1)"/>
+        <service-call name="org.moqui.impl.WikiServices.get#WikiPageAttachment" out-map="context"
+                in-map="[wikiSpaceId:'ZiziAgreement', pagePath:extraPathNameList?.join('/'), filename:filename]"/>
+        <script>ec.web.sendResourceResponse(attachmentReference.location, true)</script>
+    </actions><default-response type="none"/></transition>
+
+    <actions>
+        <set field="extraPathNameList" from="sri.screenUrlInfo.extraPathNameList"/>
+
+        <if condition="agreementId"><then>
+            <service-call name="mantle.party.AgreementServices.get#AgreementText" in-map="[agreementId:agreementId]" out-map="context"/>
+        </then><else>
+            <service-call name="org.moqui.impl.WikiServices.get#PublishedWikiPageText" out-map="context"
+                    in-map="[wikiSpaceId:'ZiziAgreement', pagePath:extraPathNameList?.join('/'), getPageText:false]"/>
+        </else></if>
+
+        <log level="warn" message="ZiziAgreements.xml context.toString()=${context.toString()}"/>
+    </actions>
+
+    <widgets>
+        <section name="PageTextSection" condition="pageLocation">
+            <widgets>
+                <container-row><row-col xs="1" md="2"></row-col><row-col xs="10" md="8">
+                    <render-mode>
+                        <text type="html,vuet,qvt" template="true" location="${pageLocation?:''}${versionName &amp;&amp; currentVersionName != versionName ? '#' + versionName.take(12) : ''}"/>
+                    </render-mode>
+                </row-col><row-col xs="1" md="2"></row-col></container-row>
+            </widgets>
+            <fail-widgets>
+                <label text="Sorry, we couldn't find that page!" type="h2" style="text-center"/>
+            </fail-widgets>
+        </section>
+    </widgets>
+</screen>

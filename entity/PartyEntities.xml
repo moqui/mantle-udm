@@ -996,6 +996,25 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="termTypeEnumId"/></relationship>
         <!-- see the mantle.account.invoice.SettlementTerm entity for TermType enums -->
     </entity>
+    <entity entity-name="AgreementWikiPage" package="mantle.party.agreement">
+        <field name="agreementId" type="id" is-pk="true"/>
+        <field name="wikiPageId" type="id" is-pk="true"/>
+        <field name="historySeqId" type="id" is-pk="true"/>
+        <field name="agreementDate" type="date-time" default="ec.user.nowTimestamp"/>
+        <field name="purposeTypeEnumId" type="id"/>
+
+        <relationship type="one" related="mantle.party.agreement.Agreement"/>
+        <relationship type="one" related="moqui.resource.wiki.WikiPage"/>
+        <relationship type="one" related="moqui.resource.wiki.WikiPageHistory"/>
+        <relationship type="one" title="AgreementPagePurposeType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="purposeTypeEnumId"/></relationship>
+
+        <seed-data>
+            <!-- Agreement Page Purpose Type -->
+            <moqui.basic.EnumerationType description="Agreement Page Purpose Type" enumTypeId="AgreementPagePurposeType"/>
+            <moqui.basic.Enumeration enumId="ApptContract" description="Contract" enumTypeId="AgreementPagePurposeType"/>
+        </seed-data>
+    </entity>
 
     <entity entity-name="AgreementItem" package="mantle.party.agreement">
         <description>For price lists associated with an AgreementItem use the ProducePrice entity.</description>
