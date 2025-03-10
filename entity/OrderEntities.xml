@@ -114,7 +114,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Sync" related="moqui.basic.StatusItem" short-alias="syncStatus">
             <key-map field-name="syncStatusId"/></relationship>
         <relationship type="one" related="moqui.service.message.SystemMessageRemote" short-alias="systemMessageRemote"/>
-        <relationship type="one" related="moqui.server.Visit" short-alias="visit"/>
+        <relationship type="one-nofk" related="moqui.server.Visit" short-alias="visit"/>
         <relationship type="one" title="EnteredBy" related="mantle.party.Party" short-alias="enteredByParty">
             <key-map field-name="enteredByPartyId" related="partyId"/></relationship>
         <relationship type="one" title="Parent" related="mantle.order.OrderHeader" short-alias="parentOrder">
@@ -739,7 +739,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="carrierPartyId"/></relationship>
         <relationship type="one" title="Currency" related="moqui.basic.Uom" short-alias="currencyUom">
             <key-map field-name="currencyUomId"/></relationship>
-        <relationship type="one" related="moqui.server.Visit" short-alias="visit"/>
+        <relationship type="one-nofk" related="moqui.server.Visit" short-alias="visit"/>
         <relationship type="one" related="moqui.service.message.SystemMessageRemote" short-alias="systemMessageRemote"/>
 
         <relationship type="many" related="mantle.order.return.ReturnItem" short-alias="items">

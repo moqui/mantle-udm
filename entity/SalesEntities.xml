@@ -161,6 +161,6 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.party.communication.CommunicationEvent"/>
         <relationship type="one" related="mantle.product.Product"/>
         <relationship type="one" related="mantle.product.category.ProductCategory"/>
-        <relationship type="one" related="moqui.server.Visit"/>
+        <relationship type="one-nofk" related="moqui.server.Visit"/>
     </entity>
 </entities>
