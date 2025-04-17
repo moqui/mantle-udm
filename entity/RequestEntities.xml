@@ -149,6 +149,17 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.request.Request" short-alias="request"/>
         <relationship type="one" related="mantle.party.communication.CommunicationEvent" short-alias="communicationEvent"/>
     </entity>
+    <entity entity-name="RequestEmailMessage" package="mantle.request" cache="never">
+        <field name="requestId" type="id" is-pk="true"/>
+        <field name="emailMessageId" type="id" is-pk="true"/>
+        <field name="partyId" type="id"/>
+        <field name="statusId" type="id"/>
+
+        <relationship type="one" related="mantle.request.Request" short-alias="request"/>
+        <relationship type="one" related="moqui.basic.email.EmailMessage" short-alias="emailMessage"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" title="Status" related="moqui.basic.StatusItem" short-alias="status"/>
+    </entity>
     <entity entity-name="RequestContent" package="mantle.request" cache="never">
         <field name="requestContentId" type="id" is-pk="true"/>
         <field name="requestId" type="id"/>
