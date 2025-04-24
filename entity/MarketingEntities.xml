@@ -352,7 +352,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="sourceEnumId" type="id"/>
         <relationship type="one" related="mantle.marketing.tracking.TrackingCode"/>
-        <relationship type="one" related="moqui.server.Visit"/>
+        <relationship type="one-nofk" related="moqui.server.Visit"/>
         <relationship type="one" title="TrackingCodeSource" related="moqui.basic.Enumeration">
             <key-map field-name="sourceEnumId"/></relationship>
         <seed-data>
