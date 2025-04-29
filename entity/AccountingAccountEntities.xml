@@ -979,6 +979,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Gift Card" enumId="PmtGiftCard" enumTypeId="PaymentMethodType"/>
             <moqui.basic.Enumeration description="Financial Account" enumId="PmtFinancialAccount" enumTypeId="PaymentMethodType"/>
             <moqui.basic.Enumeration description="PayPal Account" enumId="PmtPayPalAccount" enumTypeId="PaymentMethodType"/>
+            <moqui.basic.Enumeration description="Venmo Account" enumId="PmtVenmoAccount" enumTypeId="PaymentMethodType"/>
             <moqui.basic.Enumeration description="Amazon Pay Account" enumId="PmtAmazonPayAccount" enumTypeId="PaymentMethodType"/>
             <moqui.basic.Enumeration description="Other Type (no detail record)" enumId="PmtOther" enumTypeId="PaymentMethodType"/>
 
@@ -1517,6 +1518,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Credit Card" enumId="PiCreditCard" enumTypeId="PaymentInstrument" relatedEnumId="PmtCreditCard"/>
             <moqui.basic.Enumeration description="Debit Card" enumId="PiDebitCard" enumTypeId="PaymentInstrument" relatedEnumId="PmtCreditCard"/>
             <moqui.basic.Enumeration description="PayPal Account" enumId="PiPayPalAccount" enumTypeId="PaymentInstrument" relatedEnumId="PmtPayPalAccount"/>
+            <moqui.basic.Enumeration description="Venmo Account" enumId="PiVenmoAccount" enumTypeId="PaymentInstrument" relatedEnumId="PmtVenmoAccount"/>
             <moqui.basic.Enumeration description="Gift Card" enumId="PiGiftCard" enumTypeId="PaymentInstrument" relatedEnumId="PmtGiftCard"/>
             <moqui.basic.Enumeration description="Gift Certificate" enumId="PiGiftCertificate" enumTypeId="PaymentInstrument"/>
             <moqui.basic.Enumeration description="Cash" enumId="PiCash" enumTypeId="PaymentInstrument"/>
