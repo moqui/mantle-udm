@@ -260,7 +260,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeClosed" toStatusId="WeInPlanning" transitionName="Re-open"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="WeCancelled" toStatusId="WeInPlanning" transitionName="Re-open"/>
 
-            <moqui.basic.StatusFlow statusFlowId="WorkEffortOther" description="Other, more lenient, status transitions for WorkEffort"/>
+            <moqui.basic.StatusFlow statusFlowId="WorkEffortOther" description="其他更宽松的工作量状态转换"/>
             <moqui.basic.StatusFlowTransition statusFlowId="WorkEffortOther" statusId="WeInPlanning" toStatusId="WeClosed" transitionName="Close"/>
             <moqui.basic.StatusFlowTransition statusFlowId="WorkEffortOther" statusId="WeApproved" toStatusId="WeClosed" transitionName="Close"/>
             <moqui.basic.StatusFlowTransition statusFlowId="WorkEffortOther" statusId="WeInProgress" toStatusId="WeClosed" transitionName="Close"/>

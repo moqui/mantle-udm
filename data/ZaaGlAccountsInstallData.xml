@@ -239,370 +239,370 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- NOTE: GlAccount.accountCode defaults to glAccountId, so not set on records in this file -->
 
     <!-- 100000 ASSET -->
-    <mantle.ledger.account.GlAccount accountName="Asset Root" description="" glAccountClassEnumId="ASSET"
+    <mantle.ledger.account.GlAccount accountName="资产根" description="" glAccountClassEnumId="ASSET"
         glAccountId="100000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="" disallowPosting="Y"/>
 
     <!-- 110000 ASSET - CASH ON HAND -->
-    <mantle.ledger.account.GlAccount accountName="Cash and Equivalent Asset" description="" glAccountClassEnumId="CASH_EQUIVALENT"
+    <mantle.ledger.account.GlAccount accountName="现金和等价资产" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="110000000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="100000000"/>
-    <mantle.ledger.account.GlAccount accountName="Cash on Hand" description="" glAccountClassEnumId="CASH_EQUIVALENT"
+    <mantle.ledger.account.GlAccount accountName="手上的现金" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="111000000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="110000000"/>
-    <mantle.ledger.account.GlAccount accountName="General Checking Account" description="" glAccountClassEnumId="CASH_EQUIVALENT"
+    <mantle.ledger.account.GlAccount accountName="一般支票账户" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="111100000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="111000000"/>
-    <mantle.ledger.account.GlAccount accountName="Payroll Checking Account" description="" glAccountClassEnumId="CASH_EQUIVALENT"
+    <mantle.ledger.account.GlAccount accountName="工资支票账户" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="111200000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="111000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Checking Account" description="" glAccountClassEnumId="CASH_EQUIVALENT"
+    <mantle.ledger.account.GlAccount accountName="其他支票账户" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="111300000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="111000000"/>
-    <mantle.ledger.account.GlAccount accountName="Money Market" description="" glAccountClassEnumId="CASH_EQUIVALENT"
+    <mantle.ledger.account.GlAccount accountName="货币市场" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="111400000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="111000000"/>
-    <mantle.ledger.account.GlAccount accountName="Certificates of Deposit" description="" glAccountClassEnumId="CASH_EQUIVALENT"
+    <mantle.ledger.account.GlAccount accountName="存款证" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="111500000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="111000000"/>
-    <mantle.ledger.account.GlAccount accountName="Savings Accounts" description="" glAccountClassEnumId="CASH_EQUIVALENT"
+    <mantle.ledger.account.GlAccount accountName="储蓄账户" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="111600000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="111000000"/>
-    <mantle.ledger.account.GlAccount accountName="Cash in Registers" description="" glAccountClassEnumId="CASH_EQUIVALENT"
+    <mantle.ledger.account.GlAccount accountName="收银机现金" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="111700000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="111000000"/>
-    <mantle.ledger.account.GlAccount accountName="Cash for Out of Store Events" description="" glAccountClassEnumId="CASH_EQUIVALENT"
+    <mantle.ledger.account.GlAccount accountName="店外活动的现金" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="111800000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="111000000"/>
-    <mantle.ledger.account.GlAccount accountName="Petty Cash" description="" glAccountClassEnumId="CASH_EQUIVALENT"
+    <mantle.ledger.account.GlAccount accountName="小额现金" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="111900000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="111000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Undeposited Receipts" description="" glAccountClassEnumId="CASH_EQUIVALENT"
+    <mantle.ledger.account.GlAccount accountName="未存款收据" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="112000000" glAccountTypeEnumId="GatUndepositedReceipts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="110000000"/>
 
     <!-- 120000 ASSET - ACCOUNTS RECEIVABLE -->
-    <mantle.ledger.account.GlAccount accountName="Current Receivable" description="" glAccountClassEnumId="CURRENT_ASSET"
+    <mantle.ledger.account.GlAccount accountName="流动应收款" description="" glAccountClassEnumId="CURRENT_ASSET"
         glAccountId="120000000" glAccountTypeEnumId="GatAccountsReceivable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="100000000" disallowPosting="Y"/>
 
-    <mantle.ledger.account.GlAccount accountName="Accounts Receivable" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="应收账款" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
         glAccountId="121000000" glAccountTypeEnumId="GatAccountsReceivable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="120000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Accounts Receivable - Trade" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="应收账款 - 贸易" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
         glAccountId="121100000" glAccountTypeEnumId="GatAccountsReceivable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="121000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounts Receivable - Non-Sufficient Funds Returned Checks" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="应收账款 - 资金不足的退回支票" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
         glAccountId="121200000" glAccountTypeEnumId="GatAccountsReceivable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="121000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounts Receivable - Interest Receivable" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="应收账款 - 应收利息" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
         glAccountId="121500000" glAccountTypeEnumId="GatInterestIncomeRec" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="121000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounts Receivable - Discount on Interest Receivable" description="" glAccountClassEnumId="ALLOWANCE_BAD_DEBT"
+    <mantle.ledger.account.GlAccount accountName="应收账款 - 应收利息贴现" description="" glAccountClassEnumId="ALLOWANCE_BAD_DEBT"
         glAccountId="121600000" glAccountTypeEnumId="GatAccRecBadRec" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="121000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounts Receivable - Allowance for Bad Debts" description="" glAccountClassEnumId="ALLOWANCE_BAD_DEBT"
+    <mantle.ledger.account.GlAccount accountName="应收账款 - 坏账准备金" description="" glAccountClassEnumId="ALLOWANCE_BAD_DEBT"
         glAccountId="121900000" glAccountTypeEnumId="GatAccRecBadRec" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="121000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="In Transit from Credit Card Processors" description="" glAccountClassEnumId="CASH_EQUIVALENT"
+    <mantle.ledger.account.GlAccount accountName="从信用卡处理商处转运" description="" glAccountClassEnumId="CASH_EQUIVALENT"
         glAccountId="122000000" glAccountTypeEnumId="GatMerchantSettlement" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="120000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounts Receivable Credit Cards - Allowance for Bad Debts" description="" glAccountClassEnumId="ALLOWANCE_BAD_DEBT"
+    <mantle.ledger.account.GlAccount accountName="应收账款信用卡 - 坏账准备金" description="" glAccountClassEnumId="ALLOWANCE_BAD_DEBT"
         glAccountId="122900000" glAccountTypeEnumId="GatAccRecBadRec" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="122000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Vendor Advertising Allowances Receivable" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="应收供应商广告津贴" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
         glAccountId="123000000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="120000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Loans Receivable" description="" glAccountClassEnumId="LOANS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="应收贷款" description="" glAccountClassEnumId="LOANS_RECEIVABLE"
         glAccountId="124000000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="120000000"/>
-    <mantle.ledger.account.GlAccount accountName="Loans Receivable - Employees" description="" glAccountClassEnumId="LOANS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="应收贷款 - 雇员" description="" glAccountClassEnumId="LOANS_RECEIVABLE"
         glAccountId="124100000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="124000000"/>
-    <mantle.ledger.account.GlAccount accountName="Loans Receivable - Owners" description="" glAccountClassEnumId="LOANS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="应收贷款 - 业主" description="" glAccountClassEnumId="LOANS_RECEIVABLE"
         glAccountId="124200000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="124000000"/>
-    <mantle.ledger.account.GlAccount accountName="Loans Receivable - Others" description="" glAccountClassEnumId="LOANS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="应收贷款 - 其他" description="" glAccountClassEnumId="LOANS_RECEIVABLE"
         glAccountId="124300000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="124000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Receivable from Inventory Transferred Out" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="应收存货转出" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
         glAccountId="125000000" glAccountTypeEnumId="GatRecInventoryTranOut" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="120000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Accounts Receivable - Unapplied Payments" description="" glAccountClassEnumId="UNEARNED_REVENUE"
+    <mantle.ledger.account.GlAccount accountName="应收账款 - 未应用的付款" description="" glAccountClassEnumId="UNEARNED_REVENUE"
         glAccountId="126000000" glAccountTypeEnumId="GatAccReceivableUnapplied" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="120000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Accounts Receivable Miscellaneous" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
+    <mantle.ledger.account.GlAccount accountName="应收账款杂项" description="" glAccountClassEnumId="ACCOUNTS_RECEIVABLE"
         glAccountId="129000000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="120000000"/>
 
     <!-- 130000 ASSET - FIXED ASSETS -->
-    <mantle.ledger.account.GlAccount accountName="Fixed Assets" description="" glAccountClassEnumId="LONG_TERM_ASSET"
+    <mantle.ledger.account.GlAccount accountName="固定资产" description="" glAccountClassEnumId="LONG_TERM_ASSET"
         glAccountId="130000000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="100000000"/>
 
     <!-- 131000 ASSET - EQUIPMENT -->
     <!-- previous version change note (after 1.0.1): 17* to 131* -->
-    <mantle.ledger.account.GlAccount accountName="Equipment" description="" glAccountClassEnumId="EQUIPMENT"
+    <mantle.ledger.account.GlAccount accountName="设备" description="" glAccountClassEnumId="EQUIPMENT"
         glAccountId="131000000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="130000000" disallowPosting="Y"/>
-    <mantle.ledger.account.GlAccount accountName="Office Equipment - Furniture - Fixtures" description="" glAccountClassEnumId="EQUIPMENT"
+    <mantle.ledger.account.GlAccount accountName="办公设备 - 家具 - 固定装置" description="" glAccountClassEnumId="EQUIPMENT"
         glAccountId="131100000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="131000000"/>
-    <mantle.ledger.account.GlAccount accountName="Data Processing Equipment" description="" glAccountClassEnumId="EQUIPMENT"
+    <mantle.ledger.account.GlAccount accountName="数据处理设备" description="" glAccountClassEnumId="EQUIPMENT"
         glAccountId="131200000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="131000000"/>
-    <mantle.ledger.account.GlAccount accountName="Data Processing Software" description="" glAccountClassEnumId="EQUIPMENT"
+    <mantle.ledger.account.GlAccount accountName="数据处理软件" description="" glAccountClassEnumId="EQUIPMENT"
         glAccountId="131300000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="131000000"/>
-    <mantle.ledger.account.GlAccount accountName="Vehicles" description="" glAccountClassEnumId="EQUIPMENT"
+    <mantle.ledger.account.GlAccount accountName="车辆" description="" glAccountClassEnumId="EQUIPMENT"
         glAccountId="131400000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="131000000"/>
-    <mantle.ledger.account.GlAccount accountName="Plant Equipment" description="" glAccountClassEnumId="EQUIPMENT"
+    <mantle.ledger.account.GlAccount accountName="厂房设备" description="" glAccountClassEnumId="EQUIPMENT"
         glAccountId="131500000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="131000000"/>
 
     <!-- 132000 ASSET - LAND AND BUILDING -->
     <!-- previous version change note (after 1.0.1): 16* to 132* -->
-    <mantle.ledger.account.GlAccount accountName="Land and Building" description="" glAccountClassEnumId="LAND_BUILDING"
+    <mantle.ledger.account.GlAccount accountName="土地和建筑物" description="" glAccountClassEnumId="LAND_BUILDING"
         glAccountId="132000000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="130000000" disallowPosting="Y"/>
-    <mantle.ledger.account.GlAccount accountName="Land" description="" glAccountClassEnumId="LAND_BUILDING"
+    <mantle.ledger.account.GlAccount accountName="土地" description="" glAccountClassEnumId="LAND_BUILDING"
         glAccountId="132100000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="132000000"/>
-    <mantle.ledger.account.GlAccount accountName="Building" description="" glAccountClassEnumId="LAND_BUILDING"
+    <mantle.ledger.account.GlAccount accountName="建筑" description="" glAccountClassEnumId="LAND_BUILDING"
         glAccountId="132200000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="132000000"/>
-    <mantle.ledger.account.GlAccount accountName="Land Improvements" description="" glAccountClassEnumId="LAND_BUILDING"
+    <mantle.ledger.account.GlAccount accountName="土地改良" description="" glAccountClassEnumId="LAND_BUILDING"
         glAccountId="132300000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="132000000"/>
-    <mantle.ledger.account.GlAccount accountName="Building Improvements" description="" glAccountClassEnumId="LAND_BUILDING"
+    <mantle.ledger.account.GlAccount accountName="建筑改进" description="" glAccountClassEnumId="LAND_BUILDING"
         glAccountId="132400000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="132000000"/>
-    <mantle.ledger.account.GlAccount accountName="Leasehold Improvements" description="" glAccountClassEnumId="LAND_BUILDING"
+    <mantle.ledger.account.GlAccount accountName="租赁权益改良" description="" glAccountClassEnumId="LAND_BUILDING"
         glAccountId="132500000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="132000000"/>
-    <mantle.ledger.account.GlAccount accountName="Investment Real Estate" description="" glAccountClassEnumId="LAND_BUILDING"
+    <mantle.ledger.account.GlAccount accountName="投资房地产" description="" glAccountClassEnumId="LAND_BUILDING"
         glAccountId="132800000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="132000000"/>
 
     <!-- 133000 ASSET - INTANGIBLE -->
     <!-- previous version change note (after 1.0.1): 191* to 133* -->
-    <mantle.ledger.account.GlAccount accountName="Intangible Assets" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
+    <mantle.ledger.account.GlAccount accountName="无形资产" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133000000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="130000000"/>
-    <mantle.ledger.account.GlAccount accountName="Covenant Not To Compete-Previous Owner" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
+    <mantle.ledger.account.GlAccount accountName="不与前所有者竞争的契约" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133100000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
-    <mantle.ledger.account.GlAccount accountName="Goodwill" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
+    <mantle.ledger.account.GlAccount accountName="善意" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133200000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
-    <mantle.ledger.account.GlAccount accountName="Customer Lists" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
+    <mantle.ledger.account.GlAccount accountName="客户名单" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133300000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
-    <mantle.ledger.account.GlAccount accountName="Intellectual Property Assets" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
+    <mantle.ledger.account.GlAccount accountName="知识产权资产" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133400000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Intangible Assets" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
+    <mantle.ledger.account.GlAccount accountName="其他无形资产" description="" glAccountClassEnumId="INTANGIBLE_ASSET"
         glAccountId="133800000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="133000000"/>
 
     <!-- 134000 ASSET - FIXED OTHER -->
     <!-- previous version change note (after 1.0.1): 195000000 => 134500000, 195100000 => 134600000, 198000000 => 134900000 -->
-    <mantle.ledger.account.GlAccount accountName="Other Fixed Assets" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="其他固定资产" description="" glAccountClassEnumId="OTHER_ASSET"
         glAccountId="134000000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="130000000" disallowPosting="Y"/>
-    <mantle.ledger.account.GlAccount accountName="Cash Surrender Value of Life Insurance" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="人寿保险的现金退保价值" description="" glAccountClassEnumId="OTHER_ASSET"
         glAccountId="134100000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="134000000"/>
-    <mantle.ledger.account.GlAccount accountName="Biological Assets" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="生物资产" description="" glAccountClassEnumId="OTHER_ASSET"
         glAccountId="134500000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="134000000"/>
-    <mantle.ledger.account.GlAccount accountName="Bearer Biological Assets" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="生产者生物资产" description="" glAccountClassEnumId="OTHER_ASSET"
         glAccountId="134600000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="134000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Assets" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="其他资产" description="" glAccountClassEnumId="OTHER_ASSET"
         glAccountId="134900000" glAccountTypeEnumId="GatFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="134000000"/>
 
     <!-- 138000 ASSET - ACCUMULATED AMORTIZATION -->
-    <mantle.ledger.account.GlAccount accountName="Accumulated Amortization" description="" glAccountClassEnumId="ACCUM_AMORTIZATION"
+    <mantle.ledger.account.GlAccount accountName="累计摊销" description="" glAccountClassEnumId="ACCUM_AMORTIZATION"
         glAccountId="138000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="130000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accumulated Amortization - Intellectual Property" description="" glAccountClassEnumId="ACCUM_AMORTIZATION"
+    <mantle.ledger.account.GlAccount accountName="累计摊销 - 知识产权" description="" glAccountClassEnumId="ACCUM_AMORTIZATION"
         glAccountId="138400000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="138000000"/>
 
     <!-- 139000 ASSET - FIXED ASSETS UNRECEIVED -->
     <!-- previous version change note (after 1.0.1): 179000000 => 139100000, 169000000 => 139200000, 199000000 => 139300000 -->
-    <mantle.ledger.account.GlAccount accountName="Fixed Assets Unreceived" description="" glAccountClassEnumId="LONG_TERM_ASSET"
+    <mantle.ledger.account.GlAccount accountName="未收固定资产" description="" glAccountClassEnumId="LONG_TERM_ASSET"
         glAccountId="139000000" glAccountTypeEnumId="GatUnreceivedFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="130000000"/>
-    <mantle.ledger.account.GlAccount accountName="Equipment Unreceived" description="" glAccountClassEnumId="EQUIPMENT"
+    <mantle.ledger.account.GlAccount accountName="未收到设备" description="" glAccountClassEnumId="EQUIPMENT"
         glAccountId="139100000" glAccountTypeEnumId="GatUnreceivedFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="139000000"/>
-    <mantle.ledger.account.GlAccount accountName="Land and Building Unreceived" description="" glAccountClassEnumId="LAND_BUILDING"
+    <mantle.ledger.account.GlAccount accountName="未收到土地和建筑物" description="" glAccountClassEnumId="LAND_BUILDING"
         glAccountId="139200000" glAccountTypeEnumId="GatUnreceivedFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="139000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Assets Unreceived" description="" glAccountClassEnumId="OTHER_ASSET"
+    <mantle.ledger.account.GlAccount accountName="其他未收资产" description="" glAccountClassEnumId="OTHER_ASSET"
         glAccountId="139300000" glAccountTypeEnumId="GatUnreceivedFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="139000000"/>
 
 
     <!-- 140000 ASSET - INVENTORY -->
-    <mantle.ledger.account.GlAccount accountName="Inventory" description="" glAccountClassEnumId="INVENTORY_ASSET"
+    <mantle.ledger.account.GlAccount accountName="存货" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="140000000" glAccountTypeEnumId="GatInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="100000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Inventory on Hand" description="" glAccountClassEnumId="INVENTORY_ASSET"
+    <mantle.ledger.account.GlAccount accountName="现有库存" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="141000000" glAccountTypeEnumId="GatInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="140000000"/>
-    <mantle.ledger.account.GlAccount accountName="Raw Materials Inventory" description="" glAccountClassEnumId="INVENTORY_ASSET"
+    <mantle.ledger.account.GlAccount accountName="原材料库存" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="141100000" glAccountTypeEnumId="GatInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="141000000"/>
-    <mantle.ledger.account.GlAccount accountName="Work in Progress Inventory" description="" glAccountClassEnumId="INVENTORY_ASSET"
+    <mantle.ledger.account.GlAccount accountName="在制品库存" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="141200000" glAccountTypeEnumId="GatWipInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="141000000"/>
-    <mantle.ledger.account.GlAccount accountName="Finished Good Inventory" description="" glAccountClassEnumId="INVENTORY_ASSET"
+    <mantle.ledger.account.GlAccount accountName="成品库存" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="141300000" glAccountTypeEnumId="GatInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="141000000"/>
-    <mantle.ledger.account.GlAccount accountName="Packaging Components Inventory" description="" glAccountClassEnumId="INVENTORY_ASSET"
+    <mantle.ledger.account.GlAccount accountName="包装组件库存" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="141400000" glAccountTypeEnumId="GatInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="141000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Inventory in Transit" description="" glAccountClassEnumId="INVENTORY_ASSET"
+    <mantle.ledger.account.GlAccount accountName="在途库存" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="142000000" glAccountTypeEnumId="GatInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="140000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Prepaid Inventory" description="" glAccountClassEnumId="PREPAID_INVENTORY"
+    <mantle.ledger.account.GlAccount accountName="预付库存" description="" glAccountClassEnumId="PREPAID_INVENTORY"
         glAccountId="147000000" glAccountTypeEnumId="GatPrepaidInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="140000000"/>
-    <mantle.ledger.account.GlAccount accountName="Inventory - Average Cost Valuation Adjustment" description="" glAccountClassEnumId="INVENTORY_ASSET"
+    <mantle.ledger.account.GlAccount accountName="存货 - 平均成本估价调整" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="148000000" glAccountTypeEnumId="GatInvAdjAvgCost" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="140000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Unreceived/Unbilled Inventory" description="" glAccountClassEnumId="INVENTORY_ASSET"
+    <mantle.ledger.account.GlAccount accountName="未收到/未开票库存" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="149000000" glAccountTypeEnumId="GatUnreceivedInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="140000000"/>
-    <mantle.ledger.account.GlAccount accountName="Raw Material and Sub-Assembly Unreceived/Unbilled" description="" glAccountClassEnumId="INVENTORY_ASSET"
+    <mantle.ledger.account.GlAccount accountName="未收到/未开票的原材料和子组件" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="149100000" glAccountTypeEnumId="GatUnreceivedInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="149000000"/>
     <!-- needed? WIP from external source or something? <mantle.ledger.account.GlAccount accountName="Work in Progress Unreceived/Unbilled" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="149200000" glAccountTypeEnumId="GatUnreceivedInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="149000000"/> -->
-    <mantle.ledger.account.GlAccount accountName="Finished Good Unreceived/Unbilled" description="" glAccountClassEnumId="INVENTORY_ASSET"
+    <mantle.ledger.account.GlAccount accountName="成品未收到/未开票" description="" glAccountClassEnumId="INVENTORY_ASSET"
         glAccountId="149300000" glAccountTypeEnumId="GatUnreceivedInventory" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="149000000"/>
 
     <!-- 150000 ASSET - PREPAID EXPENSES -->
-    <mantle.ledger.account.GlAccount accountName="Prepaid Expenses, Deposits, Other Current Assets" description="" glAccountClassEnumId="CURRENT_ASSET"
+    <mantle.ledger.account.GlAccount accountName="预付费用、存款、其他流动资产" description="" glAccountClassEnumId="CURRENT_ASSET"
         glAccountId="150000000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="100000000" disallowPosting="Y"/>
 
-    <mantle.ledger.account.GlAccount accountName="Prepaid Expenses" description="" glAccountClassEnumId="PREPAID_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="预付的费用" description="" glAccountClassEnumId="PREPAID_EXPENSE"
         glAccountId="151000000" glAccountTypeEnumId="GatPrepaidExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="150000000"/>
-    <mantle.ledger.account.GlAccount accountName="Prepaid Insurance" description="" glAccountClassEnumId="PREPAID_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="预付保险" description="" glAccountClassEnumId="PREPAID_EXPENSE"
         glAccountId="151100000" glAccountTypeEnumId="GatPrepaidExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="151000000"/>
-    <mantle.ledger.account.GlAccount accountName="Prepaid Rent" description="" glAccountClassEnumId="PREPAID_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="预付租金" description="" glAccountClassEnumId="PREPAID_EXPENSE"
         glAccountId="151200000" glAccountTypeEnumId="GatPrepaidExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="151000000"/>
-    <mantle.ledger.account.GlAccount accountName="Prepaid Interest" description="" glAccountClassEnumId="PREPAID_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="预付利息" description="" glAccountClassEnumId="PREPAID_EXPENSE"
         glAccountId="151300000" glAccountTypeEnumId="GatPrepaidExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="151000000"/>
-    <mantle.ledger.account.GlAccount accountName="Prepaid Wages" description="" glAccountClassEnumId="PREPAID_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="预付工资" description="" glAccountClassEnumId="PREPAID_EXPENSE"
         glAccountId="151400000" glAccountTypeEnumId="GatPrepaidExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="151000000"/>
-    <mantle.ledger.account.GlAccount accountName="Prepaid Other" description="" glAccountClassEnumId="PREPAID_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="预付其他" description="" glAccountClassEnumId="PREPAID_EXPENSE"
         glAccountId="151900000" glAccountTypeEnumId="GatPrepaidExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="151000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Deposits" description="" glAccountClassEnumId="PREPAID_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="存款" description="" glAccountClassEnumId="PREPAID_EXPENSE"
         glAccountId="152000000" glAccountTypeEnumId="GatPrepaidExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="150000000"/>
-    <mantle.ledger.account.GlAccount accountName="Deposit - Ups" description="" glAccountClassEnumId="PREPAID_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="存款 - Ups" description="" glAccountClassEnumId="PREPAID_EXPENSE"
         glAccountId="152100000" glAccountTypeEnumId="GatPrepaidExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="152000000"/>
-    <mantle.ledger.account.GlAccount accountName="Deposit - Utilities" description="" glAccountClassEnumId="PREPAID_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="存款 - 公用事业" description="" glAccountClassEnumId="PREPAID_EXPENSE"
         glAccountId="152200000" glAccountTypeEnumId="GatPrepaidExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="152000000"/>
-    <mantle.ledger.account.GlAccount accountName="Deposit - Rent" description="" glAccountClassEnumId="PREPAID_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="押金-租金" description="" glAccountClassEnumId="PREPAID_EXPENSE"
         glAccountId="152300000" glAccountTypeEnumId="GatPrepaidExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="152000000"/>
-    <mantle.ledger.account.GlAccount accountName="Deposits - Other" description="" glAccountClassEnumId="PREPAID_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="存款 - 其他" description="" glAccountClassEnumId="PREPAID_EXPENSE"
         glAccountId="152900000" glAccountTypeEnumId="GatPrepaidExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="152000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Other Current Assets" description="" glAccountClassEnumId="CURRENT_ASSET"
+    <mantle.ledger.account.GlAccount accountName="其他流动资产" description="" glAccountClassEnumId="CURRENT_ASSET"
         glAccountId="153000000" glAccountTypeEnumId="GatCurrentAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="150000000"/>
 
     <!-- 160000 ASSET - ACCRUED REVENUE -->
-    <mantle.ledger.account.GlAccount accountName="Accrued Revenue" description="" glAccountClassEnumId="ACCRUED_REVENUE"
+    <mantle.ledger.account.GlAccount accountName="应计收益" description="" glAccountClassEnumId="ACCRUED_REVENUE"
         glAccountId="160000000" glAccountTypeEnumId="GatAccruedRevenue" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="100000000"/>
 
     <!-- 180000 ASSET - ACCUMULATED DEPRECIATION -->
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="180000000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="100000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Land and Building" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧 - 土地和建筑物" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="181000000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="180000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Land" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧 - 土地" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="181100000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="181000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Building" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧 - 建筑" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="181200000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="181000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Land Improvements" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧 - 土地改良" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="181300000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="181000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Building Improvements" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧 - 建筑改进" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="181400000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="181000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Leasehold Improvements" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧 - 租赁权改良" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="181500000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="181000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Investment Real Estate" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧-投资性房地产" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="181800000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="181000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Equipment" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧 - 设备" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="182000000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="180000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Office Furniture Fixtures Equipment" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧 - 办公家具固定设备" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="182100000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="182000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Data Processing Equipment" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧 - 数据处理设备" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="182200000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="182000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Data Processing Software" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧-数据处理软件" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="182300000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="182000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Vehicles" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧 - 车辆" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="182400000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="182000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Plant Equipment" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧 - 厂房设备" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="182500000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="182000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Other Assets Root" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧 - 其他资产根" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="183000000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="180000000" disallowPosting="Y"/>
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Biological Assets" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧 - 生物资产" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="183500000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="183000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accumulated Depreciation - Other Assets" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="累计折旧 - 其他资产" description="" glAccountClassEnumId="ACCUM_DEPRECIATION"
         glAccountId="183800000" glAccountTypeEnumId="GatFaAccumDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="183000000"/>
 
     <!-- ========== 200000 LIABILITY ========== -->
-    <mantle.ledger.account.GlAccount accountName="Liability" description="" glAccountClassEnumId="LIABILITY"
+    <mantle.ledger.account.GlAccount accountName="责任" description="" glAccountClassEnumId="LIABILITY"
         glAccountId="200000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="" disallowPosting="Y"/>
 
     <!-- 210000 LIABILITY - ACCOUNTS PAYABLE -->
-    <mantle.ledger.account.GlAccount accountName="Current Payable" description="" glAccountClassEnumId="CURRENT_LIABILITY"
+    <mantle.ledger.account.GlAccount accountName="当前应付" description="" glAccountClassEnumId="CURRENT_LIABILITY"
         glAccountId="210000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="200000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Accrued Accounts Payable" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="应计应付账款" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="211000000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="210000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounts Payable - Operating" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
+    <mantle.ledger.account.GlAccount accountName="应付账款 - 经营" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
         glAccountId="212000000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="210000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounts Payable - Payroll" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
+    <mantle.ledger.account.GlAccount accountName="应付账款 - 工资单" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
         glAccountId="212100000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="212000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounts Payable - Commissions" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
+    <mantle.ledger.account.GlAccount accountName="应付账款 - 佣金" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
         glAccountId="212200000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="212000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounts Payable - Tax" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
+    <mantle.ledger.account.GlAccount accountName="应付账款 - 税" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
         glAccountId="212300000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="212000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounts Payable - Garnishment" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
+    <mantle.ledger.account.GlAccount accountName="应付账款 - 扣押" description="" glAccountClassEnumId="ACCOUNTS_PAYABLE"
         glAccountId="212400000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="212000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounts Payable - Loan" description="" glAccountClassEnumId="LOANS_PAYABLE"
+    <mantle.ledger.account.GlAccount accountName="应付账款 - 贷款" description="" glAccountClassEnumId="LOANS_PAYABLE"
         glAccountId="212500000" glAccountTypeEnumId="GatAccountsPayable" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="212000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Uninvoiced Item Receipt" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="未开票项目收据" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="214000000" glAccountTypeEnumId="GatUninvoicedShpmntRcpts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="210000000"/>
-    <mantle.ledger.account.GlAccount accountName="Payable for Inventory Transferred In" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="应付存货转入" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="215000000" glAccountTypeEnumId="GatPayInventoryTranIn" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="210000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounts Payable - Unapplied Payments" description="" glAccountClassEnumId="PREPAID_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="应付账款 - 未应用的付款" description="" glAccountClassEnumId="PREPAID_EXPENSE"
         glAccountId="216000000" glAccountTypeEnumId="GatAccPayableUnapplied" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="210000000"/>
 
     <!-- 220000 LIABILITY - ACCRUED EXPENSES -->
-    <mantle.ledger.account.GlAccount accountName="Accrued Expenses" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="预提费用" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="220000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="200000000" disallowPosting="Y"/>
-    <mantle.ledger.account.GlAccount accountName="Accrued Payroll" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="应计工资" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="221000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="220000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accrued Commissions Due" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="应计佣金到期" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="221100000" glAccountTypeEnumId="GatCommissionsAccrued" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="221000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accrued Wages Due" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="应计工资" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="221200000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="221000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accrued Employee Medical Premiums" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="应计员工医疗保险费" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="221300000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="221000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Payroll Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="工资预扣" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="220000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Federal Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="联邦预扣税" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222100000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222000000"/>
-    <mantle.ledger.account.GlAccount accountName="Federal Income Tax Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="联邦所得税雇员预扣" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222110000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222100000"/>
-    <mantle.ledger.account.GlAccount accountName="Social Security Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="社会保障雇员预扣" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222120000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222100000"/>
-    <mantle.ledger.account.GlAccount accountName="Medicare Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="医疗保险员工预扣税" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222130000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222100000"/>
-    <mantle.ledger.account.GlAccount accountName="Federal Pension Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="联邦养老金雇员预扣" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222140000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222100000"/>
-    <mantle.ledger.account.GlAccount accountName="Federal Unemployment Insurance Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="联邦失业保险雇员预扣税" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222150000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222100000"/>
 
-    <mantle.ledger.account.GlAccount accountName="State Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="国家扣缴" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222400000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222000000"/>
-    <mantle.ledger.account.GlAccount accountName="State Income Tax Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="国家所得税雇员预扣" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222410000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222400000"/>
-    <mantle.ledger.account.GlAccount accountName="State Disability Insurance Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="国家残疾保险雇员预扣" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222420000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222400000"/>
-    <mantle.ledger.account.GlAccount accountName="State Misc Tax Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="国家杂项税雇员预扣" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222430000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222400000"/>
-    <mantle.ledger.account.GlAccount accountName="State Pension Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="国家养老金雇员扣缴" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222440000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222400000"/>
-    <mantle.ledger.account.GlAccount accountName="State Unemployment Insurance Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="国家失业保险雇员预扣" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222450000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222400000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Local Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="地方扣缴" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222500000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222000000"/>
-    <mantle.ledger.account.GlAccount accountName="Local Income Tax Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="地方所得税员工预扣" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222510000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222500000"/>
-    <mantle.ledger.account.GlAccount accountName="Local Misc Tax Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="当地杂项税员工预扣" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222520000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222500000"/>
 
-    <mantle.ledger.account.GlAccount accountName="401k - Pension Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="401k - 养老金扣缴" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222600000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222000000"/>
-    <mantle.ledger.account.GlAccount accountName="Garnishment Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="扣押扣缴" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222700000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222000000"/>
-    <mantle.ledger.account.GlAccount accountName="Employee Benefits Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="员工福利预扣" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222800000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222000000"/>
-    <mantle.ledger.account.GlAccount accountName="Miscellaneous Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="杂项扣缴" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222900000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Accrued Payroll Taxes" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="应计工资税" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="223000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="220000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accrued Payroll Taxes - FICA Employer's Share" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="应计工资税 - FICA 雇主的份额" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="223100000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="223000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accrued Payroll Taxes - Medicare Employer's Share" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="应计工资税 - 医疗保险雇主的份额" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="223200000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="223000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accrued Payroll Taxes - Federal Unemployment Tax" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="应计工资税 - 联邦失业税" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="223300000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="223000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accrued Payroll Taxes - State Unemployment Tax" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="应计工资税 - 州失业税" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="223400000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="223000000"/>
-    <mantle.ledger.account.GlAccount accountName="401k - Pension Employer Contribution" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="401k - 养老金雇主供款" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="223500000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="223000000"/>
 
     <!-- SALES TAX COLLECTED -->
-    <mantle.ledger.account.GlAccount accountName="Sales Tax Collected" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="征收销售税" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="224000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="220000000"/>
     <!-- better not to have any region or tax authority specific accounts, report on that elsewhere
     <mantle.ledger.account.GlAccount accountName="Sales Tax Collected Usa" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
@@ -611,816 +611,816 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="224200000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="224000000"/>
     -->
 
-    <mantle.ledger.account.GlAccount accountName="Accrued Use Tax" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="应计使用税" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="225000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="220000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Accrued Retirement Plan Expense" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="应计退休计划费用" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="226000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="220000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Accrued Expenses" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+    <mantle.ledger.account.GlAccount accountName="其他应计费用" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="229000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="220000000"/>
 
     <!-- 230000 LIABILITY - CURRENT NOTES PAYABLE -->
-    <mantle.ledger.account.GlAccount accountName="Current Notes Payable" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="当前应付票据" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="230000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="200000000" disallowPosting="Y"/>
-    <mantle.ledger.account.GlAccount accountName="Short Term Obligation" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="短期义务" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="231000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="230000000"/>
-    <mantle.ledger.account.GlAccount accountName="Current Portion of Long-Term Debt" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="长期债务的流动部分" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="239000000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="230000000"/>
 
     <!-- 240000 LIABILITY - LONG-TERM NOTES PAYABLE -->
-    <mantle.ledger.account.GlAccount accountName="Long-Term Notes Payable" description="" glAccountClassEnumId="LONG_TERM_LIABILITY"
+    <mantle.ledger.account.GlAccount accountName="长期应付票据" description="" glAccountClassEnumId="LONG_TERM_LIABILITY"
         glAccountId="240000000" glAccountTypeEnumId="GatLongTermLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="200000000" disallowPosting="Y"/>
-    <mantle.ledger.account.GlAccount accountName="Long-Term Obligation" description="" glAccountClassEnumId="LONG_TERM_LIABILITY"
+    <mantle.ledger.account.GlAccount accountName="长期义务" description="" glAccountClassEnumId="LONG_TERM_LIABILITY"
         glAccountId="241000000" glAccountTypeEnumId="GatLongTermLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="240000000"/>
-    <mantle.ledger.account.GlAccount accountName="Mortgage Note Payable" description="" glAccountClassEnumId="LONG_TERM_LIABILITY"
+    <mantle.ledger.account.GlAccount accountName="应付抵押票据" description="" glAccountClassEnumId="LONG_TERM_LIABILITY"
         glAccountId="242000000" glAccountTypeEnumId="GatLongTermLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="240000000"/>
-    <mantle.ledger.account.GlAccount accountName="Loan from Owner or Stockholder" description="" glAccountClassEnumId="LONG_TERM_LIABILITY"
+    <mantle.ledger.account.GlAccount accountName="所有者或股东的贷款" description="" glAccountClassEnumId="LONG_TERM_LIABILITY"
         glAccountId="243000000" glAccountTypeEnumId="GatLongTermLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="240000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Long Term Obligation" description="" glAccountClassEnumId="LONG_TERM_LIABILITY"
+    <mantle.ledger.account.GlAccount accountName="其他长期义务" description="" glAccountClassEnumId="LONG_TERM_LIABILITY"
         glAccountId="248000000" glAccountTypeEnumId="GatLongTermLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="240000000"/>
 
     <!-- 250000 LIABILITY - THIRD-PARTY HOLDINGS -->
-    <mantle.ledger.account.GlAccount accountName="Third-Party Holdings" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="第三方控股" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="250000000" glAccountTypeEnumId="GatCurrentLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="200000000" disallowPosting="Y"/>
 
     <!-- 251000 LIABILITY - CUSTOMER CREDIT AND DEPOSITS -->
     <!-- previous version change note (after 1.0.1): 213* -> 251*, 217* -> 252*, 218* -> 258* -->
-    <mantle.ledger.account.GlAccount accountName="Customer Credit and Deposits" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="客户信用和存款" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="251000000" glAccountTypeEnumId="GatCustomerCredits" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="250000000"/>
-    <mantle.ledger.account.GlAccount accountName="Merchandise Credit Unredeemed" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="产品信用未兑现" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="251100000" glAccountTypeEnumId="GatCustomerCredits" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="251000000"/>
-    <mantle.ledger.account.GlAccount accountName="Gift Certificate Unredeemed" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="礼券未兑换" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="251200000" glAccountTypeEnumId="GatCustomerCredits" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="251000000"/>
-    <mantle.ledger.account.GlAccount accountName="Special Order Deposit" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="特别订金" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="251300000" glAccountTypeEnumId="GatCustomerDeposits" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="251000000"/>
-    <mantle.ledger.account.GlAccount accountName="Mail Order Deposit" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="邮购定金" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="251400000" glAccountTypeEnumId="GatCustomerDeposits" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="251000000"/>
-    <mantle.ledger.account.GlAccount accountName="Customer Deposit Account" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="客户存款账户" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="251500000" glAccountTypeEnumId="GatCustomerDeposits" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="251000000"/>
 
     <!-- 252000 LIABILITY - SUPPLIER DEPOSITS -->
-    <mantle.ledger.account.GlAccount accountName="Supplier Deposits" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="供应商保证金" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="252000000" glAccountTypeEnumId="GatSupplierDeposits" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="250000000"/>
 
     <!-- 253000 LIABILITY - FIXED ASSETS UNISSUED -->
-    <mantle.ledger.account.GlAccount accountName="Fixed Assets Unissued" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="固定资产未发放" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="253000000" glAccountTypeEnumId="GatUnissuedFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="250000000"/>
-    <mantle.ledger.account.GlAccount accountName="Equipment Unissued" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="装备未发放" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="253100000" glAccountTypeEnumId="GatUnissuedFixedAsset" glResourceTypeEnumId="GlrtFinishedGood" parentGlAccountId="253000000"/>
-    <mantle.ledger.account.GlAccount accountName="Land and Building Unissued" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="土地和建筑未发行" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="253200000" glAccountTypeEnumId="GatUnissuedFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="253000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Assets Unissued" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="其他未发行资产" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="253300000" glAccountTypeEnumId="GatUnissuedFixedAsset" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="253000000"/>
 
     <!-- 254000 LIABILITY - DONATIONS COLLECTED -->
-    <mantle.ledger.account.GlAccount accountName="Donations Collected" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="募集善款" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="254000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="250000000"/>
 
     <!-- 258000 LIABILITY - FINANCIAL ACCOUNT IN TRANSIT -->
-    <mantle.ledger.account.GlAccount accountName="Financial Account in Transit" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="在途金融账户" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="258000000" glAccountTypeEnumId="GatCurrentLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="250000000"/>
-    <mantle.ledger.account.GlAccount accountName="Financial Account In Transit Deposits" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="金融账户在途存款" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="258100000" glAccountTypeEnumId="GatCurrentLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="258000000"/>
-    <mantle.ledger.account.GlAccount accountName="Financial Account In Transit Withdrawals" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="金融账户在途取款" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="258200000" glAccountTypeEnumId="GatCurrentLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="258000000"/>
-    <mantle.ledger.account.GlAccount accountName="Financial Account In Transit Transfers" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
+    <mantle.ledger.account.GlAccount accountName="金融账户在途转账" description="" glAccountClassEnumId="THIRD_PARTY_HOLDINGS"
         glAccountId="258300000" glAccountTypeEnumId="GatCurrentLiability" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="258000000"/>
 
     <!-- 260000 LIABILITY - UNEARNED REVENUE -->
-    <mantle.ledger.account.GlAccount accountName="Unearned Revenue" description="" glAccountClassEnumId="UNEARNED_REVENUE"
+    <mantle.ledger.account.GlAccount accountName="非劳动所得" description="" glAccountClassEnumId="UNEARNED_REVENUE"
         glAccountId="260000000" glAccountTypeEnumId="GatUnearnedRevenue" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="200000000"/>
 
     <!-- ========== 300000 OWNERS EQUITY ========== -->
-    <mantle.ledger.account.GlAccount accountName="Owners Equity" description="" glAccountClassEnumId="EQUITY"
+    <mantle.ledger.account.GlAccount accountName="所有者权益" description="" glAccountClassEnumId="EQUITY"
         glAccountId="300000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="" disallowPosting="Y"/>
 
     <!-- 310000 OWNERS EQUITY - SOLE PROPRIETORSHIP AND PARTNERSHIP -->
-    <mantle.ledger.account.GlAccount accountName="Owners Equity - Sole and Partnership" description="" glAccountClassEnumId="OWNERS_EQUITY"
+    <mantle.ledger.account.GlAccount accountName="所有者权益 - 独资和合伙" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="310000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="300000000"/>
-    <mantle.ledger.account.GlAccount accountName="Capital - Sole and Partnership" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
+    <mantle.ledger.account.GlAccount accountName="资本 - 独资和合伙" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
         glAccountId="311000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="310000000"/>
-    <mantle.ledger.account.GlAccount accountName="Drawings - Sole and Partnership" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
+    <mantle.ledger.account.GlAccount accountName="图纸 - 独资和合伙" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
         glAccountId="312000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="310000000"/>
 
     <!-- 330000 OWNERS EQUITY - CORPORATION AND S CORP -->
-    <mantle.ledger.account.GlAccount accountName="Owners Equity - Corporation" description="" glAccountClassEnumId="OWNERS_EQUITY" disallowPosting="Y"
+    <mantle.ledger.account.GlAccount accountName="所有者权益 - 公司" description="" glAccountClassEnumId="OWNERS_EQUITY" disallowPosting="Y"
         glAccountId="330000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="300000000"/>
-    <mantle.ledger.account.GlAccount accountName="Stock - Corporation" description="" glAccountClassEnumId="OWNERS_EQUITY" disallowPosting="Y"
+    <mantle.ledger.account.GlAccount accountName="股票-公司" description="" glAccountClassEnumId="OWNERS_EQUITY" disallowPosting="Y"
         glAccountId="331000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="330000000"/>
-    <mantle.ledger.account.GlAccount accountName="Common Stock" description="" glAccountClassEnumId="OWNERS_EQUITY"
+    <mantle.ledger.account.GlAccount accountName="普通股" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="331100000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="331000000"/>
-    <mantle.ledger.account.GlAccount accountName="Preferred Stock" description="" glAccountClassEnumId="OWNERS_EQUITY"
+    <mantle.ledger.account.GlAccount accountName="优先股" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="3312000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="331000000"/>
-    <mantle.ledger.account.GlAccount accountName="Treasury Stock" description="" glAccountClassEnumId="TREASURY_STOCK"
+    <mantle.ledger.account.GlAccount accountName="库存股" description="" glAccountClassEnumId="TREASURY_STOCK"
         glAccountId="331300000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="331000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Paid-in Capital" description="" glAccountClassEnumId="OWNERS_EQUITY" disallowPosting="Y"
+    <mantle.ledger.account.GlAccount accountName="实收资本" description="" glAccountClassEnumId="OWNERS_EQUITY" disallowPosting="Y"
         glAccountId="332000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="330000000"/>
-    <mantle.ledger.account.GlAccount accountName="Paid-in Capital in Excess of Par on Common Stock" description="" glAccountClassEnumId="OWNERS_EQUITY"
+    <mantle.ledger.account.GlAccount accountName="超过普通股面值的实收资本" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="332100000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="332000000"/>
-    <mantle.ledger.account.GlAccount accountName="Paid-in Capital in Excess of Par on Preferred Stock" description="" glAccountClassEnumId="OWNERS_EQUITY"
+    <mantle.ledger.account.GlAccount accountName="优先股超过面值的实收资本" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="332200000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="332000000"/>
-    <mantle.ledger.account.GlAccount accountName="Paid-in Capital from Treasury Stock" description="" glAccountClassEnumId="OWNERS_EQUITY"
+    <mantle.ledger.account.GlAccount accountName="来自库存股的实收资本" description="" glAccountClassEnumId="OWNERS_EQUITY"
         glAccountId="332300000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="332000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Dividends" description="" glAccountClassEnumId="DIVIDEND" disallowPosting="Y"
+    <mantle.ledger.account.GlAccount accountName="分红" description="" glAccountClassEnumId="DIVIDEND" disallowPosting="Y"
         glAccountId="333000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="330000000"/>
-    <mantle.ledger.account.GlAccount accountName="Dividends - Common Stock" description="" glAccountClassEnumId="DIVIDEND"
+    <mantle.ledger.account.GlAccount accountName="股息 - 普通股" description="" glAccountClassEnumId="DIVIDEND"
         glAccountId="333100000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="333000000"/>
-    <mantle.ledger.account.GlAccount accountName="Dividends - Preferred Stock" description="" glAccountClassEnumId="DIVIDEND"
+    <mantle.ledger.account.GlAccount accountName="股息 - 优先股" description="" glAccountClassEnumId="DIVIDEND"
         glAccountId="333200000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="333000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Drawings - S Corporation" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
+    <mantle.ledger.account.GlAccount accountName="图纸 - S 公司" description="" glAccountClassEnumId="RETURN_OF_CAPITAL"
         glAccountId="334000000" glAccountTypeEnumId="GatOwnersEquity" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="330000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Retained Earnings" description="" glAccountClassEnumId="RETAINED_EARNINGS"
+    <mantle.ledger.account.GlAccount accountName="留存收益" description="" glAccountClassEnumId="RETAINED_EARNINGS"
         glAccountId="335000000" glAccountTypeEnumId="GatRetainedEarnings" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="330000000"/>
 
     <!-- ========== 400000 SALES ========== -->
-    <mantle.ledger.account.GlAccount accountName="Sales" description="" glAccountClassEnumId="REVENUE"
+    <mantle.ledger.account.GlAccount accountName="销售" description="" glAccountClassEnumId="REVENUE"
         glAccountId="400000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="" disallowPosting="Y"/>
 
     <!-- 410000 SALES - SALES REVENUE -->
-    <mantle.ledger.account.GlAccount accountName="Sales Revenue" description="" glAccountClassEnumId="REVENUE"
+    <mantle.ledger.account.GlAccount accountName="销售收入" description="" glAccountClassEnumId="REVENUE"
         glAccountId="410000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="400000000" disallowPosting="Y"/>
-    <mantle.ledger.account.GlAccount accountName="Product Sales" description="" glAccountClassEnumId="GOODS_REVENUE"
+    <mantle.ledger.account.GlAccount accountName="产品销售" description="" glAccountClassEnumId="GOODS_REVENUE"
         glAccountId="411000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="410000000"/>
-    <mantle.ledger.account.GlAccount accountName="Service Sales" description="" glAccountClassEnumId="SERVICES_REVENUE"
+    <mantle.ledger.account.GlAccount accountName="服务销售" description="" glAccountClassEnumId="SERVICES_REVENUE"
         glAccountId="412000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="410000000"/>
-    <mantle.ledger.account.GlAccount accountName="Asset Rental Sales" description="" glAccountClassEnumId="OTHER_REVENUE"
+    <mantle.ledger.account.GlAccount accountName="资产租赁销售" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="413000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="410000000"/>
-    <mantle.ledger.account.GlAccount accountName="Miscellaneous Sales" description="" glAccountClassEnumId="OTHER_REVENUE"
+    <mantle.ledger.account.GlAccount accountName="杂项销售" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="419000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="410000000"/>
 
     <!-- 420000 SALES - CUSTOMER RETURNS -->
-    <mantle.ledger.account.GlAccount accountName="Customer Returns" description="" glAccountClassEnumId="CUSTOMER_RETURNS"
+    <mantle.ledger.account.GlAccount accountName="客户退货" description="" glAccountClassEnumId="CUSTOMER_RETURNS"
         glAccountId="420000000" glAccountTypeEnumId="GatCustomerReturns" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="400000000"/>
-    <mantle.ledger.account.GlAccount accountName="Customer Returns - Products" description="" glAccountClassEnumId="CUSTOMER_RETURNS"
+    <mantle.ledger.account.GlAccount accountName="客户退货 - 产品" description="" glAccountClassEnumId="CUSTOMER_RETURNS"
         glAccountId="421000000" glAccountTypeEnumId="GatCustomerReturns" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="420000000"/>
-    <mantle.ledger.account.GlAccount accountName="Customer Returns - Promotions" description="" glAccountClassEnumId="CUSTOMER_RETURNS"
+    <mantle.ledger.account.GlAccount accountName="客户退货 - 促销" description="" glAccountClassEnumId="CUSTOMER_RETURNS"
         glAccountId="422000000" glAccountTypeEnumId="GatCustomerReturns" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="420000000"/>
-    <mantle.ledger.account.GlAccount accountName="Customer Returns - Adjustments" description="" glAccountClassEnumId="CUSTOMER_RETURNS"
+    <mantle.ledger.account.GlAccount accountName="客户退货 - 调整" description="" glAccountClassEnumId="CUSTOMER_RETURNS"
         glAccountId="423000000" glAccountTypeEnumId="GatCustomerReturns" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="420000000"/>
-    <mantle.ledger.account.GlAccount accountName="Customer Returns - Work or Time Entry" description="" glAccountClassEnumId="CUSTOMER_RETURNS"
+    <mantle.ledger.account.GlAccount accountName="客户退货 - 工作或时间子项" description="" glAccountClassEnumId="CUSTOMER_RETURNS"
         glAccountId="424000000" glAccountTypeEnumId="GatCustomerReturns" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="420000000"/>
 
     <!-- 430000 SALES - CUSTOMER SERVICE CREDITS -->
-    <mantle.ledger.account.GlAccount accountName="Customer Service Credits" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+    <mantle.ledger.account.GlAccount accountName="客户服务积分" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="430000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="400000000"/>
 
     <!-- 440000 SALES - FEES RECEIVED -->
-    <mantle.ledger.account.GlAccount accountName="Sales Fees Received" description="" glAccountClassEnumId="OTHER_REVENUE"
+    <mantle.ledger.account.GlAccount accountName="收到的销售费用" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="440000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="400000000"/>
     <!-- NOTE: 721200000 => 441000000 -->
-    <mantle.ledger.account.GlAccount accountName="Postage and Handling Fees Received" description="" glAccountClassEnumId="OTHER_REVENUE"
+    <mantle.ledger.account.GlAccount accountName="收到的邮资和手续费" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="441000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="440000000"/>
-    <mantle.ledger.account.GlAccount accountName="Late Payment Fees Received" description="" glAccountClassEnumId="OTHER_REVENUE"
+    <mantle.ledger.account.GlAccount accountName="收到滞纳金" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="442000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="440000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Third Party Sales" description="" glAccountClassEnumId="OTHER_REVENUE"
+    <mantle.ledger.account.GlAccount accountName="第三方销售" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="450000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="400000000"/>
-    <mantle.ledger.account.GlAccount accountName="Third Party Product Sales" description="" glAccountClassEnumId="OTHER_REVENUE"
+    <mantle.ledger.account.GlAccount accountName="第三方产品销售" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="451000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="450000000"/>
-    <mantle.ledger.account.GlAccount accountName="Third Party Shrinkage Credit" description="" glAccountClassEnumId="OTHER_REVENUE"
+    <mantle.ledger.account.GlAccount accountName="第三方收缩信用" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="458000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="450000000"/>
-    <mantle.ledger.account.GlAccount accountName="Third Party Misc Sales" description="" glAccountClassEnumId="OTHER_REVENUE"
+    <mantle.ledger.account.GlAccount accountName="第三方杂项销售" description="" glAccountClassEnumId="OTHER_REVENUE"
         glAccountId="459000000" glAccountTypeEnumId="GatSales" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="450000000"/>
 
     <!-- ========== 500000 COST OF SALES ========== -->
-    <mantle.ledger.account.GlAccount accountName="Cost of Sales" description="" glAccountClassEnumId="COST_OF_SALES"
+    <mantle.ledger.account.GlAccount accountName="销售成本" description="" glAccountClassEnumId="COST_OF_SALES"
         glAccountId="500000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="" disallowPosting="Y"/>
 
-    <mantle.ledger.account.GlAccount accountName="Cost of Goods Sold" description="" glAccountClassEnumId="COST_GOODS_SOLD"
+    <mantle.ledger.account.GlAccount accountName="销货成本" description="" glAccountClassEnumId="COST_GOODS_SOLD"
         glAccountId="510000000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="500000000"/>
-    <mantle.ledger.account.GlAccount accountName="Merchandise Purchases" description="" glAccountClassEnumId="GOOD_MATERIAL_COST"
+    <mantle.ledger.account.GlAccount accountName="产品采购" description="" glAccountClassEnumId="GOOD_MATERIAL_COST"
         glAccountId="511000000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="510000000"/>
-    <mantle.ledger.account.GlAccount accountName="General Cost of Goods Sold" description="" glAccountClassEnumId="COST_GOODS_SOLD"
+    <mantle.ledger.account.GlAccount accountName="一般销售成本" description="" glAccountClassEnumId="COST_GOODS_SOLD"
         glAccountId="512000000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="510000000"/>
-    <mantle.ledger.account.GlAccount accountName="COGS Avg Cost Adjustment" description="" glAccountClassEnumId="COST_GOODS_SOLD"
+    <mantle.ledger.account.GlAccount accountName="销货成本 平均成本调整" description="" glAccountClassEnumId="COST_GOODS_SOLD"
         glAccountId="513000000" glAccountTypeEnumId="GatCogsAvgCostAdj" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="510000000"/>
-    <mantle.ledger.account.GlAccount accountName="Royalties on Goods" description="" glAccountClassEnumId="GOOD_ROYALTIES_COST"
+    <mantle.ledger.account.GlAccount accountName="产品特许权使用费" description="" glAccountClassEnumId="GOOD_ROYALTIES_COST"
         glAccountId="516000000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="510000000"/>
-    <mantle.ledger.account.GlAccount accountName="COGS Late Payment Charges" description="" glAccountClassEnumId="COST_GOODS_SOLD"
+    <mantle.ledger.account.GlAccount accountName="销货成本 滞纳金" description="" glAccountClassEnumId="COST_GOODS_SOLD"
         glAccountId="517000000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="510000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Other COGS" description="" glAccountClassEnumId="COST_GOODS_SOLD"
+    <mantle.ledger.account.GlAccount accountName="其他销货成本" description="" glAccountClassEnumId="COST_GOODS_SOLD"
         glAccountId="518000000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="510000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="COGS Freight" description="" glAccountClassEnumId="GOOD_FREIGHT_COST"
+    <mantle.ledger.account.GlAccount accountName="销货成本运费" description="" glAccountClassEnumId="GOOD_FREIGHT_COST"
         glAccountId="519000000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="510000000"/>
-    <mantle.ledger.account.GlAccount accountName="COGS Freight In" description="" glAccountClassEnumId="GOOD_FREIGHT_COST"
+    <mantle.ledger.account.GlAccount accountName="销货成本 运入" description="" glAccountClassEnumId="GOOD_FREIGHT_COST"
         glAccountId="519100000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="519000000"/>
-    <mantle.ledger.account.GlAccount accountName="COGS Freight Out" description="" glAccountClassEnumId="GOOD_FREIGHT_COST"
+    <mantle.ledger.account.GlAccount accountName="销货成本 运出" description="" glAccountClassEnumId="GOOD_FREIGHT_COST"
         glAccountId="519200000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="519000000"/>
-    <mantle.ledger.account.GlAccount accountName="COGS Shipping Supplies" description="" glAccountClassEnumId="GOOD_FREIGHT_COST"
+    <mantle.ledger.account.GlAccount accountName="销货成本 运输用品" description="" glAccountClassEnumId="GOOD_FREIGHT_COST"
         glAccountId="519300000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="519000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Discounts and Write Downs" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+    <mantle.ledger.account.GlAccount accountName="折扣和减记" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="520000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="500000000"/>
-    <mantle.ledger.account.GlAccount accountName="Prompt Payment Discounts" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+    <mantle.ledger.account.GlAccount accountName="及时付款折扣" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="521000000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="520000000"/>
-    <mantle.ledger.account.GlAccount accountName="Discounts on Sales" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+    <mantle.ledger.account.GlAccount accountName="销售折扣" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="522000000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="520000000"/>
-    <mantle.ledger.account.GlAccount accountName="Coupons and Credits" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+    <mantle.ledger.account.GlAccount accountName="优惠券和积分" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="522100000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="522000000"/>
-    <mantle.ledger.account.GlAccount accountName="Promotional Discounts" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+    <mantle.ledger.account.GlAccount accountName="促销折扣" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="522200000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="522000000"/>
-    <mantle.ledger.account.GlAccount accountName="Appeasement Discounts" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+    <mantle.ledger.account.GlAccount accountName="绥靖折扣" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="522300000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="522000000"/>
-    <mantle.ledger.account.GlAccount accountName="Supplier Discounts" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+    <mantle.ledger.account.GlAccount accountName="供应商折扣" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="522400000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="522000000"/>
-    <mantle.ledger.account.GlAccount accountName="Fees on Sales" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+    <mantle.ledger.account.GlAccount accountName="销售费用" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="523000000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="520000000"/>
-    <mantle.ledger.account.GlAccount accountName="Slotting Fees" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+    <mantle.ledger.account.GlAccount accountName="进场费" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="523100000" glAccountTypeEnumId="GatCogs" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="523000000"/>
-    <mantle.ledger.account.GlAccount accountName="Write Downs Below Cost" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+    <mantle.ledger.account.GlAccount accountName="减记低于成本" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="525000000" glAccountTypeEnumId="GatInvValueAdj" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="520000000"/>
-    <mantle.ledger.account.GlAccount accountName="Free Fills" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+    <mantle.ledger.account.GlAccount accountName="免费填充" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="525100000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="525000000"/>
-    <mantle.ledger.account.GlAccount accountName="Free Samples" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
+    <mantle.ledger.account.GlAccount accountName="免费样品" description="" glAccountClassEnumId="COST_OF_DISCOUNTS"
         glAccountId="525200000" glAccountTypeEnumId="GatDiscounts" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="525000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Inventory Adjustment" description="" glAccountClassEnumId="INVENTORY_SHRINKAGE"
+    <mantle.ledger.account.GlAccount accountName="库存调整" description="" glAccountClassEnumId="INVENTORY_SHRINKAGE"
         glAccountId="526000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="520000000"/>
-    <mantle.ledger.account.GlAccount accountName="Inventory Shrinkage" description="" glAccountClassEnumId="INVENTORY_SHRINKAGE"
+    <mantle.ledger.account.GlAccount accountName="库存缩水" description="" glAccountClassEnumId="INVENTORY_SHRINKAGE"
         glAccountId="527000000" glAccountTypeEnumId="GatInvShrinkage" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="520000000"/>
-    <mantle.ledger.account.GlAccount accountName="Obsolete Inventory" description="" glAccountClassEnumId="INVENTORY_SHRINKAGE"
+    <mantle.ledger.account.GlAccount accountName="过时的库存" description="" glAccountClassEnumId="INVENTORY_SHRINKAGE"
         glAccountId="527100000" glAccountTypeEnumId="GatInvShrinkage" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="527000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Good Returns Cost" description="" glAccountClassEnumId="COST_GOODS_SOLD"
+    <mantle.ledger.account.GlAccount accountName="良好的退货成本" description="" glAccountClassEnumId="COST_GOODS_SOLD"
         glAccountId="530000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="500000000"/>
-    <mantle.ledger.account.GlAccount accountName="Good Returns Penalties" description="" glAccountClassEnumId="COST_GOODS_SOLD"
+    <mantle.ledger.account.GlAccount accountName="退货罚款" description="" glAccountClassEnumId="COST_GOODS_SOLD"
         glAccountId="531000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="530000000"/>
-    <mantle.ledger.account.GlAccount accountName="Good Returns To Vendors" description="" glAccountClassEnumId="COST_GOODS_SOLD"
+    <mantle.ledger.account.GlAccount accountName="良好的供应商回报" description="" glAccountClassEnumId="COST_GOODS_SOLD"
         glAccountId="532000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="530000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Cost of Services Sold" description="" glAccountClassEnumId="COST_SERVICES_SOLD"
+    <mantle.ledger.account.GlAccount accountName="销售服务成本" description="" glAccountClassEnumId="COST_SERVICES_SOLD"
         glAccountId="550000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="500000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Other Cost of Sales" description="" glAccountClassEnumId="OTHER_COST_SALES"
+    <mantle.ledger.account.GlAccount accountName="其他销售成本" description="" glAccountClassEnumId="OTHER_COST_SALES"
         glAccountId="560000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="500000000"/>
-    <mantle.ledger.account.GlAccount accountName="Third Party Sales Commissions Deducted" description="" glAccountClassEnumId="OTHER_COST_SALES"
+    <mantle.ledger.account.GlAccount accountName="扣除第三方销售佣金" description="" glAccountClassEnumId="OTHER_COST_SALES"
         glAccountId="561000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="560000000"/>
-    <mantle.ledger.account.GlAccount accountName="Third Party Fulfillment Fee Deducted" description="" glAccountClassEnumId="OTHER_COST_SALES"
+    <mantle.ledger.account.GlAccount accountName="扣除第三方履行费用" description="" glAccountClassEnumId="OTHER_COST_SALES"
         glAccountId="562000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="560000000"/>
 
     <!-- ========== 600000-700000 OPERATING EXPENSES ========== -->
     <!-- 600000 GENERAL EXPENSE -->
-    <mantle.ledger.account.GlAccount accountName="General Expense" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="一般开支" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
         glAccountId="600000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="" disallowPosting="Y"/>
 
     <!-- 610000 EXPENSE - FACILITY AND EQUIPMENT -->
-    <mantle.ledger.account.GlAccount accountName="Facility and Equipment Expense" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="设施设备费用" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
         glAccountId="610000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="600000000" disallowPosting="Y"/>
     <!-- 611000 EXPENSE - FACILITY OCCUPANCY -->
-    <mantle.ledger.account.GlAccount accountName="Facility Occupancy" description="" glAccountClassEnumId="FACILITY_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="设施占用" description="" glAccountClassEnumId="FACILITY_EXPENSE"
         glAccountId="611000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="610000000"/>
-    <mantle.ledger.account.GlAccount accountName="Rent Expense" description="" glAccountClassEnumId="FACILITY_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="租赁费用" description="" glAccountClassEnumId="FACILITY_EXPENSE"
         glAccountId="611100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="611000000"/>
-    <mantle.ledger.account.GlAccount accountName="Basic Rent" description="" glAccountClassEnumId="FACILITY_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="基本租金" description="" glAccountClassEnumId="FACILITY_EXPENSE"
         glAccountId="611110000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="611100000"/>
-    <mantle.ledger.account.GlAccount accountName="Percentage Rent" description="" glAccountClassEnumId="FACILITY_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="百分比租金" description="" glAccountClassEnumId="FACILITY_EXPENSE"
         glAccountId="611120000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="611100000"/>
-    <mantle.ledger.account.GlAccount accountName="Common Area Charges" description="" glAccountClassEnumId="FACILITY_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="公共区域费用" description="" glAccountClassEnumId="FACILITY_EXPENSE"
         glAccountId="611130000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="611100000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Utilities" description="" glAccountClassEnumId="UTILITIES_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="公用事业" description="" glAccountClassEnumId="UTILITIES_EXPENSE"
         glAccountId="611200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="611000000"/>
-    <mantle.ledger.account.GlAccount accountName="Utilities - Heating" description="" glAccountClassEnumId="UTILITIES_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="公用事业 - 供暖" description="" glAccountClassEnumId="UTILITIES_EXPENSE"
         glAccountId="611210000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="611200000"/>
-    <mantle.ledger.account.GlAccount accountName="Utilities - Electricity" description="" glAccountClassEnumId="UTILITIES_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="公用事业 - 电力" description="" glAccountClassEnumId="UTILITIES_EXPENSE"
         glAccountId="611220000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="611200000"/>
-    <mantle.ledger.account.GlAccount accountName="Utilities - Water and Sewer" description="" glAccountClassEnumId="UTILITIES_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="公用事业 - 供水和下水道" description="" glAccountClassEnumId="UTILITIES_EXPENSE"
         glAccountId="611230000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="611200000"/>
-    <mantle.ledger.account.GlAccount accountName="Utilities - Trash Removal / Recycling" description="" glAccountClassEnumId="UTILITIES_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="公用事业 - 垃圾清除/回收" description="" glAccountClassEnumId="UTILITIES_EXPENSE"
         glAccountId="611240000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="611200000"/>
-    <mantle.ledger.account.GlAccount accountName="Utilities - Vehicle Fuel" description="" glAccountClassEnumId="VEHICLE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="公用事业 - 汽车燃料" description="" glAccountClassEnumId="VEHICLE_EXPENSE"
         glAccountId="611250000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="611200000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Other Occupancy Costs" description="" glAccountClassEnumId="FACILITY_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="其他入住费用" description="" glAccountClassEnumId="FACILITY_EXPENSE"
         glAccountId="611300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="611000000"/>
-    <mantle.ledger.account.GlAccount accountName="Customer Parking Subsidy" description="" glAccountClassEnumId="FACILITY_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="客户泊车补贴" description="" glAccountClassEnumId="FACILITY_EXPENSE"
         glAccountId="611310000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="611300000"/>
-    <mantle.ledger.account.GlAccount accountName="Janitorial and Other Contract Services" description="" glAccountClassEnumId="FACILITY_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="清洁和其他合同服务" description="" glAccountClassEnumId="FACILITY_EXPENSE"
         glAccountId="611320000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="611300000"/>
     <!-- 612000 OTHER EXPENSE - EQUIPMENT RENT -->
-    <mantle.ledger.account.GlAccount accountName="Equipment and Vehicle Rent" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="设备和车辆租赁" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
         glAccountId="612000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="610000000"/>
-    <mantle.ledger.account.GlAccount accountName="Office Equipment Rent" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="办公设备租赁" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="612100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="612000000"/>
-    <mantle.ledger.account.GlAccount accountName="Store Equipment Rent" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="店铺设备租金" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="612200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="612000000"/>
-    <mantle.ledger.account.GlAccount accountName="Vehicle Rent" description="" glAccountClassEnumId="VEHICLE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="车辆租赁" description="" glAccountClassEnumId="VEHICLE_EXPENSE"
         glAccountId="612300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="612000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Equipment Rent" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="其他设备租赁" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
         glAccountId="612400000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="612000000"/>
     <!-- 613000 OTHER EXPENSE - REPAIRS AND MAINTENANCE -->
-    <mantle.ledger.account.GlAccount accountName="Repairs and Maintenance" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="维修与保养" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
         glAccountId="613000000" glAccountTypeEnumId="GatFaMaintenance" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="610000000"/>
-    <mantle.ledger.account.GlAccount accountName="Repairs and Maintenance - Building" description="" glAccountClassEnumId="FACILITY_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="维修和保养 - 建筑" description="" glAccountClassEnumId="FACILITY_EXPENSE"
         glAccountId="613100000" glAccountTypeEnumId="GatFaMaintenance" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="613000000"/>
-    <mantle.ledger.account.GlAccount accountName="Repairs and Maintenance - Furniture, Fixtures, and Equipment" description="" glAccountClassEnumId="FACILITY_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="维修和保养 - 家具、固定装置和设备" description="" glAccountClassEnumId="FACILITY_EXPENSE"
         glAccountId="613200000" glAccountTypeEnumId="GatFaMaintenance" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="613000000"/>
-    <mantle.ledger.account.GlAccount accountName="Repairs and Maintenance - Data Processing Equip" description="" glAccountClassEnumId="DATA_PROCESSING"
+    <mantle.ledger.account.GlAccount accountName="维修和保养 - 数据处理设备" description="" glAccountClassEnumId="DATA_PROCESSING"
         glAccountId="613300000" glAccountTypeEnumId="GatFaMaintenance" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="613000000"/>
-    <mantle.ledger.account.GlAccount accountName="Repairs and Maintenance - Vehicle" description="" glAccountClassEnumId="VEHICLE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="维修和保养 - 车辆" description="" glAccountClassEnumId="VEHICLE_EXPENSE"
         glAccountId="613400000" glAccountTypeEnumId="GatFaMaintenance" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="613000000"/>
-    <mantle.ledger.account.GlAccount accountName="Repairs and Maintenance - Rental Building" description="" glAccountClassEnumId="FACILITY_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="维修和保养 - 出租建筑" description="" glAccountClassEnumId="FACILITY_EXPENSE"
         glAccountId="613500000" glAccountTypeEnumId="GatFaMaintenance" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="613000000"/>
-    <mantle.ledger.account.GlAccount accountName="Repairs and Maintenance - Other" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="维修和保养 - 其他" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
         glAccountId="613900000" glAccountTypeEnumId="GatFaMaintenance" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="613000000"/>
     <!-- 614000 EXPENSE - COMMUNICATIONS -->
-    <mantle.ledger.account.GlAccount accountName="Communications" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="通讯" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="614000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="610000000"/>
-    <mantle.ledger.account.GlAccount accountName="Telephone Company Use Charges" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="电话公司使用费" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="614100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="614000000"/>
-    <mantle.ledger.account.GlAccount accountName="Telephone Co Charges - Local" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="电话公司费用 - 本地" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="614110000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="614100000"/>
-    <mantle.ledger.account.GlAccount accountName="Telephone Co Charges - Long Distance" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="电话公司费用 - 长途" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="614120000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="614100000"/>
-    <mantle.ledger.account.GlAccount accountName="Telephone Co Charges - Fax" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="电话公司费用 - 传真" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="614130000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="614100000"/>
-    <mantle.ledger.account.GlAccount accountName="Telephone Co Charges - Cell Phone and Pager" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="电话公司费用 - 手机和寻呼机" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="614140000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="614100000"/>
-    <mantle.ledger.account.GlAccount accountName="Network Charges" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="网络费用" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="614200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="614000000"/>
     <!-- 616000 EXPENSE - DATA PROCESSING -->
-    <mantle.ledger.account.GlAccount accountName="Data Processing" description="" glAccountClassEnumId="DATA_PROCESSING"
+    <mantle.ledger.account.GlAccount accountName="数据处理" description="" glAccountClassEnumId="DATA_PROCESSING"
         glAccountId="616000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="610000000"/>
-    <mantle.ledger.account.GlAccount accountName="Data Processing Supplies" description="" glAccountClassEnumId="DATA_PROCESSING"
+    <mantle.ledger.account.GlAccount accountName="数据处理用品" description="" glAccountClassEnumId="DATA_PROCESSING"
         glAccountId="616100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="616000000"/>
-    <mantle.ledger.account.GlAccount accountName="Data Processing Equipment and Software" description="" glAccountClassEnumId="DATA_PROCESSING"
+    <mantle.ledger.account.GlAccount accountName="数据处理设备和软件" description="" glAccountClassEnumId="DATA_PROCESSING"
         glAccountId="616200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="616000000"/>
-    <mantle.ledger.account.GlAccount accountName="Outside Computer Services" description="" glAccountClassEnumId="DATA_PROCESSING"
+    <mantle.ledger.account.GlAccount accountName="外部计算机服务" description="" glAccountClassEnumId="DATA_PROCESSING"
         glAccountId="616300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="616000000"/>
-    <mantle.ledger.account.GlAccount accountName="Web Site and Software" description="" glAccountClassEnumId="DATA_PROCESSING"
+    <mantle.ledger.account.GlAccount accountName="网站和软件" description="" glAccountClassEnumId="DATA_PROCESSING"
         glAccountId="616400000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="616000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Data Processing Expense" description="" glAccountClassEnumId="DATA_PROCESSING"
+    <mantle.ledger.account.GlAccount accountName="其他数据处理费用" description="" glAccountClassEnumId="DATA_PROCESSING"
         glAccountId="616900000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="616000000"/>
 
     <!-- 620000 EXPENSE - ADVERTISING AND PROMOTION -->
-    <mantle.ledger.account.GlAccount accountName="Advertising and Promotion" description="" glAccountClassEnumId="ADVERTISING"
+    <mantle.ledger.account.GlAccount accountName="广告和促销" description="" glAccountClassEnumId="ADVERTISING"
         glAccountId="620000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="600000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Advertising" description="" glAccountClassEnumId="ADVERTISING"
+    <mantle.ledger.account.GlAccount accountName="广告" description="" glAccountClassEnumId="ADVERTISING"
         glAccountId="621000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="620000000"/>
-    <mantle.ledger.account.GlAccount accountName="Special Events" description="" glAccountClassEnumId="ADVERTISING"
+    <mantle.ledger.account.GlAccount accountName="特别活动" description="" glAccountClassEnumId="ADVERTISING"
         glAccountId="623000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="620000000"/>
-    <mantle.ledger.account.GlAccount accountName="Joint Advertising" description="" glAccountClassEnumId="ADVERTISING"
+    <mantle.ledger.account.GlAccount accountName="联合广告" description="" glAccountClassEnumId="ADVERTISING"
         glAccountId="624000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="620000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Other Advertising / Promotion" description="" glAccountClassEnumId="ADVERTISING"
+    <mantle.ledger.account.GlAccount accountName="其他广告/促销" description="" glAccountClassEnumId="ADVERTISING"
         glAccountId="625000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="620000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Publisher / Vendor Advertising Allowances" description="" glAccountClassEnumId="ADVERTISING"
+    <mantle.ledger.account.GlAccount accountName="出版商/供应商广告津贴" description="" glAccountClassEnumId="ADVERTISING"
         glAccountId="626000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="620000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Promotional Materials" description="" glAccountClassEnumId="PROMOTIONAL_MATERIALS"
+    <mantle.ledger.account.GlAccount accountName="宣传资料" description="" glAccountClassEnumId="PROMOTIONAL_MATERIALS"
         glAccountId="627000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="620000000"/>
-    <mantle.ledger.account.GlAccount accountName="Promotional Literature" description="" glAccountClassEnumId="PROMOTIONAL_MATERIALS"
+    <mantle.ledger.account.GlAccount accountName="宣传资料" description="" glAccountClassEnumId="PROMOTIONAL_MATERIALS"
         glAccountId="627100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="627000000"/>
-    <mantle.ledger.account.GlAccount accountName="Promotional Displays" description="" glAccountClassEnumId="PROMOTIONAL_MATERIALS"
+    <mantle.ledger.account.GlAccount accountName="促销展示" description="" glAccountClassEnumId="PROMOTIONAL_MATERIALS"
         glAccountId="627200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="627000000"/>
 
     <!-- 630000 EXPENSE - COMPENSATION AND BENEFITS -->
-    <mantle.ledger.account.GlAccount accountName="Compensation Expense" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="补偿费用" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="630000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="600000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Wages and Commissions" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="工资和佣金" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="631000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="630000000"/>
-    <mantle.ledger.account.GlAccount accountName="Wages - Employee" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="工资 - 雇员" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="631100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
-    <mantle.ledger.account.GlAccount accountName="Wages - Owners" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="工资 - 业主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="631200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
-    <mantle.ledger.account.GlAccount accountName="Wages - Officers" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="工资 - 官员" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="631400000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
-    <mantle.ledger.account.GlAccount accountName="Sales Commissions - Employee" description="" glAccountClassEnumId="SALES_COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="销售佣金 - 员工" description="" glAccountClassEnumId="SALES_COMPENSATION"
         glAccountId="631600000" glAccountTypeEnumId="GatCommissionExpense" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
-    <mantle.ledger.account.GlAccount accountName="Sales Commissions - Non-Employee" description="" glAccountClassEnumId="SALES_COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="销售佣金 - 非雇员" description="" glAccountClassEnumId="SALES_COMPENSATION"
         glAccountId="631700000" glAccountTypeEnumId="GatCommissionExpense" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
-    <mantle.ledger.account.GlAccount accountName="Sales Commission Adjustments" description="" glAccountClassEnumId="SALES_COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="销售佣金调整" description="" glAccountClassEnumId="SALES_COMPENSATION"
         glAccountId="631800000" glAccountTypeEnumId="GatCommissionExpense" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
-    <mantle.ledger.account.GlAccount accountName="Bonus" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="奖金" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="631900000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Vacation and Sick Pay" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="假期和病假工资" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="632000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="630000000"/>
-    <mantle.ledger.account.GlAccount accountName="Vacation Pay - Employees" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="假期工资 - 员工" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="632100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="632000000"/>
-    <mantle.ledger.account.GlAccount accountName="Vacation Pay - Owners" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="假期工资 - 业主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="632200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="632000000"/>
-    <mantle.ledger.account.GlAccount accountName="Sick Pay - Employees" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="病假工资 - 员工" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="632300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="632000000"/>
-    <mantle.ledger.account.GlAccount accountName="Sick Pay - Owners" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="病假工资 - 业主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="632400000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="632000000"/>
-    <mantle.ledger.account.GlAccount accountName="PTO Pay - Employees" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="PTO 薪酬 - 员工" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="632500000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="632000000"/>
-    <mantle.ledger.account.GlAccount accountName="PTO Pay - Owners" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="PTO Pay - 业主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="632600000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="632000000"/>
-    <mantle.ledger.account.GlAccount accountName="Holiday Pay - Employees" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="假期工资 - 员工" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="632700000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="632000000"/>
-    <mantle.ledger.account.GlAccount accountName="Holiday Pay - Owners" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="假期工资 - 业主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="632800000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="632000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Employment Tax" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="就业税" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="633000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="630000000"/>
-    <mantle.ledger.account.GlAccount accountName="Insurance Contribution Tax - Employer" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="保险缴款税 - 雇主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="633200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="633000000"/>
-    <mantle.ledger.account.GlAccount accountName="Federal Social Security - Employer" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="联邦社会保障 - 雇主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="633210000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="633200000"/>
-    <mantle.ledger.account.GlAccount accountName="Federal Medicare - Employer" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="联邦医疗保险 - 雇主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="633220000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="633200000"/>
-    <mantle.ledger.account.GlAccount accountName="Federal Pension - Employer" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="联邦退休金 - 雇主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="633230000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="633200000"/>
-    <mantle.ledger.account.GlAccount accountName="State Disability Insurance - Employer" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="州残障保险 - 雇主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="633250000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="633200000"/>
-    <mantle.ledger.account.GlAccount accountName="State Misc Tax - Employer" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="州杂项税 - 雇主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="633260000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="633200000"/>
-    <mantle.ledger.account.GlAccount accountName="State Pension - Employer" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="国家养老金 - 雇主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="633270000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="633200000"/>
-    <mantle.ledger.account.GlAccount accountName="Local Misc Tax - Employer" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="地方杂项税 - 雇主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="633290000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="633200000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Unemployment Insurance - Employer" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="失业保险 - 雇主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="633700000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="633000000"/>
-    <mantle.ledger.account.GlAccount accountName="Federal Unemployment Insurance - Employer" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="联邦失业保险 - 雇主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="633710000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="633700000"/>
-    <mantle.ledger.account.GlAccount accountName="State Unemployment Insurance - Employer" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="国家失业保险 - 雇主" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="633720000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="633700000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Group Health Insurance" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="团体健康保险" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="634000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="630000000"/>
-    <mantle.ledger.account.GlAccount accountName="Group Health Insurance - Premiums" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="团体健康保险 - 保费" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="634100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="634000000"/>
-    <mantle.ledger.account.GlAccount accountName="Group Health Insurance - Premiums Owner or Stockholder" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="团体健康保险 - 保费所有者或股东" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="634200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="634000000"/>
-    <mantle.ledger.account.GlAccount accountName="Employee Health Insurance Premium Contributions" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="员工健康保险费缴款" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="634800000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="634000000"/>
-    <mantle.ledger.account.GlAccount accountName="Former Employee Cobra Payments" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="前雇员眼镜蛇付款" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="634900000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="634000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Workers Compensation Insurance" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="工人赔偿保险" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="635000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="630000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Disability and Life Insurance" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="残疾和人寿保险" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="636000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="630000000"/>
-    <mantle.ledger.account.GlAccount accountName="Disability Income Insurance Premiums" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="残疾收入保险费" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="636100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="636000000"/>
-    <mantle.ledger.account.GlAccount accountName="Disability Income Insurance Premiums Owner or Stockholder" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="残疾收入保险保费所有者或股东" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="636200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="636000000"/>
-    <mantle.ledger.account.GlAccount accountName="Employee Disability Insurance Co-Payments" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="员工残疾保险共付额" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="636400000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="636000000"/>
-    <mantle.ledger.account.GlAccount accountName="Life Insurance" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="人寿保险" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="636500000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="636000000"/>
-    <mantle.ledger.account.GlAccount accountName="Group Life Insurance Premiums" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="团体人寿保险费" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="636600000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="636000000"/>
-    <mantle.ledger.account.GlAccount accountName="Group Life Insurance Premiums Owner or Stockholder" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="团体人寿保险保费所有者或股东" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="636700000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="636000000"/>
-    <mantle.ledger.account.GlAccount accountName="Employee Life Insurance Co-Payments" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="员工人寿保险共付额" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="636900000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="636000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Retirement (Pension / Profit Sharing / 401k)" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="退休（养老金/利润分享/401k）" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="637000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="630000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Other Benefit Expense" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="其他福利费用" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="638000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="630000000"/>
-    <mantle.ledger.account.GlAccount accountName="Staff Gifts and Perqs" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="员工礼品和津贴" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="638100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="638000000"/>
-    <mantle.ledger.account.GlAccount accountName="Staff Picnic / Party (100% Deductible)" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="员工野餐/聚会（100% 免赔额）" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="638200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="638000000"/>
-    <mantle.ledger.account.GlAccount accountName="Staff Meals and Snacks (100% Deductible)" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="员工餐和小吃（100% 免赔额）" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="638300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="638000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Payroll Processing Expense" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="薪资处理费用" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="639000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="630000000"/>
 
     <!-- 640000 EXPENSE - PROFESSIONAL SERVICES -->
-    <mantle.ledger.account.GlAccount accountName="Professional Services" description="" glAccountClassEnumId="PROF_SERVICES"
+    <mantle.ledger.account.GlAccount accountName="专业的服务" description="" glAccountClassEnumId="PROF_SERVICES"
         glAccountId="640000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="600000000"/>
-    <mantle.ledger.account.GlAccount accountName="Legal Fees" description="" glAccountClassEnumId="PROF_SERVICES"
+    <mantle.ledger.account.GlAccount accountName="法律费用" description="" glAccountClassEnumId="PROF_SERVICES"
         glAccountId="641000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="640000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounting Fees" description="" glAccountClassEnumId="PROF_SERVICES"
+    <mantle.ledger.account.GlAccount accountName="会计费用" description="" glAccountClassEnumId="PROF_SERVICES"
         glAccountId="642000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="640000000"/>
-    <mantle.ledger.account.GlAccount accountName="Inventory Verification Fees" description="" glAccountClassEnumId="PROF_SERVICES"
+    <mantle.ledger.account.GlAccount accountName="库存验证费" description="" glAccountClassEnumId="PROF_SERVICES"
         glAccountId="643000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="640000000"/>
-    <mantle.ledger.account.GlAccount accountName="Marketing Consulting Fees" description="" glAccountClassEnumId="SALES_COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="营销咨询费" description="" glAccountClassEnumId="SALES_COMPENSATION"
         glAccountId="644000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="640000000"/>
-    <mantle.ledger.account.GlAccount accountName="Business Consulting Fees" description="" glAccountClassEnumId="PROF_SERVICES"
+    <mantle.ledger.account.GlAccount accountName="业务咨询费" description="" glAccountClassEnumId="PROF_SERVICES"
         glAccountId="645000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="640000000"/>
-    <mantle.ledger.account.GlAccount accountName="Systems Analysis and Development Fees" description="" glAccountClassEnumId="PROF_SERVICES"
+    <mantle.ledger.account.GlAccount accountName="系统分析和开发费用" description="" glAccountClassEnumId="PROF_SERVICES"
         glAccountId="646000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="640000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Consulting Fees" description="" glAccountClassEnumId="PROF_SERVICES"
+    <mantle.ledger.account.GlAccount accountName="其他咨询费" description="" glAccountClassEnumId="PROF_SERVICES"
         glAccountId="649000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="640000000"/>
 
     <!-- 650000 Expense - OFFICE, SUPPLIES, SHIPPING -->
-    <mantle.ledger.account.GlAccount accountName="Office and Supplies Expenses" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="办公用品费用" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="650000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="600000000"/>
     <!-- 651000 Expense - Office -->
-    <mantle.ledger.account.GlAccount accountName="Office Expense" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="办公费用" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="651000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="650000000"/>
     <!-- 652000 Expense - Supplies -->
-    <mantle.ledger.account.GlAccount accountName="Supplies Expense" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="用品费用" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="652000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="650000000"/>
-    <mantle.ledger.account.GlAccount accountName="Stationery and Supplies - Office Use" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="文具及用品 - 办公用" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="652100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="652000000"/>
-    <mantle.ledger.account.GlAccount accountName="Wrappings and Bags" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="包装纸和袋子" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="652200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="652000000"/>
-    <mantle.ledger.account.GlAccount accountName="Printed Items - Not Otherwise Allocated" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="印刷品 - 未另行分配" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="652300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="652000000"/>
-    <mantle.ledger.account.GlAccount accountName="Janitorial Supplies" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="清洁用品" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="652400000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="652000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Supplies" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="其他用品" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="652900000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="652000000"/>
     <!-- 653000 Expense - Shipping -->
-    <mantle.ledger.account.GlAccount accountName="Shipping Expense" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="运费" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="653000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="650000000"/>
-    <mantle.ledger.account.GlAccount accountName="Postage Expense" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="邮费" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="653100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="653000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Postage Expense" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="其他邮费" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="653200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="653000000"/>
-    <mantle.ledger.account.GlAccount accountName="Shipping Supplies Expense" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="运输用品费用" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="653300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="653000000"/>
     <!-- 655000 Expense - Recruiting -->
-    <mantle.ledger.account.GlAccount accountName="Recruiting and Help Wanted" description="" glAccountClassEnumId="OFFICE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="招聘和求助" description="" glAccountClassEnumId="OFFICE_EXPENSE"
         glAccountId="655000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="650000000"/>
 
     <!-- 660000 Non-Employee Compensation -->
-    <mantle.ledger.account.GlAccount accountName="Non-Employee Compensation" description="" glAccountClassEnumId="NON_EMP_COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="非雇员补偿" description="" glAccountClassEnumId="NON_EMP_COMPENSATION"
         glAccountId="660000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="600000000"/>
-    <mantle.ledger.account.GlAccount accountName="Outside Labor and Services" description="" glAccountClassEnumId="NON_EMP_COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="外部劳务和服务" description="" glAccountClassEnumId="NON_EMP_COMPENSATION"
         glAccountId="661000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="660000000"/>
 
     <!-- 670000 Expense - Depreciation -->
-    <mantle.ledger.account.GlAccount accountName="Depreciation" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="670000000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="600000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Depreciation - Land and Building" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧 - 土地和建筑物" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="671000000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="670000000"/>
-    <mantle.ledger.account.GlAccount accountName="Depreciation - Land" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧 - 土地" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="671100000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="671000000"/>
-    <mantle.ledger.account.GlAccount accountName="Depreciation - Building" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧 - 建筑" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="671200000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="671000000"/>
-    <mantle.ledger.account.GlAccount accountName="Depreciation - Land Improvements" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧 - 土地改良" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="671300000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="671000000"/>
-    <mantle.ledger.account.GlAccount accountName="Depreciation - Building Improvements" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧 - 建筑改进" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="671400000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="671000000"/>
-    <mantle.ledger.account.GlAccount accountName="Depreciation - Leasehold Improvements" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧 - 租赁物改良" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="671500000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="671000000"/>
-    <mantle.ledger.account.GlAccount accountName="Depreciation - Investment Real Estate" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧 - 投资房地产" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="671800000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="671000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Depreciation - Equipment" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧 - 设备" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="672000000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="670000000"/>
-    <mantle.ledger.account.GlAccount accountName="Depreciation - Furniture /Fixtures / Equipment" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧 - 家具/固定装置/设备" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="672100000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="672000000"/>
-    <mantle.ledger.account.GlAccount accountName="Depreciation - Data Processing Equipment" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧 - 数据处理设备" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="672200000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="672000000"/>
-    <mantle.ledger.account.GlAccount accountName="Depreciation - Data Processing Software" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧 - 数据处理软件" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="672300000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="672000000"/>
-    <mantle.ledger.account.GlAccount accountName="Depreciation - Vehicles" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧 - 车辆" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="672400000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="672000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Depreciation - Other Assets Root" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧 - 其他资产根" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="673000000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="670000000"/>
-    <mantle.ledger.account.GlAccount accountName="Depreciation - Biological Assets" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧 - 生物资产" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="673500000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="673000000"/>
-    <mantle.ledger.account.GlAccount accountName="Depreciation - Other Assets" description="" glAccountClassEnumId="DEPRECIATION"
+    <mantle.ledger.account.GlAccount accountName="折旧 - 其他资产" description="" glAccountClassEnumId="DEPRECIATION"
         glAccountId="673800000" glAccountTypeEnumId="GatFaDepreciation" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="673000000"/>
 
     <!-- 680000 Expense - Travel, Entertainment, Education -->
-    <mantle.ledger.account.GlAccount accountName="Travel, Entertainment, Education" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="旅游、娱乐、教育" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
         glAccountId="680000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="600000000"/>
     <!-- 681000 Expense - Travel and Entertainment -->
-    <mantle.ledger.account.GlAccount accountName="Travel and Entertainment" description="" glAccountClassEnumId="TRAVEL_ENT"
+    <mantle.ledger.account.GlAccount accountName="旅游娱乐" description="" glAccountClassEnumId="TRAVEL_ENT"
         glAccountId="681000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="680000000"/>
-    <mantle.ledger.account.GlAccount accountName="Business Travel Expense" description="" glAccountClassEnumId="TRAVEL_ENT"
+    <mantle.ledger.account.GlAccount accountName="商务旅行费用" description="" glAccountClassEnumId="TRAVEL_ENT"
         glAccountId="681100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="681000000"/>
-    <mantle.ledger.account.GlAccount accountName="Sales Travel Expense" description="" glAccountClassEnumId="SALES_TRAVEL"
+    <mantle.ledger.account.GlAccount accountName="销售差旅费" description="" glAccountClassEnumId="SALES_TRAVEL"
         glAccountId="681110000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="681100000"/>
-    <mantle.ledger.account.GlAccount accountName="Business Meals and Entertainment (50% Deductible)" description="" glAccountClassEnumId="TRAVEL_ENT"
+    <mantle.ledger.account.GlAccount accountName="商务宴请和招待（50% 免赔额）" description="" glAccountClassEnumId="TRAVEL_ENT"
         glAccountId="681200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="681000000"/>
-    <mantle.ledger.account.GlAccount accountName="Sales Meals and Entertainment" description="" glAccountClassEnumId="SALES_TRAVEL"
+    <mantle.ledger.account.GlAccount accountName="销售餐饮和娱乐" description="" glAccountClassEnumId="SALES_TRAVEL"
         glAccountId="681210000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="681200000"/>
-    <mantle.ledger.account.GlAccount accountName="Food - Staff Meetings, etc.  (100% Deductible - de minimis)" description="" glAccountClassEnumId="TRAVEL_ENT"
+    <mantle.ledger.account.GlAccount accountName="食品 - 员工会议等（100% 免赔额 - 最低限度）" description="" glAccountClassEnumId="TRAVEL_ENT"
         glAccountId="681300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="681000000"/>
     <!-- 682000 Expense - Education -->
-    <mantle.ledger.account.GlAccount accountName="Education" description="" glAccountClassEnumId="EDUCATION_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="教育" description="" glAccountClassEnumId="EDUCATION_EXPENSE"
         glAccountId="682000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="680000000"/>
-    <mantle.ledger.account.GlAccount accountName="Education - Course Fees" description="" glAccountClassEnumId="EDUCATION_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="教育 - 课程费用" description="" glAccountClassEnumId="EDUCATION_EXPENSE"
         glAccountId="682100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="682000000"/>
-    <mantle.ledger.account.GlAccount accountName="Education - Travel" description="" glAccountClassEnumId="EDUCATION_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="教育 - 旅游" description="" glAccountClassEnumId="EDUCATION_EXPENSE"
         glAccountId="682200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="682000000"/>
-    <mantle.ledger.account.GlAccount accountName="Education - Meals and Entertainment (50% Deductible)" description="" glAccountClassEnumId="EDUCATION_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="教育 - 餐饮和娱乐（50% 免赔额）" description="" glAccountClassEnumId="EDUCATION_EXPENSE"
         glAccountId="682300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="682000000"/>
-    <mantle.ledger.account.GlAccount accountName="Education - Other" description="" glAccountClassEnumId="EDUCATION_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="教育 - 其他" description="" glAccountClassEnumId="EDUCATION_EXPENSE"
         glAccountId="682400000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="682000000"/>
-    <mantle.ledger.account.GlAccount accountName="Education - Product Research" description="" glAccountClassEnumId="EDUCATION_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="教育 - 产品研究" description="" glAccountClassEnumId="EDUCATION_EXPENSE"
         glAccountId="682500000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="682000000"/>
     <!-- 683000 Expense - Dues and Subscriptions -->
-    <mantle.ledger.account.GlAccount accountName="Dues and Subscriptions" description="" glAccountClassEnumId="DUES_SUBSCRIPTIONS"
+    <mantle.ledger.account.GlAccount accountName="会费和订阅" description="" glAccountClassEnumId="DUES_SUBSCRIPTIONS"
         glAccountId="683000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="680000000"/>
-    <mantle.ledger.account.GlAccount accountName="Association Membership Fees" description="" glAccountClassEnumId="DUES_SUBSCRIPTIONS"
+    <mantle.ledger.account.GlAccount accountName="协会会员费" description="" glAccountClassEnumId="DUES_SUBSCRIPTIONS"
         glAccountId="683100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="683000000"/>
-    <mantle.ledger.account.GlAccount accountName="Subscription Fees" description="" glAccountClassEnumId="DUES_SUBSCRIPTIONS"
+    <mantle.ledger.account.GlAccount accountName="订阅费" description="" glAccountClassEnumId="DUES_SUBSCRIPTIONS"
         glAccountId="683200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="683000000"/>
-    <mantle.ledger.account.GlAccount accountName="Subscription Fees - Professional Publications" description="" glAccountClassEnumId="DUES_SUBSCRIPTIONS"
+    <mantle.ledger.account.GlAccount accountName="订阅费 - 专业出版物" description="" glAccountClassEnumId="DUES_SUBSCRIPTIONS"
         glAccountId="683210000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="683200000"/>
-    <mantle.ledger.account.GlAccount accountName="Subscription Fees - Bound Reference Tools" description="" glAccountClassEnumId="DUES_SUBSCRIPTIONS"
+    <mantle.ledger.account.GlAccount accountName="订阅费 - 绑定参考工具" description="" glAccountClassEnumId="DUES_SUBSCRIPTIONS"
         glAccountId="683220000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="683200000"/>
-    <mantle.ledger.account.GlAccount accountName="Subscription Fees - Electronic Refer Tools" description="" glAccountClassEnumId="DUES_SUBSCRIPTIONS"
+    <mantle.ledger.account.GlAccount accountName="订阅费 - 电子参考工具" description="" glAccountClassEnumId="DUES_SUBSCRIPTIONS"
         glAccountId="683230000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="683200000"/>
 
     <!-- 690000 Expense - Insurance -->
-    <mantle.ledger.account.GlAccount accountName="Insurance" description="" glAccountClassEnumId="INSURANCE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="保险" description="" glAccountClassEnumId="INSURANCE_EXPENSE"
         glAccountId="690000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="600000000"/>
-    <mantle.ledger.account.GlAccount accountName="Business Insurance" description="" glAccountClassEnumId="INSURANCE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="商业保险" description="" glAccountClassEnumId="INSURANCE_EXPENSE"
         glAccountId="691000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="690000000"/>
-    <mantle.ledger.account.GlAccount accountName="Real Estate Insurance" description="" glAccountClassEnumId="INSURANCE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="房地产保险" description="" glAccountClassEnumId="INSURANCE_EXPENSE"
         glAccountId="692000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="690000000"/>
-    <mantle.ledger.account.GlAccount accountName="Vehicle Insurance" description="" glAccountClassEnumId="INSURANCE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="车辆保险" description="" glAccountClassEnumId="INSURANCE_EXPENSE"
         glAccountId="693000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="690000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Insurance" description="" glAccountClassEnumId="INSURANCE_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="其他保险" description="" glAccountClassEnumId="INSURANCE_EXPENSE"
         glAccountId="694000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="690000000"/>
 
     <!-- 700000 OTHER EXPENSE -->
-    <mantle.ledger.account.GlAccount accountName="Other Expense" description="" glAccountClassEnumId="EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="其他费用" description="" glAccountClassEnumId="EXPENSE"
         glAccountId="700000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="" disallowPosting="Y"/>
 
     <!-- 710000 OTHER EXPENSE - SERVICE CHARGES -->
-    <mantle.ledger.account.GlAccount accountName="Banking Service Charges" description="" glAccountClassEnumId="BANKING_CHARGES"
+    <mantle.ledger.account.GlAccount accountName="银行服务收费" description="" glAccountClassEnumId="BANKING_CHARGES"
         glAccountId="710000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="700000000"/>
-    <mantle.ledger.account.GlAccount accountName="Credit Card Charges" description="" glAccountClassEnumId="BANKING_CHARGES"
+    <mantle.ledger.account.GlAccount accountName="信用卡收费" description="" glAccountClassEnumId="BANKING_CHARGES"
         glAccountId="711000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="710000000"/>
-    <mantle.ledger.account.GlAccount accountName="Credit Card Charge Master Card / Visa" description="" glAccountClassEnumId="BANKING_CHARGES"
+    <mantle.ledger.account.GlAccount accountName="信用卡收费 Master Card / Visa" description="" glAccountClassEnumId="BANKING_CHARGES"
         glAccountId="711100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="711000000"/>
-    <mantle.ledger.account.GlAccount accountName="Credit Card Charge Amex" description="" glAccountClassEnumId="BANKING_CHARGES"
+    <mantle.ledger.account.GlAccount accountName="信用卡收费美国运通" description="" glAccountClassEnumId="BANKING_CHARGES"
         glAccountId="711200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="711000000"/>
-    <mantle.ledger.account.GlAccount accountName="Credit Card Charge Discover" description="" glAccountClassEnumId="BANKING_CHARGES"
+    <mantle.ledger.account.GlAccount accountName="信用卡收费发现" description="" glAccountClassEnumId="BANKING_CHARGES"
         glAccountId="711300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="711000000"/>
-    <mantle.ledger.account.GlAccount accountName="Credit Card Charge Debit / Atm Card" description="" glAccountClassEnumId="BANKING_CHARGES"
+    <mantle.ledger.account.GlAccount accountName="信用卡收费借记卡/自动柜员机卡" description="" glAccountClassEnumId="BANKING_CHARGES"
         glAccountId="711400000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="711000000"/>
-    <mantle.ledger.account.GlAccount accountName="Bank Service Charges" description="" glAccountClassEnumId="BANKING_CHARGES"
+    <mantle.ledger.account.GlAccount accountName="银行服务费" description="" glAccountClassEnumId="BANKING_CHARGES"
         glAccountId="712000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="710000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Service Charges" description="" glAccountClassEnumId="BANKING_CHARGES"
+    <mantle.ledger.account.GlAccount accountName="其他服务费" description="" glAccountClassEnumId="BANKING_CHARGES"
         glAccountId="719000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="710000000"/>
 
     <!-- 730000 OTHER EXPENSE - INCOME TAX -->
-    <mantle.ledger.account.GlAccount accountName="Tax Expense - Income" description="" glAccountClassEnumId="INCOME_TAX_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="税收费用 - 收入" description="" glAccountClassEnumId="INCOME_TAX_EXPENSE"
         glAccountId="730000000" glAccountTypeEnumId="GatTax" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="700000000"/>
-    <mantle.ledger.account.GlAccount accountName="Federal Income Tax" description="" glAccountClassEnumId="INCOME_TAX_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="联邦所得税" description="" glAccountClassEnumId="INCOME_TAX_EXPENSE"
         glAccountId="731000000" glAccountTypeEnumId="GatTax" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="730000000"/>
-    <mantle.ledger.account.GlAccount accountName="State Income Tax" description="" glAccountClassEnumId="INCOME_TAX_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="国家所得税" description="" glAccountClassEnumId="INCOME_TAX_EXPENSE"
         glAccountId="732000000" glAccountTypeEnumId="GatTax" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="730000000"/>
-    <mantle.ledger.account.GlAccount accountName="Local Income Tax" description="" glAccountClassEnumId="INCOME_TAX_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="地方所得税" description="" glAccountClassEnumId="INCOME_TAX_EXPENSE"
         glAccountId="733000000" glAccountTypeEnumId="GatTax" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="730000000"/>
 
     <!-- 740000 OTHER EXPENSE - NON-INCOME TAX -->
     <!-- NOTE: separate from INCOME_TAX_EXPENSE, as per definition of EBIT/etc -->
-    <mantle.ledger.account.GlAccount accountName="Tax Expense - Other" description="" glAccountClassEnumId="OTHER_TAX_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="税收费用 - 其他" description="" glAccountClassEnumId="OTHER_TAX_EXPENSE"
         glAccountId="740000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="700000000"/>
-    <mantle.ledger.account.GlAccount accountName="Inventory and Use Taxes" description="" glAccountClassEnumId="OTHER_TAX_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="库存和使用税" description="" glAccountClassEnumId="OTHER_TAX_EXPENSE"
         glAccountId="741000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="740000000"/>
-    <mantle.ledger.account.GlAccount accountName="Real Estate Taxes" description="" glAccountClassEnumId="OTHER_TAX_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="房地产税" description="" glAccountClassEnumId="OTHER_TAX_EXPENSE"
         glAccountId="742000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="740000000"/>
-    <mantle.ledger.account.GlAccount accountName="Business Licenses and Fees" description="" glAccountClassEnumId="OTHER_TAX_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="营业执照和费用" description="" glAccountClassEnumId="OTHER_TAX_EXPENSE"
         glAccountId="743000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="740000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Business Taxes and Fees" description="" glAccountClassEnumId="OTHER_TAX_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="其他营业税费" description="" glAccountClassEnumId="OTHER_TAX_EXPENSE"
         glAccountId="744000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="740000000"/>
-    <mantle.ledger.account.GlAccount accountName="Sales and Use Taxes" description="" glAccountClassEnumId="OTHER_TAX_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="销售和使用税" description="" glAccountClassEnumId="OTHER_TAX_EXPENSE"
         glAccountId="745000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="740000000"/>
 
     <!-- 780000 OTHER EXPENSE - OTHER OPERATING EXPENSES -->
-    <mantle.ledger.account.GlAccount accountName="Other Operating Expenses" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="其他运营费用" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
         glAccountId="780000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="700000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Bad Debts" description="" glAccountClassEnumId="BAD_DEBT_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="坏账" description="" glAccountClassEnumId="BAD_DEBT_EXPENSE"
         glAccountId="781000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="780000000"/>
-    <mantle.ledger.account.GlAccount accountName="Collection Expense" description="" glAccountClassEnumId="BAD_DEBT_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="托收费用" description="" glAccountClassEnumId="BAD_DEBT_EXPENSE"
         glAccountId="781100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="781000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Write Off Expense" description="" glAccountClassEnumId="NON_CASH_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="注销费用" description="" glAccountClassEnumId="NON_CASH_EXPENSE"
         glAccountId="782000000" glAccountTypeEnumId="GatWriteOff" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="780000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounts Receivable Write Off" description="" glAccountClassEnumId="BAD_DEBT_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="应收账款核销" description="" glAccountClassEnumId="BAD_DEBT_EXPENSE"
         glAccountId="782100000" glAccountTypeEnumId="GatAccRecWriteOff" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="782000000"/>
-    <mantle.ledger.account.GlAccount accountName="Interest Income Write Off" description="" glAccountClassEnumId="BAD_DEBT_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="利息收入注销" description="" glAccountClassEnumId="BAD_DEBT_EXPENSE"
         glAccountId="782400000" glAccountTypeEnumId="GatInterestIncWriteOff" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="782000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Cash Over / Short" description="" glAccountClassEnumId="MISC_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="套现/空头" description="" glAccountClassEnumId="MISC_EXPENSE"
         glAccountId="783000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="780000000"/>
-    <mantle.ledger.account.GlAccount accountName="Financial Account Errors" description="" glAccountClassEnumId="MISC_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="金融账户错误" description="" glAccountClassEnumId="MISC_EXPENSE"
         glAccountId="784000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="780000000"/>
-    <mantle.ledger.account.GlAccount accountName="Contributions" description="" glAccountClassEnumId="CONTRIBUTIONS"
+    <mantle.ledger.account.GlAccount accountName="投稿" description="" glAccountClassEnumId="CONTRIBUTIONS"
         glAccountId="785000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="780000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Non-COGS Inventory Expense" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="非销货成本库存费用" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
         glAccountId="786000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="780000000"/>
-    <mantle.ledger.account.GlAccount accountName="Inventory Purchase Adjustments" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="库存采购调整" description="" glAccountClassEnumId="GEN_ADMIN_EXPENSE"
         glAccountId="786100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="786000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Amortization Expense" description="" glAccountClassEnumId="AMORTIZATION"
+    <mantle.ledger.account.GlAccount accountName="摊销费用" description="" glAccountClassEnumId="AMORTIZATION"
         glAccountId="787000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="780000000"/>
-    <mantle.ledger.account.GlAccount accountName="Misc Operating Expense" description="" glAccountClassEnumId="MISC_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="杂项运营费用" description="" glAccountClassEnumId="MISC_EXPENSE"
         glAccountId="789000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="780000000"/>
 
     <!-- 790000 NON-OPERATING EXPENSE -->
     <!-- NOTE: 82* to 79* -->
-    <mantle.ledger.account.GlAccount accountName="Non-operating Expense" description="" glAccountClassEnumId="NON_OP_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="营业外支出" description="" glAccountClassEnumId="NON_OP_EXPENSE"
         glAccountId="790000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="700000000" disallowPosting="Y"/>
-    <mantle.ledger.account.GlAccount accountName="Interest Expense" description="" glAccountClassEnumId="INTEREST_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="利息花费" description="" glAccountClassEnumId="INTEREST_EXPENSE"
         glAccountId="791000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="790000000"/>
-    <mantle.ledger.account.GlAccount accountName="Equipment Interest Expense" description="" glAccountClassEnumId="INTEREST_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="设备利息支出" description="" glAccountClassEnumId="INTEREST_EXPENSE"
         glAccountId="791100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="791000000"/>
-    <mantle.ledger.account.GlAccount accountName="Vehicle Interest Expense" description="" glAccountClassEnumId="INTEREST_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="车辆利息费用" description="" glAccountClassEnumId="INTEREST_EXPENSE"
         glAccountId="791200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="791000000"/>
-    <mantle.ledger.account.GlAccount accountName="Real Estate Interest Expense" description="" glAccountClassEnumId="INTEREST_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="房地产利息支出" description="" glAccountClassEnumId="INTEREST_EXPENSE"
         glAccountId="791300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="791000000"/>
-    <mantle.ledger.account.GlAccount accountName="Company Owned Life Insurance" description="" glAccountClassEnumId="CO_LIFE_INSURANCE"
+    <mantle.ledger.account.GlAccount accountName="公司拥有的人寿保险" description="" glAccountClassEnumId="CO_LIFE_INSURANCE"
         glAccountId="792000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="790000000"/>
     <mantle.ledger.account.GlAccount accountName="Loss on Fixed Assets" description="" glAccountClassEnumId="NON_OP_EXPENSE"
         glAccountId="793000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="790000000"/>
-    <mantle.ledger.account.GlAccount accountName="Loss on Sale of Fixed Assets" description="" glAccountClassEnumId="NON_OP_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="固定资产出售损失" description="" glAccountClassEnumId="NON_OP_EXPENSE"
         glAccountId="793100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="793000000"/>
-    <mantle.ledger.account.GlAccount accountName="Loss on Fixed Assets Shrinkage" description="" glAccountClassEnumId="NON_OP_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="固定资产缩水损失" description="" glAccountClassEnumId="NON_OP_EXPENSE"
         glAccountId="793200000" glAccountTypeEnumId="GatFaShrinkage" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="793000000"/>
-    <mantle.ledger.account.GlAccount accountName="Non-COGS Royalties and Franchise Fees" description="" glAccountClassEnumId="NON_COGS_ROYALTIES"
+    <mantle.ledger.account.GlAccount accountName="非销货成本特许权使用费和特许经营费" description="" glAccountClassEnumId="NON_COGS_ROYALTIES"
         glAccountId="794000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="790000000"/>
-    <mantle.ledger.account.GlAccount accountName="Uninsured Casualty Loss" description="" glAccountClassEnumId="NON_OP_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="未投保的伤亡损失" description="" glAccountClassEnumId="NON_OP_EXPENSE"
         glAccountId="795000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="790000000"/>
-    <mantle.ledger.account.GlAccount accountName="Charitable Donations" description="" glAccountClassEnumId="NON_OP_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="慈善捐款" description="" glAccountClassEnumId="NON_OP_EXPENSE"
         glAccountId="796000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="790000000"/>
-    <mantle.ledger.account.GlAccount accountName="Foreign Exchange Loss" description="" glAccountClassEnumId="NON_OP_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="汇兑损失" description="" glAccountClassEnumId="NON_OP_EXPENSE"
         glAccountId="797000000" glAccountTypeEnumId="GatForExLoss" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="790000000"/>
-    <mantle.ledger.account.GlAccount accountName="Non-operating Fees and Penalties" description="" glAccountClassEnumId="NON_OP_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="营业外费用和罚款" description="" glAccountClassEnumId="NON_OP_EXPENSE"
         glAccountId="798000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="790000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Non-operating Expenses" description="" glAccountClassEnumId="NON_OP_EXPENSE"
+    <mantle.ledger.account.GlAccount accountName="其他营业外费用" description="" glAccountClassEnumId="NON_OP_EXPENSE"
         glAccountId="799000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="790000000"/>
 
 
     <!-- 800000 OTHER INCOME -->
-    <mantle.ledger.account.GlAccount accountName="Other Income Root" description="" glAccountClassEnumId="INCOME"
+    <mantle.ledger.account.GlAccount accountName="其他收入根" description="" glAccountClassEnumId="INCOME"
         glAccountId="800000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="" disallowPosting="Y"/>
     <!-- 810000 INVESTMENT INCOME -->
-    <mantle.ledger.account.GlAccount accountName="Investment and Gains Income" description="" glAccountClassEnumId="CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="投资收益" description="" glAccountClassEnumId="CASH_INCOME"
         glAccountId="810000000" glAccountTypeEnumId="GatIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="800000000" disallowPosting="Y"/>
-    <mantle.ledger.account.GlAccount accountName="Dividend Income" description="" glAccountClassEnumId="CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="股息收入" description="" glAccountClassEnumId="CASH_INCOME"
         glAccountId="812000000" glAccountTypeEnumId="GatIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="810000000"/>
-    <mantle.ledger.account.GlAccount accountName="Capital Gains Income" description="" glAccountClassEnumId="CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="资本利得收入" description="" glAccountClassEnumId="CASH_INCOME"
         glAccountId="813000000" glAccountTypeEnumId="GatIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="810000000"/>
-    <mantle.ledger.account.GlAccount accountName="Gain on Assets" description="" glAccountClassEnumId="CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="资产收益" description="" glAccountClassEnumId="CASH_INCOME"
         glAccountId="814000000" glAccountTypeEnumId="GatIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="810000000"/>
-    <mantle.ledger.account.GlAccount accountName="Gain on Sale of Fixed Assets" description="" glAccountClassEnumId="CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="固定资产出售收益" description="" glAccountClassEnumId="CASH_INCOME"
         glAccountId="814100000" glAccountTypeEnumId="GatIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="814000000"/>
-    <mantle.ledger.account.GlAccount accountName="Gain on Found Fixed Assets" description="" glAccountClassEnumId="NON_CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="获得固定资产" description="" glAccountClassEnumId="NON_CASH_INCOME"
         glAccountId="814200000" glAccountTypeEnumId="GatFaFound" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="814000000"/>
-    <mantle.ledger.account.GlAccount accountName="Gain on Found Inventory" description="" glAccountClassEnumId="NON_CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="获得库存" description="" glAccountClassEnumId="NON_CASH_INCOME"
         glAccountId="814300000" glAccountTypeEnumId="GatInvFound" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="814000000"/>
-    <mantle.ledger.account.GlAccount accountName="Foreign Exchange Gain" description="" glAccountClassEnumId="NON_CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="外汇收益" description="" glAccountClassEnumId="NON_CASH_INCOME"
         glAccountId="817000000" glAccountTypeEnumId="GatForExGain" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="810000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Income" description="" glAccountClassEnumId="CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="其他的收入" description="" glAccountClassEnumId="CASH_INCOME"
         glAccountId="819000000" glAccountTypeEnumId="GatOtherIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="810000000"/>
     <!-- 830000 INCOME / LOSS FROM BUSINESS (NET OF EXPENSES) -->
     <!-- NOTE: 801-806 to 83* -->
-    <mantle.ledger.account.GlAccount accountName="Income from Business (Net of Expenses)" description="" glAccountClassEnumId="CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="业务收入（扣除费用）" description="" glAccountClassEnumId="CASH_INCOME"
         glAccountId="830000000" glAccountTypeEnumId="GatIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="800000000" disallowPosting="Y"/>
-    <mantle.ledger.account.GlAccount accountName="Rental Income" description="" glAccountClassEnumId="CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="租金收入" description="" glAccountClassEnumId="CASH_INCOME"
         glAccountId="832000000" glAccountTypeEnumId="GatIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="830000000"/>
-    <mantle.ledger.account.GlAccount accountName="Sales Tax Commission" description="" glAccountClassEnumId="CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="销售税委员会" description="" glAccountClassEnumId="CASH_INCOME"
         glAccountId="833000000" glAccountTypeEnumId="GatOtherIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="830000000"/>
-    <mantle.ledger.account.GlAccount accountName="Special Fees Collected" description="" glAccountClassEnumId="CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="收取特别费用" description="" glAccountClassEnumId="CASH_INCOME"
         glAccountId="834000000" glAccountTypeEnumId="GatOtherIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="830000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Fees Collected" description="" glAccountClassEnumId="CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="收取的其他费用" description="" glAccountClassEnumId="CASH_INCOME"
         glAccountId="835000000" glAccountTypeEnumId="GatOtherIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="830000000"/>
-    <mantle.ledger.account.GlAccount accountName="Membership Fees Collected" description="" glAccountClassEnumId="CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="收取会员费" description="" glAccountClassEnumId="CASH_INCOME"
         glAccountId="836000000" glAccountTypeEnumId="GatOtherIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="830000000"/>
-    <mantle.ledger.account.GlAccount accountName="Manufacturing Fees Collected" description="" glAccountClassEnumId="CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="收取制造费" description="" glAccountClassEnumId="CASH_INCOME"
         glAccountId="837000000" glAccountTypeEnumId="GatOtherIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="830000000"/>
     <!-- 840000 INTEREST INCOME -->
-    <mantle.ledger.account.GlAccount accountName="Interest Income" description="" glAccountClassEnumId="INTEREST_INCOME"
+    <mantle.ledger.account.GlAccount accountName="利息收入" description="" glAccountClassEnumId="INTEREST_INCOME"
         glAccountId="840000000" glAccountTypeEnumId="GatInterestIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="800000000"/>
-    <mantle.ledger.account.GlAccount accountName="Interest Income on Finance Charges" description="" glAccountClassEnumId="INTEREST_INCOME"
+    <mantle.ledger.account.GlAccount accountName="财务费用的利息收入" description="" glAccountClassEnumId="INTEREST_INCOME"
         glAccountId="841000000" glAccountTypeEnumId="GatInterestIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="840000000" disallowPosting="Y"/>
-    <mantle.ledger.account.GlAccount accountName="Other Interest Income" description="" glAccountClassEnumId="INTEREST_INCOME"
+    <mantle.ledger.account.GlAccount accountName="其他利息收入" description="" glAccountClassEnumId="INTEREST_INCOME"
         glAccountId="842000000" glAccountTypeEnumId="GatInterestIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="840000000"/>
     <!-- 850000 NET INCOME -->
-    <mantle.ledger.account.GlAccount accountName="Net Income (Period Profit/Loss)" description="" glAccountClassEnumId="NET_INCOME"
+    <mantle.ledger.account.GlAccount accountName="净收入（期间损益）" description="" glAccountClassEnumId="NET_INCOME"
         glAccountId="850000000" glAccountTypeEnumId="GatProfitLoss" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="800000000"/>
     <!-- 860000 WRITE OFF INCOME -->
     <mantle.ledger.account.GlAccount accountName="Write Off Income" description="" glAccountClassEnumId="NON_CASH_INCOME"
         glAccountId="860000000" glAccountTypeEnumId="GatIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="800000000"/>
-    <mantle.ledger.account.GlAccount accountName="Accounts Payable Write Off" description="" glAccountClassEnumId="NON_CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="应付账款注销" description="" glAccountClassEnumId="NON_CASH_INCOME"
         glAccountId="862000000" glAccountTypeEnumId="GatAccPayWriteOff" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="860000000"/>
-    <mantle.ledger.account.GlAccount accountName="Commissions Payable Write Off" description="" glAccountClassEnumId="NON_CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="应付佣金注销" description="" glAccountClassEnumId="NON_CASH_INCOME"
         glAccountId="863000000" glAccountTypeEnumId="GatCommissionsPayWriteOff" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="860000000"/>
-    <mantle.ledger.account.GlAccount accountName="Payable Prompt Payment Discounts" description="" glAccountClassEnumId="NON_CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="应付即时付款折扣" description="" glAccountClassEnumId="NON_CASH_INCOME"
         glAccountId="864000000" glAccountTypeEnumId="GatIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="860000000"/>
-    <mantle.ledger.account.GlAccount accountName="Other Purchase Discounts" description="" glAccountClassEnumId="NON_CASH_INCOME"
+    <mantle.ledger.account.GlAccount accountName="其他采购折扣" description="" glAccountClassEnumId="NON_CASH_INCOME"
         glAccountId="865000000" glAccountTypeEnumId="GatIncome" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="860000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Transfer Clearing Accounts" description="" glAccountClassEnumId="ASSET" disallowPosting="Y"
+    <mantle.ledger.account.GlAccount accountName="转移清算账户" description="" glAccountClassEnumId="ASSET" disallowPosting="Y"
         glAccountId="910000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId=""/>
-    <mantle.ledger.account.GlAccount accountName="Transfer Clearing - Asset" description="" glAccountClassEnumId="ASSET"
+    <mantle.ledger.account.GlAccount accountName="转账清算-资产" description="" glAccountClassEnumId="ASSET"
         glAccountId="911000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="910000000"/>
-    <mantle.ledger.account.GlAccount accountName="Transfer Clearing - Liability" description="" glAccountClassEnumId="LIABILITY"
+    <mantle.ledger.account.GlAccount accountName="转移清算 - 责任" description="" glAccountClassEnumId="LIABILITY"
         glAccountId="912000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="910000000"/>
 
 
@@ -1430,12 +1430,12 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========================================== -->
 
     <mantle.party.Party partyId="DefaultSettings" partyTypeEnumId="PtyOrganization"/>
-    <mantle.party.Organization organizationName="Default Accounting, etc Settings" partyId="DefaultSettings"/>
+    <mantle.party.Organization organizationName="默认核算等设置" partyId="DefaultSettings"/>
     <!-- Don't set as OrgInternal so it doesn't show up with others: <mantle.party.PartyRole partyId="DefaultSettings" roleTypeId="OrgInternal"/> -->
 
     <mantle.ledger.transaction.GlJournal glJournalId="DefaultSettingsError" glJournalName="Default Settings Error Journal"
             organizationPartyId="DefaultSettings" glJournalTypeEnumId="GLJRNL_ERROR" isPosted="N"/>
-    <mantle.ledger.config.PartyAcctgPreference organizationPartyId="DefaultSettings" baseCurrencyUomId="USD"
+    <mantle.ledger.config.PartyAcctgPreference organizationPartyId="DefaultSettings" baseCurrencyUomId="CNY"
             cogsMethodEnumId="CogsActualCost" errorGlJournalId="DefaultSettingsError"
             invoiceIdPrefix="" invoiceSequenceEnumId="InvSqStandard" orderIdPrefix="" orderSequenceEnumId="OrdSqStandard"
             fiscalYearStartMonth="1" fiscalYearStartDay="1"
