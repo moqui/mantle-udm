@@ -2,7 +2,7 @@
 
 [![license](http://img.shields.io/badge/license-CC0%201.0%20Universal-blue.svg)](https://github.com/moqui/mantle-udm/blob/master/LICENSE.md)
 [![release](http://img.shields.io/github/release/moqui/mantle-udm.svg)](https://github.com/moqui/mantle-udm/releases)
-[![commits since release](http://img.shields.io/github/commits-since/moqui/mantle-udm/v2.2.0.svg)](https://github.com/moqui/mantle-udm/commits/master)
+[![commits since release](http://img.shields.io/github/commits-since/moqui/mantle-udm/v2.2.1.svg)](https://github.com/moqui/mantle-udm/commits/master)
 
 [![Discourse Forum](https://img.shields.io/badge/moqui%20forum-discourse-blue.svg)](https://forum.moqui.org)
 [![Google Group](https://img.shields.io/badge/google%20group-moqui-blue.svg)](https://groups.google.com/d/forum/moqui)
