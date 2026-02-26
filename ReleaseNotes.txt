@@ -2,6 +2,15 @@
 Mantle Business Artifacts - Universal Data Model Release Notes
 
 ===========================================================================
+Release 2.2.1 - 25 Feb 2026
+===========================================================================
+
+Mantle Universal Data Model 2.2.1 is a minor new feature and bug fix
+release. This release is based on Moqui Framework 4.0.0.
+
+https://github.com/moqui/mantle-udm/compare/v2.2.0...v2.2.1
+
+===========================================================================
 Release 2.2.0 - 31 May 2022
 ===========================================================================
 
