@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This software is in the public domain under CC0 1.0 Universal plus a
+Grant of Patent License.
+
+To the extent possible under law, the author(s) have dedicated all
+copyright and related and neighboring rights to this software to the
+public domain worldwide. This software is distributed without any
+warranty.
+
+You should have received a copy of the CC0 Public Domain Dedication
+along with this software (see the LICENSE.md file). If not, see
+<http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<entity-facade-xml type="install">
+    <!-- see https://www.iso.org/obp/ui/#iso:code:3166:RO -->
+    <Geo geoId="RO-AB" geoCodeAlpha2="AB" geoName="Alba" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-AG" geoCodeAlpha2="AG" geoName="Arges" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-AR" geoCodeAlpha2="AR" geoName="Arad" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-B" geoCodeAlpha2="B" geoName="Bucuresti" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-BC" geoCodeAlpha2="BC" geoName="Bacau" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-BH" geoCodeAlpha2="BH" geoName="Bihor" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-BN" geoCodeAlpha2="BN" geoName="Bistrita-Nasaud" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-BR" geoCodeAlpha2="BR" geoName="Braila" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-BT" geoCodeAlpha2="BT" geoName="Botosani" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-BV" geoCodeAlpha2="BV" geoName="Brasov" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-BZ" geoCodeAlpha2="BZ" geoName="Buzau" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-CJ" geoCodeAlpha2="CJ" geoName="Cluj" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-CL" geoCodeAlpha2="CL" geoName="Calarasi" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-CS" geoCodeAlpha2="CS" geoName="Caras-Severin" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-CT" geoCodeAlpha2="CT" geoName="Constanta" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-CV" geoCodeAlpha2="CV" geoName="Covasna" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-DB" geoCodeAlpha2="DB" geoName="Dambovita" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-DJ" geoCodeAlpha2="DJ" geoName="Dolj" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-GJ" geoCodeAlpha2="GJ" geoName="Gorj" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-GL" geoCodeAlpha2="GL" geoName="Galati" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-GR" geoCodeAlpha2="GR" geoName="Giurgiu" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-HD" geoCodeAlpha2="HD" geoName="Hunedoara" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-HR" geoCodeAlpha2="HR" geoName="Harghita" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-IF" geoCodeAlpha2="IF" geoName="Ilfov" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-IL" geoCodeAlpha2="IL" geoName="Ialomita" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-IS" geoCodeAlpha2="IS" geoName="Iasi" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-MH" geoCodeAlpha2="MH" geoName="Mehedinti" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-MM" geoCodeAlpha2="MM" geoName="Maramures" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-MS" geoCodeAlpha2="MS" geoName="Mures" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-NT" geoCodeAlpha2="NT" geoName="Neamt" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-OT" geoCodeAlpha2="OT" geoName="Olt" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-PH" geoCodeAlpha2="PH" geoName="Prahova" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-SB" geoCodeAlpha2="SB" geoName="Sibiu" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-SJ" geoCodeAlpha2="SJ" geoName="Salaj" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-SM" geoCodeAlpha2="SM" geoName="Satu Mare" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-SV" geoCodeAlpha2="SV" geoName="Suceava" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-TL" geoCodeAlpha2="TL" geoName="Tulcea" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-TM" geoCodeAlpha2="TM" geoName="Timis" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-TR" geoCodeAlpha2="TR" geoName="Teleorman" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-VL" geoCodeAlpha2="VL" geoName="Valcea" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-VN" geoCodeAlpha2="VN" geoName="Vrancea" geoTypeEnumId="GEOT_COUNTY"/>
+    <Geo geoId="RO-VS" geoCodeAlpha2="VS" geoName="Vaslui" geoTypeEnumId="GEOT_COUNTY"/>
+    
+    <GeoAssoc geoId="ROU" toGeoId="RO-AB" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-AG" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-AR" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-B" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-BC" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-BH" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-BN" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-BR" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-BT" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-BV" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-BZ" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-CJ" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-CL" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-CS" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-CT" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-CV" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-DB" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-DJ" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-GJ" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-GL" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-GR" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-HD" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-HR" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-IF" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-IL" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-IS" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-MH" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-MM" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-MS" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-NT" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-OT" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-PH" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-SB" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-SJ" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-SM" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-SV" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-TL" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-TM" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-TR" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-VL" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-VN" geoAssocTypeEnumId="GAT_REGIONS"/>
+    <GeoAssoc geoId="ROU" toGeoId="RO-VS" geoAssocTypeEnumId="GAT_REGIONS"/>
+</entity-facade-xml>
