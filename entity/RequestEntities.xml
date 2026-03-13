@@ -69,7 +69,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="requestId"/></relationship>
         <relationship type="many" related="mantle.request.RequestParty" short-alias="parties">
             <key-map field-name="requestId"/></relationship>
-        <relationship type="one" related="moqui.server.Visit" short-alias="visit"/>
+        <relationship type="one-nofk" related="moqui.server.Visit" short-alias="visit"/>
 
         <relationship type="many" related="mantle.request.RequestCommEvent" short-alias="communicationEvents">
             <key-map field-name="requestId"/></relationship>
