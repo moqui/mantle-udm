@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-facade-xml type="seed">
+    <moqui.basic.LocalizedMessage original="Settlement Term can be set on each invoice, a per-customer term may be set in an Agreement" locale="zh" localized="可以在每张发票上设置结算期限，可以在协议中设置每个客户的期限"/>
+    <moqui.basic.LocalizedMessage original="Accounting" locale="zh" localized="会计"/>
+    <moqui.basic.LocalizedMessage original="Parties" locale="zh" localized="当事人"/>
+
+    <moqui.basic.LocalizedMessage original="Created" locale="zh" localized="已创建"/>
+    <moqui.basic.LocalizedMessage original="Scheduled" locale="zh" localized="已计划"/>
+    <moqui.basic.LocalizedMessage original="In Process" locale="zh" localized="处理中"/>
+    <moqui.basic.LocalizedMessage original="Completed" locale="zh" localized="已完成"/>
+    <moqui.basic.LocalizedMessage original="Cancelled" locale="zh" localized="已取消"/>
+    <moqui.basic.LocalizedMessage original="Cancel" locale="zh" localized="取消"/>
+    <moqui.basic.LocalizedMessage original="In Planning" locale="zh" localized="规划中"/>
+    <moqui.basic.LocalizedMessage original="Begin" locale="zh" localized="开始"/>
+    <moqui.basic.LocalizedMessage original="Approved" locale="zh" localized="已批准"/>
+    <moqui.basic.LocalizedMessage original="Approve" locale="zh" localized="批准"/>
+    <moqui.basic.LocalizedMessage original="On Hold" locale="zh" localized="挂起"/>
+    <moqui.basic.LocalizedMessage original="Complete" locale="zh" localized="完成"/>
+    <moqui.basic.LocalizedMessage original="Closed" locale="zh" localized="已关闭"/>
+    <moqui.basic.LocalizedMessage original="Close" locale="zh" localized="关闭"/>
+    <moqui.basic.LocalizedMessage original="In Progress" locale="zh" localized="进行中"/>
+    <moqui.basic.LocalizedMessage original="Hold" locale="zh" localized="挂起"/>
+
+    <moqui.basic.LocalizedMessage original="Work Type" locale="zh" localized="工作类型"/>
+    <moqui.basic.LocalizedMessage original="Management" locale="zh" localized="管理"/>
+    <moqui.basic.LocalizedMessage original="General Labor" locale="zh" localized="一般劳工"/>
+    <moqui.basic.LocalizedMessage original="General Office" locale="zh" localized="综合办公室"/>
+    <moqui.basic.LocalizedMessage original="Paid Break" locale="zh" localized="带薪休息"/>
+    <moqui.basic.LocalizedMessage original="Paid Non-productive Time" locale="zh" localized="带薪非生产时间"/>
+
+    <moqui.basic.LocalizedMessage original="Next Day Priority" locale="zh" localized="次日优先"/>
+    <moqui.basic.LocalizedMessage original="Next Day Standard" locale="zh" localized="次日标准"/>
+    <moqui.basic.LocalizedMessage original="Second Day" locale="zh" localized="第二日"/>
+    <moqui.basic.LocalizedMessage original="Third Day" locale="zh" localized="第三日"/>
+    <moqui.basic.LocalizedMessage original="Ground Parcel" locale="zh" localized="陆运包裹"/>
+    <moqui.basic.LocalizedMessage original="Ground Commercial" locale="zh" localized="陆运商业"/>
+    <moqui.basic.LocalizedMessage original="Motor (Common Carrier)" locale="zh" localized="摩托（普通承运人）"/>
+    <moqui.basic.LocalizedMessage original="客户取货" locale="zh" localized="客户自提"/>
+
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="ACCOUNTS_PAYABLE" locale="zh" localized="应付账款"/>
+
+
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="ACCOUNTS_RECEIVABLE" locale="zh" localized="应收账款"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="UNEARNED_REVENUE" locale="zh" localized="非劳动所得"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="EQUIPMENT" locale="zh" localized="设备"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="LAND_BUILDING" locale="zh" localized="土地和建筑物"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="OTHER_ASSET" locale="zh" localized="其他资产"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="LONG_TERM_ASSET" locale="zh" localized="长期资产"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="ACCUM_DEPRECIATION" locale="zh" localized="累计折旧"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="OWNERS_EQUITY" locale="zh" localized="所有者权益"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TREASURY_STOCK" locale="zh" localized="库存股"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="RETURN_OF_CAPITAL" locale="zh" localized="资本回报"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="RETAINED_EARNINGS" locale="zh" localized="留存收益"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="COST_OF_SALES" locale="zh" localized="销售成本"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="GOOD_MATERIAL_COST" locale="zh" localized="产品和材料成本"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="GOOD_FREIGHT_COST" locale="zh" localized="货物运费"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="INVENTORY_SHRINKAGE" locale="zh" localized="库存缩水"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="COST_SERVICES_SOLD" locale="zh" localized="销售服务成本"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="ADVERTISING" locale="zh" localized="广告"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="SALES_COMPENSATION" locale="zh" localized="销售补偿"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="DEPRECIATION" locale="zh" localized="折旧"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="NON_CASH_EXPENSE" locale="zh" localized="非现金费用"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="BAD_DEBT_EXPENSE" locale="zh" localized="坏账费用"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="INTEREST_EXPENSE" locale="zh" localized="利息花费"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="NON_OP_EXPENSE" locale="zh" localized="营业外支出"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="CASH_INCOME" locale="zh" localized="现金收入"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="NON_CASH_INCOME" locale="zh" localized="非现金收入"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="NET_INCOME" locale="zh" localized="净收入"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="GatCogs" locale="zh" localized="销货成本"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="EXPENSE" locale="zh" localized="运营开支"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="REVENUE" locale="zh" localized="收入"/>
+
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="GatAccruedExpenses" locale="zh" localized="预提费用"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="GatAccountsPayable" locale="zh" localized="应付账款"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="GatCustomerCredits" locale="zh" localized="客户信用"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="GatCustomerDeposits" locale="zh" localized="客户存款"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="GatCustomerReturns" locale="zh" localized="客户退货"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="GatInterestIncome" locale="zh" localized="利息收入"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="GatUnreceivedInventory" locale="zh" localized="未收到的库存"/>
+
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxfUsIrs1120" locale="zh" localized="美国国税局 1120 表格"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxfUsIrs1120S" locale="zh" localized="美国国税局 1120S 表格"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxfUsIrs1065" locale="zh" localized="美国国税局 1065 表格"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxfUsIrs990" locale="zh" localized="美国国税局 990 表格"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxfUsIrs990PF" locale="zh" localized="美国国税局 990-PF 表格"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxfUsIrs990T" locale="zh" localized="美国国税局 990-T 表格"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxfUsIrs1040" locale="zh" localized="美国国税局 1040 表格"/>
+
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="PtxfUsIrs941" locale="zh" localized="美国国税局 941 表格"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="PtxfUsIrs943" locale="zh" localized="美国国税局 943 表格"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="PtxfUsIrs944" locale="zh" localized="美国国税局 944 表格"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="PtxfUsIrsSchH" locale="zh" localized="美国国税局附表 H"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="PtxfUsIrsCT1" locale="zh" localized="美国国税局 CT-1"/>
+
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxcIndividual" locale="zh" localized="美国 - 个人、独资经营者、单一成员有限责任公司"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxcCCorp" locale="zh" localized="美国-C公司"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxcSCorp" locale="zh" localized="美国-S公司"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxcPartnership" locale="zh" localized="美国 - 伙伴关系"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxcTrustEstate" locale="zh" localized="美国 - 信托/遗产"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxcLlcSCorp" locale="zh" localized="美国 - 有限责任公司作为 S 公司"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxcLlcCCorp" locale="zh" localized="美国 - 有限责任公司作为 C Corp"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxcLlcPartnership" locale="zh" localized="美国——有限责任公司作为合伙企业"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="TxcOther" locale="zh" localized="其它"/>
+
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="EmclsUsIrsAgriculture" locale="zh" localized="美国国税局农业 (943)"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="EmclsUsIrsHousehold" locale="zh" localized="美国国税局家庭 (Sch H)"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="EmclsUsIrsMilitary" locale="zh" localized="美国国税局军事 (941)"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="EmclsUsIrsQualGovernment" locale="zh" localized="美国国税局医疗保险合格政府 (941)"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="EmclsUsIrsRailroad" locale="zh" localized="美国国税局铁路 (CT-1)"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="EmclsUsIrsRegular" locale="zh" localized="美国国税局常规 (944)"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="EmclsUsIrsRegularOther" locale="zh" localized="美国国税局常规（所有其他） (941)"/>
+
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="CogsLifo" locale="zh" localized="后进先出"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="CogsFifo" locale="zh" localized="先进先出"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="CogsAverageCost" locale="zh" localized="平均成本"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="CogsActualCost" locale="zh" localized="实际库存成本"/>
+
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="InvSqStandard" locale="zh" localized="标准（更快，可能有差距，每个系统）"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="InvSqEnforced" locale="zh" localized="强制序列（无间隙，每个组织）"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="InvSqEnfRestartYr" locale="zh" localized="在财政年度强制执行并重新开始（没有差距，每个组织，每年重置为 1）"/>
+
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="OrdSqStandard" locale="zh" localized="标准（更快，可能有差距，每个系统）"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="OrdSqEnforced" locale="zh" localized="强制序列（无间隙，每个组织）"/>
+
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="WepeFyi" locale="zh" localized="提供参考"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="WepeInvRequired" locale="zh" localized="需要参与"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="WepeInvRequested" locale="zh" localized="请求参与"/>
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="WepeImmediate" locale="zh" localized="要求立即响应"/>
+
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="PatVariant" locale="zh" localized="产品变体"/>
+
+</entity-facade-xml>
