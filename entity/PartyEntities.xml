@@ -418,6 +418,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="I-766" enumId="PtidI766" enumTypeId="PartyIdType"/>
             <moqui.basic.Enumeration description="I-94" enumId="PtidI94" enumTypeId="PartyIdType"/>
             <moqui.basic.Enumeration description="I-94A" enumId="Ptid94A" enumTypeId="PartyIdType"/>
+            <moqui.basic.Enumeration description="Tax ID" enumId="PtidTaxId" enumTypeId="PartyIdType"/>
+            <moqui.basic.Enumeration description="Trade Register Number" enumId="PtidTradeReg" enumTypeId="PartyIdType"/>
         </seed-data>
     </entity>
     <entity entity-name="PartyNote" package="mantle.party">
